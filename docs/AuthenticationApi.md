@@ -4,7 +4,7 @@ All URIs are relative to *https://api.vrchat.cloud/api/1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**delete_user_by_id**](AuthenticationApi.md#delete_user_by_id) | **PUT** /user/{userId}/delete | Delete User
+[**delete_user**](AuthenticationApi.md#delete_user) | **PUT** /user/{userId}/delete | Delete User
 [**get_current_user**](AuthenticationApi.md#get_current_user) | **GET** /auth/user | Login and/or Get Current User Info
 [**logout**](AuthenticationApi.md#logout) | **PUT** /logout | Logout
 [**verify2_fa**](AuthenticationApi.md#verify2_fa) | **POST** /auth/twofactorauth/totp/verify | Verify 2FA code
@@ -12,8 +12,8 @@ Method | HTTP request | Description
 [**verify_recovery_code**](AuthenticationApi.md#verify_recovery_code) | **POST** /auth/twofactorauth/otp/verify | Verify 2FA code with Recovery code
 
 
-# **delete_user_by_id**
-> CurrentUser delete_user_by_id(user_id)
+# **delete_user**
+> CurrentUser delete_user(user_id)
 
 Delete User
 
@@ -62,10 +62,10 @@ with vrchatapi.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     try:
         # Delete User
-        api_response = api_instance.delete_user_by_id(user_id)
+        api_response = api_instance.delete_user(user_id)
         pprint(api_response)
     except vrchatapi.ApiException as e:
-        print("Exception when calling AuthenticationApi->delete_user_by_id: %s\n" % e)
+        print("Exception when calling AuthenticationApi->delete_user: %s\n" % e)
 ```
 
 
