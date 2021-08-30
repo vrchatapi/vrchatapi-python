@@ -17,3 +17,9 @@ sed -i '/headers = headers or {}/r patches/cookiejar_add.py' ./vrchatapi/rest.py
 sed -i 's/if _preload_content/abcdefvrc\n\n        if _preload_content/g' ./vrchatapi/rest.py
 sed -i '/abcdefvrc/r patches/cookiejar_extract.py' ./vrchatapi/rest.py
 sed -i 's/        abcdefvrc//g' ./vrchatapi/rest.py
+
+# Fix long_description error during pypi upload
+sed -i 's/.*VRChat API Banner.*/abcdefvrc/g' ./setup.py
+sed -i '/abcdefvrc/r README.md' ./setup.py
+sed -i 's/abcdefvrc//g' ./setup.py
+sed -i '/license/a long_description_content_type="text/markdown",' ./setup.py
