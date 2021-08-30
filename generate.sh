@@ -1,6 +1,6 @@
 #!/bin/bash
 
-rm vrchatapi docs test -rf
+rm vrchatapi docs -rf
 openapi-generator-cli generate \
 -g python \
 --additional-properties=packageName=vrchatapi,projectName=vrchatapi \
