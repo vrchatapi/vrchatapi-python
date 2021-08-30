@@ -28,7 +28,6 @@ import time
 import vrchatapi
 from vrchatapi.api import playermoderation_api
 from vrchatapi.model.error import Error
-from vrchatapi.model.inline_response401 import InlineResponse401
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
 # See configuration.py for a list of all supported configuration parameters.
@@ -109,7 +108,6 @@ import time
 import vrchatapi
 from vrchatapi.api import playermoderation_api
 from vrchatapi.model.error import Error
-from vrchatapi.model.inline_response401 import InlineResponse401
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
 # See configuration.py for a list of all supported configuration parameters.
@@ -196,7 +194,6 @@ import vrchatapi
 from vrchatapi.api import playermoderation_api
 from vrchatapi.model.player_moderation import PlayerModeration
 from vrchatapi.model.error import Error
-from vrchatapi.model.inline_response401 import InlineResponse401
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
 # See configuration.py for a list of all supported configuration parameters.
@@ -282,7 +279,7 @@ import time
 import vrchatapi
 from vrchatapi.api import playermoderation_api
 from vrchatapi.model.player_moderation import PlayerModeration
-from vrchatapi.model.inline_response401 import InlineResponse401
+from vrchatapi.model.error import Error
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
 # See configuration.py for a list of all supported configuration parameters.
@@ -371,7 +368,7 @@ import vrchatapi
 from vrchatapi.api import playermoderation_api
 from vrchatapi.model.player_moderation import PlayerModeration
 from vrchatapi.model.inline_object12 import InlineObject12
-from vrchatapi.model.inline_response401 import InlineResponse401
+from vrchatapi.model.error import Error
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
 # See configuration.py for a list of all supported configuration parameters.
@@ -460,7 +457,6 @@ import vrchatapi
 from vrchatapi.api import playermoderation_api
 from vrchatapi.model.inline_object13 import InlineObject13
 from vrchatapi.model.error import Error
-from vrchatapi.model.inline_response401 import InlineResponse401
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
 # See configuration.py for a list of all supported configuration parameters.

@@ -61,6 +61,7 @@ with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = favorites_api.FavoritesApi(api_client)
     inline_object8 = InlineObject8(
+        type=FavoriteType("world"),
         favorite_id="favorite_id_example",
         tags=[
             Tag("tags_example"),
@@ -211,7 +212,6 @@ import vrchatapi
 from vrchatapi.api import favorites_api
 from vrchatapi.model.error import Error
 from vrchatapi.model.favorite import Favorite
-from vrchatapi.model.inline_response401 import InlineResponse401
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
 # See configuration.py for a list of all supported configuration parameters.
@@ -384,7 +384,7 @@ import time
 import vrchatapi
 from vrchatapi.api import favorites_api
 from vrchatapi.model.favorite_group import FavoriteGroup
-from vrchatapi.model.inline_response401 import InlineResponse401
+from vrchatapi.model.error import Error
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
 # See configuration.py for a list of all supported configuration parameters.
@@ -473,8 +473,8 @@ Returns a list of favorites.
 import time
 import vrchatapi
 from vrchatapi.api import favorites_api
+from vrchatapi.model.error import Error
 from vrchatapi.model.favorite import Favorite
-from vrchatapi.model.inline_response401 import InlineResponse401
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
 # See configuration.py for a list of all supported configuration parameters.
@@ -566,7 +566,6 @@ import time
 import vrchatapi
 from vrchatapi.api import favorites_api
 from vrchatapi.model.error import Error
-from vrchatapi.model.inline_response401 import InlineResponse401
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
 # See configuration.py for a list of all supported configuration parameters.

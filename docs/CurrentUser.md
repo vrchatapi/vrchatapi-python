@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **bio_links** | **[str]** |  | 
 **profile_pic_override** | **str** |  | 
 **status_description** | **str** |  | 
-**past_display_names** | **[str]** |  | 
+**past_display_names** | [**[PastDisplayName]**](PastDisplayName.md) |  | 
 **has_email** | **bool** |  | 
 **has_pending_email** | **bool** |  | 
 **obfuscated_email** | **str** |  | 

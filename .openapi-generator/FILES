@@ -50,7 +50,7 @@ docs/InlineResponse2004.md
 docs/InlineResponse2005.md
 docs/InlineResponse2006.md
 docs/InlineResponse2007.md
-docs/InlineResponse401.md
+docs/InlineResponse403.md
 docs/Instance.md
 docs/InstancePlatforms.md
 docs/LimitedUnityPackage.md
@@ -60,6 +60,10 @@ docs/MIMEType.md
 docs/Notification.md
 docs/NotificationType.md
 docs/NotificationsApi.md
+docs/PastDisplayName.md
+docs/Permission.md
+docs/PermissionID.md
+docs/PermissionsApi.md
 docs/Platform.md
 docs/PlayerModeration.md
 docs/PlayerModerationID.md
@@ -135,7 +139,7 @@ test/test_inline_response2004.py
 test/test_inline_response2005.py
 test/test_inline_response2006.py
 test/test_inline_response2007.py
-test/test_inline_response401.py
+test/test_inline_response403.py
 test/test_instance.py
 test/test_instance_platforms.py
 test/test_limited_unity_package.py
@@ -145,6 +149,10 @@ test/test_mime_type.py
 test/test_notification.py
 test/test_notification_type.py
 test/test_notifications_api.py
+test/test_past_display_name.py
+test/test_permission.py
+test/test_permission_id.py
+test/test_permissions_api.py
 test/test_platform.py
 test/test_player_moderation.py
 test/test_player_moderation_id.py
@@ -173,6 +181,7 @@ vrchatapi/api/favorites_api.py
 vrchatapi/api/files_api.py
 vrchatapi/api/friends_api.py
 vrchatapi/api/notifications_api.py
+vrchatapi/api/permissions_api.py
 vrchatapi/api/playermoderation_api.py
 vrchatapi/api/system_api.py
 vrchatapi/api/users_api.py
@@ -227,7 +236,7 @@ vrchatapi/model/inline_response2004.py
 vrchatapi/model/inline_response2005.py
 vrchatapi/model/inline_response2006.py
 vrchatapi/model/inline_response2007.py
-vrchatapi/model/inline_response401.py
+vrchatapi/model/inline_response403.py
 vrchatapi/model/instance.py
 vrchatapi/model/instance_platforms.py
 vrchatapi/model/limited_unity_package.py
@@ -236,6 +245,9 @@ vrchatapi/model/limited_world.py
 vrchatapi/model/mime_type.py
 vrchatapi/model/notification.py
 vrchatapi/model/notification_type.py
+vrchatapi/model/past_display_name.py
+vrchatapi/model/permission.py
+vrchatapi/model/permission_id.py
 vrchatapi/model/platform.py
 vrchatapi/model/player_moderation.py
 vrchatapi/model/player_moderation_id.py

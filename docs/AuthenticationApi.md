@@ -28,7 +28,7 @@ import time
 import vrchatapi
 from vrchatapi.api import authentication_api
 from vrchatapi.model.current_user import CurrentUser
-from vrchatapi.model.inline_response401 import InlineResponse401
+from vrchatapi.model.error import Error
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
 # See configuration.py for a list of all supported configuration parameters.
@@ -114,7 +114,7 @@ import time
 import vrchatapi
 from vrchatapi.api import authentication_api
 from vrchatapi.model.current_user import CurrentUser
-from vrchatapi.model.inline_response401 import InlineResponse401
+from vrchatapi.model.error import Error
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
 # See configuration.py for a list of all supported configuration parameters.
@@ -180,7 +180,7 @@ This endpoint does not need any parameter.
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  * Set-Cookie - Authenticating returns an &#x60;auth&#x60; cookie. <br>  |
+**200** | OK |  * Set-Cookie - Authenticating returns an &#x60;auth&#x60; cookie. <br>  * \0Set-Cookie - Authenticating also sets the &#x60;apiKey&#x60; if not already set. <br>  |
 **401** | Error response due to missing apiKey or auth cookie. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -190,18 +190,17 @@ This endpoint does not need any parameter.
 
 Logout
 
-Invalidates the auth cookie.
+Invalidates the login session.
 
 ### Example
 
-* Api Key Authentication (apiKeyCookie):
 * Api Key Authentication (authCookie):
 ```python
 import time
 import vrchatapi
 from vrchatapi.api import authentication_api
 from vrchatapi.model.success import Success
-from vrchatapi.model.inline_response401 import InlineResponse401
+from vrchatapi.model.error import Error
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
 # See configuration.py for a list of all supported configuration parameters.
@@ -213,12 +212,6 @@ configuration = vrchatapi.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
-
-# Configure API key authorization: apiKeyCookie
-configuration.api_key['apiKeyCookie'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['apiKeyCookie'] = 'Bearer'
 
 # Configure API key authorization: authCookie
 configuration.api_key['authCookie'] = 'YOUR_API_KEY'
@@ -250,7 +243,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[apiKeyCookie](../README.md#apiKeyCookie), [authCookie](../README.md#authCookie)
+[authCookie](../README.md#authCookie)
 
 ### HTTP request headers
 
@@ -261,7 +254,7 @@ This endpoint does not need any parameter.
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
+**200** | OK |  * Set-Cookie - Clears the &#x60;auth&#x60; cookie. <br>  * \0Set-Cookie - Clears the &#x60;age&#x60; cookie. <br>  * \0\0Set-Cookie - Clears the &#x60;tos&#x60; cookie. <br>  |
 **401** | Error response due to missing apiKey or auth cookie. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -281,8 +274,8 @@ import time
 import vrchatapi
 from vrchatapi.api import authentication_api
 from vrchatapi.model.inline_object import InlineObject
+from vrchatapi.model.error import Error
 from vrchatapi.model.inline_response2001 import InlineResponse2001
-from vrchatapi.model.inline_response401 import InlineResponse401
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
 # See configuration.py for a list of all supported configuration parameters.
@@ -357,14 +350,13 @@ Verify whether the currently provided Auth Token is valid.
 
 ### Example
 
-* Api Key Authentication (apiKeyCookie):
 * Api Key Authentication (authCookie):
 ```python
 import time
 import vrchatapi
 from vrchatapi.api import authentication_api
 from vrchatapi.model.inline_response200 import InlineResponse200
-from vrchatapi.model.inline_response401 import InlineResponse401
+from vrchatapi.model.error import Error
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
 # See configuration.py for a list of all supported configuration parameters.
@@ -376,12 +368,6 @@ configuration = vrchatapi.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
-
-# Configure API key authorization: apiKeyCookie
-configuration.api_key['apiKeyCookie'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['apiKeyCookie'] = 'Bearer'
 
 # Configure API key authorization: authCookie
 configuration.api_key['authCookie'] = 'YOUR_API_KEY'
@@ -413,7 +399,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[apiKeyCookie](../README.md#apiKeyCookie), [authCookie](../README.md#authCookie)
+[authCookie](../README.md#authCookie)
 
 ### HTTP request headers
 
@@ -444,8 +430,8 @@ import time
 import vrchatapi
 from vrchatapi.api import authentication_api
 from vrchatapi.model.inline_object1 import InlineObject1
+from vrchatapi.model.error import Error
 from vrchatapi.model.inline_response2001 import InlineResponse2001
-from vrchatapi.model.inline_response401 import InlineResponse401
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
 # See configuration.py for a list of all supported configuration parameters.

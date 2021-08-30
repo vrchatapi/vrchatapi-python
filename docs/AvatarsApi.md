@@ -129,7 +129,6 @@ import vrchatapi
 from vrchatapi.api import avatars_api
 from vrchatapi.model.avatar import Avatar
 from vrchatapi.model.error import Error
-from vrchatapi.model.inline_response401 import InlineResponse401
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
 # See configuration.py for a list of all supported configuration parameters.
@@ -216,7 +215,6 @@ import vrchatapi
 from vrchatapi.api import avatars_api
 from vrchatapi.model.avatar import Avatar
 from vrchatapi.model.error import Error
-from vrchatapi.model.inline_response401 import InlineResponse401
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
 # See configuration.py for a list of all supported configuration parameters.
@@ -301,7 +299,7 @@ Search and list favorited avatars by query filters.
 import time
 import vrchatapi
 from vrchatapi.api import avatars_api
-from vrchatapi.model.inline_response401 import InlineResponse401
+from vrchatapi.model.error import Error
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
 # See configuration.py for a list of all supported configuration parameters.
@@ -410,7 +408,7 @@ import time
 import vrchatapi
 from vrchatapi.api import avatars_api
 from vrchatapi.model.avatar import Avatar
-from vrchatapi.model.inline_response401 import InlineResponse401
+from vrchatapi.model.error import Error
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
 # See configuration.py for a list of all supported configuration parameters.
@@ -521,7 +519,6 @@ import vrchatapi
 from vrchatapi.api import avatars_api
 from vrchatapi.model.current_user import CurrentUser
 from vrchatapi.model.error import Error
-from vrchatapi.model.inline_response401 import InlineResponse401
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
 # See configuration.py for a list of all supported configuration parameters.
@@ -609,7 +606,6 @@ from vrchatapi.api import avatars_api
 from vrchatapi.model.avatar import Avatar
 from vrchatapi.model.inline_object11 import InlineObject11
 from vrchatapi.model.error import Error
-from vrchatapi.model.inline_response401 import InlineResponse401
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
 # See configuration.py for a list of all supported configuration parameters.
