@@ -56,6 +56,10 @@ class RESTClientObject(object):
         else:
             cert_reqs = ssl.CERT_NONE
 
+        # VRChatAPI: Init global cookie storage
+        from http.cookiejar import CookieJar
+        self.cookie_jar = CookieJar()
+
         addition_pool_args = {}
         if configuration.assert_hostname is not None:
             addition_pool_args['assert_hostname'] = configuration.assert_hostname  # noqa: E501
@@ -128,6 +132,13 @@ class RESTClientObject(object):
 
         post_params = post_params or {}
         headers = headers or {}
+
+        # VRChatAPI: Build a mock Request object to work with
+        from urllib.request import Request
+        mock_request_object = Request(url=url, method=method, headers=headers)
+        self.cookie_jar.add_cookie_header(mock_request_object)
+        if "Cookie" in mock_request_object.unredirected_hdrs:
+            headers["Cookie"] = mock_request_object.unredirected_hdrs["Cookie"]
 
         timeout = None
         if _request_timeout:
@@ -203,6 +214,10 @@ class RESTClientObject(object):
         except urllib3.exceptions.SSLError as e:
             msg = "{0}\n{1}".format(type(e).__name__, str(e))
             raise ApiException(status=0, reason=msg)
+
+
+        # VRChatAPI: Extract and save cookies for global storage
+        self.cookie_jar.extract_cookies(r, mock_request_object)
 
         if _preload_content:
             r = RESTResponse(r)
