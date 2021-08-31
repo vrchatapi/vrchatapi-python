@@ -33,7 +33,6 @@ Below is an example on how to login to the API and fetch your own user informati
 # Step 1. We begin with creating a Configuration, which contains the username and password for authentication.
 import vrchatapi
 from vrchatapi.api import authentication_api, users_api
-from pprint import pprint
 
 configuration = vrchatapi.Configuration(
     username = 'username',
@@ -52,9 +51,9 @@ with vrchatapi.ApiClient(configuration) as api_client:
     try:
         # Step 3. Calling getCurrentUser on Authentication API logs you in if the user isn't already logged in.
         current_user = auth_api.get_current_user()
-        pprint("Logged in as:", current_user.display_name)
+        print("Logged in as:", current_user.display_name)
     except vrchatapi.ApiException as e:
-        print("Exception when calling API: %s\n" % e)
+        print("Exception when calling API: %s\n", e)
 ```
 
 See [example.py](https://github.com/vrchatapi/vrchatapi-python/blob/main/example.py) for more example usage on getting started.
@@ -74,7 +73,7 @@ Join the [Discord server](https://discord.gg/Ge2APMhPfD) to get in touch with us
 from setuptools import setup, find_packages  # noqa: H301
 
 NAME = "vrchatapi"
-VERSION = "1.0.0"
+VERSION = "1.1.2"
 # To install the library, run the following
 #
 # python setup.py install
@@ -90,11 +89,11 @@ REQUIRES = [
 setup(
     name=NAME,
     version=VERSION,
-    description="VRChat API Documentation",
+    description="VRChat API Library for Python",
     author="Unofficial VRChat API Documentation Project",
     author_email="me@ruby.js.org",
     url="",
-    keywords=["OpenAPI", "OpenAPI-Generator", "VRChat API Documentation"],
+    keywords=["vrchat", "vrchatapi", "vrc"],
     python_requires=">=3.6",
     install_requires=REQUIRES,
     packages=find_packages(exclude=["test", "tests"]),
@@ -134,7 +133,6 @@ Below is an example on how to login to the API and fetch your own user informati
 # Step 1. We begin with creating a Configuration, which contains the username and password for authentication.
 import vrchatapi
 from vrchatapi.api import authentication_api, users_api
-from pprint import pprint
 
 configuration = vrchatapi.Configuration(
     username = 'username',
@@ -153,9 +151,9 @@ with vrchatapi.ApiClient(configuration) as api_client:
     try:
         # Step 3. Calling getCurrentUser on Authentication API logs you in if the user isn't already logged in.
         current_user = auth_api.get_current_user()
-        pprint("Logged in as:", current_user.display_name)
+        print("Logged in as:", current_user.display_name)
     except vrchatapi.ApiException as e:
-        print("Exception when calling API: %s\n" % e)
+        print("Exception when calling API: %s\n", e)
 ```
 
 See [example.py](https://github.com/vrchatapi/vrchatapi-python/blob/main/example.py) for more example usage on getting started.
