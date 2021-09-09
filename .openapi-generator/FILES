@@ -27,6 +27,7 @@ docs/FileID.md
 docs/FileStatus.md
 docs/FileVersion.md
 docs/FilesApi.md
+docs/FriendStatus.md
 docs/FriendsApi.md
 docs/InlineObject.md
 docs/InlineObject1.md
@@ -49,8 +50,6 @@ docs/InlineResponse2003.md
 docs/InlineResponse2004.md
 docs/InlineResponse2005.md
 docs/InlineResponse2006.md
-docs/InlineResponse2007.md
-docs/InlineResponse403.md
 docs/Instance.md
 docs/InstancePlatforms.md
 docs/LimitedUnityPackage.md
@@ -130,6 +129,7 @@ vrchatapi/model/file_data.py
 vrchatapi/model/file_id.py
 vrchatapi/model/file_status.py
 vrchatapi/model/file_version.py
+vrchatapi/model/friend_status.py
 vrchatapi/model/inline_object.py
 vrchatapi/model/inline_object1.py
 vrchatapi/model/inline_object10.py
@@ -151,8 +151,6 @@ vrchatapi/model/inline_response2003.py
 vrchatapi/model/inline_response2004.py
 vrchatapi/model/inline_response2005.py
 vrchatapi/model/inline_response2006.py
-vrchatapi/model/inline_response2007.py
-vrchatapi/model/inline_response403.py
 vrchatapi/model/instance.py
 vrchatapi/model/instance_platforms.py
 vrchatapi/model/limited_unity_package.py

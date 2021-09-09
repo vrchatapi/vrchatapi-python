@@ -93,7 +93,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_player_moderation**
-> Error delete_player_moderation(player_moderation_id)
+> Success delete_player_moderation(player_moderation_id)
 
 Delete Player Moderation
 
@@ -107,6 +107,7 @@ Deletes a specific player moderation based on it's `pmod_` ID. The website uses 
 import time
 import vrchatapi
 from vrchatapi.api import playermoderation_api
+from vrchatapi.model.success import Success
 from vrchatapi.model.error import Error
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
@@ -156,7 +157,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Error**](Error.md)
+[**Success**](Success.md)
 
 ### Authorization
 
@@ -441,7 +442,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **unmoderate_user**
-> Error unmoderate_user()
+> Success unmoderate_user()
 
 Unmoderate User
 
@@ -455,6 +456,7 @@ Removes a player moderation previously added through `moderateUser`. E.g if you 
 import time
 import vrchatapi
 from vrchatapi.api import playermoderation_api
+from vrchatapi.model.success import Success
 from vrchatapi.model.inline_object13 import InlineObject13
 from vrchatapi.model.error import Error
 from pprint import pprint
@@ -508,7 +510,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Error**](Error.md)
+[**Success**](Success.md)
 
 ### Authorization
 

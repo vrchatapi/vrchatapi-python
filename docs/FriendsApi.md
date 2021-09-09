@@ -184,7 +184,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_friend_status**
-> InlineResponse2003 get_friend_status(user_id)
+> FriendStatus get_friend_status(user_id)
 
 Check Friend Status
 
@@ -198,7 +198,7 @@ Retrieve if the user is currently a friend with a given user, if they have an ou
 import time
 import vrchatapi
 from vrchatapi.api import friends_api
-from vrchatapi.model.inline_response2003 import InlineResponse2003
+from vrchatapi.model.friend_status import FriendStatus
 from vrchatapi.model.error import Error
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
@@ -248,7 +248,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2003**](InlineResponse2003.md)
+[**FriendStatus**](FriendStatus.md)
 
 ### Authorization
 
@@ -263,7 +263,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Friend Status |  -  |
+**200** | Returns a users Friend Status. |  -  |
 **401** | Error response due to missing apiKey or auth cookie. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

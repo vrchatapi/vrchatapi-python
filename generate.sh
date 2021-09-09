@@ -30,3 +30,6 @@ sed -i 's/.*VRChat API Banner.*/abcdefvrc/g' ./setup.py
 sed -i '/abcdefvrc/r README.md' ./setup.py
 sed -i 's/abcdefvrc//g' ./setup.py
 sed -i '/license/a long_description_content_type="text/markdown",' ./setup.py
+
+# Remove messily pasted markdown at top of every file
+find vrchatapi -type f -exec sed -i '/VRChat API Banner/d' {} \;

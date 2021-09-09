@@ -285,7 +285,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_favorited_avatars**
-> get_favorited_avatars()
+> [Avatar] get_favorited_avatars()
 
 List Favorited Avatars
 
@@ -299,6 +299,7 @@ Search and list favorited avatars by query filters.
 import time
 import vrchatapi
 from vrchatapi.api import avatars_api
+from vrchatapi.model.avatar import Avatar
 from vrchatapi.model.error import Error
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
@@ -346,7 +347,8 @@ with vrchatapi.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # List Favorited Avatars
-        api_instance.get_favorited_avatars(featured=featured, sort=sort, n=n, order=order, offset=offset, search=search, tag=tag, notag=notag, release_status=release_status, max_unity_version=max_unity_version, min_unity_version=min_unity_version, platform=platform, user_id=user_id)
+        api_response = api_instance.get_favorited_avatars(featured=featured, sort=sort, n=n, order=order, offset=offset, search=search, tag=tag, notag=notag, release_status=release_status, max_unity_version=max_unity_version, min_unity_version=min_unity_version, platform=platform, user_id=user_id)
+        pprint(api_response)
     except vrchatapi.ApiException as e:
         print("Exception when calling AvatarsApi->get_favorited_avatars: %s\n" % e)
 ```
@@ -372,7 +374,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**[Avatar]**](Avatar.md)
 
 ### Authorization
 
@@ -387,8 +389,9 @@ void (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
+**200** | Returns a list of Avatar objects. |  -  |
 **401** | Error response due to missing apiKey or auth cookie. |  -  |
+**403** | Error response when trying to see favourited avatars of another user without sufficient admin permissions. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

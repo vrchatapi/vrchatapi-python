@@ -32,6 +32,7 @@ from vrchatapi.model.file_data import FileData
 from vrchatapi.model.file_id import FileID
 from vrchatapi.model.file_status import FileStatus
 from vrchatapi.model.file_version import FileVersion
+from vrchatapi.model.friend_status import FriendStatus
 from vrchatapi.model.inline_object import InlineObject
 from vrchatapi.model.inline_object1 import InlineObject1
 from vrchatapi.model.inline_object10 import InlineObject10
@@ -53,8 +54,6 @@ from vrchatapi.model.inline_response2003 import InlineResponse2003
 from vrchatapi.model.inline_response2004 import InlineResponse2004
 from vrchatapi.model.inline_response2005 import InlineResponse2005
 from vrchatapi.model.inline_response2006 import InlineResponse2006
-from vrchatapi.model.inline_response2007 import InlineResponse2007
-from vrchatapi.model.inline_response403 import InlineResponse403
 from vrchatapi.model.instance import Instance
 from vrchatapi.model.instance_platforms import InstancePlatforms
 from vrchatapi.model.limited_unity_package import LimitedUnityPackage

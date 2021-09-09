@@ -109,7 +109,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **clear_favorite_group**
-> Error clear_favorite_group(favorite_group_type, favorite_group_name, user_id)
+> Success clear_favorite_group(favorite_group_type, favorite_group_name, user_id)
 
 Clear Favorite Group
 
@@ -123,7 +123,7 @@ Clear ALL contents of a specific favorite group.
 import time
 import vrchatapi
 from vrchatapi.api import favorites_api
-from vrchatapi.model.error import Error
+from vrchatapi.model.success import Success
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
 # See configuration.py for a list of all supported configuration parameters.
@@ -176,7 +176,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Error**](Error.md)
+[**Success**](Success.md)
 
 ### Authorization
 
@@ -551,7 +551,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **remove_favorite**
-> Error remove_favorite(favorite_id)
+> Success remove_favorite(favorite_id)
 
 Remove Favorite
 
@@ -565,6 +565,7 @@ Remove a favorite from your favorites list.
 import time
 import vrchatapi
 from vrchatapi.api import favorites_api
+from vrchatapi.model.success import Success
 from vrchatapi.model.error import Error
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
@@ -614,7 +615,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Error**](Error.md)
+[**Success**](Success.md)
 
 ### Authorization
 

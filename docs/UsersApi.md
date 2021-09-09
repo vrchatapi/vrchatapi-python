@@ -6,7 +6,6 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**get_user**](UsersApi.md#get_user) | **GET** /users/{userId} | Get User by ID
 [**get_user_by_name**](UsersApi.md#get_user_by_name) | **GET** /users/{username}/name | Get User by Username
-[**search_active_users**](UsersApi.md#search_active_users) | **GET** /users/active | Search Active Users
 [**search_users**](UsersApi.md#search_users) | **GET** /users | Search All Users
 [**update_user**](UsersApi.md#update_user) | **PUT** /users/{userId} | Update User Info
 
@@ -178,106 +177,6 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 **200** | OK |  -  |
 **401** | Error response due to missing apiKey or auth cookie. |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **search_active_users**
-> [LimitedUser] search_active_users(search)
-
-Search Active Users
-
-Search and list any Active users by text query.  **Has been locked down and now always respond with \"Invalid Admin Credentials\".**
-
-### Example
-
-* Api Key Authentication (apiKeyCookie):
-* Api Key Authentication (authCookie):
-```python
-import time
-import vrchatapi
-from vrchatapi.api import users_api
-from vrchatapi.model.limited_user import LimitedUser
-from vrchatapi.model.inline_response403 import InlineResponse403
-from pprint import pprint
-# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
-# See configuration.py for a list of all supported configuration parameters.
-configuration = vrchatapi.Configuration(
-    host = "https://api.vrchat.cloud/api/1"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: apiKeyCookie
-configuration.api_key['apiKeyCookie'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['apiKeyCookie'] = 'Bearer'
-
-# Configure API key authorization: authCookie
-configuration.api_key['authCookie'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['authCookie'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with vrchatapi.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = users_api.UsersApi(api_client)
-    search = "search_example" # str | Username to search for
-    developer_type = "developerType_example" # str | Active user by developer type, none for normal users and internal for moderators (optional)
-    offset = 0 # int | A zero-based offset from the default object sorting from where search results start. (optional)
-    n = 60 # int | The number of objects to return. (optional) if omitted the server will use the default value of 60
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Search Active Users
-        api_response = api_instance.search_active_users(search)
-        pprint(api_response)
-    except vrchatapi.ApiException as e:
-        print("Exception when calling UsersApi->search_active_users: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
-    try:
-        # Search Active Users
-        api_response = api_instance.search_active_users(search, developer_type=developer_type, offset=offset, n=n)
-        pprint(api_response)
-    except vrchatapi.ApiException as e:
-        print("Exception when calling UsersApi->search_active_users: %s\n" % e)
-```
-
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **search** | **str**| Username to search for |
- **developer_type** | **str**| Active user by developer type, none for normal users and internal for moderators | [optional]
- **offset** | **int**| A zero-based offset from the default object sorting from where search results start. | [optional]
- **n** | **int**| The number of objects to return. | [optional] if omitted the server will use the default value of 60
-
-### Return type
-
-[**[LimitedUser]**](LimitedUser.md)
-
-### Authorization
-
-[apiKeyCookie](../README.md#apiKeyCookie), [authCookie](../README.md#authCookie)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | OK |  -  |
-**403** | Error response due to missing Administrator credentials. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

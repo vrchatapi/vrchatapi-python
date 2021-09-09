@@ -655,7 +655,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_file_data_upload_status**
-> InlineResponse2004 get_file_data_upload_status(file_id, version_id, file_type)
+> InlineResponse2003 get_file_data_upload_status(file_id, version_id, file_type)
 
 Check FileData Upload Status
 
@@ -669,7 +669,7 @@ Retrieves the upload status for file upload. Can currently only be accessed when
 import time
 import vrchatapi
 from vrchatapi.api import files_api
-from vrchatapi.model.inline_response2004 import InlineResponse2004
+from vrchatapi.model.inline_response2003 import InlineResponse2003
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
 # See configuration.py for a list of all supported configuration parameters.
@@ -722,7 +722,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2004**](InlineResponse2004.md)
+[**InlineResponse2003**](InlineResponse2003.md)
 
 ### Authorization
 
@@ -832,7 +832,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **start_file_data_upload**
-> InlineResponse2005 start_file_data_upload(file_id, version_id, file_type, part_number)
+> InlineResponse2004 start_file_data_upload(file_id, version_id, file_type, part_number)
 
 Start FileData Upload
 
@@ -846,7 +846,7 @@ Starts an upload of a specific FilePart. This endpoint will return an AWS URL wh
 import time
 import vrchatapi
 from vrchatapi.api import files_api
-from vrchatapi.model.inline_response2005 import InlineResponse2005
+from vrchatapi.model.inline_response2004 import InlineResponse2004
 from vrchatapi.model.error import Error
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
@@ -902,7 +902,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2005**](InlineResponse2005.md)
+[**InlineResponse2004**](InlineResponse2004.md)
 
 ### Authorization
 

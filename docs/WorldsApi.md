@@ -404,7 +404,7 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 **200** | Returns a list of LimitedWorld objects. |  -  |
 **401** | Error response due to missing apiKey or auth cookie. |  -  |
-**403** | Error response when trying to see favourites of another user without sufficient admin permissions. |  -  |
+**403** | Error response when trying to see favourited worlds of another user without sufficient admin permissions. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -515,7 +515,7 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 **200** | Returns a list of LimitedWorld objects. |  -  |
 **401** | Error response due to missing apiKey or auth cookie. |  -  |
-**403** | Error response when trying to accept a see recently visited worlds of another user without sufficient admin permissions. |  -  |
+**403** | Error response when trying to see recently visited worlds of another user without sufficient admin permissions. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -674,7 +674,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_world_metadata**
-> InlineResponse2006 get_world_metadata(world_id)
+> InlineResponse2005 get_world_metadata(world_id)
 
 Get World Metadata
 
@@ -688,8 +688,8 @@ Return a worlds custom metadata. This is currently believed to be unused. Metada
 import time
 import vrchatapi
 from vrchatapi.api import worlds_api
+from vrchatapi.model.inline_response2005 import InlineResponse2005
 from vrchatapi.model.error import Error
-from vrchatapi.model.inline_response2006 import InlineResponse2006
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
 # See configuration.py for a list of all supported configuration parameters.
@@ -738,7 +738,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2006**](InlineResponse2006.md)
+[**InlineResponse2005**](InlineResponse2005.md)
 
 ### Authorization
 
@@ -759,7 +759,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_world_publish_status**
-> InlineResponse2007 get_world_publish_status(world_id)
+> InlineResponse2006 get_world_publish_status(world_id)
 
 Get World Publish Status
 
@@ -773,8 +773,8 @@ Returns a worlds publish status.
 import time
 import vrchatapi
 from vrchatapi.api import worlds_api
-from vrchatapi.model.inline_response2007 import InlineResponse2007
 from vrchatapi.model.error import Error
+from vrchatapi.model.inline_response2006 import InlineResponse2006
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
 # See configuration.py for a list of all supported configuration parameters.
@@ -823,7 +823,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2007**](InlineResponse2007.md)
+[**InlineResponse2006**](InlineResponse2006.md)
 
 ### Authorization
 
