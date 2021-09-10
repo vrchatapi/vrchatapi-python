@@ -4,7 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**author_id** | **str** |  | [readonly] 
+**author_id** | **str** |  | 
 **author_name** | **str** |  | [readonly] 
 **created_at** | **datetime** |  | [readonly] 
 **description** | **str** |  | 

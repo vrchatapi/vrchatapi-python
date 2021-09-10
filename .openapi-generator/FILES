@@ -50,8 +50,13 @@ docs/InlineResponse2003.md
 docs/InlineResponse2004.md
 docs/InlineResponse2005.md
 docs/InlineResponse2006.md
+docs/InlineResponse400.md
 docs/Instance.md
 docs/InstancePlatforms.md
+docs/InviteApi.md
+docs/InviteMessage.md
+docs/InviteMessageID.md
+docs/InviteMessageType.md
 docs/LimitedUnityPackage.md
 docs/LimitedUser.md
 docs/LimitedWorld.md
@@ -63,7 +68,6 @@ docs/PastDisplayName.md
 docs/Permission.md
 docs/PermissionID.md
 docs/PermissionsApi.md
-docs/Platform.md
 docs/PlayerModeration.md
 docs/PlayerModerationID.md
 docs/PlayerModerationType.md
@@ -95,6 +99,7 @@ vrchatapi/api/avatars_api.py
 vrchatapi/api/favorites_api.py
 vrchatapi/api/files_api.py
 vrchatapi/api/friends_api.py
+vrchatapi/api/invite_api.py
 vrchatapi/api/notifications_api.py
 vrchatapi/api/permissions_api.py
 vrchatapi/api/playermoderation_api.py
@@ -151,8 +156,12 @@ vrchatapi/model/inline_response2003.py
 vrchatapi/model/inline_response2004.py
 vrchatapi/model/inline_response2005.py
 vrchatapi/model/inline_response2006.py
+vrchatapi/model/inline_response400.py
 vrchatapi/model/instance.py
 vrchatapi/model/instance_platforms.py
+vrchatapi/model/invite_message.py
+vrchatapi/model/invite_message_id.py
+vrchatapi/model/invite_message_type.py
 vrchatapi/model/limited_unity_package.py
 vrchatapi/model/limited_user.py
 vrchatapi/model/limited_world.py
@@ -162,7 +171,6 @@ vrchatapi/model/notification_type.py
 vrchatapi/model/past_display_name.py
 vrchatapi/model/permission.py
 vrchatapi/model/permission_id.py
-vrchatapi/model/platform.py
 vrchatapi/model/player_moderation.py
 vrchatapi/model/player_moderation_id.py
 vrchatapi/model/player_moderation_type.py

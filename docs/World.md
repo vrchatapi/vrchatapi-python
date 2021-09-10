@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **asset_url** | **str** |  | 
 **asset_url_object** | **{str: (bool, date, datetime, dict, float, int, list, str, none_type)}** |  | 
-**author_id** | **str** |  | [readonly] 
+**author_id** | **str** |  | 
 **author_name** | **str** |  | [readonly] 
 **capacity** | **float** |  | [readonly] 
 **created_at** | **datetime** |  | [readonly] 

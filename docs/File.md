@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | [**FileID**](FileID.md) |  | 
 **name** | **str** |  | 
-**owner_id** | **str** |  | [readonly] 
+**owner_id** | **str** |  | 
 **mime_type** | [**MIMEType**](MIMEType.md) |  | 
 **extension** | **str** |  | 
 **tags** | [**[Tag]**](Tag.md) |  | 

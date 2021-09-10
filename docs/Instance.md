@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **location** | **str** |  | 
 **n_users** | **float** |  | 
 **name** | **str** |  | 
-**owner_id** | **str** |  | [readonly] 
+**owner_id** | **str** |  | 
 **photon_region** | **str** |  | 
 **platforms** | [**InstancePlatforms**](InstancePlatforms.md) |  | 
 **region** | **str** |  | 

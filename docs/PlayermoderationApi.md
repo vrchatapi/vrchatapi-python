@@ -399,6 +399,7 @@ with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = playermoderation_api.PlayermoderationApi(api_client)
     inline_object12 = InlineObject12(
+        moderated="usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469",
         type=PlayerModerationType("showAvatar"),
     ) # InlineObject12 |  (optional)
 
@@ -488,6 +489,7 @@ with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = playermoderation_api.PlayermoderationApi(api_client)
     inline_object13 = InlineObject13(
+        moderated="usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469",
         type=PlayerModerationType("showAvatar"),
     ) # InlineObject13 |  (optional)
 

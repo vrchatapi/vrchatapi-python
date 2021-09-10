@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | [**FavoriteGroupID**](FavoriteGroupID.md) |  | 
-**owner_id** | **str** |  | [readonly] 
+**owner_id** | **str** |  | 
 **owner_display_name** | **str** |  | 
 **name** | **str** |  | 
 **display_name** | **str** |  | 

@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** |  | 
-**sender_user_id** | **str** |  | [readonly] 
+**sender_user_id** | **str** |  | 
 **sender_username** | **str** |  | 
 **type** | [**NotificationType**](NotificationType.md) |  | 
 **message** | **str** |  | 

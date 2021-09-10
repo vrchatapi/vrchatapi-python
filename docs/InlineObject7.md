@@ -6,14 +6,14 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **asset_url** | **str** |  | [optional] 
 **asset_version** | **str** |  | [optional] 
-**author_id** | **str** |  | [optional] [readonly] 
+**author_id** | **str** |  | [optional] 
 **author_name** | **str** |  | [optional] 
 **capacity** | **int** |  | [optional]  if omitted the server will use the default value of 16
 **description** | **str** |  | [optional] 
 **id** | [**WorldID**](WorldID.md) |  | [optional] 
 **image_url** | **str** |  | [optional] 
 **name** | **str** |  | [optional] 
-**platform** | [**Platform**](Platform.md) |  | [optional] 
+**platform** | **str** | This can be &#x60;standalonewindows&#x60; or &#x60;android&#x60;, but can also pretty much be any random Unity verison such as &#x60;2019.2.4-801-Release&#x60; or &#x60;2019.2.2-772-Release&#x60; or even &#x60;unknownplatform&#x60;. | [optional] 
 **release_status** | [**ReleaseStatus**](ReleaseStatus.md) |  | [optional] 
 **tags** | [**[Tag]**](Tag.md) |  | [optional] 
 **unity_package_url** | **str** |  | [optional] 

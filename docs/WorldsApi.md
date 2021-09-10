@@ -50,13 +50,14 @@ with vrchatapi.ApiClient() as api_client:
     inline_object6 = InlineObject6(
         asset_url="asset_url_example",
         asset_version="asset_version_example",
+        author_id="usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469",
         author_name="author_name_example",
         capacity=16,
         description="description_example",
         id=WorldID("wrld_ba913a96-fac4-4048-a062-9aa5db092812"),
         image_url="image_url_example",
         name="name_example",
-        platform=Platform("standalonewindows"),
+        platform="standalonewindows",
         release_status=ReleaseStatus("public"),
         tags=[
             Tag("tags_example"),
@@ -1174,13 +1175,14 @@ with vrchatapi.ApiClient(configuration) as api_client:
     inline_object7 = InlineObject7(
         asset_url="asset_url_example",
         asset_version="asset_version_example",
+        author_id="usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469",
         author_name="author_name_example",
         capacity=16,
         description="description_example",
         id=WorldID("wrld_ba913a96-fac4-4048-a062-9aa5db092812"),
         image_url="image_url_example",
         name="name_example",
-        platform=Platform("standalonewindows"),
+        platform="standalonewindows",
         release_status=ReleaseStatus("public"),
         tags=[
             Tag("tags_example"),

@@ -54,8 +54,12 @@ from vrchatapi.model.inline_response2003 import InlineResponse2003
 from vrchatapi.model.inline_response2004 import InlineResponse2004
 from vrchatapi.model.inline_response2005 import InlineResponse2005
 from vrchatapi.model.inline_response2006 import InlineResponse2006
+from vrchatapi.model.inline_response400 import InlineResponse400
 from vrchatapi.model.instance import Instance
 from vrchatapi.model.instance_platforms import InstancePlatforms
+from vrchatapi.model.invite_message import InviteMessage
+from vrchatapi.model.invite_message_id import InviteMessageID
+from vrchatapi.model.invite_message_type import InviteMessageType
 from vrchatapi.model.limited_unity_package import LimitedUnityPackage
 from vrchatapi.model.limited_user import LimitedUser
 from vrchatapi.model.limited_world import LimitedWorld
@@ -65,7 +69,6 @@ from vrchatapi.model.notification_type import NotificationType
 from vrchatapi.model.past_display_name import PastDisplayName
 from vrchatapi.model.permission import Permission
 from vrchatapi.model.permission_id import PermissionID
-from vrchatapi.model.platform import Platform
 from vrchatapi.model.player_moderation import PlayerModeration
 from vrchatapi.model.player_moderation_id import PlayerModerationID
 from vrchatapi.model.player_moderation_type import PlayerModerationType
