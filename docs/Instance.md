@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **capacity** | **float** |  | 
 **client_number** | **str** |  | 
-**id** | **str** |  | 
+**id** | [**InstanceID**](InstanceID.md) |  | 
 **instance_id** | **str** |  | 
 **location** | **str** |  | 
 **n_users** | **float** |  | 

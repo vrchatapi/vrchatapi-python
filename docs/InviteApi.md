@@ -203,6 +203,7 @@ import time
 import vrchatapi
 from vrchatapi.api import invite_api
 from vrchatapi.model.notification import Notification
+from vrchatapi.model.invite_request import InviteRequest
 from vrchatapi.model.inline_response400 import InlineResponse400
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
@@ -233,11 +234,23 @@ with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = invite_api.InviteApi(api_client)
     user_id = "userId_example" # str | 
+    invite_request = InviteRequest(
+        instance_id=InstanceID("wrld_ba913a96-fac4-4048-a062-9aa5db092812:123456"),
+    ) # InviteRequest | Instance ID when inviting a user. (optional)
 
     # example passing only required values which don't have defaults set
     try:
         # Invite User
         api_response = api_instance.invite_user(user_id)
+        pprint(api_response)
+    except vrchatapi.ApiException as e:
+        print("Exception when calling InviteApi->invite_user: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Invite User
+        api_response = api_instance.invite_user(user_id, invite_request=invite_request)
         pprint(api_response)
     except vrchatapi.ApiException as e:
         print("Exception when calling InviteApi->invite_user: %s\n" % e)
@@ -249,6 +262,7 @@ with vrchatapi.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **user_id** | **str**|  |
+ **invite_request** | [**InviteRequest**](InviteRequest.md)| Instance ID when inviting a user. | [optional]
 
 ### Return type
 
@@ -260,7 +274,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 
@@ -463,6 +477,7 @@ import vrchatapi
 from vrchatapi.api import invite_api
 from vrchatapi.model.notification import Notification
 from vrchatapi.model.inline_response400 import InlineResponse400
+from vrchatapi.model.invite_response import InviteResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
 # See configuration.py for a list of all supported configuration parameters.
@@ -492,11 +507,23 @@ with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = invite_api.InviteApi(api_client)
     notification_id = "notificationId_example" # str | 
+    invite_response = InviteResponse(
+        response_slot=0,
+    ) # InviteResponse | Instance ID when inviting a user. (optional)
 
     # example passing only required values which don't have defaults set
     try:
         # Respond Invite
         api_response = api_instance.respond_invite(notification_id)
+        pprint(api_response)
+    except vrchatapi.ApiException as e:
+        print("Exception when calling InviteApi->respond_invite: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Respond Invite
+        api_response = api_instance.respond_invite(notification_id, invite_response=invite_response)
         pprint(api_response)
     except vrchatapi.ApiException as e:
         print("Exception when calling InviteApi->respond_invite: %s\n" % e)
@@ -508,6 +535,7 @@ with vrchatapi.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **notification_id** | **str**|  |
+ **invite_response** | [**InviteResponse**](InviteResponse.md)| Instance ID when inviting a user. | [optional]
 
 ### Return type
 
@@ -519,7 +547,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 

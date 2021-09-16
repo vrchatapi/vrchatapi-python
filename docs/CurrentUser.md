@@ -26,7 +26,6 @@ Name | Type | Description | Notes
 **friend_group_names** | **[str]** | Always empty array. | 
 **current_avatar_image_url** | **str** |  | 
 **current_avatar_thumbnail_image_url** | **str** |  | 
-**fallback_avatar** | [**AvatarID**](AvatarID.md) |  | 
 **current_avatar** | [**AvatarID**](AvatarID.md) |  | 
 **current_avatar_asset_url** | **str** |  | 
 **accepted_tos_version** | **float** |  | 
@@ -46,6 +45,7 @@ Name | Type | Description | Notes
 **date_joined** | **date** |  | [readonly] 
 **friend_key** | **str** |  | 
 **is_friend** | **bool** |  | defaults to False
+**fallback_avatar** | [**AvatarID**](AvatarID.md) |  | [optional] 
 **account_deletion_date** | **date, none_type** |  | [optional] 
 **online_friends** | **[str]** |  | [optional] 
 **active_friends** | **[str]** |  | [optional] 

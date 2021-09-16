@@ -56,10 +56,13 @@ from vrchatapi.model.inline_response2005 import InlineResponse2005
 from vrchatapi.model.inline_response2006 import InlineResponse2006
 from vrchatapi.model.inline_response400 import InlineResponse400
 from vrchatapi.model.instance import Instance
+from vrchatapi.model.instance_id import InstanceID
 from vrchatapi.model.instance_platforms import InstancePlatforms
 from vrchatapi.model.invite_message import InviteMessage
 from vrchatapi.model.invite_message_id import InviteMessageID
 from vrchatapi.model.invite_message_type import InviteMessageType
+from vrchatapi.model.invite_request import InviteRequest
+from vrchatapi.model.invite_response import InviteResponse
 from vrchatapi.model.limited_unity_package import LimitedUnityPackage
 from vrchatapi.model.limited_user import LimitedUser
 from vrchatapi.model.limited_world import LimitedWorld
