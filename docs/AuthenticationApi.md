@@ -4,6 +4,7 @@ All URIs are relative to *https://api.vrchat.cloud/api/1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**check_user_exists**](AuthenticationApi.md#check_user_exists) | **GET** /auth/exists | Check User Exists
 [**delete_user**](AuthenticationApi.md#delete_user) | **PUT** /user/{userId}/delete | Delete User
 [**get_current_user**](AuthenticationApi.md#get_current_user) | **GET** /auth/user | Login and/or Get Current User Info
 [**logout**](AuthenticationApi.md#logout) | **PUT** /logout | Logout
@@ -11,6 +12,91 @@ Method | HTTP request | Description
 [**verify_auth_token**](AuthenticationApi.md#verify_auth_token) | **GET** /auth | Verify Auth Token
 [**verify_recovery_code**](AuthenticationApi.md#verify_recovery_code) | **POST** /auth/twofactorauth/otp/verify | Verify 2FA code with Recovery code
 
+
+# **check_user_exists**
+> UserExists check_user_exists()
+
+Check User Exists
+
+Checks if a user by a given `username`, `displayName` or `email` exist. This is used during registration to check if a username has already been taken, during change of displayName to check if a displayName is available, and during change of email to check if the email is already used. In the later two cases the `excludeUserId` is used to exclude oneself, otherwise the result would always be true.  It is **REQUIRED** to include **AT LEAST** `username`, `displayName` **or** `email` query parameter. Although they can be combined - in addition with `excludeUserId` (generally to exclude yourself) - to further fine-tune the search.
+
+### Example
+
+* Api Key Authentication (apiKeyCookie):
+```python
+import time
+import vrchatapi
+from vrchatapi.api import authentication_api
+from vrchatapi.model.error import Error
+from vrchatapi.model.user_exists import UserExists
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = vrchatapi.Configuration(
+    host = "https://api.vrchat.cloud/api/1"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: apiKeyCookie
+configuration.api_key['apiKeyCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apiKeyCookie'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with vrchatapi.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = authentication_api.AuthenticationApi(api_client)
+    email = "email_example" # str | Filter by email. (optional)
+    display_name = "displayName_example" # str | Filter by displayName. (optional)
+    user_id = "userId_example" # str | Filter by UserID. (optional)
+    exclude_user_id = "excludeUserId_example" # str | Exclude by UserID. (optional)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Check User Exists
+        api_response = api_instance.check_user_exists(email=email, display_name=display_name, user_id=user_id, exclude_user_id=exclude_user_id)
+        pprint(api_response)
+    except vrchatapi.ApiException as e:
+        print("Exception when calling AuthenticationApi->check_user_exists: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **email** | **str**| Filter by email. | [optional]
+ **display_name** | **str**| Filter by displayName. | [optional]
+ **user_id** | **str**| Filter by UserID. | [optional]
+ **exclude_user_id** | **str**| Exclude by UserID. | [optional]
+
+### Return type
+
+[**UserExists**](UserExists.md)
+
+### Authorization
+
+[apiKeyCookie](../README.md#apiKeyCookie)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Returns a response if a user exists or not. |  -  |
+**400** | Error response when missing at least 1 of the required parameters. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_user**
 > CurrentUser delete_user(user_id)

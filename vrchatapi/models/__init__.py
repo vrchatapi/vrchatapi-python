@@ -82,6 +82,7 @@ from vrchatapi.model.tag import Tag
 from vrchatapi.model.unity_package import UnityPackage
 from vrchatapi.model.unity_package_id import UnityPackageID
 from vrchatapi.model.user import User
+from vrchatapi.model.user_exists import UserExists
 from vrchatapi.model.user_state import UserState
 from vrchatapi.model.user_status import UserStatus
 from vrchatapi.model.world import World

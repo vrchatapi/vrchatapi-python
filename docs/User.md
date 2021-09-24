@@ -14,7 +14,6 @@ Name | Type | Description | Notes
 **status_description** | **str** |  | 
 **current_avatar_image_url** | **str** |  | 
 **current_avatar_thumbnail_image_url** | **str** |  | 
-**fallback_avatar** | [**AvatarID**](AvatarID.md) |  | 
 **state** | [**UserState**](UserState.md) |  | 
 **tags** | [**[Tag]**](Tag.md) |  | 
 **developer_type** | [**DeveloperType**](DeveloperType.md) |  | 

@@ -83,6 +83,7 @@ docs/Tag.md
 docs/UnityPackage.md
 docs/UnityPackageID.md
 docs/User.md
+docs/UserExists.md
 docs/UserState.md
 docs/UserStatus.md
 docs/UsersApi.md
@@ -187,6 +188,7 @@ vrchatapi/model/tag.py
 vrchatapi/model/unity_package.py
 vrchatapi/model/unity_package_id.py
 vrchatapi/model/user.py
+vrchatapi/model/user_exists.py
 vrchatapi/model/user_state.py
 vrchatapi/model/user_status.py
 vrchatapi/model/world.py

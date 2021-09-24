@@ -443,7 +443,7 @@ with vrchatapi.ApiClient(configuration) as api_client:
     featured = "featured_example" # str | Filters on featured results. (optional)
     sort = "popularity" # str |  (optional) if omitted the server will use the default value of "popularity"
     user = "me" # str | Set to `me` for searching own avatars. (optional) if omitted the server will use the default value of "me"
-    user_id = "userId_example" # str | Filter by author UserID (optional)
+    user_id = "userId_example" # str | Filter by UserID. (optional)
     n = 60 # int | The number of objects to return. (optional) if omitted the server will use the default value of 60
     order = "descending" # str |  (optional) if omitted the server will use the default value of "descending"
     offset = 0 # int | A zero-based offset from the default object sorting from where search results start. (optional)
@@ -472,7 +472,7 @@ Name | Type | Description  | Notes
  **featured** | **str**| Filters on featured results. | [optional]
  **sort** | **str**|  | [optional] if omitted the server will use the default value of "popularity"
  **user** | **str**| Set to &#x60;me&#x60; for searching own avatars. | [optional] if omitted the server will use the default value of "me"
- **user_id** | **str**| Filter by author UserID | [optional]
+ **user_id** | **str**| Filter by UserID. | [optional]
  **n** | **int**| The number of objects to return. | [optional] if omitted the server will use the default value of 60
  **order** | **str**|  | [optional] if omitted the server will use the default value of "descending"
  **offset** | **int**| A zero-based offset from the default object sorting from where search results start. | [optional]
