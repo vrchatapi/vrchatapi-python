@@ -31,7 +31,7 @@ jobs:
         run: bash ./generate.sh
       - name: Check version number
         run: |
-          echo "spec_version=$(grep "version" ./package.json | cut -d "\"" -f 4)" >> $GITHUB_ENV
+          echo "spec_version=$(grep "VERSION =" setup.py | cut -d "\"" -f 2)" >> $GITHUB_ENV
       - name: Print version number
         run: echo ${{ env.spec_version }}
       - name: Deploy SDK back into main branch

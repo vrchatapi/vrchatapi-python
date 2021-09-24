@@ -685,7 +685,7 @@ class Endpoint(object):
         self.collection_format_map = root_map['collection_format_map']
         self.headers_map = headers_map
         self.api_client = api_client
-        self.callable = callable
+        self.callable = callable #boop
 
     def __validate_inputs(self, kwargs):
         for param in self.params_map['enum']:
