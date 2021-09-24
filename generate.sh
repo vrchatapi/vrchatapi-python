@@ -1,7 +1,10 @@
 #!/bin/bash
 
+npm install @openapitools/openapi-generator-cli
+
 rm vrchatapi docs -rf
-openapi-generator-cli generate \
+
+./node_modules/\@openapitools/openapi-generator-cli/main.js generate \
 -g python \
 --additional-properties=packageName=vrchatapi,projectName=vrchatapi \
 --git-user-id=vrchatapi \
