@@ -47,4 +47,5 @@ jobs:
       - name: Publish SDK 📦 to PyPI
         uses: pypa/gh-action-pypi-publish@master
         with:
+          skip_existing: true
           password: ${{ secrets.PYPI_API_TOKEN }}
