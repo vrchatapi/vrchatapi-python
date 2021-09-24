@@ -25,3 +25,4 @@
 .travis.yml
 README.md
 test/
+.gitignore
