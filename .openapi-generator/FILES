@@ -1,4 +1,3 @@
-.gitignore
 .gitlab-ci.yml
 docs/AuthenticationApi.md
 docs/Avatar.md
