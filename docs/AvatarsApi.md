@@ -337,7 +337,7 @@ with vrchatapi.ApiClient(configuration) as api_client:
     search = "search_example" # str | Filters by world name. (optional)
     tag = "tag_example" # str | Tags to include (comma-separated). (optional)
     notag = "notag_example" # str | Tags to exclude (comma-separated). (optional)
-    release_status = "hidden" # str | Filter by ReleaseStatus. (optional) if omitted the server will use the default value of "hidden"
+    release_status = "public" # str | Filter by ReleaseStatus. (optional) if omitted the server will use the default value of "public"
     max_unity_version = "maxUnityVersion_example" # str | The maximum Unity version supported by the asset. (optional)
     min_unity_version = "minUnityVersion_example" # str | The minimum Unity version supported by the asset. (optional)
     platform = "platform_example" # str | The platform the asset supports. (optional)
@@ -366,7 +366,7 @@ Name | Type | Description  | Notes
  **search** | **str**| Filters by world name. | [optional]
  **tag** | **str**| Tags to include (comma-separated). | [optional]
  **notag** | **str**| Tags to exclude (comma-separated). | [optional]
- **release_status** | **str**| Filter by ReleaseStatus. | [optional] if omitted the server will use the default value of "hidden"
+ **release_status** | **str**| Filter by ReleaseStatus. | [optional] if omitted the server will use the default value of "public"
  **max_unity_version** | **str**| The maximum Unity version supported by the asset. | [optional]
  **min_unity_version** | **str**| The minimum Unity version supported by the asset. | [optional]
  **platform** | **str**| The platform the asset supports. | [optional]
@@ -449,7 +449,7 @@ with vrchatapi.ApiClient(configuration) as api_client:
     offset = 0 # int | A zero-based offset from the default object sorting from where search results start. (optional)
     tag = "tag_example" # str | Tags to include (comma-separated). (optional)
     notag = "notag_example" # str | Tags to exclude (comma-separated). (optional)
-    release_status = "hidden" # str | Filter by ReleaseStatus. (optional) if omitted the server will use the default value of "hidden"
+    release_status = "public" # str | Filter by ReleaseStatus. (optional) if omitted the server will use the default value of "public"
     max_unity_version = "maxUnityVersion_example" # str | The maximum Unity version supported by the asset. (optional)
     min_unity_version = "minUnityVersion_example" # str | The minimum Unity version supported by the asset. (optional)
     platform = "platform_example" # str | The platform the asset supports. (optional)
@@ -478,7 +478,7 @@ Name | Type | Description  | Notes
  **offset** | **int**| A zero-based offset from the default object sorting from where search results start. | [optional]
  **tag** | **str**| Tags to include (comma-separated). | [optional]
  **notag** | **str**| Tags to exclude (comma-separated). | [optional]
- **release_status** | **str**| Filter by ReleaseStatus. | [optional] if omitted the server will use the default value of "hidden"
+ **release_status** | **str**| Filter by ReleaseStatus. | [optional] if omitted the server will use the default value of "public"
  **max_unity_version** | **str**| The maximum Unity version supported by the asset. | [optional]
  **min_unity_version** | **str**| The minimum Unity version supported by the asset. | [optional]
  **platform** | **str**| The platform the asset supports. | [optional]

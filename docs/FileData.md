@@ -4,12 +4,12 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**file_name** | **str** |  | 
-**url** | **str** |  | 
-**md5** | **str** |  | 
-**size_in_bytes** | **float** |  | 
-**status** | [**FileStatus**](FileStatus.md) |  | 
 **category** | **str** |  | [readonly] 
+**file_name** | **str** |  | 
+**md5** | **str** |  | 
+**size_in_bytes** | **int** |  | 
+**status** | [**FileStatus**](FileStatus.md) |  | 
+**url** | **str** |  | 
 **upload_id** | **str** |  | defaults to ""
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 

@@ -9,17 +9,16 @@
 # import sys
 # sys.setrecursionlimit(n)
 
+from vrchatapi.model.api_config import APIConfig
+from vrchatapi.model.api_event_config import APIEventConfig
 from vrchatapi.model.avatar import Avatar
 from vrchatapi.model.avatar_id import AvatarID
 from vrchatapi.model.avatar_unity_package_url_object import AvatarUnityPackageUrlObject
-from vrchatapi.model.config import Config
-from vrchatapi.model.config_announcements import ConfigAnnouncements
-from vrchatapi.model.config_download_urls import ConfigDownloadUrls
-from vrchatapi.model.config_dynamic_world_rows import ConfigDynamicWorldRows
-from vrchatapi.model.config_events import ConfigEvents
 from vrchatapi.model.current_user import CurrentUser
 from vrchatapi.model.deployment_group import DeploymentGroup
 from vrchatapi.model.developer_type import DeveloperType
+from vrchatapi.model.download_url_list import DownloadURLList
+from vrchatapi.model.dynamic_world_row import DynamicWorldRow
 from vrchatapi.model.error import Error
 from vrchatapi.model.favorite import Favorite
 from vrchatapi.model.favorite_group import FavoriteGroup
@@ -75,6 +74,7 @@ from vrchatapi.model.permission_id import PermissionID
 from vrchatapi.model.player_moderation import PlayerModeration
 from vrchatapi.model.player_moderation_id import PlayerModerationID
 from vrchatapi.model.player_moderation_type import PlayerModerationType
+from vrchatapi.model.public_announcement import PublicAnnouncement
 from vrchatapi.model.release_status import ReleaseStatus
 from vrchatapi.model.response import Response
 from vrchatapi.model.success import Success

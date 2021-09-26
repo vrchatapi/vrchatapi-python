@@ -4,12 +4,12 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**capacity** | **float** |  | 
-**client_number** | **str** |  | 
+**capacity** | **int** |  | 
+**client_number** | **int** |  | 
 **id** | [**InstanceID**](InstanceID.md) |  | 
 **instance_id** | **str** |  | 
 **location** | **str** |  | 
-**n_users** | **float** |  | 
+**n_users** | **int** |  | 
 **name** | **str** |  | 
 **owner_id** | **str** |  | 
 **photon_region** | **str** |  | 
