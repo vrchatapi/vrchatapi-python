@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **image_url** | **str** |  | 
 **labs_publication_date** | **str** |  | 
 **name** | **str** |  | 
-**publication_date** | **datetime** |  | 
+**publication_date** | **str** |  | 
 **release_status** | [**ReleaseStatus**](ReleaseStatus.md) |  | 
 **tags** | [**[Tag]**](Tag.md) |  | 
 **thumbnail_image_url** | **str** |  | 

@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 **name** | **str** |  | 
 **namespace** | **str** |  | 
 **plugin_url_object** | **{str: (bool, date, datetime, dict, float, int, list, str, none_type)}** |  | 
-**publication_date** | **datetime** |  | 
+**publication_date** | **str** |  | 
 **release_status** | [**ReleaseStatus**](ReleaseStatus.md) |  | 
 **tags** | [**[Tag]**](Tag.md) |  | 
 **thumbnail_image_url** | **str** |  | 
