@@ -39,70 +39,7 @@ class AvatarsApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
-
-        def __create_avatar(
-            self,
-            **kwargs
-        ):
-            """Create Avatar  # noqa: E501
-
-            Create an avatar. It's possible to optionally specify a ID if you want a custom one. Attempting to create an Avatar with an already claimed ID will result in a DB error.  # noqa: E501
-            This method makes a synchronous HTTP request by default. To make an
-            asynchronous HTTP request, please pass async_req=True
-
-            >>> thread = api.create_avatar(async_req=True)
-            >>> result = thread.get()
-
-
-            Keyword Args:
-                inline_object10 (InlineObject10): [optional]
-                _return_http_data_only (bool): response data without head status
-                    code and headers. Default is True.
-                _preload_content (bool): if False, the urllib3.HTTPResponse object
-                    will be returned without reading/decoding response data.
-                    Default is True.
-                _request_timeout (int/float/tuple): timeout setting for this request. If
-                    one number provided, it will be total request timeout. It can also
-                    be a pair (tuple) of (connection, read) timeouts.
-                    Default is None.
-                _check_input_type (bool): specifies if type checking
-                    should be done one the data sent to the server.
-                    Default is True.
-                _check_return_type (bool): specifies if type checking
-                    should be done one the data received from the server.
-                    Default is True.
-                _host_index (int/None): specifies the index of the server
-                    that we want to use.
-                    Default is read from the configuration.
-                async_req (bool): execute request asynchronously
-
-            Returns:
-                Avatar
-                    If the method is called asynchronously, returns the request
-                    thread.
-            """
-            kwargs['async_req'] = kwargs.get(
-                'async_req', False
-            )
-            kwargs['_return_http_data_only'] = kwargs.get(
-                '_return_http_data_only', True
-            )
-            kwargs['_preload_content'] = kwargs.get(
-                '_preload_content', True
-            )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
-            kwargs['_check_input_type'] = kwargs.get(
-                '_check_input_type', True
-            )
-            kwargs['_check_return_type'] = kwargs.get(
-                '_check_return_type', True
-            )
-            kwargs['_host_index'] = kwargs.get('_host_index')
-            return self.call_with_http_info(**kwargs)
-
-        self.create_avatar = _Endpoint(
+        self.create_avatar_endpoint = _Endpoint(
             settings={
                 'response_type': (Avatar,),
                 'auth': [
@@ -151,77 +88,9 @@ class AvatarsApi(object):
                     'application/json'
                 ]
             },
-            api_client=api_client,
-            callable=__create_avatar
+            api_client=api_client
         )
-
-        def __delete_avatar(
-            self,
-            avatar_id,
-            **kwargs
-        ):
-            """Delete Avatar  # noqa: E501
-
-            Delete an avatar. Notice an avatar is never fully \"deleted\", only its ReleaseStatus is set to \"hidden\" and the linked Files are deleted. The AvatarID is permanently reserved.  # noqa: E501
-            This method makes a synchronous HTTP request by default. To make an
-            asynchronous HTTP request, please pass async_req=True
-
-            >>> thread = api.delete_avatar(avatar_id, async_req=True)
-            >>> result = thread.get()
-
-            Args:
-                avatar_id (str):
-
-            Keyword Args:
-                _return_http_data_only (bool): response data without head status
-                    code and headers. Default is True.
-                _preload_content (bool): if False, the urllib3.HTTPResponse object
-                    will be returned without reading/decoding response data.
-                    Default is True.
-                _request_timeout (int/float/tuple): timeout setting for this request. If
-                    one number provided, it will be total request timeout. It can also
-                    be a pair (tuple) of (connection, read) timeouts.
-                    Default is None.
-                _check_input_type (bool): specifies if type checking
-                    should be done one the data sent to the server.
-                    Default is True.
-                _check_return_type (bool): specifies if type checking
-                    should be done one the data received from the server.
-                    Default is True.
-                _host_index (int/None): specifies the index of the server
-                    that we want to use.
-                    Default is read from the configuration.
-                async_req (bool): execute request asynchronously
-
-            Returns:
-                Avatar
-                    If the method is called asynchronously, returns the request
-                    thread.
-            """
-            kwargs['async_req'] = kwargs.get(
-                'async_req', False
-            )
-            kwargs['_return_http_data_only'] = kwargs.get(
-                '_return_http_data_only', True
-            )
-            kwargs['_preload_content'] = kwargs.get(
-                '_preload_content', True
-            )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
-            kwargs['_check_input_type'] = kwargs.get(
-                '_check_input_type', True
-            )
-            kwargs['_check_return_type'] = kwargs.get(
-                '_check_return_type', True
-            )
-            kwargs['_host_index'] = kwargs.get('_host_index')
-            kwargs['avatar_id'] = \
-                avatar_id
-            return self.call_with_http_info(**kwargs)
-
-        self.delete_avatar = _Endpoint(
+        self.delete_avatar_endpoint = _Endpoint(
             settings={
                 'response_type': (Avatar,),
                 'auth': [
@@ -271,77 +140,9 @@ class AvatarsApi(object):
                 ],
                 'content_type': [],
             },
-            api_client=api_client,
-            callable=__delete_avatar
+            api_client=api_client
         )
-
-        def __get_avatar(
-            self,
-            avatar_id,
-            **kwargs
-        ):
-            """Get Avatar  # noqa: E501
-
-            Get information about a specific Avatar.  # noqa: E501
-            This method makes a synchronous HTTP request by default. To make an
-            asynchronous HTTP request, please pass async_req=True
-
-            >>> thread = api.get_avatar(avatar_id, async_req=True)
-            >>> result = thread.get()
-
-            Args:
-                avatar_id (str):
-
-            Keyword Args:
-                _return_http_data_only (bool): response data without head status
-                    code and headers. Default is True.
-                _preload_content (bool): if False, the urllib3.HTTPResponse object
-                    will be returned without reading/decoding response data.
-                    Default is True.
-                _request_timeout (int/float/tuple): timeout setting for this request. If
-                    one number provided, it will be total request timeout. It can also
-                    be a pair (tuple) of (connection, read) timeouts.
-                    Default is None.
-                _check_input_type (bool): specifies if type checking
-                    should be done one the data sent to the server.
-                    Default is True.
-                _check_return_type (bool): specifies if type checking
-                    should be done one the data received from the server.
-                    Default is True.
-                _host_index (int/None): specifies the index of the server
-                    that we want to use.
-                    Default is read from the configuration.
-                async_req (bool): execute request asynchronously
-
-            Returns:
-                Avatar
-                    If the method is called asynchronously, returns the request
-                    thread.
-            """
-            kwargs['async_req'] = kwargs.get(
-                'async_req', False
-            )
-            kwargs['_return_http_data_only'] = kwargs.get(
-                '_return_http_data_only', True
-            )
-            kwargs['_preload_content'] = kwargs.get(
-                '_preload_content', True
-            )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
-            kwargs['_check_input_type'] = kwargs.get(
-                '_check_input_type', True
-            )
-            kwargs['_check_return_type'] = kwargs.get(
-                '_check_return_type', True
-            )
-            kwargs['_host_index'] = kwargs.get('_host_index')
-            kwargs['avatar_id'] = \
-                avatar_id
-            return self.call_with_http_info(**kwargs)
-
-        self.get_avatar = _Endpoint(
+        self.get_avatar_endpoint = _Endpoint(
             settings={
                 'response_type': (Avatar,),
                 'auth': [
@@ -391,85 +192,9 @@ class AvatarsApi(object):
                 ],
                 'content_type': [],
             },
-            api_client=api_client,
-            callable=__get_avatar
+            api_client=api_client
         )
-
-        def __get_favorited_avatars(
-            self,
-            **kwargs
-        ):
-            """List Favorited Avatars  # noqa: E501
-
-            Search and list favorited avatars by query filters.  # noqa: E501
-            This method makes a synchronous HTTP request by default. To make an
-            asynchronous HTTP request, please pass async_req=True
-
-            >>> thread = api.get_favorited_avatars(async_req=True)
-            >>> result = thread.get()
-
-
-            Keyword Args:
-                featured (str): Filters on featured results.. [optional]
-                sort (str): [optional] if omitted the server will use the default value of "popularity"
-                n (int): The number of objects to return.. [optional] if omitted the server will use the default value of 60
-                order (str): [optional] if omitted the server will use the default value of "descending"
-                offset (int): A zero-based offset from the default object sorting from where search results start.. [optional]
-                search (str): Filters by world name.. [optional]
-                tag (str): Tags to include (comma-separated).. [optional]
-                notag (str): Tags to exclude (comma-separated).. [optional]
-                release_status (str): Filter by ReleaseStatus.. [optional] if omitted the server will use the default value of "public"
-                max_unity_version (str): The maximum Unity version supported by the asset.. [optional]
-                min_unity_version (str): The minimum Unity version supported by the asset.. [optional]
-                platform (str): The platform the asset supports.. [optional]
-                user_id (str): Target user to see information on, admin-only.. [optional]
-                _return_http_data_only (bool): response data without head status
-                    code and headers. Default is True.
-                _preload_content (bool): if False, the urllib3.HTTPResponse object
-                    will be returned without reading/decoding response data.
-                    Default is True.
-                _request_timeout (int/float/tuple): timeout setting for this request. If
-                    one number provided, it will be total request timeout. It can also
-                    be a pair (tuple) of (connection, read) timeouts.
-                    Default is None.
-                _check_input_type (bool): specifies if type checking
-                    should be done one the data sent to the server.
-                    Default is True.
-                _check_return_type (bool): specifies if type checking
-                    should be done one the data received from the server.
-                    Default is True.
-                _host_index (int/None): specifies the index of the server
-                    that we want to use.
-                    Default is read from the configuration.
-                async_req (bool): execute request asynchronously
-
-            Returns:
-                [Avatar]
-                    If the method is called asynchronously, returns the request
-                    thread.
-            """
-            kwargs['async_req'] = kwargs.get(
-                'async_req', False
-            )
-            kwargs['_return_http_data_only'] = kwargs.get(
-                '_return_http_data_only', True
-            )
-            kwargs['_preload_content'] = kwargs.get(
-                '_preload_content', True
-            )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
-            kwargs['_check_input_type'] = kwargs.get(
-                '_check_input_type', True
-            )
-            kwargs['_check_return_type'] = kwargs.get(
-                '_check_return_type', True
-            )
-            kwargs['_host_index'] = kwargs.get('_host_index')
-            return self.call_with_http_info(**kwargs)
-
-        self.get_favorited_avatars = _Endpoint(
+        self.get_favorited_avatars_endpoint = _Endpoint(
             settings={
                 'response_type': ([Avatar],),
                 'auth': [
@@ -624,85 +349,9 @@ class AvatarsApi(object):
                 ],
                 'content_type': [],
             },
-            api_client=api_client,
-            callable=__get_favorited_avatars
+            api_client=api_client
         )
-
-        def __search_avatars(
-            self,
-            **kwargs
-        ):
-            """Search Avatars  # noqa: E501
-
-            Search and list avatars by query filters. You can only search your own or featured avatars. It is not possible as a normal user to search other peoples avatars.  # noqa: E501
-            This method makes a synchronous HTTP request by default. To make an
-            asynchronous HTTP request, please pass async_req=True
-
-            >>> thread = api.search_avatars(async_req=True)
-            >>> result = thread.get()
-
-
-            Keyword Args:
-                featured (str): Filters on featured results.. [optional]
-                sort (str): [optional] if omitted the server will use the default value of "popularity"
-                user (str): Set to `me` for searching own avatars.. [optional] if omitted the server will use the default value of "me"
-                user_id (str): Filter by UserID.. [optional]
-                n (int): The number of objects to return.. [optional] if omitted the server will use the default value of 60
-                order (str): [optional] if omitted the server will use the default value of "descending"
-                offset (int): A zero-based offset from the default object sorting from where search results start.. [optional]
-                tag (str): Tags to include (comma-separated).. [optional]
-                notag (str): Tags to exclude (comma-separated).. [optional]
-                release_status (str): Filter by ReleaseStatus.. [optional] if omitted the server will use the default value of "public"
-                max_unity_version (str): The maximum Unity version supported by the asset.. [optional]
-                min_unity_version (str): The minimum Unity version supported by the asset.. [optional]
-                platform (str): The platform the asset supports.. [optional]
-                _return_http_data_only (bool): response data without head status
-                    code and headers. Default is True.
-                _preload_content (bool): if False, the urllib3.HTTPResponse object
-                    will be returned without reading/decoding response data.
-                    Default is True.
-                _request_timeout (int/float/tuple): timeout setting for this request. If
-                    one number provided, it will be total request timeout. It can also
-                    be a pair (tuple) of (connection, read) timeouts.
-                    Default is None.
-                _check_input_type (bool): specifies if type checking
-                    should be done one the data sent to the server.
-                    Default is True.
-                _check_return_type (bool): specifies if type checking
-                    should be done one the data received from the server.
-                    Default is True.
-                _host_index (int/None): specifies the index of the server
-                    that we want to use.
-                    Default is read from the configuration.
-                async_req (bool): execute request asynchronously
-
-            Returns:
-                [Avatar]
-                    If the method is called asynchronously, returns the request
-                    thread.
-            """
-            kwargs['async_req'] = kwargs.get(
-                'async_req', False
-            )
-            kwargs['_return_http_data_only'] = kwargs.get(
-                '_return_http_data_only', True
-            )
-            kwargs['_preload_content'] = kwargs.get(
-                '_preload_content', True
-            )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
-            kwargs['_check_input_type'] = kwargs.get(
-                '_check_input_type', True
-            )
-            kwargs['_check_return_type'] = kwargs.get(
-                '_check_return_type', True
-            )
-            kwargs['_host_index'] = kwargs.get('_host_index')
-            return self.call_with_http_info(**kwargs)
-
-        self.search_avatars = _Endpoint(
+        self.search_avatars_endpoint = _Endpoint(
             settings={
                 'response_type': ([Avatar],),
                 'auth': [
@@ -862,77 +511,9 @@ class AvatarsApi(object):
                 ],
                 'content_type': [],
             },
-            api_client=api_client,
-            callable=__search_avatars
+            api_client=api_client
         )
-
-        def __select_avatar(
-            self,
-            avatar_id,
-            **kwargs
-        ):
-            """Select Avatar  # noqa: E501
-
-            Switches into that avatar.  # noqa: E501
-            This method makes a synchronous HTTP request by default. To make an
-            asynchronous HTTP request, please pass async_req=True
-
-            >>> thread = api.select_avatar(avatar_id, async_req=True)
-            >>> result = thread.get()
-
-            Args:
-                avatar_id (str):
-
-            Keyword Args:
-                _return_http_data_only (bool): response data without head status
-                    code and headers. Default is True.
-                _preload_content (bool): if False, the urllib3.HTTPResponse object
-                    will be returned without reading/decoding response data.
-                    Default is True.
-                _request_timeout (int/float/tuple): timeout setting for this request. If
-                    one number provided, it will be total request timeout. It can also
-                    be a pair (tuple) of (connection, read) timeouts.
-                    Default is None.
-                _check_input_type (bool): specifies if type checking
-                    should be done one the data sent to the server.
-                    Default is True.
-                _check_return_type (bool): specifies if type checking
-                    should be done one the data received from the server.
-                    Default is True.
-                _host_index (int/None): specifies the index of the server
-                    that we want to use.
-                    Default is read from the configuration.
-                async_req (bool): execute request asynchronously
-
-            Returns:
-                CurrentUser
-                    If the method is called asynchronously, returns the request
-                    thread.
-            """
-            kwargs['async_req'] = kwargs.get(
-                'async_req', False
-            )
-            kwargs['_return_http_data_only'] = kwargs.get(
-                '_return_http_data_only', True
-            )
-            kwargs['_preload_content'] = kwargs.get(
-                '_preload_content', True
-            )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
-            kwargs['_check_input_type'] = kwargs.get(
-                '_check_input_type', True
-            )
-            kwargs['_check_return_type'] = kwargs.get(
-                '_check_return_type', True
-            )
-            kwargs['_host_index'] = kwargs.get('_host_index')
-            kwargs['avatar_id'] = \
-                avatar_id
-            return self.call_with_http_info(**kwargs)
-
-        self.select_avatar = _Endpoint(
+        self.select_avatar_endpoint = _Endpoint(
             settings={
                 'response_type': (CurrentUser,),
                 'auth': [
@@ -982,78 +563,9 @@ class AvatarsApi(object):
                 ],
                 'content_type': [],
             },
-            api_client=api_client,
-            callable=__select_avatar
+            api_client=api_client
         )
-
-        def __update_avatar(
-            self,
-            avatar_id,
-            **kwargs
-        ):
-            """Update Avatar  # noqa: E501
-
-            Update information about a specific avatar.  # noqa: E501
-            This method makes a synchronous HTTP request by default. To make an
-            asynchronous HTTP request, please pass async_req=True
-
-            >>> thread = api.update_avatar(avatar_id, async_req=True)
-            >>> result = thread.get()
-
-            Args:
-                avatar_id (str):
-
-            Keyword Args:
-                inline_object11 (InlineObject11): [optional]
-                _return_http_data_only (bool): response data without head status
-                    code and headers. Default is True.
-                _preload_content (bool): if False, the urllib3.HTTPResponse object
-                    will be returned without reading/decoding response data.
-                    Default is True.
-                _request_timeout (int/float/tuple): timeout setting for this request. If
-                    one number provided, it will be total request timeout. It can also
-                    be a pair (tuple) of (connection, read) timeouts.
-                    Default is None.
-                _check_input_type (bool): specifies if type checking
-                    should be done one the data sent to the server.
-                    Default is True.
-                _check_return_type (bool): specifies if type checking
-                    should be done one the data received from the server.
-                    Default is True.
-                _host_index (int/None): specifies the index of the server
-                    that we want to use.
-                    Default is read from the configuration.
-                async_req (bool): execute request asynchronously
-
-            Returns:
-                Avatar
-                    If the method is called asynchronously, returns the request
-                    thread.
-            """
-            kwargs['async_req'] = kwargs.get(
-                'async_req', False
-            )
-            kwargs['_return_http_data_only'] = kwargs.get(
-                '_return_http_data_only', True
-            )
-            kwargs['_preload_content'] = kwargs.get(
-                '_preload_content', True
-            )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
-            kwargs['_check_input_type'] = kwargs.get(
-                '_check_input_type', True
-            )
-            kwargs['_check_return_type'] = kwargs.get(
-                '_check_return_type', True
-            )
-            kwargs['_host_index'] = kwargs.get('_host_index')
-            kwargs['avatar_id'] = \
-                avatar_id
-            return self.call_with_http_info(**kwargs)
-
-        self.update_avatar = _Endpoint(
+        self.update_avatar_endpoint = _Endpoint(
             settings={
                 'response_type': (Avatar,),
                 'auth': [
@@ -1109,6 +621,481 @@ class AvatarsApi(object):
                     'application/json'
                 ]
             },
-            api_client=api_client,
-            callable=__update_avatar
+            api_client=api_client
         )
+
+    def create_avatar(
+        self,
+        **kwargs
+    ):
+        """Create Avatar  # noqa: E501
+
+        Create an avatar. It's possible to optionally specify a ID if you want a custom one. Attempting to create an Avatar with an already claimed ID will result in a DB error.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.create_avatar(async_req=True)
+        >>> result = thread.get()
+
+
+        Keyword Args:
+            inline_object10 (InlineObject10): [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            Avatar
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        return self.create_avatar_endpoint.call_with_http_info(**kwargs)
+
+    def delete_avatar(
+        self,
+        avatar_id,
+        **kwargs
+    ):
+        """Delete Avatar  # noqa: E501
+
+        Delete an avatar. Notice an avatar is never fully \"deleted\", only its ReleaseStatus is set to \"hidden\" and the linked Files are deleted. The AvatarID is permanently reserved.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.delete_avatar(avatar_id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            avatar_id (str):
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            Avatar
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['avatar_id'] = \
+            avatar_id
+        return self.delete_avatar_endpoint.call_with_http_info(**kwargs)
+
+    def get_avatar(
+        self,
+        avatar_id,
+        **kwargs
+    ):
+        """Get Avatar  # noqa: E501
+
+        Get information about a specific Avatar.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_avatar(avatar_id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            avatar_id (str):
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            Avatar
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['avatar_id'] = \
+            avatar_id
+        return self.get_avatar_endpoint.call_with_http_info(**kwargs)
+
+    def get_favorited_avatars(
+        self,
+        **kwargs
+    ):
+        """List Favorited Avatars  # noqa: E501
+
+        Search and list favorited avatars by query filters.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_favorited_avatars(async_req=True)
+        >>> result = thread.get()
+
+
+        Keyword Args:
+            featured (str): Filters on featured results.. [optional]
+            sort (str): [optional] if omitted the server will use the default value of "popularity"
+            n (int): The number of objects to return.. [optional] if omitted the server will use the default value of 60
+            order (str): [optional] if omitted the server will use the default value of "descending"
+            offset (int): A zero-based offset from the default object sorting from where search results start.. [optional]
+            search (str): Filters by world name.. [optional]
+            tag (str): Tags to include (comma-separated).. [optional]
+            notag (str): Tags to exclude (comma-separated).. [optional]
+            release_status (str): Filter by ReleaseStatus.. [optional] if omitted the server will use the default value of "public"
+            max_unity_version (str): The maximum Unity version supported by the asset.. [optional]
+            min_unity_version (str): The minimum Unity version supported by the asset.. [optional]
+            platform (str): The platform the asset supports.. [optional]
+            user_id (str): Target user to see information on, admin-only.. [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            [Avatar]
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        return self.get_favorited_avatars_endpoint.call_with_http_info(**kwargs)
+
+    def search_avatars(
+        self,
+        **kwargs
+    ):
+        """Search Avatars  # noqa: E501
+
+        Search and list avatars by query filters. You can only search your own or featured avatars. It is not possible as a normal user to search other peoples avatars.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.search_avatars(async_req=True)
+        >>> result = thread.get()
+
+
+        Keyword Args:
+            featured (str): Filters on featured results.. [optional]
+            sort (str): [optional] if omitted the server will use the default value of "popularity"
+            user (str): Set to `me` for searching own avatars.. [optional] if omitted the server will use the default value of "me"
+            user_id (str): Filter by UserID.. [optional]
+            n (int): The number of objects to return.. [optional] if omitted the server will use the default value of 60
+            order (str): [optional] if omitted the server will use the default value of "descending"
+            offset (int): A zero-based offset from the default object sorting from where search results start.. [optional]
+            tag (str): Tags to include (comma-separated).. [optional]
+            notag (str): Tags to exclude (comma-separated).. [optional]
+            release_status (str): Filter by ReleaseStatus.. [optional] if omitted the server will use the default value of "public"
+            max_unity_version (str): The maximum Unity version supported by the asset.. [optional]
+            min_unity_version (str): The minimum Unity version supported by the asset.. [optional]
+            platform (str): The platform the asset supports.. [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            [Avatar]
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        return self.search_avatars_endpoint.call_with_http_info(**kwargs)
+
+    def select_avatar(
+        self,
+        avatar_id,
+        **kwargs
+    ):
+        """Select Avatar  # noqa: E501
+
+        Switches into that avatar.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.select_avatar(avatar_id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            avatar_id (str):
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            CurrentUser
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['avatar_id'] = \
+            avatar_id
+        return self.select_avatar_endpoint.call_with_http_info(**kwargs)
+
+    def update_avatar(
+        self,
+        avatar_id,
+        **kwargs
+    ):
+        """Update Avatar  # noqa: E501
+
+        Update information about a specific avatar.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.update_avatar(avatar_id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            avatar_id (str):
+
+        Keyword Args:
+            inline_object11 (InlineObject11): [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            Avatar
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['avatar_id'] = \
+            avatar_id
+        return self.update_avatar_endpoint.call_with_http_info(**kwargs)
+
