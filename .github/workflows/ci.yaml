@@ -1,7 +1,7 @@
-on:
-  repository_dispatch:
-    types: [spec_release]
-#on: push
+#on:
+#  repository_dispatch:
+#    types: [spec_release]
+on: push
 
 name: Generate VRChat API SDK
 
