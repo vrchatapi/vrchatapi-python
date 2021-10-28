@@ -21,6 +21,7 @@ API config contains configuration that the clients needs to work properly.  Curr
 
 ### Example
 
+
 ```python
 import time
 import vrchatapi
@@ -67,6 +68,7 @@ No authorization required
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  * Set-Cookie -  <br>  |
@@ -81,6 +83,7 @@ Download Frontend CSS
 Fetches the CSS code to the frontend React website.
 
 ### Example
+
 
 ```python
 import time
@@ -135,6 +138,7 @@ No authorization required
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | **Note:** VRChat uses 302 Redirect to Cloudfront. The implementing library **must** support and follow redirects natively. |  -  |
@@ -150,6 +154,7 @@ Current Online Users
 Returns in plain format the number of currently online users.  **NOTE:** The response type is not of JSON, but is an integer in plain ASCII format.
 
 ### Example
+
 
 ```python
 import time
@@ -196,6 +201,7 @@ No authorization required
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |
@@ -210,6 +216,7 @@ Check API Health
 ~~Gets the overall health status, the server name, and the current build version tag of the API.~~  **DEPRECATED:** VRChat has suddenly restricted this endpoint for unknown reasons, and now always return 401 Unauthorized.
 
 ### Example
+
 
 ```python
 import time
@@ -257,6 +264,7 @@ No authorization required
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | API&#39;s Health |  -  |
@@ -271,6 +279,7 @@ Download Frontend JavaScript
 Fetches the JavaScript code to the frontend React website.
 
 ### Example
+
 
 ```python
 import time
@@ -325,6 +334,7 @@ No authorization required
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | **Note:** VRChat uses 302 Redirect to Cloudfront. The implementing library **must** support and follow redirects natively. |  -  |
@@ -340,6 +350,7 @@ Current System Time
 Returns in plain format the current time of the API server.  **NOTE:** The response type is not of JSON, but is a string in plain ASCII format.
 
 ### Example
+
 
 ```python
 import time
@@ -386,6 +397,7 @@ No authorization required
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |

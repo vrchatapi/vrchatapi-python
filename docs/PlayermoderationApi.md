@@ -23,6 +23,7 @@ Clear All Player Moderations
 
 * Api Key Authentication (apiKeyCookie):
 * Api Key Authentication (authCookie):
+
 ```python
 import time
 import vrchatapi
@@ -85,6 +86,7 @@ This endpoint does not need any parameter.
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Success response after e.g. clearing all player moderations. |  -  |
@@ -103,6 +105,7 @@ Deletes a specific player moderation based on it's `pmod_` ID. The website uses 
 
 * Api Key Authentication (apiKeyCookie):
 * Api Key Authentication (authCookie):
+
 ```python
 import time
 import vrchatapi
@@ -170,6 +173,7 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Success response after removing a PlayerModeration by ID. |  -  |
@@ -189,6 +193,7 @@ Returns a single Player Moderation. This returns the exact same amount of inform
 
 * Api Key Authentication (apiKeyCookie):
 * Api Key Authentication (authCookie):
+
 ```python
 import time
 import vrchatapi
@@ -256,6 +261,7 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Returns a single PlayerModeration object. |  -  |
@@ -275,6 +281,7 @@ Returns a list of all player moderations made by **you**.  This endpoint does no
 
 * Api Key Authentication (apiKeyCookie):
 * Api Key Authentication (authCookie):
+
 ```python
 import time
 import vrchatapi
@@ -345,6 +352,7 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Returns a list of PlayerModeration objects. |  -  |
@@ -363,6 +371,7 @@ Moderate a user, e.g. unmute them or show their avatar.
 
 * Api Key Authentication (apiKeyCookie):
 * Api Key Authentication (authCookie):
+
 ```python
 import time
 import vrchatapi
@@ -435,6 +444,7 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Returns a single PlayerModeration object. |  -  |
@@ -453,6 +463,7 @@ Removes a player moderation previously added through `moderateUser`. E.g if you 
 
 * Api Key Authentication (apiKeyCookie):
 * Api Key Authentication (authCookie):
+
 ```python
 import time
 import vrchatapi
@@ -525,6 +536,7 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Success response after unmoderating a player moderation. |  -  |

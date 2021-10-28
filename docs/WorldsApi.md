@@ -28,6 +28,7 @@ Create a new world. This endpoint requires `assetUrl` to be a valid File object 
 
 ### Example
 
+
 ```python
 import time
 import vrchatapi
@@ -98,6 +99,7 @@ No authorization required
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Returns a single World object. |  -  |
@@ -117,6 +119,7 @@ Delete a world. Notice a world is never fully \"deleted\", only its ReleaseStatu
 
 * Api Key Authentication (apiKeyCookie):
 * Api Key Authentication (authCookie):
+
 ```python
 import time
 import vrchatapi
@@ -182,6 +185,7 @@ void (empty response body)
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |
@@ -201,6 +205,7 @@ Search and list currently Active worlds by query filters.
 
 * Api Key Authentication (apiKeyCookie):
 * Api Key Authentication (authCookie):
+
 ```python
 import time
 import vrchatapi
@@ -291,6 +296,7 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Returns a list of LimitedWorld objects. |  -  |
@@ -309,6 +315,7 @@ Search and list favorited worlds by query filters.
 
 * Api Key Authentication (apiKeyCookie):
 * Api Key Authentication (authCookie):
+
 ```python
 import time
 import vrchatapi
@@ -401,6 +408,7 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Returns a list of LimitedWorld objects. |  -  |
@@ -420,6 +428,7 @@ Search and list recently visited worlds by query filters.
 
 * Api Key Authentication (apiKeyCookie):
 * Api Key Authentication (authCookie):
+
 ```python
 import time
 import vrchatapi
@@ -512,6 +521,7 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Returns a list of LimitedWorld objects. |  -  |
@@ -530,6 +540,7 @@ Get information about a specific World.
 ### Example
 
 * Api Key Authentication (apiKeyCookie):
+
 ```python
 import time
 import vrchatapi
@@ -591,6 +602,7 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Returns a single World object. |  -  |
@@ -609,6 +621,7 @@ Returns a worlds instance.
 
 * Api Key Authentication (apiKeyCookie):
 * Api Key Authentication (authCookie):
+
 ```python
 import time
 import vrchatapi
@@ -678,6 +691,7 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Returns a single Instance object. |  -  |
@@ -696,6 +710,7 @@ Return a worlds custom metadata. This is currently believed to be unused. Metada
 
 * Api Key Authentication (apiKeyCookie):
 * Api Key Authentication (authCookie):
+
 ```python
 import time
 import vrchatapi
@@ -763,6 +778,7 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |
@@ -781,6 +797,7 @@ Returns a worlds publish status.
 
 * Api Key Authentication (apiKeyCookie):
 * Api Key Authentication (authCookie):
+
 ```python
 import time
 import vrchatapi
@@ -848,6 +865,7 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |
@@ -867,6 +885,7 @@ Publish a world. You can only publish one world per week.
 
 * Api Key Authentication (apiKeyCookie):
 * Api Key Authentication (authCookie):
+
 ```python
 import time
 import vrchatapi
@@ -932,6 +951,7 @@ void (empty response body)
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | TODO |  -  |
@@ -951,6 +971,7 @@ Search and list any worlds by query filters.
 
 * Api Key Authentication (apiKeyCookie):
 * Api Key Authentication (authCookie):
+
 ```python
 import time
 import vrchatapi
@@ -1045,6 +1066,7 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Returns a list of LimitedWorld objects. |  -  |
@@ -1063,6 +1085,7 @@ Unpublish a world.
 
 * Api Key Authentication (apiKeyCookie):
 * Api Key Authentication (authCookie):
+
 ```python
 import time
 import vrchatapi
@@ -1128,6 +1151,7 @@ void (empty response body)
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |
@@ -1147,6 +1171,7 @@ Update information about a specific World.
 
 * Api Key Authentication (apiKeyCookie):
 * Api Key Authentication (authCookie):
+
 ```python
 import time
 import vrchatapi
@@ -1243,6 +1268,7 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Returns a single World object. |  -  |

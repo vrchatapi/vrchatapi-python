@@ -23,6 +23,7 @@ Checks if a user by a given `username`, `displayName` or `email` exist. This is 
 ### Example
 
 * Api Key Authentication (apiKeyCookie):
+
 ```python
 import time
 import vrchatapi
@@ -91,6 +92,7 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Returns a response if a user exists or not. |  -  |
@@ -109,6 +111,7 @@ Deletes the account with given ID. Normal users only have permission to delete t
 
 * Api Key Authentication (apiKeyCookie):
 * Api Key Authentication (authCookie):
+
 ```python
 import time
 import vrchatapi
@@ -176,6 +179,7 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |
@@ -195,6 +199,7 @@ This endpoint does the following two operations:   1) Checks if you are already 
 * Api Key Authentication (authCookie):
 * Basic Authentication (authHeader):
 * Api Key Authentication (twoFactorAuthCookie):
+
 ```python
 import time
 import vrchatapi
@@ -264,6 +269,7 @@ This endpoint does not need any parameter.
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  * Set-Cookie - Successful authentication returns an &#x60;auth&#x60; cookie. <br>  * \0Set-Cookie - This endpoint **always** sets the &#x60;apiKey&#x60; irrespective if it is already set. <br>  |
@@ -281,6 +287,7 @@ Invalidates the login session.
 ### Example
 
 * Api Key Authentication (authCookie):
+
 ```python
 import time
 import vrchatapi
@@ -338,6 +345,7 @@ This endpoint does not need any parameter.
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  * Set-Cookie - Clears the &#x60;auth&#x60; cookie. <br>  * \0Set-Cookie - Clears the &#x60;age&#x60; cookie. <br>  * \0\0Set-Cookie - Clears the &#x60;tos&#x60; cookie. <br>  |
@@ -355,6 +363,7 @@ Finishes the login sequence with a normal 2FA-generated code for accounts with 2
 ### Example
 
 * Api Key Authentication (authCookie):
+
 ```python
 import time
 import vrchatapi
@@ -420,6 +429,7 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  * Set-Cookie - Provides a &#x60;twoFactorAuth&#x60; cookie, which can be used to bypasses the 2FA requirement for future logins on the same device. <br>  |
@@ -437,6 +447,7 @@ Verify whether the currently provided Auth Token is valid.
 ### Example
 
 * Api Key Authentication (authCookie):
+
 ```python
 import time
 import vrchatapi
@@ -494,6 +505,7 @@ This endpoint does not need any parameter.
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |
@@ -511,6 +523,7 @@ Finishes the login sequence with an OTP (One Time Password) recovery code for ac
 ### Example
 
 * Api Key Authentication (authCookie):
+
 ```python
 import time
 import vrchatapi
@@ -576,6 +589,7 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  * Set-Cookie - Provides a &#x60;twoFactorAuth&#x60; cookie, which can be used to bypasses the 2FA requirement for future logins on the same device. <br>  |

@@ -42,70 +42,7 @@ class WorldsApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
-
-        def __create_world(
-            self,
-            **kwargs
-        ):
-            """Create World  # noqa: E501
-
-            Create a new world. This endpoint requires `assetUrl` to be a valid File object with `.vrcw` file extension, and `imageUrl` to be a valid File object with an image file extension.  # noqa: E501
-            This method makes a synchronous HTTP request by default. To make an
-            asynchronous HTTP request, please pass async_req=True
-
-            >>> thread = api.create_world(async_req=True)
-            >>> result = thread.get()
-
-
-            Keyword Args:
-                inline_object6 (InlineObject6): [optional]
-                _return_http_data_only (bool): response data without head status
-                    code and headers. Default is True.
-                _preload_content (bool): if False, the urllib3.HTTPResponse object
-                    will be returned without reading/decoding response data.
-                    Default is True.
-                _request_timeout (int/float/tuple): timeout setting for this request. If
-                    one number provided, it will be total request timeout. It can also
-                    be a pair (tuple) of (connection, read) timeouts.
-                    Default is None.
-                _check_input_type (bool): specifies if type checking
-                    should be done one the data sent to the server.
-                    Default is True.
-                _check_return_type (bool): specifies if type checking
-                    should be done one the data received from the server.
-                    Default is True.
-                _host_index (int/None): specifies the index of the server
-                    that we want to use.
-                    Default is read from the configuration.
-                async_req (bool): execute request asynchronously
-
-            Returns:
-                World
-                    If the method is called asynchronously, returns the request
-                    thread.
-            """
-            kwargs['async_req'] = kwargs.get(
-                'async_req', False
-            )
-            kwargs['_return_http_data_only'] = kwargs.get(
-                '_return_http_data_only', True
-            )
-            kwargs['_preload_content'] = kwargs.get(
-                '_preload_content', True
-            )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
-            kwargs['_check_input_type'] = kwargs.get(
-                '_check_input_type', True
-            )
-            kwargs['_check_return_type'] = kwargs.get(
-                '_check_return_type', True
-            )
-            kwargs['_host_index'] = kwargs.get('_host_index')
-            return self.call_with_http_info(**kwargs)
-
-        self.create_world = _Endpoint(
+        self.create_world_endpoint = _Endpoint(
             settings={
                 'response_type': (World,),
                 'auth': [],
@@ -151,77 +88,9 @@ class WorldsApi(object):
                     'application/json'
                 ]
             },
-            api_client=api_client,
-            callable=__create_world
+            api_client=api_client
         )
-
-        def __delete_world(
-            self,
-            world_id,
-            **kwargs
-        ):
-            """Delete World  # noqa: E501
-
-            Delete a world. Notice a world is never fully \"deleted\", only its ReleaseStatus is set to \"hidden\" and the linked Files are deleted. The WorldID is permanently reserved.  # noqa: E501
-            This method makes a synchronous HTTP request by default. To make an
-            asynchronous HTTP request, please pass async_req=True
-
-            >>> thread = api.delete_world(world_id, async_req=True)
-            >>> result = thread.get()
-
-            Args:
-                world_id (str):
-
-            Keyword Args:
-                _return_http_data_only (bool): response data without head status
-                    code and headers. Default is True.
-                _preload_content (bool): if False, the urllib3.HTTPResponse object
-                    will be returned without reading/decoding response data.
-                    Default is True.
-                _request_timeout (int/float/tuple): timeout setting for this request. If
-                    one number provided, it will be total request timeout. It can also
-                    be a pair (tuple) of (connection, read) timeouts.
-                    Default is None.
-                _check_input_type (bool): specifies if type checking
-                    should be done one the data sent to the server.
-                    Default is True.
-                _check_return_type (bool): specifies if type checking
-                    should be done one the data received from the server.
-                    Default is True.
-                _host_index (int/None): specifies the index of the server
-                    that we want to use.
-                    Default is read from the configuration.
-                async_req (bool): execute request asynchronously
-
-            Returns:
-                None
-                    If the method is called asynchronously, returns the request
-                    thread.
-            """
-            kwargs['async_req'] = kwargs.get(
-                'async_req', False
-            )
-            kwargs['_return_http_data_only'] = kwargs.get(
-                '_return_http_data_only', True
-            )
-            kwargs['_preload_content'] = kwargs.get(
-                '_preload_content', True
-            )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
-            kwargs['_check_input_type'] = kwargs.get(
-                '_check_input_type', True
-            )
-            kwargs['_check_return_type'] = kwargs.get(
-                '_check_return_type', True
-            )
-            kwargs['_host_index'] = kwargs.get('_host_index')
-            kwargs['world_id'] = \
-                world_id
-            return self.call_with_http_info(**kwargs)
-
-        self.delete_world = _Endpoint(
+        self.delete_world_endpoint = _Endpoint(
             settings={
                 'response_type': None,
                 'auth': [
@@ -271,84 +140,9 @@ class WorldsApi(object):
                 ],
                 'content_type': [],
             },
-            api_client=api_client,
-            callable=__delete_world
+            api_client=api_client
         )
-
-        def __get_active_worlds(
-            self,
-            **kwargs
-        ):
-            """List Active Worlds  # noqa: E501
-
-            Search and list currently Active worlds by query filters.  # noqa: E501
-            This method makes a synchronous HTTP request by default. To make an
-            asynchronous HTTP request, please pass async_req=True
-
-            >>> thread = api.get_active_worlds(async_req=True)
-            >>> result = thread.get()
-
-
-            Keyword Args:
-                featured (str): Filters on featured results.. [optional]
-                sort (str): [optional] if omitted the server will use the default value of "popularity"
-                n (int): The number of objects to return.. [optional] if omitted the server will use the default value of 60
-                order (str): [optional] if omitted the server will use the default value of "descending"
-                offset (int): A zero-based offset from the default object sorting from where search results start.. [optional]
-                search (str): Filters by world name.. [optional]
-                tag (str): Tags to include (comma-separated).. [optional]
-                notag (str): Tags to exclude (comma-separated).. [optional]
-                release_status (str): Filter by ReleaseStatus.. [optional] if omitted the server will use the default value of "public"
-                max_unity_version (str): The maximum Unity version supported by the asset.. [optional]
-                min_unity_version (str): The minimum Unity version supported by the asset.. [optional]
-                platform (str): The platform the asset supports.. [optional]
-                _return_http_data_only (bool): response data without head status
-                    code and headers. Default is True.
-                _preload_content (bool): if False, the urllib3.HTTPResponse object
-                    will be returned without reading/decoding response data.
-                    Default is True.
-                _request_timeout (int/float/tuple): timeout setting for this request. If
-                    one number provided, it will be total request timeout. It can also
-                    be a pair (tuple) of (connection, read) timeouts.
-                    Default is None.
-                _check_input_type (bool): specifies if type checking
-                    should be done one the data sent to the server.
-                    Default is True.
-                _check_return_type (bool): specifies if type checking
-                    should be done one the data received from the server.
-                    Default is True.
-                _host_index (int/None): specifies the index of the server
-                    that we want to use.
-                    Default is read from the configuration.
-                async_req (bool): execute request asynchronously
-
-            Returns:
-                [LimitedWorld]
-                    If the method is called asynchronously, returns the request
-                    thread.
-            """
-            kwargs['async_req'] = kwargs.get(
-                'async_req', False
-            )
-            kwargs['_return_http_data_only'] = kwargs.get(
-                '_return_http_data_only', True
-            )
-            kwargs['_preload_content'] = kwargs.get(
-                '_preload_content', True
-            )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
-            kwargs['_check_input_type'] = kwargs.get(
-                '_check_input_type', True
-            )
-            kwargs['_check_return_type'] = kwargs.get(
-                '_check_return_type', True
-            )
-            kwargs['_host_index'] = kwargs.get('_host_index')
-            return self.call_with_http_info(**kwargs)
-
-        self.get_active_worlds = _Endpoint(
+        self.get_active_worlds_endpoint = _Endpoint(
             settings={
                 'response_type': ([LimitedWorld],),
                 'auth': [
@@ -498,85 +292,9 @@ class WorldsApi(object):
                 ],
                 'content_type': [],
             },
-            api_client=api_client,
-            callable=__get_active_worlds
+            api_client=api_client
         )
-
-        def __get_favorited_worlds(
-            self,
-            **kwargs
-        ):
-            """List Favorited Worlds  # noqa: E501
-
-            Search and list favorited worlds by query filters.  # noqa: E501
-            This method makes a synchronous HTTP request by default. To make an
-            asynchronous HTTP request, please pass async_req=True
-
-            >>> thread = api.get_favorited_worlds(async_req=True)
-            >>> result = thread.get()
-
-
-            Keyword Args:
-                featured (str): Filters on featured results.. [optional]
-                sort (str): [optional] if omitted the server will use the default value of "popularity"
-                n (int): The number of objects to return.. [optional] if omitted the server will use the default value of 60
-                order (str): [optional] if omitted the server will use the default value of "descending"
-                offset (int): A zero-based offset from the default object sorting from where search results start.. [optional]
-                search (str): Filters by world name.. [optional]
-                tag (str): Tags to include (comma-separated).. [optional]
-                notag (str): Tags to exclude (comma-separated).. [optional]
-                release_status (str): Filter by ReleaseStatus.. [optional] if omitted the server will use the default value of "public"
-                max_unity_version (str): The maximum Unity version supported by the asset.. [optional]
-                min_unity_version (str): The minimum Unity version supported by the asset.. [optional]
-                platform (str): The platform the asset supports.. [optional]
-                user_id (str): Target user to see information on, admin-only.. [optional]
-                _return_http_data_only (bool): response data without head status
-                    code and headers. Default is True.
-                _preload_content (bool): if False, the urllib3.HTTPResponse object
-                    will be returned without reading/decoding response data.
-                    Default is True.
-                _request_timeout (int/float/tuple): timeout setting for this request. If
-                    one number provided, it will be total request timeout. It can also
-                    be a pair (tuple) of (connection, read) timeouts.
-                    Default is None.
-                _check_input_type (bool): specifies if type checking
-                    should be done one the data sent to the server.
-                    Default is True.
-                _check_return_type (bool): specifies if type checking
-                    should be done one the data received from the server.
-                    Default is True.
-                _host_index (int/None): specifies the index of the server
-                    that we want to use.
-                    Default is read from the configuration.
-                async_req (bool): execute request asynchronously
-
-            Returns:
-                [LimitedWorld]
-                    If the method is called asynchronously, returns the request
-                    thread.
-            """
-            kwargs['async_req'] = kwargs.get(
-                'async_req', False
-            )
-            kwargs['_return_http_data_only'] = kwargs.get(
-                '_return_http_data_only', True
-            )
-            kwargs['_preload_content'] = kwargs.get(
-                '_preload_content', True
-            )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
-            kwargs['_check_input_type'] = kwargs.get(
-                '_check_input_type', True
-            )
-            kwargs['_check_return_type'] = kwargs.get(
-                '_check_return_type', True
-            )
-            kwargs['_host_index'] = kwargs.get('_host_index')
-            return self.call_with_http_info(**kwargs)
-
-        self.get_favorited_worlds = _Endpoint(
+        self.get_favorited_worlds_endpoint = _Endpoint(
             settings={
                 'response_type': ([LimitedWorld],),
                 'auth': [
@@ -731,85 +449,9 @@ class WorldsApi(object):
                 ],
                 'content_type': [],
             },
-            api_client=api_client,
-            callable=__get_favorited_worlds
+            api_client=api_client
         )
-
-        def __get_recent_worlds(
-            self,
-            **kwargs
-        ):
-            """List Recent Worlds  # noqa: E501
-
-            Search and list recently visited worlds by query filters.  # noqa: E501
-            This method makes a synchronous HTTP request by default. To make an
-            asynchronous HTTP request, please pass async_req=True
-
-            >>> thread = api.get_recent_worlds(async_req=True)
-            >>> result = thread.get()
-
-
-            Keyword Args:
-                featured (str): Filters on featured results.. [optional]
-                sort (str): [optional] if omitted the server will use the default value of "popularity"
-                n (int): The number of objects to return.. [optional] if omitted the server will use the default value of 60
-                order (str): [optional] if omitted the server will use the default value of "descending"
-                offset (int): A zero-based offset from the default object sorting from where search results start.. [optional]
-                search (str): Filters by world name.. [optional]
-                tag (str): Tags to include (comma-separated).. [optional]
-                notag (str): Tags to exclude (comma-separated).. [optional]
-                release_status (str): Filter by ReleaseStatus.. [optional] if omitted the server will use the default value of "public"
-                max_unity_version (str): The maximum Unity version supported by the asset.. [optional]
-                min_unity_version (str): The minimum Unity version supported by the asset.. [optional]
-                platform (str): The platform the asset supports.. [optional]
-                user_id (str): Target user to see information on, admin-only.. [optional]
-                _return_http_data_only (bool): response data without head status
-                    code and headers. Default is True.
-                _preload_content (bool): if False, the urllib3.HTTPResponse object
-                    will be returned without reading/decoding response data.
-                    Default is True.
-                _request_timeout (int/float/tuple): timeout setting for this request. If
-                    one number provided, it will be total request timeout. It can also
-                    be a pair (tuple) of (connection, read) timeouts.
-                    Default is None.
-                _check_input_type (bool): specifies if type checking
-                    should be done one the data sent to the server.
-                    Default is True.
-                _check_return_type (bool): specifies if type checking
-                    should be done one the data received from the server.
-                    Default is True.
-                _host_index (int/None): specifies the index of the server
-                    that we want to use.
-                    Default is read from the configuration.
-                async_req (bool): execute request asynchronously
-
-            Returns:
-                [LimitedWorld]
-                    If the method is called asynchronously, returns the request
-                    thread.
-            """
-            kwargs['async_req'] = kwargs.get(
-                'async_req', False
-            )
-            kwargs['_return_http_data_only'] = kwargs.get(
-                '_return_http_data_only', True
-            )
-            kwargs['_preload_content'] = kwargs.get(
-                '_preload_content', True
-            )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
-            kwargs['_check_input_type'] = kwargs.get(
-                '_check_input_type', True
-            )
-            kwargs['_check_return_type'] = kwargs.get(
-                '_check_return_type', True
-            )
-            kwargs['_host_index'] = kwargs.get('_host_index')
-            return self.call_with_http_info(**kwargs)
-
-        self.get_recent_worlds = _Endpoint(
+        self.get_recent_worlds_endpoint = _Endpoint(
             settings={
                 'response_type': ([LimitedWorld],),
                 'auth': [
@@ -964,77 +606,9 @@ class WorldsApi(object):
                 ],
                 'content_type': [],
             },
-            api_client=api_client,
-            callable=__get_recent_worlds
+            api_client=api_client
         )
-
-        def __get_world(
-            self,
-            world_id,
-            **kwargs
-        ):
-            """Get World by ID  # noqa: E501
-
-            Get information about a specific World.  # noqa: E501
-            This method makes a synchronous HTTP request by default. To make an
-            asynchronous HTTP request, please pass async_req=True
-
-            >>> thread = api.get_world(world_id, async_req=True)
-            >>> result = thread.get()
-
-            Args:
-                world_id (str):
-
-            Keyword Args:
-                _return_http_data_only (bool): response data without head status
-                    code and headers. Default is True.
-                _preload_content (bool): if False, the urllib3.HTTPResponse object
-                    will be returned without reading/decoding response data.
-                    Default is True.
-                _request_timeout (int/float/tuple): timeout setting for this request. If
-                    one number provided, it will be total request timeout. It can also
-                    be a pair (tuple) of (connection, read) timeouts.
-                    Default is None.
-                _check_input_type (bool): specifies if type checking
-                    should be done one the data sent to the server.
-                    Default is True.
-                _check_return_type (bool): specifies if type checking
-                    should be done one the data received from the server.
-                    Default is True.
-                _host_index (int/None): specifies the index of the server
-                    that we want to use.
-                    Default is read from the configuration.
-                async_req (bool): execute request asynchronously
-
-            Returns:
-                World
-                    If the method is called asynchronously, returns the request
-                    thread.
-            """
-            kwargs['async_req'] = kwargs.get(
-                'async_req', False
-            )
-            kwargs['_return_http_data_only'] = kwargs.get(
-                '_return_http_data_only', True
-            )
-            kwargs['_preload_content'] = kwargs.get(
-                '_preload_content', True
-            )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
-            kwargs['_check_input_type'] = kwargs.get(
-                '_check_input_type', True
-            )
-            kwargs['_check_return_type'] = kwargs.get(
-                '_check_return_type', True
-            )
-            kwargs['_host_index'] = kwargs.get('_host_index')
-            kwargs['world_id'] = \
-                world_id
-            return self.call_with_http_info(**kwargs)
-
-        self.get_world = _Endpoint(
+        self.get_world_endpoint = _Endpoint(
             settings={
                 'response_type': (World,),
                 'auth': [
@@ -1083,81 +657,9 @@ class WorldsApi(object):
                 ],
                 'content_type': [],
             },
-            api_client=api_client,
-            callable=__get_world
+            api_client=api_client
         )
-
-        def __get_world_instance(
-            self,
-            world_id,
-            instance_id,
-            **kwargs
-        ):
-            """Get World Instance  # noqa: E501
-
-            Returns a worlds instance.  # noqa: E501
-            This method makes a synchronous HTTP request by default. To make an
-            asynchronous HTTP request, please pass async_req=True
-
-            >>> thread = api.get_world_instance(world_id, instance_id, async_req=True)
-            >>> result = thread.get()
-
-            Args:
-                world_id (str):
-                instance_id (str):
-
-            Keyword Args:
-                _return_http_data_only (bool): response data without head status
-                    code and headers. Default is True.
-                _preload_content (bool): if False, the urllib3.HTTPResponse object
-                    will be returned without reading/decoding response data.
-                    Default is True.
-                _request_timeout (int/float/tuple): timeout setting for this request. If
-                    one number provided, it will be total request timeout. It can also
-                    be a pair (tuple) of (connection, read) timeouts.
-                    Default is None.
-                _check_input_type (bool): specifies if type checking
-                    should be done one the data sent to the server.
-                    Default is True.
-                _check_return_type (bool): specifies if type checking
-                    should be done one the data received from the server.
-                    Default is True.
-                _host_index (int/None): specifies the index of the server
-                    that we want to use.
-                    Default is read from the configuration.
-                async_req (bool): execute request asynchronously
-
-            Returns:
-                Instance
-                    If the method is called asynchronously, returns the request
-                    thread.
-            """
-            kwargs['async_req'] = kwargs.get(
-                'async_req', False
-            )
-            kwargs['_return_http_data_only'] = kwargs.get(
-                '_return_http_data_only', True
-            )
-            kwargs['_preload_content'] = kwargs.get(
-                '_preload_content', True
-            )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
-            kwargs['_check_input_type'] = kwargs.get(
-                '_check_input_type', True
-            )
-            kwargs['_check_return_type'] = kwargs.get(
-                '_check_return_type', True
-            )
-            kwargs['_host_index'] = kwargs.get('_host_index')
-            kwargs['world_id'] = \
-                world_id
-            kwargs['instance_id'] = \
-                instance_id
-            return self.call_with_http_info(**kwargs)
-
-        self.get_world_instance = _Endpoint(
+        self.get_world_instance_endpoint = _Endpoint(
             settings={
                 'response_type': (Instance,),
                 'auth': [
@@ -1213,77 +715,9 @@ class WorldsApi(object):
                 ],
                 'content_type': [],
             },
-            api_client=api_client,
-            callable=__get_world_instance
+            api_client=api_client
         )
-
-        def __get_world_metadata(
-            self,
-            world_id,
-            **kwargs
-        ):
-            """Get World Metadata  # noqa: E501
-
-            Return a worlds custom metadata. This is currently believed to be unused. Metadata can be set with `updateWorld` and can be any arbitrary object.  # noqa: E501
-            This method makes a synchronous HTTP request by default. To make an
-            asynchronous HTTP request, please pass async_req=True
-
-            >>> thread = api.get_world_metadata(world_id, async_req=True)
-            >>> result = thread.get()
-
-            Args:
-                world_id (str):
-
-            Keyword Args:
-                _return_http_data_only (bool): response data without head status
-                    code and headers. Default is True.
-                _preload_content (bool): if False, the urllib3.HTTPResponse object
-                    will be returned without reading/decoding response data.
-                    Default is True.
-                _request_timeout (int/float/tuple): timeout setting for this request. If
-                    one number provided, it will be total request timeout. It can also
-                    be a pair (tuple) of (connection, read) timeouts.
-                    Default is None.
-                _check_input_type (bool): specifies if type checking
-                    should be done one the data sent to the server.
-                    Default is True.
-                _check_return_type (bool): specifies if type checking
-                    should be done one the data received from the server.
-                    Default is True.
-                _host_index (int/None): specifies the index of the server
-                    that we want to use.
-                    Default is read from the configuration.
-                async_req (bool): execute request asynchronously
-
-            Returns:
-                InlineResponse2005
-                    If the method is called asynchronously, returns the request
-                    thread.
-            """
-            kwargs['async_req'] = kwargs.get(
-                'async_req', False
-            )
-            kwargs['_return_http_data_only'] = kwargs.get(
-                '_return_http_data_only', True
-            )
-            kwargs['_preload_content'] = kwargs.get(
-                '_preload_content', True
-            )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
-            kwargs['_check_input_type'] = kwargs.get(
-                '_check_input_type', True
-            )
-            kwargs['_check_return_type'] = kwargs.get(
-                '_check_return_type', True
-            )
-            kwargs['_host_index'] = kwargs.get('_host_index')
-            kwargs['world_id'] = \
-                world_id
-            return self.call_with_http_info(**kwargs)
-
-        self.get_world_metadata = _Endpoint(
+        self.get_world_metadata_endpoint = _Endpoint(
             settings={
                 'response_type': (InlineResponse2005,),
                 'auth': [
@@ -1333,77 +767,9 @@ class WorldsApi(object):
                 ],
                 'content_type': [],
             },
-            api_client=api_client,
-            callable=__get_world_metadata
+            api_client=api_client
         )
-
-        def __get_world_publish_status(
-            self,
-            world_id,
-            **kwargs
-        ):
-            """Get World Publish Status  # noqa: E501
-
-            Returns a worlds publish status.  # noqa: E501
-            This method makes a synchronous HTTP request by default. To make an
-            asynchronous HTTP request, please pass async_req=True
-
-            >>> thread = api.get_world_publish_status(world_id, async_req=True)
-            >>> result = thread.get()
-
-            Args:
-                world_id (str):
-
-            Keyword Args:
-                _return_http_data_only (bool): response data without head status
-                    code and headers. Default is True.
-                _preload_content (bool): if False, the urllib3.HTTPResponse object
-                    will be returned without reading/decoding response data.
-                    Default is True.
-                _request_timeout (int/float/tuple): timeout setting for this request. If
-                    one number provided, it will be total request timeout. It can also
-                    be a pair (tuple) of (connection, read) timeouts.
-                    Default is None.
-                _check_input_type (bool): specifies if type checking
-                    should be done one the data sent to the server.
-                    Default is True.
-                _check_return_type (bool): specifies if type checking
-                    should be done one the data received from the server.
-                    Default is True.
-                _host_index (int/None): specifies the index of the server
-                    that we want to use.
-                    Default is read from the configuration.
-                async_req (bool): execute request asynchronously
-
-            Returns:
-                InlineResponse2006
-                    If the method is called asynchronously, returns the request
-                    thread.
-            """
-            kwargs['async_req'] = kwargs.get(
-                'async_req', False
-            )
-            kwargs['_return_http_data_only'] = kwargs.get(
-                '_return_http_data_only', True
-            )
-            kwargs['_preload_content'] = kwargs.get(
-                '_preload_content', True
-            )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
-            kwargs['_check_input_type'] = kwargs.get(
-                '_check_input_type', True
-            )
-            kwargs['_check_return_type'] = kwargs.get(
-                '_check_return_type', True
-            )
-            kwargs['_host_index'] = kwargs.get('_host_index')
-            kwargs['world_id'] = \
-                world_id
-            return self.call_with_http_info(**kwargs)
-
-        self.get_world_publish_status = _Endpoint(
+        self.get_world_publish_status_endpoint = _Endpoint(
             settings={
                 'response_type': (InlineResponse2006,),
                 'auth': [
@@ -1453,77 +819,9 @@ class WorldsApi(object):
                 ],
                 'content_type': [],
             },
-            api_client=api_client,
-            callable=__get_world_publish_status
+            api_client=api_client
         )
-
-        def __publish_world(
-            self,
-            world_id,
-            **kwargs
-        ):
-            """Publish World  # noqa: E501
-
-            Publish a world. You can only publish one world per week.  # noqa: E501
-            This method makes a synchronous HTTP request by default. To make an
-            asynchronous HTTP request, please pass async_req=True
-
-            >>> thread = api.publish_world(world_id, async_req=True)
-            >>> result = thread.get()
-
-            Args:
-                world_id (str):
-
-            Keyword Args:
-                _return_http_data_only (bool): response data without head status
-                    code and headers. Default is True.
-                _preload_content (bool): if False, the urllib3.HTTPResponse object
-                    will be returned without reading/decoding response data.
-                    Default is True.
-                _request_timeout (int/float/tuple): timeout setting for this request. If
-                    one number provided, it will be total request timeout. It can also
-                    be a pair (tuple) of (connection, read) timeouts.
-                    Default is None.
-                _check_input_type (bool): specifies if type checking
-                    should be done one the data sent to the server.
-                    Default is True.
-                _check_return_type (bool): specifies if type checking
-                    should be done one the data received from the server.
-                    Default is True.
-                _host_index (int/None): specifies the index of the server
-                    that we want to use.
-                    Default is read from the configuration.
-                async_req (bool): execute request asynchronously
-
-            Returns:
-                None
-                    If the method is called asynchronously, returns the request
-                    thread.
-            """
-            kwargs['async_req'] = kwargs.get(
-                'async_req', False
-            )
-            kwargs['_return_http_data_only'] = kwargs.get(
-                '_return_http_data_only', True
-            )
-            kwargs['_preload_content'] = kwargs.get(
-                '_preload_content', True
-            )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
-            kwargs['_check_input_type'] = kwargs.get(
-                '_check_input_type', True
-            )
-            kwargs['_check_return_type'] = kwargs.get(
-                '_check_return_type', True
-            )
-            kwargs['_host_index'] = kwargs.get('_host_index')
-            kwargs['world_id'] = \
-                world_id
-            return self.call_with_http_info(**kwargs)
-
-        self.publish_world = _Endpoint(
+        self.publish_world_endpoint = _Endpoint(
             settings={
                 'response_type': None,
                 'auth': [
@@ -1573,86 +871,9 @@ class WorldsApi(object):
                 ],
                 'content_type': [],
             },
-            api_client=api_client,
-            callable=__publish_world
+            api_client=api_client
         )
-
-        def __search_worlds(
-            self,
-            **kwargs
-        ):
-            """Search All Worlds  # noqa: E501
-
-            Search and list any worlds by query filters.  # noqa: E501
-            This method makes a synchronous HTTP request by default. To make an
-            asynchronous HTTP request, please pass async_req=True
-
-            >>> thread = api.search_worlds(async_req=True)
-            >>> result = thread.get()
-
-
-            Keyword Args:
-                featured (str): Filters on featured results.. [optional]
-                sort (str): [optional] if omitted the server will use the default value of "popularity"
-                user (str): Set to `me` for searching own worlds.. [optional] if omitted the server will use the default value of "me"
-                user_id (str): Filter by UserID.. [optional]
-                n (int): The number of objects to return.. [optional] if omitted the server will use the default value of 60
-                order (str): [optional] if omitted the server will use the default value of "descending"
-                offset (int): A zero-based offset from the default object sorting from where search results start.. [optional]
-                search (str): Filters by world name.. [optional]
-                tag (str): Tags to include (comma-separated).. [optional]
-                notag (str): Tags to exclude (comma-separated).. [optional]
-                release_status (str): Filter by ReleaseStatus.. [optional] if omitted the server will use the default value of "public"
-                max_unity_version (str): The maximum Unity version supported by the asset.. [optional]
-                min_unity_version (str): The minimum Unity version supported by the asset.. [optional]
-                platform (str): The platform the asset supports.. [optional]
-                _return_http_data_only (bool): response data without head status
-                    code and headers. Default is True.
-                _preload_content (bool): if False, the urllib3.HTTPResponse object
-                    will be returned without reading/decoding response data.
-                    Default is True.
-                _request_timeout (int/float/tuple): timeout setting for this request. If
-                    one number provided, it will be total request timeout. It can also
-                    be a pair (tuple) of (connection, read) timeouts.
-                    Default is None.
-                _check_input_type (bool): specifies if type checking
-                    should be done one the data sent to the server.
-                    Default is True.
-                _check_return_type (bool): specifies if type checking
-                    should be done one the data received from the server.
-                    Default is True.
-                _host_index (int/None): specifies the index of the server
-                    that we want to use.
-                    Default is read from the configuration.
-                async_req (bool): execute request asynchronously
-
-            Returns:
-                [LimitedWorld]
-                    If the method is called asynchronously, returns the request
-                    thread.
-            """
-            kwargs['async_req'] = kwargs.get(
-                'async_req', False
-            )
-            kwargs['_return_http_data_only'] = kwargs.get(
-                '_return_http_data_only', True
-            )
-            kwargs['_preload_content'] = kwargs.get(
-                '_preload_content', True
-            )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
-            kwargs['_check_input_type'] = kwargs.get(
-                '_check_input_type', True
-            )
-            kwargs['_check_return_type'] = kwargs.get(
-                '_check_return_type', True
-            )
-            kwargs['_host_index'] = kwargs.get('_host_index')
-            return self.call_with_http_info(**kwargs)
-
-        self.search_worlds = _Endpoint(
+        self.search_worlds_endpoint = _Endpoint(
             settings={
                 'response_type': ([LimitedWorld],),
                 'auth': [
@@ -1817,77 +1038,9 @@ class WorldsApi(object):
                 ],
                 'content_type': [],
             },
-            api_client=api_client,
-            callable=__search_worlds
+            api_client=api_client
         )
-
-        def __unpublish_world(
-            self,
-            world_id,
-            **kwargs
-        ):
-            """Unpublish World  # noqa: E501
-
-            Unpublish a world.  # noqa: E501
-            This method makes a synchronous HTTP request by default. To make an
-            asynchronous HTTP request, please pass async_req=True
-
-            >>> thread = api.unpublish_world(world_id, async_req=True)
-            >>> result = thread.get()
-
-            Args:
-                world_id (str):
-
-            Keyword Args:
-                _return_http_data_only (bool): response data without head status
-                    code and headers. Default is True.
-                _preload_content (bool): if False, the urllib3.HTTPResponse object
-                    will be returned without reading/decoding response data.
-                    Default is True.
-                _request_timeout (int/float/tuple): timeout setting for this request. If
-                    one number provided, it will be total request timeout. It can also
-                    be a pair (tuple) of (connection, read) timeouts.
-                    Default is None.
-                _check_input_type (bool): specifies if type checking
-                    should be done one the data sent to the server.
-                    Default is True.
-                _check_return_type (bool): specifies if type checking
-                    should be done one the data received from the server.
-                    Default is True.
-                _host_index (int/None): specifies the index of the server
-                    that we want to use.
-                    Default is read from the configuration.
-                async_req (bool): execute request asynchronously
-
-            Returns:
-                None
-                    If the method is called asynchronously, returns the request
-                    thread.
-            """
-            kwargs['async_req'] = kwargs.get(
-                'async_req', False
-            )
-            kwargs['_return_http_data_only'] = kwargs.get(
-                '_return_http_data_only', True
-            )
-            kwargs['_preload_content'] = kwargs.get(
-                '_preload_content', True
-            )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
-            kwargs['_check_input_type'] = kwargs.get(
-                '_check_input_type', True
-            )
-            kwargs['_check_return_type'] = kwargs.get(
-                '_check_return_type', True
-            )
-            kwargs['_host_index'] = kwargs.get('_host_index')
-            kwargs['world_id'] = \
-                world_id
-            return self.call_with_http_info(**kwargs)
-
-        self.unpublish_world = _Endpoint(
+        self.unpublish_world_endpoint = _Endpoint(
             settings={
                 'response_type': None,
                 'auth': [
@@ -1937,78 +1090,9 @@ class WorldsApi(object):
                 ],
                 'content_type': [],
             },
-            api_client=api_client,
-            callable=__unpublish_world
+            api_client=api_client
         )
-
-        def __update_world(
-            self,
-            world_id,
-            **kwargs
-        ):
-            """Update World  # noqa: E501
-
-            Update information about a specific World.  # noqa: E501
-            This method makes a synchronous HTTP request by default. To make an
-            asynchronous HTTP request, please pass async_req=True
-
-            >>> thread = api.update_world(world_id, async_req=True)
-            >>> result = thread.get()
-
-            Args:
-                world_id (str):
-
-            Keyword Args:
-                inline_object7 (InlineObject7): [optional]
-                _return_http_data_only (bool): response data without head status
-                    code and headers. Default is True.
-                _preload_content (bool): if False, the urllib3.HTTPResponse object
-                    will be returned without reading/decoding response data.
-                    Default is True.
-                _request_timeout (int/float/tuple): timeout setting for this request. If
-                    one number provided, it will be total request timeout. It can also
-                    be a pair (tuple) of (connection, read) timeouts.
-                    Default is None.
-                _check_input_type (bool): specifies if type checking
-                    should be done one the data sent to the server.
-                    Default is True.
-                _check_return_type (bool): specifies if type checking
-                    should be done one the data received from the server.
-                    Default is True.
-                _host_index (int/None): specifies the index of the server
-                    that we want to use.
-                    Default is read from the configuration.
-                async_req (bool): execute request asynchronously
-
-            Returns:
-                World
-                    If the method is called asynchronously, returns the request
-                    thread.
-            """
-            kwargs['async_req'] = kwargs.get(
-                'async_req', False
-            )
-            kwargs['_return_http_data_only'] = kwargs.get(
-                '_return_http_data_only', True
-            )
-            kwargs['_preload_content'] = kwargs.get(
-                '_preload_content', True
-            )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
-            kwargs['_check_input_type'] = kwargs.get(
-                '_check_input_type', True
-            )
-            kwargs['_check_return_type'] = kwargs.get(
-                '_check_return_type', True
-            )
-            kwargs['_host_index'] = kwargs.get('_host_index')
-            kwargs['world_id'] = \
-                world_id
-            return self.call_with_http_info(**kwargs)
-
-        self.update_world = _Endpoint(
+        self.update_world_endpoint = _Endpoint(
             settings={
                 'response_type': (World,),
                 'auth': [
@@ -2064,6 +1148,897 @@ class WorldsApi(object):
                     'application/json'
                 ]
             },
-            api_client=api_client,
-            callable=__update_world
+            api_client=api_client
         )
+
+    def create_world(
+        self,
+        **kwargs
+    ):
+        """Create World  # noqa: E501
+
+        Create a new world. This endpoint requires `assetUrl` to be a valid File object with `.vrcw` file extension, and `imageUrl` to be a valid File object with an image file extension.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.create_world(async_req=True)
+        >>> result = thread.get()
+
+
+        Keyword Args:
+            inline_object6 (InlineObject6): [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            World
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        return self.create_world_endpoint.call_with_http_info(**kwargs)
+
+    def delete_world(
+        self,
+        world_id,
+        **kwargs
+    ):
+        """Delete World  # noqa: E501
+
+        Delete a world. Notice a world is never fully \"deleted\", only its ReleaseStatus is set to \"hidden\" and the linked Files are deleted. The WorldID is permanently reserved.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.delete_world(world_id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            world_id (str):
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            None
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['world_id'] = \
+            world_id
+        return self.delete_world_endpoint.call_with_http_info(**kwargs)
+
+    def get_active_worlds(
+        self,
+        **kwargs
+    ):
+        """List Active Worlds  # noqa: E501
+
+        Search and list currently Active worlds by query filters.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_active_worlds(async_req=True)
+        >>> result = thread.get()
+
+
+        Keyword Args:
+            featured (str): Filters on featured results.. [optional]
+            sort (str): [optional] if omitted the server will use the default value of "popularity"
+            n (int): The number of objects to return.. [optional] if omitted the server will use the default value of 60
+            order (str): [optional] if omitted the server will use the default value of "descending"
+            offset (int): A zero-based offset from the default object sorting from where search results start.. [optional]
+            search (str): Filters by world name.. [optional]
+            tag (str): Tags to include (comma-separated).. [optional]
+            notag (str): Tags to exclude (comma-separated).. [optional]
+            release_status (str): Filter by ReleaseStatus.. [optional] if omitted the server will use the default value of "public"
+            max_unity_version (str): The maximum Unity version supported by the asset.. [optional]
+            min_unity_version (str): The minimum Unity version supported by the asset.. [optional]
+            platform (str): The platform the asset supports.. [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            [LimitedWorld]
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        return self.get_active_worlds_endpoint.call_with_http_info(**kwargs)
+
+    def get_favorited_worlds(
+        self,
+        **kwargs
+    ):
+        """List Favorited Worlds  # noqa: E501
+
+        Search and list favorited worlds by query filters.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_favorited_worlds(async_req=True)
+        >>> result = thread.get()
+
+
+        Keyword Args:
+            featured (str): Filters on featured results.. [optional]
+            sort (str): [optional] if omitted the server will use the default value of "popularity"
+            n (int): The number of objects to return.. [optional] if omitted the server will use the default value of 60
+            order (str): [optional] if omitted the server will use the default value of "descending"
+            offset (int): A zero-based offset from the default object sorting from where search results start.. [optional]
+            search (str): Filters by world name.. [optional]
+            tag (str): Tags to include (comma-separated).. [optional]
+            notag (str): Tags to exclude (comma-separated).. [optional]
+            release_status (str): Filter by ReleaseStatus.. [optional] if omitted the server will use the default value of "public"
+            max_unity_version (str): The maximum Unity version supported by the asset.. [optional]
+            min_unity_version (str): The minimum Unity version supported by the asset.. [optional]
+            platform (str): The platform the asset supports.. [optional]
+            user_id (str): Target user to see information on, admin-only.. [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            [LimitedWorld]
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        return self.get_favorited_worlds_endpoint.call_with_http_info(**kwargs)
+
+    def get_recent_worlds(
+        self,
+        **kwargs
+    ):
+        """List Recent Worlds  # noqa: E501
+
+        Search and list recently visited worlds by query filters.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_recent_worlds(async_req=True)
+        >>> result = thread.get()
+
+
+        Keyword Args:
+            featured (str): Filters on featured results.. [optional]
+            sort (str): [optional] if omitted the server will use the default value of "popularity"
+            n (int): The number of objects to return.. [optional] if omitted the server will use the default value of 60
+            order (str): [optional] if omitted the server will use the default value of "descending"
+            offset (int): A zero-based offset from the default object sorting from where search results start.. [optional]
+            search (str): Filters by world name.. [optional]
+            tag (str): Tags to include (comma-separated).. [optional]
+            notag (str): Tags to exclude (comma-separated).. [optional]
+            release_status (str): Filter by ReleaseStatus.. [optional] if omitted the server will use the default value of "public"
+            max_unity_version (str): The maximum Unity version supported by the asset.. [optional]
+            min_unity_version (str): The minimum Unity version supported by the asset.. [optional]
+            platform (str): The platform the asset supports.. [optional]
+            user_id (str): Target user to see information on, admin-only.. [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            [LimitedWorld]
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        return self.get_recent_worlds_endpoint.call_with_http_info(**kwargs)
+
+    def get_world(
+        self,
+        world_id,
+        **kwargs
+    ):
+        """Get World by ID  # noqa: E501
+
+        Get information about a specific World.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_world(world_id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            world_id (str):
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            World
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['world_id'] = \
+            world_id
+        return self.get_world_endpoint.call_with_http_info(**kwargs)
+
+    def get_world_instance(
+        self,
+        world_id,
+        instance_id,
+        **kwargs
+    ):
+        """Get World Instance  # noqa: E501
+
+        Returns a worlds instance.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_world_instance(world_id, instance_id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            world_id (str):
+            instance_id (str):
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            Instance
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['world_id'] = \
+            world_id
+        kwargs['instance_id'] = \
+            instance_id
+        return self.get_world_instance_endpoint.call_with_http_info(**kwargs)
+
+    def get_world_metadata(
+        self,
+        world_id,
+        **kwargs
+    ):
+        """Get World Metadata  # noqa: E501
+
+        Return a worlds custom metadata. This is currently believed to be unused. Metadata can be set with `updateWorld` and can be any arbitrary object.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_world_metadata(world_id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            world_id (str):
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            InlineResponse2005
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['world_id'] = \
+            world_id
+        return self.get_world_metadata_endpoint.call_with_http_info(**kwargs)
+
+    def get_world_publish_status(
+        self,
+        world_id,
+        **kwargs
+    ):
+        """Get World Publish Status  # noqa: E501
+
+        Returns a worlds publish status.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_world_publish_status(world_id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            world_id (str):
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            InlineResponse2006
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['world_id'] = \
+            world_id
+        return self.get_world_publish_status_endpoint.call_with_http_info(**kwargs)
+
+    def publish_world(
+        self,
+        world_id,
+        **kwargs
+    ):
+        """Publish World  # noqa: E501
+
+        Publish a world. You can only publish one world per week.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.publish_world(world_id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            world_id (str):
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            None
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['world_id'] = \
+            world_id
+        return self.publish_world_endpoint.call_with_http_info(**kwargs)
+
+    def search_worlds(
+        self,
+        **kwargs
+    ):
+        """Search All Worlds  # noqa: E501
+
+        Search and list any worlds by query filters.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.search_worlds(async_req=True)
+        >>> result = thread.get()
+
+
+        Keyword Args:
+            featured (str): Filters on featured results.. [optional]
+            sort (str): [optional] if omitted the server will use the default value of "popularity"
+            user (str): Set to `me` for searching own worlds.. [optional] if omitted the server will use the default value of "me"
+            user_id (str): Filter by UserID.. [optional]
+            n (int): The number of objects to return.. [optional] if omitted the server will use the default value of 60
+            order (str): [optional] if omitted the server will use the default value of "descending"
+            offset (int): A zero-based offset from the default object sorting from where search results start.. [optional]
+            search (str): Filters by world name.. [optional]
+            tag (str): Tags to include (comma-separated).. [optional]
+            notag (str): Tags to exclude (comma-separated).. [optional]
+            release_status (str): Filter by ReleaseStatus.. [optional] if omitted the server will use the default value of "public"
+            max_unity_version (str): The maximum Unity version supported by the asset.. [optional]
+            min_unity_version (str): The minimum Unity version supported by the asset.. [optional]
+            platform (str): The platform the asset supports.. [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            [LimitedWorld]
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        return self.search_worlds_endpoint.call_with_http_info(**kwargs)
+
+    def unpublish_world(
+        self,
+        world_id,
+        **kwargs
+    ):
+        """Unpublish World  # noqa: E501
+
+        Unpublish a world.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.unpublish_world(world_id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            world_id (str):
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            None
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['world_id'] = \
+            world_id
+        return self.unpublish_world_endpoint.call_with_http_info(**kwargs)
+
+    def update_world(
+        self,
+        world_id,
+        **kwargs
+    ):
+        """Update World  # noqa: E501
+
+        Update information about a specific World.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.update_world(world_id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            world_id (str):
+
+        Keyword Args:
+            inline_object7 (InlineObject7): [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            World
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['world_id'] = \
+            world_id
+        return self.update_world_endpoint.call_with_http_info(**kwargs)
+

@@ -27,6 +27,7 @@ Creates a new File object
 
 * Api Key Authentication (apiKeyCookie):
 * Api Key Authentication (authCookie):
+
 ```python
 import time
 import vrchatapi
@@ -102,6 +103,7 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Returns a single File object. |  -  |
@@ -119,6 +121,7 @@ Creates a new FileVersion. Once a Version has been created, proceed to the `/fil
 
 * Api Key Authentication (apiKeyCookie):
 * Api Key Authentication (authCookie):
+
 ```python
 import time
 import vrchatapi
@@ -202,6 +205,7 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Returns a single File object. |  -  |
@@ -219,6 +223,7 @@ Deletes a File object.
 
 * Api Key Authentication (apiKeyCookie):
 * Api Key Authentication (authCookie):
+
 ```python
 import time
 import vrchatapi
@@ -286,6 +291,7 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful response after deleting a File. |  -  |
@@ -304,6 +310,7 @@ Delete a specific version of a file. You can only delete the latest version.
 
 * Api Key Authentication (apiKeyCookie):
 * Api Key Authentication (authCookie):
+
 ```python
 import time
 import vrchatapi
@@ -373,6 +380,7 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Returns a single File object. |  -  |
@@ -392,6 +400,7 @@ Downloads the file with the provided version number.  **Version Note:** Version 
 
 * Api Key Authentication (apiKeyCookie):
 * Api Key Authentication (authCookie):
+
 ```python
 import time
 import vrchatapi
@@ -458,6 +467,7 @@ void (empty response body)
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Raw file |  -  |
@@ -475,6 +485,7 @@ Finish an upload of a FileData. This will mark it as \"complete\". After uploadi
 
 * Api Key Authentication (apiKeyCookie):
 * Api Key Authentication (authCookie):
+
 ```python
 import time
 import vrchatapi
@@ -563,6 +574,7 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Returns a single File object. |  -  |
@@ -580,6 +592,7 @@ Shows general information about the \"File\" object. Each File can have several 
 
 * Api Key Authentication (apiKeyCookie):
 * Api Key Authentication (authCookie):
+
 ```python
 import time
 import vrchatapi
@@ -647,6 +660,7 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Returns a single File object. |  -  |
@@ -665,6 +679,7 @@ Retrieves the upload status for file upload. Can currently only be accessed when
 
 * Api Key Authentication (apiKeyCookie):
 * Api Key Authentication (authCookie):
+
 ```python
 import time
 import vrchatapi
@@ -735,6 +750,7 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Current FileVersion upload status. Contains the uploadId needed for uploading, as well as the already uploaded parts. |  -  |
@@ -752,6 +768,7 @@ Returns a list of files
 
 * Api Key Authentication (apiKeyCookie):
 * Api Key Authentication (authCookie):
+
 ```python
 import time
 import vrchatapi
@@ -825,6 +842,7 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Returns a list of File objects. |  -  |
@@ -842,6 +860,7 @@ Starts an upload of a specific FilePart. This endpoint will return an AWS URL wh
 
 * Api Key Authentication (apiKeyCookie):
 * Api Key Authentication (authCookie):
+
 ```python
 import time
 import vrchatapi
@@ -915,6 +934,7 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | See [https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html](AWS REST docs - PUT Object) |  -  |

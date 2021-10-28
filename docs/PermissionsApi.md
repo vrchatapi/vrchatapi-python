@@ -19,6 +19,7 @@ Returns a list of all permissions currently granted by the user. Permissions are
 
 * Api Key Authentication (apiKeyCookie):
 * Api Key Authentication (authCookie):
+
 ```python
 import time
 import vrchatapi
@@ -82,6 +83,7 @@ This endpoint does not need any parameter.
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Returns a list of Permission objects. |  -  |
@@ -100,6 +102,7 @@ Returns a single permission. This endpoint is pretty useless, as it returns the 
 
 * Api Key Authentication (apiKeyCookie):
 * Api Key Authentication (authCookie):
+
 ```python
 import time
 import vrchatapi
@@ -167,6 +170,7 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Returns a single Permission object. |  -  |
