@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**get_favorited_avatars**](AvatarsApi.md#get_favorited_avatars) | **GET** /avatars/favorites | List Favorited Avatars
 [**search_avatars**](AvatarsApi.md#search_avatars) | **GET** /avatars | Search Avatars
 [**select_avatar**](AvatarsApi.md#select_avatar) | **PUT** /avatars/{avatarId}/select | Select Avatar
+[**select_fallback_avatar**](AvatarsApi.md#select_fallback_avatar) | **PUT** /avatars/{avatarId}/selectFallback | Select Fallback Avatar
 [**update_avatar**](AvatarsApi.md#update_avatar) | **PUT** /avatars/{avatarId} | Update Avatar
 
 
@@ -29,8 +30,8 @@ Create an avatar. It's possible to optionally specify a ID if you want a custom 
 import time
 import vrchatapi
 from vrchatapi.api import avatars_api
+from vrchatapi.model.create_avatar_request import CreateAvatarRequest
 from vrchatapi.model.avatar import Avatar
-from vrchatapi.model.inline_object10 import InlineObject10
 from vrchatapi.model.error import Error
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
@@ -60,7 +61,7 @@ configuration.api_key['authCookie'] = 'YOUR_API_KEY'
 with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = avatars_api.AvatarsApi(api_client)
-    inline_object10 = InlineObject10(
+    create_avatar_request = CreateAvatarRequest(
         asset_url="asset_url_example",
         id=AvatarID("avtr_912d66a4-4714-43b8-8407-7de2cafbf55b"),
         name="name_example",
@@ -72,13 +73,13 @@ with vrchatapi.ApiClient(configuration) as api_client:
         release_status=ReleaseStatus("public"),
         version=1,
         unity_package_url="unity_package_url_example",
-    ) # InlineObject10 |  (optional)
+    ) # CreateAvatarRequest |  (optional)
 
     # example passing only required values which don't have defaults set
     # and optional values
     try:
         # Create Avatar
-        api_response = api_instance.create_avatar(inline_object10=inline_object10)
+        api_response = api_instance.create_avatar(create_avatar_request=create_avatar_request)
         pprint(api_response)
     except vrchatapi.ApiException as e:
         print("Exception when calling AvatarsApi->create_avatar: %s\n" % e)
@@ -89,7 +90,7 @@ with vrchatapi.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inline_object10** | [**InlineObject10**](InlineObject10.md)|  | [optional]
+ **create_avatar_request** | [**CreateAvatarRequest**](CreateAvatarRequest.md)|  | [optional]
 
 ### Return type
 
@@ -603,12 +604,12 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **update_avatar**
-> Avatar update_avatar(avatar_id)
+# **select_fallback_avatar**
+> CurrentUser select_fallback_avatar(avatar_id)
 
-Update Avatar
+Select Fallback Avatar
 
-Update information about a specific avatar.
+Switches into that avatar as your fallback avatar.
 
 ### Example
 
@@ -619,8 +620,7 @@ Update information about a specific avatar.
 import time
 import vrchatapi
 from vrchatapi.api import avatars_api
-from vrchatapi.model.avatar import Avatar
-from vrchatapi.model.inline_object11 import InlineObject11
+from vrchatapi.model.current_user import CurrentUser
 from vrchatapi.model.error import Error
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
@@ -651,7 +651,97 @@ with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = avatars_api.AvatarsApi(api_client)
     avatar_id = "avatarId_example" # str | 
-    inline_object11 = InlineObject11(
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Select Fallback Avatar
+        api_response = api_instance.select_fallback_avatar(avatar_id)
+        pprint(api_response)
+    except vrchatapi.ApiException as e:
+        print("Exception when calling AvatarsApi->select_fallback_avatar: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **avatar_id** | **str**|  |
+
+### Return type
+
+[**CurrentUser**](CurrentUser.md)
+
+### Authorization
+
+[apiKeyCookie](../README.md#apiKeyCookie), [authCookie](../README.md#authCookie)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Returns a single CurrentUser object. |  -  |
+**401** | Error response due to missing apiKey or auth cookie. |  -  |
+**403** | Error response when trying to select a fallback avatar that is missing the fallback tag. |  -  |
+**404** | Error response when trying to show information about a non-existent avatar. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **update_avatar**
+> Avatar update_avatar(avatar_id)
+
+Update Avatar
+
+Update information about a specific avatar.
+
+### Example
+
+* Api Key Authentication (apiKeyCookie):
+* Api Key Authentication (authCookie):
+
+```python
+import time
+import vrchatapi
+from vrchatapi.api import avatars_api
+from vrchatapi.model.avatar import Avatar
+from vrchatapi.model.update_avatar_request import UpdateAvatarRequest
+from vrchatapi.model.error import Error
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = vrchatapi.Configuration(
+    host = "https://api.vrchat.cloud/api/1"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: apiKeyCookie
+configuration.api_key['apiKeyCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apiKeyCookie'] = 'Bearer'
+
+# Configure API key authorization: authCookie
+configuration.api_key['authCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['authCookie'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with vrchatapi.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = avatars_api.AvatarsApi(api_client)
+    avatar_id = "avatarId_example" # str | 
+    update_avatar_request = UpdateAvatarRequest(
         asset_url="asset_url_example",
         id=AvatarID("avtr_912d66a4-4714-43b8-8407-7de2cafbf55b"),
         name="name_example",
@@ -663,7 +753,7 @@ with vrchatapi.ApiClient(configuration) as api_client:
         release_status=ReleaseStatus("public"),
         version=1,
         unity_package_url="unity_package_url_example",
-    ) # InlineObject11 |  (optional)
+    ) # UpdateAvatarRequest |  (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -677,7 +767,7 @@ with vrchatapi.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Update Avatar
-        api_response = api_instance.update_avatar(avatar_id, inline_object11=inline_object11)
+        api_response = api_instance.update_avatar(avatar_id, update_avatar_request=update_avatar_request)
         pprint(api_response)
     except vrchatapi.ApiException as e:
         print("Exception when calling AvatarsApi->update_avatar: %s\n" % e)
@@ -689,7 +779,7 @@ with vrchatapi.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **avatar_id** | **str**|  |
- **inline_object11** | [**InlineObject11**](InlineObject11.md)|  | [optional]
+ **update_avatar_request** | [**UpdateAvatarRequest**](UpdateAvatarRequest.md)|  | [optional]
 
 ### Return type
 

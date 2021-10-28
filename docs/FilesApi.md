@@ -33,7 +33,7 @@ import time
 import vrchatapi
 from vrchatapi.api import files_api
 from vrchatapi.model.file import File
-from vrchatapi.model.inline_object3 import InlineObject3
+from vrchatapi.model.create_file_request import CreateFileRequest
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
 # See configuration.py for a list of all supported configuration parameters.
@@ -62,20 +62,20 @@ configuration.api_key['authCookie'] = 'YOUR_API_KEY'
 with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = files_api.FilesApi(api_client)
-    inline_object3 = InlineObject3(
+    create_file_request = CreateFileRequest(
         name="name_example",
         mime_type=MIMEType("image/jpeg"),
         extension="extension_example",
         tags=[
             Tag("tags_example"),
         ],
-    ) # InlineObject3 |  (optional)
+    ) # CreateFileRequest |  (optional)
 
     # example passing only required values which don't have defaults set
     # and optional values
     try:
         # Create File
-        api_response = api_instance.create_file(inline_object3=inline_object3)
+        api_response = api_instance.create_file(create_file_request=create_file_request)
         pprint(api_response)
     except vrchatapi.ApiException as e:
         print("Exception when calling FilesApi->create_file: %s\n" % e)
@@ -86,7 +86,7 @@ with vrchatapi.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inline_object3** | [**InlineObject3**](InlineObject3.md)|  | [optional]
+ **create_file_request** | [**CreateFileRequest**](CreateFileRequest.md)|  | [optional]
 
 ### Return type
 
@@ -127,7 +127,7 @@ import time
 import vrchatapi
 from vrchatapi.api import files_api
 from vrchatapi.model.file import File
-from vrchatapi.model.inline_object4 import InlineObject4
+from vrchatapi.model.create_file_version_request import CreateFileVersionRequest
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
 # See configuration.py for a list of all supported configuration parameters.
@@ -157,12 +157,12 @@ with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = files_api.FilesApi(api_client)
     file_id = "file_00000000-0000-0000-0000-000000000000" # str | 
-    inline_object4 = InlineObject4(
+    create_file_version_request = CreateFileVersionRequest(
         signature_md5="signature_md5_example",
         signature_size_in_bytes=3.14,
         file_md5="file_md5_example",
         file_size_in_bytes=3.14,
-    ) # InlineObject4 |  (optional)
+    ) # CreateFileVersionRequest |  (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -176,7 +176,7 @@ with vrchatapi.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Create File Version
-        api_response = api_instance.create_file_version(file_id, inline_object4=inline_object4)
+        api_response = api_instance.create_file_version(file_id, create_file_version_request=create_file_version_request)
         pprint(api_response)
     except vrchatapi.ApiException as e:
         print("Exception when calling FilesApi->create_file_version: %s\n" % e)
@@ -188,7 +188,7 @@ with vrchatapi.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **file_id** | **str**|  |
- **inline_object4** | [**InlineObject4**](InlineObject4.md)|  | [optional]
+ **create_file_version_request** | [**CreateFileVersionRequest**](CreateFileVersionRequest.md)|  | [optional]
 
 ### Return type
 
@@ -490,8 +490,8 @@ Finish an upload of a FileData. This will mark it as \"complete\". After uploadi
 import time
 import vrchatapi
 from vrchatapi.api import files_api
-from vrchatapi.model.inline_object5 import InlineObject5
 from vrchatapi.model.file import File
+from vrchatapi.model.finish_file_data_upload_request import FinishFileDataUploadRequest
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
 # See configuration.py for a list of all supported configuration parameters.
@@ -523,13 +523,13 @@ with vrchatapi.ApiClient(configuration) as api_client:
     file_id = "file_00000000-0000-0000-0000-000000000000" # str | 
     version_id = 1 # int | 
     file_type = "file" # str | 
-    inline_object5 = InlineObject5(
+    finish_file_data_upload_request = FinishFileDataUploadRequest(
         etags=[
             "etags_example",
         ],
         next_part_number="0",
         max_parts="0",
-    ) # InlineObject5 |  (optional)
+    ) # FinishFileDataUploadRequest | Please see documentation on ETag's: [https://teppen.io/2018/06/23/aws_s3_etags/](https://teppen.io/2018/06/23/aws_s3_etags/)  ETag's should NOT be present when uploading a `signature`. (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -543,7 +543,7 @@ with vrchatapi.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Finish FileData Upload
-        api_response = api_instance.finish_file_data_upload(file_id, version_id, file_type, inline_object5=inline_object5)
+        api_response = api_instance.finish_file_data_upload(file_id, version_id, file_type, finish_file_data_upload_request=finish_file_data_upload_request)
         pprint(api_response)
     except vrchatapi.ApiException as e:
         print("Exception when calling FilesApi->finish_file_data_upload: %s\n" % e)
@@ -557,7 +557,7 @@ Name | Type | Description  | Notes
  **file_id** | **str**|  |
  **version_id** | **int**|  |
  **file_type** | **str**|  |
- **inline_object5** | [**InlineObject5**](InlineObject5.md)|  | [optional]
+ **finish_file_data_upload_request** | [**FinishFileDataUploadRequest**](FinishFileDataUploadRequest.md)| Please see documentation on ETag&#39;s: [https://teppen.io/2018/06/23/aws_s3_etags/](https://teppen.io/2018/06/23/aws_s3_etags/)  ETag&#39;s should NOT be present when uploading a &#x60;signature&#x60;. | [optional]
 
 ### Return type
 
@@ -669,7 +669,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_file_data_upload_status**
-> InlineResponse2003 get_file_data_upload_status(file_id, version_id, file_type)
+> FileVersionUploadStatus get_file_data_upload_status(file_id, version_id, file_type)
 
 Check FileData Upload Status
 
@@ -684,7 +684,7 @@ Retrieves the upload status for file upload. Can currently only be accessed when
 import time
 import vrchatapi
 from vrchatapi.api import files_api
-from vrchatapi.model.inline_response2003 import InlineResponse2003
+from vrchatapi.model.file_version_upload_status import FileVersionUploadStatus
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
 # See configuration.py for a list of all supported configuration parameters.
@@ -737,7 +737,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2003**](InlineResponse2003.md)
+[**FileVersionUploadStatus**](FileVersionUploadStatus.md)
 
 ### Authorization
 
@@ -850,7 +850,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **start_file_data_upload**
-> InlineResponse2004 start_file_data_upload(file_id, version_id, file_type, part_number)
+> FileUploadURL start_file_data_upload(file_id, version_id, file_type, part_number)
 
 Start FileData Upload
 
@@ -865,7 +865,7 @@ Starts an upload of a specific FilePart. This endpoint will return an AWS URL wh
 import time
 import vrchatapi
 from vrchatapi.api import files_api
-from vrchatapi.model.inline_response2004 import InlineResponse2004
+from vrchatapi.model.file_upload_url import FileUploadURL
 from vrchatapi.model.error import Error
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
@@ -921,7 +921,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2004**](InlineResponse2004.md)
+[**FileUploadURL**](FileUploadURL.md)
 
 ### Authorization
 

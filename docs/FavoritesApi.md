@@ -19,7 +19,7 @@ Method | HTTP request | Description
 
 Add Favorite
 
-Add a new favorite.  Friend groups are named `group_0` through `group_3`. Avatar and World groups are named `avatars1` to `avatar4` and `worlds1` to `worlds4`.  You cannot add people whom you are not friends with to your friends list. Destroying a friendship removes the person as favorite on both sides.
+Add a new favorite.  Friend groups are named `group_0` through `group_3`. Avatar and World groups are named `avatars1` to `avatars4` and `worlds1` to `worlds4`.  You cannot add people whom you are not friends with to your friends list. Destroying a friendship removes the person as favorite on both sides.
 
 ### Example
 
@@ -30,9 +30,9 @@ Add a new favorite.  Friend groups are named `group_0` through `group_3`. Avatar
 import time
 import vrchatapi
 from vrchatapi.api import favorites_api
-from vrchatapi.model.inline_object8 import InlineObject8
 from vrchatapi.model.error import Error
 from vrchatapi.model.favorite import Favorite
+from vrchatapi.model.add_favorite_request import AddFavoriteRequest
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
 # See configuration.py for a list of all supported configuration parameters.
@@ -61,19 +61,19 @@ configuration.api_key['authCookie'] = 'YOUR_API_KEY'
 with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = favorites_api.FavoritesApi(api_client)
-    inline_object8 = InlineObject8(
-        type=FavoriteType("world"),
+    add_favorite_request = AddFavoriteRequest(
+        type=FavoriteType("friend"),
         favorite_id="favorite_id_example",
         tags=[
             Tag("tags_example"),
         ],
-    ) # InlineObject8 |  (optional)
+    ) # AddFavoriteRequest |  (optional)
 
     # example passing only required values which don't have defaults set
     # and optional values
     try:
         # Add Favorite
-        api_response = api_instance.add_favorite(inline_object8=inline_object8)
+        api_response = api_instance.add_favorite(add_favorite_request=add_favorite_request)
         pprint(api_response)
     except vrchatapi.ApiException as e:
         print("Exception when calling FavoritesApi->add_favorite: %s\n" % e)
@@ -84,7 +84,7 @@ with vrchatapi.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inline_object8** | [**InlineObject8**](InlineObject8.md)|  | [optional]
+ **add_favorite_request** | [**AddFavoriteRequest**](AddFavoriteRequest.md)|  | [optional]
 
 ### Return type
 
@@ -666,7 +666,7 @@ Update information about a specific favorite group.
 import time
 import vrchatapi
 from vrchatapi.api import favorites_api
-from vrchatapi.model.inline_object9 import InlineObject9
+from vrchatapi.model.update_favorite_group_request import UpdateFavoriteGroupRequest
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
 # See configuration.py for a list of all supported configuration parameters.
@@ -698,13 +698,13 @@ with vrchatapi.ApiClient(configuration) as api_client:
     favorite_group_type = "world" # str | The type of group to fetch, must be a valid FavoriteType.
     favorite_group_name = "favoriteGroupName_example" # str | 
     user_id = "userId_example" # str | 
-    inline_object9 = InlineObject9(
+    update_favorite_group_request = UpdateFavoriteGroupRequest(
         display_name="display_name_example",
         visibility=FavoriteGroupVisibility("private"),
         tags=[
             Tag("tags_example"),
         ],
-    ) # InlineObject9 |  (optional)
+    ) # UpdateFavoriteGroupRequest |  (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -717,7 +717,7 @@ with vrchatapi.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Update Favorite Group
-        api_instance.update_favorite_group(favorite_group_type, favorite_group_name, user_id, inline_object9=inline_object9)
+        api_instance.update_favorite_group(favorite_group_type, favorite_group_name, user_id, update_favorite_group_request=update_favorite_group_request)
     except vrchatapi.ApiException as e:
         print("Exception when calling FavoritesApi->update_favorite_group: %s\n" % e)
 ```
@@ -730,7 +730,7 @@ Name | Type | Description  | Notes
  **favorite_group_type** | **str**| The type of group to fetch, must be a valid FavoriteType. |
  **favorite_group_name** | **str**|  |
  **user_id** | **str**|  |
- **inline_object9** | [**InlineObject9**](InlineObject9.md)|  | [optional]
+ **update_favorite_group_request** | [**UpdateFavoriteGroupRequest**](UpdateFavoriteGroupRequest.md)|  | [optional]
 
 ### Return type
 

@@ -92,7 +92,7 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
+**200** | Returns a single User object. |  -  |
 **401** | Error response due to missing apiKey or auth cookie. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -179,7 +179,7 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
+**200** | Returns a single User object. |  -  |
 **401** | Error response due to missing apiKey or auth cookie. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -273,7 +273,7 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
+**200** | Returns a list of LimitedUser objects. |  -  |
 **400** | Error response when trying to search list of users with an invalid request. |  -  |
 **401** | Error response due to missing apiKey or auth cookie. |  -  |
 
@@ -296,7 +296,7 @@ import time
 import vrchatapi
 from vrchatapi.api import users_api
 from vrchatapi.model.current_user import CurrentUser
-from vrchatapi.model.inline_object2 import InlineObject2
+from vrchatapi.model.update_user_request import UpdateUserRequest
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
 # See configuration.py for a list of all supported configuration parameters.
@@ -326,21 +326,21 @@ with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = users_api.UsersApi(api_client)
     user_id = "userId_example" # str | 
-    inline_object2 = InlineObject2(
+    update_user_request = UpdateUserRequest(
         email="email_example",
         birthday=dateutil_parser('1970-01-01').date(),
         accepted_tos_version=3.14,
         tags=[
             Tag("tags_example"),
         ],
-        status=UserStatus("active"),
+        status=UserStatus("offline"),
         status_description="status_description_example",
         bio="bio_example",
         bio_links=[
             "bio_links_example",
         ],
         user_icon="https://api.vrchat.cloud/api/1/file/file_76dc2964-0ce8-41df-b2e7-8edf994fee31/1",
-    ) # InlineObject2 |  (optional)
+    ) # UpdateUserRequest |  (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -354,7 +354,7 @@ with vrchatapi.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Update User Info
-        api_response = api_instance.update_user(user_id, inline_object2=inline_object2)
+        api_response = api_instance.update_user(user_id, update_user_request=update_user_request)
         pprint(api_response)
     except vrchatapi.ApiException as e:
         print("Exception when calling UsersApi->update_user: %s\n" % e)
@@ -366,7 +366,7 @@ with vrchatapi.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **user_id** | **str**|  |
- **inline_object2** | [**InlineObject2**](InlineObject2.md)|  | [optional]
+ **update_user_request** | [**UpdateUserRequest**](UpdateUserRequest.md)|  | [optional]
 
 ### Return type
 
@@ -386,7 +386,7 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
+**200** | Returns a single CurrentUser object. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

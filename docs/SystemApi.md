@@ -5,10 +5,10 @@ All URIs are relative to *https://api.vrchat.cloud/api/1*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**get_config**](SystemApi.md#get_config) | **GET** /config | Fetch API Config
-[**get_css**](SystemApi.md#get_css) | **GET** /css/app.js | Download Frontend CSS
+[**get_css**](SystemApi.md#get_css) | **GET** /css/app.js | Download CSS
 [**get_current_online_users**](SystemApi.md#get_current_online_users) | **GET** /visits | Current Online Users
 [**get_health**](SystemApi.md#get_health) | **GET** /health | Check API Health
-[**get_java_script**](SystemApi.md#get_java_script) | **GET** /js/app.js | Download Frontend JavaScript
+[**get_java_script**](SystemApi.md#get_java_script) | **GET** /js/app.js | Download JavaScript
 [**get_system_time**](SystemApi.md#get_system_time) | **GET** /time | Current System Time
 
 
@@ -71,14 +71,14 @@ No authorization required
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  * Set-Cookie -  <br>  |
+**200** | Returns the API&#39;s config. |  * Set-Cookie -  <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_css**
 > str get_css()
 
-Download Frontend CSS
+Download CSS
 
 Fetches the CSS code to the frontend React website.
 
@@ -89,7 +89,7 @@ Fetches the CSS code to the frontend React website.
 import time
 import vrchatapi
 from vrchatapi.api import system_api
-from vrchatapi.model.inline_response400 import InlineResponse400
+from vrchatapi.model.error import Error
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
 # See configuration.py for a list of all supported configuration parameters.
@@ -108,7 +108,7 @@ with vrchatapi.ApiClient() as api_client:
     # example passing only required values which don't have defaults set
     # and optional values
     try:
-        # Download Frontend CSS
+        # Download CSS
         api_response = api_instance.get_css(variant=variant, branch=branch)
         pprint(api_response)
     except vrchatapi.ApiException as e:
@@ -209,7 +209,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_health**
-> InlineResponse2002 get_health()
+> APIHealth get_health()
 
 Check API Health
 
@@ -222,7 +222,7 @@ Check API Health
 import time
 import vrchatapi
 from vrchatapi.api import system_api
-from vrchatapi.model.inline_response2002 import InlineResponse2002
+from vrchatapi.model.api_health import APIHealth
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
 # See configuration.py for a list of all supported configuration parameters.
@@ -251,7 +251,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**InlineResponse2002**](InlineResponse2002.md)
+[**APIHealth**](APIHealth.md)
 
 ### Authorization
 
@@ -267,14 +267,14 @@ No authorization required
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | API&#39;s Health |  -  |
+**200** | Returns the API&#39;s health. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_java_script**
 > str get_java_script()
 
-Download Frontend JavaScript
+Download JavaScript
 
 Fetches the JavaScript code to the frontend React website.
 
@@ -285,7 +285,7 @@ Fetches the JavaScript code to the frontend React website.
 import time
 import vrchatapi
 from vrchatapi.api import system_api
-from vrchatapi.model.inline_response400 import InlineResponse400
+from vrchatapi.model.error import Error
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
 # See configuration.py for a list of all supported configuration parameters.
@@ -304,7 +304,7 @@ with vrchatapi.ApiClient() as api_client:
     # example passing only required values which don't have defaults set
     # and optional values
     try:
-        # Download Frontend JavaScript
+        # Download JavaScript
         api_response = api_instance.get_java_script(variant=variant, branch=branch)
         pprint(api_response)
     except vrchatapi.ApiException as e:

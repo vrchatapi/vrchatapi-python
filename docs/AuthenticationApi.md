@@ -354,7 +354,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **verify2_fa**
-> InlineResponse2001 verify2_fa()
+> Verify2FAResult verify2_fa()
 
 Verify 2FA code
 
@@ -368,9 +368,9 @@ Finishes the login sequence with a normal 2FA-generated code for accounts with 2
 import time
 import vrchatapi
 from vrchatapi.api import authentication_api
-from vrchatapi.model.inline_object import InlineObject
+from vrchatapi.model.two_factor_auth_code import TwoFactorAuthCode
+from vrchatapi.model.verify2_fa_result import Verify2FAResult
 from vrchatapi.model.error import Error
-from vrchatapi.model.inline_response2001 import InlineResponse2001
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
 # See configuration.py for a list of all supported configuration parameters.
@@ -393,15 +393,15 @@ configuration.api_key['authCookie'] = 'YOUR_API_KEY'
 with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = authentication_api.AuthenticationApi(api_client)
-    inline_object = InlineObject(
+    two_factor_auth_code = TwoFactorAuthCode(
         code="code_example",
-    ) # InlineObject |  (optional)
+    ) # TwoFactorAuthCode |  (optional)
 
     # example passing only required values which don't have defaults set
     # and optional values
     try:
         # Verify 2FA code
-        api_response = api_instance.verify2_fa(inline_object=inline_object)
+        api_response = api_instance.verify2_fa(two_factor_auth_code=two_factor_auth_code)
         pprint(api_response)
     except vrchatapi.ApiException as e:
         print("Exception when calling AuthenticationApi->verify2_fa: %s\n" % e)
@@ -412,11 +412,11 @@ with vrchatapi.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inline_object** | [**InlineObject**](InlineObject.md)|  | [optional]
+ **two_factor_auth_code** | [**TwoFactorAuthCode**](TwoFactorAuthCode.md)|  | [optional]
 
 ### Return type
 
-[**InlineResponse2001**](InlineResponse2001.md)
+[**Verify2FAResult**](Verify2FAResult.md)
 
 ### Authorization
 
@@ -438,7 +438,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **verify_auth_token**
-> InlineResponse200 verify_auth_token()
+> VerifyAuthTokenResult verify_auth_token()
 
 Verify Auth Token
 
@@ -452,7 +452,7 @@ Verify whether the currently provided Auth Token is valid.
 import time
 import vrchatapi
 from vrchatapi.api import authentication_api
-from vrchatapi.model.inline_response200 import InlineResponse200
+from vrchatapi.model.verify_auth_token_result import VerifyAuthTokenResult
 from vrchatapi.model.error import Error
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
@@ -492,7 +492,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**InlineResponse200**](InlineResponse200.md)
+[**VerifyAuthTokenResult**](VerifyAuthTokenResult.md)
 
 ### Authorization
 
@@ -508,13 +508,13 @@ This endpoint does not need any parameter.
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
+**200** | Returns wether a provided auth token is valid or not. |  -  |
 **401** | Error response due to missing apiKey or auth cookie. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **verify_recovery_code**
-> InlineResponse2001 verify_recovery_code()
+> Verify2FAResult verify_recovery_code()
 
 Verify 2FA code with Recovery code
 
@@ -528,9 +528,9 @@ Finishes the login sequence with an OTP (One Time Password) recovery code for ac
 import time
 import vrchatapi
 from vrchatapi.api import authentication_api
-from vrchatapi.model.inline_object1 import InlineObject1
+from vrchatapi.model.two_factor_auth_code import TwoFactorAuthCode
+from vrchatapi.model.verify2_fa_result import Verify2FAResult
 from vrchatapi.model.error import Error
-from vrchatapi.model.inline_response2001 import InlineResponse2001
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
 # See configuration.py for a list of all supported configuration parameters.
@@ -553,15 +553,15 @@ configuration.api_key['authCookie'] = 'YOUR_API_KEY'
 with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = authentication_api.AuthenticationApi(api_client)
-    inline_object1 = InlineObject1(
+    two_factor_auth_code = TwoFactorAuthCode(
         code="code_example",
-    ) # InlineObject1 |  (optional)
+    ) # TwoFactorAuthCode |  (optional)
 
     # example passing only required values which don't have defaults set
     # and optional values
     try:
         # Verify 2FA code with Recovery code
-        api_response = api_instance.verify_recovery_code(inline_object1=inline_object1)
+        api_response = api_instance.verify_recovery_code(two_factor_auth_code=two_factor_auth_code)
         pprint(api_response)
     except vrchatapi.ApiException as e:
         print("Exception when calling AuthenticationApi->verify_recovery_code: %s\n" % e)
@@ -572,11 +572,11 @@ with vrchatapi.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inline_object1** | [**InlineObject1**](InlineObject1.md)|  | [optional]
+ **two_factor_auth_code** | [**TwoFactorAuthCode**](TwoFactorAuthCode.md)|  | [optional]
 
 ### Return type
 
-[**InlineResponse2001**](InlineResponse2001.md)
+[**Verify2FAResult**](Verify2FAResult.md)
 
 ### Authorization
 
