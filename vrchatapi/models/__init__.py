@@ -41,6 +41,7 @@ from vrchatapi.model.file_version import FileVersion
 from vrchatapi.model.file_version_upload_status import FileVersionUploadStatus
 from vrchatapi.model.finish_file_data_upload_request import FinishFileDataUploadRequest
 from vrchatapi.model.friend_status import FriendStatus
+from vrchatapi.model.inline_response404 import InlineResponse404
 from vrchatapi.model.instance import Instance
 from vrchatapi.model.instance_id import InstanceID
 from vrchatapi.model.instance_platforms import InstancePlatforms
@@ -72,6 +73,7 @@ from vrchatapi.model.unity_package import UnityPackage
 from vrchatapi.model.unity_package_id import UnityPackageID
 from vrchatapi.model.update_avatar_request import UpdateAvatarRequest
 from vrchatapi.model.update_favorite_group_request import UpdateFavoriteGroupRequest
+from vrchatapi.model.update_invite_message_request import UpdateInviteMessageRequest
 from vrchatapi.model.update_user_request import UpdateUserRequest
 from vrchatapi.model.update_world_request import UpdateWorldRequest
 from vrchatapi.model.user import User

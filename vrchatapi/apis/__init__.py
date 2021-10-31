@@ -19,6 +19,7 @@ from vrchatapi.api.avatars_api import AvatarsApi
 from vrchatapi.api.favorites_api import FavoritesApi
 from vrchatapi.api.files_api import FilesApi
 from vrchatapi.api.friends_api import FriendsApi
+from vrchatapi.api.instances_api import InstancesApi
 from vrchatapi.api.invite_api import InviteApi
 from vrchatapi.api.notifications_api import NotificationsApi
 from vrchatapi.api.permissions_api import PermissionsApi

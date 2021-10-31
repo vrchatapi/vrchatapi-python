@@ -36,9 +36,11 @@ docs/FilesApi.md
 docs/FinishFileDataUploadRequest.md
 docs/FriendStatus.md
 docs/FriendsApi.md
+docs/InlineResponse404.md
 docs/Instance.md
 docs/InstanceID.md
 docs/InstancePlatforms.md
+docs/InstancesApi.md
 docs/InviteApi.md
 docs/InviteMessage.md
 docs/InviteMessageID.md
@@ -72,6 +74,7 @@ docs/UnityPackage.md
 docs/UnityPackageID.md
 docs/UpdateAvatarRequest.md
 docs/UpdateFavoriteGroupRequest.md
+docs/UpdateInviteMessageRequest.md
 docs/UpdateUserRequest.md
 docs/UpdateWorldRequest.md
 docs/User.md
@@ -99,6 +102,7 @@ vrchatapi/api/avatars_api.py
 vrchatapi/api/favorites_api.py
 vrchatapi/api/files_api.py
 vrchatapi/api/friends_api.py
+vrchatapi/api/instances_api.py
 vrchatapi/api/invite_api.py
 vrchatapi/api/notifications_api.py
 vrchatapi/api/permissions_api.py
@@ -143,6 +147,7 @@ vrchatapi/model/file_version.py
 vrchatapi/model/file_version_upload_status.py
 vrchatapi/model/finish_file_data_upload_request.py
 vrchatapi/model/friend_status.py
+vrchatapi/model/inline_response404.py
 vrchatapi/model/instance.py
 vrchatapi/model/instance_id.py
 vrchatapi/model/instance_platforms.py
@@ -174,6 +179,7 @@ vrchatapi/model/unity_package.py
 vrchatapi/model/unity_package_id.py
 vrchatapi/model/update_avatar_request.py
 vrchatapi/model/update_favorite_group_request.py
+vrchatapi/model/update_invite_message_request.py
 vrchatapi/model/update_user_request.py
 vrchatapi/model/update_world_request.py
 vrchatapi/model/user.py

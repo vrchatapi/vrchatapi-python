@@ -4,19 +4,19 @@ All URIs are relative to *https://api.vrchat.cloud/api/1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get_invite_message**](InviteApi.md#get_invite_message) | **GET** /message/{userId}/{messageType}/{messageId} | Get Invite Messages
+[**get_invite_message**](InviteApi.md#get_invite_message) | **GET** /message/{userId}/{messageType}/{slot} | Get Invite Message
 [**get_invite_messages**](InviteApi.md#get_invite_messages) | **GET** /message/{userId}/{messageType} | List Invite Messages
 [**invite_user**](InviteApi.md#invite_user) | **POST** /invite/{userId} | Invite User
 [**request_invite**](InviteApi.md#request_invite) | **POST** /requestInvite/{userId} | Request Invite
-[**reset_invite_message**](InviteApi.md#reset_invite_message) | **DELETE** /message/{userId}/{messageType}/{messageId} | Reset Invite Message
+[**reset_invite_message**](InviteApi.md#reset_invite_message) | **DELETE** /message/{userId}/{messageType}/{slot} | Reset Invite Message
 [**respond_invite**](InviteApi.md#respond_invite) | **POST** /invite/{notificationId}/response | Respond Invite
-[**update_invite_message**](InviteApi.md#update_invite_message) | **PUT** /message/{userId}/{messageType}/{messageId} | Update Invite Message
+[**update_invite_message**](InviteApi.md#update_invite_message) | **PUT** /message/{userId}/{messageType}/{slot} | Update Invite Message
 
 
 # **get_invite_message**
-> InviteMessage get_invite_message(user_id, message_type, message_id)
+> InviteMessage get_invite_message(user_id, message_type, slot)
 
-Get Invite Messages
+Get Invite Message
 
 Returns a single Invite Message. This returns the exact same information but less than `getInviteMessages`. Admin Credentials are required to view messages of other users!  Message type refers to a different collection of messages, used during different types of responses.  * `message` = Message during a normal invite * `response` = Message when replying to a message * `request` = Message when requesting an invite * `requestResponse` = Message when replying to a request for invite
 
@@ -61,12 +61,12 @@ with vrchatapi.ApiClient(configuration) as api_client:
     api_instance = invite_api.InviteApi(api_client)
     user_id = "userId_example" # str | 
     message_type = "message" # str | 
-    message_id = 1 # int | 
+    slot = 0 # int | 
 
     # example passing only required values which don't have defaults set
     try:
-        # Get Invite Messages
-        api_response = api_instance.get_invite_message(user_id, message_type, message_id)
+        # Get Invite Message
+        api_response = api_instance.get_invite_message(user_id, message_type, slot)
         pprint(api_response)
     except vrchatapi.ApiException as e:
         print("Exception when calling InviteApi->get_invite_message: %s\n" % e)
@@ -79,7 +79,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **user_id** | **str**|  |
  **message_type** | **str**|  |
- **message_id** | **int**|  |
+ **slot** | **int**|  |
 
 ### Return type
 
@@ -100,8 +100,9 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Returns a single InviteMessage object. |  -  |
-**400** | Error response when trying to update an Invite Message with invalid slot number. |  -  |
+**400** | Error response when trying to get an Invite Message with a negative slot number. |  -  |
 **401** | Error response due to missing authorization to perform that action. |  -  |
+**404** | Error response when trying to get an Invite Message with a too high slot number. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -190,7 +191,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Returns a list of InviteMessage objects. |  -  |
-**400** | Error response when trying to update an Invite Message with invalid slot number. |  -  |
+**400** | Error response when trying to update an Invite Message with an invalid slot number. |  -  |
 **401** | Error response due to missing authorization to perform that action. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -384,11 +385,11 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **reset_invite_message**
-> [InviteMessage] reset_invite_message(user_id, message_type, message_id)
+> [InviteMessage] reset_invite_message(user_id, message_type, slot)
 
 Reset Invite Message
 
-Resets a single Invite Message back to it's original message, and then returns a list of all of them. Admin Credentials are required to update messages of other users!  Resetting a message respects the rate-limit, but resetting it does not set the rate-limit to 60 like when editing it. It is possible to edit it right after resetting it. Trying to edit a message before the cooldown timer expires results in a 429 Too Fast Error.  Message type refers to a different collection of messages, used during different types of responses.  * `message` = Message during a normal invite * `response` = Message when replying to a message * `request` = Message when requesting an invite * `requestResponse` = Message when replying to a request for invite
+Resets a single Invite Message back to it's original message, and then returns a list of all of them. Admin Credentials are required to update messages of other users!  Resetting a message respects the rate-limit, so it is not possible to reset within the 60 minutes countdown. Resetting it does however not set the rate-limit to 60 like when editing it. It is possible to edit it right after resetting it. Trying to edit a message before the cooldown timer expires results in a 429 \"Too Fast Error\".  Message type refers to a different collection of messages, used during different types of responses.  * `message` = Message during a normal invite * `response` = Message when replying to a message * `request` = Message when requesting an invite * `requestResponse` = Message when replying to a request for invite  The DELETE endpoint does not have/require any request body.
 
 ### Example
 
@@ -399,6 +400,7 @@ Resets a single Invite Message back to it's original message, and then returns a
 import time
 import vrchatapi
 from vrchatapi.api import invite_api
+from vrchatapi.model.inline_response404 import InlineResponse404
 from vrchatapi.model.invite_message import InviteMessage
 from vrchatapi.model.error import Error
 from pprint import pprint
@@ -431,12 +433,12 @@ with vrchatapi.ApiClient(configuration) as api_client:
     api_instance = invite_api.InviteApi(api_client)
     user_id = "userId_example" # str | 
     message_type = "message" # str | 
-    message_id = 1 # int | 
+    slot = 0 # int | 
 
     # example passing only required values which don't have defaults set
     try:
         # Reset Invite Message
-        api_response = api_instance.reset_invite_message(user_id, message_type, message_id)
+        api_response = api_instance.reset_invite_message(user_id, message_type, slot)
         pprint(api_response)
     except vrchatapi.ApiException as e:
         print("Exception when calling InviteApi->reset_invite_message: %s\n" % e)
@@ -449,7 +451,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **user_id** | **str**|  |
  **message_type** | **str**|  |
- **message_id** | **int**|  |
+ **slot** | **int**|  |
 
 ### Return type
 
@@ -470,8 +472,9 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Returns a list of InviteMessage objects. |  -  |
-**400** | Error response when trying to update an Invite Message with invalid slot number. |  -  |
+**400** | Error response when trying to update an Invite Message with an invalid slot number. |  -  |
 **401** | Error response due to missing authorization to perform that action. |  -  |
+**404** | Error response when trying to reset an Invite Message whos slot doesn&#39;t exist. |  -  |
 **429** | Error response when trying to update an Invite Message before the cooldown has expired. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -578,11 +581,11 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_invite_message**
-> [InviteMessage] update_invite_message(user_id, message_type, message_id)
+> [InviteMessage] update_invite_message(user_id, message_type, slot)
 
 Update Invite Message
 
-Updates a single Invite Message and then returns a list of all of them. Admin Credentials are required to update messages of other users!  Updating a message automatically sets the cooldown timer to 60 minutes. Trying to edit a message before the cooldown timer expires results in a 429 Too Fast Error.  Message type refers to a different collection of messages, used during different types of responses.  * `message` = Message during a normal invite * `response` = Message when replying to a message * `request` = Message when requesting an invite * `requestResponse` = Message when replying to a request for invite
+Updates a single Invite Message and then returns a list of all of them. Admin Credentials are required to update messages of other users!  Updating a message automatically sets the cooldown timer to 60 minutes. Trying to edit a message before the cooldown timer expires results in a 429 \"Too Fast Error\".  Message type refers to a different collection of messages, used during different types of responses.  * `message` = Message during a normal invite * `response` = Message when replying to a message * `request` = Message when requesting an invite * `requestResponse` = Message when replying to a request for invite
 
 ### Example
 
@@ -593,6 +596,7 @@ Updates a single Invite Message and then returns a list of all of them. Admin Cr
 import time
 import vrchatapi
 from vrchatapi.api import invite_api
+from vrchatapi.model.update_invite_message_request import UpdateInviteMessageRequest
 from vrchatapi.model.invite_message import InviteMessage
 from vrchatapi.model.error import Error
 from pprint import pprint
@@ -625,12 +629,24 @@ with vrchatapi.ApiClient(configuration) as api_client:
     api_instance = invite_api.InviteApi(api_client)
     user_id = "userId_example" # str | 
     message_type = "message" # str | 
-    message_id = 1 # int | 
+    slot = 0 # int | 
+    update_invite_message_request = UpdateInviteMessageRequest(
+        message="message_example",
+    ) # UpdateInviteMessageRequest | Message of what to set the invite message to. (optional)
 
     # example passing only required values which don't have defaults set
     try:
         # Update Invite Message
-        api_response = api_instance.update_invite_message(user_id, message_type, message_id)
+        api_response = api_instance.update_invite_message(user_id, message_type, slot)
+        pprint(api_response)
+    except vrchatapi.ApiException as e:
+        print("Exception when calling InviteApi->update_invite_message: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Update Invite Message
+        api_response = api_instance.update_invite_message(user_id, message_type, slot, update_invite_message_request=update_invite_message_request)
         pprint(api_response)
     except vrchatapi.ApiException as e:
         print("Exception when calling InviteApi->update_invite_message: %s\n" % e)
@@ -643,7 +659,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **user_id** | **str**|  |
  **message_type** | **str**|  |
- **message_id** | **int**|  |
+ **slot** | **int**|  |
+ **update_invite_message_request** | [**UpdateInviteMessageRequest**](UpdateInviteMessageRequest.md)| Message of what to set the invite message to. | [optional]
 
 ### Return type
 
@@ -655,7 +672,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 
@@ -664,7 +681,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Returns a list of InviteMessage objects. |  -  |
-**400** | Error response when trying to update an Invite Message with invalid slot number. |  -  |
+**400** | Error response when trying to update an Invite Message with an invalid slot number. |  -  |
 **401** | Error response due to missing authorization to perform that action. |  -  |
 **429** | Error response when trying to update an Invite Message before the cooldown has expired. |  -  |
 

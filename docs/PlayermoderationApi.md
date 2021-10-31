@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 
 # **clear_all_player_moderations**
-> Error clear_all_player_moderations()
+> Success clear_all_player_moderations()
 
 Clear All Player Moderations
 
@@ -28,6 +28,7 @@ Clear All Player Moderations
 import time
 import vrchatapi
 from vrchatapi.api import playermoderation_api
+from vrchatapi.model.success import Success
 from vrchatapi.model.error import Error
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
@@ -73,7 +74,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**Error**](Error.md)
+[**Success**](Success.md)
 
 ### Authorization
 
