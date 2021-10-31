@@ -377,7 +377,7 @@ import time
 import vrchatapi
 from vrchatapi.api import playermoderation_api
 from vrchatapi.model.player_moderation import PlayerModeration
-from vrchatapi.model.inline_object12 import InlineObject12
+from vrchatapi.model.moderate_user_request import ModerateUserRequest
 from vrchatapi.model.error import Error
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
@@ -407,16 +407,16 @@ configuration.api_key['authCookie'] = 'YOUR_API_KEY'
 with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = playermoderation_api.PlayermoderationApi(api_client)
-    inline_object12 = InlineObject12(
+    moderate_user_request = ModerateUserRequest(
         moderated="usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469",
         type=PlayerModerationType("showAvatar"),
-    ) # InlineObject12 |  (optional)
+    ) # ModerateUserRequest |  (optional)
 
     # example passing only required values which don't have defaults set
     # and optional values
     try:
         # Moderate User
-        api_response = api_instance.moderate_user(inline_object12=inline_object12)
+        api_response = api_instance.moderate_user(moderate_user_request=moderate_user_request)
         pprint(api_response)
     except vrchatapi.ApiException as e:
         print("Exception when calling PlayermoderationApi->moderate_user: %s\n" % e)
@@ -427,7 +427,7 @@ with vrchatapi.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inline_object12** | [**InlineObject12**](InlineObject12.md)|  | [optional]
+ **moderate_user_request** | [**ModerateUserRequest**](ModerateUserRequest.md)|  | [optional]
 
 ### Return type
 
@@ -457,7 +457,7 @@ Name | Type | Description  | Notes
 
 Unmoderate User
 
-Removes a player moderation previously added through `moderateUser`. E.g if you previuosly have shown their avatar, but now want to reset it to default.
+Removes a player moderation previously added through `moderateUser`. E.g if you previously have shown their avatar, but now want to reset it to default.
 
 ### Example
 
@@ -469,7 +469,7 @@ import time
 import vrchatapi
 from vrchatapi.api import playermoderation_api
 from vrchatapi.model.success import Success
-from vrchatapi.model.inline_object13 import InlineObject13
+from vrchatapi.model.moderate_user_request import ModerateUserRequest
 from vrchatapi.model.error import Error
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
@@ -499,16 +499,16 @@ configuration.api_key['authCookie'] = 'YOUR_API_KEY'
 with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = playermoderation_api.PlayermoderationApi(api_client)
-    inline_object13 = InlineObject13(
+    moderate_user_request = ModerateUserRequest(
         moderated="usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469",
         type=PlayerModerationType("showAvatar"),
-    ) # InlineObject13 |  (optional)
+    ) # ModerateUserRequest |  (optional)
 
     # example passing only required values which don't have defaults set
     # and optional values
     try:
         # Unmoderate User
-        api_response = api_instance.unmoderate_user(inline_object13=inline_object13)
+        api_response = api_instance.unmoderate_user(moderate_user_request=moderate_user_request)
         pprint(api_response)
     except vrchatapi.ApiException as e:
         print("Exception when calling PlayermoderationApi->unmoderate_user: %s\n" % e)
@@ -519,7 +519,7 @@ with vrchatapi.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inline_object13** | [**InlineObject13**](InlineObject13.md)|  | [optional]
+ **moderate_user_request** | [**ModerateUserRequest**](ModerateUserRequest.md)|  | [optional]
 
 ### Return type
 

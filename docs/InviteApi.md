@@ -29,8 +29,8 @@ Returns a single Invite Message. This returns the exact same information but les
 import time
 import vrchatapi
 from vrchatapi.api import invite_api
-from vrchatapi.model.inline_response400 import InlineResponse400
 from vrchatapi.model.invite_message import InviteMessage
+from vrchatapi.model.error import Error
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
 # See configuration.py for a list of all supported configuration parameters.
@@ -121,8 +121,8 @@ Returns a list of all the users Invite Messages. Admin Credentials are required 
 import time
 import vrchatapi
 from vrchatapi.api import invite_api
-from vrchatapi.model.inline_response400 import InlineResponse400
 from vrchatapi.model.invite_message import InviteMessage
+from vrchatapi.model.error import Error
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
 # See configuration.py for a list of all supported configuration parameters.
@@ -213,7 +213,7 @@ import vrchatapi
 from vrchatapi.api import invite_api
 from vrchatapi.model.notification import Notification
 from vrchatapi.model.invite_request import InviteRequest
-from vrchatapi.model.inline_response400 import InlineResponse400
+from vrchatapi.model.error import Error
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
 # See configuration.py for a list of all supported configuration parameters.
@@ -245,7 +245,7 @@ with vrchatapi.ApiClient(configuration) as api_client:
     user_id = "userId_example" # str | 
     invite_request = InviteRequest(
         instance_id=InstanceID("wrld_ba913a96-fac4-4048-a062-9aa5db092812:123456"),
-    ) # InviteRequest | Instance ID when inviting a user. (optional)
+    ) # InviteRequest | Slot number of the Invite Message to use when inviting a user. (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -271,7 +271,7 @@ with vrchatapi.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **user_id** | **str**|  |
- **invite_request** | [**InviteRequest**](InviteRequest.md)| Instance ID when inviting a user. | [optional]
+ **invite_request** | [**InviteRequest**](InviteRequest.md)| Slot number of the Invite Message to use when inviting a user. | [optional]
 
 ### Return type
 
@@ -313,7 +313,7 @@ import time
 import vrchatapi
 from vrchatapi.api import invite_api
 from vrchatapi.model.notification import Notification
-from vrchatapi.model.inline_response400 import InlineResponse400
+from vrchatapi.model.error import Error
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
 # See configuration.py for a list of all supported configuration parameters.
@@ -399,8 +399,8 @@ Resets a single Invite Message back to it's original message, and then returns a
 import time
 import vrchatapi
 from vrchatapi.api import invite_api
-from vrchatapi.model.inline_response400 import InlineResponse400
 from vrchatapi.model.invite_message import InviteMessage
+from vrchatapi.model.error import Error
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
 # See configuration.py for a list of all supported configuration parameters.
@@ -481,7 +481,7 @@ Name | Type | Description  | Notes
 
 Respond Invite
 
-Sends a world invite to a user.
+Respond to an invite request by sending a world invite to the requesting user. `:notificationId` is the ID of the requesting notification.
 
 ### Example
 
@@ -493,8 +493,8 @@ import time
 import vrchatapi
 from vrchatapi.api import invite_api
 from vrchatapi.model.notification import Notification
-from vrchatapi.model.inline_response400 import InlineResponse400
 from vrchatapi.model.invite_response import InviteResponse
+from vrchatapi.model.error import Error
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
 # See configuration.py for a list of all supported configuration parameters.
@@ -593,8 +593,8 @@ Updates a single Invite Message and then returns a list of all of them. Admin Cr
 import time
 import vrchatapi
 from vrchatapi.api import invite_api
-from vrchatapi.model.inline_response400 import InlineResponse400
 from vrchatapi.model.invite_message import InviteMessage
+from vrchatapi.model.error import Error
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
 # See configuration.py for a list of all supported configuration parameters.

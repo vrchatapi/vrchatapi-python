@@ -8,7 +8,7 @@ Method | HTTP request | Description
 [**clear_notifications**](NotificationsApi.md#clear_notifications) | **PUT** /auth/user/notifications/clear | Clear All Notifications
 [**delete_notification**](NotificationsApi.md#delete_notification) | **PUT** /auth/user/notifications/{notificationId}/hide | Delete Notification
 [**get_notifications**](NotificationsApi.md#get_notifications) | **GET** /auth/user/notifications | List Notifications
-[**mark_notification_as_read**](NotificationsApi.md#mark_notification_as_read) | **PUT** /auth/user/notifications/{notificationId}/see | Mark As Read
+[**mark_notification_as_read**](NotificationsApi.md#mark_notification_as_read) | **PUT** /auth/user/notifications/{notificationId}/see | Mark Notification As Read
 
 
 # **accept_friend_request**
@@ -370,7 +370,7 @@ Name | Type | Description  | Notes
 # **mark_notification_as_read**
 > Notification mark_notification_as_read(notification_id)
 
-Mark As Read
+Mark Notification As Read
 
 Mark a notification as seen.
 
@@ -417,7 +417,7 @@ with vrchatapi.ApiClient(configuration) as api_client:
 
     # example passing only required values which don't have defaults set
     try:
-        # Mark As Read
+        # Mark Notification As Read
         api_response = api_instance.mark_notification_as_read(notification_id)
         pprint(api_response)
     except vrchatapi.ApiException as e:

@@ -34,8 +34,8 @@ import time
 import vrchatapi
 from vrchatapi.api import worlds_api
 from vrchatapi.model.world import World
+from vrchatapi.model.create_world_request import CreateWorldRequest
 from vrchatapi.model.error import Error
-from vrchatapi.model.inline_object6 import InlineObject6
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
 # See configuration.py for a list of all supported configuration parameters.
@@ -48,12 +48,12 @@ configuration = vrchatapi.Configuration(
 with vrchatapi.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = worlds_api.WorldsApi(api_client)
-    inline_object6 = InlineObject6(
+    create_world_request = CreateWorldRequest(
         asset_url="asset_url_example",
-        asset_version="asset_version_example",
+        asset_version=0,
         author_id="usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469",
         author_name="author_name_example",
-        capacity=16,
+        capacity=8,
         description="description_example",
         id=WorldID("wrld_ba913a96-fac4-4048-a062-9aa5db092812"),
         image_url="image_url_example",
@@ -65,13 +65,13 @@ with vrchatapi.ApiClient() as api_client:
         ],
         unity_package_url="unity_package_url_example",
         unity_version="2018.4.20f1",
-    ) # InlineObject6 |  (optional)
+    ) # CreateWorldRequest |  (optional)
 
     # example passing only required values which don't have defaults set
     # and optional values
     try:
         # Create World
-        api_response = api_instance.create_world(inline_object6=inline_object6)
+        api_response = api_instance.create_world(create_world_request=create_world_request)
         pprint(api_response)
     except vrchatapi.ApiException as e:
         print("Exception when calling WorldsApi->create_world: %s\n" % e)
@@ -82,7 +82,7 @@ with vrchatapi.ApiClient() as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inline_object6** | [**InlineObject6**](InlineObject6.md)|  | [optional]
+ **create_world_request** | [**CreateWorldRequest**](CreateWorldRequest.md)|  | [optional]
 
 ### Return type
 
@@ -700,7 +700,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_world_metadata**
-> InlineResponse2005 get_world_metadata(world_id)
+> WorldMetadata get_world_metadata(world_id)
 
 Get World Metadata
 
@@ -715,7 +715,7 @@ Return a worlds custom metadata. This is currently believed to be unused. Metada
 import time
 import vrchatapi
 from vrchatapi.api import worlds_api
-from vrchatapi.model.inline_response2005 import InlineResponse2005
+from vrchatapi.model.world_metadata import WorldMetadata
 from vrchatapi.model.error import Error
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
@@ -765,7 +765,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2005**](InlineResponse2005.md)
+[**WorldMetadata**](WorldMetadata.md)
 
 ### Authorization
 
@@ -787,7 +787,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_world_publish_status**
-> InlineResponse2006 get_world_publish_status(world_id)
+> WorldPublishStatus get_world_publish_status(world_id)
 
 Get World Publish Status
 
@@ -802,8 +802,8 @@ Returns a worlds publish status.
 import time
 import vrchatapi
 from vrchatapi.api import worlds_api
+from vrchatapi.model.world_publish_status import WorldPublishStatus
 from vrchatapi.model.error import Error
-from vrchatapi.model.inline_response2006 import InlineResponse2006
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
 # See configuration.py for a list of all supported configuration parameters.
@@ -852,7 +852,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2006**](InlineResponse2006.md)
+[**WorldPublishStatus**](WorldPublishStatus.md)
 
 ### Authorization
 
@@ -868,7 +868,7 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
+**200** | Returns a single WorldPublishStatus object. |  -  |
 **401** | Error response due to missing apiKey or auth cookie. |  -  |
 **404** | Error response when trying to show information about a non-existent world. Sometimes returns with &#x60;model &lt;worldId&gt; not found&#x60; instead of &#x60;World &lt;worldId not found&#x60;. |  -  |
 
@@ -1176,7 +1176,7 @@ Update information about a specific World.
 import time
 import vrchatapi
 from vrchatapi.api import worlds_api
-from vrchatapi.model.inline_object7 import InlineObject7
+from vrchatapi.model.update_world_request import UpdateWorldRequest
 from vrchatapi.model.world import World
 from vrchatapi.model.error import Error
 from pprint import pprint
@@ -1208,14 +1208,13 @@ with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = worlds_api.WorldsApi(api_client)
     world_id = "worldId_example" # str | 
-    inline_object7 = InlineObject7(
+    update_world_request = UpdateWorldRequest(
         asset_url="asset_url_example",
         asset_version="asset_version_example",
         author_id="usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469",
         author_name="author_name_example",
-        capacity=16,
+        capacity=8,
         description="description_example",
-        id=WorldID("wrld_ba913a96-fac4-4048-a062-9aa5db092812"),
         image_url="image_url_example",
         name="name_example",
         platform="standalonewindows",
@@ -1225,7 +1224,7 @@ with vrchatapi.ApiClient(configuration) as api_client:
         ],
         unity_package_url="unity_package_url_example",
         unity_version="2018.4.20f1",
-    ) # InlineObject7 |  (optional)
+    ) # UpdateWorldRequest |  (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -1239,7 +1238,7 @@ with vrchatapi.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Update World
-        api_response = api_instance.update_world(world_id, inline_object7=inline_object7)
+        api_response = api_instance.update_world(world_id, update_world_request=update_world_request)
         pprint(api_response)
     except vrchatapi.ApiException as e:
         print("Exception when calling WorldsApi->update_world: %s\n" % e)
@@ -1251,7 +1250,7 @@ with vrchatapi.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **world_id** | **str**|  |
- **inline_object7** | [**InlineObject7**](InlineObject7.md)|  | [optional]
+ **update_world_request** | [**UpdateWorldRequest**](UpdateWorldRequest.md)|  | [optional]
 
 ### Return type
 
