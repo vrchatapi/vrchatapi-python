@@ -17,6 +17,7 @@ docs/DeploymentGroup.md
 docs/DeveloperType.md
 docs/DownloadURLList.md
 docs/DynamicWorldRow.md
+docs/EconomyApi.md
 docs/Error.md
 docs/Favorite.md
 docs/FavoriteGroup.md
@@ -36,7 +37,6 @@ docs/FilesApi.md
 docs/FinishFileDataUploadRequest.md
 docs/FriendStatus.md
 docs/FriendsApi.md
-docs/InlineResponse404.md
 docs/Instance.md
 docs/InstanceID.md
 docs/InstancePlatforms.md
@@ -47,6 +47,11 @@ docs/InviteMessageID.md
 docs/InviteMessageType.md
 docs/InviteRequest.md
 docs/InviteResponse.md
+docs/License.md
+docs/LicenseAction.md
+docs/LicenseGroup.md
+docs/LicenseGroupID.md
+docs/LicenseType.md
 docs/LimitedUnityPackage.md
 docs/LimitedUser.md
 docs/LimitedWorld.md
@@ -66,9 +71,17 @@ docs/PlayermoderationApi.md
 docs/PublicAnnouncement.md
 docs/ReleaseStatus.md
 docs/Response.md
+docs/Subscription.md
+docs/SubscriptionPeriod.md
 docs/Success.md
 docs/SystemApi.md
 docs/Tag.md
+docs/Transaction.md
+docs/TransactionAgreement.md
+docs/TransactionID.md
+docs/TransactionStatus.md
+docs/TransactionSteamInfo.md
+docs/TransactionSteamWalletInfo.md
 docs/TwoFactorAuthCode.md
 docs/UnityPackage.md
 docs/UnityPackageID.md
@@ -81,6 +94,7 @@ docs/User.md
 docs/UserExists.md
 docs/UserState.md
 docs/UserStatus.md
+docs/UserSubscription.md
 docs/UsersApi.md
 docs/Verify2FAResult.md
 docs/VerifyAuthTokenResult.md
@@ -99,6 +113,7 @@ vrchatapi/__init__.py
 vrchatapi/api/__init__.py
 vrchatapi/api/authentication_api.py
 vrchatapi/api/avatars_api.py
+vrchatapi/api/economy_api.py
 vrchatapi/api/favorites_api.py
 vrchatapi/api/files_api.py
 vrchatapi/api/friends_api.py
@@ -147,7 +162,6 @@ vrchatapi/model/file_version.py
 vrchatapi/model/file_version_upload_status.py
 vrchatapi/model/finish_file_data_upload_request.py
 vrchatapi/model/friend_status.py
-vrchatapi/model/inline_response404.py
 vrchatapi/model/instance.py
 vrchatapi/model/instance_id.py
 vrchatapi/model/instance_platforms.py
@@ -156,6 +170,11 @@ vrchatapi/model/invite_message_id.py
 vrchatapi/model/invite_message_type.py
 vrchatapi/model/invite_request.py
 vrchatapi/model/invite_response.py
+vrchatapi/model/license.py
+vrchatapi/model/license_action.py
+vrchatapi/model/license_group.py
+vrchatapi/model/license_group_id.py
+vrchatapi/model/license_type.py
 vrchatapi/model/limited_unity_package.py
 vrchatapi/model/limited_user.py
 vrchatapi/model/limited_world.py
@@ -172,8 +191,16 @@ vrchatapi/model/player_moderation_type.py
 vrchatapi/model/public_announcement.py
 vrchatapi/model/release_status.py
 vrchatapi/model/response.py
+vrchatapi/model/subscription.py
+vrchatapi/model/subscription_period.py
 vrchatapi/model/success.py
 vrchatapi/model/tag.py
+vrchatapi/model/transaction.py
+vrchatapi/model/transaction_agreement.py
+vrchatapi/model/transaction_id.py
+vrchatapi/model/transaction_status.py
+vrchatapi/model/transaction_steam_info.py
+vrchatapi/model/transaction_steam_wallet_info.py
 vrchatapi/model/two_factor_auth_code.py
 vrchatapi/model/unity_package.py
 vrchatapi/model/unity_package_id.py
@@ -186,6 +213,7 @@ vrchatapi/model/user.py
 vrchatapi/model/user_exists.py
 vrchatapi/model/user_state.py
 vrchatapi/model/user_status.py
+vrchatapi/model/user_subscription.py
 vrchatapi/model/verify2_fa_result.py
 vrchatapi/model/verify_auth_token_result.py
 vrchatapi/model/world.py

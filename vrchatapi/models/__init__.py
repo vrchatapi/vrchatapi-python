@@ -41,7 +41,6 @@ from vrchatapi.model.file_version import FileVersion
 from vrchatapi.model.file_version_upload_status import FileVersionUploadStatus
 from vrchatapi.model.finish_file_data_upload_request import FinishFileDataUploadRequest
 from vrchatapi.model.friend_status import FriendStatus
-from vrchatapi.model.inline_response404 import InlineResponse404
 from vrchatapi.model.instance import Instance
 from vrchatapi.model.instance_id import InstanceID
 from vrchatapi.model.instance_platforms import InstancePlatforms
@@ -50,6 +49,11 @@ from vrchatapi.model.invite_message_id import InviteMessageID
 from vrchatapi.model.invite_message_type import InviteMessageType
 from vrchatapi.model.invite_request import InviteRequest
 from vrchatapi.model.invite_response import InviteResponse
+from vrchatapi.model.license import License
+from vrchatapi.model.license_action import LicenseAction
+from vrchatapi.model.license_group import LicenseGroup
+from vrchatapi.model.license_group_id import LicenseGroupID
+from vrchatapi.model.license_type import LicenseType
 from vrchatapi.model.limited_unity_package import LimitedUnityPackage
 from vrchatapi.model.limited_user import LimitedUser
 from vrchatapi.model.limited_world import LimitedWorld
@@ -66,8 +70,16 @@ from vrchatapi.model.player_moderation_type import PlayerModerationType
 from vrchatapi.model.public_announcement import PublicAnnouncement
 from vrchatapi.model.release_status import ReleaseStatus
 from vrchatapi.model.response import Response
+from vrchatapi.model.subscription import Subscription
+from vrchatapi.model.subscription_period import SubscriptionPeriod
 from vrchatapi.model.success import Success
 from vrchatapi.model.tag import Tag
+from vrchatapi.model.transaction import Transaction
+from vrchatapi.model.transaction_agreement import TransactionAgreement
+from vrchatapi.model.transaction_id import TransactionID
+from vrchatapi.model.transaction_status import TransactionStatus
+from vrchatapi.model.transaction_steam_info import TransactionSteamInfo
+from vrchatapi.model.transaction_steam_wallet_info import TransactionSteamWalletInfo
 from vrchatapi.model.two_factor_auth_code import TwoFactorAuthCode
 from vrchatapi.model.unity_package import UnityPackage
 from vrchatapi.model.unity_package_id import UnityPackageID
@@ -80,6 +92,7 @@ from vrchatapi.model.user import User
 from vrchatapi.model.user_exists import UserExists
 from vrchatapi.model.user_state import UserState
 from vrchatapi.model.user_status import UserStatus
+from vrchatapi.model.user_subscription import UserSubscription
 from vrchatapi.model.verify2_fa_result import Verify2FAResult
 from vrchatapi.model.verify_auth_token_result import VerifyAuthTokenResult
 from vrchatapi.model.world import World
