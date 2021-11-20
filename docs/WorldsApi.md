@@ -246,7 +246,7 @@ with vrchatapi.ApiClient(configuration) as api_client:
     order = "descending" # str |  (optional) if omitted the server will use the default value of "descending"
     offset = 0 # int | A zero-based offset from the default object sorting from where search results start. (optional)
     search = "search_example" # str | Filters by world name. (optional)
-    tag = "tag_example" # str | Tags to include (comma-separated). (optional)
+    tag = "tag_example" # str | Tags to include (comma-separated). Any of the tags needs to be present. (optional)
     notag = "notag_example" # str | Tags to exclude (comma-separated). (optional)
     release_status = "public" # str | Filter by ReleaseStatus. (optional) if omitted the server will use the default value of "public"
     max_unity_version = "maxUnityVersion_example" # str | The maximum Unity version supported by the asset. (optional)
@@ -274,7 +274,7 @@ Name | Type | Description  | Notes
  **order** | **str**|  | [optional] if omitted the server will use the default value of "descending"
  **offset** | **int**| A zero-based offset from the default object sorting from where search results start. | [optional]
  **search** | **str**| Filters by world name. | [optional]
- **tag** | **str**| Tags to include (comma-separated). | [optional]
+ **tag** | **str**| Tags to include (comma-separated). Any of the tags needs to be present. | [optional]
  **notag** | **str**| Tags to exclude (comma-separated). | [optional]
  **release_status** | **str**| Filter by ReleaseStatus. | [optional] if omitted the server will use the default value of "public"
  **max_unity_version** | **str**| The maximum Unity version supported by the asset. | [optional]
@@ -356,7 +356,7 @@ with vrchatapi.ApiClient(configuration) as api_client:
     order = "descending" # str |  (optional) if omitted the server will use the default value of "descending"
     offset = 0 # int | A zero-based offset from the default object sorting from where search results start. (optional)
     search = "search_example" # str | Filters by world name. (optional)
-    tag = "tag_example" # str | Tags to include (comma-separated). (optional)
+    tag = "tag_example" # str | Tags to include (comma-separated). Any of the tags needs to be present. (optional)
     notag = "notag_example" # str | Tags to exclude (comma-separated). (optional)
     release_status = "public" # str | Filter by ReleaseStatus. (optional) if omitted the server will use the default value of "public"
     max_unity_version = "maxUnityVersion_example" # str | The maximum Unity version supported by the asset. (optional)
@@ -385,7 +385,7 @@ Name | Type | Description  | Notes
  **order** | **str**|  | [optional] if omitted the server will use the default value of "descending"
  **offset** | **int**| A zero-based offset from the default object sorting from where search results start. | [optional]
  **search** | **str**| Filters by world name. | [optional]
- **tag** | **str**| Tags to include (comma-separated). | [optional]
+ **tag** | **str**| Tags to include (comma-separated). Any of the tags needs to be present. | [optional]
  **notag** | **str**| Tags to exclude (comma-separated). | [optional]
  **release_status** | **str**| Filter by ReleaseStatus. | [optional] if omitted the server will use the default value of "public"
  **max_unity_version** | **str**| The maximum Unity version supported by the asset. | [optional]
@@ -469,7 +469,7 @@ with vrchatapi.ApiClient(configuration) as api_client:
     order = "descending" # str |  (optional) if omitted the server will use the default value of "descending"
     offset = 0 # int | A zero-based offset from the default object sorting from where search results start. (optional)
     search = "search_example" # str | Filters by world name. (optional)
-    tag = "tag_example" # str | Tags to include (comma-separated). (optional)
+    tag = "tag_example" # str | Tags to include (comma-separated). Any of the tags needs to be present. (optional)
     notag = "notag_example" # str | Tags to exclude (comma-separated). (optional)
     release_status = "public" # str | Filter by ReleaseStatus. (optional) if omitted the server will use the default value of "public"
     max_unity_version = "maxUnityVersion_example" # str | The maximum Unity version supported by the asset. (optional)
@@ -498,7 +498,7 @@ Name | Type | Description  | Notes
  **order** | **str**|  | [optional] if omitted the server will use the default value of "descending"
  **offset** | **int**| A zero-based offset from the default object sorting from where search results start. | [optional]
  **search** | **str**| Filters by world name. | [optional]
- **tag** | **str**| Tags to include (comma-separated). | [optional]
+ **tag** | **str**| Tags to include (comma-separated). Any of the tags needs to be present. | [optional]
  **notag** | **str**| Tags to exclude (comma-separated). | [optional]
  **release_status** | **str**| Filter by ReleaseStatus. | [optional] if omitted the server will use the default value of "public"
  **max_unity_version** | **str**| The maximum Unity version supported by the asset. | [optional]
@@ -1014,7 +1014,7 @@ with vrchatapi.ApiClient(configuration) as api_client:
     order = "descending" # str |  (optional) if omitted the server will use the default value of "descending"
     offset = 0 # int | A zero-based offset from the default object sorting from where search results start. (optional)
     search = "search_example" # str | Filters by world name. (optional)
-    tag = "tag_example" # str | Tags to include (comma-separated). (optional)
+    tag = "tag_example" # str | Tags to include (comma-separated). Any of the tags needs to be present. (optional)
     notag = "notag_example" # str | Tags to exclude (comma-separated). (optional)
     release_status = "public" # str | Filter by ReleaseStatus. (optional) if omitted the server will use the default value of "public"
     max_unity_version = "maxUnityVersion_example" # str | The maximum Unity version supported by the asset. (optional)
@@ -1044,7 +1044,7 @@ Name | Type | Description  | Notes
  **order** | **str**|  | [optional] if omitted the server will use the default value of "descending"
  **offset** | **int**| A zero-based offset from the default object sorting from where search results start. | [optional]
  **search** | **str**| Filters by world name. | [optional]
- **tag** | **str**| Tags to include (comma-separated). | [optional]
+ **tag** | **str**| Tags to include (comma-separated). Any of the tags needs to be present. | [optional]
  **notag** | **str**| Tags to exclude (comma-separated). | [optional]
  **release_status** | **str**| Filter by ReleaseStatus. | [optional] if omitted the server will use the default value of "public"
  **max_unity_version** | **str**| The maximum Unity version supported by the asset. | [optional]

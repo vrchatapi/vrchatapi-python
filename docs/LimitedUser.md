@@ -4,8 +4,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**current_avatar_image_url** | **str** |  | 
-**current_avatar_thumbnail_image_url** | **str** |  | 
+**current_avatar_image_url** | **str** | When profilePicOverride is not empty, use it instead. | 
+**current_avatar_thumbnail_image_url** | **str** | When profilePicOverride is not empty, use it instead. | 
 **developer_type** | [**DeveloperType**](DeveloperType.md) |  | 
 **display_name** | **str** |  | 
 **fallback_avatar** | [**AvatarID**](AvatarID.md) |  | 

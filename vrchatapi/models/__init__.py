@@ -24,7 +24,7 @@ from vrchatapi.model.current_user import CurrentUser
 from vrchatapi.model.deployment_group import DeploymentGroup
 from vrchatapi.model.developer_type import DeveloperType
 from vrchatapi.model.download_url_list import DownloadURLList
-from vrchatapi.model.dynamic_world_row import DynamicWorldRow
+from vrchatapi.model.dynamic_content_row import DynamicContentRow
 from vrchatapi.model.error import Error
 from vrchatapi.model.favorite import Favorite
 from vrchatapi.model.favorite_group import FavoriteGroup
@@ -41,6 +41,11 @@ from vrchatapi.model.file_version import FileVersion
 from vrchatapi.model.file_version_upload_status import FileVersionUploadStatus
 from vrchatapi.model.finish_file_data_upload_request import FinishFileDataUploadRequest
 from vrchatapi.model.friend_status import FriendStatus
+from vrchatapi.model.info_push import InfoPush
+from vrchatapi.model.info_push_data import InfoPushData
+from vrchatapi.model.info_push_data_article import InfoPushDataArticle
+from vrchatapi.model.info_push_data_article_content import InfoPushDataArticleContent
+from vrchatapi.model.info_push_data_clickable import InfoPushDataClickable
 from vrchatapi.model.instance import Instance
 from vrchatapi.model.instance_id import InstanceID
 from vrchatapi.model.instance_platforms import InstancePlatforms

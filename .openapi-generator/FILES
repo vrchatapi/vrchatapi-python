@@ -16,7 +16,7 @@ docs/CurrentUser.md
 docs/DeploymentGroup.md
 docs/DeveloperType.md
 docs/DownloadURLList.md
-docs/DynamicWorldRow.md
+docs/DynamicContentRow.md
 docs/EconomyApi.md
 docs/Error.md
 docs/Favorite.md
@@ -37,6 +37,11 @@ docs/FilesApi.md
 docs/FinishFileDataUploadRequest.md
 docs/FriendStatus.md
 docs/FriendsApi.md
+docs/InfoPush.md
+docs/InfoPushData.md
+docs/InfoPushDataArticle.md
+docs/InfoPushDataArticleContent.md
+docs/InfoPushDataClickable.md
 docs/Instance.md
 docs/InstanceID.md
 docs/InstancePlatforms.md
@@ -145,7 +150,7 @@ vrchatapi/model/current_user.py
 vrchatapi/model/deployment_group.py
 vrchatapi/model/developer_type.py
 vrchatapi/model/download_url_list.py
-vrchatapi/model/dynamic_world_row.py
+vrchatapi/model/dynamic_content_row.py
 vrchatapi/model/error.py
 vrchatapi/model/favorite.py
 vrchatapi/model/favorite_group.py
@@ -162,6 +167,11 @@ vrchatapi/model/file_version.py
 vrchatapi/model/file_version_upload_status.py
 vrchatapi/model/finish_file_data_upload_request.py
 vrchatapi/model/friend_status.py
+vrchatapi/model/info_push.py
+vrchatapi/model/info_push_data.py
+vrchatapi/model/info_push_data_article.py
+vrchatapi/model/info_push_data_article_content.py
+vrchatapi/model/info_push_data_clickable.py
 vrchatapi/model/instance.py
 vrchatapi/model/instance_id.py
 vrchatapi/model/instance_platforms.py

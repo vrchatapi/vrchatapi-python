@@ -10,8 +10,8 @@ Name | Type | Description | Notes
 **bio_links** | **[str]** |  | 
 **current_avatar** | [**AvatarID**](AvatarID.md) |  | 
 **current_avatar_asset_url** | **str** |  | 
-**current_avatar_image_url** | **str** |  | 
-**current_avatar_thumbnail_image_url** | **str** |  | 
+**current_avatar_image_url** | **str** | When profilePicOverride is not empty, use it instead. | 
+**current_avatar_thumbnail_image_url** | **str** | When profilePicOverride is not empty, use it instead. | 
 **date_joined** | **date** |  | 
 **developer_type** | [**DeveloperType**](DeveloperType.md) |  | 
 **display_name** | **str** |  | 

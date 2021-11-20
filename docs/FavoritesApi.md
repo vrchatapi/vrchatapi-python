@@ -517,7 +517,7 @@ with vrchatapi.ApiClient(configuration) as api_client:
     n = 60 # int | The number of objects to return. (optional) if omitted the server will use the default value of 60
     offset = 0 # int | A zero-based offset from the default object sorting from where search results start. (optional)
     type = "type_example" # str | The type of favorites to return, FavoriteType. (optional)
-    tag = "tag_example" # str | Tags to include (comma-separated). (optional)
+    tag = "tag_example" # str | Tags to include (comma-separated). Any of the tags needs to be present. (optional)
 
     # example passing only required values which don't have defaults set
     # and optional values
@@ -537,7 +537,7 @@ Name | Type | Description  | Notes
  **n** | **int**| The number of objects to return. | [optional] if omitted the server will use the default value of 60
  **offset** | **int**| A zero-based offset from the default object sorting from where search results start. | [optional]
  **type** | **str**| The type of favorites to return, FavoriteType. | [optional]
- **tag** | **str**| Tags to include (comma-separated). | [optional]
+ **tag** | **str**| Tags to include (comma-separated). Any of the tags needs to be present. | [optional]
 
 ### Return type
 

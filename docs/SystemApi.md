@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**get_css**](SystemApi.md#get_css) | **GET** /css/app.css | Download CSS
 [**get_current_online_users**](SystemApi.md#get_current_online_users) | **GET** /visits | Current Online Users
 [**get_health**](SystemApi.md#get_health) | **GET** /health | Check API Health
+[**get_info_push**](SystemApi.md#get_info_push) | **GET** /infoPush | Show Information Notices
 [**get_java_script**](SystemApi.md#get_java_script) | **GET** /js/app.js | Download JavaScript
 [**get_system_time**](SystemApi.md#get_system_time) | **GET** /time | Current System Time
 
@@ -268,6 +269,76 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Returns the API&#39;s health. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_info_push**
+> [InfoPush] get_info_push()
+
+Show Information Notices
+
+IPS (Info Push System) is a system for VRChat to push out dynamic information to the client. This is primarily used by the Quick-Menu info banners, but can also be used to e.g. alert you to update your game to the latest version.  `include` is used to query what Information Pushes should be included in the response. If include is missing or empty, then no notices will normally be returned. This is an \"any of\" search.  `require` is used to limit what Information Pushes should be included in the response. This is usually used in combination with `include`, and is an \"all of\" search.
+
+### Example
+
+
+```python
+import time
+import vrchatapi
+from vrchatapi.api import system_api
+from vrchatapi.model.info_push import InfoPush
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = vrchatapi.Configuration(
+    host = "https://api.vrchat.cloud/api/1"
+)
+
+
+# Enter a context with an instance of the API client
+with vrchatapi.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = system_api.SystemApi(api_client)
+    require = "require_example" # str | Tags to include (comma-separated). All of the tags needs to be present. (optional)
+    include = "include_example" # str | Tags to include (comma-separated). Any of the tags needs to be present. (optional)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Show Information Notices
+        api_response = api_instance.get_info_push(require=require, include=include)
+        pprint(api_response)
+    except vrchatapi.ApiException as e:
+        print("Exception when calling SystemApi->get_info_push: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **require** | **str**| Tags to include (comma-separated). All of the tags needs to be present. | [optional]
+ **include** | **str**| Tags to include (comma-separated). Any of the tags needs to be present. | [optional]
+
+### Return type
+
+[**[InfoPush]**](InfoPush.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Returns a list of InfoPush objects. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 **dis_countdown** | **datetime** | Unknown, \&quot;dis\&quot; maybe for disconnect? | 
 **download_link_windows** | **str** | Download link for game on the Oculus Rift website. | 
 **download_urls** | [**DownloadURLList**](DownloadURLList.md) |  | 
-**dynamic_world_rows** | [**[DynamicWorldRow]**](DynamicWorldRow.md) | Array of DynamicWorldRow objects, used by the game to display the list of world rows | 
+**dynamic_world_rows** | [**[DynamicContentRow]**](DynamicContentRow.md) | Array of DynamicWorldRow objects, used by the game to display the list of world rows | 
 **events** | [**APIEventConfig**](APIEventConfig.md) |  | 
 **gear_demo_room_id** | **str** | Unknown | 
 **home_world_id** | [**WorldID**](WorldID.md) |  | 
