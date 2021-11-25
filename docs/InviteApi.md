@@ -245,7 +245,7 @@ with vrchatapi.ApiClient(configuration) as api_client:
     api_instance = invite_api.InviteApi(api_client)
     user_id = "userId_example" # str | 
     invite_request = InviteRequest(
-        instance_id=InstanceID("wrld_ba913a96-fac4-4048-a062-9aa5db092812:123456"),
+        instance_id=InstanceID("wrld_ba913a96-fac4-4048-a062-9aa5db092812:12345~hidden(usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469)~region(eu)~nonce(27e8414a-59a0-4f3d-af1f-f27557eb49a2)"),
     ) # InviteRequest | Slot number of the Invite Message to use when inviting a user. (optional)
 
     # example passing only required values which don't have defaults set

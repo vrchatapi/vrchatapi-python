@@ -1,11 +1,10 @@
-# WorldID
+# InstanceType
 
-WorldID be \"offline\" on User profiles if you are not friends with that user.
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**value** | **str** | WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user. | 
+**value** | **str** |  |  must be one of ["public", "hidden", "friends", "private", ]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

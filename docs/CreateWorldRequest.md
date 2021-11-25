@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **image_url** | **str** |  | 
 **name** | **str** |  | 
 **asset_version** | **int** |  | [optional] 
-**author_id** | **str** |  | [optional] 
+**author_id** | **str** | A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed. | [optional] 
 **author_name** | **str** |  | [optional] 
 **capacity** | **int** |  | [optional] 
 **description** | **str** |  | [optional] 

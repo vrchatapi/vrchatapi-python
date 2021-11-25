@@ -49,6 +49,7 @@ from vrchatapi.model.info_push_data_clickable import InfoPushDataClickable
 from vrchatapi.model.instance import Instance
 from vrchatapi.model.instance_id import InstanceID
 from vrchatapi.model.instance_platforms import InstancePlatforms
+from vrchatapi.model.instance_type import InstanceType
 from vrchatapi.model.invite_message import InviteMessage
 from vrchatapi.model.invite_message_id import InviteMessageID
 from vrchatapi.model.invite_message_type import InviteMessageType
@@ -73,6 +74,7 @@ from vrchatapi.model.player_moderation import PlayerModeration
 from vrchatapi.model.player_moderation_id import PlayerModerationID
 from vrchatapi.model.player_moderation_type import PlayerModerationType
 from vrchatapi.model.public_announcement import PublicAnnouncement
+from vrchatapi.model.region import Region
 from vrchatapi.model.release_status import ReleaseStatus
 from vrchatapi.model.response import Response
 from vrchatapi.model.subscription import Subscription

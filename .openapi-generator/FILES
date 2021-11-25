@@ -45,6 +45,7 @@ docs/InfoPushDataClickable.md
 docs/Instance.md
 docs/InstanceID.md
 docs/InstancePlatforms.md
+docs/InstanceType.md
 docs/InstancesApi.md
 docs/InviteApi.md
 docs/InviteMessage.md
@@ -74,6 +75,7 @@ docs/PlayerModerationID.md
 docs/PlayerModerationType.md
 docs/PlayermoderationApi.md
 docs/PublicAnnouncement.md
+docs/Region.md
 docs/ReleaseStatus.md
 docs/Response.md
 docs/Subscription.md
@@ -175,6 +177,7 @@ vrchatapi/model/info_push_data_clickable.py
 vrchatapi/model/instance.py
 vrchatapi/model/instance_id.py
 vrchatapi/model/instance_platforms.py
+vrchatapi/model/instance_type.py
 vrchatapi/model/invite_message.py
 vrchatapi/model/invite_message_id.py
 vrchatapi/model/invite_message_type.py
@@ -199,6 +202,7 @@ vrchatapi/model/player_moderation.py
 vrchatapi/model/player_moderation_id.py
 vrchatapi/model/player_moderation_type.py
 vrchatapi/model/public_announcement.py
+vrchatapi/model/region.py
 vrchatapi/model/release_status.py
 vrchatapi/model/response.py
 vrchatapi/model/subscription.py

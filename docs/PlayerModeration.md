@@ -7,9 +7,9 @@ Name | Type | Description | Notes
 **created** | **datetime** |  | 
 **id** | [**PlayerModerationID**](PlayerModerationID.md) |  | 
 **source_display_name** | **str** |  | 
-**source_user_id** | **str** |  | 
+**source_user_id** | **str** | A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed. | 
 **target_display_name** | **str** |  | 
-**target_user_id** | **str** |  | 
+**target_user_id** | **str** | A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed. | 
 **type** | [**PlayerModerationType**](PlayerModerationType.md) |  | 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 

@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 Get Instance
 
-Returns an instance.
+Returns an instance. Please read [Instances Tutorial](https://vrchatapi.github.io/tutorials/instances/) for more information on Instances.  If an invalid instanceId is provided, this endpoint will simply return \"null\"!
 
 ### Example
 
