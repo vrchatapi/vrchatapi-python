@@ -33,7 +33,7 @@ Name | Type | Description | Notes
 **favorites** | **int** |  | [optional]  if omitted the server will use the default value of 0
 **instances** | **[[bool, date, datetime, dict, float, int, list, str, none_type]]** |  | [optional] 
 **occupants** | **int** |  | [optional]  if omitted the server will use the default value of 0
-**preview_youtube_id** | **str** |  | [optional] 
+**preview_youtube_id** | **str, none_type** |  | [optional] 
 **private_occupants** | **int** |  | [optional]  if omitted the server will use the default value of 0
 **public_occupants** | **int** |  | [optional]  if omitted the server will use the default value of 0
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
