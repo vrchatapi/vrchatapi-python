@@ -246,6 +246,7 @@ with vrchatapi.ApiClient(configuration) as api_client:
     user_id = "userId_example" # str | 
     invite_request = InviteRequest(
         instance_id=InstanceID("wrld_ba913a96-fac4-4048-a062-9aa5db092812:12345~hidden(usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469)~region(eu)~nonce(27e8414a-59a0-4f3d-af1f-f27557eb49a2)"),
+        message_slot=0,
     ) # InviteRequest | Slot number of the Invite Message to use when inviting a user. (optional)
 
     # example passing only required values which don't have defaults set
@@ -315,6 +316,7 @@ import vrchatapi
 from vrchatapi.api import invite_api
 from vrchatapi.model.notification import Notification
 from vrchatapi.model.error import Error
+from vrchatapi.model.request_invite_request import RequestInviteRequest
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
 # See configuration.py for a list of all supported configuration parameters.
@@ -344,11 +346,23 @@ with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = invite_api.InviteApi(api_client)
     user_id = "userId_example" # str | 
+    request_invite_request = RequestInviteRequest(
+        message_slot=0,
+    ) # RequestInviteRequest | Slot number of the Request Message to use when request an invite. (optional)
 
     # example passing only required values which don't have defaults set
     try:
         # Request Invite
         api_response = api_instance.request_invite(user_id)
+        pprint(api_response)
+    except vrchatapi.ApiException as e:
+        print("Exception when calling InviteApi->request_invite: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Request Invite
+        api_response = api_instance.request_invite(user_id, request_invite_request=request_invite_request)
         pprint(api_response)
     except vrchatapi.ApiException as e:
         print("Exception when calling InviteApi->request_invite: %s\n" % e)
@@ -360,6 +374,7 @@ with vrchatapi.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **user_id** | **str**|  |
+ **request_invite_request** | [**RequestInviteRequest**](RequestInviteRequest.md)| Slot number of the Request Message to use when request an invite. | [optional]
 
 ### Return type
 
@@ -371,7 +386,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 
@@ -528,7 +543,7 @@ with vrchatapi.ApiClient(configuration) as api_client:
     notification_id = "notificationId_example" # str | 
     invite_response = InviteResponse(
         response_slot=0,
-    ) # InviteResponse | Instance ID when inviting a user. (optional)
+    ) # InviteResponse | Slot number of the Response Message to use when responding to a user. (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -554,7 +569,7 @@ with vrchatapi.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **notification_id** | **str**|  |
- **invite_response** | [**InviteResponse**](InviteResponse.md)| Instance ID when inviting a user. | [optional]
+ **invite_response** | [**InviteResponse**](InviteResponse.md)| Slot number of the Response Message to use when responding to a user. | [optional]
 
 ### Return type
 

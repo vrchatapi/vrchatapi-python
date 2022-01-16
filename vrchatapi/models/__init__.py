@@ -76,6 +76,7 @@ from vrchatapi.model.player_moderation_type import PlayerModerationType
 from vrchatapi.model.public_announcement import PublicAnnouncement
 from vrchatapi.model.region import Region
 from vrchatapi.model.release_status import ReleaseStatus
+from vrchatapi.model.request_invite_request import RequestInviteRequest
 from vrchatapi.model.response import Response
 from vrchatapi.model.subscription import Subscription
 from vrchatapi.model.subscription_period import SubscriptionPeriod
