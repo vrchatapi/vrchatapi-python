@@ -850,7 +850,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **start_file_data_upload**
-> FileUploadURL start_file_data_upload(file_id, version_id, file_type, part_number)
+> FileUploadURL start_file_data_upload(file_id, version_id, file_type)
 
 Start FileData Upload
 
@@ -898,12 +898,21 @@ with vrchatapi.ApiClient(configuration) as api_client:
     file_id = "file_00000000-0000-0000-0000-000000000000" # str | 
     version_id = 1 # int | 
     file_type = "file" # str | 
-    part_number = 1 # int | 
+    part_number = 1 # int |  (optional)
 
     # example passing only required values which don't have defaults set
     try:
         # Start FileData Upload
-        api_response = api_instance.start_file_data_upload(file_id, version_id, file_type, part_number)
+        api_response = api_instance.start_file_data_upload(file_id, version_id, file_type)
+        pprint(api_response)
+    except vrchatapi.ApiException as e:
+        print("Exception when calling FilesApi->start_file_data_upload: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Start FileData Upload
+        api_response = api_instance.start_file_data_upload(file_id, version_id, file_type, part_number=part_number)
         pprint(api_response)
     except vrchatapi.ApiException as e:
         print("Exception when calling FilesApi->start_file_data_upload: %s\n" % e)
@@ -917,7 +926,7 @@ Name | Type | Description  | Notes
  **file_id** | **str**|  |
  **version_id** | **int**|  |
  **file_type** | **str**|  |
- **part_number** | **int**|  |
+ **part_number** | **int**|  | [optional]
 
 ### Return type
 
