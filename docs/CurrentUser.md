@@ -41,6 +41,7 @@ Name | Type | Description | Notes
 **steam_id** | **str** |  | 
 **tags** | [**[Tag]**](Tag.md) |  | 
 **two_factor_auth_enabled** | **bool** |  | 
+**two_factor_auth_enabled_date** | **datetime** |  | 
 **unsubscribe** | **bool** |  | 
 **user_icon** | **str** |  | 
 **username** | **str** |  | 
