@@ -366,7 +366,7 @@ Name | Type | Description  | Notes
 
 Moderate User
 
-Moderate a user, e.g. unmute them or show their avatar.
+Moderate a user, e.g. unmute them or show their avatar.  Please see the [Player Moderation docs](https://vrchatapi.github.io/docs/api/#tag--playermoderation) on what playerModerations are, and how they differ from staff moderations.
 
 ### Example
 

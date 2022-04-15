@@ -41,7 +41,6 @@ Name | Type | Description | Notes
 **steam_id** | **str** |  | 
 **tags** | [**[Tag]**](Tag.md) |  | 
 **two_factor_auth_enabled** | **bool** |  | 
-**two_factor_auth_enabled_date** | **datetime** |  | 
 **unsubscribe** | **bool** |  | 
 **user_icon** | **str** |  | 
 **username** | **str** |  | 
@@ -51,6 +50,7 @@ Name | Type | Description | Notes
 **fallback_avatar** | [**AvatarID**](AvatarID.md) |  | [optional] 
 **offline_friends** | **[str]** |  | [optional] 
 **online_friends** | **[str]** |  | [optional] 
+**two_factor_auth_enabled_date** | **datetime** |  | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
