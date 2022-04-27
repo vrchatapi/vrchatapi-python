@@ -50,7 +50,7 @@ Name | Type | Description | Notes
 **fallback_avatar** | [**AvatarID**](AvatarID.md) |  | [optional] 
 **offline_friends** | **[str]** |  | [optional] 
 **online_friends** | **[str]** |  | [optional] 
-**two_factor_auth_enabled_date** | **datetime** |  | [optional] 
+**two_factor_auth_enabled_date** | **datetime, none_type** |  | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
