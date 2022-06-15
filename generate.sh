@@ -36,3 +36,6 @@ sed -i '/license/a long_description_content_type="text/markdown",' ./setup.py
 
 # Remove messily pasted markdown at top of every file
 find vrchatapi -type f -exec sed -i '/VRChat API Banner/d' {} \;
+
+# Make 2fa required error readable
+patch ./vrchatapi/rest.py < ./patches/error_2fa_verify_readable.patch
