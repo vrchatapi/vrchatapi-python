@@ -160,7 +160,7 @@ class ApiClient(object):
 
         # query parameters
         if query_params:
-            query_params = self.sanitize_for_serialization(query_params)
+            query_params = self.sanitize_for_serialization(query_params, True)
             query_params = self.parameters_to_tuples(query_params,
                                                      collection_formats)
 
@@ -255,7 +255,7 @@ class ApiClient(object):
         return new_params
 
     @classmethod
-    def sanitize_for_serialization(cls, obj):
+    def sanitize_for_serialization(cls, obj, query=False):
         """Prepares data for transmission before it is sent with the rest client
         If obj is None, return None.
         If obj is str, int, long, float, bool, return directly.
@@ -265,6 +265,7 @@ class ApiClient(object):
         If obj is dict, return the dict.
         If obj is OpenAPI model, return the properties dict.
         If obj is io.IOBase, return the bytes
+        If obj is bool and query is true, return str
         :param obj: The data to serialize.
         :return: The serialized form of data.
         """
@@ -272,6 +273,8 @@ class ApiClient(object):
             return {
                 key: cls.sanitize_for_serialization(val) for key, val in model_to_dict(obj, serialize=True).items()
             }
+        elif isinstance(obj, bool) and query:
+            return str(obj).lower()
         elif isinstance(obj, io.IOBase):
             return cls.get_file_data_and_close_file(obj)
         elif isinstance(obj, (str, int, float, none_type, bool)):
@@ -279,11 +282,11 @@ class ApiClient(object):
         elif isinstance(obj, (datetime, date)):
             return obj.isoformat()
         elif isinstance(obj, ModelSimple):
-            return cls.sanitize_for_serialization(obj.value)
+            return cls.sanitize_for_serialization(obj.value, query)
         elif isinstance(obj, (list, tuple)):
-            return [cls.sanitize_for_serialization(item) for item in obj]
+            return [cls.sanitize_for_serialization(item, query) for item in obj]
         if isinstance(obj, dict):
-            return {key: cls.sanitize_for_serialization(val) for key, val in obj.items()}
+            return {key: cls.sanitize_for_serialization(val, query) for key, val in obj.items()}
         raise ApiValueError('Unable to prepare type {} for serialization'.format(obj.__class__.__name__))
 
     def deserialize(self, response, response_type, _check_type):
