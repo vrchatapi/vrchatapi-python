@@ -337,7 +337,7 @@ configuration.api_key['authCookie'] = 'YOUR_API_KEY'
 with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = avatars_api.AvatarsApi(api_client)
-    featured = "featured_example" # str | Filters on featured results. (optional)
+    featured = True # bool | Filters on featured results. (optional)
     sort = "popularity" # str |  (optional) if omitted the server will use the default value of "popularity"
     n = 60 # int | The number of objects to return. (optional) if omitted the server will use the default value of 60
     order = "descending" # str |  (optional) if omitted the server will use the default value of "descending"
@@ -366,7 +366,7 @@ with vrchatapi.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **featured** | **str**| Filters on featured results. | [optional]
+ **featured** | **bool**| Filters on featured results. | [optional]
  **sort** | **str**|  | [optional] if omitted the server will use the default value of "popularity"
  **n** | **int**| The number of objects to return. | [optional] if omitted the server will use the default value of 60
  **order** | **str**|  | [optional] if omitted the server will use the default value of "descending"
@@ -450,7 +450,7 @@ configuration.api_key['authCookie'] = 'YOUR_API_KEY'
 with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = avatars_api.AvatarsApi(api_client)
-    featured = "featured_example" # str | Filters on featured results. (optional)
+    featured = True # bool | Filters on featured results. (optional)
     sort = "popularity" # str |  (optional) if omitted the server will use the default value of "popularity"
     user = "me" # str | Set to `me` for searching own avatars. (optional) if omitted the server will use the default value of "me"
     user_id = "userId_example" # str | Filter by UserID. (optional)
@@ -479,7 +479,7 @@ with vrchatapi.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **featured** | **str**| Filters on featured results. | [optional]
+ **featured** | **bool**| Filters on featured results. | [optional]
  **sort** | **str**|  | [optional] if omitted the server will use the default value of "popularity"
  **user** | **str**| Set to &#x60;me&#x60; for searching own avatars. | [optional] if omitted the server will use the default value of "me"
  **user_id** | **str**| Filter by UserID. | [optional]
