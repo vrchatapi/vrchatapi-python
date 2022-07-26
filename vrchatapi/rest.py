@@ -239,6 +239,10 @@ class RESTClientObject(object):
 
             raise ApiException(http_resp=r)
 
+        if re.match(b'{"\w{21}":\["totp","otp"]}', r.data) is not None:
+            r.reason = "2 Factor Authentication verification is required"
+            raise UnauthorizedException(http_resp=r)
+
         return r
 
     def GET(self, url, headers=None, query_params=None, _preload_content=True,
