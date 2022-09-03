@@ -51,6 +51,7 @@ docs/InviteApi.md
 docs/InviteMessage.md
 docs/InviteMessageID.md
 docs/InviteMessageType.md
+docs/InviteMyselfToRequest.md
 docs/InviteRequest.md
 docs/InviteResponse.md
 docs/License.md
@@ -79,6 +80,7 @@ docs/Region.md
 docs/ReleaseStatus.md
 docs/RequestInviteRequest.md
 docs/Response.md
+docs/SentNotification.md
 docs/Subscription.md
 docs/SubscriptionPeriod.md
 docs/Success.md
@@ -182,6 +184,7 @@ vrchatapi/model/instance_type.py
 vrchatapi/model/invite_message.py
 vrchatapi/model/invite_message_id.py
 vrchatapi/model/invite_message_type.py
+vrchatapi/model/invite_myself_to_request.py
 vrchatapi/model/invite_request.py
 vrchatapi/model/invite_response.py
 vrchatapi/model/license.py
@@ -207,6 +210,7 @@ vrchatapi/model/region.py
 vrchatapi/model/release_status.py
 vrchatapi/model/request_invite_request.py
 vrchatapi/model/response.py
+vrchatapi/model/sent_notification.py
 vrchatapi/model/subscription.py
 vrchatapi/model/subscription_period.py
 vrchatapi/model/success.py

@@ -5,7 +5,6 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **asset_url** | **str** | Empty if unauthenticated. | 
-**asset_url_object** | **{str: (bool, date, datetime, dict, float, int, list, str, none_type)}** |  | 
 **author_id** | **str** | A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed. | 
 **author_name** | **str** |  | 
 **capacity** | **int** |  | 
@@ -16,12 +15,10 @@ Name | Type | Description | Notes
 **labs_publication_date** | **str** |  | 
 **name** | **str** |  | 
 **namespace** | **str** |  | 
-**plugin_url_object** | **{str: (bool, date, datetime, dict, float, int, list, str, none_type)}** |  | 
 **publication_date** | **str** |  | 
 **release_status** | [**ReleaseStatus**](ReleaseStatus.md) |  | 
 **tags** | [**[Tag]**](Tag.md) |  | 
 **thumbnail_image_url** | **str** |  | 
-**unity_package_url_object** | **{str: (bool, date, datetime, dict, float, int, list, str, none_type)}** |  | 
 **unity_packages** | [**[UnityPackage]**](UnityPackage.md) | Empty if unauthenticated. | 
 **updated_at** | **datetime** |  | 
 **featured** | **bool** |  | defaults to False

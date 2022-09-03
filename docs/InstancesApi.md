@@ -5,6 +5,7 @@ All URIs are relative to *https://api.vrchat.cloud/api/1*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**get_instance**](InstancesApi.md#get_instance) | **GET** /instances/{worldId}:{instanceId} | Get Instance
+[**get_instance_by_short_name**](InstancesApi.md#get_instance_by_short_name) | **GET** /instances/s/{shortName} | Get Instance By Short Name
 [**get_short_name**](InstancesApi.md#get_short_name) | **GET** /instances/{worldId}:{instanceId}/shortName | Get Instance Short Name
 [**send_self_invite**](InstancesApi.md#send_self_invite) | **POST** /instances/{worldId}:{instanceId}/invite | Send Self Invite
 
@@ -95,6 +96,94 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 **200** | Returns a single Instance object. |  -  |
 **401** | Error response due to missing apiKey or auth cookie. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_instance_by_short_name**
+> Instance get_instance_by_short_name(short_name)
+
+Get Instance By Short Name
+
+Returns an instance. Please read [Instances Tutorial](https://vrchatapi.github.io/tutorials/instances/) for more information on Instances.
+
+### Example
+
+* Api Key Authentication (apiKeyCookie):
+* Api Key Authentication (authCookie):
+
+```python
+import time
+import vrchatapi
+from vrchatapi.api import instances_api
+from vrchatapi.model.error import Error
+from vrchatapi.model.instance import Instance
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = vrchatapi.Configuration(
+    host = "https://api.vrchat.cloud/api/1"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: apiKeyCookie
+configuration.api_key['apiKeyCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apiKeyCookie'] = 'Bearer'
+
+# Configure API key authorization: authCookie
+configuration.api_key['authCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['authCookie'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with vrchatapi.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = instances_api.InstancesApi(api_client)
+    short_name = "shortName_example" # str | 
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Get Instance By Short Name
+        api_response = api_instance.get_instance_by_short_name(short_name)
+        pprint(api_response)
+    except vrchatapi.ApiException as e:
+        print("Exception when calling InstancesApi->get_instance_by_short_name: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **short_name** | **str**|  |
+
+### Return type
+
+[**Instance**](Instance.md)
+
+### Authorization
+
+[apiKeyCookie](../README.md#apiKeyCookie), [authCookie](../README.md#authCookie)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Returns a single Instance object. |  -  |
+**401** | Error response due to missing apiKey or auth cookie. |  -  |
+**404** | Error response due to non existant instance |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

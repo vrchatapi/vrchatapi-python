@@ -58,8 +58,8 @@ Name | Type | Description | Notes
 **vive_windows_url** | **str** | Download link for game on the Steam website. | 
 **white_listed_asset_urls** | **[str]** | List of allowed URLs that are allowed to host avatar assets | 
 **world_update_period** | **int** | Unknown | 
-**youtubedl_hash** | **str** | Currently used youtube-dl.exe hash in SHA-256-delimited format | 
-**youtubedl_version** | **str** | Currently used youtube-dl.exe version | 
+**player_url_resolver_hash** | **str** | Currently used youtube-dl.exe hash in SHA-256-delimited format | 
+**player_url_resolver_version** | **str** | Currently used youtube-dl.exe version | 
 **voice_enable_degradation** | **bool** | Unknown, probably voice optimization testing | defaults to False
 **voice_enable_receiver_limiting** | **bool** | Unknown, probably voice optimization testing | defaults to True
 **app_name** | **str** | Game name | defaults to "VrChat"

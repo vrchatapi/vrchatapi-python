@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**get_invite_message**](InviteApi.md#get_invite_message) | **GET** /message/{userId}/{messageType}/{slot} | Get Invite Message
 [**get_invite_messages**](InviteApi.md#get_invite_messages) | **GET** /message/{userId}/{messageType} | List Invite Messages
+[**invite_myself_to**](InviteApi.md#invite_myself_to) | **POST** /invite/myself/to/{worldId}:{instanceId} | Invite Myself To Instance
 [**invite_user**](InviteApi.md#invite_user) | **POST** /invite/{userId} | Invite User
 [**request_invite**](InviteApi.md#request_invite) | **POST** /requestInvite/{userId} | Request Invite
 [**reset_invite_message**](InviteApi.md#reset_invite_message) | **DELETE** /message/{userId}/{messageType}/{slot} | Reset Invite Message
@@ -196,8 +197,112 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **invite_myself_to**
+> SentNotification invite_myself_to(world_id, instance_id)
+
+Invite Myself To Instance
+
+Sends self an invite to an instance
+
+### Example
+
+* Api Key Authentication (apiKeyCookie):
+* Api Key Authentication (authCookie):
+
+```python
+import time
+import vrchatapi
+from vrchatapi.api import invite_api
+from vrchatapi.model.sent_notification import SentNotification
+from vrchatapi.model.invite_myself_to_request import InviteMyselfToRequest
+from vrchatapi.model.error import Error
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = vrchatapi.Configuration(
+    host = "https://api.vrchat.cloud/api/1"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: apiKeyCookie
+configuration.api_key['apiKeyCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apiKeyCookie'] = 'Bearer'
+
+# Configure API key authorization: authCookie
+configuration.api_key['authCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['authCookie'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with vrchatapi.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = invite_api.InviteApi(api_client)
+    world_id = "worldId_example" # str | 
+    instance_id = "instanceId_example" # str | 
+    invite_myself_to_request = InviteMyselfToRequest(
+        short_name="short_name_example",
+    ) # InviteMyselfToRequest |  (optional)
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Invite Myself To Instance
+        api_response = api_instance.invite_myself_to(world_id, instance_id)
+        pprint(api_response)
+    except vrchatapi.ApiException as e:
+        print("Exception when calling InviteApi->invite_myself_to: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Invite Myself To Instance
+        api_response = api_instance.invite_myself_to(world_id, instance_id, invite_myself_to_request=invite_myself_to_request)
+        pprint(api_response)
+    except vrchatapi.ApiException as e:
+        print("Exception when calling InviteApi->invite_myself_to: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **world_id** | **str**|  |
+ **instance_id** | **str**|  |
+ **invite_myself_to_request** | [**InviteMyselfToRequest**](InviteMyselfToRequest.md)|  | [optional]
+
+### Return type
+
+[**SentNotification**](SentNotification.md)
+
+### Authorization
+
+[apiKeyCookie](../README.md#apiKeyCookie), [authCookie](../README.md#authCookie)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Returns a single SentNotifcation object. |  -  |
+**401** | Error response due to missing apiKey or auth cookie. |  -  |
+**404** | Error response due to non existant instance |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **invite_user**
-> Notification invite_user(user_id)
+> SentNotification invite_user(user_id)
 
 Invite User
 
@@ -212,7 +317,7 @@ Sends an invite to a user. Returns the Notification of type `invite` that was se
 import time
 import vrchatapi
 from vrchatapi.api import invite_api
-from vrchatapi.model.notification import Notification
+from vrchatapi.model.sent_notification import SentNotification
 from vrchatapi.model.invite_request import InviteRequest
 from vrchatapi.model.error import Error
 from pprint import pprint
@@ -277,7 +382,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Notification**](Notification.md)
+[**SentNotification**](SentNotification.md)
 
 ### Authorization
 
@@ -293,7 +398,7 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Returns a single Notifcation object. |  -  |
+**200** | Returns a single SentNotifcation object. |  -  |
 **403** | Error response when trying to invite someome whom you are not friends with. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

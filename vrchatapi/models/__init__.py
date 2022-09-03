@@ -53,6 +53,7 @@ from vrchatapi.model.instance_type import InstanceType
 from vrchatapi.model.invite_message import InviteMessage
 from vrchatapi.model.invite_message_id import InviteMessageID
 from vrchatapi.model.invite_message_type import InviteMessageType
+from vrchatapi.model.invite_myself_to_request import InviteMyselfToRequest
 from vrchatapi.model.invite_request import InviteRequest
 from vrchatapi.model.invite_response import InviteResponse
 from vrchatapi.model.license import License
@@ -78,6 +79,7 @@ from vrchatapi.model.region import Region
 from vrchatapi.model.release_status import ReleaseStatus
 from vrchatapi.model.request_invite_request import RequestInviteRequest
 from vrchatapi.model.response import Response
+from vrchatapi.model.sent_notification import SentNotification
 from vrchatapi.model.subscription import Subscription
 from vrchatapi.model.subscription_period import SubscriptionPeriod
 from vrchatapi.model.success import Success
