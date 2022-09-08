@@ -188,7 +188,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_short_name**
-> str get_short_name(world_id, instance_id)
+> InstanceShortNameResponse get_short_name(world_id, instance_id)
 
 Get Instance Short Name
 
@@ -203,6 +203,7 @@ Returns an instance short name.
 import time
 import vrchatapi
 from vrchatapi.api import instances_api
+from vrchatapi.model.instance_short_name_response import InstanceShortNameResponse
 from vrchatapi.model.error import Error
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
@@ -254,7 +255,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**str**
+[**InstanceShortNameResponse**](InstanceShortNameResponse.md)
 
 ### Authorization
 
@@ -270,7 +271,7 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Returns an instance short name. |  -  |
+**200** | Returns an instance secureName and/or shortName. |  -  |
 **401** | Error response due to missing apiKey or auth cookie. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

@@ -214,7 +214,6 @@ import time
 import vrchatapi
 from vrchatapi.api import invite_api
 from vrchatapi.model.sent_notification import SentNotification
-from vrchatapi.model.invite_myself_to_request import InviteMyselfToRequest
 from vrchatapi.model.error import Error
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
@@ -246,23 +245,11 @@ with vrchatapi.ApiClient(configuration) as api_client:
     api_instance = invite_api.InviteApi(api_client)
     world_id = "worldId_example" # str | 
     instance_id = "instanceId_example" # str | 
-    invite_myself_to_request = InviteMyselfToRequest(
-        short_name="short_name_example",
-    ) # InviteMyselfToRequest |  (optional)
 
     # example passing only required values which don't have defaults set
     try:
         # Invite Myself To Instance
         api_response = api_instance.invite_myself_to(world_id, instance_id)
-        pprint(api_response)
-    except vrchatapi.ApiException as e:
-        print("Exception when calling InviteApi->invite_myself_to: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
-    try:
-        # Invite Myself To Instance
-        api_response = api_instance.invite_myself_to(world_id, instance_id, invite_myself_to_request=invite_myself_to_request)
         pprint(api_response)
     except vrchatapi.ApiException as e:
         print("Exception when calling InviteApi->invite_myself_to: %s\n" % e)
@@ -275,7 +262,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **world_id** | **str**|  |
  **instance_id** | **str**|  |
- **invite_myself_to_request** | [**InviteMyselfToRequest**](InviteMyselfToRequest.md)|  | [optional]
 
 ### Return type
 
@@ -287,7 +273,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 

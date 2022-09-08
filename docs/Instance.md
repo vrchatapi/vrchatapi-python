@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 **photon_region** | [**Region**](Region.md) |  | 
 **platforms** | [**InstancePlatforms**](InstancePlatforms.md) |  | 
 **region** | [**Region**](Region.md) |  | 
-**short_name** | **str** |  | 
+**secure_name** | **str** |  | 
 **tags** | [**[Tag]**](Tag.md) | The tags array on Instances usually contain the language tags of the people in the instance.  | 
 **type** | [**InstanceType**](InstanceType.md) |  | 
 **world_id** | [**WorldID**](WorldID.md) |  | 
@@ -24,6 +24,7 @@ Name | Type | Description | Notes
 **full** | **bool** |  | defaults to False
 **permanent** | **bool** |  | defaults to False
 **owner_id** | **str** | A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed. | [optional] 
+**short_name** | **str** |  | [optional] 
 **hidden** | **str** | A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed. | [optional] 
 **friends** | **str** | A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed. | [optional] 
 **private** | **str** | A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed. | [optional] 

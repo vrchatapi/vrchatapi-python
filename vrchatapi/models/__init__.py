@@ -49,11 +49,11 @@ from vrchatapi.model.info_push_data_clickable import InfoPushDataClickable
 from vrchatapi.model.instance import Instance
 from vrchatapi.model.instance_id import InstanceID
 from vrchatapi.model.instance_platforms import InstancePlatforms
+from vrchatapi.model.instance_short_name_response import InstanceShortNameResponse
 from vrchatapi.model.instance_type import InstanceType
 from vrchatapi.model.invite_message import InviteMessage
 from vrchatapi.model.invite_message_id import InviteMessageID
 from vrchatapi.model.invite_message_type import InviteMessageType
-from vrchatapi.model.invite_myself_to_request import InviteMyselfToRequest
 from vrchatapi.model.invite_request import InviteRequest
 from vrchatapi.model.invite_response import InviteResponse
 from vrchatapi.model.license import License
