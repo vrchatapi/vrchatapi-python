@@ -27,7 +27,7 @@ Name | Type | Description | Notes
 **version** | **int** |  | defaults to 0
 **visits** | **int** |  | defaults to 0
 **favorites** | **int** |  | [optional]  if omitted the server will use the default value of 0
-**instances** | **[[{str: (bool, date, datetime, dict, float, int, list, str, none_type)}]]** |  | [optional] 
+**instances** | **[[bool, date, datetime, dict, float, int, list, str, none_type]]** |  | [optional] 
 **occupants** | **int** |  | [optional]  if omitted the server will use the default value of 0
 **preview_youtube_id** | **str, none_type** |  | [optional] 
 **private_occupants** | **int** |  | [optional]  if omitted the server will use the default value of 0
