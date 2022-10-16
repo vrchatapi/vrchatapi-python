@@ -535,7 +535,7 @@ Name | Type | Description  | Notes
 
 Get World by ID
 
-Get information about a specific World.
+Get information about a specific World. Works unauthenticated but when so will always return `0` for certain fields.
 
 ### Example
 

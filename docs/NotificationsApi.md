@@ -315,7 +315,7 @@ configuration.api_key['authCookie'] = 'YOUR_API_KEY'
 with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = notifications_api.NotificationsApi(api_client)
-    type = "all" # str | Only send notifications of this type (can use `all` for all). (optional)
+    type = "all" # str | Only send notifications of this type (can use `all` for all). This parameter no longer does anything, and is deprecated. (optional)
     sent = True # bool | Return notifications sent by the user. Must be false or omitted. (optional)
     hidden = True # bool | Whether to return hidden or non-hidden notifications. True only allowed on type `friendRequest`. (optional)
     after = "five_minutes_ago" # str | Only return notifications sent after this Date. Ignored if type is `friendRequest`. (optional)
@@ -337,7 +337,7 @@ with vrchatapi.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **type** | **str**| Only send notifications of this type (can use &#x60;all&#x60; for all). | [optional]
+ **type** | **str**| Only send notifications of this type (can use &#x60;all&#x60; for all). This parameter no longer does anything, and is deprecated. | [optional]
  **sent** | **bool**| Return notifications sent by the user. Must be false or omitted. | [optional]
  **hidden** | **bool**| Whether to return hidden or non-hidden notifications. True only allowed on type &#x60;friendRequest&#x60;. | [optional]
  **after** | **str**| Only return notifications sent after this Date. Ignored if type is &#x60;friendRequest&#x60;. | [optional]

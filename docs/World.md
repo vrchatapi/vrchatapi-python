@@ -27,11 +27,11 @@ Name | Type | Description | Notes
 **version** | **int** |  | defaults to 0
 **visits** | **int** |  | defaults to 0
 **favorites** | **int** |  | [optional]  if omitted the server will use the default value of 0
-**instances** | **[[bool, date, datetime, dict, float, int, list, str, none_type]]** |  | [optional] 
-**occupants** | **int** |  | [optional]  if omitted the server will use the default value of 0
+**instances** | **[[bool, date, datetime, dict, float, int, list, str, none_type]]** | Will always be an empty list when unauthenticated. | [optional] 
+**occupants** | **int** | Will always be &#x60;0&#x60; when unauthenticated. | [optional]  if omitted the server will use the default value of 0
 **preview_youtube_id** | **str, none_type** |  | [optional] 
-**private_occupants** | **int** |  | [optional]  if omitted the server will use the default value of 0
-**public_occupants** | **int** |  | [optional]  if omitted the server will use the default value of 0
+**private_occupants** | **int** | Will always be &#x60;0&#x60; when unauthenticated. | [optional]  if omitted the server will use the default value of 0
+**public_occupants** | **int** | Will always be &#x60;0&#x60; when unauthenticated. | [optional]  if omitted the server will use the default value of 0
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
