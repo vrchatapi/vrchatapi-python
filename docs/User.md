@@ -24,7 +24,6 @@ Name | Type | Description | Notes
 **status_description** | **str** |  | 
 **tags** | [**[Tag]**](Tag.md) |  | 
 **user_icon** | **str** |  | 
-**username** | **str** | A users unique name, used during login. This is different from &#x60;displayName&#x60; which is what shows up in-game. A users &#x60;username&#x60; can never be changed. | 
 **allow_avatar_copying** | **bool** |  | defaults to True
 **instance_id** | [**InstanceID**](InstanceID.md) |  | [optional] 
 **location** | [**WorldID**](WorldID.md) |  | [optional] 
@@ -32,6 +31,7 @@ Name | Type | Description | Notes
 **traveling_to_instance** | **str** |  | [optional] 
 **traveling_to_location** | **str** |  | [optional] 
 **traveling_to_world** | **str** |  | [optional] 
+**username** | **str** | -| A users unique name, used during login. This is different from &#x60;displayName&#x60; which is what shows up in-game. A users &#x60;username&#x60; can never be changed.&#39; **DEPRECATED:** VRChat API no longer return usernames of other users. [See issue by Tupper for more information](https://github.com/pypy-vrc/VRCX/issues/429). | [optional] 
 **world_id** | [**WorldID**](WorldID.md) |  | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 

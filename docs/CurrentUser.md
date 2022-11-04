@@ -43,7 +43,6 @@ Name | Type | Description | Notes
 **two_factor_auth_enabled** | **bool** |  | 
 **unsubscribe** | **bool** |  | 
 **user_icon** | **str** |  | 
-**username** | **str** |  | 
 **is_friend** | **bool** |  | defaults to False
 **account_deletion_date** | **date, none_type** |  | [optional] 
 **active_friends** | **[str]** |  | [optional] 
@@ -51,6 +50,7 @@ Name | Type | Description | Notes
 **offline_friends** | **[str]** |  | [optional] 
 **online_friends** | **[str]** |  | [optional] 
 **two_factor_auth_enabled_date** | **datetime, none_type** |  | [optional] 
+**username** | **str** | -| **DEPRECATED:** VRChat API no longer return usernames of other users. [See issue by Tupper for more information](https://github.com/pypy-vrc/VRCX/issues/429). | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
