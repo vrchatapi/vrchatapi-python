@@ -28,7 +28,7 @@ Below is an example on how to login to the API and fetch your own user informati
 ```python
 # Step 1. We begin with creating a Configuration, which contains the username and password for authentication.
 import vrchatapi
-from vrchatapi.api import authentication_api, users_api
+from vrchatapi.api import authentication_api
 
 configuration = vrchatapi.Configuration(
     username = 'username',
