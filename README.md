@@ -28,7 +28,9 @@ Below is an example on how to login to the API and fetch your own user informati
 ```python
 # Step 1. We begin with creating a Configuration, which contains the username and password for authentication.
 import vrchatapi
-from vrchatapi.api import authentication_api, users_api
+from vrchatapi.api import authentication_api
+from vrchatapi.exceptions import UnauthorizedException
+from vrchatapi.model.two_factor_auth_code import TwoFactorAuthCode
 
 configuration = vrchatapi.Configuration(
     username = 'username',
@@ -47,9 +49,17 @@ with vrchatapi.ApiClient(configuration) as api_client:
     try:
         # Step 3. Calling getCurrentUser on Authentication API logs you in if the user isn't already logged in.
         current_user = auth_api.get_current_user()
-        print("Logged in as:", current_user.display_name)
+    except UnauthorizedException as e:
+        if UnauthorizedException.status == 200:
+            # Step 3.5. Calling verify2fa if the account has 2FA enabled
+            auth_api.verify2_fa(two_factor_auth_code=TwoFactorAuthCode(input("2FA Code: ")))
+            current_user = auth_api.get_current_user()
+        else:
+            print("Exception when calling API: %s\n", e)
     except vrchatapi.ApiException as e:
         print("Exception when calling API: %s\n", e)
+
+    print("Logged in as:", current_user.display_name)
 ```
 
 See [example.py](https://github.com/vrchatapi/vrchatapi-python/blob/main/example.py) for more example usage on getting started.
