@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**delete_avatar**](AvatarsApi.md#delete_avatar) | **DELETE** /avatars/{avatarId} | Delete Avatar
 [**get_avatar**](AvatarsApi.md#get_avatar) | **GET** /avatars/{avatarId} | Get Avatar
 [**get_favorited_avatars**](AvatarsApi.md#get_favorited_avatars) | **GET** /avatars/favorites | List Favorited Avatars
+[**get_own_avatar**](AvatarsApi.md#get_own_avatar) | **GET** /users/{userId}/avatar | Get Own Avatar
 [**search_avatars**](AvatarsApi.md#search_avatars) | **GET** /avatars | Search Avatars
 [**select_avatar**](AvatarsApi.md#select_avatar) | **PUT** /avatars/{avatarId}/select | Select Avatar
 [**select_fallback_avatar**](AvatarsApi.md#select_fallback_avatar) | **PUT** /avatars/{avatarId}/selectFallback | Select Fallback Avatar
@@ -401,6 +402,94 @@ Name | Type | Description  | Notes
 **200** | Returns a list of Avatar objects. |  -  |
 **401** | Error response due to missing apiKey or auth cookie. |  -  |
 **403** | Error response when trying to see favourited avatars of another user without sufficient admin permissions. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_own_avatar**
+> Avatar get_own_avatar(user_id)
+
+Get Own Avatar
+
+Get the current avatar for the user. This will return an error for any other user than the one logged in.
+
+### Example
+
+* Api Key Authentication (apiKeyCookie):
+* Api Key Authentication (authCookie):
+
+```python
+import time
+import vrchatapi
+from vrchatapi.api import avatars_api
+from vrchatapi.model.avatar import Avatar
+from vrchatapi.model.error import Error
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = vrchatapi.Configuration(
+    host = "https://api.vrchat.cloud/api/1"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: apiKeyCookie
+configuration.api_key['apiKeyCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apiKeyCookie'] = 'Bearer'
+
+# Configure API key authorization: authCookie
+configuration.api_key['authCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['authCookie'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with vrchatapi.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = avatars_api.AvatarsApi(api_client)
+    user_id = "userId_example" # str | 
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Get Own Avatar
+        api_response = api_instance.get_own_avatar(user_id)
+        pprint(api_response)
+    except vrchatapi.ApiException as e:
+        print("Exception when calling AvatarsApi->get_own_avatar: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **user_id** | **str**|  |
+
+### Return type
+
+[**Avatar**](Avatar.md)
+
+### Authorization
+
+[apiKeyCookie](../README.md#apiKeyCookie), [authCookie](../README.md#authCookie)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Returns a single Avatar object. |  -  |
+**401** | Error response due to missing apiKey or auth cookie. |  -  |
+**403** | Error response when trying to see another users current avatar without sufficient admin permissions. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

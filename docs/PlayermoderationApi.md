@@ -410,7 +410,7 @@ with vrchatapi.ApiClient(configuration) as api_client:
     api_instance = playermoderation_api.PlayermoderationApi(api_client)
     moderate_user_request = ModerateUserRequest(
         moderated="usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469",
-        type=PlayerModerationType("showAvatar"),
+        type=PlayerModerationType("unmute"),
     ) # ModerateUserRequest |  (optional)
 
     # example passing only required values which don't have defaults set
@@ -502,7 +502,7 @@ with vrchatapi.ApiClient(configuration) as api_client:
     api_instance = playermoderation_api.PlayermoderationApi(api_client)
     moderate_user_request = ModerateUserRequest(
         moderated="usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469",
-        type=PlayerModerationType("showAvatar"),
+        type=PlayerModerationType("unmute"),
     ) # ModerateUserRequest |  (optional)
 
     # example passing only required values which don't have defaults set
