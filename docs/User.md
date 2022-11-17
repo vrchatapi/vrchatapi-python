@@ -12,7 +12,6 @@ Name | Type | Description | Notes
 **developer_type** | [**DeveloperType**](DeveloperType.md) |  | 
 **display_name** | **str** | A users visual display name. This is what shows up in-game, and can different from their &#x60;username&#x60;. Changing display name is restricted to a cooldown period. | 
 **friend_key** | **str** |  | 
-**friend_request_status** | **str** |  | 
 **id** | **str** | A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed. | 
 **is_friend** | **bool** | Either their &#x60;friendKey&#x60;, or empty string if you are not friends. Unknown usage. | 
 **last_activity** | **str** | Either a date-time or empty string. | 
@@ -25,6 +24,7 @@ Name | Type | Description | Notes
 **tags** | [**[Tag]**](Tag.md) |  | 
 **user_icon** | **str** |  | 
 **allow_avatar_copying** | **bool** |  | defaults to True
+**friend_request_status** | **str** |  | [optional] 
 **instance_id** | [**InstanceID**](InstanceID.md) |  | [optional] 
 **location** | [**WorldID**](WorldID.md) |  | [optional] 
 **note** | **str** |  | [optional] 
