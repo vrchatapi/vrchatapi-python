@@ -41,6 +41,7 @@ class Notification(object):
         'id': 'str',
         'message': 'str',
         'seen': 'bool',
+        'receiver_user_id': 'str',
         'sender_user_id': 'str',
         'sender_username': 'str',
         'type': 'NotificationType'
@@ -52,12 +53,13 @@ class Notification(object):
         'id': 'id',
         'message': 'message',
         'seen': 'seen',
+        'receiver_user_id': 'receiverUserId',
         'sender_user_id': 'senderUserId',
         'sender_username': 'senderUsername',
         'type': 'type'
     }
 
-    def __init__(self, created_at=None, details='{}', id=None, message=None, seen=False, sender_user_id=None, sender_username=None, type=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, created_at=None, details='{}', id=None, message=None, seen=False, receiver_user_id=None, sender_user_id=None, sender_username=None, type=None, local_vars_configuration=None):  # noqa: E501
         """Notification - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration.get_default_copy()
@@ -68,6 +70,7 @@ class Notification(object):
         self._id = None
         self._message = None
         self._seen = None
+        self._receiver_user_id = None
         self._sender_user_id = None
         self._sender_username = None
         self._type = None
@@ -77,7 +80,10 @@ class Notification(object):
         self.details = details
         self.id = id
         self.message = message
-        self.seen = seen
+        if seen is not None:
+            self.seen = seen
+        if receiver_user_id is not None:
+            self.receiver_user_id = receiver_user_id
         self.sender_user_id = sender_user_id
         if sender_username is not None:
             self.sender_username = sender_username
@@ -110,7 +116,7 @@ class Notification(object):
     def details(self):
         """Gets the details of this Notification.  # noqa: E501
 
-        **NOTICE:** This is not a JSON object, this is a json **encoded** object, meaning you have to json-de-encode to get the NotificationDetail object depending on the NotificationType.  # noqa: E501
+        **NOTICE:** This is not a JSON object when received from the REST API, but it is when received from the Websocket API. When received from the REST API, this is a json **encoded** object, meaning you have to json-de-encode to get the NotificationDetail object depending on the NotificationType.  # noqa: E501
 
         :return: The details of this Notification.  # noqa: E501
         :rtype: str
@@ -121,7 +127,7 @@ class Notification(object):
     def details(self, details):
         """Sets the details of this Notification.
 
-        **NOTICE:** This is not a JSON object, this is a json **encoded** object, meaning you have to json-de-encode to get the NotificationDetail object depending on the NotificationType.  # noqa: E501
+        **NOTICE:** This is not a JSON object when received from the REST API, but it is when received from the Websocket API. When received from the REST API, this is a json **encoded** object, meaning you have to json-de-encode to get the NotificationDetail object depending on the NotificationType.  # noqa: E501
 
         :param details: The details of this Notification.  # noqa: E501
         :type details: str
@@ -161,7 +167,6 @@ class Notification(object):
     def message(self):
         """Gets the message of this Notification.  # noqa: E501
 
-          # noqa: E501
 
         :return: The message of this Notification.  # noqa: E501
         :rtype: str
@@ -172,7 +177,6 @@ class Notification(object):
     def message(self, message):
         """Sets the message of this Notification.
 
-          # noqa: E501
 
         :param message: The message of this Notification.  # noqa: E501
         :type message: str
@@ -186,6 +190,7 @@ class Notification(object):
     def seen(self):
         """Gets the seen of this Notification.  # noqa: E501
 
+        Not included in notification objects received from the Websocket API  # noqa: E501
 
         :return: The seen of this Notification.  # noqa: E501
         :rtype: bool
@@ -196,14 +201,36 @@ class Notification(object):
     def seen(self, seen):
         """Sets the seen of this Notification.
 
+        Not included in notification objects received from the Websocket API  # noqa: E501
 
         :param seen: The seen of this Notification.  # noqa: E501
         :type seen: bool
         """
-        if self.local_vars_configuration.client_side_validation and seen is None:  # noqa: E501
-            raise ValueError("Invalid value for `seen`, must not be `None`")  # noqa: E501
 
         self._seen = seen
+
+    @property
+    def receiver_user_id(self):
+        """Gets the receiver_user_id of this Notification.  # noqa: E501
+
+        A users unique ID, usually in the form of `usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469`. Legacy players can have old IDs in the form of `8JoV9XEdpo`. The ID can never be changed.  # noqa: E501
+
+        :return: The receiver_user_id of this Notification.  # noqa: E501
+        :rtype: str
+        """
+        return self._receiver_user_id
+
+    @receiver_user_id.setter
+    def receiver_user_id(self, receiver_user_id):
+        """Sets the receiver_user_id of this Notification.
+
+        A users unique ID, usually in the form of `usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469`. Legacy players can have old IDs in the form of `8JoV9XEdpo`. The ID can never be changed.  # noqa: E501
+
+        :param receiver_user_id: The receiver_user_id of this Notification.  # noqa: E501
+        :type receiver_user_id: str
+        """
+
+        self._receiver_user_id = receiver_user_id
 
     @property
     def sender_user_id(self):

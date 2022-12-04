@@ -58,7 +58,6 @@ class FileUploadURL(object):
     def url(self):
         """Gets the url of this FileUploadURL.  # noqa: E501
 
-          # noqa: E501
 
         :return: The url of this FileUploadURL.  # noqa: E501
         :rtype: str
@@ -69,7 +68,6 @@ class FileUploadURL(object):
     def url(self, url):
         """Sets the url of this FileUploadURL.
 
-          # noqa: E501
 
         :param url: The url of this FileUploadURL.  # noqa: E501
         :type url: str

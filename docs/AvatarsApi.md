@@ -182,7 +182,7 @@ configuration.api_key['authCookie'] = 'YOUR_API_KEY'
 with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = vrchatapi.AvatarsApi(api_client)
-    avatar_id = 'avatar_id_example' # str | 
+    avatar_id = 'avatar_id_example' # str | Must be a valid avatar ID.
 
     try:
         # Delete Avatar
@@ -226,7 +226,7 @@ configuration.api_key['authCookie'] = 'YOUR_API_KEY'
 with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = vrchatapi.AvatarsApi(api_client)
-    avatar_id = 'avatar_id_example' # str | 
+    avatar_id = 'avatar_id_example' # str | Must be a valid avatar ID.
 
     try:
         # Delete Avatar
@@ -240,7 +240,7 @@ with vrchatapi.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **avatar_id** | **str**|  | 
+ **avatar_id** | **str**| Must be a valid avatar ID. | 
 
 ### Return type
 
@@ -307,7 +307,7 @@ configuration.api_key['authCookie'] = 'YOUR_API_KEY'
 with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = vrchatapi.AvatarsApi(api_client)
-    avatar_id = 'avatar_id_example' # str | 
+    avatar_id = 'avatar_id_example' # str | Must be a valid avatar ID.
 
     try:
         # Get Avatar
@@ -351,7 +351,7 @@ configuration.api_key['authCookie'] = 'YOUR_API_KEY'
 with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = vrchatapi.AvatarsApi(api_client)
-    avatar_id = 'avatar_id_example' # str | 
+    avatar_id = 'avatar_id_example' # str | Must be a valid avatar ID.
 
     try:
         # Get Avatar
@@ -365,7 +365,7 @@ with vrchatapi.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **avatar_id** | **str**|  | 
+ **avatar_id** | **str**| Must be a valid avatar ID. | 
 
 ### Return type
 
@@ -433,14 +433,14 @@ with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = vrchatapi.AvatarsApi(api_client)
     featured = True # bool | Filters on featured results. (optional)
-sort = 'popularity' # str |  (optional) (default to 'popularity')
+sort = vrchatapi.SortOption() # SortOption | The sort order of the results. (optional)
 n = 60 # int | The number of objects to return. (optional) (default to 60)
-order = 'descending' # str |  (optional) (default to 'descending')
+order = vrchatapi.OrderOption() # OrderOption | Result ordering (optional)
 offset = 56 # int | A zero-based offset from the default object sorting from where search results start. (optional)
 search = 'search_example' # str | Filters by world name. (optional)
 tag = 'tag_example' # str | Tags to include (comma-separated). Any of the tags needs to be present. (optional)
 notag = 'notag_example' # str | Tags to exclude (comma-separated). (optional)
-release_status = 'public' # str | Filter by ReleaseStatus. (optional) (default to 'public')
+release_status = vrchatapi.ReleaseStatus() # ReleaseStatus | Filter by ReleaseStatus. (optional)
 max_unity_version = 'max_unity_version_example' # str | The maximum Unity version supported by the asset. (optional)
 min_unity_version = 'min_unity_version_example' # str | The minimum Unity version supported by the asset. (optional)
 platform = 'platform_example' # str | The platform the asset supports. (optional)
@@ -489,14 +489,14 @@ with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = vrchatapi.AvatarsApi(api_client)
     featured = True # bool | Filters on featured results. (optional)
-sort = 'popularity' # str |  (optional) (default to 'popularity')
+sort = vrchatapi.SortOption() # SortOption | The sort order of the results. (optional)
 n = 60 # int | The number of objects to return. (optional) (default to 60)
-order = 'descending' # str |  (optional) (default to 'descending')
+order = vrchatapi.OrderOption() # OrderOption | Result ordering (optional)
 offset = 56 # int | A zero-based offset from the default object sorting from where search results start. (optional)
 search = 'search_example' # str | Filters by world name. (optional)
 tag = 'tag_example' # str | Tags to include (comma-separated). Any of the tags needs to be present. (optional)
 notag = 'notag_example' # str | Tags to exclude (comma-separated). (optional)
-release_status = 'public' # str | Filter by ReleaseStatus. (optional) (default to 'public')
+release_status = vrchatapi.ReleaseStatus() # ReleaseStatus | Filter by ReleaseStatus. (optional)
 max_unity_version = 'max_unity_version_example' # str | The maximum Unity version supported by the asset. (optional)
 min_unity_version = 'min_unity_version_example' # str | The minimum Unity version supported by the asset. (optional)
 platform = 'platform_example' # str | The platform the asset supports. (optional)
@@ -515,14 +515,14 @@ user_id = 'user_id_example' # str | Target user to see information on, admin-onl
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **featured** | **bool**| Filters on featured results. | [optional] 
- **sort** | **str**|  | [optional] [default to &#39;popularity&#39;]
+ **sort** | [**SortOption**](.md)| The sort order of the results. | [optional] 
  **n** | **int**| The number of objects to return. | [optional] [default to 60]
- **order** | **str**|  | [optional] [default to &#39;descending&#39;]
+ **order** | [**OrderOption**](.md)| Result ordering | [optional] 
  **offset** | **int**| A zero-based offset from the default object sorting from where search results start. | [optional] 
  **search** | **str**| Filters by world name. | [optional] 
  **tag** | **str**| Tags to include (comma-separated). Any of the tags needs to be present. | [optional] 
  **notag** | **str**| Tags to exclude (comma-separated). | [optional] 
- **release_status** | **str**| Filter by ReleaseStatus. | [optional] [default to &#39;public&#39;]
+ **release_status** | [**ReleaseStatus**](.md)| Filter by ReleaseStatus. | [optional] 
  **max_unity_version** | **str**| The maximum Unity version supported by the asset. | [optional] 
  **min_unity_version** | **str**| The minimum Unity version supported by the asset. | [optional] 
  **platform** | **str**| The platform the asset supports. | [optional] 
@@ -593,7 +593,7 @@ configuration.api_key['authCookie'] = 'YOUR_API_KEY'
 with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = vrchatapi.AvatarsApi(api_client)
-    user_id = 'user_id_example' # str | 
+    user_id = 'user_id_example' # str | Must be a valid user ID.
 
     try:
         # Get Own Avatar
@@ -637,7 +637,7 @@ configuration.api_key['authCookie'] = 'YOUR_API_KEY'
 with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = vrchatapi.AvatarsApi(api_client)
-    user_id = 'user_id_example' # str | 
+    user_id = 'user_id_example' # str | Must be a valid user ID.
 
     try:
         # Get Own Avatar
@@ -651,7 +651,7 @@ with vrchatapi.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **user_id** | **str**|  | 
+ **user_id** | **str**| Must be a valid user ID. | 
 
 ### Return type
 
@@ -719,15 +719,15 @@ with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = vrchatapi.AvatarsApi(api_client)
     featured = True # bool | Filters on featured results. (optional)
-sort = 'popularity' # str |  (optional) (default to 'popularity')
+sort = vrchatapi.SortOption() # SortOption | The sort order of the results. (optional)
 user = 'user_example' # str | Set to `me` for searching own avatars. (optional)
 user_id = 'user_id_example' # str | Filter by UserID. (optional)
 n = 60 # int | The number of objects to return. (optional) (default to 60)
-order = 'descending' # str |  (optional) (default to 'descending')
+order = vrchatapi.OrderOption() # OrderOption | Result ordering (optional)
 offset = 56 # int | A zero-based offset from the default object sorting from where search results start. (optional)
 tag = 'tag_example' # str | Tags to include (comma-separated). Any of the tags needs to be present. (optional)
 notag = 'notag_example' # str | Tags to exclude (comma-separated). (optional)
-release_status = 'public' # str | Filter by ReleaseStatus. (optional) (default to 'public')
+release_status = vrchatapi.ReleaseStatus() # ReleaseStatus | Filter by ReleaseStatus. (optional)
 max_unity_version = 'max_unity_version_example' # str | The maximum Unity version supported by the asset. (optional)
 min_unity_version = 'min_unity_version_example' # str | The minimum Unity version supported by the asset. (optional)
 platform = 'platform_example' # str | The platform the asset supports. (optional)
@@ -775,15 +775,15 @@ with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = vrchatapi.AvatarsApi(api_client)
     featured = True # bool | Filters on featured results. (optional)
-sort = 'popularity' # str |  (optional) (default to 'popularity')
+sort = vrchatapi.SortOption() # SortOption | The sort order of the results. (optional)
 user = 'user_example' # str | Set to `me` for searching own avatars. (optional)
 user_id = 'user_id_example' # str | Filter by UserID. (optional)
 n = 60 # int | The number of objects to return. (optional) (default to 60)
-order = 'descending' # str |  (optional) (default to 'descending')
+order = vrchatapi.OrderOption() # OrderOption | Result ordering (optional)
 offset = 56 # int | A zero-based offset from the default object sorting from where search results start. (optional)
 tag = 'tag_example' # str | Tags to include (comma-separated). Any of the tags needs to be present. (optional)
 notag = 'notag_example' # str | Tags to exclude (comma-separated). (optional)
-release_status = 'public' # str | Filter by ReleaseStatus. (optional) (default to 'public')
+release_status = vrchatapi.ReleaseStatus() # ReleaseStatus | Filter by ReleaseStatus. (optional)
 max_unity_version = 'max_unity_version_example' # str | The maximum Unity version supported by the asset. (optional)
 min_unity_version = 'min_unity_version_example' # str | The minimum Unity version supported by the asset. (optional)
 platform = 'platform_example' # str | The platform the asset supports. (optional)
@@ -801,15 +801,15 @@ platform = 'platform_example' # str | The platform the asset supports. (optional
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **featured** | **bool**| Filters on featured results. | [optional] 
- **sort** | **str**|  | [optional] [default to &#39;popularity&#39;]
+ **sort** | [**SortOption**](.md)| The sort order of the results. | [optional] 
  **user** | **str**| Set to &#x60;me&#x60; for searching own avatars. | [optional] 
  **user_id** | **str**| Filter by UserID. | [optional] 
  **n** | **int**| The number of objects to return. | [optional] [default to 60]
- **order** | **str**|  | [optional] [default to &#39;descending&#39;]
+ **order** | [**OrderOption**](.md)| Result ordering | [optional] 
  **offset** | **int**| A zero-based offset from the default object sorting from where search results start. | [optional] 
  **tag** | **str**| Tags to include (comma-separated). Any of the tags needs to be present. | [optional] 
  **notag** | **str**| Tags to exclude (comma-separated). | [optional] 
- **release_status** | **str**| Filter by ReleaseStatus. | [optional] [default to &#39;public&#39;]
+ **release_status** | [**ReleaseStatus**](.md)| Filter by ReleaseStatus. | [optional] 
  **max_unity_version** | **str**| The maximum Unity version supported by the asset. | [optional] 
  **min_unity_version** | **str**| The minimum Unity version supported by the asset. | [optional] 
  **platform** | **str**| The platform the asset supports. | [optional] 
@@ -878,7 +878,7 @@ configuration.api_key['authCookie'] = 'YOUR_API_KEY'
 with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = vrchatapi.AvatarsApi(api_client)
-    avatar_id = 'avatar_id_example' # str | 
+    avatar_id = 'avatar_id_example' # str | Must be a valid avatar ID.
 
     try:
         # Select Avatar
@@ -922,7 +922,7 @@ configuration.api_key['authCookie'] = 'YOUR_API_KEY'
 with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = vrchatapi.AvatarsApi(api_client)
-    avatar_id = 'avatar_id_example' # str | 
+    avatar_id = 'avatar_id_example' # str | Must be a valid avatar ID.
 
     try:
         # Select Avatar
@@ -936,7 +936,7 @@ with vrchatapi.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **avatar_id** | **str**|  | 
+ **avatar_id** | **str**| Must be a valid avatar ID. | 
 
 ### Return type
 
@@ -1003,7 +1003,7 @@ configuration.api_key['authCookie'] = 'YOUR_API_KEY'
 with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = vrchatapi.AvatarsApi(api_client)
-    avatar_id = 'avatar_id_example' # str | 
+    avatar_id = 'avatar_id_example' # str | Must be a valid avatar ID.
 
     try:
         # Select Fallback Avatar
@@ -1047,7 +1047,7 @@ configuration.api_key['authCookie'] = 'YOUR_API_KEY'
 with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = vrchatapi.AvatarsApi(api_client)
-    avatar_id = 'avatar_id_example' # str | 
+    avatar_id = 'avatar_id_example' # str | Must be a valid avatar ID.
 
     try:
         # Select Fallback Avatar
@@ -1061,7 +1061,7 @@ with vrchatapi.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **avatar_id** | **str**|  | 
+ **avatar_id** | **str**| Must be a valid avatar ID. | 
 
 ### Return type
 
@@ -1129,7 +1129,7 @@ configuration.api_key['authCookie'] = 'YOUR_API_KEY'
 with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = vrchatapi.AvatarsApi(api_client)
-    avatar_id = 'avatar_id_example' # str | 
+    avatar_id = 'avatar_id_example' # str | Must be a valid avatar ID.
 update_avatar_request = vrchatapi.UpdateAvatarRequest() # UpdateAvatarRequest |  (optional)
 
     try:
@@ -1174,7 +1174,7 @@ configuration.api_key['authCookie'] = 'YOUR_API_KEY'
 with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = vrchatapi.AvatarsApi(api_client)
-    avatar_id = 'avatar_id_example' # str | 
+    avatar_id = 'avatar_id_example' # str | Must be a valid avatar ID.
 update_avatar_request = vrchatapi.UpdateAvatarRequest() # UpdateAvatarRequest |  (optional)
 
     try:
@@ -1189,7 +1189,7 @@ update_avatar_request = vrchatapi.UpdateAvatarRequest() # UpdateAvatarRequest | 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **avatar_id** | **str**|  | 
+ **avatar_id** | **str**| Must be a valid avatar ID. | 
  **update_avatar_request** | [**UpdateAvatarRequest**](UpdateAvatarRequest.md)|  | [optional] 
 
 ### Return type

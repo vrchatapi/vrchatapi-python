@@ -174,7 +174,7 @@ configuration.api_key['authCookie'] = 'YOUR_API_KEY'
 with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = vrchatapi.PlayermoderationApi(api_client)
-    player_moderation_id = 'player_moderation_id_example' # str | 
+    player_moderation_id = 'player_moderation_id_example' # str | Must be a valid `pmod_` ID.
 
     try:
         # Delete Player Moderation
@@ -218,7 +218,7 @@ configuration.api_key['authCookie'] = 'YOUR_API_KEY'
 with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = vrchatapi.PlayermoderationApi(api_client)
-    player_moderation_id = 'player_moderation_id_example' # str | 
+    player_moderation_id = 'player_moderation_id_example' # str | Must be a valid `pmod_` ID.
 
     try:
         # Delete Player Moderation
@@ -232,7 +232,7 @@ with vrchatapi.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **player_moderation_id** | **str**|  | 
+ **player_moderation_id** | **str**| Must be a valid &#x60;pmod_&#x60; ID. | 
 
 ### Return type
 
@@ -299,7 +299,7 @@ configuration.api_key['authCookie'] = 'YOUR_API_KEY'
 with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = vrchatapi.PlayermoderationApi(api_client)
-    player_moderation_id = 'player_moderation_id_example' # str | 
+    player_moderation_id = 'player_moderation_id_example' # str | Must be a valid `pmod_` ID.
 
     try:
         # Get Player Moderation
@@ -343,7 +343,7 @@ configuration.api_key['authCookie'] = 'YOUR_API_KEY'
 with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = vrchatapi.PlayermoderationApi(api_client)
-    player_moderation_id = 'player_moderation_id_example' # str | 
+    player_moderation_id = 'player_moderation_id_example' # str | Must be a valid `pmod_` ID.
 
     try:
         # Get Player Moderation
@@ -357,7 +357,7 @@ with vrchatapi.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **player_moderation_id** | **str**|  | 
+ **player_moderation_id** | **str**| Must be a valid &#x60;pmod_&#x60; ID. | 
 
 ### Return type
 

@@ -95,7 +95,6 @@ class AvatarsApi(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
-        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
@@ -113,9 +112,7 @@ class AvatarsApi(object):
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth',
-                '_content_type',
-                '_headers'
+                '_request_auth'
             ]
         )
 
@@ -134,7 +131,7 @@ class AvatarsApi(object):
 
         query_params = []
 
-        header_params = dict(local_var_params.get('_headers', {}))
+        header_params = {}
 
         form_params = []
         local_var_files = {}
@@ -147,12 +144,8 @@ class AvatarsApi(object):
             ['application/json'])  # noqa: E501
 
         # HTTP header `Content-Type`
-        content_types_list = local_var_params.get('_content_type',
-            self.api_client.select_header_content_type(
-                ['application/json'],
-                'POST', body_params))  # noqa: E501
-        if content_types_list:
-                header_params['Content-Type'] = content_types_list
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
 
         # Authentication setting
         auth_settings = ['apiKeyCookie', 'authCookie']  # noqa: E501
@@ -189,7 +182,7 @@ class AvatarsApi(object):
         >>> thread = api.delete_avatar(avatar_id, async_req=True)
         >>> result = thread.get()
 
-        :param avatar_id: (required)
+        :param avatar_id: Must be a valid avatar ID. (required)
         :type avatar_id: str
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
@@ -219,7 +212,7 @@ class AvatarsApi(object):
         >>> thread = api.delete_avatar_with_http_info(avatar_id, async_req=True)
         >>> result = thread.get()
 
-        :param avatar_id: (required)
+        :param avatar_id: Must be a valid avatar ID. (required)
         :type avatar_id: str
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
@@ -238,7 +231,6 @@ class AvatarsApi(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
-        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
@@ -256,9 +248,7 @@ class AvatarsApi(object):
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth',
-                '_content_type',
-                '_headers'
+                '_request_auth'
             ]
         )
 
@@ -271,7 +261,8 @@ class AvatarsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'avatar_id' is set
-        if self.api_client.client_side_validation and local_var_params.get('avatar_id') is None:  # noqa: E501
+        if self.api_client.client_side_validation and ('avatar_id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['avatar_id'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `avatar_id` when calling `delete_avatar`")  # noqa: E501
 
         collection_formats = {}
@@ -282,7 +273,7 @@ class AvatarsApi(object):
 
         query_params = []
 
-        header_params = dict(local_var_params.get('_headers', {}))
+        header_params = {}
 
         form_params = []
         local_var_files = {}
@@ -328,7 +319,7 @@ class AvatarsApi(object):
         >>> thread = api.get_avatar(avatar_id, async_req=True)
         >>> result = thread.get()
 
-        :param avatar_id: (required)
+        :param avatar_id: Must be a valid avatar ID. (required)
         :type avatar_id: str
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
@@ -358,7 +349,7 @@ class AvatarsApi(object):
         >>> thread = api.get_avatar_with_http_info(avatar_id, async_req=True)
         >>> result = thread.get()
 
-        :param avatar_id: (required)
+        :param avatar_id: Must be a valid avatar ID. (required)
         :type avatar_id: str
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
@@ -377,7 +368,6 @@ class AvatarsApi(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
-        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
@@ -395,9 +385,7 @@ class AvatarsApi(object):
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth',
-                '_content_type',
-                '_headers'
+                '_request_auth'
             ]
         )
 
@@ -410,7 +398,8 @@ class AvatarsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'avatar_id' is set
-        if self.api_client.client_side_validation and local_var_params.get('avatar_id') is None:  # noqa: E501
+        if self.api_client.client_side_validation and ('avatar_id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['avatar_id'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `avatar_id` when calling `get_avatar`")  # noqa: E501
 
         collection_formats = {}
@@ -421,7 +410,7 @@ class AvatarsApi(object):
 
         query_params = []
 
-        header_params = dict(local_var_params.get('_headers', {}))
+        header_params = {}
 
         form_params = []
         local_var_files = {}
@@ -469,12 +458,12 @@ class AvatarsApi(object):
 
         :param featured: Filters on featured results.
         :type featured: bool
-        :param sort:
-        :type sort: str
+        :param sort: The sort order of the results.
+        :type sort: SortOption
         :param n: The number of objects to return.
         :type n: int
-        :param order:
-        :type order: str
+        :param order: Result ordering
+        :type order: OrderOption
         :param offset: A zero-based offset from the default object sorting from where search results start.
         :type offset: int
         :param search: Filters by world name.
@@ -484,7 +473,7 @@ class AvatarsApi(object):
         :param notag: Tags to exclude (comma-separated).
         :type notag: str
         :param release_status: Filter by ReleaseStatus.
-        :type release_status: str
+        :type release_status: ReleaseStatus
         :param max_unity_version: The maximum Unity version supported by the asset.
         :type max_unity_version: str
         :param min_unity_version: The minimum Unity version supported by the asset.
@@ -523,12 +512,12 @@ class AvatarsApi(object):
 
         :param featured: Filters on featured results.
         :type featured: bool
-        :param sort:
-        :type sort: str
+        :param sort: The sort order of the results.
+        :type sort: SortOption
         :param n: The number of objects to return.
         :type n: int
-        :param order:
-        :type order: str
+        :param order: Result ordering
+        :type order: OrderOption
         :param offset: A zero-based offset from the default object sorting from where search results start.
         :type offset: int
         :param search: Filters by world name.
@@ -538,7 +527,7 @@ class AvatarsApi(object):
         :param notag: Tags to exclude (comma-separated).
         :type notag: str
         :param release_status: Filter by ReleaseStatus.
-        :type release_status: str
+        :type release_status: ReleaseStatus
         :param max_unity_version: The maximum Unity version supported by the asset.
         :type max_unity_version: str
         :param min_unity_version: The minimum Unity version supported by the asset.
@@ -564,7 +553,6 @@ class AvatarsApi(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
-        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
@@ -594,9 +582,7 @@ class AvatarsApi(object):
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth',
-                '_content_type',
-                '_headers'
+                '_request_auth'
             ]
         )
 
@@ -620,34 +606,34 @@ class AvatarsApi(object):
         path_params = {}
 
         query_params = []
-        if local_var_params.get('featured') is not None:  # noqa: E501
+        if 'featured' in local_var_params and local_var_params['featured'] is not None:  # noqa: E501
             query_params.append(('featured', local_var_params['featured']))  # noqa: E501
-        if local_var_params.get('sort') is not None:  # noqa: E501
+        if 'sort' in local_var_params and local_var_params['sort'] is not None:  # noqa: E501
             query_params.append(('sort', local_var_params['sort']))  # noqa: E501
-        if local_var_params.get('n') is not None:  # noqa: E501
+        if 'n' in local_var_params and local_var_params['n'] is not None:  # noqa: E501
             query_params.append(('n', local_var_params['n']))  # noqa: E501
-        if local_var_params.get('order') is not None:  # noqa: E501
+        if 'order' in local_var_params and local_var_params['order'] is not None:  # noqa: E501
             query_params.append(('order', local_var_params['order']))  # noqa: E501
-        if local_var_params.get('offset') is not None:  # noqa: E501
+        if 'offset' in local_var_params and local_var_params['offset'] is not None:  # noqa: E501
             query_params.append(('offset', local_var_params['offset']))  # noqa: E501
-        if local_var_params.get('search') is not None:  # noqa: E501
+        if 'search' in local_var_params and local_var_params['search'] is not None:  # noqa: E501
             query_params.append(('search', local_var_params['search']))  # noqa: E501
-        if local_var_params.get('tag') is not None:  # noqa: E501
+        if 'tag' in local_var_params and local_var_params['tag'] is not None:  # noqa: E501
             query_params.append(('tag', local_var_params['tag']))  # noqa: E501
-        if local_var_params.get('notag') is not None:  # noqa: E501
+        if 'notag' in local_var_params and local_var_params['notag'] is not None:  # noqa: E501
             query_params.append(('notag', local_var_params['notag']))  # noqa: E501
-        if local_var_params.get('release_status') is not None:  # noqa: E501
+        if 'release_status' in local_var_params and local_var_params['release_status'] is not None:  # noqa: E501
             query_params.append(('releaseStatus', local_var_params['release_status']))  # noqa: E501
-        if local_var_params.get('max_unity_version') is not None:  # noqa: E501
+        if 'max_unity_version' in local_var_params and local_var_params['max_unity_version'] is not None:  # noqa: E501
             query_params.append(('maxUnityVersion', local_var_params['max_unity_version']))  # noqa: E501
-        if local_var_params.get('min_unity_version') is not None:  # noqa: E501
+        if 'min_unity_version' in local_var_params and local_var_params['min_unity_version'] is not None:  # noqa: E501
             query_params.append(('minUnityVersion', local_var_params['min_unity_version']))  # noqa: E501
-        if local_var_params.get('platform') is not None:  # noqa: E501
+        if 'platform' in local_var_params and local_var_params['platform'] is not None:  # noqa: E501
             query_params.append(('platform', local_var_params['platform']))  # noqa: E501
-        if local_var_params.get('user_id') is not None:  # noqa: E501
+        if 'user_id' in local_var_params and local_var_params['user_id'] is not None:  # noqa: E501
             query_params.append(('userId', local_var_params['user_id']))  # noqa: E501
 
-        header_params = dict(local_var_params.get('_headers', {}))
+        header_params = {}
 
         form_params = []
         local_var_files = {}
@@ -693,7 +679,7 @@ class AvatarsApi(object):
         >>> thread = api.get_own_avatar(user_id, async_req=True)
         >>> result = thread.get()
 
-        :param user_id: (required)
+        :param user_id: Must be a valid user ID. (required)
         :type user_id: str
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
@@ -723,7 +709,7 @@ class AvatarsApi(object):
         >>> thread = api.get_own_avatar_with_http_info(user_id, async_req=True)
         >>> result = thread.get()
 
-        :param user_id: (required)
+        :param user_id: Must be a valid user ID. (required)
         :type user_id: str
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
@@ -742,7 +728,6 @@ class AvatarsApi(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
-        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
@@ -760,9 +745,7 @@ class AvatarsApi(object):
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth',
-                '_content_type',
-                '_headers'
+                '_request_auth'
             ]
         )
 
@@ -775,7 +758,8 @@ class AvatarsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'user_id' is set
-        if self.api_client.client_side_validation and local_var_params.get('user_id') is None:  # noqa: E501
+        if self.api_client.client_side_validation and ('user_id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['user_id'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `user_id` when calling `get_own_avatar`")  # noqa: E501
 
         collection_formats = {}
@@ -786,7 +770,7 @@ class AvatarsApi(object):
 
         query_params = []
 
-        header_params = dict(local_var_params.get('_headers', {}))
+        header_params = {}
 
         form_params = []
         local_var_files = {}
@@ -834,16 +818,16 @@ class AvatarsApi(object):
 
         :param featured: Filters on featured results.
         :type featured: bool
-        :param sort:
-        :type sort: str
+        :param sort: The sort order of the results.
+        :type sort: SortOption
         :param user: Set to `me` for searching own avatars.
         :type user: str
         :param user_id: Filter by UserID.
         :type user_id: str
         :param n: The number of objects to return.
         :type n: int
-        :param order:
-        :type order: str
+        :param order: Result ordering
+        :type order: OrderOption
         :param offset: A zero-based offset from the default object sorting from where search results start.
         :type offset: int
         :param tag: Tags to include (comma-separated). Any of the tags needs to be present.
@@ -851,7 +835,7 @@ class AvatarsApi(object):
         :param notag: Tags to exclude (comma-separated).
         :type notag: str
         :param release_status: Filter by ReleaseStatus.
-        :type release_status: str
+        :type release_status: ReleaseStatus
         :param max_unity_version: The maximum Unity version supported by the asset.
         :type max_unity_version: str
         :param min_unity_version: The minimum Unity version supported by the asset.
@@ -888,16 +872,16 @@ class AvatarsApi(object):
 
         :param featured: Filters on featured results.
         :type featured: bool
-        :param sort:
-        :type sort: str
+        :param sort: The sort order of the results.
+        :type sort: SortOption
         :param user: Set to `me` for searching own avatars.
         :type user: str
         :param user_id: Filter by UserID.
         :type user_id: str
         :param n: The number of objects to return.
         :type n: int
-        :param order:
-        :type order: str
+        :param order: Result ordering
+        :type order: OrderOption
         :param offset: A zero-based offset from the default object sorting from where search results start.
         :type offset: int
         :param tag: Tags to include (comma-separated). Any of the tags needs to be present.
@@ -905,7 +889,7 @@ class AvatarsApi(object):
         :param notag: Tags to exclude (comma-separated).
         :type notag: str
         :param release_status: Filter by ReleaseStatus.
-        :type release_status: str
+        :type release_status: ReleaseStatus
         :param max_unity_version: The maximum Unity version supported by the asset.
         :type max_unity_version: str
         :param min_unity_version: The minimum Unity version supported by the asset.
@@ -929,7 +913,6 @@ class AvatarsApi(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
-        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
@@ -959,9 +942,7 @@ class AvatarsApi(object):
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth',
-                '_content_type',
-                '_headers'
+                '_request_auth'
             ]
         )
 
@@ -985,34 +966,34 @@ class AvatarsApi(object):
         path_params = {}
 
         query_params = []
-        if local_var_params.get('featured') is not None:  # noqa: E501
+        if 'featured' in local_var_params and local_var_params['featured'] is not None:  # noqa: E501
             query_params.append(('featured', local_var_params['featured']))  # noqa: E501
-        if local_var_params.get('sort') is not None:  # noqa: E501
+        if 'sort' in local_var_params and local_var_params['sort'] is not None:  # noqa: E501
             query_params.append(('sort', local_var_params['sort']))  # noqa: E501
-        if local_var_params.get('user') is not None:  # noqa: E501
+        if 'user' in local_var_params and local_var_params['user'] is not None:  # noqa: E501
             query_params.append(('user', local_var_params['user']))  # noqa: E501
-        if local_var_params.get('user_id') is not None:  # noqa: E501
+        if 'user_id' in local_var_params and local_var_params['user_id'] is not None:  # noqa: E501
             query_params.append(('userId', local_var_params['user_id']))  # noqa: E501
-        if local_var_params.get('n') is not None:  # noqa: E501
+        if 'n' in local_var_params and local_var_params['n'] is not None:  # noqa: E501
             query_params.append(('n', local_var_params['n']))  # noqa: E501
-        if local_var_params.get('order') is not None:  # noqa: E501
+        if 'order' in local_var_params and local_var_params['order'] is not None:  # noqa: E501
             query_params.append(('order', local_var_params['order']))  # noqa: E501
-        if local_var_params.get('offset') is not None:  # noqa: E501
+        if 'offset' in local_var_params and local_var_params['offset'] is not None:  # noqa: E501
             query_params.append(('offset', local_var_params['offset']))  # noqa: E501
-        if local_var_params.get('tag') is not None:  # noqa: E501
+        if 'tag' in local_var_params and local_var_params['tag'] is not None:  # noqa: E501
             query_params.append(('tag', local_var_params['tag']))  # noqa: E501
-        if local_var_params.get('notag') is not None:  # noqa: E501
+        if 'notag' in local_var_params and local_var_params['notag'] is not None:  # noqa: E501
             query_params.append(('notag', local_var_params['notag']))  # noqa: E501
-        if local_var_params.get('release_status') is not None:  # noqa: E501
+        if 'release_status' in local_var_params and local_var_params['release_status'] is not None:  # noqa: E501
             query_params.append(('releaseStatus', local_var_params['release_status']))  # noqa: E501
-        if local_var_params.get('max_unity_version') is not None:  # noqa: E501
+        if 'max_unity_version' in local_var_params and local_var_params['max_unity_version'] is not None:  # noqa: E501
             query_params.append(('maxUnityVersion', local_var_params['max_unity_version']))  # noqa: E501
-        if local_var_params.get('min_unity_version') is not None:  # noqa: E501
+        if 'min_unity_version' in local_var_params and local_var_params['min_unity_version'] is not None:  # noqa: E501
             query_params.append(('minUnityVersion', local_var_params['min_unity_version']))  # noqa: E501
-        if local_var_params.get('platform') is not None:  # noqa: E501
+        if 'platform' in local_var_params and local_var_params['platform'] is not None:  # noqa: E501
             query_params.append(('platform', local_var_params['platform']))  # noqa: E501
 
-        header_params = dict(local_var_params.get('_headers', {}))
+        header_params = {}
 
         form_params = []
         local_var_files = {}
@@ -1057,7 +1038,7 @@ class AvatarsApi(object):
         >>> thread = api.select_avatar(avatar_id, async_req=True)
         >>> result = thread.get()
 
-        :param avatar_id: (required)
+        :param avatar_id: Must be a valid avatar ID. (required)
         :type avatar_id: str
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
@@ -1087,7 +1068,7 @@ class AvatarsApi(object):
         >>> thread = api.select_avatar_with_http_info(avatar_id, async_req=True)
         >>> result = thread.get()
 
-        :param avatar_id: (required)
+        :param avatar_id: Must be a valid avatar ID. (required)
         :type avatar_id: str
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
@@ -1106,7 +1087,6 @@ class AvatarsApi(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
-        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
@@ -1124,9 +1104,7 @@ class AvatarsApi(object):
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth',
-                '_content_type',
-                '_headers'
+                '_request_auth'
             ]
         )
 
@@ -1139,7 +1117,8 @@ class AvatarsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'avatar_id' is set
-        if self.api_client.client_side_validation and local_var_params.get('avatar_id') is None:  # noqa: E501
+        if self.api_client.client_side_validation and ('avatar_id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['avatar_id'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `avatar_id` when calling `select_avatar`")  # noqa: E501
 
         collection_formats = {}
@@ -1150,7 +1129,7 @@ class AvatarsApi(object):
 
         query_params = []
 
-        header_params = dict(local_var_params.get('_headers', {}))
+        header_params = {}
 
         form_params = []
         local_var_files = {}
@@ -1196,7 +1175,7 @@ class AvatarsApi(object):
         >>> thread = api.select_fallback_avatar(avatar_id, async_req=True)
         >>> result = thread.get()
 
-        :param avatar_id: (required)
+        :param avatar_id: Must be a valid avatar ID. (required)
         :type avatar_id: str
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
@@ -1226,7 +1205,7 @@ class AvatarsApi(object):
         >>> thread = api.select_fallback_avatar_with_http_info(avatar_id, async_req=True)
         >>> result = thread.get()
 
-        :param avatar_id: (required)
+        :param avatar_id: Must be a valid avatar ID. (required)
         :type avatar_id: str
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
@@ -1245,7 +1224,6 @@ class AvatarsApi(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
-        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
@@ -1263,9 +1241,7 @@ class AvatarsApi(object):
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth',
-                '_content_type',
-                '_headers'
+                '_request_auth'
             ]
         )
 
@@ -1278,7 +1254,8 @@ class AvatarsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'avatar_id' is set
-        if self.api_client.client_side_validation and local_var_params.get('avatar_id') is None:  # noqa: E501
+        if self.api_client.client_side_validation and ('avatar_id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['avatar_id'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `avatar_id` when calling `select_fallback_avatar`")  # noqa: E501
 
         collection_formats = {}
@@ -1289,7 +1266,7 @@ class AvatarsApi(object):
 
         query_params = []
 
-        header_params = dict(local_var_params.get('_headers', {}))
+        header_params = {}
 
         form_params = []
         local_var_files = {}
@@ -1336,7 +1313,7 @@ class AvatarsApi(object):
         >>> thread = api.update_avatar(avatar_id, async_req=True)
         >>> result = thread.get()
 
-        :param avatar_id: (required)
+        :param avatar_id: Must be a valid avatar ID. (required)
         :type avatar_id: str
         :param update_avatar_request:
         :type update_avatar_request: UpdateAvatarRequest
@@ -1368,7 +1345,7 @@ class AvatarsApi(object):
         >>> thread = api.update_avatar_with_http_info(avatar_id, async_req=True)
         >>> result = thread.get()
 
-        :param avatar_id: (required)
+        :param avatar_id: Must be a valid avatar ID. (required)
         :type avatar_id: str
         :param update_avatar_request:
         :type update_avatar_request: UpdateAvatarRequest
@@ -1389,7 +1366,6 @@ class AvatarsApi(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
-        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
@@ -1408,9 +1384,7 @@ class AvatarsApi(object):
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth',
-                '_content_type',
-                '_headers'
+                '_request_auth'
             ]
         )
 
@@ -1423,7 +1397,8 @@ class AvatarsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'avatar_id' is set
-        if self.api_client.client_side_validation and local_var_params.get('avatar_id') is None:  # noqa: E501
+        if self.api_client.client_side_validation and ('avatar_id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['avatar_id'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `avatar_id` when calling `update_avatar`")  # noqa: E501
 
         collection_formats = {}
@@ -1434,7 +1409,7 @@ class AvatarsApi(object):
 
         query_params = []
 
-        header_params = dict(local_var_params.get('_headers', {}))
+        header_params = {}
 
         form_params = []
         local_var_files = {}
@@ -1447,12 +1422,8 @@ class AvatarsApi(object):
             ['application/json'])  # noqa: E501
 
         # HTTP header `Content-Type`
-        content_types_list = local_var_params.get('_content_type',
-            self.api_client.select_header_content_type(
-                ['application/json'],
-                'PUT', body_params))  # noqa: E501
-        if content_types_list:
-                header_params['Content-Type'] = content_types_list
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
 
         # Authentication setting
         auth_settings = ['apiKeyCookie', 'authCookie']  # noqa: E501

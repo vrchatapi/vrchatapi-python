@@ -36,7 +36,7 @@ Name | Type | Description | Notes
 **oculus_id** | **str** |  | 
 **offline_friends** | **list[str]** |  | [optional] 
 **online_friends** | **list[str]** |  | [optional] 
-**past_display_names** | [**list[PastDisplayName]**](PastDisplayName.md) |   | 
+**past_display_names** | [**list[PastDisplayName]**](PastDisplayName.md) |  | 
 **profile_pic_override** | **str** |  | 
 **state** | [**UserState**](UserState.md) |  | 
 **status** | [**UserStatus**](UserStatus.md) |  | 

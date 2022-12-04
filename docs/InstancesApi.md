@@ -53,8 +53,8 @@ configuration.api_key['authCookie'] = 'YOUR_API_KEY'
 with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = vrchatapi.InstancesApi(api_client)
-    world_id = 'world_id_example' # str | 
-instance_id = 'instance_id_example' # str | 
+    world_id = 'world_id_example' # str | Must be a valid world ID.
+instance_id = 'instance_id_example' # str | Must be a valid instance ID.
 
     try:
         # Get Instance
@@ -98,8 +98,8 @@ configuration.api_key['authCookie'] = 'YOUR_API_KEY'
 with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = vrchatapi.InstancesApi(api_client)
-    world_id = 'world_id_example' # str | 
-instance_id = 'instance_id_example' # str | 
+    world_id = 'world_id_example' # str | Must be a valid world ID.
+instance_id = 'instance_id_example' # str | Must be a valid instance ID.
 
     try:
         # Get Instance
@@ -113,8 +113,8 @@ instance_id = 'instance_id_example' # str |
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **world_id** | **str**|  | 
- **instance_id** | **str**|  | 
+ **world_id** | **str**| Must be a valid world ID. | 
+ **instance_id** | **str**| Must be a valid instance ID. | 
 
 ### Return type
 
@@ -180,7 +180,7 @@ configuration.api_key['authCookie'] = 'YOUR_API_KEY'
 with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = vrchatapi.InstancesApi(api_client)
-    short_name = 'short_name_example' # str | 
+    short_name = 'short_name_example' # str | Must be a valid instance short name.
 
     try:
         # Get Instance By Short Name
@@ -224,7 +224,7 @@ configuration.api_key['authCookie'] = 'YOUR_API_KEY'
 with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = vrchatapi.InstancesApi(api_client)
-    short_name = 'short_name_example' # str | 
+    short_name = 'short_name_example' # str | Must be a valid instance short name.
 
     try:
         # Get Instance By Short Name
@@ -238,7 +238,7 @@ with vrchatapi.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **short_name** | **str**|  | 
+ **short_name** | **str**| Must be a valid instance short name. | 
 
 ### Return type
 
@@ -305,8 +305,8 @@ configuration.api_key['authCookie'] = 'YOUR_API_KEY'
 with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = vrchatapi.InstancesApi(api_client)
-    world_id = 'world_id_example' # str | 
-instance_id = 'instance_id_example' # str | 
+    world_id = 'world_id_example' # str | Must be a valid world ID.
+instance_id = 'instance_id_example' # str | Must be a valid instance ID.
 
     try:
         # Get Instance Short Name
@@ -350,8 +350,8 @@ configuration.api_key['authCookie'] = 'YOUR_API_KEY'
 with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = vrchatapi.InstancesApi(api_client)
-    world_id = 'world_id_example' # str | 
-instance_id = 'instance_id_example' # str | 
+    world_id = 'world_id_example' # str | Must be a valid world ID.
+instance_id = 'instance_id_example' # str | Must be a valid instance ID.
 
     try:
         # Get Instance Short Name
@@ -365,8 +365,8 @@ instance_id = 'instance_id_example' # str |
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **world_id** | **str**|  | 
- **instance_id** | **str**|  | 
+ **world_id** | **str**| Must be a valid world ID. | 
+ **instance_id** | **str**| Must be a valid instance ID. | 
 
 ### Return type
 
@@ -432,8 +432,8 @@ configuration.api_key['authCookie'] = 'YOUR_API_KEY'
 with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = vrchatapi.InstancesApi(api_client)
-    world_id = 'world_id_example' # str | 
-instance_id = 'instance_id_example' # str | 
+    world_id = 'world_id_example' # str | Must be a valid world ID.
+instance_id = 'instance_id_example' # str | Must be a valid instance ID.
 
     try:
         # Send Self Invite
@@ -477,8 +477,8 @@ configuration.api_key['authCookie'] = 'YOUR_API_KEY'
 with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = vrchatapi.InstancesApi(api_client)
-    world_id = 'world_id_example' # str | 
-instance_id = 'instance_id_example' # str | 
+    world_id = 'world_id_example' # str | Must be a valid world ID.
+instance_id = 'instance_id_example' # str | Must be a valid instance ID.
 
     try:
         # Send Self Invite
@@ -492,8 +492,8 @@ instance_id = 'instance_id_example' # str |
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **world_id** | **str**|  | 
- **instance_id** | **str**|  | 
+ **world_id** | **str**| Must be a valid world ID. | 
+ **instance_id** | **str**| Must be a valid instance ID. | 
 
 ### Return type
 

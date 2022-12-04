@@ -1,4 +1,4 @@
-# APIEventConfig
+# APIConfigEvents
 
 
 ## Properties

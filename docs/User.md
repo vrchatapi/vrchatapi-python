@@ -26,7 +26,7 @@ Name | Type | Description | Notes
 **state** | [**UserState**](UserState.md) |  | 
 **status** | [**UserStatus**](UserStatus.md) |  | 
 **status_description** | **str** |  | 
-**tags** | **list[str]** |   | 
+**tags** | **list[str]** |  | 
 **traveling_to_instance** | **str** |  | [optional] 
 **traveling_to_location** | **str** |  | [optional] 
 **traveling_to_world** | **str** |  | [optional] 

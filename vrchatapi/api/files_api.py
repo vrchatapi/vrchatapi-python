@@ -95,7 +95,6 @@ class FilesApi(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
-        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
@@ -113,9 +112,7 @@ class FilesApi(object):
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth',
-                '_content_type',
-                '_headers'
+                '_request_auth'
             ]
         )
 
@@ -134,7 +131,7 @@ class FilesApi(object):
 
         query_params = []
 
-        header_params = dict(local_var_params.get('_headers', {}))
+        header_params = {}
 
         form_params = []
         local_var_files = {}
@@ -147,12 +144,8 @@ class FilesApi(object):
             ['application/json'])  # noqa: E501
 
         # HTTP header `Content-Type`
-        content_types_list = local_var_params.get('_content_type',
-            self.api_client.select_header_content_type(
-                ['application/json'],
-                'POST', body_params))  # noqa: E501
-        if content_types_list:
-                header_params['Content-Type'] = content_types_list
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
 
         # Authentication setting
         auth_settings = ['apiKeyCookie', 'authCookie']  # noqa: E501
@@ -188,7 +181,7 @@ class FilesApi(object):
         >>> thread = api.create_file_version(file_id, async_req=True)
         >>> result = thread.get()
 
-        :param file_id: (required)
+        :param file_id: Must be a valid file ID. (required)
         :type file_id: str
         :param create_file_version_request:
         :type create_file_version_request: CreateFileVersionRequest
@@ -220,7 +213,7 @@ class FilesApi(object):
         >>> thread = api.create_file_version_with_http_info(file_id, async_req=True)
         >>> result = thread.get()
 
-        :param file_id: (required)
+        :param file_id: Must be a valid file ID. (required)
         :type file_id: str
         :param create_file_version_request:
         :type create_file_version_request: CreateFileVersionRequest
@@ -241,7 +234,6 @@ class FilesApi(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
-        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
@@ -260,9 +252,7 @@ class FilesApi(object):
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth',
-                '_content_type',
-                '_headers'
+                '_request_auth'
             ]
         )
 
@@ -275,7 +265,8 @@ class FilesApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'file_id' is set
-        if self.api_client.client_side_validation and local_var_params.get('file_id') is None:  # noqa: E501
+        if self.api_client.client_side_validation and ('file_id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['file_id'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `file_id` when calling `create_file_version`")  # noqa: E501
 
         if self.api_client.client_side_validation and 'file_id' in local_var_params and not re.search(r'file_[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}', local_var_params['file_id']):  # noqa: E501
@@ -288,7 +279,7 @@ class FilesApi(object):
 
         query_params = []
 
-        header_params = dict(local_var_params.get('_headers', {}))
+        header_params = {}
 
         form_params = []
         local_var_files = {}
@@ -301,12 +292,8 @@ class FilesApi(object):
             ['application/json'])  # noqa: E501
 
         # HTTP header `Content-Type`
-        content_types_list = local_var_params.get('_content_type',
-            self.api_client.select_header_content_type(
-                ['application/json'],
-                'POST', body_params))  # noqa: E501
-        if content_types_list:
-                header_params['Content-Type'] = content_types_list
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
 
         # Authentication setting
         auth_settings = ['apiKeyCookie', 'authCookie']  # noqa: E501
@@ -342,7 +329,7 @@ class FilesApi(object):
         >>> thread = api.delete_file(file_id, async_req=True)
         >>> result = thread.get()
 
-        :param file_id: (required)
+        :param file_id: Must be a valid file ID. (required)
         :type file_id: str
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
@@ -372,7 +359,7 @@ class FilesApi(object):
         >>> thread = api.delete_file_with_http_info(file_id, async_req=True)
         >>> result = thread.get()
 
-        :param file_id: (required)
+        :param file_id: Must be a valid file ID. (required)
         :type file_id: str
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
@@ -391,7 +378,6 @@ class FilesApi(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
-        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
@@ -409,9 +395,7 @@ class FilesApi(object):
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth',
-                '_content_type',
-                '_headers'
+                '_request_auth'
             ]
         )
 
@@ -424,7 +408,8 @@ class FilesApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'file_id' is set
-        if self.api_client.client_side_validation and local_var_params.get('file_id') is None:  # noqa: E501
+        if self.api_client.client_side_validation and ('file_id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['file_id'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `file_id` when calling `delete_file`")  # noqa: E501
 
         if self.api_client.client_side_validation and 'file_id' in local_var_params and not re.search(r'file_[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}', local_var_params['file_id']):  # noqa: E501
@@ -437,7 +422,7 @@ class FilesApi(object):
 
         query_params = []
 
-        header_params = dict(local_var_params.get('_headers', {}))
+        header_params = {}
 
         form_params = []
         local_var_files = {}
@@ -482,9 +467,9 @@ class FilesApi(object):
         >>> thread = api.delete_file_version(file_id, version_id, async_req=True)
         >>> result = thread.get()
 
-        :param file_id: (required)
+        :param file_id: Must be a valid file ID. (required)
         :type file_id: str
-        :param version_id: (required)
+        :param version_id: Version ID of the asset. (required)
         :type version_id: int
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
@@ -514,9 +499,9 @@ class FilesApi(object):
         >>> thread = api.delete_file_version_with_http_info(file_id, version_id, async_req=True)
         >>> result = thread.get()
 
-        :param file_id: (required)
+        :param file_id: Must be a valid file ID. (required)
         :type file_id: str
-        :param version_id: (required)
+        :param version_id: Version ID of the asset. (required)
         :type version_id: int
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
@@ -535,7 +520,6 @@ class FilesApi(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
-        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
@@ -554,9 +538,7 @@ class FilesApi(object):
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth',
-                '_content_type',
-                '_headers'
+                '_request_auth'
             ]
         )
 
@@ -569,10 +551,12 @@ class FilesApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'file_id' is set
-        if self.api_client.client_side_validation and local_var_params.get('file_id') is None:  # noqa: E501
+        if self.api_client.client_side_validation and ('file_id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['file_id'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `file_id` when calling `delete_file_version`")  # noqa: E501
         # verify the required parameter 'version_id' is set
-        if self.api_client.client_side_validation and local_var_params.get('version_id') is None:  # noqa: E501
+        if self.api_client.client_side_validation and ('version_id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['version_id'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `version_id` when calling `delete_file_version`")  # noqa: E501
 
         if self.api_client.client_side_validation and 'file_id' in local_var_params and not re.search(r'file_[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}', local_var_params['file_id']):  # noqa: E501
@@ -589,7 +573,7 @@ class FilesApi(object):
 
         query_params = []
 
-        header_params = dict(local_var_params.get('_headers', {}))
+        header_params = {}
 
         form_params = []
         local_var_files = {}
@@ -635,9 +619,9 @@ class FilesApi(object):
         >>> thread = api.download_file_version(file_id, version_id, async_req=True)
         >>> result = thread.get()
 
-        :param file_id: (required)
+        :param file_id: Must be a valid file ID. (required)
         :type file_id: str
-        :param version_id: (required)
+        :param version_id: Version ID of the asset. (required)
         :type version_id: int
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
@@ -667,9 +651,9 @@ class FilesApi(object):
         >>> thread = api.download_file_version_with_http_info(file_id, version_id, async_req=True)
         >>> result = thread.get()
 
-        :param file_id: (required)
+        :param file_id: Must be a valid file ID. (required)
         :type file_id: str
-        :param version_id: (required)
+        :param version_id: Version ID of the asset. (required)
         :type version_id: int
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
@@ -688,7 +672,6 @@ class FilesApi(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
-        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
@@ -707,9 +690,7 @@ class FilesApi(object):
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth',
-                '_content_type',
-                '_headers'
+                '_request_auth'
             ]
         )
 
@@ -722,10 +703,12 @@ class FilesApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'file_id' is set
-        if self.api_client.client_side_validation and local_var_params.get('file_id') is None:  # noqa: E501
+        if self.api_client.client_side_validation and ('file_id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['file_id'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `file_id` when calling `download_file_version`")  # noqa: E501
         # verify the required parameter 'version_id' is set
-        if self.api_client.client_side_validation and local_var_params.get('version_id') is None:  # noqa: E501
+        if self.api_client.client_side_validation and ('version_id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['version_id'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `version_id` when calling `download_file_version`")  # noqa: E501
 
         if self.api_client.client_side_validation and 'file_id' in local_var_params and not re.search(r'file_[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}', local_var_params['file_id']):  # noqa: E501
@@ -742,7 +725,7 @@ class FilesApi(object):
 
         query_params = []
 
-        header_params = dict(local_var_params.get('_headers', {}))
+        header_params = {}
 
         form_params = []
         local_var_files = {}
@@ -780,11 +763,11 @@ class FilesApi(object):
         >>> thread = api.finish_file_data_upload(file_id, version_id, file_type, async_req=True)
         >>> result = thread.get()
 
-        :param file_id: (required)
+        :param file_id: Must be a valid file ID. (required)
         :type file_id: str
-        :param version_id: (required)
+        :param version_id: Version ID of the asset. (required)
         :type version_id: int
-        :param file_type: (required)
+        :param file_type: Type of file. (required)
         :type file_type: str
         :param finish_file_data_upload_request: Please see documentation on ETag's: [https://teppen.io/2018/06/23/aws_s3_etags/](https://teppen.io/2018/06/23/aws_s3_etags/)  ETag's should NOT be present when uploading a `signature`.
         :type finish_file_data_upload_request: FinishFileDataUploadRequest
@@ -816,11 +799,11 @@ class FilesApi(object):
         >>> thread = api.finish_file_data_upload_with_http_info(file_id, version_id, file_type, async_req=True)
         >>> result = thread.get()
 
-        :param file_id: (required)
+        :param file_id: Must be a valid file ID. (required)
         :type file_id: str
-        :param version_id: (required)
+        :param version_id: Version ID of the asset. (required)
         :type version_id: int
-        :param file_type: (required)
+        :param file_type: Type of file. (required)
         :type file_type: str
         :param finish_file_data_upload_request: Please see documentation on ETag's: [https://teppen.io/2018/06/23/aws_s3_etags/](https://teppen.io/2018/06/23/aws_s3_etags/)  ETag's should NOT be present when uploading a `signature`.
         :type finish_file_data_upload_request: FinishFileDataUploadRequest
@@ -841,7 +824,6 @@ class FilesApi(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
-        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
@@ -862,9 +844,7 @@ class FilesApi(object):
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth',
-                '_content_type',
-                '_headers'
+                '_request_auth'
             ]
         )
 
@@ -877,13 +857,16 @@ class FilesApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'file_id' is set
-        if self.api_client.client_side_validation and local_var_params.get('file_id') is None:  # noqa: E501
+        if self.api_client.client_side_validation and ('file_id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['file_id'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `file_id` when calling `finish_file_data_upload`")  # noqa: E501
         # verify the required parameter 'version_id' is set
-        if self.api_client.client_side_validation and local_var_params.get('version_id') is None:  # noqa: E501
+        if self.api_client.client_side_validation and ('version_id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['version_id'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `version_id` when calling `finish_file_data_upload`")  # noqa: E501
         # verify the required parameter 'file_type' is set
-        if self.api_client.client_side_validation and local_var_params.get('file_type') is None:  # noqa: E501
+        if self.api_client.client_side_validation and ('file_type' not in local_var_params or  # noqa: E501
+                                                        local_var_params['file_type'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `file_type` when calling `finish_file_data_upload`")  # noqa: E501
 
         if self.api_client.client_side_validation and 'file_id' in local_var_params and not re.search(r'file_[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}', local_var_params['file_id']):  # noqa: E501
@@ -902,7 +885,7 @@ class FilesApi(object):
 
         query_params = []
 
-        header_params = dict(local_var_params.get('_headers', {}))
+        header_params = {}
 
         form_params = []
         local_var_files = {}
@@ -915,12 +898,8 @@ class FilesApi(object):
             ['application/json'])  # noqa: E501
 
         # HTTP header `Content-Type`
-        content_types_list = local_var_params.get('_content_type',
-            self.api_client.select_header_content_type(
-                ['application/json'],
-                'PUT', body_params))  # noqa: E501
-        if content_types_list:
-                header_params['Content-Type'] = content_types_list
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
 
         # Authentication setting
         auth_settings = ['apiKeyCookie', 'authCookie']  # noqa: E501
@@ -956,7 +935,7 @@ class FilesApi(object):
         >>> thread = api.get_file(file_id, async_req=True)
         >>> result = thread.get()
 
-        :param file_id: (required)
+        :param file_id: Must be a valid file ID. (required)
         :type file_id: str
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
@@ -986,7 +965,7 @@ class FilesApi(object):
         >>> thread = api.get_file_with_http_info(file_id, async_req=True)
         >>> result = thread.get()
 
-        :param file_id: (required)
+        :param file_id: Must be a valid file ID. (required)
         :type file_id: str
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
@@ -1005,7 +984,6 @@ class FilesApi(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
-        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
@@ -1023,9 +1001,7 @@ class FilesApi(object):
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth',
-                '_content_type',
-                '_headers'
+                '_request_auth'
             ]
         )
 
@@ -1038,7 +1014,8 @@ class FilesApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'file_id' is set
-        if self.api_client.client_side_validation and local_var_params.get('file_id') is None:  # noqa: E501
+        if self.api_client.client_side_validation and ('file_id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['file_id'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `file_id` when calling `get_file`")  # noqa: E501
 
         if self.api_client.client_side_validation and 'file_id' in local_var_params and not re.search(r'file_[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}', local_var_params['file_id']):  # noqa: E501
@@ -1051,7 +1028,7 @@ class FilesApi(object):
 
         query_params = []
 
-        header_params = dict(local_var_params.get('_headers', {}))
+        header_params = {}
 
         form_params = []
         local_var_files = {}
@@ -1096,11 +1073,11 @@ class FilesApi(object):
         >>> thread = api.get_file_data_upload_status(file_id, version_id, file_type, async_req=True)
         >>> result = thread.get()
 
-        :param file_id: (required)
+        :param file_id: Must be a valid file ID. (required)
         :type file_id: str
-        :param version_id: (required)
+        :param version_id: Version ID of the asset. (required)
         :type version_id: int
-        :param file_type: (required)
+        :param file_type: Type of file. (required)
         :type file_type: str
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
@@ -1130,11 +1107,11 @@ class FilesApi(object):
         >>> thread = api.get_file_data_upload_status_with_http_info(file_id, version_id, file_type, async_req=True)
         >>> result = thread.get()
 
-        :param file_id: (required)
+        :param file_id: Must be a valid file ID. (required)
         :type file_id: str
-        :param version_id: (required)
+        :param version_id: Version ID of the asset. (required)
         :type version_id: int
-        :param file_type: (required)
+        :param file_type: Type of file. (required)
         :type file_type: str
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
@@ -1153,7 +1130,6 @@ class FilesApi(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
-        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
@@ -1173,9 +1149,7 @@ class FilesApi(object):
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth',
-                '_content_type',
-                '_headers'
+                '_request_auth'
             ]
         )
 
@@ -1188,13 +1162,16 @@ class FilesApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'file_id' is set
-        if self.api_client.client_side_validation and local_var_params.get('file_id') is None:  # noqa: E501
+        if self.api_client.client_side_validation and ('file_id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['file_id'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `file_id` when calling `get_file_data_upload_status`")  # noqa: E501
         # verify the required parameter 'version_id' is set
-        if self.api_client.client_side_validation and local_var_params.get('version_id') is None:  # noqa: E501
+        if self.api_client.client_side_validation and ('version_id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['version_id'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `version_id` when calling `get_file_data_upload_status`")  # noqa: E501
         # verify the required parameter 'file_type' is set
-        if self.api_client.client_side_validation and local_var_params.get('file_type') is None:  # noqa: E501
+        if self.api_client.client_side_validation and ('file_type' not in local_var_params or  # noqa: E501
+                                                        local_var_params['file_type'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `file_type` when calling `get_file_data_upload_status`")  # noqa: E501
 
         if self.api_client.client_side_validation and 'file_id' in local_var_params and not re.search(r'file_[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}', local_var_params['file_id']):  # noqa: E501
@@ -1213,7 +1190,7 @@ class FilesApi(object):
 
         query_params = []
 
-        header_params = dict(local_var_params.get('_headers', {}))
+        header_params = {}
 
         form_params = []
         local_var_files = {}
@@ -1318,7 +1295,6 @@ class FilesApi(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
-        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
@@ -1339,9 +1315,7 @@ class FilesApi(object):
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth',
-                '_content_type',
-                '_headers'
+                '_request_auth'
             ]
         )
 
@@ -1368,16 +1342,16 @@ class FilesApi(object):
         path_params = {}
 
         query_params = []
-        if local_var_params.get('tag') is not None:  # noqa: E501
+        if 'tag' in local_var_params and local_var_params['tag'] is not None:  # noqa: E501
             query_params.append(('tag', local_var_params['tag']))  # noqa: E501
-        if local_var_params.get('user_id') is not None:  # noqa: E501
+        if 'user_id' in local_var_params and local_var_params['user_id'] is not None:  # noqa: E501
             query_params.append(('userId', local_var_params['user_id']))  # noqa: E501
-        if local_var_params.get('n') is not None:  # noqa: E501
+        if 'n' in local_var_params and local_var_params['n'] is not None:  # noqa: E501
             query_params.append(('n', local_var_params['n']))  # noqa: E501
-        if local_var_params.get('offset') is not None:  # noqa: E501
+        if 'offset' in local_var_params and local_var_params['offset'] is not None:  # noqa: E501
             query_params.append(('offset', local_var_params['offset']))  # noqa: E501
 
-        header_params = dict(local_var_params.get('_headers', {}))
+        header_params = {}
 
         form_params = []
         local_var_files = {}
@@ -1421,13 +1395,13 @@ class FilesApi(object):
         >>> thread = api.start_file_data_upload(file_id, version_id, file_type, async_req=True)
         >>> result = thread.get()
 
-        :param file_id: (required)
+        :param file_id: Must be a valid file ID. (required)
         :type file_id: str
-        :param version_id: (required)
+        :param version_id: Version ID of the asset. (required)
         :type version_id: int
-        :param file_type: (required)
+        :param file_type: Type of file. (required)
         :type file_type: str
-        :param part_number:
+        :param part_number: The part number to start uploading. If not provided, the first part will be started.
         :type part_number: int
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
@@ -1457,13 +1431,13 @@ class FilesApi(object):
         >>> thread = api.start_file_data_upload_with_http_info(file_id, version_id, file_type, async_req=True)
         >>> result = thread.get()
 
-        :param file_id: (required)
+        :param file_id: Must be a valid file ID. (required)
         :type file_id: str
-        :param version_id: (required)
+        :param version_id: Version ID of the asset. (required)
         :type version_id: int
-        :param file_type: (required)
+        :param file_type: Type of file. (required)
         :type file_type: str
-        :param part_number:
+        :param part_number: The part number to start uploading. If not provided, the first part will be started.
         :type part_number: int
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
@@ -1482,7 +1456,6 @@ class FilesApi(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
-        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
@@ -1503,9 +1476,7 @@ class FilesApi(object):
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth',
-                '_content_type',
-                '_headers'
+                '_request_auth'
             ]
         )
 
@@ -1518,13 +1489,16 @@ class FilesApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'file_id' is set
-        if self.api_client.client_side_validation and local_var_params.get('file_id') is None:  # noqa: E501
+        if self.api_client.client_side_validation and ('file_id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['file_id'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `file_id` when calling `start_file_data_upload`")  # noqa: E501
         # verify the required parameter 'version_id' is set
-        if self.api_client.client_side_validation and local_var_params.get('version_id') is None:  # noqa: E501
+        if self.api_client.client_side_validation and ('version_id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['version_id'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `version_id` when calling `start_file_data_upload`")  # noqa: E501
         # verify the required parameter 'file_type' is set
-        if self.api_client.client_side_validation and local_var_params.get('file_type') is None:  # noqa: E501
+        if self.api_client.client_side_validation and ('file_type' not in local_var_params or  # noqa: E501
+                                                        local_var_params['file_type'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `file_type` when calling `start_file_data_upload`")  # noqa: E501
 
         if self.api_client.client_side_validation and 'file_id' in local_var_params and not re.search(r'file_[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}', local_var_params['file_id']):  # noqa: E501
@@ -1544,10 +1518,10 @@ class FilesApi(object):
             path_params['fileType'] = local_var_params['file_type']  # noqa: E501
 
         query_params = []
-        if local_var_params.get('part_number') is not None:  # noqa: E501
+        if 'part_number' in local_var_params and local_var_params['part_number'] is not None:  # noqa: E501
             query_params.append(('partNumber', local_var_params['part_number']))  # noqa: E501
 
-        header_params = dict(local_var_params.get('_headers', {}))
+        header_params = {}
 
         form_params = []
         local_var_files = {}

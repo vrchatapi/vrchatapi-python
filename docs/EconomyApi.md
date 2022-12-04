@@ -173,7 +173,7 @@ configuration.api_key['authCookie'] = 'YOUR_API_KEY'
 with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = vrchatapi.EconomyApi(api_client)
-    license_group_id = 'license_group_id_example' # str | 
+    license_group_id = 'license_group_id_example' # str | Must be a valid license group ID.
 
     try:
         # Get License Group
@@ -217,7 +217,7 @@ configuration.api_key['authCookie'] = 'YOUR_API_KEY'
 with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = vrchatapi.EconomyApi(api_client)
-    license_group_id = 'license_group_id_example' # str | 
+    license_group_id = 'license_group_id_example' # str | Must be a valid license group ID.
 
     try:
         # Get License Group
@@ -231,7 +231,7 @@ with vrchatapi.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **license_group_id** | **str**|  | 
+ **license_group_id** | **str**| Must be a valid license group ID. | 
 
 ### Return type
 
@@ -297,7 +297,7 @@ configuration.api_key['authCookie'] = 'YOUR_API_KEY'
 with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = vrchatapi.EconomyApi(api_client)
-    transaction_id = 'transaction_id_example' # str | 
+    transaction_id = 'transaction_id_example' # str | Must be a valid transaction ID.
 
     try:
         # Get Steam Transaction
@@ -341,7 +341,7 @@ configuration.api_key['authCookie'] = 'YOUR_API_KEY'
 with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = vrchatapi.EconomyApi(api_client)
-    transaction_id = 'transaction_id_example' # str | 
+    transaction_id = 'transaction_id_example' # str | Must be a valid transaction ID.
 
     try:
         # Get Steam Transaction
@@ -355,7 +355,7 @@ with vrchatapi.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **transaction_id** | **str**|  | 
+ **transaction_id** | **str**| Must be a valid transaction ID. | 
 
 ### Return type
 

@@ -157,7 +157,6 @@ class File(object):
     def name(self):
         """Gets the name of this File.  # noqa: E501
 
-          # noqa: E501
 
         :return: The name of this File.  # noqa: E501
         :rtype: str
@@ -168,7 +167,6 @@ class File(object):
     def name(self, name):
         """Sets the name of this File.
 
-          # noqa: E501
 
         :param name: The name of this File.  # noqa: E501
         :type name: str
@@ -210,7 +208,6 @@ class File(object):
     def tags(self):
         """Gets the tags of this File.  # noqa: E501
 
-           # noqa: E501
 
         :return: The tags of this File.  # noqa: E501
         :rtype: list[str]
@@ -221,7 +218,6 @@ class File(object):
     def tags(self, tags):
         """Sets the tags of this File.
 
-           # noqa: E501
 
         :param tags: The tags of this File.  # noqa: E501
         :type tags: list[str]
@@ -235,7 +231,6 @@ class File(object):
     def versions(self):
         """Gets the versions of this File.  # noqa: E501
 
-           # noqa: E501
 
         :return: The versions of this File.  # noqa: E501
         :rtype: list[FileVersion]
@@ -246,7 +241,6 @@ class File(object):
     def versions(self, versions):
         """Sets the versions of this File.
 
-           # noqa: E501
 
         :param versions: The versions of this File.  # noqa: E501
         :type versions: list[FileVersion]

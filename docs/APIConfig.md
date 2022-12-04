@@ -1,14 +1,13 @@
 # APIConfig
 
 
-
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **voice_enable_degradation** | **bool** | Unknown, probably voice optimization testing | [default to False]
 **voice_enable_receiver_limiting** | **bool** | Unknown, probably voice optimization testing | [default to True]
 **address** | **str** | VRChat&#39;s office address | 
-**announcements** | [**list[PublicAnnouncement]**](PublicAnnouncement.md) | Public Announcements | 
+**announcements** | [**list[APIConfigAnnouncement]**](APIConfigAnnouncement.md) | Public Announcements | 
 **api_key** | **str** | apiKey to be used for all other requests | 
 **app_name** | **str** | Game name | [default to 'VrChat']
 **build_version_tag** | **str** | Build tag of the API server | 
@@ -44,9 +43,9 @@ Name | Type | Description | Notes
 **disable_udon** | **bool** | Toggles if Udon should be universally disabled in-game. | [default to False]
 **disable_upgrade_account** | **bool** | Toggles if account upgrading \&quot;linking with Steam/Oculus\&quot; should be disabled. | [default to False]
 **download_link_windows** | **str** | Download link for game on the Oculus Rift website. | 
-**download_urls** | [**DownloadURLList**](DownloadURLList.md) |  | 
+**download_urls** | [**APIConfigDownloadURLList**](APIConfigDownloadURLList.md) |  | 
 **dynamic_world_rows** | [**list[DynamicContentRow]**](DynamicContentRow.md) | Array of DynamicWorldRow objects, used by the game to display the list of world rows | 
-**events** | [**APIEventConfig**](APIEventConfig.md) |  | 
+**events** | [**APIConfigEvents**](APIConfigEvents.md) |  | 
 **gear_demo_room_id** | **str** | Unknown | 
 **home_world_id** | **str** | WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user. | 
 **homepage_redirect_target** | **str** | Redirect target if you try to open the base API domain in your browser | [default to 'https://hello.vrchat.com']

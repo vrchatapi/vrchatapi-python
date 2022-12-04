@@ -46,9 +46,9 @@ class InstancesApi(object):
         >>> thread = api.get_instance(world_id, instance_id, async_req=True)
         >>> result = thread.get()
 
-        :param world_id: (required)
+        :param world_id: Must be a valid world ID. (required)
         :type world_id: str
-        :param instance_id: (required)
+        :param instance_id: Must be a valid instance ID. (required)
         :type instance_id: str
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
@@ -78,9 +78,9 @@ class InstancesApi(object):
         >>> thread = api.get_instance_with_http_info(world_id, instance_id, async_req=True)
         >>> result = thread.get()
 
-        :param world_id: (required)
+        :param world_id: Must be a valid world ID. (required)
         :type world_id: str
-        :param instance_id: (required)
+        :param instance_id: Must be a valid instance ID. (required)
         :type instance_id: str
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
@@ -99,7 +99,6 @@ class InstancesApi(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
-        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
@@ -118,9 +117,7 @@ class InstancesApi(object):
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth',
-                '_content_type',
-                '_headers'
+                '_request_auth'
             ]
         )
 
@@ -133,10 +130,12 @@ class InstancesApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'world_id' is set
-        if self.api_client.client_side_validation and local_var_params.get('world_id') is None:  # noqa: E501
+        if self.api_client.client_side_validation and ('world_id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['world_id'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `world_id` when calling `get_instance`")  # noqa: E501
         # verify the required parameter 'instance_id' is set
-        if self.api_client.client_side_validation and local_var_params.get('instance_id') is None:  # noqa: E501
+        if self.api_client.client_side_validation and ('instance_id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['instance_id'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `instance_id` when calling `get_instance`")  # noqa: E501
 
         collection_formats = {}
@@ -149,7 +148,7 @@ class InstancesApi(object):
 
         query_params = []
 
-        header_params = dict(local_var_params.get('_headers', {}))
+        header_params = {}
 
         form_params = []
         local_var_files = {}
@@ -194,7 +193,7 @@ class InstancesApi(object):
         >>> thread = api.get_instance_by_short_name(short_name, async_req=True)
         >>> result = thread.get()
 
-        :param short_name: (required)
+        :param short_name: Must be a valid instance short name. (required)
         :type short_name: str
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
@@ -224,7 +223,7 @@ class InstancesApi(object):
         >>> thread = api.get_instance_by_short_name_with_http_info(short_name, async_req=True)
         >>> result = thread.get()
 
-        :param short_name: (required)
+        :param short_name: Must be a valid instance short name. (required)
         :type short_name: str
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
@@ -243,7 +242,6 @@ class InstancesApi(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
-        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
@@ -261,9 +259,7 @@ class InstancesApi(object):
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth',
-                '_content_type',
-                '_headers'
+                '_request_auth'
             ]
         )
 
@@ -276,7 +272,8 @@ class InstancesApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'short_name' is set
-        if self.api_client.client_side_validation and local_var_params.get('short_name') is None:  # noqa: E501
+        if self.api_client.client_side_validation and ('short_name' not in local_var_params or  # noqa: E501
+                                                        local_var_params['short_name'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `short_name` when calling `get_instance_by_short_name`")  # noqa: E501
 
         collection_formats = {}
@@ -287,7 +284,7 @@ class InstancesApi(object):
 
         query_params = []
 
-        header_params = dict(local_var_params.get('_headers', {}))
+        header_params = {}
 
         form_params = []
         local_var_files = {}
@@ -333,9 +330,9 @@ class InstancesApi(object):
         >>> thread = api.get_short_name(world_id, instance_id, async_req=True)
         >>> result = thread.get()
 
-        :param world_id: (required)
+        :param world_id: Must be a valid world ID. (required)
         :type world_id: str
-        :param instance_id: (required)
+        :param instance_id: Must be a valid instance ID. (required)
         :type instance_id: str
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
@@ -365,9 +362,9 @@ class InstancesApi(object):
         >>> thread = api.get_short_name_with_http_info(world_id, instance_id, async_req=True)
         >>> result = thread.get()
 
-        :param world_id: (required)
+        :param world_id: Must be a valid world ID. (required)
         :type world_id: str
-        :param instance_id: (required)
+        :param instance_id: Must be a valid instance ID. (required)
         :type instance_id: str
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
@@ -386,7 +383,6 @@ class InstancesApi(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
-        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
@@ -405,9 +401,7 @@ class InstancesApi(object):
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth',
-                '_content_type',
-                '_headers'
+                '_request_auth'
             ]
         )
 
@@ -420,10 +414,12 @@ class InstancesApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'world_id' is set
-        if self.api_client.client_side_validation and local_var_params.get('world_id') is None:  # noqa: E501
+        if self.api_client.client_side_validation and ('world_id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['world_id'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `world_id` when calling `get_short_name`")  # noqa: E501
         # verify the required parameter 'instance_id' is set
-        if self.api_client.client_side_validation and local_var_params.get('instance_id') is None:  # noqa: E501
+        if self.api_client.client_side_validation and ('instance_id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['instance_id'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `instance_id` when calling `get_short_name`")  # noqa: E501
 
         collection_formats = {}
@@ -436,7 +432,7 @@ class InstancesApi(object):
 
         query_params = []
 
-        header_params = dict(local_var_params.get('_headers', {}))
+        header_params = {}
 
         form_params = []
         local_var_files = {}
@@ -481,9 +477,9 @@ class InstancesApi(object):
         >>> thread = api.send_self_invite(world_id, instance_id, async_req=True)
         >>> result = thread.get()
 
-        :param world_id: (required)
+        :param world_id: Must be a valid world ID. (required)
         :type world_id: str
-        :param instance_id: (required)
+        :param instance_id: Must be a valid instance ID. (required)
         :type instance_id: str
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
@@ -513,9 +509,9 @@ class InstancesApi(object):
         >>> thread = api.send_self_invite_with_http_info(world_id, instance_id, async_req=True)
         >>> result = thread.get()
 
-        :param world_id: (required)
+        :param world_id: Must be a valid world ID. (required)
         :type world_id: str
-        :param instance_id: (required)
+        :param instance_id: Must be a valid instance ID. (required)
         :type instance_id: str
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
@@ -534,7 +530,6 @@ class InstancesApi(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
-        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
@@ -553,9 +548,7 @@ class InstancesApi(object):
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth',
-                '_content_type',
-                '_headers'
+                '_request_auth'
             ]
         )
 
@@ -568,10 +561,12 @@ class InstancesApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'world_id' is set
-        if self.api_client.client_side_validation and local_var_params.get('world_id') is None:  # noqa: E501
+        if self.api_client.client_side_validation and ('world_id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['world_id'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `world_id` when calling `send_self_invite`")  # noqa: E501
         # verify the required parameter 'instance_id' is set
-        if self.api_client.client_side_validation and local_var_params.get('instance_id') is None:  # noqa: E501
+        if self.api_client.client_side_validation and ('instance_id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['instance_id'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `instance_id` when calling `send_self_invite`")  # noqa: E501
 
         collection_formats = {}
@@ -584,7 +579,7 @@ class InstancesApi(object):
 
         query_params = []
 
-        header_params = dict(local_var_params.get('_headers', {}))
+        header_params = {}
 
         form_params = []
         local_var_files = {}

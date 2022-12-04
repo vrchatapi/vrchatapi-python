@@ -39,7 +39,7 @@ class APIConfig(object):
         'voice_enable_degradation': 'bool',
         'voice_enable_receiver_limiting': 'bool',
         'address': 'str',
-        'announcements': 'list[PublicAnnouncement]',
+        'announcements': 'list[APIConfigAnnouncement]',
         'api_key': 'str',
         'app_name': 'str',
         'build_version_tag': 'str',
@@ -75,9 +75,9 @@ class APIConfig(object):
         'disable_udon': 'bool',
         'disable_upgrade_account': 'bool',
         'download_link_windows': 'str',
-        'download_urls': 'DownloadURLList',
+        'download_urls': 'APIConfigDownloadURLList',
         'dynamic_world_rows': 'list[DynamicContentRow]',
-        'events': 'APIEventConfig',
+        'events': 'APIConfigEvents',
         'gear_demo_room_id': 'str',
         'home_world_id': 'str',
         'homepage_redirect_target': 'str',
@@ -455,7 +455,7 @@ class APIConfig(object):
         Public Announcements  # noqa: E501
 
         :return: The announcements of this APIConfig.  # noqa: E501
-        :rtype: list[PublicAnnouncement]
+        :rtype: list[APIConfigAnnouncement]
         """
         return self._announcements
 
@@ -466,7 +466,7 @@ class APIConfig(object):
         Public Announcements  # noqa: E501
 
         :param announcements: The announcements of this APIConfig.  # noqa: E501
-        :type announcements: list[PublicAnnouncement]
+        :type announcements: list[APIConfigAnnouncement]
         """
         if self.local_vars_configuration.client_side_validation and announcements is None:  # noqa: E501
             raise ValueError("Invalid value for `announcements`, must not be `None`")  # noqa: E501
@@ -1395,7 +1395,7 @@ class APIConfig(object):
 
 
         :return: The download_urls of this APIConfig.  # noqa: E501
-        :rtype: DownloadURLList
+        :rtype: APIConfigDownloadURLList
         """
         return self._download_urls
 
@@ -1405,7 +1405,7 @@ class APIConfig(object):
 
 
         :param download_urls: The download_urls of this APIConfig.  # noqa: E501
-        :type download_urls: DownloadURLList
+        :type download_urls: APIConfigDownloadURLList
         """
         if self.local_vars_configuration.client_side_validation and download_urls is None:  # noqa: E501
             raise ValueError("Invalid value for `download_urls`, must not be `None`")  # noqa: E501
@@ -1446,7 +1446,7 @@ class APIConfig(object):
 
 
         :return: The events of this APIConfig.  # noqa: E501
-        :rtype: APIEventConfig
+        :rtype: APIConfigEvents
         """
         return self._events
 
@@ -1456,7 +1456,7 @@ class APIConfig(object):
 
 
         :param events: The events of this APIConfig.  # noqa: E501
-        :type events: APIEventConfig
+        :type events: APIConfigEvents
         """
         if self.local_vars_configuration.client_side_validation and events is None:  # noqa: E501
             raise ValueError("Invalid value for `events`, must not be `None`")  # noqa: E501

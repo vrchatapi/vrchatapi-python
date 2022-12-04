@@ -54,7 +54,7 @@ configuration.api_key['authCookie'] = 'YOUR_API_KEY'
 with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = vrchatapi.FriendsApi(api_client)
-    user_id = 'user_id_example' # str | 
+    user_id = 'user_id_example' # str | Must be a valid user ID.
 
     try:
         # Delete Friend Request
@@ -98,7 +98,7 @@ configuration.api_key['authCookie'] = 'YOUR_API_KEY'
 with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = vrchatapi.FriendsApi(api_client)
-    user_id = 'user_id_example' # str | 
+    user_id = 'user_id_example' # str | Must be a valid user ID.
 
     try:
         # Delete Friend Request
@@ -112,7 +112,7 @@ with vrchatapi.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **user_id** | **str**|  | 
+ **user_id** | **str**| Must be a valid user ID. | 
 
 ### Return type
 
@@ -179,7 +179,7 @@ configuration.api_key['authCookie'] = 'YOUR_API_KEY'
 with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = vrchatapi.FriendsApi(api_client)
-    user_id = 'user_id_example' # str | 
+    user_id = 'user_id_example' # str | Must be a valid user ID.
 
     try:
         # Send Friend Request
@@ -223,7 +223,7 @@ configuration.api_key['authCookie'] = 'YOUR_API_KEY'
 with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = vrchatapi.FriendsApi(api_client)
-    user_id = 'user_id_example' # str | 
+    user_id = 'user_id_example' # str | Must be a valid user ID.
 
     try:
         # Send Friend Request
@@ -237,7 +237,7 @@ with vrchatapi.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **user_id** | **str**|  | 
+ **user_id** | **str**| Must be a valid user ID. | 
 
 ### Return type
 
@@ -304,7 +304,7 @@ configuration.api_key['authCookie'] = 'YOUR_API_KEY'
 with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = vrchatapi.FriendsApi(api_client)
-    user_id = 'user_id_example' # str | 
+    user_id = 'user_id_example' # str | Must be a valid user ID.
 
     try:
         # Check Friend Status
@@ -348,7 +348,7 @@ configuration.api_key['authCookie'] = 'YOUR_API_KEY'
 with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = vrchatapi.FriendsApi(api_client)
-    user_id = 'user_id_example' # str | 
+    user_id = 'user_id_example' # str | Must be a valid user ID.
 
     try:
         # Check Friend Status
@@ -362,7 +362,7 @@ with vrchatapi.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **user_id** | **str**|  | 
+ **user_id** | **str**| Must be a valid user ID. | 
 
 ### Return type
 
@@ -558,7 +558,7 @@ configuration.api_key['authCookie'] = 'YOUR_API_KEY'
 with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = vrchatapi.FriendsApi(api_client)
-    user_id = 'user_id_example' # str | 
+    user_id = 'user_id_example' # str | Must be a valid user ID.
 
     try:
         # Unfriend
@@ -602,7 +602,7 @@ configuration.api_key['authCookie'] = 'YOUR_API_KEY'
 with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = vrchatapi.FriendsApi(api_client)
-    user_id = 'user_id_example' # str | 
+    user_id = 'user_id_example' # str | Must be a valid user ID.
 
     try:
         # Unfriend
@@ -616,7 +616,7 @@ with vrchatapi.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **user_id** | **str**|  | 
+ **user_id** | **str**| Must be a valid user ID. | 
 
 ### Return type
 

@@ -107,7 +107,6 @@ class AuthenticationApi(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
-        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
@@ -128,9 +127,7 @@ class AuthenticationApi(object):
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth',
-                '_content_type',
-                '_headers'
+                '_request_auth'
             ]
         )
 
@@ -148,16 +145,16 @@ class AuthenticationApi(object):
         path_params = {}
 
         query_params = []
-        if local_var_params.get('email') is not None:  # noqa: E501
+        if 'email' in local_var_params and local_var_params['email'] is not None:  # noqa: E501
             query_params.append(('email', local_var_params['email']))  # noqa: E501
-        if local_var_params.get('display_name') is not None:  # noqa: E501
+        if 'display_name' in local_var_params and local_var_params['display_name'] is not None:  # noqa: E501
             query_params.append(('displayName', local_var_params['display_name']))  # noqa: E501
-        if local_var_params.get('user_id') is not None:  # noqa: E501
+        if 'user_id' in local_var_params and local_var_params['user_id'] is not None:  # noqa: E501
             query_params.append(('userId', local_var_params['user_id']))  # noqa: E501
-        if local_var_params.get('exclude_user_id') is not None:  # noqa: E501
+        if 'exclude_user_id' in local_var_params and local_var_params['exclude_user_id'] is not None:  # noqa: E501
             query_params.append(('excludeUserId', local_var_params['exclude_user_id']))  # noqa: E501
 
-        header_params = dict(local_var_params.get('_headers', {}))
+        header_params = {}
 
         form_params = []
         local_var_files = {}
@@ -202,7 +199,7 @@ class AuthenticationApi(object):
         >>> thread = api.delete_user(user_id, async_req=True)
         >>> result = thread.get()
 
-        :param user_id: (required)
+        :param user_id: Must be a valid user ID. (required)
         :type user_id: str
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
@@ -232,7 +229,7 @@ class AuthenticationApi(object):
         >>> thread = api.delete_user_with_http_info(user_id, async_req=True)
         >>> result = thread.get()
 
-        :param user_id: (required)
+        :param user_id: Must be a valid user ID. (required)
         :type user_id: str
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
@@ -251,7 +248,6 @@ class AuthenticationApi(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
-        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
@@ -269,9 +265,7 @@ class AuthenticationApi(object):
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth',
-                '_content_type',
-                '_headers'
+                '_request_auth'
             ]
         )
 
@@ -284,7 +278,8 @@ class AuthenticationApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'user_id' is set
-        if self.api_client.client_side_validation and local_var_params.get('user_id') is None:  # noqa: E501
+        if self.api_client.client_side_validation and ('user_id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['user_id'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `user_id` when calling `delete_user`")  # noqa: E501
 
         collection_formats = {}
@@ -295,7 +290,7 @@ class AuthenticationApi(object):
 
         query_params = []
 
-        header_params = dict(local_var_params.get('_headers', {}))
+        header_params = {}
 
         form_params = []
         local_var_files = {}
@@ -385,7 +380,6 @@ class AuthenticationApi(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
-        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
@@ -402,9 +396,7 @@ class AuthenticationApi(object):
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth',
-                '_content_type',
-                '_headers'
+                '_request_auth'
             ]
         )
 
@@ -423,7 +415,7 @@ class AuthenticationApi(object):
 
         query_params = []
 
-        header_params = dict(local_var_params.get('_headers', {}))
+        header_params = {}
 
         form_params = []
         local_var_files = {}
@@ -513,7 +505,6 @@ class AuthenticationApi(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
-        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
@@ -530,9 +521,7 @@ class AuthenticationApi(object):
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth',
-                '_content_type',
-                '_headers'
+                '_request_auth'
             ]
         )
 
@@ -551,7 +540,7 @@ class AuthenticationApi(object):
 
         query_params = []
 
-        header_params = dict(local_var_params.get('_headers', {}))
+        header_params = {}
 
         form_params = []
         local_var_files = {}
@@ -645,7 +634,6 @@ class AuthenticationApi(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
-        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
@@ -663,9 +651,7 @@ class AuthenticationApi(object):
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth',
-                '_content_type',
-                '_headers'
+                '_request_auth'
             ]
         )
 
@@ -684,7 +670,7 @@ class AuthenticationApi(object):
 
         query_params = []
 
-        header_params = dict(local_var_params.get('_headers', {}))
+        header_params = {}
 
         form_params = []
         local_var_files = {}
@@ -697,12 +683,8 @@ class AuthenticationApi(object):
             ['application/json'])  # noqa: E501
 
         # HTTP header `Content-Type`
-        content_types_list = local_var_params.get('_content_type',
-            self.api_client.select_header_content_type(
-                ['application/json'],
-                'POST', body_params))  # noqa: E501
-        if content_types_list:
-                header_params['Content-Type'] = content_types_list
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
 
         # Authentication setting
         auth_settings = ['authCookie']  # noqa: E501
@@ -784,7 +766,6 @@ class AuthenticationApi(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
-        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
@@ -801,9 +782,7 @@ class AuthenticationApi(object):
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth',
-                '_content_type',
-                '_headers'
+                '_request_auth'
             ]
         )
 
@@ -822,7 +801,7 @@ class AuthenticationApi(object):
 
         query_params = []
 
-        header_params = dict(local_var_params.get('_headers', {}))
+        header_params = {}
 
         form_params = []
         local_var_files = {}
@@ -916,7 +895,6 @@ class AuthenticationApi(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
-        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
@@ -934,9 +912,7 @@ class AuthenticationApi(object):
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth',
-                '_content_type',
-                '_headers'
+                '_request_auth'
             ]
         )
 
@@ -955,7 +931,7 @@ class AuthenticationApi(object):
 
         query_params = []
 
-        header_params = dict(local_var_params.get('_headers', {}))
+        header_params = {}
 
         form_params = []
         local_var_files = {}
@@ -968,12 +944,8 @@ class AuthenticationApi(object):
             ['application/json'])  # noqa: E501
 
         # HTTP header `Content-Type`
-        content_types_list = local_var_params.get('_content_type',
-            self.api_client.select_header_content_type(
-                ['application/json'],
-                'POST', body_params))  # noqa: E501
-        if content_types_list:
-                header_params['Content-Type'] = content_types_list
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
 
         # Authentication setting
         auth_settings = ['authCookie']  # noqa: E501

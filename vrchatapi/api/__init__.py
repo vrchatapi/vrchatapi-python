@@ -9,6 +9,7 @@ from vrchatapi.api.economy_api import EconomyApi
 from vrchatapi.api.favorites_api import FavoritesApi
 from vrchatapi.api.files_api import FilesApi
 from vrchatapi.api.friends_api import FriendsApi
+from vrchatapi.api.groups_api import GroupsApi
 from vrchatapi.api.instances_api import InstancesApi
 from vrchatapi.api.invite_api import InviteApi
 from vrchatapi.api.notifications_api import NotificationsApi

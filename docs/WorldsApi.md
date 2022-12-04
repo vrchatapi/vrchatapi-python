@@ -126,7 +126,7 @@ configuration.api_key['authCookie'] = 'YOUR_API_KEY'
 with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = vrchatapi.WorldsApi(api_client)
-    world_id = 'world_id_example' # str | 
+    world_id = 'world_id_example' # str | Must be a valid world ID.
 
     try:
         # Delete World
@@ -169,7 +169,7 @@ configuration.api_key['authCookie'] = 'YOUR_API_KEY'
 with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = vrchatapi.WorldsApi(api_client)
-    world_id = 'world_id_example' # str | 
+    world_id = 'world_id_example' # str | Must be a valid world ID.
 
     try:
         # Delete World
@@ -182,7 +182,7 @@ with vrchatapi.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **world_id** | **str**|  | 
+ **world_id** | **str**| Must be a valid world ID. | 
 
 ### Return type
 
@@ -250,14 +250,14 @@ with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = vrchatapi.WorldsApi(api_client)
     featured = True # bool | Filters on featured results. (optional)
-sort = 'popularity' # str |  (optional) (default to 'popularity')
+sort = vrchatapi.SortOption() # SortOption | The sort order of the results. (optional)
 n = 60 # int | The number of objects to return. (optional) (default to 60)
-order = 'descending' # str |  (optional) (default to 'descending')
+order = vrchatapi.OrderOption() # OrderOption | Result ordering (optional)
 offset = 56 # int | A zero-based offset from the default object sorting from where search results start. (optional)
 search = 'search_example' # str | Filters by world name. (optional)
 tag = 'tag_example' # str | Tags to include (comma-separated). Any of the tags needs to be present. (optional)
 notag = 'notag_example' # str | Tags to exclude (comma-separated). (optional)
-release_status = 'public' # str | Filter by ReleaseStatus. (optional) (default to 'public')
+release_status = vrchatapi.ReleaseStatus() # ReleaseStatus | Filter by ReleaseStatus. (optional)
 max_unity_version = 'max_unity_version_example' # str | The maximum Unity version supported by the asset. (optional)
 min_unity_version = 'min_unity_version_example' # str | The minimum Unity version supported by the asset. (optional)
 platform = 'platform_example' # str | The platform the asset supports. (optional)
@@ -305,14 +305,14 @@ with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = vrchatapi.WorldsApi(api_client)
     featured = True # bool | Filters on featured results. (optional)
-sort = 'popularity' # str |  (optional) (default to 'popularity')
+sort = vrchatapi.SortOption() # SortOption | The sort order of the results. (optional)
 n = 60 # int | The number of objects to return. (optional) (default to 60)
-order = 'descending' # str |  (optional) (default to 'descending')
+order = vrchatapi.OrderOption() # OrderOption | Result ordering (optional)
 offset = 56 # int | A zero-based offset from the default object sorting from where search results start. (optional)
 search = 'search_example' # str | Filters by world name. (optional)
 tag = 'tag_example' # str | Tags to include (comma-separated). Any of the tags needs to be present. (optional)
 notag = 'notag_example' # str | Tags to exclude (comma-separated). (optional)
-release_status = 'public' # str | Filter by ReleaseStatus. (optional) (default to 'public')
+release_status = vrchatapi.ReleaseStatus() # ReleaseStatus | Filter by ReleaseStatus. (optional)
 max_unity_version = 'max_unity_version_example' # str | The maximum Unity version supported by the asset. (optional)
 min_unity_version = 'min_unity_version_example' # str | The minimum Unity version supported by the asset. (optional)
 platform = 'platform_example' # str | The platform the asset supports. (optional)
@@ -330,14 +330,14 @@ platform = 'platform_example' # str | The platform the asset supports. (optional
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **featured** | **bool**| Filters on featured results. | [optional] 
- **sort** | **str**|  | [optional] [default to &#39;popularity&#39;]
+ **sort** | [**SortOption**](.md)| The sort order of the results. | [optional] 
  **n** | **int**| The number of objects to return. | [optional] [default to 60]
- **order** | **str**|  | [optional] [default to &#39;descending&#39;]
+ **order** | [**OrderOption**](.md)| Result ordering | [optional] 
  **offset** | **int**| A zero-based offset from the default object sorting from where search results start. | [optional] 
  **search** | **str**| Filters by world name. | [optional] 
  **tag** | **str**| Tags to include (comma-separated). Any of the tags needs to be present. | [optional] 
  **notag** | **str**| Tags to exclude (comma-separated). | [optional] 
- **release_status** | **str**| Filter by ReleaseStatus. | [optional] [default to &#39;public&#39;]
+ **release_status** | [**ReleaseStatus**](.md)| Filter by ReleaseStatus. | [optional] 
  **max_unity_version** | **str**| The maximum Unity version supported by the asset. | [optional] 
  **min_unity_version** | **str**| The minimum Unity version supported by the asset. | [optional] 
  **platform** | **str**| The platform the asset supports. | [optional] 
@@ -407,14 +407,14 @@ with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = vrchatapi.WorldsApi(api_client)
     featured = True # bool | Filters on featured results. (optional)
-sort = 'popularity' # str |  (optional) (default to 'popularity')
+sort = vrchatapi.SortOption() # SortOption | The sort order of the results. (optional)
 n = 60 # int | The number of objects to return. (optional) (default to 60)
-order = 'descending' # str |  (optional) (default to 'descending')
+order = vrchatapi.OrderOption() # OrderOption | Result ordering (optional)
 offset = 56 # int | A zero-based offset from the default object sorting from where search results start. (optional)
 search = 'search_example' # str | Filters by world name. (optional)
 tag = 'tag_example' # str | Tags to include (comma-separated). Any of the tags needs to be present. (optional)
 notag = 'notag_example' # str | Tags to exclude (comma-separated). (optional)
-release_status = 'public' # str | Filter by ReleaseStatus. (optional) (default to 'public')
+release_status = vrchatapi.ReleaseStatus() # ReleaseStatus | Filter by ReleaseStatus. (optional)
 max_unity_version = 'max_unity_version_example' # str | The maximum Unity version supported by the asset. (optional)
 min_unity_version = 'min_unity_version_example' # str | The minimum Unity version supported by the asset. (optional)
 platform = 'platform_example' # str | The platform the asset supports. (optional)
@@ -463,14 +463,14 @@ with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = vrchatapi.WorldsApi(api_client)
     featured = True # bool | Filters on featured results. (optional)
-sort = 'popularity' # str |  (optional) (default to 'popularity')
+sort = vrchatapi.SortOption() # SortOption | The sort order of the results. (optional)
 n = 60 # int | The number of objects to return. (optional) (default to 60)
-order = 'descending' # str |  (optional) (default to 'descending')
+order = vrchatapi.OrderOption() # OrderOption | Result ordering (optional)
 offset = 56 # int | A zero-based offset from the default object sorting from where search results start. (optional)
 search = 'search_example' # str | Filters by world name. (optional)
 tag = 'tag_example' # str | Tags to include (comma-separated). Any of the tags needs to be present. (optional)
 notag = 'notag_example' # str | Tags to exclude (comma-separated). (optional)
-release_status = 'public' # str | Filter by ReleaseStatus. (optional) (default to 'public')
+release_status = vrchatapi.ReleaseStatus() # ReleaseStatus | Filter by ReleaseStatus. (optional)
 max_unity_version = 'max_unity_version_example' # str | The maximum Unity version supported by the asset. (optional)
 min_unity_version = 'min_unity_version_example' # str | The minimum Unity version supported by the asset. (optional)
 platform = 'platform_example' # str | The platform the asset supports. (optional)
@@ -489,14 +489,14 @@ user_id = 'user_id_example' # str | Target user to see information on, admin-onl
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **featured** | **bool**| Filters on featured results. | [optional] 
- **sort** | **str**|  | [optional] [default to &#39;popularity&#39;]
+ **sort** | [**SortOption**](.md)| The sort order of the results. | [optional] 
  **n** | **int**| The number of objects to return. | [optional] [default to 60]
- **order** | **str**|  | [optional] [default to &#39;descending&#39;]
+ **order** | [**OrderOption**](.md)| Result ordering | [optional] 
  **offset** | **int**| A zero-based offset from the default object sorting from where search results start. | [optional] 
  **search** | **str**| Filters by world name. | [optional] 
  **tag** | **str**| Tags to include (comma-separated). Any of the tags needs to be present. | [optional] 
  **notag** | **str**| Tags to exclude (comma-separated). | [optional] 
- **release_status** | **str**| Filter by ReleaseStatus. | [optional] [default to &#39;public&#39;]
+ **release_status** | [**ReleaseStatus**](.md)| Filter by ReleaseStatus. | [optional] 
  **max_unity_version** | **str**| The maximum Unity version supported by the asset. | [optional] 
  **min_unity_version** | **str**| The minimum Unity version supported by the asset. | [optional] 
  **platform** | **str**| The platform the asset supports. | [optional] 
@@ -568,14 +568,14 @@ with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = vrchatapi.WorldsApi(api_client)
     featured = True # bool | Filters on featured results. (optional)
-sort = 'popularity' # str |  (optional) (default to 'popularity')
+sort = vrchatapi.SortOption() # SortOption | The sort order of the results. (optional)
 n = 60 # int | The number of objects to return. (optional) (default to 60)
-order = 'descending' # str |  (optional) (default to 'descending')
+order = vrchatapi.OrderOption() # OrderOption | Result ordering (optional)
 offset = 56 # int | A zero-based offset from the default object sorting from where search results start. (optional)
 search = 'search_example' # str | Filters by world name. (optional)
 tag = 'tag_example' # str | Tags to include (comma-separated). Any of the tags needs to be present. (optional)
 notag = 'notag_example' # str | Tags to exclude (comma-separated). (optional)
-release_status = 'public' # str | Filter by ReleaseStatus. (optional) (default to 'public')
+release_status = vrchatapi.ReleaseStatus() # ReleaseStatus | Filter by ReleaseStatus. (optional)
 max_unity_version = 'max_unity_version_example' # str | The maximum Unity version supported by the asset. (optional)
 min_unity_version = 'min_unity_version_example' # str | The minimum Unity version supported by the asset. (optional)
 platform = 'platform_example' # str | The platform the asset supports. (optional)
@@ -624,14 +624,14 @@ with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = vrchatapi.WorldsApi(api_client)
     featured = True # bool | Filters on featured results. (optional)
-sort = 'popularity' # str |  (optional) (default to 'popularity')
+sort = vrchatapi.SortOption() # SortOption | The sort order of the results. (optional)
 n = 60 # int | The number of objects to return. (optional) (default to 60)
-order = 'descending' # str |  (optional) (default to 'descending')
+order = vrchatapi.OrderOption() # OrderOption | Result ordering (optional)
 offset = 56 # int | A zero-based offset from the default object sorting from where search results start. (optional)
 search = 'search_example' # str | Filters by world name. (optional)
 tag = 'tag_example' # str | Tags to include (comma-separated). Any of the tags needs to be present. (optional)
 notag = 'notag_example' # str | Tags to exclude (comma-separated). (optional)
-release_status = 'public' # str | Filter by ReleaseStatus. (optional) (default to 'public')
+release_status = vrchatapi.ReleaseStatus() # ReleaseStatus | Filter by ReleaseStatus. (optional)
 max_unity_version = 'max_unity_version_example' # str | The maximum Unity version supported by the asset. (optional)
 min_unity_version = 'min_unity_version_example' # str | The minimum Unity version supported by the asset. (optional)
 platform = 'platform_example' # str | The platform the asset supports. (optional)
@@ -650,14 +650,14 @@ user_id = 'user_id_example' # str | Target user to see information on, admin-onl
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **featured** | **bool**| Filters on featured results. | [optional] 
- **sort** | **str**|  | [optional] [default to &#39;popularity&#39;]
+ **sort** | [**SortOption**](.md)| The sort order of the results. | [optional] 
  **n** | **int**| The number of objects to return. | [optional] [default to 60]
- **order** | **str**|  | [optional] [default to &#39;descending&#39;]
+ **order** | [**OrderOption**](.md)| Result ordering | [optional] 
  **offset** | **int**| A zero-based offset from the default object sorting from where search results start. | [optional] 
  **search** | **str**| Filters by world name. | [optional] 
  **tag** | **str**| Tags to include (comma-separated). Any of the tags needs to be present. | [optional] 
  **notag** | **str**| Tags to exclude (comma-separated). | [optional] 
- **release_status** | **str**| Filter by ReleaseStatus. | [optional] [default to &#39;public&#39;]
+ **release_status** | [**ReleaseStatus**](.md)| Filter by ReleaseStatus. | [optional] 
  **max_unity_version** | **str**| The maximum Unity version supported by the asset. | [optional] 
  **min_unity_version** | **str**| The minimum Unity version supported by the asset. | [optional] 
  **platform** | **str**| The platform the asset supports. | [optional] 
@@ -722,7 +722,7 @@ configuration.api_key['apiKeyCookie'] = 'YOUR_API_KEY'
 with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = vrchatapi.WorldsApi(api_client)
-    world_id = 'world_id_example' # str | 
+    world_id = 'world_id_example' # str | Must be a valid world ID.
 
     try:
         # Get World by ID
@@ -736,7 +736,7 @@ with vrchatapi.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **world_id** | **str**|  | 
+ **world_id** | **str**| Must be a valid world ID. | 
 
 ### Return type
 
@@ -802,8 +802,8 @@ configuration.api_key['authCookie'] = 'YOUR_API_KEY'
 with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = vrchatapi.WorldsApi(api_client)
-    world_id = 'world_id_example' # str | 
-instance_id = 'instance_id_example' # str | 
+    world_id = 'world_id_example' # str | Must be a valid world ID.
+instance_id = 'instance_id_example' # str | Must be a valid instance ID.
 
     try:
         # Get World Instance
@@ -847,8 +847,8 @@ configuration.api_key['authCookie'] = 'YOUR_API_KEY'
 with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = vrchatapi.WorldsApi(api_client)
-    world_id = 'world_id_example' # str | 
-instance_id = 'instance_id_example' # str | 
+    world_id = 'world_id_example' # str | Must be a valid world ID.
+instance_id = 'instance_id_example' # str | Must be a valid instance ID.
 
     try:
         # Get World Instance
@@ -862,8 +862,8 @@ instance_id = 'instance_id_example' # str |
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **world_id** | **str**|  | 
- **instance_id** | **str**|  | 
+ **world_id** | **str**| Must be a valid world ID. | 
+ **instance_id** | **str**| Must be a valid instance ID. | 
 
 ### Return type
 
@@ -929,7 +929,7 @@ configuration.api_key['authCookie'] = 'YOUR_API_KEY'
 with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = vrchatapi.WorldsApi(api_client)
-    world_id = 'world_id_example' # str | 
+    world_id = 'world_id_example' # str | Must be a valid world ID.
 
     try:
         # Get World Metadata
@@ -973,7 +973,7 @@ configuration.api_key['authCookie'] = 'YOUR_API_KEY'
 with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = vrchatapi.WorldsApi(api_client)
-    world_id = 'world_id_example' # str | 
+    world_id = 'world_id_example' # str | Must be a valid world ID.
 
     try:
         # Get World Metadata
@@ -987,7 +987,7 @@ with vrchatapi.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **world_id** | **str**|  | 
+ **world_id** | **str**| Must be a valid world ID. | 
 
 ### Return type
 
@@ -1053,7 +1053,7 @@ configuration.api_key['authCookie'] = 'YOUR_API_KEY'
 with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = vrchatapi.WorldsApi(api_client)
-    world_id = 'world_id_example' # str | 
+    world_id = 'world_id_example' # str | Must be a valid world ID.
 
     try:
         # Get World Publish Status
@@ -1097,7 +1097,7 @@ configuration.api_key['authCookie'] = 'YOUR_API_KEY'
 with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = vrchatapi.WorldsApi(api_client)
-    world_id = 'world_id_example' # str | 
+    world_id = 'world_id_example' # str | Must be a valid world ID.
 
     try:
         # Get World Publish Status
@@ -1111,7 +1111,7 @@ with vrchatapi.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **world_id** | **str**|  | 
+ **world_id** | **str**| Must be a valid world ID. | 
 
 ### Return type
 
@@ -1178,7 +1178,7 @@ configuration.api_key['authCookie'] = 'YOUR_API_KEY'
 with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = vrchatapi.WorldsApi(api_client)
-    world_id = 'world_id_example' # str | 
+    world_id = 'world_id_example' # str | Must be a valid world ID.
 
     try:
         # Publish World
@@ -1221,7 +1221,7 @@ configuration.api_key['authCookie'] = 'YOUR_API_KEY'
 with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = vrchatapi.WorldsApi(api_client)
-    world_id = 'world_id_example' # str | 
+    world_id = 'world_id_example' # str | Must be a valid world ID.
 
     try:
         # Publish World
@@ -1234,7 +1234,7 @@ with vrchatapi.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **world_id** | **str**|  | 
+ **world_id** | **str**| Must be a valid world ID. | 
 
 ### Return type
 
@@ -1302,16 +1302,16 @@ with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = vrchatapi.WorldsApi(api_client)
     featured = True # bool | Filters on featured results. (optional)
-sort = 'popularity' # str |  (optional) (default to 'popularity')
+sort = vrchatapi.SortOption() # SortOption | The sort order of the results. (optional)
 user = 'user_example' # str | Set to `me` for searching own worlds. (optional)
 user_id = 'user_id_example' # str | Filter by UserID. (optional)
 n = 60 # int | The number of objects to return. (optional) (default to 60)
-order = 'descending' # str |  (optional) (default to 'descending')
+order = vrchatapi.OrderOption() # OrderOption | Result ordering (optional)
 offset = 56 # int | A zero-based offset from the default object sorting from where search results start. (optional)
 search = 'search_example' # str | Filters by world name. (optional)
 tag = 'tag_example' # str | Tags to include (comma-separated). Any of the tags needs to be present. (optional)
 notag = 'notag_example' # str | Tags to exclude (comma-separated). (optional)
-release_status = 'public' # str | Filter by ReleaseStatus. (optional) (default to 'public')
+release_status = vrchatapi.ReleaseStatus() # ReleaseStatus | Filter by ReleaseStatus. (optional)
 max_unity_version = 'max_unity_version_example' # str | The maximum Unity version supported by the asset. (optional)
 min_unity_version = 'min_unity_version_example' # str | The minimum Unity version supported by the asset. (optional)
 platform = 'platform_example' # str | The platform the asset supports. (optional)
@@ -1359,16 +1359,16 @@ with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = vrchatapi.WorldsApi(api_client)
     featured = True # bool | Filters on featured results. (optional)
-sort = 'popularity' # str |  (optional) (default to 'popularity')
+sort = vrchatapi.SortOption() # SortOption | The sort order of the results. (optional)
 user = 'user_example' # str | Set to `me` for searching own worlds. (optional)
 user_id = 'user_id_example' # str | Filter by UserID. (optional)
 n = 60 # int | The number of objects to return. (optional) (default to 60)
-order = 'descending' # str |  (optional) (default to 'descending')
+order = vrchatapi.OrderOption() # OrderOption | Result ordering (optional)
 offset = 56 # int | A zero-based offset from the default object sorting from where search results start. (optional)
 search = 'search_example' # str | Filters by world name. (optional)
 tag = 'tag_example' # str | Tags to include (comma-separated). Any of the tags needs to be present. (optional)
 notag = 'notag_example' # str | Tags to exclude (comma-separated). (optional)
-release_status = 'public' # str | Filter by ReleaseStatus. (optional) (default to 'public')
+release_status = vrchatapi.ReleaseStatus() # ReleaseStatus | Filter by ReleaseStatus. (optional)
 max_unity_version = 'max_unity_version_example' # str | The maximum Unity version supported by the asset. (optional)
 min_unity_version = 'min_unity_version_example' # str | The minimum Unity version supported by the asset. (optional)
 platform = 'platform_example' # str | The platform the asset supports. (optional)
@@ -1386,16 +1386,16 @@ platform = 'platform_example' # str | The platform the asset supports. (optional
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **featured** | **bool**| Filters on featured results. | [optional] 
- **sort** | **str**|  | [optional] [default to &#39;popularity&#39;]
+ **sort** | [**SortOption**](.md)| The sort order of the results. | [optional] 
  **user** | **str**| Set to &#x60;me&#x60; for searching own worlds. | [optional] 
  **user_id** | **str**| Filter by UserID. | [optional] 
  **n** | **int**| The number of objects to return. | [optional] [default to 60]
- **order** | **str**|  | [optional] [default to &#39;descending&#39;]
+ **order** | [**OrderOption**](.md)| Result ordering | [optional] 
  **offset** | **int**| A zero-based offset from the default object sorting from where search results start. | [optional] 
  **search** | **str**| Filters by world name. | [optional] 
  **tag** | **str**| Tags to include (comma-separated). Any of the tags needs to be present. | [optional] 
  **notag** | **str**| Tags to exclude (comma-separated). | [optional] 
- **release_status** | **str**| Filter by ReleaseStatus. | [optional] [default to &#39;public&#39;]
+ **release_status** | [**ReleaseStatus**](.md)| Filter by ReleaseStatus. | [optional] 
  **max_unity_version** | **str**| The maximum Unity version supported by the asset. | [optional] 
  **min_unity_version** | **str**| The minimum Unity version supported by the asset. | [optional] 
  **platform** | **str**| The platform the asset supports. | [optional] 
@@ -1464,7 +1464,7 @@ configuration.api_key['authCookie'] = 'YOUR_API_KEY'
 with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = vrchatapi.WorldsApi(api_client)
-    world_id = 'world_id_example' # str | 
+    world_id = 'world_id_example' # str | Must be a valid world ID.
 
     try:
         # Unpublish World
@@ -1507,7 +1507,7 @@ configuration.api_key['authCookie'] = 'YOUR_API_KEY'
 with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = vrchatapi.WorldsApi(api_client)
-    world_id = 'world_id_example' # str | 
+    world_id = 'world_id_example' # str | Must be a valid world ID.
 
     try:
         # Unpublish World
@@ -1520,7 +1520,7 @@ with vrchatapi.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **world_id** | **str**|  | 
+ **world_id** | **str**| Must be a valid world ID. | 
 
 ### Return type
 
@@ -1587,7 +1587,7 @@ configuration.api_key['authCookie'] = 'YOUR_API_KEY'
 with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = vrchatapi.WorldsApi(api_client)
-    world_id = 'world_id_example' # str | 
+    world_id = 'world_id_example' # str | Must be a valid world ID.
 update_world_request = vrchatapi.UpdateWorldRequest() # UpdateWorldRequest |  (optional)
 
     try:
@@ -1632,7 +1632,7 @@ configuration.api_key['authCookie'] = 'YOUR_API_KEY'
 with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = vrchatapi.WorldsApi(api_client)
-    world_id = 'world_id_example' # str | 
+    world_id = 'world_id_example' # str | Must be a valid world ID.
 update_world_request = vrchatapi.UpdateWorldRequest() # UpdateWorldRequest |  (optional)
 
     try:
@@ -1647,7 +1647,7 @@ update_world_request = vrchatapi.UpdateWorldRequest() # UpdateWorldRequest |  (o
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **world_id** | **str**|  | 
+ **world_id** | **str**| Must be a valid world ID. | 
  **update_world_request** | [**UpdateWorldRequest**](UpdateWorldRequest.md)|  | [optional] 
 
 ### Return type

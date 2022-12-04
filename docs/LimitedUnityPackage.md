@@ -1,7 +1,6 @@
 # LimitedUnityPackage
 
 
-
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

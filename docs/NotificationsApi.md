@@ -54,7 +54,7 @@ configuration.api_key['authCookie'] = 'YOUR_API_KEY'
 with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = vrchatapi.NotificationsApi(api_client)
-    notification_id = 'notification_id_example' # str | 
+    notification_id = 'notification_id_example' # str | Must be a valid notification ID.
 
     try:
         # Accept Friend Request
@@ -98,7 +98,7 @@ configuration.api_key['authCookie'] = 'YOUR_API_KEY'
 with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = vrchatapi.NotificationsApi(api_client)
-    notification_id = 'notification_id_example' # str | 
+    notification_id = 'notification_id_example' # str | Must be a valid notification ID.
 
     try:
         # Accept Friend Request
@@ -112,7 +112,7 @@ with vrchatapi.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **notification_id** | **str**|  | 
+ **notification_id** | **str**| Must be a valid notification ID. | 
 
 ### Return type
 
@@ -298,7 +298,7 @@ configuration.api_key['authCookie'] = 'YOUR_API_KEY'
 with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = vrchatapi.NotificationsApi(api_client)
-    notification_id = 'notification_id_example' # str | 
+    notification_id = 'notification_id_example' # str | Must be a valid notification ID.
 
     try:
         # Delete Notification
@@ -342,7 +342,7 @@ configuration.api_key['authCookie'] = 'YOUR_API_KEY'
 with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = vrchatapi.NotificationsApi(api_client)
-    notification_id = 'notification_id_example' # str | 
+    notification_id = 'notification_id_example' # str | Must be a valid notification ID.
 
     try:
         # Delete Notification
@@ -356,7 +356,7 @@ with vrchatapi.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **notification_id** | **str**|  | 
+ **notification_id** | **str**| Must be a valid notification ID. | 
 
 ### Return type
 
@@ -561,7 +561,7 @@ configuration.api_key['authCookie'] = 'YOUR_API_KEY'
 with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = vrchatapi.NotificationsApi(api_client)
-    notification_id = 'notification_id_example' # str | 
+    notification_id = 'notification_id_example' # str | Must be a valid notification ID.
 
     try:
         # Mark Notification As Read
@@ -605,7 +605,7 @@ configuration.api_key['authCookie'] = 'YOUR_API_KEY'
 with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = vrchatapi.NotificationsApi(api_client)
-    notification_id = 'notification_id_example' # str | 
+    notification_id = 'notification_id_example' # str | Must be a valid notification ID.
 
     try:
         # Mark Notification As Read
@@ -619,7 +619,7 @@ with vrchatapi.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **notification_id** | **str**|  | 
+ **notification_id** | **str**| Must be a valid notification ID. | 
 
 ### Return type
 

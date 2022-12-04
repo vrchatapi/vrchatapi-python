@@ -170,7 +170,7 @@ configuration.api_key['authCookie'] = 'YOUR_API_KEY'
 with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = vrchatapi.PermissionsApi(api_client)
-    permission_id = 'permission_id_example' # str | 
+    permission_id = 'permission_id_example' # str | Must be a valid permission ID.
 
     try:
         # Get Permission
@@ -214,7 +214,7 @@ configuration.api_key['authCookie'] = 'YOUR_API_KEY'
 with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = vrchatapi.PermissionsApi(api_client)
-    permission_id = 'permission_id_example' # str | 
+    permission_id = 'permission_id_example' # str | Must be a valid permission ID.
 
     try:
         # Get Permission
@@ -228,7 +228,7 @@ with vrchatapi.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **permission_id** | **str**|  | 
+ **permission_id** | **str**| Must be a valid permission ID. | 
 
 ### Return type
 

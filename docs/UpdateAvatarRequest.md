@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **id** | **str** |  | [optional] 
 **name** | **str** |  | [optional] 
 **description** | **str** |  | [optional] 
-**tags** | **list[str]** |   | [optional] 
+**tags** | **list[str]** |  | [optional] 
 **image_url** | **str** |  | [optional] 
 **release_status** | [**ReleaseStatus**](ReleaseStatus.md) |  | [optional] 
 **version** | **float** |  | [optional] [default to 1]

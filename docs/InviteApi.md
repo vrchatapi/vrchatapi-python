@@ -57,9 +57,9 @@ configuration.api_key['authCookie'] = 'YOUR_API_KEY'
 with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = vrchatapi.InviteApi(api_client)
-    user_id = 'user_id_example' # str | 
-message_type = 'message_type_example' # str | 
-slot = 56 # int | 
+    user_id = 'user_id_example' # str | Must be a valid user ID.
+message_type = vrchatapi.InviteMessageType() # InviteMessageType | The type of message to fetch, must be a valid InviteMessageType.
+slot = 56 # int | The message slot to fetch of a given message type.
 
     try:
         # Get Invite Message
@@ -103,9 +103,9 @@ configuration.api_key['authCookie'] = 'YOUR_API_KEY'
 with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = vrchatapi.InviteApi(api_client)
-    user_id = 'user_id_example' # str | 
-message_type = 'message_type_example' # str | 
-slot = 56 # int | 
+    user_id = 'user_id_example' # str | Must be a valid user ID.
+message_type = vrchatapi.InviteMessageType() # InviteMessageType | The type of message to fetch, must be a valid InviteMessageType.
+slot = 56 # int | The message slot to fetch of a given message type.
 
     try:
         # Get Invite Message
@@ -119,9 +119,9 @@ slot = 56 # int |
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **user_id** | **str**|  | 
- **message_type** | **str**|  | 
- **slot** | **int**|  | 
+ **user_id** | **str**| Must be a valid user ID. | 
+ **message_type** | [**InviteMessageType**](.md)| The type of message to fetch, must be a valid InviteMessageType. | 
+ **slot** | **int**| The message slot to fetch of a given message type. | 
 
 ### Return type
 
@@ -189,8 +189,8 @@ configuration.api_key['authCookie'] = 'YOUR_API_KEY'
 with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = vrchatapi.InviteApi(api_client)
-    user_id = 'user_id_example' # str | 
-message_type = 'message_type_example' # str | 
+    user_id = 'user_id_example' # str | Must be a valid user ID.
+message_type = vrchatapi.InviteMessageType() # InviteMessageType | The type of message to fetch, must be a valid InviteMessageType.
 
     try:
         # List Invite Messages
@@ -234,8 +234,8 @@ configuration.api_key['authCookie'] = 'YOUR_API_KEY'
 with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = vrchatapi.InviteApi(api_client)
-    user_id = 'user_id_example' # str | 
-message_type = 'message_type_example' # str | 
+    user_id = 'user_id_example' # str | Must be a valid user ID.
+message_type = vrchatapi.InviteMessageType() # InviteMessageType | The type of message to fetch, must be a valid InviteMessageType.
 
     try:
         # List Invite Messages
@@ -249,8 +249,8 @@ message_type = 'message_type_example' # str |
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **user_id** | **str**|  | 
- **message_type** | **str**|  | 
+ **user_id** | **str**| Must be a valid user ID. | 
+ **message_type** | [**InviteMessageType**](.md)| The type of message to fetch, must be a valid InviteMessageType. | 
 
 ### Return type
 
@@ -317,8 +317,8 @@ configuration.api_key['authCookie'] = 'YOUR_API_KEY'
 with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = vrchatapi.InviteApi(api_client)
-    world_id = 'world_id_example' # str | 
-instance_id = 'instance_id_example' # str | 
+    world_id = 'world_id_example' # str | Must be a valid world ID.
+instance_id = 'instance_id_example' # str | Must be a valid instance ID.
 
     try:
         # Invite Myself To Instance
@@ -362,8 +362,8 @@ configuration.api_key['authCookie'] = 'YOUR_API_KEY'
 with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = vrchatapi.InviteApi(api_client)
-    world_id = 'world_id_example' # str | 
-instance_id = 'instance_id_example' # str | 
+    world_id = 'world_id_example' # str | Must be a valid world ID.
+instance_id = 'instance_id_example' # str | Must be a valid instance ID.
 
     try:
         # Invite Myself To Instance
@@ -377,8 +377,8 @@ instance_id = 'instance_id_example' # str |
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **world_id** | **str**|  | 
- **instance_id** | **str**|  | 
+ **world_id** | **str**| Must be a valid world ID. | 
+ **instance_id** | **str**| Must be a valid instance ID. | 
 
 ### Return type
 
@@ -445,7 +445,7 @@ configuration.api_key['authCookie'] = 'YOUR_API_KEY'
 with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = vrchatapi.InviteApi(api_client)
-    user_id = 'user_id_example' # str | 
+    user_id = 'user_id_example' # str | Must be a valid user ID.
 invite_request = vrchatapi.InviteRequest() # InviteRequest | Slot number of the Invite Message to use when inviting a user. (optional)
 
     try:
@@ -490,7 +490,7 @@ configuration.api_key['authCookie'] = 'YOUR_API_KEY'
 with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = vrchatapi.InviteApi(api_client)
-    user_id = 'user_id_example' # str | 
+    user_id = 'user_id_example' # str | Must be a valid user ID.
 invite_request = vrchatapi.InviteRequest() # InviteRequest | Slot number of the Invite Message to use when inviting a user. (optional)
 
     try:
@@ -505,7 +505,7 @@ invite_request = vrchatapi.InviteRequest() # InviteRequest | Slot number of the 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **user_id** | **str**|  | 
+ **user_id** | **str**| Must be a valid user ID. | 
  **invite_request** | [**InviteRequest**](InviteRequest.md)| Slot number of the Invite Message to use when inviting a user. | [optional] 
 
 ### Return type
@@ -572,7 +572,7 @@ configuration.api_key['authCookie'] = 'YOUR_API_KEY'
 with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = vrchatapi.InviteApi(api_client)
-    user_id = 'user_id_example' # str | 
+    user_id = 'user_id_example' # str | Must be a valid user ID.
 request_invite_request = vrchatapi.RequestInviteRequest() # RequestInviteRequest | Slot number of the Request Message to use when request an invite. (optional)
 
     try:
@@ -617,7 +617,7 @@ configuration.api_key['authCookie'] = 'YOUR_API_KEY'
 with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = vrchatapi.InviteApi(api_client)
-    user_id = 'user_id_example' # str | 
+    user_id = 'user_id_example' # str | Must be a valid user ID.
 request_invite_request = vrchatapi.RequestInviteRequest() # RequestInviteRequest | Slot number of the Request Message to use when request an invite. (optional)
 
     try:
@@ -632,7 +632,7 @@ request_invite_request = vrchatapi.RequestInviteRequest() # RequestInviteRequest
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **user_id** | **str**|  | 
+ **user_id** | **str**| Must be a valid user ID. | 
  **request_invite_request** | [**RequestInviteRequest**](RequestInviteRequest.md)| Slot number of the Request Message to use when request an invite. | [optional] 
 
 ### Return type
@@ -699,9 +699,9 @@ configuration.api_key['authCookie'] = 'YOUR_API_KEY'
 with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = vrchatapi.InviteApi(api_client)
-    user_id = 'user_id_example' # str | 
-message_type = 'message_type_example' # str | 
-slot = 56 # int | 
+    user_id = 'user_id_example' # str | Must be a valid user ID.
+message_type = vrchatapi.InviteMessageType() # InviteMessageType | The type of message to fetch, must be a valid InviteMessageType.
+slot = 56 # int | The message slot to fetch of a given message type.
 
     try:
         # Reset Invite Message
@@ -745,9 +745,9 @@ configuration.api_key['authCookie'] = 'YOUR_API_KEY'
 with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = vrchatapi.InviteApi(api_client)
-    user_id = 'user_id_example' # str | 
-message_type = 'message_type_example' # str | 
-slot = 56 # int | 
+    user_id = 'user_id_example' # str | Must be a valid user ID.
+message_type = vrchatapi.InviteMessageType() # InviteMessageType | The type of message to fetch, must be a valid InviteMessageType.
+slot = 56 # int | The message slot to fetch of a given message type.
 
     try:
         # Reset Invite Message
@@ -761,9 +761,9 @@ slot = 56 # int |
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **user_id** | **str**|  | 
- **message_type** | **str**|  | 
- **slot** | **int**|  | 
+ **user_id** | **str**| Must be a valid user ID. | 
+ **message_type** | [**InviteMessageType**](.md)| The type of message to fetch, must be a valid InviteMessageType. | 
+ **slot** | **int**| The message slot to fetch of a given message type. | 
 
 ### Return type
 
@@ -832,7 +832,7 @@ configuration.api_key['authCookie'] = 'YOUR_API_KEY'
 with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = vrchatapi.InviteApi(api_client)
-    notification_id = 'notification_id_example' # str | 
+    notification_id = 'notification_id_example' # str | Must be a valid notification ID.
 invite_response = vrchatapi.InviteResponse() # InviteResponse | Slot number of the Response Message to use when responding to a user. (optional)
 
     try:
@@ -877,7 +877,7 @@ configuration.api_key['authCookie'] = 'YOUR_API_KEY'
 with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = vrchatapi.InviteApi(api_client)
-    notification_id = 'notification_id_example' # str | 
+    notification_id = 'notification_id_example' # str | Must be a valid notification ID.
 invite_response = vrchatapi.InviteResponse() # InviteResponse | Slot number of the Response Message to use when responding to a user. (optional)
 
     try:
@@ -892,7 +892,7 @@ invite_response = vrchatapi.InviteResponse() # InviteResponse | Slot number of t
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **notification_id** | **str**|  | 
+ **notification_id** | **str**| Must be a valid notification ID. | 
  **invite_response** | [**InviteResponse**](InviteResponse.md)| Slot number of the Response Message to use when responding to a user. | [optional] 
 
 ### Return type
@@ -959,9 +959,9 @@ configuration.api_key['authCookie'] = 'YOUR_API_KEY'
 with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = vrchatapi.InviteApi(api_client)
-    user_id = 'user_id_example' # str | 
-message_type = 'message_type_example' # str | 
-slot = 56 # int | 
+    user_id = 'user_id_example' # str | Must be a valid user ID.
+message_type = vrchatapi.InviteMessageType() # InviteMessageType | The type of message to fetch, must be a valid InviteMessageType.
+slot = 56 # int | The message slot to fetch of a given message type.
 update_invite_message_request = vrchatapi.UpdateInviteMessageRequest() # UpdateInviteMessageRequest | Message of what to set the invite message to. (optional)
 
     try:
@@ -1006,9 +1006,9 @@ configuration.api_key['authCookie'] = 'YOUR_API_KEY'
 with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = vrchatapi.InviteApi(api_client)
-    user_id = 'user_id_example' # str | 
-message_type = 'message_type_example' # str | 
-slot = 56 # int | 
+    user_id = 'user_id_example' # str | Must be a valid user ID.
+message_type = vrchatapi.InviteMessageType() # InviteMessageType | The type of message to fetch, must be a valid InviteMessageType.
+slot = 56 # int | The message slot to fetch of a given message type.
 update_invite_message_request = vrchatapi.UpdateInviteMessageRequest() # UpdateInviteMessageRequest | Message of what to set the invite message to. (optional)
 
     try:
@@ -1023,9 +1023,9 @@ update_invite_message_request = vrchatapi.UpdateInviteMessageRequest() # UpdateI
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **user_id** | **str**|  | 
- **message_type** | **str**|  | 
- **slot** | **int**|  | 
+ **user_id** | **str**| Must be a valid user ID. | 
+ **message_type** | [**InviteMessageType**](.md)| The type of message to fetch, must be a valid InviteMessageType. | 
+ **slot** | **int**| The message slot to fetch of a given message type. | 
  **update_invite_message_request** | [**UpdateInviteMessageRequest**](UpdateInviteMessageRequest.md)| Message of what to set the invite message to. | [optional] 
 
 ### Return type

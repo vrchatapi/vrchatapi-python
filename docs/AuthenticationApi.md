@@ -136,7 +136,7 @@ configuration.api_key['authCookie'] = 'YOUR_API_KEY'
 with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = vrchatapi.AuthenticationApi(api_client)
-    user_id = 'user_id_example' # str | 
+    user_id = 'user_id_example' # str | Must be a valid user ID.
 
     try:
         # Delete User
@@ -180,7 +180,7 @@ configuration.api_key['authCookie'] = 'YOUR_API_KEY'
 with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = vrchatapi.AuthenticationApi(api_client)
-    user_id = 'user_id_example' # str | 
+    user_id = 'user_id_example' # str | Must be a valid user ID.
 
     try:
         # Delete User
@@ -194,7 +194,7 @@ with vrchatapi.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **user_id** | **str**|  | 
+ **user_id** | **str**| Must be a valid user ID. | 
 
 ### Return type
 
