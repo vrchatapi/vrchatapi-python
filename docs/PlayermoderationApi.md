@@ -22,14 +22,11 @@ Clear All Player Moderations
 ### Example
 
 * Api Key Authentication (apiKeyCookie):
-* Api Key Authentication (authCookie):
-
 ```python
+from __future__ import print_function
 import time
 import vrchatapi
-from vrchatapi.api import playermoderation_api
-from vrchatapi.model.success import Success
-from vrchatapi.model.error import Error
+from vrchatapi.rest import ApiException
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
 # See configuration.py for a list of all supported configuration parameters.
@@ -57,17 +54,58 @@ configuration.api_key['authCookie'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = playermoderation_api.PlayermoderationApi(api_client)
-
-    # example, this endpoint has no required or optional parameters
+    api_instance = vrchatapi.PlayermoderationApi(api_client)
+    
     try:
         # Clear All Player Moderations
         api_response = api_instance.clear_all_player_moderations()
         pprint(api_response)
-    except vrchatapi.ApiException as e:
+    except ApiException as e:
         print("Exception when calling PlayermoderationApi->clear_all_player_moderations: %s\n" % e)
 ```
 
+* Api Key Authentication (authCookie):
+```python
+from __future__ import print_function
+import time
+import vrchatapi
+from vrchatapi.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = vrchatapi.Configuration(
+    host = "https://api.vrchat.cloud/api/1"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: apiKeyCookie
+configuration.api_key['apiKeyCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apiKeyCookie'] = 'Bearer'
+
+# Configure API key authorization: authCookie
+configuration.api_key['authCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['authCookie'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with vrchatapi.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = vrchatapi.PlayermoderationApi(api_client)
+    
+    try:
+        # Clear All Player Moderations
+        api_response = api_instance.clear_all_player_moderations()
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling PlayermoderationApi->clear_all_player_moderations: %s\n" % e)
+```
 
 ### Parameters
 This endpoint does not need any parameter.
@@ -85,9 +123,7 @@ This endpoint does not need any parameter.
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Success response after e.g. clearing all player moderations. |  -  |
@@ -105,14 +141,11 @@ Deletes a specific player moderation based on it's `pmod_` ID. The website uses 
 ### Example
 
 * Api Key Authentication (apiKeyCookie):
-* Api Key Authentication (authCookie):
-
 ```python
+from __future__ import print_function
 import time
 import vrchatapi
-from vrchatapi.api import playermoderation_api
-from vrchatapi.model.success import Success
-from vrchatapi.model.error import Error
+from vrchatapi.rest import ApiException
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
 # See configuration.py for a list of all supported configuration parameters.
@@ -140,24 +173,66 @@ configuration.api_key['authCookie'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = playermoderation_api.PlayermoderationApi(api_client)
-    player_moderation_id = "playerModerationId_example" # str | 
+    api_instance = vrchatapi.PlayermoderationApi(api_client)
+    player_moderation_id = 'player_moderation_id_example' # str | 
 
-    # example passing only required values which don't have defaults set
     try:
         # Delete Player Moderation
         api_response = api_instance.delete_player_moderation(player_moderation_id)
         pprint(api_response)
-    except vrchatapi.ApiException as e:
+    except ApiException as e:
         print("Exception when calling PlayermoderationApi->delete_player_moderation: %s\n" % e)
 ```
 
+* Api Key Authentication (authCookie):
+```python
+from __future__ import print_function
+import time
+import vrchatapi
+from vrchatapi.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = vrchatapi.Configuration(
+    host = "https://api.vrchat.cloud/api/1"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: apiKeyCookie
+configuration.api_key['apiKeyCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apiKeyCookie'] = 'Bearer'
+
+# Configure API key authorization: authCookie
+configuration.api_key['authCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['authCookie'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with vrchatapi.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = vrchatapi.PlayermoderationApi(api_client)
+    player_moderation_id = 'player_moderation_id_example' # str | 
+
+    try:
+        # Delete Player Moderation
+        api_response = api_instance.delete_player_moderation(player_moderation_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling PlayermoderationApi->delete_player_moderation: %s\n" % e)
+```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **player_moderation_id** | **str**|  |
+ **player_moderation_id** | **str**|  | 
 
 ### Return type
 
@@ -172,9 +247,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Success response after removing a PlayerModeration by ID. |  -  |
@@ -193,14 +266,11 @@ Returns a single Player Moderation. This returns the exact same amount of inform
 ### Example
 
 * Api Key Authentication (apiKeyCookie):
-* Api Key Authentication (authCookie):
-
 ```python
+from __future__ import print_function
 import time
 import vrchatapi
-from vrchatapi.api import playermoderation_api
-from vrchatapi.model.player_moderation import PlayerModeration
-from vrchatapi.model.error import Error
+from vrchatapi.rest import ApiException
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
 # See configuration.py for a list of all supported configuration parameters.
@@ -228,24 +298,66 @@ configuration.api_key['authCookie'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = playermoderation_api.PlayermoderationApi(api_client)
-    player_moderation_id = "playerModerationId_example" # str | 
+    api_instance = vrchatapi.PlayermoderationApi(api_client)
+    player_moderation_id = 'player_moderation_id_example' # str | 
 
-    # example passing only required values which don't have defaults set
     try:
         # Get Player Moderation
         api_response = api_instance.get_player_moderation(player_moderation_id)
         pprint(api_response)
-    except vrchatapi.ApiException as e:
+    except ApiException as e:
         print("Exception when calling PlayermoderationApi->get_player_moderation: %s\n" % e)
 ```
 
+* Api Key Authentication (authCookie):
+```python
+from __future__ import print_function
+import time
+import vrchatapi
+from vrchatapi.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = vrchatapi.Configuration(
+    host = "https://api.vrchat.cloud/api/1"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: apiKeyCookie
+configuration.api_key['apiKeyCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apiKeyCookie'] = 'Bearer'
+
+# Configure API key authorization: authCookie
+configuration.api_key['authCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['authCookie'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with vrchatapi.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = vrchatapi.PlayermoderationApi(api_client)
+    player_moderation_id = 'player_moderation_id_example' # str | 
+
+    try:
+        # Get Player Moderation
+        api_response = api_instance.get_player_moderation(player_moderation_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling PlayermoderationApi->get_player_moderation: %s\n" % e)
+```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **player_moderation_id** | **str**|  |
+ **player_moderation_id** | **str**|  | 
 
 ### Return type
 
@@ -260,9 +372,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Returns a single PlayerModeration object. |  -  |
@@ -272,7 +382,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_player_moderations**
-> [PlayerModeration] get_player_moderations()
+> list[PlayerModeration] get_player_moderations(type=type, target_user_id=target_user_id)
 
 Search Player Moderations
 
@@ -281,14 +391,11 @@ Returns a list of all player moderations made by **you**.  This endpoint does no
 ### Example
 
 * Api Key Authentication (apiKeyCookie):
-* Api Key Authentication (authCookie):
-
 ```python
+from __future__ import print_function
 import time
 import vrchatapi
-from vrchatapi.api import playermoderation_api
-from vrchatapi.model.player_moderation import PlayerModeration
-from vrchatapi.model.error import Error
+from vrchatapi.rest import ApiException
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
 # See configuration.py for a list of all supported configuration parameters.
@@ -316,31 +423,73 @@ configuration.api_key['authCookie'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = playermoderation_api.PlayermoderationApi(api_client)
-    type = "type_example" # str | Must be one of PlayerModerationType, except unblock. Unblocking simply removes a block. (optional)
-    target_user_id = "targetUserId_example" # str | Must be valid UserID. (optional)
+    api_instance = vrchatapi.PlayermoderationApi(api_client)
+    type = 'type_example' # str | Must be one of PlayerModerationType, except unblock. Unblocking simply removes a block. (optional)
+target_user_id = 'target_user_id_example' # str | Must be valid UserID. (optional)
 
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Search Player Moderations
         api_response = api_instance.get_player_moderations(type=type, target_user_id=target_user_id)
         pprint(api_response)
-    except vrchatapi.ApiException as e:
+    except ApiException as e:
         print("Exception when calling PlayermoderationApi->get_player_moderations: %s\n" % e)
 ```
 
+* Api Key Authentication (authCookie):
+```python
+from __future__ import print_function
+import time
+import vrchatapi
+from vrchatapi.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = vrchatapi.Configuration(
+    host = "https://api.vrchat.cloud/api/1"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: apiKeyCookie
+configuration.api_key['apiKeyCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apiKeyCookie'] = 'Bearer'
+
+# Configure API key authorization: authCookie
+configuration.api_key['authCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['authCookie'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with vrchatapi.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = vrchatapi.PlayermoderationApi(api_client)
+    type = 'type_example' # str | Must be one of PlayerModerationType, except unblock. Unblocking simply removes a block. (optional)
+target_user_id = 'target_user_id_example' # str | Must be valid UserID. (optional)
+
+    try:
+        # Search Player Moderations
+        api_response = api_instance.get_player_moderations(type=type, target_user_id=target_user_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling PlayermoderationApi->get_player_moderations: %s\n" % e)
+```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **type** | **str**| Must be one of PlayerModerationType, except unblock. Unblocking simply removes a block. | [optional]
- **target_user_id** | **str**| Must be valid UserID. | [optional]
+ **type** | **str**| Must be one of PlayerModerationType, except unblock. Unblocking simply removes a block. | [optional] 
+ **target_user_id** | **str**| Must be valid UserID. | [optional] 
 
 ### Return type
 
-[**[PlayerModeration]**](PlayerModeration.md)
+[**list[PlayerModeration]**](PlayerModeration.md)
 
 ### Authorization
 
@@ -351,9 +500,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Returns a list of PlayerModeration objects. |  -  |
@@ -362,7 +509,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **moderate_user**
-> PlayerModeration moderate_user()
+> PlayerModeration moderate_user(moderate_user_request=moderate_user_request)
 
 Moderate User
 
@@ -371,15 +518,11 @@ Moderate a user, e.g. unmute them or show their avatar.  Please see the [Player 
 ### Example
 
 * Api Key Authentication (apiKeyCookie):
-* Api Key Authentication (authCookie):
-
 ```python
+from __future__ import print_function
 import time
 import vrchatapi
-from vrchatapi.api import playermoderation_api
-from vrchatapi.model.player_moderation import PlayerModeration
-from vrchatapi.model.moderate_user_request import ModerateUserRequest
-from vrchatapi.model.error import Error
+from vrchatapi.rest import ApiException
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
 # See configuration.py for a list of all supported configuration parameters.
@@ -407,28 +550,66 @@ configuration.api_key['authCookie'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = playermoderation_api.PlayermoderationApi(api_client)
-    moderate_user_request = ModerateUserRequest(
-        moderated="usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469",
-        type=PlayerModerationType("unmute"),
-    ) # ModerateUserRequest |  (optional)
+    api_instance = vrchatapi.PlayermoderationApi(api_client)
+    moderate_user_request = vrchatapi.ModerateUserRequest() # ModerateUserRequest |  (optional)
 
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Moderate User
         api_response = api_instance.moderate_user(moderate_user_request=moderate_user_request)
         pprint(api_response)
-    except vrchatapi.ApiException as e:
+    except ApiException as e:
         print("Exception when calling PlayermoderationApi->moderate_user: %s\n" % e)
 ```
 
+* Api Key Authentication (authCookie):
+```python
+from __future__ import print_function
+import time
+import vrchatapi
+from vrchatapi.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = vrchatapi.Configuration(
+    host = "https://api.vrchat.cloud/api/1"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: apiKeyCookie
+configuration.api_key['apiKeyCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apiKeyCookie'] = 'Bearer'
+
+# Configure API key authorization: authCookie
+configuration.api_key['authCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['authCookie'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with vrchatapi.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = vrchatapi.PlayermoderationApi(api_client)
+    moderate_user_request = vrchatapi.ModerateUserRequest() # ModerateUserRequest |  (optional)
+
+    try:
+        # Moderate User
+        api_response = api_instance.moderate_user(moderate_user_request=moderate_user_request)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling PlayermoderationApi->moderate_user: %s\n" % e)
+```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **moderate_user_request** | [**ModerateUserRequest**](ModerateUserRequest.md)|  | [optional]
+ **moderate_user_request** | [**ModerateUserRequest**](ModerateUserRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -443,9 +624,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Returns a single PlayerModeration object. |  -  |
@@ -454,7 +633,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **unmoderate_user**
-> Success unmoderate_user()
+> Success unmoderate_user(moderate_user_request=moderate_user_request)
 
 Unmoderate User
 
@@ -463,15 +642,11 @@ Removes a player moderation previously added through `moderateUser`. E.g if you 
 ### Example
 
 * Api Key Authentication (apiKeyCookie):
-* Api Key Authentication (authCookie):
-
 ```python
+from __future__ import print_function
 import time
 import vrchatapi
-from vrchatapi.api import playermoderation_api
-from vrchatapi.model.success import Success
-from vrchatapi.model.moderate_user_request import ModerateUserRequest
-from vrchatapi.model.error import Error
+from vrchatapi.rest import ApiException
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
 # See configuration.py for a list of all supported configuration parameters.
@@ -499,28 +674,66 @@ configuration.api_key['authCookie'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = playermoderation_api.PlayermoderationApi(api_client)
-    moderate_user_request = ModerateUserRequest(
-        moderated="usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469",
-        type=PlayerModerationType("unmute"),
-    ) # ModerateUserRequest |  (optional)
+    api_instance = vrchatapi.PlayermoderationApi(api_client)
+    moderate_user_request = vrchatapi.ModerateUserRequest() # ModerateUserRequest |  (optional)
 
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Unmoderate User
         api_response = api_instance.unmoderate_user(moderate_user_request=moderate_user_request)
         pprint(api_response)
-    except vrchatapi.ApiException as e:
+    except ApiException as e:
         print("Exception when calling PlayermoderationApi->unmoderate_user: %s\n" % e)
 ```
 
+* Api Key Authentication (authCookie):
+```python
+from __future__ import print_function
+import time
+import vrchatapi
+from vrchatapi.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = vrchatapi.Configuration(
+    host = "https://api.vrchat.cloud/api/1"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: apiKeyCookie
+configuration.api_key['apiKeyCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apiKeyCookie'] = 'Bearer'
+
+# Configure API key authorization: authCookie
+configuration.api_key['authCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['authCookie'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with vrchatapi.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = vrchatapi.PlayermoderationApi(api_client)
+    moderate_user_request = vrchatapi.ModerateUserRequest() # ModerateUserRequest |  (optional)
+
+    try:
+        # Unmoderate User
+        api_response = api_instance.unmoderate_user(moderate_user_request=moderate_user_request)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling PlayermoderationApi->unmoderate_user: %s\n" % e)
+```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **moderate_user_request** | [**ModerateUserRequest**](ModerateUserRequest.md)|  | [optional]
+ **moderate_user_request** | [**ModerateUserRequest**](ModerateUserRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -535,9 +748,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Success response after unmoderating a player moderation. |  -  |

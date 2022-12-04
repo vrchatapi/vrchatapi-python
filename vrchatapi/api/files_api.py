@@ -1,3 +1,5 @@
+# coding: utf-8
+
 """
     VRChat API Documentation
 
@@ -8,27 +10,18 @@
 """
 
 
-import re  # noqa: F401
-import sys  # noqa: F401
+from __future__ import absolute_import
 
-from vrchatapi.api_client import ApiClient, Endpoint as _Endpoint
-from vrchatapi.model_utils import (  # noqa: F401
-    check_allowed_values,
-    check_validations,
-    date,
-    datetime,
-    file_type,
-    none_type,
-    validate_and_convert_types
+import re  # noqa: F401
+
+# python 2 and python 3 compatibility library
+import six
+
+from vrchatapi.api_client import ApiClient
+from vrchatapi.exceptions import (  # noqa: F401
+    ApiTypeError,
+    ApiValueError
 )
-from vrchatapi.model.create_file_request import CreateFileRequest
-from vrchatapi.model.create_file_version_request import CreateFileVersionRequest
-from vrchatapi.model.error import Error
-from vrchatapi.model.file import File
-from vrchatapi.model.file_upload_url import FileUploadURL
-from vrchatapi.model.file_version_upload_status import FileVersionUploadStatus
-from vrchatapi.model.finish_file_data_upload_request import FinishFileDataUploadRequest
-from vrchatapi.model.success import Success
 
 
 class FilesApi(object):
@@ -42,729 +35,8 @@ class FilesApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
-        self.create_file_endpoint = _Endpoint(
-            settings={
-                'response_type': (File,),
-                'auth': [
-                    'apiKeyCookie',
-                    'authCookie'
-                ],
-                'endpoint_path': '/file',
-                'operation_id': 'create_file',
-                'http_method': 'POST',
-                'servers': None,
-            },
-            params_map={
-                'all': [
-                    'create_file_request',
-                ],
-                'required': [],
-                'nullable': [
-                ],
-                'enum': [
-                ],
-                'validation': [
-                ]
-            },
-            root_map={
-                'validations': {
-                },
-                'allowed_values': {
-                },
-                'openapi_types': {
-                    'create_file_request':
-                        (CreateFileRequest,),
-                },
-                'attribute_map': {
-                },
-                'location_map': {
-                    'create_file_request': 'body',
-                },
-                'collection_format_map': {
-                }
-            },
-            headers_map={
-                'accept': [
-                    'application/json'
-                ],
-                'content_type': [
-                    'application/json'
-                ]
-            },
-            api_client=api_client
-        )
-        self.create_file_version_endpoint = _Endpoint(
-            settings={
-                'response_type': (File,),
-                'auth': [
-                    'apiKeyCookie',
-                    'authCookie'
-                ],
-                'endpoint_path': '/file/{fileId}',
-                'operation_id': 'create_file_version',
-                'http_method': 'POST',
-                'servers': None,
-            },
-            params_map={
-                'all': [
-                    'file_id',
-                    'create_file_version_request',
-                ],
-                'required': [
-                    'file_id',
-                ],
-                'nullable': [
-                ],
-                'enum': [
-                ],
-                'validation': [
-                    'file_id',
-                ]
-            },
-            root_map={
-                'validations': {
-                    ('file_id',): {
 
-                        'regex': {
-                            'pattern': r'file_[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}',  # noqa: E501
-                        },
-                    },
-                },
-                'allowed_values': {
-                },
-                'openapi_types': {
-                    'file_id':
-                        (str,),
-                    'create_file_version_request':
-                        (CreateFileVersionRequest,),
-                },
-                'attribute_map': {
-                    'file_id': 'fileId',
-                },
-                'location_map': {
-                    'file_id': 'path',
-                    'create_file_version_request': 'body',
-                },
-                'collection_format_map': {
-                }
-            },
-            headers_map={
-                'accept': [
-                    'application/json'
-                ],
-                'content_type': [
-                    'application/json'
-                ]
-            },
-            api_client=api_client
-        )
-        self.delete_file_endpoint = _Endpoint(
-            settings={
-                'response_type': (Success,),
-                'auth': [
-                    'apiKeyCookie',
-                    'authCookie'
-                ],
-                'endpoint_path': '/file/{fileId}',
-                'operation_id': 'delete_file',
-                'http_method': 'DELETE',
-                'servers': None,
-            },
-            params_map={
-                'all': [
-                    'file_id',
-                ],
-                'required': [
-                    'file_id',
-                ],
-                'nullable': [
-                ],
-                'enum': [
-                ],
-                'validation': [
-                    'file_id',
-                ]
-            },
-            root_map={
-                'validations': {
-                    ('file_id',): {
-
-                        'regex': {
-                            'pattern': r'file_[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}',  # noqa: E501
-                        },
-                    },
-                },
-                'allowed_values': {
-                },
-                'openapi_types': {
-                    'file_id':
-                        (str,),
-                },
-                'attribute_map': {
-                    'file_id': 'fileId',
-                },
-                'location_map': {
-                    'file_id': 'path',
-                },
-                'collection_format_map': {
-                }
-            },
-            headers_map={
-                'accept': [
-                    'application/json'
-                ],
-                'content_type': [],
-            },
-            api_client=api_client
-        )
-        self.delete_file_version_endpoint = _Endpoint(
-            settings={
-                'response_type': (File,),
-                'auth': [
-                    'apiKeyCookie',
-                    'authCookie'
-                ],
-                'endpoint_path': '/file/{fileId}/{versionId}',
-                'operation_id': 'delete_file_version',
-                'http_method': 'DELETE',
-                'servers': None,
-            },
-            params_map={
-                'all': [
-                    'file_id',
-                    'version_id',
-                ],
-                'required': [
-                    'file_id',
-                    'version_id',
-                ],
-                'nullable': [
-                ],
-                'enum': [
-                ],
-                'validation': [
-                    'file_id',
-                    'version_id',
-                ]
-            },
-            root_map={
-                'validations': {
-                    ('file_id',): {
-
-                        'regex': {
-                            'pattern': r'file_[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}',  # noqa: E501
-                        },
-                    },
-                    ('version_id',): {
-
-                        'inclusive_minimum': 1,
-                    },
-                },
-                'allowed_values': {
-                },
-                'openapi_types': {
-                    'file_id':
-                        (str,),
-                    'version_id':
-                        (int,),
-                },
-                'attribute_map': {
-                    'file_id': 'fileId',
-                    'version_id': 'versionId',
-                },
-                'location_map': {
-                    'file_id': 'path',
-                    'version_id': 'path',
-                },
-                'collection_format_map': {
-                }
-            },
-            headers_map={
-                'accept': [
-                    'application/json'
-                ],
-                'content_type': [],
-            },
-            api_client=api_client
-        )
-        self.download_file_version_endpoint = _Endpoint(
-            settings={
-                'response_type': None,
-                'auth': [
-                    'apiKeyCookie',
-                    'authCookie'
-                ],
-                'endpoint_path': '/file/{fileId}/{versionId}',
-                'operation_id': 'download_file_version',
-                'http_method': 'GET',
-                'servers': None,
-            },
-            params_map={
-                'all': [
-                    'file_id',
-                    'version_id',
-                ],
-                'required': [
-                    'file_id',
-                    'version_id',
-                ],
-                'nullable': [
-                ],
-                'enum': [
-                ],
-                'validation': [
-                    'file_id',
-                    'version_id',
-                ]
-            },
-            root_map={
-                'validations': {
-                    ('file_id',): {
-
-                        'regex': {
-                            'pattern': r'file_[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}',  # noqa: E501
-                        },
-                    },
-                    ('version_id',): {
-
-                        'inclusive_minimum': 1,
-                    },
-                },
-                'allowed_values': {
-                },
-                'openapi_types': {
-                    'file_id':
-                        (str,),
-                    'version_id':
-                        (int,),
-                },
-                'attribute_map': {
-                    'file_id': 'fileId',
-                    'version_id': 'versionId',
-                },
-                'location_map': {
-                    'file_id': 'path',
-                    'version_id': 'path',
-                },
-                'collection_format_map': {
-                }
-            },
-            headers_map={
-                'accept': [],
-                'content_type': [],
-            },
-            api_client=api_client
-        )
-        self.finish_file_data_upload_endpoint = _Endpoint(
-            settings={
-                'response_type': (File,),
-                'auth': [
-                    'apiKeyCookie',
-                    'authCookie'
-                ],
-                'endpoint_path': '/file/{fileId}/{versionId}/{fileType}/finish',
-                'operation_id': 'finish_file_data_upload',
-                'http_method': 'PUT',
-                'servers': None,
-            },
-            params_map={
-                'all': [
-                    'file_id',
-                    'version_id',
-                    'file_type',
-                    'finish_file_data_upload_request',
-                ],
-                'required': [
-                    'file_id',
-                    'version_id',
-                    'file_type',
-                ],
-                'nullable': [
-                ],
-                'enum': [
-                    'file_type',
-                ],
-                'validation': [
-                    'file_id',
-                    'version_id',
-                ]
-            },
-            root_map={
-                'validations': {
-                    ('file_id',): {
-
-                        'regex': {
-                            'pattern': r'file_[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}',  # noqa: E501
-                        },
-                    },
-                    ('version_id',): {
-
-                        'inclusive_minimum': 1,
-                    },
-                },
-                'allowed_values': {
-                    ('file_type',): {
-
-                        "FILE": "file",
-                        "SIGNATURE": "signature",
-                        "DELTA": "delta"
-                    },
-                },
-                'openapi_types': {
-                    'file_id':
-                        (str,),
-                    'version_id':
-                        (int,),
-                    'file_type':
-                        (str,),
-                    'finish_file_data_upload_request':
-                        (FinishFileDataUploadRequest,),
-                },
-                'attribute_map': {
-                    'file_id': 'fileId',
-                    'version_id': 'versionId',
-                    'file_type': 'fileType',
-                },
-                'location_map': {
-                    'file_id': 'path',
-                    'version_id': 'path',
-                    'file_type': 'path',
-                    'finish_file_data_upload_request': 'body',
-                },
-                'collection_format_map': {
-                }
-            },
-            headers_map={
-                'accept': [
-                    'application/json'
-                ],
-                'content_type': [
-                    'application/json'
-                ]
-            },
-            api_client=api_client
-        )
-        self.get_file_endpoint = _Endpoint(
-            settings={
-                'response_type': (File,),
-                'auth': [
-                    'apiKeyCookie',
-                    'authCookie'
-                ],
-                'endpoint_path': '/file/{fileId}',
-                'operation_id': 'get_file',
-                'http_method': 'GET',
-                'servers': None,
-            },
-            params_map={
-                'all': [
-                    'file_id',
-                ],
-                'required': [
-                    'file_id',
-                ],
-                'nullable': [
-                ],
-                'enum': [
-                ],
-                'validation': [
-                    'file_id',
-                ]
-            },
-            root_map={
-                'validations': {
-                    ('file_id',): {
-
-                        'regex': {
-                            'pattern': r'file_[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}',  # noqa: E501
-                        },
-                    },
-                },
-                'allowed_values': {
-                },
-                'openapi_types': {
-                    'file_id':
-                        (str,),
-                },
-                'attribute_map': {
-                    'file_id': 'fileId',
-                },
-                'location_map': {
-                    'file_id': 'path',
-                },
-                'collection_format_map': {
-                }
-            },
-            headers_map={
-                'accept': [
-                    'application/json'
-                ],
-                'content_type': [],
-            },
-            api_client=api_client
-        )
-        self.get_file_data_upload_status_endpoint = _Endpoint(
-            settings={
-                'response_type': (FileVersionUploadStatus,),
-                'auth': [
-                    'apiKeyCookie',
-                    'authCookie'
-                ],
-                'endpoint_path': '/file/{fileId}/{versionId}/{fileType}/status',
-                'operation_id': 'get_file_data_upload_status',
-                'http_method': 'GET',
-                'servers': None,
-            },
-            params_map={
-                'all': [
-                    'file_id',
-                    'version_id',
-                    'file_type',
-                ],
-                'required': [
-                    'file_id',
-                    'version_id',
-                    'file_type',
-                ],
-                'nullable': [
-                ],
-                'enum': [
-                    'file_type',
-                ],
-                'validation': [
-                    'file_id',
-                    'version_id',
-                ]
-            },
-            root_map={
-                'validations': {
-                    ('file_id',): {
-
-                        'regex': {
-                            'pattern': r'file_[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}',  # noqa: E501
-                        },
-                    },
-                    ('version_id',): {
-
-                        'inclusive_minimum': 1,
-                    },
-                },
-                'allowed_values': {
-                    ('file_type',): {
-
-                        "FILE": "file",
-                        "SIGNATURE": "signature",
-                        "DELTA": "delta"
-                    },
-                },
-                'openapi_types': {
-                    'file_id':
-                        (str,),
-                    'version_id':
-                        (int,),
-                    'file_type':
-                        (str,),
-                },
-                'attribute_map': {
-                    'file_id': 'fileId',
-                    'version_id': 'versionId',
-                    'file_type': 'fileType',
-                },
-                'location_map': {
-                    'file_id': 'path',
-                    'version_id': 'path',
-                    'file_type': 'path',
-                },
-                'collection_format_map': {
-                }
-            },
-            headers_map={
-                'accept': [
-                    'application/json'
-                ],
-                'content_type': [],
-            },
-            api_client=api_client
-        )
-        self.get_files_endpoint = _Endpoint(
-            settings={
-                'response_type': ([File],),
-                'auth': [
-                    'apiKeyCookie',
-                    'authCookie'
-                ],
-                'endpoint_path': '/files',
-                'operation_id': 'get_files',
-                'http_method': 'GET',
-                'servers': None,
-            },
-            params_map={
-                'all': [
-                    'tag',
-                    'user_id',
-                    'n',
-                    'offset',
-                ],
-                'required': [],
-                'nullable': [
-                ],
-                'enum': [
-                ],
-                'validation': [
-                    'tag',
-                    'n',
-                    'offset',
-                ]
-            },
-            root_map={
-                'validations': {
-                    ('tag',): {
-
-                        'min_length': 1,
-                    },
-                    ('n',): {
-
-                        'inclusive_maximum': 100,
-                        'inclusive_minimum': 1,
-                    },
-                    ('offset',): {
-
-                        'inclusive_minimum': 0,
-                    },
-                },
-                'allowed_values': {
-                },
-                'openapi_types': {
-                    'tag':
-                        (str,),
-                    'user_id':
-                        (str,),
-                    'n':
-                        (int,),
-                    'offset':
-                        (int,),
-                },
-                'attribute_map': {
-                    'tag': 'tag',
-                    'user_id': 'userId',
-                    'n': 'n',
-                    'offset': 'offset',
-                },
-                'location_map': {
-                    'tag': 'query',
-                    'user_id': 'query',
-                    'n': 'query',
-                    'offset': 'query',
-                },
-                'collection_format_map': {
-                }
-            },
-            headers_map={
-                'accept': [
-                    'application/json'
-                ],
-                'content_type': [],
-            },
-            api_client=api_client
-        )
-        self.start_file_data_upload_endpoint = _Endpoint(
-            settings={
-                'response_type': (FileUploadURL,),
-                'auth': [
-                    'apiKeyCookie',
-                    'authCookie'
-                ],
-                'endpoint_path': '/file/{fileId}/{versionId}/{fileType}/start',
-                'operation_id': 'start_file_data_upload',
-                'http_method': 'PUT',
-                'servers': None,
-            },
-            params_map={
-                'all': [
-                    'file_id',
-                    'version_id',
-                    'file_type',
-                    'part_number',
-                ],
-                'required': [
-                    'file_id',
-                    'version_id',
-                    'file_type',
-                ],
-                'nullable': [
-                ],
-                'enum': [
-                    'file_type',
-                ],
-                'validation': [
-                    'file_id',
-                    'version_id',
-                    'part_number',
-                ]
-            },
-            root_map={
-                'validations': {
-                    ('file_id',): {
-
-                        'regex': {
-                            'pattern': r'file_[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}',  # noqa: E501
-                        },
-                    },
-                    ('version_id',): {
-
-                        'inclusive_minimum': 1,
-                    },
-                    ('part_number',): {
-
-                        'inclusive_minimum': 0,
-                    },
-                },
-                'allowed_values': {
-                    ('file_type',): {
-
-                        "FILE": "file",
-                        "SIGNATURE": "signature",
-                        "DELTA": "delta"
-                    },
-                },
-                'openapi_types': {
-                    'file_id':
-                        (str,),
-                    'version_id':
-                        (int,),
-                    'file_type':
-                        (str,),
-                    'part_number':
-                        (int,),
-                },
-                'attribute_map': {
-                    'file_id': 'fileId',
-                    'version_id': 'versionId',
-                    'file_type': 'fileType',
-                    'part_number': 'partNumber',
-                },
-                'location_map': {
-                    'file_id': 'path',
-                    'version_id': 'path',
-                    'file_type': 'path',
-                    'part_number': 'query',
-                },
-                'collection_format_map': {
-                }
-            },
-            headers_map={
-                'accept': [
-                    'application/json'
-                ],
-                'content_type': [],
-            },
-            api_client=api_client
-        )
-
-    def create_file(
-        self,
-        **kwargs
-    ):
+    def create_file(self, **kwargs):  # noqa: E501
         """Create File  # noqa: E501
 
         Creates a new File object  # noqa: E501
@@ -774,60 +46,139 @@ class FilesApi(object):
         >>> thread = api.create_file(async_req=True)
         >>> result = thread.get()
 
-
-        Keyword Args:
-            create_file_request (CreateFileRequest): [optional]
-            _return_http_data_only (bool): response data without head status
-                code and headers. Default is True.
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-            async_req (bool): execute request asynchronously
-
-        Returns:
-            File
-                If the method is called asynchronously, returns the request
-                thread.
+        :param create_file_request:
+        :type create_file_request: CreateFileRequest
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :type _preload_content: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: File
         """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_host_index'] = kwargs.get('_host_index')
-        return self.create_file_endpoint.call_with_http_info(**kwargs)
+        kwargs['_return_http_data_only'] = True
+        return self.create_file_with_http_info(**kwargs)  # noqa: E501
 
-    def create_file_version(
-        self,
-        file_id,
-        **kwargs
-    ):
+    def create_file_with_http_info(self, **kwargs):  # noqa: E501
+        """Create File  # noqa: E501
+
+        Creates a new File object  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.create_file_with_http_info(async_req=True)
+        >>> result = thread.get()
+
+        :param create_file_request:
+        :type create_file_request: CreateFileRequest
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :type _return_http_data_only: bool, optional
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :type _preload_content: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: tuple(File, status_code(int), headers(HTTPHeaderDict))
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'create_file_request'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth',
+                '_content_type',
+                '_headers'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method create_file" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = dict(local_var_params.get('_headers', {}))
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'create_file_request' in local_var_params:
+            body_params = local_var_params['create_file_request']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        content_types_list = local_var_params.get('_content_type',
+            self.api_client.select_header_content_type(
+                ['application/json'],
+                'POST', body_params))  # noqa: E501
+        if content_types_list:
+                header_params['Content-Type'] = content_types_list
+
+        # Authentication setting
+        auth_settings = ['apiKeyCookie', 'authCookie']  # noqa: E501
+
+        response_types_map = {
+            200: "File",
+        }
+
+        return self.api_client.call_api(
+            '/file', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_types_map=response_types_map,
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))
+
+    def create_file_version(self, file_id, **kwargs):  # noqa: E501
         """Create File Version  # noqa: E501
 
         Creates a new FileVersion. Once a Version has been created, proceed to the `/file/{fileId}/{versionId}/file/start` endpoint to start a file upload.  # noqa: E501
@@ -837,64 +188,151 @@ class FilesApi(object):
         >>> thread = api.create_file_version(file_id, async_req=True)
         >>> result = thread.get()
 
-        Args:
-            file_id (str):
-
-        Keyword Args:
-            create_file_version_request (CreateFileVersionRequest): [optional]
-            _return_http_data_only (bool): response data without head status
-                code and headers. Default is True.
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-            async_req (bool): execute request asynchronously
-
-        Returns:
-            File
-                If the method is called asynchronously, returns the request
-                thread.
+        :param file_id: (required)
+        :type file_id: str
+        :param create_file_version_request:
+        :type create_file_version_request: CreateFileVersionRequest
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :type _preload_content: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: File
         """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_host_index'] = kwargs.get('_host_index')
-        kwargs['file_id'] = \
-            file_id
-        return self.create_file_version_endpoint.call_with_http_info(**kwargs)
+        kwargs['_return_http_data_only'] = True
+        return self.create_file_version_with_http_info(file_id, **kwargs)  # noqa: E501
 
-    def delete_file(
-        self,
-        file_id,
-        **kwargs
-    ):
+    def create_file_version_with_http_info(self, file_id, **kwargs):  # noqa: E501
+        """Create File Version  # noqa: E501
+
+        Creates a new FileVersion. Once a Version has been created, proceed to the `/file/{fileId}/{versionId}/file/start` endpoint to start a file upload.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.create_file_version_with_http_info(file_id, async_req=True)
+        >>> result = thread.get()
+
+        :param file_id: (required)
+        :type file_id: str
+        :param create_file_version_request:
+        :type create_file_version_request: CreateFileVersionRequest
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :type _return_http_data_only: bool, optional
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :type _preload_content: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: tuple(File, status_code(int), headers(HTTPHeaderDict))
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'file_id',
+            'create_file_version_request'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth',
+                '_content_type',
+                '_headers'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method create_file_version" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'file_id' is set
+        if self.api_client.client_side_validation and local_var_params.get('file_id') is None:  # noqa: E501
+            raise ApiValueError("Missing the required parameter `file_id` when calling `create_file_version`")  # noqa: E501
+
+        if self.api_client.client_side_validation and 'file_id' in local_var_params and not re.search(r'file_[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}', local_var_params['file_id']):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `file_id` when calling `create_file_version`, must conform to the pattern `/file_[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}/`")  # noqa: E501
+        collection_formats = {}
+
+        path_params = {}
+        if 'file_id' in local_var_params:
+            path_params['fileId'] = local_var_params['file_id']  # noqa: E501
+
+        query_params = []
+
+        header_params = dict(local_var_params.get('_headers', {}))
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'create_file_version_request' in local_var_params:
+            body_params = local_var_params['create_file_version_request']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        content_types_list = local_var_params.get('_content_type',
+            self.api_client.select_header_content_type(
+                ['application/json'],
+                'POST', body_params))  # noqa: E501
+        if content_types_list:
+                header_params['Content-Type'] = content_types_list
+
+        # Authentication setting
+        auth_settings = ['apiKeyCookie', 'authCookie']  # noqa: E501
+
+        response_types_map = {
+            200: "File",
+        }
+
+        return self.api_client.call_api(
+            '/file/{fileId}', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_types_map=response_types_map,
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))
+
+    def delete_file(self, file_id, **kwargs):  # noqa: E501
         """Delete File  # noqa: E501
 
         Deletes a File object.  # noqa: E501
@@ -904,64 +342,137 @@ class FilesApi(object):
         >>> thread = api.delete_file(file_id, async_req=True)
         >>> result = thread.get()
 
-        Args:
-            file_id (str):
-
-        Keyword Args:
-            _return_http_data_only (bool): response data without head status
-                code and headers. Default is True.
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-            async_req (bool): execute request asynchronously
-
-        Returns:
-            Success
-                If the method is called asynchronously, returns the request
-                thread.
+        :param file_id: (required)
+        :type file_id: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :type _preload_content: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: Success
         """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_host_index'] = kwargs.get('_host_index')
-        kwargs['file_id'] = \
-            file_id
-        return self.delete_file_endpoint.call_with_http_info(**kwargs)
+        kwargs['_return_http_data_only'] = True
+        return self.delete_file_with_http_info(file_id, **kwargs)  # noqa: E501
 
-    def delete_file_version(
-        self,
-        file_id,
-        version_id,
-        **kwargs
-    ):
+    def delete_file_with_http_info(self, file_id, **kwargs):  # noqa: E501
+        """Delete File  # noqa: E501
+
+        Deletes a File object.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.delete_file_with_http_info(file_id, async_req=True)
+        >>> result = thread.get()
+
+        :param file_id: (required)
+        :type file_id: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :type _return_http_data_only: bool, optional
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :type _preload_content: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: tuple(Success, status_code(int), headers(HTTPHeaderDict))
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'file_id'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth',
+                '_content_type',
+                '_headers'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method delete_file" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'file_id' is set
+        if self.api_client.client_side_validation and local_var_params.get('file_id') is None:  # noqa: E501
+            raise ApiValueError("Missing the required parameter `file_id` when calling `delete_file`")  # noqa: E501
+
+        if self.api_client.client_side_validation and 'file_id' in local_var_params and not re.search(r'file_[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}', local_var_params['file_id']):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `file_id` when calling `delete_file`, must conform to the pattern `/file_[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}/`")  # noqa: E501
+        collection_formats = {}
+
+        path_params = {}
+        if 'file_id' in local_var_params:
+            path_params['fileId'] = local_var_params['file_id']  # noqa: E501
+
+        query_params = []
+
+        header_params = dict(local_var_params.get('_headers', {}))
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['apiKeyCookie', 'authCookie']  # noqa: E501
+
+        response_types_map = {
+            200: "Success",
+            404: "Error",
+        }
+
+        return self.api_client.call_api(
+            '/file/{fileId}', 'DELETE',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_types_map=response_types_map,
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))
+
+    def delete_file_version(self, file_id, version_id, **kwargs):  # noqa: E501
         """Delete File Version  # noqa: E501
 
         Delete a specific version of a file. You can only delete the latest version.  # noqa: E501
@@ -971,67 +482,150 @@ class FilesApi(object):
         >>> thread = api.delete_file_version(file_id, version_id, async_req=True)
         >>> result = thread.get()
 
-        Args:
-            file_id (str):
-            version_id (int):
-
-        Keyword Args:
-            _return_http_data_only (bool): response data without head status
-                code and headers. Default is True.
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-            async_req (bool): execute request asynchronously
-
-        Returns:
-            File
-                If the method is called asynchronously, returns the request
-                thread.
+        :param file_id: (required)
+        :type file_id: str
+        :param version_id: (required)
+        :type version_id: int
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :type _preload_content: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: File
         """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_host_index'] = kwargs.get('_host_index')
-        kwargs['file_id'] = \
-            file_id
-        kwargs['version_id'] = \
-            version_id
-        return self.delete_file_version_endpoint.call_with_http_info(**kwargs)
+        kwargs['_return_http_data_only'] = True
+        return self.delete_file_version_with_http_info(file_id, version_id, **kwargs)  # noqa: E501
 
-    def download_file_version(
-        self,
-        file_id,
-        version_id,
-        **kwargs
-    ):
+    def delete_file_version_with_http_info(self, file_id, version_id, **kwargs):  # noqa: E501
+        """Delete File Version  # noqa: E501
+
+        Delete a specific version of a file. You can only delete the latest version.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.delete_file_version_with_http_info(file_id, version_id, async_req=True)
+        >>> result = thread.get()
+
+        :param file_id: (required)
+        :type file_id: str
+        :param version_id: (required)
+        :type version_id: int
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :type _return_http_data_only: bool, optional
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :type _preload_content: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: tuple(File, status_code(int), headers(HTTPHeaderDict))
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'file_id',
+            'version_id'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth',
+                '_content_type',
+                '_headers'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method delete_file_version" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'file_id' is set
+        if self.api_client.client_side_validation and local_var_params.get('file_id') is None:  # noqa: E501
+            raise ApiValueError("Missing the required parameter `file_id` when calling `delete_file_version`")  # noqa: E501
+        # verify the required parameter 'version_id' is set
+        if self.api_client.client_side_validation and local_var_params.get('version_id') is None:  # noqa: E501
+            raise ApiValueError("Missing the required parameter `version_id` when calling `delete_file_version`")  # noqa: E501
+
+        if self.api_client.client_side_validation and 'file_id' in local_var_params and not re.search(r'file_[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}', local_var_params['file_id']):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `file_id` when calling `delete_file_version`, must conform to the pattern `/file_[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}/`")  # noqa: E501
+        if self.api_client.client_side_validation and 'version_id' in local_var_params and local_var_params['version_id'] < 1:  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `version_id` when calling `delete_file_version`, must be a value greater than or equal to `1`")  # noqa: E501
+        collection_formats = {}
+
+        path_params = {}
+        if 'file_id' in local_var_params:
+            path_params['fileId'] = local_var_params['file_id']  # noqa: E501
+        if 'version_id' in local_var_params:
+            path_params['versionId'] = local_var_params['version_id']  # noqa: E501
+
+        query_params = []
+
+        header_params = dict(local_var_params.get('_headers', {}))
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['apiKeyCookie', 'authCookie']  # noqa: E501
+
+        response_types_map = {
+            200: "File",
+            400: "Error",
+            500: "Error",
+        }
+
+        return self.api_client.call_api(
+            '/file/{fileId}/{versionId}', 'DELETE',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_types_map=response_types_map,
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))
+
+    def download_file_version(self, file_id, version_id, **kwargs):  # noqa: E501
         """Download File Version  # noqa: E501
 
         Downloads the file with the provided version number.  **Version Note:** Version 0 is always when the file was created. The real data is usually always located in version 1 and up.  **Extension Note:** Files are not guaranteed to have a file extensions. UnityPackage files tends to have it, images through this endpoint do not. You are responsible for appending file extension from the `extension` field when neccesary.  # noqa: E501
@@ -1041,68 +635,142 @@ class FilesApi(object):
         >>> thread = api.download_file_version(file_id, version_id, async_req=True)
         >>> result = thread.get()
 
-        Args:
-            file_id (str):
-            version_id (int):
-
-        Keyword Args:
-            _return_http_data_only (bool): response data without head status
-                code and headers. Default is True.
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-            async_req (bool): execute request asynchronously
-
-        Returns:
-            None
-                If the method is called asynchronously, returns the request
-                thread.
+        :param file_id: (required)
+        :type file_id: str
+        :param version_id: (required)
+        :type version_id: int
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :type _preload_content: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: None
         """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_host_index'] = kwargs.get('_host_index')
-        kwargs['file_id'] = \
-            file_id
-        kwargs['version_id'] = \
-            version_id
-        return self.download_file_version_endpoint.call_with_http_info(**kwargs)
+        kwargs['_return_http_data_only'] = True
+        return self.download_file_version_with_http_info(file_id, version_id, **kwargs)  # noqa: E501
 
-    def finish_file_data_upload(
-        self,
-        file_id,
-        version_id,
-        file_type,
-        **kwargs
-    ):
+    def download_file_version_with_http_info(self, file_id, version_id, **kwargs):  # noqa: E501
+        """Download File Version  # noqa: E501
+
+        Downloads the file with the provided version number.  **Version Note:** Version 0 is always when the file was created. The real data is usually always located in version 1 and up.  **Extension Note:** Files are not guaranteed to have a file extensions. UnityPackage files tends to have it, images through this endpoint do not. You are responsible for appending file extension from the `extension` field when neccesary.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.download_file_version_with_http_info(file_id, version_id, async_req=True)
+        >>> result = thread.get()
+
+        :param file_id: (required)
+        :type file_id: str
+        :param version_id: (required)
+        :type version_id: int
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :type _return_http_data_only: bool, optional
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :type _preload_content: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: None
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'file_id',
+            'version_id'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth',
+                '_content_type',
+                '_headers'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method download_file_version" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'file_id' is set
+        if self.api_client.client_side_validation and local_var_params.get('file_id') is None:  # noqa: E501
+            raise ApiValueError("Missing the required parameter `file_id` when calling `download_file_version`")  # noqa: E501
+        # verify the required parameter 'version_id' is set
+        if self.api_client.client_side_validation and local_var_params.get('version_id') is None:  # noqa: E501
+            raise ApiValueError("Missing the required parameter `version_id` when calling `download_file_version`")  # noqa: E501
+
+        if self.api_client.client_side_validation and 'file_id' in local_var_params and not re.search(r'file_[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}', local_var_params['file_id']):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `file_id` when calling `download_file_version`, must conform to the pattern `/file_[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}/`")  # noqa: E501
+        if self.api_client.client_side_validation and 'version_id' in local_var_params and local_var_params['version_id'] < 1:  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `version_id` when calling `download_file_version`, must be a value greater than or equal to `1`")  # noqa: E501
+        collection_formats = {}
+
+        path_params = {}
+        if 'file_id' in local_var_params:
+            path_params['fileId'] = local_var_params['file_id']  # noqa: E501
+        if 'version_id' in local_var_params:
+            path_params['versionId'] = local_var_params['version_id']  # noqa: E501
+
+        query_params = []
+
+        header_params = dict(local_var_params.get('_headers', {}))
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # Authentication setting
+        auth_settings = ['apiKeyCookie', 'authCookie']  # noqa: E501
+
+        response_types_map = {}
+
+        return self.api_client.call_api(
+            '/file/{fileId}/{versionId}', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_types_map=response_types_map,
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))
+
+    def finish_file_data_upload(self, file_id, version_id, file_type, **kwargs):  # noqa: E501
         """Finish FileData Upload  # noqa: E501
 
         Finish an upload of a FileData. This will mark it as \"complete\". After uploading the `file` for Avatars and Worlds you then have to upload a `signature` file.  # noqa: E501
@@ -1112,70 +780,173 @@ class FilesApi(object):
         >>> thread = api.finish_file_data_upload(file_id, version_id, file_type, async_req=True)
         >>> result = thread.get()
 
-        Args:
-            file_id (str):
-            version_id (int):
-            file_type (str):
-
-        Keyword Args:
-            finish_file_data_upload_request (FinishFileDataUploadRequest): Please see documentation on ETag's: [https://teppen.io/2018/06/23/aws_s3_etags/](https://teppen.io/2018/06/23/aws_s3_etags/)  ETag's should NOT be present when uploading a `signature`.. [optional]
-            _return_http_data_only (bool): response data without head status
-                code and headers. Default is True.
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-            async_req (bool): execute request asynchronously
-
-        Returns:
-            File
-                If the method is called asynchronously, returns the request
-                thread.
+        :param file_id: (required)
+        :type file_id: str
+        :param version_id: (required)
+        :type version_id: int
+        :param file_type: (required)
+        :type file_type: str
+        :param finish_file_data_upload_request: Please see documentation on ETag's: [https://teppen.io/2018/06/23/aws_s3_etags/](https://teppen.io/2018/06/23/aws_s3_etags/)  ETag's should NOT be present when uploading a `signature`.
+        :type finish_file_data_upload_request: FinishFileDataUploadRequest
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :type _preload_content: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: File
         """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_host_index'] = kwargs.get('_host_index')
-        kwargs['file_id'] = \
-            file_id
-        kwargs['version_id'] = \
-            version_id
-        kwargs['file_type'] = \
-            file_type
-        return self.finish_file_data_upload_endpoint.call_with_http_info(**kwargs)
+        kwargs['_return_http_data_only'] = True
+        return self.finish_file_data_upload_with_http_info(file_id, version_id, file_type, **kwargs)  # noqa: E501
 
-    def get_file(
-        self,
-        file_id,
-        **kwargs
-    ):
+    def finish_file_data_upload_with_http_info(self, file_id, version_id, file_type, **kwargs):  # noqa: E501
+        """Finish FileData Upload  # noqa: E501
+
+        Finish an upload of a FileData. This will mark it as \"complete\". After uploading the `file` for Avatars and Worlds you then have to upload a `signature` file.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.finish_file_data_upload_with_http_info(file_id, version_id, file_type, async_req=True)
+        >>> result = thread.get()
+
+        :param file_id: (required)
+        :type file_id: str
+        :param version_id: (required)
+        :type version_id: int
+        :param file_type: (required)
+        :type file_type: str
+        :param finish_file_data_upload_request: Please see documentation on ETag's: [https://teppen.io/2018/06/23/aws_s3_etags/](https://teppen.io/2018/06/23/aws_s3_etags/)  ETag's should NOT be present when uploading a `signature`.
+        :type finish_file_data_upload_request: FinishFileDataUploadRequest
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :type _return_http_data_only: bool, optional
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :type _preload_content: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: tuple(File, status_code(int), headers(HTTPHeaderDict))
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'file_id',
+            'version_id',
+            'file_type',
+            'finish_file_data_upload_request'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth',
+                '_content_type',
+                '_headers'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method finish_file_data_upload" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'file_id' is set
+        if self.api_client.client_side_validation and local_var_params.get('file_id') is None:  # noqa: E501
+            raise ApiValueError("Missing the required parameter `file_id` when calling `finish_file_data_upload`")  # noqa: E501
+        # verify the required parameter 'version_id' is set
+        if self.api_client.client_side_validation and local_var_params.get('version_id') is None:  # noqa: E501
+            raise ApiValueError("Missing the required parameter `version_id` when calling `finish_file_data_upload`")  # noqa: E501
+        # verify the required parameter 'file_type' is set
+        if self.api_client.client_side_validation and local_var_params.get('file_type') is None:  # noqa: E501
+            raise ApiValueError("Missing the required parameter `file_type` when calling `finish_file_data_upload`")  # noqa: E501
+
+        if self.api_client.client_side_validation and 'file_id' in local_var_params and not re.search(r'file_[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}', local_var_params['file_id']):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `file_id` when calling `finish_file_data_upload`, must conform to the pattern `/file_[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}/`")  # noqa: E501
+        if self.api_client.client_side_validation and 'version_id' in local_var_params and local_var_params['version_id'] < 1:  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `version_id` when calling `finish_file_data_upload`, must be a value greater than or equal to `1`")  # noqa: E501
+        collection_formats = {}
+
+        path_params = {}
+        if 'file_id' in local_var_params:
+            path_params['fileId'] = local_var_params['file_id']  # noqa: E501
+        if 'version_id' in local_var_params:
+            path_params['versionId'] = local_var_params['version_id']  # noqa: E501
+        if 'file_type' in local_var_params:
+            path_params['fileType'] = local_var_params['file_type']  # noqa: E501
+
+        query_params = []
+
+        header_params = dict(local_var_params.get('_headers', {}))
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'finish_file_data_upload_request' in local_var_params:
+            body_params = local_var_params['finish_file_data_upload_request']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        content_types_list = local_var_params.get('_content_type',
+            self.api_client.select_header_content_type(
+                ['application/json'],
+                'PUT', body_params))  # noqa: E501
+        if content_types_list:
+                header_params['Content-Type'] = content_types_list
+
+        # Authentication setting
+        auth_settings = ['apiKeyCookie', 'authCookie']  # noqa: E501
+
+        response_types_map = {
+            200: "File",
+        }
+
+        return self.api_client.call_api(
+            '/file/{fileId}/{versionId}/{fileType}/finish', 'PUT',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_types_map=response_types_map,
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))
+
+    def get_file(self, file_id, **kwargs):  # noqa: E501
         """Show File  # noqa: E501
 
         Shows general information about the \"File\" object. Each File can have several \"Version\"'s, and each Version can have multiple real files or \"Data\" blobs.  # noqa: E501
@@ -1185,65 +956,137 @@ class FilesApi(object):
         >>> thread = api.get_file(file_id, async_req=True)
         >>> result = thread.get()
 
-        Args:
-            file_id (str):
-
-        Keyword Args:
-            _return_http_data_only (bool): response data without head status
-                code and headers. Default is True.
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-            async_req (bool): execute request asynchronously
-
-        Returns:
-            File
-                If the method is called asynchronously, returns the request
-                thread.
+        :param file_id: (required)
+        :type file_id: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :type _preload_content: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: File
         """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_host_index'] = kwargs.get('_host_index')
-        kwargs['file_id'] = \
-            file_id
-        return self.get_file_endpoint.call_with_http_info(**kwargs)
+        kwargs['_return_http_data_only'] = True
+        return self.get_file_with_http_info(file_id, **kwargs)  # noqa: E501
 
-    def get_file_data_upload_status(
-        self,
-        file_id,
-        version_id,
-        file_type,
-        **kwargs
-    ):
+    def get_file_with_http_info(self, file_id, **kwargs):  # noqa: E501
+        """Show File  # noqa: E501
+
+        Shows general information about the \"File\" object. Each File can have several \"Version\"'s, and each Version can have multiple real files or \"Data\" blobs.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_file_with_http_info(file_id, async_req=True)
+        >>> result = thread.get()
+
+        :param file_id: (required)
+        :type file_id: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :type _return_http_data_only: bool, optional
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :type _preload_content: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: tuple(File, status_code(int), headers(HTTPHeaderDict))
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'file_id'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth',
+                '_content_type',
+                '_headers'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_file" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'file_id' is set
+        if self.api_client.client_side_validation and local_var_params.get('file_id') is None:  # noqa: E501
+            raise ApiValueError("Missing the required parameter `file_id` when calling `get_file`")  # noqa: E501
+
+        if self.api_client.client_side_validation and 'file_id' in local_var_params and not re.search(r'file_[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}', local_var_params['file_id']):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `file_id` when calling `get_file`, must conform to the pattern `/file_[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}/`")  # noqa: E501
+        collection_formats = {}
+
+        path_params = {}
+        if 'file_id' in local_var_params:
+            path_params['fileId'] = local_var_params['file_id']  # noqa: E501
+
+        query_params = []
+
+        header_params = dict(local_var_params.get('_headers', {}))
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['apiKeyCookie', 'authCookie']  # noqa: E501
+
+        response_types_map = {
+            200: "File",
+            404: "Error",
+        }
+
+        return self.api_client.call_api(
+            '/file/{fileId}', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_types_map=response_types_map,
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))
+
+    def get_file_data_upload_status(self, file_id, version_id, file_type, **kwargs):  # noqa: E501
         """Check FileData Upload Status  # noqa: E501
 
         Retrieves the upload status for file upload. Can currently only be accessed when `status` is `waiting`. Trying to access it on a file version already uploaded currently times out.  # noqa: E501
@@ -1253,68 +1096,158 @@ class FilesApi(object):
         >>> thread = api.get_file_data_upload_status(file_id, version_id, file_type, async_req=True)
         >>> result = thread.get()
 
-        Args:
-            file_id (str):
-            version_id (int):
-            file_type (str):
-
-        Keyword Args:
-            _return_http_data_only (bool): response data without head status
-                code and headers. Default is True.
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-            async_req (bool): execute request asynchronously
-
-        Returns:
-            FileVersionUploadStatus
-                If the method is called asynchronously, returns the request
-                thread.
+        :param file_id: (required)
+        :type file_id: str
+        :param version_id: (required)
+        :type version_id: int
+        :param file_type: (required)
+        :type file_type: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :type _preload_content: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: FileVersionUploadStatus
         """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_host_index'] = kwargs.get('_host_index')
-        kwargs['file_id'] = \
-            file_id
-        kwargs['version_id'] = \
-            version_id
-        kwargs['file_type'] = \
-            file_type
-        return self.get_file_data_upload_status_endpoint.call_with_http_info(**kwargs)
+        kwargs['_return_http_data_only'] = True
+        return self.get_file_data_upload_status_with_http_info(file_id, version_id, file_type, **kwargs)  # noqa: E501
 
-    def get_files(
-        self,
-        **kwargs
-    ):
+    def get_file_data_upload_status_with_http_info(self, file_id, version_id, file_type, **kwargs):  # noqa: E501
+        """Check FileData Upload Status  # noqa: E501
+
+        Retrieves the upload status for file upload. Can currently only be accessed when `status` is `waiting`. Trying to access it on a file version already uploaded currently times out.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_file_data_upload_status_with_http_info(file_id, version_id, file_type, async_req=True)
+        >>> result = thread.get()
+
+        :param file_id: (required)
+        :type file_id: str
+        :param version_id: (required)
+        :type version_id: int
+        :param file_type: (required)
+        :type file_type: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :type _return_http_data_only: bool, optional
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :type _preload_content: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: tuple(FileVersionUploadStatus, status_code(int), headers(HTTPHeaderDict))
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'file_id',
+            'version_id',
+            'file_type'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth',
+                '_content_type',
+                '_headers'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_file_data_upload_status" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'file_id' is set
+        if self.api_client.client_side_validation and local_var_params.get('file_id') is None:  # noqa: E501
+            raise ApiValueError("Missing the required parameter `file_id` when calling `get_file_data_upload_status`")  # noqa: E501
+        # verify the required parameter 'version_id' is set
+        if self.api_client.client_side_validation and local_var_params.get('version_id') is None:  # noqa: E501
+            raise ApiValueError("Missing the required parameter `version_id` when calling `get_file_data_upload_status`")  # noqa: E501
+        # verify the required parameter 'file_type' is set
+        if self.api_client.client_side_validation and local_var_params.get('file_type') is None:  # noqa: E501
+            raise ApiValueError("Missing the required parameter `file_type` when calling `get_file_data_upload_status`")  # noqa: E501
+
+        if self.api_client.client_side_validation and 'file_id' in local_var_params and not re.search(r'file_[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}', local_var_params['file_id']):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `file_id` when calling `get_file_data_upload_status`, must conform to the pattern `/file_[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}/`")  # noqa: E501
+        if self.api_client.client_side_validation and 'version_id' in local_var_params and local_var_params['version_id'] < 1:  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `version_id` when calling `get_file_data_upload_status`, must be a value greater than or equal to `1`")  # noqa: E501
+        collection_formats = {}
+
+        path_params = {}
+        if 'file_id' in local_var_params:
+            path_params['fileId'] = local_var_params['file_id']  # noqa: E501
+        if 'version_id' in local_var_params:
+            path_params['versionId'] = local_var_params['version_id']  # noqa: E501
+        if 'file_type' in local_var_params:
+            path_params['fileType'] = local_var_params['file_type']  # noqa: E501
+
+        query_params = []
+
+        header_params = dict(local_var_params.get('_headers', {}))
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['apiKeyCookie', 'authCookie']  # noqa: E501
+
+        response_types_map = {
+            200: "FileVersionUploadStatus",
+        }
+
+        return self.api_client.call_api(
+            '/file/{fileId}/{versionId}/{fileType}/status', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_types_map=response_types_map,
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))
+
+    def get_files(self, **kwargs):  # noqa: E501
         """List Files  # noqa: E501
 
         Returns a list of files  # noqa: E501
@@ -1324,65 +1257,161 @@ class FilesApi(object):
         >>> thread = api.get_files(async_req=True)
         >>> result = thread.get()
 
-
-        Keyword Args:
-            tag (str): Tag, for example \"icon\" or \"gallery\", not included by default.. [optional]
-            user_id (str): UserID, will always generate a 500 permission error.. [optional]
-            n (int): The number of objects to return.. [optional] if omitted the server will use the default value of 60
-            offset (int): A zero-based offset from the default object sorting from where search results start.. [optional]
-            _return_http_data_only (bool): response data without head status
-                code and headers. Default is True.
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-            async_req (bool): execute request asynchronously
-
-        Returns:
-            [File]
-                If the method is called asynchronously, returns the request
-                thread.
+        :param tag: Tag, for example \"icon\" or \"gallery\", not included by default.
+        :type tag: str
+        :param user_id: UserID, will always generate a 500 permission error.
+        :type user_id: str
+        :param n: The number of objects to return.
+        :type n: int
+        :param offset: A zero-based offset from the default object sorting from where search results start.
+        :type offset: int
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :type _preload_content: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: list[File]
         """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_host_index'] = kwargs.get('_host_index')
-        return self.get_files_endpoint.call_with_http_info(**kwargs)
+        kwargs['_return_http_data_only'] = True
+        return self.get_files_with_http_info(**kwargs)  # noqa: E501
 
-    def start_file_data_upload(
-        self,
-        file_id,
-        version_id,
-        file_type,
-        **kwargs
-    ):
+    def get_files_with_http_info(self, **kwargs):  # noqa: E501
+        """List Files  # noqa: E501
+
+        Returns a list of files  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_files_with_http_info(async_req=True)
+        >>> result = thread.get()
+
+        :param tag: Tag, for example \"icon\" or \"gallery\", not included by default.
+        :type tag: str
+        :param user_id: UserID, will always generate a 500 permission error.
+        :type user_id: str
+        :param n: The number of objects to return.
+        :type n: int
+        :param offset: A zero-based offset from the default object sorting from where search results start.
+        :type offset: int
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :type _return_http_data_only: bool, optional
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :type _preload_content: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: tuple(list[File], status_code(int), headers(HTTPHeaderDict))
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'tag',
+            'user_id',
+            'n',
+            'offset'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth',
+                '_content_type',
+                '_headers'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_files" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+
+        if self.api_client.client_side_validation and ('tag' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['tag']) < 1):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `tag` when calling `get_files`, length must be greater than or equal to `1`")  # noqa: E501
+        if self.api_client.client_side_validation and 'n' in local_var_params and local_var_params['n'] > 100:  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `n` when calling `get_files`, must be a value less than or equal to `100`")  # noqa: E501
+        if self.api_client.client_side_validation and 'n' in local_var_params and local_var_params['n'] < 1:  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `n` when calling `get_files`, must be a value greater than or equal to `1`")  # noqa: E501
+        if self.api_client.client_side_validation and 'offset' in local_var_params and local_var_params['offset'] < 0:  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `offset` when calling `get_files`, must be a value greater than or equal to `0`")  # noqa: E501
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+        if local_var_params.get('tag') is not None:  # noqa: E501
+            query_params.append(('tag', local_var_params['tag']))  # noqa: E501
+        if local_var_params.get('user_id') is not None:  # noqa: E501
+            query_params.append(('userId', local_var_params['user_id']))  # noqa: E501
+        if local_var_params.get('n') is not None:  # noqa: E501
+            query_params.append(('n', local_var_params['n']))  # noqa: E501
+        if local_var_params.get('offset') is not None:  # noqa: E501
+            query_params.append(('offset', local_var_params['offset']))  # noqa: E501
+
+        header_params = dict(local_var_params.get('_headers', {}))
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['apiKeyCookie', 'authCookie']  # noqa: E501
+
+        response_types_map = {
+            200: "list[File]",
+        }
+
+        return self.api_client.call_api(
+            '/files', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_types_map=response_types_map,
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))
+
+    def start_file_data_upload(self, file_id, version_id, file_type, **kwargs):  # noqa: E501
         """Start FileData Upload  # noqa: E501
 
         Starts an upload of a specific FilePart. This endpoint will return an AWS URL which you can PUT data to. You need to call this and receive a new AWS API URL for each `partNumber`. Please see AWS's REST documentation on \"PUT Object to S3\" on how to upload. Once all parts has been uploaded, proceed to `/finish` endpoint.  **Note:** `nextPartNumber` seems like it is always ignored. Despite it returning 0, first partNumber is always 1.  # noqa: E501
@@ -1392,62 +1421,163 @@ class FilesApi(object):
         >>> thread = api.start_file_data_upload(file_id, version_id, file_type, async_req=True)
         >>> result = thread.get()
 
-        Args:
-            file_id (str):
-            version_id (int):
-            file_type (str):
-
-        Keyword Args:
-            part_number (int): [optional]
-            _return_http_data_only (bool): response data without head status
-                code and headers. Default is True.
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-            async_req (bool): execute request asynchronously
-
-        Returns:
-            FileUploadURL
-                If the method is called asynchronously, returns the request
-                thread.
+        :param file_id: (required)
+        :type file_id: str
+        :param version_id: (required)
+        :type version_id: int
+        :param file_type: (required)
+        :type file_type: str
+        :param part_number:
+        :type part_number: int
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :type _preload_content: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: FileUploadURL
         """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_host_index'] = kwargs.get('_host_index')
-        kwargs['file_id'] = \
-            file_id
-        kwargs['version_id'] = \
-            version_id
-        kwargs['file_type'] = \
-            file_type
-        return self.start_file_data_upload_endpoint.call_with_http_info(**kwargs)
+        kwargs['_return_http_data_only'] = True
+        return self.start_file_data_upload_with_http_info(file_id, version_id, file_type, **kwargs)  # noqa: E501
 
+    def start_file_data_upload_with_http_info(self, file_id, version_id, file_type, **kwargs):  # noqa: E501
+        """Start FileData Upload  # noqa: E501
+
+        Starts an upload of a specific FilePart. This endpoint will return an AWS URL which you can PUT data to. You need to call this and receive a new AWS API URL for each `partNumber`. Please see AWS's REST documentation on \"PUT Object to S3\" on how to upload. Once all parts has been uploaded, proceed to `/finish` endpoint.  **Note:** `nextPartNumber` seems like it is always ignored. Despite it returning 0, first partNumber is always 1.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.start_file_data_upload_with_http_info(file_id, version_id, file_type, async_req=True)
+        >>> result = thread.get()
+
+        :param file_id: (required)
+        :type file_id: str
+        :param version_id: (required)
+        :type version_id: int
+        :param file_type: (required)
+        :type file_type: str
+        :param part_number:
+        :type part_number: int
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :type _return_http_data_only: bool, optional
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :type _preload_content: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: tuple(FileUploadURL, status_code(int), headers(HTTPHeaderDict))
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'file_id',
+            'version_id',
+            'file_type',
+            'part_number'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth',
+                '_content_type',
+                '_headers'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method start_file_data_upload" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'file_id' is set
+        if self.api_client.client_side_validation and local_var_params.get('file_id') is None:  # noqa: E501
+            raise ApiValueError("Missing the required parameter `file_id` when calling `start_file_data_upload`")  # noqa: E501
+        # verify the required parameter 'version_id' is set
+        if self.api_client.client_side_validation and local_var_params.get('version_id') is None:  # noqa: E501
+            raise ApiValueError("Missing the required parameter `version_id` when calling `start_file_data_upload`")  # noqa: E501
+        # verify the required parameter 'file_type' is set
+        if self.api_client.client_side_validation and local_var_params.get('file_type') is None:  # noqa: E501
+            raise ApiValueError("Missing the required parameter `file_type` when calling `start_file_data_upload`")  # noqa: E501
+
+        if self.api_client.client_side_validation and 'file_id' in local_var_params and not re.search(r'file_[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}', local_var_params['file_id']):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `file_id` when calling `start_file_data_upload`, must conform to the pattern `/file_[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}/`")  # noqa: E501
+        if self.api_client.client_side_validation and 'version_id' in local_var_params and local_var_params['version_id'] < 1:  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `version_id` when calling `start_file_data_upload`, must be a value greater than or equal to `1`")  # noqa: E501
+        if self.api_client.client_side_validation and 'part_number' in local_var_params and local_var_params['part_number'] < 0:  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `part_number` when calling `start_file_data_upload`, must be a value greater than or equal to `0`")  # noqa: E501
+        collection_formats = {}
+
+        path_params = {}
+        if 'file_id' in local_var_params:
+            path_params['fileId'] = local_var_params['file_id']  # noqa: E501
+        if 'version_id' in local_var_params:
+            path_params['versionId'] = local_var_params['version_id']  # noqa: E501
+        if 'file_type' in local_var_params:
+            path_params['fileType'] = local_var_params['file_type']  # noqa: E501
+
+        query_params = []
+        if local_var_params.get('part_number') is not None:  # noqa: E501
+            query_params.append(('partNumber', local_var_params['part_number']))  # noqa: E501
+
+        header_params = dict(local_var_params.get('_headers', {}))
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['apiKeyCookie', 'authCookie']  # noqa: E501
+
+        response_types_map = {
+            200: "FileUploadURL",
+            400: "Error",
+        }
+
+        return self.api_client.call_api(
+            '/file/{fileId}/{versionId}/{fileType}/start', 'PUT',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_types_map=response_types_map,
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))

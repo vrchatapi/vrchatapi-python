@@ -5,8 +5,7 @@ Status object representing if a queried user by username or userId exists or not
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**user_exists** | **bool** | Status if a user exist with that username or userId. | defaults to False
-**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
+**user_exists** | **bool** | Status if a user exist with that username or userId. | [default to False]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

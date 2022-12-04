@@ -1,3 +1,5 @@
+# coding: utf-8
+
 """
     VRChat API Documentation
 
@@ -8,27 +10,18 @@
 """
 
 
-import re  # noqa: F401
-import sys  # noqa: F401
+from __future__ import absolute_import
 
-from vrchatapi.api_client import ApiClient, Endpoint as _Endpoint
-from vrchatapi.model_utils import (  # noqa: F401
-    check_allowed_values,
-    check_validations,
-    date,
-    datetime,
-    file_type,
-    none_type,
-    validate_and_convert_types
+import re  # noqa: F401
+
+# python 2 and python 3 compatibility library
+import six
+
+from vrchatapi.api_client import ApiClient
+from vrchatapi.exceptions import (  # noqa: F401
+    ApiTypeError,
+    ApiValueError
 )
-from vrchatapi.model.error import Error
-from vrchatapi.model.invite_message import InviteMessage
-from vrchatapi.model.invite_request import InviteRequest
-from vrchatapi.model.invite_response import InviteResponse
-from vrchatapi.model.notification import Notification
-from vrchatapi.model.request_invite_request import RequestInviteRequest
-from vrchatapi.model.sent_notification import SentNotification
-from vrchatapi.model.update_invite_message_request import UpdateInviteMessageRequest
 
 
 class InviteApi(object):
@@ -42,552 +35,8 @@ class InviteApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
-        self.get_invite_message_endpoint = _Endpoint(
-            settings={
-                'response_type': (InviteMessage,),
-                'auth': [
-                    'apiKeyCookie',
-                    'authCookie'
-                ],
-                'endpoint_path': '/message/{userId}/{messageType}/{slot}',
-                'operation_id': 'get_invite_message',
-                'http_method': 'GET',
-                'servers': None,
-            },
-            params_map={
-                'all': [
-                    'user_id',
-                    'message_type',
-                    'slot',
-                ],
-                'required': [
-                    'user_id',
-                    'message_type',
-                    'slot',
-                ],
-                'nullable': [
-                ],
-                'enum': [
-                    'message_type',
-                ],
-                'validation': [
-                    'slot',
-                ]
-            },
-            root_map={
-                'validations': {
-                    ('slot',): {
 
-                        'inclusive_maximum': 11,
-                        'inclusive_minimum': 0,
-                    },
-                },
-                'allowed_values': {
-                    ('message_type',): {
-
-                        "MESSAGE": "message",
-                        "RESPONSE": "response",
-                        "REQUEST": "request",
-                        "REQUESTRESPONSE": "requestResponse"
-                    },
-                },
-                'openapi_types': {
-                    'user_id':
-                        (str,),
-                    'message_type':
-                        (str,),
-                    'slot':
-                        (int,),
-                },
-                'attribute_map': {
-                    'user_id': 'userId',
-                    'message_type': 'messageType',
-                    'slot': 'slot',
-                },
-                'location_map': {
-                    'user_id': 'path',
-                    'message_type': 'path',
-                    'slot': 'path',
-                },
-                'collection_format_map': {
-                }
-            },
-            headers_map={
-                'accept': [
-                    'application/json'
-                ],
-                'content_type': [],
-            },
-            api_client=api_client
-        )
-        self.get_invite_messages_endpoint = _Endpoint(
-            settings={
-                'response_type': ([InviteMessage],),
-                'auth': [
-                    'apiKeyCookie',
-                    'authCookie'
-                ],
-                'endpoint_path': '/message/{userId}/{messageType}',
-                'operation_id': 'get_invite_messages',
-                'http_method': 'GET',
-                'servers': None,
-            },
-            params_map={
-                'all': [
-                    'user_id',
-                    'message_type',
-                ],
-                'required': [
-                    'user_id',
-                    'message_type',
-                ],
-                'nullable': [
-                ],
-                'enum': [
-                    'message_type',
-                ],
-                'validation': [
-                ]
-            },
-            root_map={
-                'validations': {
-                },
-                'allowed_values': {
-                    ('message_type',): {
-
-                        "MESSAGE": "message",
-                        "RESPONSE": "response",
-                        "REQUEST": "request",
-                        "REQUESTRESPONSE": "requestResponse"
-                    },
-                },
-                'openapi_types': {
-                    'user_id':
-                        (str,),
-                    'message_type':
-                        (str,),
-                },
-                'attribute_map': {
-                    'user_id': 'userId',
-                    'message_type': 'messageType',
-                },
-                'location_map': {
-                    'user_id': 'path',
-                    'message_type': 'path',
-                },
-                'collection_format_map': {
-                }
-            },
-            headers_map={
-                'accept': [
-                    'application/json'
-                ],
-                'content_type': [],
-            },
-            api_client=api_client
-        )
-        self.invite_myself_to_endpoint = _Endpoint(
-            settings={
-                'response_type': (SentNotification,),
-                'auth': [
-                    'apiKeyCookie',
-                    'authCookie'
-                ],
-                'endpoint_path': '/invite/myself/to/{worldId}:{instanceId}',
-                'operation_id': 'invite_myself_to',
-                'http_method': 'POST',
-                'servers': None,
-            },
-            params_map={
-                'all': [
-                    'world_id',
-                    'instance_id',
-                ],
-                'required': [
-                    'world_id',
-                    'instance_id',
-                ],
-                'nullable': [
-                ],
-                'enum': [
-                ],
-                'validation': [
-                ]
-            },
-            root_map={
-                'validations': {
-                },
-                'allowed_values': {
-                },
-                'openapi_types': {
-                    'world_id':
-                        (str,),
-                    'instance_id':
-                        (str,),
-                },
-                'attribute_map': {
-                    'world_id': 'worldId',
-                    'instance_id': 'instanceId',
-                },
-                'location_map': {
-                    'world_id': 'path',
-                    'instance_id': 'path',
-                },
-                'collection_format_map': {
-                }
-            },
-            headers_map={
-                'accept': [
-                    'application/json'
-                ],
-                'content_type': [],
-            },
-            api_client=api_client
-        )
-        self.invite_user_endpoint = _Endpoint(
-            settings={
-                'response_type': (SentNotification,),
-                'auth': [
-                    'apiKeyCookie',
-                    'authCookie'
-                ],
-                'endpoint_path': '/invite/{userId}',
-                'operation_id': 'invite_user',
-                'http_method': 'POST',
-                'servers': None,
-            },
-            params_map={
-                'all': [
-                    'user_id',
-                    'invite_request',
-                ],
-                'required': [
-                    'user_id',
-                ],
-                'nullable': [
-                ],
-                'enum': [
-                ],
-                'validation': [
-                ]
-            },
-            root_map={
-                'validations': {
-                },
-                'allowed_values': {
-                },
-                'openapi_types': {
-                    'user_id':
-                        (str,),
-                    'invite_request':
-                        (InviteRequest,),
-                },
-                'attribute_map': {
-                    'user_id': 'userId',
-                },
-                'location_map': {
-                    'user_id': 'path',
-                    'invite_request': 'body',
-                },
-                'collection_format_map': {
-                }
-            },
-            headers_map={
-                'accept': [
-                    'application/json'
-                ],
-                'content_type': [
-                    'application/json'
-                ]
-            },
-            api_client=api_client
-        )
-        self.request_invite_endpoint = _Endpoint(
-            settings={
-                'response_type': (Notification,),
-                'auth': [
-                    'apiKeyCookie',
-                    'authCookie'
-                ],
-                'endpoint_path': '/requestInvite/{userId}',
-                'operation_id': 'request_invite',
-                'http_method': 'POST',
-                'servers': None,
-            },
-            params_map={
-                'all': [
-                    'user_id',
-                    'request_invite_request',
-                ],
-                'required': [
-                    'user_id',
-                ],
-                'nullable': [
-                ],
-                'enum': [
-                ],
-                'validation': [
-                ]
-            },
-            root_map={
-                'validations': {
-                },
-                'allowed_values': {
-                },
-                'openapi_types': {
-                    'user_id':
-                        (str,),
-                    'request_invite_request':
-                        (RequestInviteRequest,),
-                },
-                'attribute_map': {
-                    'user_id': 'userId',
-                },
-                'location_map': {
-                    'user_id': 'path',
-                    'request_invite_request': 'body',
-                },
-                'collection_format_map': {
-                }
-            },
-            headers_map={
-                'accept': [
-                    'application/json'
-                ],
-                'content_type': [
-                    'application/json'
-                ]
-            },
-            api_client=api_client
-        )
-        self.reset_invite_message_endpoint = _Endpoint(
-            settings={
-                'response_type': ([InviteMessage],),
-                'auth': [
-                    'apiKeyCookie',
-                    'authCookie'
-                ],
-                'endpoint_path': '/message/{userId}/{messageType}/{slot}',
-                'operation_id': 'reset_invite_message',
-                'http_method': 'DELETE',
-                'servers': None,
-            },
-            params_map={
-                'all': [
-                    'user_id',
-                    'message_type',
-                    'slot',
-                ],
-                'required': [
-                    'user_id',
-                    'message_type',
-                    'slot',
-                ],
-                'nullable': [
-                ],
-                'enum': [
-                    'message_type',
-                ],
-                'validation': [
-                    'slot',
-                ]
-            },
-            root_map={
-                'validations': {
-                    ('slot',): {
-
-                        'inclusive_maximum': 11,
-                        'inclusive_minimum': 0,
-                    },
-                },
-                'allowed_values': {
-                    ('message_type',): {
-
-                        "MESSAGE": "message",
-                        "RESPONSE": "response",
-                        "REQUEST": "request",
-                        "REQUESTRESPONSE": "requestResponse"
-                    },
-                },
-                'openapi_types': {
-                    'user_id':
-                        (str,),
-                    'message_type':
-                        (str,),
-                    'slot':
-                        (int,),
-                },
-                'attribute_map': {
-                    'user_id': 'userId',
-                    'message_type': 'messageType',
-                    'slot': 'slot',
-                },
-                'location_map': {
-                    'user_id': 'path',
-                    'message_type': 'path',
-                    'slot': 'path',
-                },
-                'collection_format_map': {
-                }
-            },
-            headers_map={
-                'accept': [
-                    'application/json'
-                ],
-                'content_type': [],
-            },
-            api_client=api_client
-        )
-        self.respond_invite_endpoint = _Endpoint(
-            settings={
-                'response_type': (Notification,),
-                'auth': [
-                    'apiKeyCookie',
-                    'authCookie'
-                ],
-                'endpoint_path': '/invite/{notificationId}/response',
-                'operation_id': 'respond_invite',
-                'http_method': 'POST',
-                'servers': None,
-            },
-            params_map={
-                'all': [
-                    'notification_id',
-                    'invite_response',
-                ],
-                'required': [
-                    'notification_id',
-                ],
-                'nullable': [
-                ],
-                'enum': [
-                ],
-                'validation': [
-                ]
-            },
-            root_map={
-                'validations': {
-                },
-                'allowed_values': {
-                },
-                'openapi_types': {
-                    'notification_id':
-                        (str,),
-                    'invite_response':
-                        (InviteResponse,),
-                },
-                'attribute_map': {
-                    'notification_id': 'notificationId',
-                },
-                'location_map': {
-                    'notification_id': 'path',
-                    'invite_response': 'body',
-                },
-                'collection_format_map': {
-                }
-            },
-            headers_map={
-                'accept': [
-                    'application/json'
-                ],
-                'content_type': [
-                    'application/json'
-                ]
-            },
-            api_client=api_client
-        )
-        self.update_invite_message_endpoint = _Endpoint(
-            settings={
-                'response_type': ([InviteMessage],),
-                'auth': [
-                    'apiKeyCookie',
-                    'authCookie'
-                ],
-                'endpoint_path': '/message/{userId}/{messageType}/{slot}',
-                'operation_id': 'update_invite_message',
-                'http_method': 'PUT',
-                'servers': None,
-            },
-            params_map={
-                'all': [
-                    'user_id',
-                    'message_type',
-                    'slot',
-                    'update_invite_message_request',
-                ],
-                'required': [
-                    'user_id',
-                    'message_type',
-                    'slot',
-                ],
-                'nullable': [
-                ],
-                'enum': [
-                    'message_type',
-                ],
-                'validation': [
-                    'slot',
-                ]
-            },
-            root_map={
-                'validations': {
-                    ('slot',): {
-
-                        'inclusive_maximum': 11,
-                        'inclusive_minimum': 0,
-                    },
-                },
-                'allowed_values': {
-                    ('message_type',): {
-
-                        "MESSAGE": "message",
-                        "RESPONSE": "response",
-                        "REQUEST": "request",
-                        "REQUESTRESPONSE": "requestResponse"
-                    },
-                },
-                'openapi_types': {
-                    'user_id':
-                        (str,),
-                    'message_type':
-                        (str,),
-                    'slot':
-                        (int,),
-                    'update_invite_message_request':
-                        (UpdateInviteMessageRequest,),
-                },
-                'attribute_map': {
-                    'user_id': 'userId',
-                    'message_type': 'messageType',
-                    'slot': 'slot',
-                },
-                'location_map': {
-                    'user_id': 'path',
-                    'message_type': 'path',
-                    'slot': 'path',
-                    'update_invite_message_request': 'body',
-                },
-                'collection_format_map': {
-                }
-            },
-            headers_map={
-                'accept': [
-                    'application/json'
-                ],
-                'content_type': [
-                    'application/json'
-                ]
-            },
-            api_client=api_client
-        )
-
-    def get_invite_message(
-        self,
-        user_id,
-        message_type,
-        slot,
-        **kwargs
-    ):
+    def get_invite_message(self, user_id, message_type, slot, **kwargs):  # noqa: E501
         """Get Invite Message  # noqa: E501
 
         Returns a single Invite Message. This returns the exact same information but less than `getInviteMessages`. Admin Credentials are required to view messages of other users!  Message type refers to a different collection of messages, used during different types of responses.  * `message` = Message during a normal invite * `response` = Message when replying to a message * `request` = Message when requesting an invite * `requestResponse` = Message when replying to a request for invite  # noqa: E501
@@ -597,70 +46,161 @@ class InviteApi(object):
         >>> thread = api.get_invite_message(user_id, message_type, slot, async_req=True)
         >>> result = thread.get()
 
-        Args:
-            user_id (str):
-            message_type (str):
-            slot (int):
-
-        Keyword Args:
-            _return_http_data_only (bool): response data without head status
-                code and headers. Default is True.
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-            async_req (bool): execute request asynchronously
-
-        Returns:
-            InviteMessage
-                If the method is called asynchronously, returns the request
-                thread.
+        :param user_id: (required)
+        :type user_id: str
+        :param message_type: (required)
+        :type message_type: str
+        :param slot: (required)
+        :type slot: int
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :type _preload_content: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: InviteMessage
         """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_host_index'] = kwargs.get('_host_index')
-        kwargs['user_id'] = \
-            user_id
-        kwargs['message_type'] = \
-            message_type
-        kwargs['slot'] = \
-            slot
-        return self.get_invite_message_endpoint.call_with_http_info(**kwargs)
+        kwargs['_return_http_data_only'] = True
+        return self.get_invite_message_with_http_info(user_id, message_type, slot, **kwargs)  # noqa: E501
 
-    def get_invite_messages(
-        self,
-        user_id,
-        message_type,
-        **kwargs
-    ):
+    def get_invite_message_with_http_info(self, user_id, message_type, slot, **kwargs):  # noqa: E501
+        """Get Invite Message  # noqa: E501
+
+        Returns a single Invite Message. This returns the exact same information but less than `getInviteMessages`. Admin Credentials are required to view messages of other users!  Message type refers to a different collection of messages, used during different types of responses.  * `message` = Message during a normal invite * `response` = Message when replying to a message * `request` = Message when requesting an invite * `requestResponse` = Message when replying to a request for invite  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_invite_message_with_http_info(user_id, message_type, slot, async_req=True)
+        >>> result = thread.get()
+
+        :param user_id: (required)
+        :type user_id: str
+        :param message_type: (required)
+        :type message_type: str
+        :param slot: (required)
+        :type slot: int
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :type _return_http_data_only: bool, optional
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :type _preload_content: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: tuple(InviteMessage, status_code(int), headers(HTTPHeaderDict))
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'user_id',
+            'message_type',
+            'slot'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth',
+                '_content_type',
+                '_headers'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_invite_message" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'user_id' is set
+        if self.api_client.client_side_validation and local_var_params.get('user_id') is None:  # noqa: E501
+            raise ApiValueError("Missing the required parameter `user_id` when calling `get_invite_message`")  # noqa: E501
+        # verify the required parameter 'message_type' is set
+        if self.api_client.client_side_validation and local_var_params.get('message_type') is None:  # noqa: E501
+            raise ApiValueError("Missing the required parameter `message_type` when calling `get_invite_message`")  # noqa: E501
+        # verify the required parameter 'slot' is set
+        if self.api_client.client_side_validation and local_var_params.get('slot') is None:  # noqa: E501
+            raise ApiValueError("Missing the required parameter `slot` when calling `get_invite_message`")  # noqa: E501
+
+        if self.api_client.client_side_validation and 'slot' in local_var_params and local_var_params['slot'] > 11:  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `slot` when calling `get_invite_message`, must be a value less than or equal to `11`")  # noqa: E501
+        if self.api_client.client_side_validation and 'slot' in local_var_params and local_var_params['slot'] < 0:  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `slot` when calling `get_invite_message`, must be a value greater than or equal to `0`")  # noqa: E501
+        collection_formats = {}
+
+        path_params = {}
+        if 'user_id' in local_var_params:
+            path_params['userId'] = local_var_params['user_id']  # noqa: E501
+        if 'message_type' in local_var_params:
+            path_params['messageType'] = local_var_params['message_type']  # noqa: E501
+        if 'slot' in local_var_params:
+            path_params['slot'] = local_var_params['slot']  # noqa: E501
+
+        query_params = []
+
+        header_params = dict(local_var_params.get('_headers', {}))
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['apiKeyCookie', 'authCookie']  # noqa: E501
+
+        response_types_map = {
+            200: "InviteMessage",
+            400: "Error",
+            401: "Error",
+            404: "Error",
+        }
+
+        return self.api_client.call_api(
+            '/message/{userId}/{messageType}/{slot}', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_types_map=response_types_map,
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))
+
+    def get_invite_messages(self, user_id, message_type, **kwargs):  # noqa: E501
         """List Invite Messages  # noqa: E501
 
         Returns a list of all the users Invite Messages. Admin Credentials are required to view messages of other users!  Message type refers to a different collection of messages, used during different types of responses.  * `message` = Message during a normal invite * `response` = Message when replying to a message * `request` = Message when requesting an invite * `requestResponse` = Message when replying to a request for invite  # noqa: E501
@@ -670,67 +210,146 @@ class InviteApi(object):
         >>> thread = api.get_invite_messages(user_id, message_type, async_req=True)
         >>> result = thread.get()
 
-        Args:
-            user_id (str):
-            message_type (str):
-
-        Keyword Args:
-            _return_http_data_only (bool): response data without head status
-                code and headers. Default is True.
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-            async_req (bool): execute request asynchronously
-
-        Returns:
-            [InviteMessage]
-                If the method is called asynchronously, returns the request
-                thread.
+        :param user_id: (required)
+        :type user_id: str
+        :param message_type: (required)
+        :type message_type: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :type _preload_content: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: list[InviteMessage]
         """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_host_index'] = kwargs.get('_host_index')
-        kwargs['user_id'] = \
-            user_id
-        kwargs['message_type'] = \
-            message_type
-        return self.get_invite_messages_endpoint.call_with_http_info(**kwargs)
+        kwargs['_return_http_data_only'] = True
+        return self.get_invite_messages_with_http_info(user_id, message_type, **kwargs)  # noqa: E501
 
-    def invite_myself_to(
-        self,
-        world_id,
-        instance_id,
-        **kwargs
-    ):
+    def get_invite_messages_with_http_info(self, user_id, message_type, **kwargs):  # noqa: E501
+        """List Invite Messages  # noqa: E501
+
+        Returns a list of all the users Invite Messages. Admin Credentials are required to view messages of other users!  Message type refers to a different collection of messages, used during different types of responses.  * `message` = Message during a normal invite * `response` = Message when replying to a message * `request` = Message when requesting an invite * `requestResponse` = Message when replying to a request for invite  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_invite_messages_with_http_info(user_id, message_type, async_req=True)
+        >>> result = thread.get()
+
+        :param user_id: (required)
+        :type user_id: str
+        :param message_type: (required)
+        :type message_type: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :type _return_http_data_only: bool, optional
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :type _preload_content: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: tuple(list[InviteMessage], status_code(int), headers(HTTPHeaderDict))
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'user_id',
+            'message_type'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth',
+                '_content_type',
+                '_headers'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_invite_messages" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'user_id' is set
+        if self.api_client.client_side_validation and local_var_params.get('user_id') is None:  # noqa: E501
+            raise ApiValueError("Missing the required parameter `user_id` when calling `get_invite_messages`")  # noqa: E501
+        # verify the required parameter 'message_type' is set
+        if self.api_client.client_side_validation and local_var_params.get('message_type') is None:  # noqa: E501
+            raise ApiValueError("Missing the required parameter `message_type` when calling `get_invite_messages`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'user_id' in local_var_params:
+            path_params['userId'] = local_var_params['user_id']  # noqa: E501
+        if 'message_type' in local_var_params:
+            path_params['messageType'] = local_var_params['message_type']  # noqa: E501
+
+        query_params = []
+
+        header_params = dict(local_var_params.get('_headers', {}))
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['apiKeyCookie', 'authCookie']  # noqa: E501
+
+        response_types_map = {
+            200: "list[InviteMessage]",
+            400: "Error",
+            401: "Error",
+        }
+
+        return self.api_client.call_api(
+            '/message/{userId}/{messageType}', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_types_map=response_types_map,
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))
+
+    def invite_myself_to(self, world_id, instance_id, **kwargs):  # noqa: E501
         """Invite Myself To Instance  # noqa: E501
 
         Sends self an invite to an instance  # noqa: E501
@@ -740,66 +359,146 @@ class InviteApi(object):
         >>> thread = api.invite_myself_to(world_id, instance_id, async_req=True)
         >>> result = thread.get()
 
-        Args:
-            world_id (str):
-            instance_id (str):
-
-        Keyword Args:
-            _return_http_data_only (bool): response data without head status
-                code and headers. Default is True.
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-            async_req (bool): execute request asynchronously
-
-        Returns:
-            SentNotification
-                If the method is called asynchronously, returns the request
-                thread.
+        :param world_id: (required)
+        :type world_id: str
+        :param instance_id: (required)
+        :type instance_id: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :type _preload_content: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: SentNotification
         """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_host_index'] = kwargs.get('_host_index')
-        kwargs['world_id'] = \
-            world_id
-        kwargs['instance_id'] = \
-            instance_id
-        return self.invite_myself_to_endpoint.call_with_http_info(**kwargs)
+        kwargs['_return_http_data_only'] = True
+        return self.invite_myself_to_with_http_info(world_id, instance_id, **kwargs)  # noqa: E501
 
-    def invite_user(
-        self,
-        user_id,
-        **kwargs
-    ):
+    def invite_myself_to_with_http_info(self, world_id, instance_id, **kwargs):  # noqa: E501
+        """Invite Myself To Instance  # noqa: E501
+
+        Sends self an invite to an instance  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.invite_myself_to_with_http_info(world_id, instance_id, async_req=True)
+        >>> result = thread.get()
+
+        :param world_id: (required)
+        :type world_id: str
+        :param instance_id: (required)
+        :type instance_id: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :type _return_http_data_only: bool, optional
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :type _preload_content: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: tuple(SentNotification, status_code(int), headers(HTTPHeaderDict))
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'world_id',
+            'instance_id'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth',
+                '_content_type',
+                '_headers'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method invite_myself_to" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'world_id' is set
+        if self.api_client.client_side_validation and local_var_params.get('world_id') is None:  # noqa: E501
+            raise ApiValueError("Missing the required parameter `world_id` when calling `invite_myself_to`")  # noqa: E501
+        # verify the required parameter 'instance_id' is set
+        if self.api_client.client_side_validation and local_var_params.get('instance_id') is None:  # noqa: E501
+            raise ApiValueError("Missing the required parameter `instance_id` when calling `invite_myself_to`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'world_id' in local_var_params:
+            path_params['worldId'] = local_var_params['world_id']  # noqa: E501
+        if 'instance_id' in local_var_params:
+            path_params['instanceId'] = local_var_params['instance_id']  # noqa: E501
+
+        query_params = []
+
+        header_params = dict(local_var_params.get('_headers', {}))
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['apiKeyCookie', 'authCookie']  # noqa: E501
+
+        response_types_map = {
+            200: "SentNotification",
+            401: "Error",
+            404: "Error",
+        }
+
+        return self.api_client.call_api(
+            '/invite/myself/to/{worldId}:{instanceId}', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_types_map=response_types_map,
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))
+
+    def invite_user(self, user_id, **kwargs):  # noqa: E501
         """Invite User  # noqa: E501
 
         Sends an invite to a user. Returns the Notification of type `invite` that was sent.  # noqa: E501
@@ -809,64 +508,150 @@ class InviteApi(object):
         >>> thread = api.invite_user(user_id, async_req=True)
         >>> result = thread.get()
 
-        Args:
-            user_id (str):
-
-        Keyword Args:
-            invite_request (InviteRequest): Slot number of the Invite Message to use when inviting a user.. [optional]
-            _return_http_data_only (bool): response data without head status
-                code and headers. Default is True.
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-            async_req (bool): execute request asynchronously
-
-        Returns:
-            SentNotification
-                If the method is called asynchronously, returns the request
-                thread.
+        :param user_id: (required)
+        :type user_id: str
+        :param invite_request: Slot number of the Invite Message to use when inviting a user.
+        :type invite_request: InviteRequest
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :type _preload_content: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: SentNotification
         """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_host_index'] = kwargs.get('_host_index')
-        kwargs['user_id'] = \
-            user_id
-        return self.invite_user_endpoint.call_with_http_info(**kwargs)
+        kwargs['_return_http_data_only'] = True
+        return self.invite_user_with_http_info(user_id, **kwargs)  # noqa: E501
 
-    def request_invite(
-        self,
-        user_id,
-        **kwargs
-    ):
+    def invite_user_with_http_info(self, user_id, **kwargs):  # noqa: E501
+        """Invite User  # noqa: E501
+
+        Sends an invite to a user. Returns the Notification of type `invite` that was sent.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.invite_user_with_http_info(user_id, async_req=True)
+        >>> result = thread.get()
+
+        :param user_id: (required)
+        :type user_id: str
+        :param invite_request: Slot number of the Invite Message to use when inviting a user.
+        :type invite_request: InviteRequest
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :type _return_http_data_only: bool, optional
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :type _preload_content: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: tuple(SentNotification, status_code(int), headers(HTTPHeaderDict))
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'user_id',
+            'invite_request'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth',
+                '_content_type',
+                '_headers'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method invite_user" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'user_id' is set
+        if self.api_client.client_side_validation and local_var_params.get('user_id') is None:  # noqa: E501
+            raise ApiValueError("Missing the required parameter `user_id` when calling `invite_user`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'user_id' in local_var_params:
+            path_params['userId'] = local_var_params['user_id']  # noqa: E501
+
+        query_params = []
+
+        header_params = dict(local_var_params.get('_headers', {}))
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'invite_request' in local_var_params:
+            body_params = local_var_params['invite_request']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        content_types_list = local_var_params.get('_content_type',
+            self.api_client.select_header_content_type(
+                ['application/json'],
+                'POST', body_params))  # noqa: E501
+        if content_types_list:
+                header_params['Content-Type'] = content_types_list
+
+        # Authentication setting
+        auth_settings = ['apiKeyCookie', 'authCookie']  # noqa: E501
+
+        response_types_map = {
+            200: "SentNotification",
+            403: "Error",
+        }
+
+        return self.api_client.call_api(
+            '/invite/{userId}', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_types_map=response_types_map,
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))
+
+    def request_invite(self, user_id, **kwargs):  # noqa: E501
         """Request Invite  # noqa: E501
 
         Requests an invite from a user. Returns the Notification of type `requestInvite` that was sent.  # noqa: E501
@@ -876,66 +661,150 @@ class InviteApi(object):
         >>> thread = api.request_invite(user_id, async_req=True)
         >>> result = thread.get()
 
-        Args:
-            user_id (str):
-
-        Keyword Args:
-            request_invite_request (RequestInviteRequest): Slot number of the Request Message to use when request an invite.. [optional]
-            _return_http_data_only (bool): response data without head status
-                code and headers. Default is True.
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-            async_req (bool): execute request asynchronously
-
-        Returns:
-            Notification
-                If the method is called asynchronously, returns the request
-                thread.
+        :param user_id: (required)
+        :type user_id: str
+        :param request_invite_request: Slot number of the Request Message to use when request an invite.
+        :type request_invite_request: RequestInviteRequest
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :type _preload_content: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: Notification
         """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_host_index'] = kwargs.get('_host_index')
-        kwargs['user_id'] = \
-            user_id
-        return self.request_invite_endpoint.call_with_http_info(**kwargs)
+        kwargs['_return_http_data_only'] = True
+        return self.request_invite_with_http_info(user_id, **kwargs)  # noqa: E501
 
-    def reset_invite_message(
-        self,
-        user_id,
-        message_type,
-        slot,
-        **kwargs
-    ):
+    def request_invite_with_http_info(self, user_id, **kwargs):  # noqa: E501
+        """Request Invite  # noqa: E501
+
+        Requests an invite from a user. Returns the Notification of type `requestInvite` that was sent.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.request_invite_with_http_info(user_id, async_req=True)
+        >>> result = thread.get()
+
+        :param user_id: (required)
+        :type user_id: str
+        :param request_invite_request: Slot number of the Request Message to use when request an invite.
+        :type request_invite_request: RequestInviteRequest
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :type _return_http_data_only: bool, optional
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :type _preload_content: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: tuple(Notification, status_code(int), headers(HTTPHeaderDict))
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'user_id',
+            'request_invite_request'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth',
+                '_content_type',
+                '_headers'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method request_invite" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'user_id' is set
+        if self.api_client.client_side_validation and local_var_params.get('user_id') is None:  # noqa: E501
+            raise ApiValueError("Missing the required parameter `user_id` when calling `request_invite`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'user_id' in local_var_params:
+            path_params['userId'] = local_var_params['user_id']  # noqa: E501
+
+        query_params = []
+
+        header_params = dict(local_var_params.get('_headers', {}))
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'request_invite_request' in local_var_params:
+            body_params = local_var_params['request_invite_request']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        content_types_list = local_var_params.get('_content_type',
+            self.api_client.select_header_content_type(
+                ['application/json'],
+                'POST', body_params))  # noqa: E501
+        if content_types_list:
+                header_params['Content-Type'] = content_types_list
+
+        # Authentication setting
+        auth_settings = ['apiKeyCookie', 'authCookie']  # noqa: E501
+
+        response_types_map = {
+            200: "Notification",
+            403: "Error",
+        }
+
+        return self.api_client.call_api(
+            '/requestInvite/{userId}', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_types_map=response_types_map,
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))
+
+    def reset_invite_message(self, user_id, message_type, slot, **kwargs):  # noqa: E501
         """Reset Invite Message  # noqa: E501
 
         Resets a single Invite Message back to its original message, and then returns a list of all of them. Admin Credentials are required to update messages of other users!  Resetting a message respects the rate-limit, so it is not possible to reset within the 60 minutes countdown. Resetting it does however not set the rate-limit to 60 like when editing it. It is possible to edit it right after resetting it. Trying to edit a message before the cooldown timer expires results in a 429 \"Too Fast Error\".  Message type refers to a different collection of messages, used during different types of responses.  * `message` = Message during a normal invite * `response` = Message when replying to a message * `request` = Message when requesting an invite * `requestResponse` = Message when replying to a request for invite  The DELETE endpoint does not have/require any request body.  # noqa: E501
@@ -945,69 +814,162 @@ class InviteApi(object):
         >>> thread = api.reset_invite_message(user_id, message_type, slot, async_req=True)
         >>> result = thread.get()
 
-        Args:
-            user_id (str):
-            message_type (str):
-            slot (int):
-
-        Keyword Args:
-            _return_http_data_only (bool): response data without head status
-                code and headers. Default is True.
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-            async_req (bool): execute request asynchronously
-
-        Returns:
-            [InviteMessage]
-                If the method is called asynchronously, returns the request
-                thread.
+        :param user_id: (required)
+        :type user_id: str
+        :param message_type: (required)
+        :type message_type: str
+        :param slot: (required)
+        :type slot: int
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :type _preload_content: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: list[InviteMessage]
         """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_host_index'] = kwargs.get('_host_index')
-        kwargs['user_id'] = \
-            user_id
-        kwargs['message_type'] = \
-            message_type
-        kwargs['slot'] = \
-            slot
-        return self.reset_invite_message_endpoint.call_with_http_info(**kwargs)
+        kwargs['_return_http_data_only'] = True
+        return self.reset_invite_message_with_http_info(user_id, message_type, slot, **kwargs)  # noqa: E501
 
-    def respond_invite(
-        self,
-        notification_id,
-        **kwargs
-    ):
+    def reset_invite_message_with_http_info(self, user_id, message_type, slot, **kwargs):  # noqa: E501
+        """Reset Invite Message  # noqa: E501
+
+        Resets a single Invite Message back to its original message, and then returns a list of all of them. Admin Credentials are required to update messages of other users!  Resetting a message respects the rate-limit, so it is not possible to reset within the 60 minutes countdown. Resetting it does however not set the rate-limit to 60 like when editing it. It is possible to edit it right after resetting it. Trying to edit a message before the cooldown timer expires results in a 429 \"Too Fast Error\".  Message type refers to a different collection of messages, used during different types of responses.  * `message` = Message during a normal invite * `response` = Message when replying to a message * `request` = Message when requesting an invite * `requestResponse` = Message when replying to a request for invite  The DELETE endpoint does not have/require any request body.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.reset_invite_message_with_http_info(user_id, message_type, slot, async_req=True)
+        >>> result = thread.get()
+
+        :param user_id: (required)
+        :type user_id: str
+        :param message_type: (required)
+        :type message_type: str
+        :param slot: (required)
+        :type slot: int
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :type _return_http_data_only: bool, optional
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :type _preload_content: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: tuple(list[InviteMessage], status_code(int), headers(HTTPHeaderDict))
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'user_id',
+            'message_type',
+            'slot'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth',
+                '_content_type',
+                '_headers'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method reset_invite_message" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'user_id' is set
+        if self.api_client.client_side_validation and local_var_params.get('user_id') is None:  # noqa: E501
+            raise ApiValueError("Missing the required parameter `user_id` when calling `reset_invite_message`")  # noqa: E501
+        # verify the required parameter 'message_type' is set
+        if self.api_client.client_side_validation and local_var_params.get('message_type') is None:  # noqa: E501
+            raise ApiValueError("Missing the required parameter `message_type` when calling `reset_invite_message`")  # noqa: E501
+        # verify the required parameter 'slot' is set
+        if self.api_client.client_side_validation and local_var_params.get('slot') is None:  # noqa: E501
+            raise ApiValueError("Missing the required parameter `slot` when calling `reset_invite_message`")  # noqa: E501
+
+        if self.api_client.client_side_validation and 'slot' in local_var_params and local_var_params['slot'] > 11:  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `slot` when calling `reset_invite_message`, must be a value less than or equal to `11`")  # noqa: E501
+        if self.api_client.client_side_validation and 'slot' in local_var_params and local_var_params['slot'] < 0:  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `slot` when calling `reset_invite_message`, must be a value greater than or equal to `0`")  # noqa: E501
+        collection_formats = {}
+
+        path_params = {}
+        if 'user_id' in local_var_params:
+            path_params['userId'] = local_var_params['user_id']  # noqa: E501
+        if 'message_type' in local_var_params:
+            path_params['messageType'] = local_var_params['message_type']  # noqa: E501
+        if 'slot' in local_var_params:
+            path_params['slot'] = local_var_params['slot']  # noqa: E501
+
+        query_params = []
+
+        header_params = dict(local_var_params.get('_headers', {}))
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['apiKeyCookie', 'authCookie']  # noqa: E501
+
+        response_types_map = {
+            200: "list[InviteMessage]",
+            400: "Error",
+            401: "Error",
+            404: "Error",
+            429: "Error",
+        }
+
+        return self.api_client.call_api(
+            '/message/{userId}/{messageType}/{slot}', 'DELETE',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_types_map=response_types_map,
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))
+
+    def respond_invite(self, notification_id, **kwargs):  # noqa: E501
         """Respond Invite  # noqa: E501
 
         Respond to an invite request by sending a world invite to the requesting user. `:notificationId` is the ID of the requesting notification.  # noqa: E501
@@ -1017,66 +979,150 @@ class InviteApi(object):
         >>> thread = api.respond_invite(notification_id, async_req=True)
         >>> result = thread.get()
 
-        Args:
-            notification_id (str):
-
-        Keyword Args:
-            invite_response (InviteResponse): Slot number of the Response Message to use when responding to a user.. [optional]
-            _return_http_data_only (bool): response data without head status
-                code and headers. Default is True.
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-            async_req (bool): execute request asynchronously
-
-        Returns:
-            Notification
-                If the method is called asynchronously, returns the request
-                thread.
+        :param notification_id: (required)
+        :type notification_id: str
+        :param invite_response: Slot number of the Response Message to use when responding to a user.
+        :type invite_response: InviteResponse
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :type _preload_content: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: Notification
         """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_host_index'] = kwargs.get('_host_index')
-        kwargs['notification_id'] = \
-            notification_id
-        return self.respond_invite_endpoint.call_with_http_info(**kwargs)
+        kwargs['_return_http_data_only'] = True
+        return self.respond_invite_with_http_info(notification_id, **kwargs)  # noqa: E501
 
-    def update_invite_message(
-        self,
-        user_id,
-        message_type,
-        slot,
-        **kwargs
-    ):
+    def respond_invite_with_http_info(self, notification_id, **kwargs):  # noqa: E501
+        """Respond Invite  # noqa: E501
+
+        Respond to an invite request by sending a world invite to the requesting user. `:notificationId` is the ID of the requesting notification.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.respond_invite_with_http_info(notification_id, async_req=True)
+        >>> result = thread.get()
+
+        :param notification_id: (required)
+        :type notification_id: str
+        :param invite_response: Slot number of the Response Message to use when responding to a user.
+        :type invite_response: InviteResponse
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :type _return_http_data_only: bool, optional
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :type _preload_content: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: tuple(Notification, status_code(int), headers(HTTPHeaderDict))
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'notification_id',
+            'invite_response'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth',
+                '_content_type',
+                '_headers'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method respond_invite" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'notification_id' is set
+        if self.api_client.client_side_validation and local_var_params.get('notification_id') is None:  # noqa: E501
+            raise ApiValueError("Missing the required parameter `notification_id` when calling `respond_invite`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'notification_id' in local_var_params:
+            path_params['notificationId'] = local_var_params['notification_id']  # noqa: E501
+
+        query_params = []
+
+        header_params = dict(local_var_params.get('_headers', {}))
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'invite_response' in local_var_params:
+            body_params = local_var_params['invite_response']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        content_types_list = local_var_params.get('_content_type',
+            self.api_client.select_header_content_type(
+                ['application/json'],
+                'POST', body_params))  # noqa: E501
+        if content_types_list:
+                header_params['Content-Type'] = content_types_list
+
+        # Authentication setting
+        auth_settings = ['apiKeyCookie', 'authCookie']  # noqa: E501
+
+        response_types_map = {
+            200: "Notification",
+            400: "Error",
+        }
+
+        return self.api_client.call_api(
+            '/invite/{notificationId}/response', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_types_map=response_types_map,
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))
+
+    def update_invite_message(self, user_id, message_type, slot, **kwargs):  # noqa: E501
         """Update Invite Message  # noqa: E501
 
         Updates a single Invite Message and then returns a list of all of them. Admin Credentials are required to update messages of other users!  Updating a message automatically sets the cooldown timer to 60 minutes. Trying to edit a message before the cooldown timer expires results in a 429 \"Too Fast Error\".  Message type refers to a different collection of messages, used during different types of responses.  * `message` = Message during a normal invite * `response` = Message when replying to a message * `request` = Message when requesting an invite * `requestResponse` = Message when replying to a request for invite  # noqa: E501
@@ -1086,62 +1132,171 @@ class InviteApi(object):
         >>> thread = api.update_invite_message(user_id, message_type, slot, async_req=True)
         >>> result = thread.get()
 
-        Args:
-            user_id (str):
-            message_type (str):
-            slot (int):
-
-        Keyword Args:
-            update_invite_message_request (UpdateInviteMessageRequest): Message of what to set the invite message to.. [optional]
-            _return_http_data_only (bool): response data without head status
-                code and headers. Default is True.
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-            async_req (bool): execute request asynchronously
-
-        Returns:
-            [InviteMessage]
-                If the method is called asynchronously, returns the request
-                thread.
+        :param user_id: (required)
+        :type user_id: str
+        :param message_type: (required)
+        :type message_type: str
+        :param slot: (required)
+        :type slot: int
+        :param update_invite_message_request: Message of what to set the invite message to.
+        :type update_invite_message_request: UpdateInviteMessageRequest
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :type _preload_content: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: list[InviteMessage]
         """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_host_index'] = kwargs.get('_host_index')
-        kwargs['user_id'] = \
-            user_id
-        kwargs['message_type'] = \
-            message_type
-        kwargs['slot'] = \
-            slot
-        return self.update_invite_message_endpoint.call_with_http_info(**kwargs)
+        kwargs['_return_http_data_only'] = True
+        return self.update_invite_message_with_http_info(user_id, message_type, slot, **kwargs)  # noqa: E501
 
+    def update_invite_message_with_http_info(self, user_id, message_type, slot, **kwargs):  # noqa: E501
+        """Update Invite Message  # noqa: E501
+
+        Updates a single Invite Message and then returns a list of all of them. Admin Credentials are required to update messages of other users!  Updating a message automatically sets the cooldown timer to 60 minutes. Trying to edit a message before the cooldown timer expires results in a 429 \"Too Fast Error\".  Message type refers to a different collection of messages, used during different types of responses.  * `message` = Message during a normal invite * `response` = Message when replying to a message * `request` = Message when requesting an invite * `requestResponse` = Message when replying to a request for invite  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.update_invite_message_with_http_info(user_id, message_type, slot, async_req=True)
+        >>> result = thread.get()
+
+        :param user_id: (required)
+        :type user_id: str
+        :param message_type: (required)
+        :type message_type: str
+        :param slot: (required)
+        :type slot: int
+        :param update_invite_message_request: Message of what to set the invite message to.
+        :type update_invite_message_request: UpdateInviteMessageRequest
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :type _return_http_data_only: bool, optional
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :type _preload_content: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: tuple(list[InviteMessage], status_code(int), headers(HTTPHeaderDict))
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'user_id',
+            'message_type',
+            'slot',
+            'update_invite_message_request'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth',
+                '_content_type',
+                '_headers'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method update_invite_message" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'user_id' is set
+        if self.api_client.client_side_validation and local_var_params.get('user_id') is None:  # noqa: E501
+            raise ApiValueError("Missing the required parameter `user_id` when calling `update_invite_message`")  # noqa: E501
+        # verify the required parameter 'message_type' is set
+        if self.api_client.client_side_validation and local_var_params.get('message_type') is None:  # noqa: E501
+            raise ApiValueError("Missing the required parameter `message_type` when calling `update_invite_message`")  # noqa: E501
+        # verify the required parameter 'slot' is set
+        if self.api_client.client_side_validation and local_var_params.get('slot') is None:  # noqa: E501
+            raise ApiValueError("Missing the required parameter `slot` when calling `update_invite_message`")  # noqa: E501
+
+        if self.api_client.client_side_validation and 'slot' in local_var_params and local_var_params['slot'] > 11:  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `slot` when calling `update_invite_message`, must be a value less than or equal to `11`")  # noqa: E501
+        if self.api_client.client_side_validation and 'slot' in local_var_params and local_var_params['slot'] < 0:  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `slot` when calling `update_invite_message`, must be a value greater than or equal to `0`")  # noqa: E501
+        collection_formats = {}
+
+        path_params = {}
+        if 'user_id' in local_var_params:
+            path_params['userId'] = local_var_params['user_id']  # noqa: E501
+        if 'message_type' in local_var_params:
+            path_params['messageType'] = local_var_params['message_type']  # noqa: E501
+        if 'slot' in local_var_params:
+            path_params['slot'] = local_var_params['slot']  # noqa: E501
+
+        query_params = []
+
+        header_params = dict(local_var_params.get('_headers', {}))
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'update_invite_message_request' in local_var_params:
+            body_params = local_var_params['update_invite_message_request']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        content_types_list = local_var_params.get('_content_type',
+            self.api_client.select_header_content_type(
+                ['application/json'],
+                'PUT', body_params))  # noqa: E501
+        if content_types_list:
+                header_params['Content-Type'] = content_types_list
+
+        # Authentication setting
+        auth_settings = ['apiKeyCookie', 'authCookie']  # noqa: E501
+
+        response_types_map = {
+            200: "list[InviteMessage]",
+            400: "Error",
+            401: "Error",
+            429: "Error",
+        }
+
+        return self.api_client.call_api(
+            '/message/{userId}/{messageType}/{slot}', 'PUT',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_types_map=response_types_map,
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))

@@ -1,3 +1,5 @@
+# coding: utf-8
+
 """
     VRChat API Documentation
 
@@ -8,23 +10,18 @@
 """
 
 
-import re  # noqa: F401
-import sys  # noqa: F401
+from __future__ import absolute_import
 
-from vrchatapi.api_client import ApiClient, Endpoint as _Endpoint
-from vrchatapi.model_utils import (  # noqa: F401
-    check_allowed_values,
-    check_validations,
-    date,
-    datetime,
-    file_type,
-    none_type,
-    validate_and_convert_types
+import re  # noqa: F401
+
+# python 2 and python 3 compatibility library
+import six
+
+from vrchatapi.api_client import ApiClient
+from vrchatapi.exceptions import (  # noqa: F401
+    ApiTypeError,
+    ApiValueError
 )
-from vrchatapi.model.error import Error
-from vrchatapi.model.instance import Instance
-from vrchatapi.model.instance_short_name_response import InstanceShortNameResponse
-from vrchatapi.model.success import Success
 
 
 class InstancesApi(object):
@@ -38,240 +35,8 @@ class InstancesApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
-        self.get_instance_endpoint = _Endpoint(
-            settings={
-                'response_type': (Instance,),
-                'auth': [
-                    'apiKeyCookie',
-                    'authCookie'
-                ],
-                'endpoint_path': '/instances/{worldId}:{instanceId}',
-                'operation_id': 'get_instance',
-                'http_method': 'GET',
-                'servers': None,
-            },
-            params_map={
-                'all': [
-                    'world_id',
-                    'instance_id',
-                ],
-                'required': [
-                    'world_id',
-                    'instance_id',
-                ],
-                'nullable': [
-                ],
-                'enum': [
-                ],
-                'validation': [
-                ]
-            },
-            root_map={
-                'validations': {
-                },
-                'allowed_values': {
-                },
-                'openapi_types': {
-                    'world_id':
-                        (str,),
-                    'instance_id':
-                        (str,),
-                },
-                'attribute_map': {
-                    'world_id': 'worldId',
-                    'instance_id': 'instanceId',
-                },
-                'location_map': {
-                    'world_id': 'path',
-                    'instance_id': 'path',
-                },
-                'collection_format_map': {
-                }
-            },
-            headers_map={
-                'accept': [
-                    'application/json'
-                ],
-                'content_type': [],
-            },
-            api_client=api_client
-        )
-        self.get_instance_by_short_name_endpoint = _Endpoint(
-            settings={
-                'response_type': (Instance,),
-                'auth': [
-                    'apiKeyCookie',
-                    'authCookie'
-                ],
-                'endpoint_path': '/instances/s/{shortName}',
-                'operation_id': 'get_instance_by_short_name',
-                'http_method': 'GET',
-                'servers': None,
-            },
-            params_map={
-                'all': [
-                    'short_name',
-                ],
-                'required': [
-                    'short_name',
-                ],
-                'nullable': [
-                ],
-                'enum': [
-                ],
-                'validation': [
-                ]
-            },
-            root_map={
-                'validations': {
-                },
-                'allowed_values': {
-                },
-                'openapi_types': {
-                    'short_name':
-                        (str,),
-                },
-                'attribute_map': {
-                    'short_name': 'shortName',
-                },
-                'location_map': {
-                    'short_name': 'path',
-                },
-                'collection_format_map': {
-                }
-            },
-            headers_map={
-                'accept': [
-                    'application/json'
-                ],
-                'content_type': [],
-            },
-            api_client=api_client
-        )
-        self.get_short_name_endpoint = _Endpoint(
-            settings={
-                'response_type': (InstanceShortNameResponse,),
-                'auth': [
-                    'apiKeyCookie',
-                    'authCookie'
-                ],
-                'endpoint_path': '/instances/{worldId}:{instanceId}/shortName',
-                'operation_id': 'get_short_name',
-                'http_method': 'GET',
-                'servers': None,
-            },
-            params_map={
-                'all': [
-                    'world_id',
-                    'instance_id',
-                ],
-                'required': [
-                    'world_id',
-                    'instance_id',
-                ],
-                'nullable': [
-                ],
-                'enum': [
-                ],
-                'validation': [
-                ]
-            },
-            root_map={
-                'validations': {
-                },
-                'allowed_values': {
-                },
-                'openapi_types': {
-                    'world_id':
-                        (str,),
-                    'instance_id':
-                        (str,),
-                },
-                'attribute_map': {
-                    'world_id': 'worldId',
-                    'instance_id': 'instanceId',
-                },
-                'location_map': {
-                    'world_id': 'path',
-                    'instance_id': 'path',
-                },
-                'collection_format_map': {
-                }
-            },
-            headers_map={
-                'accept': [
-                    'text/plain',
-                    'application/json'
-                ],
-                'content_type': [],
-            },
-            api_client=api_client
-        )
-        self.send_self_invite_endpoint = _Endpoint(
-            settings={
-                'response_type': (Success,),
-                'auth': [
-                    'apiKeyCookie',
-                    'authCookie'
-                ],
-                'endpoint_path': '/instances/{worldId}:{instanceId}/invite',
-                'operation_id': 'send_self_invite',
-                'http_method': 'POST',
-                'servers': None,
-            },
-            params_map={
-                'all': [
-                    'world_id',
-                    'instance_id',
-                ],
-                'required': [
-                    'world_id',
-                    'instance_id',
-                ],
-                'nullable': [
-                ],
-                'enum': [
-                ],
-                'validation': [
-                ]
-            },
-            root_map={
-                'validations': {
-                },
-                'allowed_values': {
-                },
-                'openapi_types': {
-                    'world_id':
-                        (str,),
-                    'instance_id':
-                        (str,),
-                },
-                'attribute_map': {
-                    'world_id': 'worldId',
-                    'instance_id': 'instanceId',
-                },
-                'location_map': {
-                    'world_id': 'path',
-                    'instance_id': 'path',
-                },
-                'collection_format_map': {
-                }
-            },
-            headers_map={
-                'accept': [
-                    'application/json'
-                ],
-                'content_type': [],
-            },
-            api_client=api_client
-        )
 
-    def get_instance(
-        self,
-        world_id,
-        instance_id,
-        **kwargs
-    ):
+    def get_instance(self, world_id, instance_id, **kwargs):  # noqa: E501
         """Get Instance  # noqa: E501
 
         Returns an instance. Please read [Instances Tutorial](https://vrchatapi.github.io/tutorials/instances/) for more information on Instances.  If an invalid instanceId is provided, this endpoint will simply return \"null\"!  # noqa: E501
@@ -281,66 +46,145 @@ class InstancesApi(object):
         >>> thread = api.get_instance(world_id, instance_id, async_req=True)
         >>> result = thread.get()
 
-        Args:
-            world_id (str):
-            instance_id (str):
-
-        Keyword Args:
-            _return_http_data_only (bool): response data without head status
-                code and headers. Default is True.
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-            async_req (bool): execute request asynchronously
-
-        Returns:
-            Instance
-                If the method is called asynchronously, returns the request
-                thread.
+        :param world_id: (required)
+        :type world_id: str
+        :param instance_id: (required)
+        :type instance_id: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :type _preload_content: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: Instance
         """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_host_index'] = kwargs.get('_host_index')
-        kwargs['world_id'] = \
-            world_id
-        kwargs['instance_id'] = \
-            instance_id
-        return self.get_instance_endpoint.call_with_http_info(**kwargs)
+        kwargs['_return_http_data_only'] = True
+        return self.get_instance_with_http_info(world_id, instance_id, **kwargs)  # noqa: E501
 
-    def get_instance_by_short_name(
-        self,
-        short_name,
-        **kwargs
-    ):
+    def get_instance_with_http_info(self, world_id, instance_id, **kwargs):  # noqa: E501
+        """Get Instance  # noqa: E501
+
+        Returns an instance. Please read [Instances Tutorial](https://vrchatapi.github.io/tutorials/instances/) for more information on Instances.  If an invalid instanceId is provided, this endpoint will simply return \"null\"!  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_instance_with_http_info(world_id, instance_id, async_req=True)
+        >>> result = thread.get()
+
+        :param world_id: (required)
+        :type world_id: str
+        :param instance_id: (required)
+        :type instance_id: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :type _return_http_data_only: bool, optional
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :type _preload_content: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: tuple(Instance, status_code(int), headers(HTTPHeaderDict))
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'world_id',
+            'instance_id'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth',
+                '_content_type',
+                '_headers'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_instance" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'world_id' is set
+        if self.api_client.client_side_validation and local_var_params.get('world_id') is None:  # noqa: E501
+            raise ApiValueError("Missing the required parameter `world_id` when calling `get_instance`")  # noqa: E501
+        # verify the required parameter 'instance_id' is set
+        if self.api_client.client_side_validation and local_var_params.get('instance_id') is None:  # noqa: E501
+            raise ApiValueError("Missing the required parameter `instance_id` when calling `get_instance`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'world_id' in local_var_params:
+            path_params['worldId'] = local_var_params['world_id']  # noqa: E501
+        if 'instance_id' in local_var_params:
+            path_params['instanceId'] = local_var_params['instance_id']  # noqa: E501
+
+        query_params = []
+
+        header_params = dict(local_var_params.get('_headers', {}))
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['apiKeyCookie', 'authCookie']  # noqa: E501
+
+        response_types_map = {
+            200: "Instance",
+            401: "Error",
+        }
+
+        return self.api_client.call_api(
+            '/instances/{worldId}:{instanceId}', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_types_map=response_types_map,
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))
+
+    def get_instance_by_short_name(self, short_name, **kwargs):  # noqa: E501
         """Get Instance By Short Name  # noqa: E501
 
         Returns an instance. Please read [Instances Tutorial](https://vrchatapi.github.io/tutorials/instances/) for more information on Instances.  # noqa: E501
@@ -350,64 +194,136 @@ class InstancesApi(object):
         >>> thread = api.get_instance_by_short_name(short_name, async_req=True)
         >>> result = thread.get()
 
-        Args:
-            short_name (str):
-
-        Keyword Args:
-            _return_http_data_only (bool): response data without head status
-                code and headers. Default is True.
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-            async_req (bool): execute request asynchronously
-
-        Returns:
-            Instance
-                If the method is called asynchronously, returns the request
-                thread.
+        :param short_name: (required)
+        :type short_name: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :type _preload_content: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: Instance
         """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_host_index'] = kwargs.get('_host_index')
-        kwargs['short_name'] = \
-            short_name
-        return self.get_instance_by_short_name_endpoint.call_with_http_info(**kwargs)
+        kwargs['_return_http_data_only'] = True
+        return self.get_instance_by_short_name_with_http_info(short_name, **kwargs)  # noqa: E501
 
-    def get_short_name(
-        self,
-        world_id,
-        instance_id,
-        **kwargs
-    ):
+    def get_instance_by_short_name_with_http_info(self, short_name, **kwargs):  # noqa: E501
+        """Get Instance By Short Name  # noqa: E501
+
+        Returns an instance. Please read [Instances Tutorial](https://vrchatapi.github.io/tutorials/instances/) for more information on Instances.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_instance_by_short_name_with_http_info(short_name, async_req=True)
+        >>> result = thread.get()
+
+        :param short_name: (required)
+        :type short_name: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :type _return_http_data_only: bool, optional
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :type _preload_content: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: tuple(Instance, status_code(int), headers(HTTPHeaderDict))
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'short_name'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth',
+                '_content_type',
+                '_headers'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_instance_by_short_name" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'short_name' is set
+        if self.api_client.client_side_validation and local_var_params.get('short_name') is None:  # noqa: E501
+            raise ApiValueError("Missing the required parameter `short_name` when calling `get_instance_by_short_name`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'short_name' in local_var_params:
+            path_params['shortName'] = local_var_params['short_name']  # noqa: E501
+
+        query_params = []
+
+        header_params = dict(local_var_params.get('_headers', {}))
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['apiKeyCookie', 'authCookie']  # noqa: E501
+
+        response_types_map = {
+            200: "Instance",
+            401: "Error",
+            404: "Error",
+        }
+
+        return self.api_client.call_api(
+            '/instances/s/{shortName}', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_types_map=response_types_map,
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))
+
+    def get_short_name(self, world_id, instance_id, **kwargs):  # noqa: E501
         """Get Instance Short Name  # noqa: E501
 
         Returns an instance short name.  # noqa: E501
@@ -417,67 +333,145 @@ class InstancesApi(object):
         >>> thread = api.get_short_name(world_id, instance_id, async_req=True)
         >>> result = thread.get()
 
-        Args:
-            world_id (str):
-            instance_id (str):
-
-        Keyword Args:
-            _return_http_data_only (bool): response data without head status
-                code and headers. Default is True.
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-            async_req (bool): execute request asynchronously
-
-        Returns:
-            InstanceShortNameResponse
-                If the method is called asynchronously, returns the request
-                thread.
+        :param world_id: (required)
+        :type world_id: str
+        :param instance_id: (required)
+        :type instance_id: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :type _preload_content: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: InstanceShortNameResponse
         """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_host_index'] = kwargs.get('_host_index')
-        kwargs['world_id'] = \
-            world_id
-        kwargs['instance_id'] = \
-            instance_id
-        return self.get_short_name_endpoint.call_with_http_info(**kwargs)
+        kwargs['_return_http_data_only'] = True
+        return self.get_short_name_with_http_info(world_id, instance_id, **kwargs)  # noqa: E501
 
-    def send_self_invite(
-        self,
-        world_id,
-        instance_id,
-        **kwargs
-    ):
+    def get_short_name_with_http_info(self, world_id, instance_id, **kwargs):  # noqa: E501
+        """Get Instance Short Name  # noqa: E501
+
+        Returns an instance short name.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_short_name_with_http_info(world_id, instance_id, async_req=True)
+        >>> result = thread.get()
+
+        :param world_id: (required)
+        :type world_id: str
+        :param instance_id: (required)
+        :type instance_id: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :type _return_http_data_only: bool, optional
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :type _preload_content: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: tuple(InstanceShortNameResponse, status_code(int), headers(HTTPHeaderDict))
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'world_id',
+            'instance_id'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth',
+                '_content_type',
+                '_headers'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_short_name" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'world_id' is set
+        if self.api_client.client_side_validation and local_var_params.get('world_id') is None:  # noqa: E501
+            raise ApiValueError("Missing the required parameter `world_id` when calling `get_short_name`")  # noqa: E501
+        # verify the required parameter 'instance_id' is set
+        if self.api_client.client_side_validation and local_var_params.get('instance_id') is None:  # noqa: E501
+            raise ApiValueError("Missing the required parameter `instance_id` when calling `get_short_name`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'world_id' in local_var_params:
+            path_params['worldId'] = local_var_params['world_id']  # noqa: E501
+        if 'instance_id' in local_var_params:
+            path_params['instanceId'] = local_var_params['instance_id']  # noqa: E501
+
+        query_params = []
+
+        header_params = dict(local_var_params.get('_headers', {}))
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['text/plain', 'application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['apiKeyCookie', 'authCookie']  # noqa: E501
+
+        response_types_map = {
+            200: "InstanceShortNameResponse",
+            401: "Error",
+        }
+
+        return self.api_client.call_api(
+            '/instances/{worldId}:{instanceId}/shortName', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_types_map=response_types_map,
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))
+
+    def send_self_invite(self, world_id, instance_id, **kwargs):  # noqa: E501
         """Send Self Invite  # noqa: E501
 
         Sends an invite to the instance to yourself.  # noqa: E501
@@ -487,58 +481,140 @@ class InstancesApi(object):
         >>> thread = api.send_self_invite(world_id, instance_id, async_req=True)
         >>> result = thread.get()
 
-        Args:
-            world_id (str):
-            instance_id (str):
-
-        Keyword Args:
-            _return_http_data_only (bool): response data without head status
-                code and headers. Default is True.
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-            async_req (bool): execute request asynchronously
-
-        Returns:
-            Success
-                If the method is called asynchronously, returns the request
-                thread.
+        :param world_id: (required)
+        :type world_id: str
+        :param instance_id: (required)
+        :type instance_id: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :type _preload_content: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: Success
         """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_host_index'] = kwargs.get('_host_index')
-        kwargs['world_id'] = \
-            world_id
-        kwargs['instance_id'] = \
-            instance_id
-        return self.send_self_invite_endpoint.call_with_http_info(**kwargs)
+        kwargs['_return_http_data_only'] = True
+        return self.send_self_invite_with_http_info(world_id, instance_id, **kwargs)  # noqa: E501
 
+    def send_self_invite_with_http_info(self, world_id, instance_id, **kwargs):  # noqa: E501
+        """Send Self Invite  # noqa: E501
+
+        Sends an invite to the instance to yourself.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.send_self_invite_with_http_info(world_id, instance_id, async_req=True)
+        >>> result = thread.get()
+
+        :param world_id: (required)
+        :type world_id: str
+        :param instance_id: (required)
+        :type instance_id: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :type _return_http_data_only: bool, optional
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :type _preload_content: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: tuple(Success, status_code(int), headers(HTTPHeaderDict))
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'world_id',
+            'instance_id'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth',
+                '_content_type',
+                '_headers'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method send_self_invite" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'world_id' is set
+        if self.api_client.client_side_validation and local_var_params.get('world_id') is None:  # noqa: E501
+            raise ApiValueError("Missing the required parameter `world_id` when calling `send_self_invite`")  # noqa: E501
+        # verify the required parameter 'instance_id' is set
+        if self.api_client.client_side_validation and local_var_params.get('instance_id') is None:  # noqa: E501
+            raise ApiValueError("Missing the required parameter `instance_id` when calling `send_self_invite`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'world_id' in local_var_params:
+            path_params['worldId'] = local_var_params['world_id']  # noqa: E501
+        if 'instance_id' in local_var_params:
+            path_params['instanceId'] = local_var_params['instance_id']  # noqa: E501
+
+        query_params = []
+
+        header_params = dict(local_var_params.get('_headers', {}))
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['apiKeyCookie', 'authCookie']  # noqa: E501
+
+        response_types_map = {
+            200: "Success",
+            401: "Error",
+        }
+
+        return self.api_client.call_api(
+            '/instances/{worldId}:{instanceId}/invite', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_types_map=response_types_map,
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))

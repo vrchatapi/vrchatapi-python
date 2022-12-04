@@ -17,7 +17,7 @@ Method | HTTP request | Description
 
 
 # **create_file**
-> File create_file()
+> File create_file(create_file_request=create_file_request)
 
 Create File
 
@@ -26,14 +26,11 @@ Creates a new File object
 ### Example
 
 * Api Key Authentication (apiKeyCookie):
-* Api Key Authentication (authCookie):
-
 ```python
+from __future__ import print_function
 import time
 import vrchatapi
-from vrchatapi.api import files_api
-from vrchatapi.model.file import File
-from vrchatapi.model.create_file_request import CreateFileRequest
+from vrchatapi.rest import ApiException
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
 # See configuration.py for a list of all supported configuration parameters.
@@ -61,32 +58,66 @@ configuration.api_key['authCookie'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = files_api.FilesApi(api_client)
-    create_file_request = CreateFileRequest(
-        name="name_example",
-        mime_type=MIMEType("image/jpeg"),
-        extension="extension_example",
-        tags=[
-            Tag("tags_example"),
-        ],
-    ) # CreateFileRequest |  (optional)
+    api_instance = vrchatapi.FilesApi(api_client)
+    create_file_request = vrchatapi.CreateFileRequest() # CreateFileRequest |  (optional)
 
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Create File
         api_response = api_instance.create_file(create_file_request=create_file_request)
         pprint(api_response)
-    except vrchatapi.ApiException as e:
+    except ApiException as e:
         print("Exception when calling FilesApi->create_file: %s\n" % e)
 ```
 
+* Api Key Authentication (authCookie):
+```python
+from __future__ import print_function
+import time
+import vrchatapi
+from vrchatapi.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = vrchatapi.Configuration(
+    host = "https://api.vrchat.cloud/api/1"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: apiKeyCookie
+configuration.api_key['apiKeyCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apiKeyCookie'] = 'Bearer'
+
+# Configure API key authorization: authCookie
+configuration.api_key['authCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['authCookie'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with vrchatapi.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = vrchatapi.FilesApi(api_client)
+    create_file_request = vrchatapi.CreateFileRequest() # CreateFileRequest |  (optional)
+
+    try:
+        # Create File
+        api_response = api_instance.create_file(create_file_request=create_file_request)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling FilesApi->create_file: %s\n" % e)
+```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **create_file_request** | [**CreateFileRequest**](CreateFileRequest.md)|  | [optional]
+ **create_file_request** | [**CreateFileRequest**](CreateFileRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -101,9 +132,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Returns a single File object. |  -  |
@@ -111,7 +140,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_file_version**
-> File create_file_version(file_id)
+> File create_file_version(file_id, create_file_version_request=create_file_version_request)
 
 Create File Version
 
@@ -120,14 +149,11 @@ Creates a new FileVersion. Once a Version has been created, proceed to the `/fil
 ### Example
 
 * Api Key Authentication (apiKeyCookie):
-* Api Key Authentication (authCookie):
-
 ```python
+from __future__ import print_function
 import time
 import vrchatapi
-from vrchatapi.api import files_api
-from vrchatapi.model.file import File
-from vrchatapi.model.create_file_version_request import CreateFileVersionRequest
+from vrchatapi.rest import ApiException
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
 # See configuration.py for a list of all supported configuration parameters.
@@ -155,40 +181,69 @@ configuration.api_key['authCookie'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = files_api.FilesApi(api_client)
-    file_id = "file_00000000-0000-0000-0000-000000000000" # str | 
-    create_file_version_request = CreateFileVersionRequest(
-        signature_md5="signature_md5_example",
-        signature_size_in_bytes=3.14,
-        file_md5="file_md5_example",
-        file_size_in_bytes=3.14,
-    ) # CreateFileVersionRequest |  (optional)
+    api_instance = vrchatapi.FilesApi(api_client)
+    file_id = 'file_00000000-0000-0000-0000-000000000000' # str | 
+create_file_version_request = vrchatapi.CreateFileVersionRequest() # CreateFileVersionRequest |  (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Create File Version
-        api_response = api_instance.create_file_version(file_id)
-        pprint(api_response)
-    except vrchatapi.ApiException as e:
-        print("Exception when calling FilesApi->create_file_version: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Create File Version
         api_response = api_instance.create_file_version(file_id, create_file_version_request=create_file_version_request)
         pprint(api_response)
-    except vrchatapi.ApiException as e:
+    except ApiException as e:
         print("Exception when calling FilesApi->create_file_version: %s\n" % e)
 ```
 
+* Api Key Authentication (authCookie):
+```python
+from __future__ import print_function
+import time
+import vrchatapi
+from vrchatapi.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = vrchatapi.Configuration(
+    host = "https://api.vrchat.cloud/api/1"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: apiKeyCookie
+configuration.api_key['apiKeyCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apiKeyCookie'] = 'Bearer'
+
+# Configure API key authorization: authCookie
+configuration.api_key['authCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['authCookie'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with vrchatapi.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = vrchatapi.FilesApi(api_client)
+    file_id = 'file_00000000-0000-0000-0000-000000000000' # str | 
+create_file_version_request = vrchatapi.CreateFileVersionRequest() # CreateFileVersionRequest |  (optional)
+
+    try:
+        # Create File Version
+        api_response = api_instance.create_file_version(file_id, create_file_version_request=create_file_version_request)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling FilesApi->create_file_version: %s\n" % e)
+```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **file_id** | **str**|  |
- **create_file_version_request** | [**CreateFileVersionRequest**](CreateFileVersionRequest.md)|  | [optional]
+ **file_id** | **str**|  | 
+ **create_file_version_request** | [**CreateFileVersionRequest**](CreateFileVersionRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -203,9 +258,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Returns a single File object. |  -  |
@@ -222,14 +275,11 @@ Deletes a File object.
 ### Example
 
 * Api Key Authentication (apiKeyCookie):
-* Api Key Authentication (authCookie):
-
 ```python
+from __future__ import print_function
 import time
 import vrchatapi
-from vrchatapi.api import files_api
-from vrchatapi.model.success import Success
-from vrchatapi.model.error import Error
+from vrchatapi.rest import ApiException
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
 # See configuration.py for a list of all supported configuration parameters.
@@ -257,24 +307,66 @@ configuration.api_key['authCookie'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = files_api.FilesApi(api_client)
-    file_id = "file_00000000-0000-0000-0000-000000000000" # str | 
+    api_instance = vrchatapi.FilesApi(api_client)
+    file_id = 'file_00000000-0000-0000-0000-000000000000' # str | 
 
-    # example passing only required values which don't have defaults set
     try:
         # Delete File
         api_response = api_instance.delete_file(file_id)
         pprint(api_response)
-    except vrchatapi.ApiException as e:
+    except ApiException as e:
         print("Exception when calling FilesApi->delete_file: %s\n" % e)
 ```
 
+* Api Key Authentication (authCookie):
+```python
+from __future__ import print_function
+import time
+import vrchatapi
+from vrchatapi.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = vrchatapi.Configuration(
+    host = "https://api.vrchat.cloud/api/1"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: apiKeyCookie
+configuration.api_key['apiKeyCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apiKeyCookie'] = 'Bearer'
+
+# Configure API key authorization: authCookie
+configuration.api_key['authCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['authCookie'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with vrchatapi.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = vrchatapi.FilesApi(api_client)
+    file_id = 'file_00000000-0000-0000-0000-000000000000' # str | 
+
+    try:
+        # Delete File
+        api_response = api_instance.delete_file(file_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling FilesApi->delete_file: %s\n" % e)
+```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **file_id** | **str**|  |
+ **file_id** | **str**|  | 
 
 ### Return type
 
@@ -289,9 +381,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful response after deleting a File. |  -  |
@@ -309,14 +399,11 @@ Delete a specific version of a file. You can only delete the latest version.
 ### Example
 
 * Api Key Authentication (apiKeyCookie):
-* Api Key Authentication (authCookie):
-
 ```python
+from __future__ import print_function
 import time
 import vrchatapi
-from vrchatapi.api import files_api
-from vrchatapi.model.file import File
-from vrchatapi.model.error import Error
+from vrchatapi.rest import ApiException
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
 # See configuration.py for a list of all supported configuration parameters.
@@ -344,26 +431,69 @@ configuration.api_key['authCookie'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = files_api.FilesApi(api_client)
-    file_id = "file_00000000-0000-0000-0000-000000000000" # str | 
-    version_id = 1 # int | 
+    api_instance = vrchatapi.FilesApi(api_client)
+    file_id = 'file_00000000-0000-0000-0000-000000000000' # str | 
+version_id = 1 # int | 
 
-    # example passing only required values which don't have defaults set
     try:
         # Delete File Version
         api_response = api_instance.delete_file_version(file_id, version_id)
         pprint(api_response)
-    except vrchatapi.ApiException as e:
+    except ApiException as e:
         print("Exception when calling FilesApi->delete_file_version: %s\n" % e)
 ```
 
+* Api Key Authentication (authCookie):
+```python
+from __future__ import print_function
+import time
+import vrchatapi
+from vrchatapi.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = vrchatapi.Configuration(
+    host = "https://api.vrchat.cloud/api/1"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: apiKeyCookie
+configuration.api_key['apiKeyCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apiKeyCookie'] = 'Bearer'
+
+# Configure API key authorization: authCookie
+configuration.api_key['authCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['authCookie'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with vrchatapi.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = vrchatapi.FilesApi(api_client)
+    file_id = 'file_00000000-0000-0000-0000-000000000000' # str | 
+version_id = 1 # int | 
+
+    try:
+        # Delete File Version
+        api_response = api_instance.delete_file_version(file_id, version_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling FilesApi->delete_file_version: %s\n" % e)
+```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **file_id** | **str**|  |
- **version_id** | **int**|  |
+ **file_id** | **str**|  | 
+ **version_id** | **int**|  | 
 
 ### Return type
 
@@ -378,9 +508,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Returns a single File object. |  -  |
@@ -399,12 +527,11 @@ Downloads the file with the provided version number.  **Version Note:** Version 
 ### Example
 
 * Api Key Authentication (apiKeyCookie):
-* Api Key Authentication (authCookie):
-
 ```python
+from __future__ import print_function
 import time
 import vrchatapi
-from vrchatapi.api import files_api
+from vrchatapi.rest import ApiException
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
 # See configuration.py for a list of all supported configuration parameters.
@@ -432,25 +559,67 @@ configuration.api_key['authCookie'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = files_api.FilesApi(api_client)
-    file_id = "file_00000000-0000-0000-0000-000000000000" # str | 
-    version_id = 1 # int | 
+    api_instance = vrchatapi.FilesApi(api_client)
+    file_id = 'file_00000000-0000-0000-0000-000000000000' # str | 
+version_id = 1 # int | 
 
-    # example passing only required values which don't have defaults set
     try:
         # Download File Version
         api_instance.download_file_version(file_id, version_id)
-    except vrchatapi.ApiException as e:
+    except ApiException as e:
         print("Exception when calling FilesApi->download_file_version: %s\n" % e)
 ```
 
+* Api Key Authentication (authCookie):
+```python
+from __future__ import print_function
+import time
+import vrchatapi
+from vrchatapi.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = vrchatapi.Configuration(
+    host = "https://api.vrchat.cloud/api/1"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: apiKeyCookie
+configuration.api_key['apiKeyCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apiKeyCookie'] = 'Bearer'
+
+# Configure API key authorization: authCookie
+configuration.api_key['authCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['authCookie'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with vrchatapi.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = vrchatapi.FilesApi(api_client)
+    file_id = 'file_00000000-0000-0000-0000-000000000000' # str | 
+version_id = 1 # int | 
+
+    try:
+        # Download File Version
+        api_instance.download_file_version(file_id, version_id)
+    except ApiException as e:
+        print("Exception when calling FilesApi->download_file_version: %s\n" % e)
+```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **file_id** | **str**|  |
- **version_id** | **int**|  |
+ **file_id** | **str**|  | 
+ **version_id** | **int**|  | 
 
 ### Return type
 
@@ -465,9 +634,7 @@ void (empty response body)
  - **Content-Type**: Not defined
  - **Accept**: Not defined
 
-
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Raw file |  -  |
@@ -475,7 +642,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **finish_file_data_upload**
-> File finish_file_data_upload(file_id, version_id, file_type)
+> File finish_file_data_upload(file_id, version_id, file_type, finish_file_data_upload_request=finish_file_data_upload_request)
 
 Finish FileData Upload
 
@@ -484,14 +651,11 @@ Finish an upload of a FileData. This will mark it as \"complete\". After uploadi
 ### Example
 
 * Api Key Authentication (apiKeyCookie):
-* Api Key Authentication (authCookie):
-
 ```python
+from __future__ import print_function
 import time
 import vrchatapi
-from vrchatapi.api import files_api
-from vrchatapi.model.file import File
-from vrchatapi.model.finish_file_data_upload_request import FinishFileDataUploadRequest
+from vrchatapi.rest import ApiException
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
 # See configuration.py for a list of all supported configuration parameters.
@@ -519,45 +683,75 @@ configuration.api_key['authCookie'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = files_api.FilesApi(api_client)
-    file_id = "file_00000000-0000-0000-0000-000000000000" # str | 
-    version_id = 1 # int | 
-    file_type = "file" # str | 
-    finish_file_data_upload_request = FinishFileDataUploadRequest(
-        etags=[
-            "etags_example",
-        ],
-        next_part_number="0",
-        max_parts="0",
-    ) # FinishFileDataUploadRequest | Please see documentation on ETag's: [https://teppen.io/2018/06/23/aws_s3_etags/](https://teppen.io/2018/06/23/aws_s3_etags/)  ETag's should NOT be present when uploading a `signature`. (optional)
+    api_instance = vrchatapi.FilesApi(api_client)
+    file_id = 'file_00000000-0000-0000-0000-000000000000' # str | 
+version_id = 1 # int | 
+file_type = 'file' # str | 
+finish_file_data_upload_request = {"etags":["xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx","yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy"],"nextPartNumber":"0","maxParts":"0"} # FinishFileDataUploadRequest | Please see documentation on ETag's: [https://teppen.io/2018/06/23/aws_s3_etags/](https://teppen.io/2018/06/23/aws_s3_etags/)  ETag's should NOT be present when uploading a `signature`. (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Finish FileData Upload
-        api_response = api_instance.finish_file_data_upload(file_id, version_id, file_type)
-        pprint(api_response)
-    except vrchatapi.ApiException as e:
-        print("Exception when calling FilesApi->finish_file_data_upload: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Finish FileData Upload
         api_response = api_instance.finish_file_data_upload(file_id, version_id, file_type, finish_file_data_upload_request=finish_file_data_upload_request)
         pprint(api_response)
-    except vrchatapi.ApiException as e:
+    except ApiException as e:
         print("Exception when calling FilesApi->finish_file_data_upload: %s\n" % e)
 ```
 
+* Api Key Authentication (authCookie):
+```python
+from __future__ import print_function
+import time
+import vrchatapi
+from vrchatapi.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = vrchatapi.Configuration(
+    host = "https://api.vrchat.cloud/api/1"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: apiKeyCookie
+configuration.api_key['apiKeyCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apiKeyCookie'] = 'Bearer'
+
+# Configure API key authorization: authCookie
+configuration.api_key['authCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['authCookie'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with vrchatapi.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = vrchatapi.FilesApi(api_client)
+    file_id = 'file_00000000-0000-0000-0000-000000000000' # str | 
+version_id = 1 # int | 
+file_type = 'file' # str | 
+finish_file_data_upload_request = {"etags":["xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx","yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy"],"nextPartNumber":"0","maxParts":"0"} # FinishFileDataUploadRequest | Please see documentation on ETag's: [https://teppen.io/2018/06/23/aws_s3_etags/](https://teppen.io/2018/06/23/aws_s3_etags/)  ETag's should NOT be present when uploading a `signature`. (optional)
+
+    try:
+        # Finish FileData Upload
+        api_response = api_instance.finish_file_data_upload(file_id, version_id, file_type, finish_file_data_upload_request=finish_file_data_upload_request)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling FilesApi->finish_file_data_upload: %s\n" % e)
+```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **file_id** | **str**|  |
- **version_id** | **int**|  |
- **file_type** | **str**|  |
- **finish_file_data_upload_request** | [**FinishFileDataUploadRequest**](FinishFileDataUploadRequest.md)| Please see documentation on ETag&#39;s: [https://teppen.io/2018/06/23/aws_s3_etags/](https://teppen.io/2018/06/23/aws_s3_etags/)  ETag&#39;s should NOT be present when uploading a &#x60;signature&#x60;. | [optional]
+ **file_id** | **str**|  | 
+ **version_id** | **int**|  | 
+ **file_type** | **str**|  | 
+ **finish_file_data_upload_request** | [**FinishFileDataUploadRequest**](FinishFileDataUploadRequest.md)| Please see documentation on ETag&#39;s: [https://teppen.io/2018/06/23/aws_s3_etags/](https://teppen.io/2018/06/23/aws_s3_etags/)  ETag&#39;s should NOT be present when uploading a &#x60;signature&#x60;. | [optional] 
 
 ### Return type
 
@@ -572,9 +766,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Returns a single File object. |  -  |
@@ -591,14 +783,11 @@ Shows general information about the \"File\" object. Each File can have several 
 ### Example
 
 * Api Key Authentication (apiKeyCookie):
-* Api Key Authentication (authCookie):
-
 ```python
+from __future__ import print_function
 import time
 import vrchatapi
-from vrchatapi.api import files_api
-from vrchatapi.model.file import File
-from vrchatapi.model.error import Error
+from vrchatapi.rest import ApiException
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
 # See configuration.py for a list of all supported configuration parameters.
@@ -626,24 +815,66 @@ configuration.api_key['authCookie'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = files_api.FilesApi(api_client)
-    file_id = "file_00000000-0000-0000-0000-000000000000" # str | 
+    api_instance = vrchatapi.FilesApi(api_client)
+    file_id = 'file_00000000-0000-0000-0000-000000000000' # str | 
 
-    # example passing only required values which don't have defaults set
     try:
         # Show File
         api_response = api_instance.get_file(file_id)
         pprint(api_response)
-    except vrchatapi.ApiException as e:
+    except ApiException as e:
         print("Exception when calling FilesApi->get_file: %s\n" % e)
 ```
 
+* Api Key Authentication (authCookie):
+```python
+from __future__ import print_function
+import time
+import vrchatapi
+from vrchatapi.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = vrchatapi.Configuration(
+    host = "https://api.vrchat.cloud/api/1"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: apiKeyCookie
+configuration.api_key['apiKeyCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apiKeyCookie'] = 'Bearer'
+
+# Configure API key authorization: authCookie
+configuration.api_key['authCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['authCookie'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with vrchatapi.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = vrchatapi.FilesApi(api_client)
+    file_id = 'file_00000000-0000-0000-0000-000000000000' # str | 
+
+    try:
+        # Show File
+        api_response = api_instance.get_file(file_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling FilesApi->get_file: %s\n" % e)
+```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **file_id** | **str**|  |
+ **file_id** | **str**|  | 
 
 ### Return type
 
@@ -658,9 +889,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Returns a single File object. |  -  |
@@ -678,13 +907,11 @@ Retrieves the upload status for file upload. Can currently only be accessed when
 ### Example
 
 * Api Key Authentication (apiKeyCookie):
-* Api Key Authentication (authCookie):
-
 ```python
+from __future__ import print_function
 import time
 import vrchatapi
-from vrchatapi.api import files_api
-from vrchatapi.model.file_version_upload_status import FileVersionUploadStatus
+from vrchatapi.rest import ApiException
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
 # See configuration.py for a list of all supported configuration parameters.
@@ -712,28 +939,72 @@ configuration.api_key['authCookie'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = files_api.FilesApi(api_client)
-    file_id = "file_00000000-0000-0000-0000-000000000000" # str | 
-    version_id = 1 # int | 
-    file_type = "file" # str | 
+    api_instance = vrchatapi.FilesApi(api_client)
+    file_id = 'file_00000000-0000-0000-0000-000000000000' # str | 
+version_id = 1 # int | 
+file_type = 'file' # str | 
 
-    # example passing only required values which don't have defaults set
     try:
         # Check FileData Upload Status
         api_response = api_instance.get_file_data_upload_status(file_id, version_id, file_type)
         pprint(api_response)
-    except vrchatapi.ApiException as e:
+    except ApiException as e:
         print("Exception when calling FilesApi->get_file_data_upload_status: %s\n" % e)
 ```
 
+* Api Key Authentication (authCookie):
+```python
+from __future__ import print_function
+import time
+import vrchatapi
+from vrchatapi.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = vrchatapi.Configuration(
+    host = "https://api.vrchat.cloud/api/1"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: apiKeyCookie
+configuration.api_key['apiKeyCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apiKeyCookie'] = 'Bearer'
+
+# Configure API key authorization: authCookie
+configuration.api_key['authCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['authCookie'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with vrchatapi.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = vrchatapi.FilesApi(api_client)
+    file_id = 'file_00000000-0000-0000-0000-000000000000' # str | 
+version_id = 1 # int | 
+file_type = 'file' # str | 
+
+    try:
+        # Check FileData Upload Status
+        api_response = api_instance.get_file_data_upload_status(file_id, version_id, file_type)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling FilesApi->get_file_data_upload_status: %s\n" % e)
+```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **file_id** | **str**|  |
- **version_id** | **int**|  |
- **file_type** | **str**|  |
+ **file_id** | **str**|  | 
+ **version_id** | **int**|  | 
+ **file_type** | **str**|  | 
 
 ### Return type
 
@@ -748,9 +1019,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Current FileVersion upload status. Contains the uploadId needed for uploading, as well as the already uploaded parts. |  -  |
@@ -758,7 +1027,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_files**
-> [File] get_files()
+> list[File] get_files(tag=tag, user_id=user_id, n=n, offset=offset)
 
 List Files
 
@@ -767,13 +1036,11 @@ Returns a list of files
 ### Example
 
 * Api Key Authentication (apiKeyCookie):
-* Api Key Authentication (authCookie):
-
 ```python
+from __future__ import print_function
 import time
 import vrchatapi
-from vrchatapi.api import files_api
-from vrchatapi.model.file import File
+from vrchatapi.rest import ApiException
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
 # See configuration.py for a list of all supported configuration parameters.
@@ -801,35 +1068,79 @@ configuration.api_key['authCookie'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = files_api.FilesApi(api_client)
-    tag = "tag_example" # str | Tag, for example \"icon\" or \"gallery\", not included by default. (optional)
-    user_id = "userId_example" # str | UserID, will always generate a 500 permission error. (optional)
-    n = 60 # int | The number of objects to return. (optional) if omitted the server will use the default value of 60
-    offset = 0 # int | A zero-based offset from the default object sorting from where search results start. (optional)
+    api_instance = vrchatapi.FilesApi(api_client)
+    tag = 'tag_example' # str | Tag, for example \"icon\" or \"gallery\", not included by default. (optional)
+user_id = 'user_id_example' # str | UserID, will always generate a 500 permission error. (optional)
+n = 60 # int | The number of objects to return. (optional) (default to 60)
+offset = 56 # int | A zero-based offset from the default object sorting from where search results start. (optional)
 
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # List Files
         api_response = api_instance.get_files(tag=tag, user_id=user_id, n=n, offset=offset)
         pprint(api_response)
-    except vrchatapi.ApiException as e:
+    except ApiException as e:
         print("Exception when calling FilesApi->get_files: %s\n" % e)
 ```
 
+* Api Key Authentication (authCookie):
+```python
+from __future__ import print_function
+import time
+import vrchatapi
+from vrchatapi.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = vrchatapi.Configuration(
+    host = "https://api.vrchat.cloud/api/1"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: apiKeyCookie
+configuration.api_key['apiKeyCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apiKeyCookie'] = 'Bearer'
+
+# Configure API key authorization: authCookie
+configuration.api_key['authCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['authCookie'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with vrchatapi.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = vrchatapi.FilesApi(api_client)
+    tag = 'tag_example' # str | Tag, for example \"icon\" or \"gallery\", not included by default. (optional)
+user_id = 'user_id_example' # str | UserID, will always generate a 500 permission error. (optional)
+n = 60 # int | The number of objects to return. (optional) (default to 60)
+offset = 56 # int | A zero-based offset from the default object sorting from where search results start. (optional)
+
+    try:
+        # List Files
+        api_response = api_instance.get_files(tag=tag, user_id=user_id, n=n, offset=offset)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling FilesApi->get_files: %s\n" % e)
+```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **tag** | **str**| Tag, for example \&quot;icon\&quot; or \&quot;gallery\&quot;, not included by default. | [optional]
- **user_id** | **str**| UserID, will always generate a 500 permission error. | [optional]
- **n** | **int**| The number of objects to return. | [optional] if omitted the server will use the default value of 60
- **offset** | **int**| A zero-based offset from the default object sorting from where search results start. | [optional]
+ **tag** | **str**| Tag, for example \&quot;icon\&quot; or \&quot;gallery\&quot;, not included by default. | [optional] 
+ **user_id** | **str**| UserID, will always generate a 500 permission error. | [optional] 
+ **n** | **int**| The number of objects to return. | [optional] [default to 60]
+ **offset** | **int**| A zero-based offset from the default object sorting from where search results start. | [optional] 
 
 ### Return type
 
-[**[File]**](File.md)
+[**list[File]**](File.md)
 
 ### Authorization
 
@@ -840,9 +1151,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Returns a list of File objects. |  -  |
@@ -850,7 +1159,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **start_file_data_upload**
-> FileUploadURL start_file_data_upload(file_id, version_id, file_type)
+> FileUploadURL start_file_data_upload(file_id, version_id, file_type, part_number=part_number)
 
 Start FileData Upload
 
@@ -859,14 +1168,11 @@ Starts an upload of a specific FilePart. This endpoint will return an AWS URL wh
 ### Example
 
 * Api Key Authentication (apiKeyCookie):
-* Api Key Authentication (authCookie):
-
 ```python
+from __future__ import print_function
 import time
 import vrchatapi
-from vrchatapi.api import files_api
-from vrchatapi.model.file_upload_url import FileUploadURL
-from vrchatapi.model.error import Error
+from vrchatapi.rest import ApiException
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
 # See configuration.py for a list of all supported configuration parameters.
@@ -894,39 +1200,75 @@ configuration.api_key['authCookie'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = files_api.FilesApi(api_client)
-    file_id = "file_00000000-0000-0000-0000-000000000000" # str | 
-    version_id = 1 # int | 
-    file_type = "file" # str | 
-    part_number = 1 # int |  (optional)
+    api_instance = vrchatapi.FilesApi(api_client)
+    file_id = 'file_00000000-0000-0000-0000-000000000000' # str | 
+version_id = 1 # int | 
+file_type = 'file' # str | 
+part_number = 1 # int |  (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Start FileData Upload
-        api_response = api_instance.start_file_data_upload(file_id, version_id, file_type)
-        pprint(api_response)
-    except vrchatapi.ApiException as e:
-        print("Exception when calling FilesApi->start_file_data_upload: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Start FileData Upload
         api_response = api_instance.start_file_data_upload(file_id, version_id, file_type, part_number=part_number)
         pprint(api_response)
-    except vrchatapi.ApiException as e:
+    except ApiException as e:
         print("Exception when calling FilesApi->start_file_data_upload: %s\n" % e)
 ```
 
+* Api Key Authentication (authCookie):
+```python
+from __future__ import print_function
+import time
+import vrchatapi
+from vrchatapi.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = vrchatapi.Configuration(
+    host = "https://api.vrchat.cloud/api/1"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: apiKeyCookie
+configuration.api_key['apiKeyCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apiKeyCookie'] = 'Bearer'
+
+# Configure API key authorization: authCookie
+configuration.api_key['authCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['authCookie'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with vrchatapi.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = vrchatapi.FilesApi(api_client)
+    file_id = 'file_00000000-0000-0000-0000-000000000000' # str | 
+version_id = 1 # int | 
+file_type = 'file' # str | 
+part_number = 1 # int |  (optional)
+
+    try:
+        # Start FileData Upload
+        api_response = api_instance.start_file_data_upload(file_id, version_id, file_type, part_number=part_number)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling FilesApi->start_file_data_upload: %s\n" % e)
+```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **file_id** | **str**|  |
- **version_id** | **int**|  |
- **file_type** | **str**|  |
- **part_number** | **int**|  | [optional]
+ **file_id** | **str**|  | 
+ **version_id** | **int**|  | 
+ **file_type** | **str**|  | 
+ **part_number** | **int**|  | [optional] 
 
 ### Return type
 
@@ -941,9 +1283,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | See [https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html](AWS REST docs - PUT Object) |  -  |

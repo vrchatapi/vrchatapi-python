@@ -21,14 +21,11 @@ Accept a friend request by notification `frq_` ID. Friend requests can be found 
 ### Example
 
 * Api Key Authentication (apiKeyCookie):
-* Api Key Authentication (authCookie):
-
 ```python
+from __future__ import print_function
 import time
 import vrchatapi
-from vrchatapi.api import notifications_api
-from vrchatapi.model.success import Success
-from vrchatapi.model.error import Error
+from vrchatapi.rest import ApiException
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
 # See configuration.py for a list of all supported configuration parameters.
@@ -56,24 +53,66 @@ configuration.api_key['authCookie'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = notifications_api.NotificationsApi(api_client)
-    notification_id = "notificationId_example" # str | 
+    api_instance = vrchatapi.NotificationsApi(api_client)
+    notification_id = 'notification_id_example' # str | 
 
-    # example passing only required values which don't have defaults set
     try:
         # Accept Friend Request
         api_response = api_instance.accept_friend_request(notification_id)
         pprint(api_response)
-    except vrchatapi.ApiException as e:
+    except ApiException as e:
         print("Exception when calling NotificationsApi->accept_friend_request: %s\n" % e)
 ```
 
+* Api Key Authentication (authCookie):
+```python
+from __future__ import print_function
+import time
+import vrchatapi
+from vrchatapi.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = vrchatapi.Configuration(
+    host = "https://api.vrchat.cloud/api/1"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: apiKeyCookie
+configuration.api_key['apiKeyCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apiKeyCookie'] = 'Bearer'
+
+# Configure API key authorization: authCookie
+configuration.api_key['authCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['authCookie'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with vrchatapi.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = vrchatapi.NotificationsApi(api_client)
+    notification_id = 'notification_id_example' # str | 
+
+    try:
+        # Accept Friend Request
+        api_response = api_instance.accept_friend_request(notification_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling NotificationsApi->accept_friend_request: %s\n" % e)
+```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **notification_id** | **str**|  |
+ **notification_id** | **str**|  | 
 
 ### Return type
 
@@ -88,9 +127,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful response after friending a user. |  -  |
@@ -109,14 +146,11 @@ Clear **all** notifications.
 ### Example
 
 * Api Key Authentication (apiKeyCookie):
-* Api Key Authentication (authCookie):
-
 ```python
+from __future__ import print_function
 import time
 import vrchatapi
-from vrchatapi.api import notifications_api
-from vrchatapi.model.success import Success
-from vrchatapi.model.error import Error
+from vrchatapi.rest import ApiException
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
 # See configuration.py for a list of all supported configuration parameters.
@@ -144,17 +178,58 @@ configuration.api_key['authCookie'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = notifications_api.NotificationsApi(api_client)
-
-    # example, this endpoint has no required or optional parameters
+    api_instance = vrchatapi.NotificationsApi(api_client)
+    
     try:
         # Clear All Notifications
         api_response = api_instance.clear_notifications()
         pprint(api_response)
-    except vrchatapi.ApiException as e:
+    except ApiException as e:
         print("Exception when calling NotificationsApi->clear_notifications: %s\n" % e)
 ```
 
+* Api Key Authentication (authCookie):
+```python
+from __future__ import print_function
+import time
+import vrchatapi
+from vrchatapi.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = vrchatapi.Configuration(
+    host = "https://api.vrchat.cloud/api/1"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: apiKeyCookie
+configuration.api_key['apiKeyCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apiKeyCookie'] = 'Bearer'
+
+# Configure API key authorization: authCookie
+configuration.api_key['authCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['authCookie'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with vrchatapi.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = vrchatapi.NotificationsApi(api_client)
+    
+    try:
+        # Clear All Notifications
+        api_response = api_instance.clear_notifications()
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling NotificationsApi->clear_notifications: %s\n" % e)
+```
 
 ### Parameters
 This endpoint does not need any parameter.
@@ -172,9 +247,7 @@ This endpoint does not need any parameter.
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful response after clearing all notifications. |  -  |
@@ -192,14 +265,11 @@ Delete a notification.
 ### Example
 
 * Api Key Authentication (apiKeyCookie):
-* Api Key Authentication (authCookie):
-
 ```python
+from __future__ import print_function
 import time
 import vrchatapi
-from vrchatapi.api import notifications_api
-from vrchatapi.model.notification import Notification
-from vrchatapi.model.error import Error
+from vrchatapi.rest import ApiException
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
 # See configuration.py for a list of all supported configuration parameters.
@@ -227,24 +297,66 @@ configuration.api_key['authCookie'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = notifications_api.NotificationsApi(api_client)
-    notification_id = "notificationId_example" # str | 
+    api_instance = vrchatapi.NotificationsApi(api_client)
+    notification_id = 'notification_id_example' # str | 
 
-    # example passing only required values which don't have defaults set
     try:
         # Delete Notification
         api_response = api_instance.delete_notification(notification_id)
         pprint(api_response)
-    except vrchatapi.ApiException as e:
+    except ApiException as e:
         print("Exception when calling NotificationsApi->delete_notification: %s\n" % e)
 ```
 
+* Api Key Authentication (authCookie):
+```python
+from __future__ import print_function
+import time
+import vrchatapi
+from vrchatapi.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = vrchatapi.Configuration(
+    host = "https://api.vrchat.cloud/api/1"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: apiKeyCookie
+configuration.api_key['apiKeyCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apiKeyCookie'] = 'Bearer'
+
+# Configure API key authorization: authCookie
+configuration.api_key['authCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['authCookie'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with vrchatapi.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = vrchatapi.NotificationsApi(api_client)
+    notification_id = 'notification_id_example' # str | 
+
+    try:
+        # Delete Notification
+        api_response = api_instance.delete_notification(notification_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling NotificationsApi->delete_notification: %s\n" % e)
+```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **notification_id** | **str**|  |
+ **notification_id** | **str**|  | 
 
 ### Return type
 
@@ -259,9 +371,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Returns a single Notifcation object. |  -  |
@@ -270,7 +380,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_notifications**
-> [Notification] get_notifications()
+> list[Notification] get_notifications(type=type, sent=sent, hidden=hidden, after=after, n=n, offset=offset)
 
 List Notifications
 
@@ -279,14 +389,11 @@ Retrieve all of the current user's notifications.
 ### Example
 
 * Api Key Authentication (apiKeyCookie):
-* Api Key Authentication (authCookie):
-
 ```python
+from __future__ import print_function
 import time
 import vrchatapi
-from vrchatapi.api import notifications_api
-from vrchatapi.model.notification import Notification
-from vrchatapi.model.error import Error
+from vrchatapi.rest import ApiException
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
 # See configuration.py for a list of all supported configuration parameters.
@@ -314,39 +421,85 @@ configuration.api_key['authCookie'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = notifications_api.NotificationsApi(api_client)
-    type = "all" # str | Only send notifications of this type (can use `all` for all). This parameter no longer does anything, and is deprecated. (optional)
-    sent = True # bool | Return notifications sent by the user. Must be false or omitted. (optional)
-    hidden = True # bool | Whether to return hidden or non-hidden notifications. True only allowed on type `friendRequest`. (optional)
-    after = "five_minutes_ago" # str | Only return notifications sent after this Date. Ignored if type is `friendRequest`. (optional)
-    n = 60 # int | The number of objects to return. (optional) if omitted the server will use the default value of 60
-    offset = 0 # int | A zero-based offset from the default object sorting from where search results start. (optional)
+    api_instance = vrchatapi.NotificationsApi(api_client)
+    type = 'all' # str | Only send notifications of this type (can use `all` for all). This parameter no longer does anything, and is deprecated. (optional)
+sent = True # bool | Return notifications sent by the user. Must be false or omitted. (optional)
+hidden = True # bool | Whether to return hidden or non-hidden notifications. True only allowed on type `friendRequest`. (optional)
+after = 'five_minutes_ago' # str | Only return notifications sent after this Date. Ignored if type is `friendRequest`. (optional)
+n = 60 # int | The number of objects to return. (optional) (default to 60)
+offset = 56 # int | A zero-based offset from the default object sorting from where search results start. (optional)
 
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # List Notifications
         api_response = api_instance.get_notifications(type=type, sent=sent, hidden=hidden, after=after, n=n, offset=offset)
         pprint(api_response)
-    except vrchatapi.ApiException as e:
+    except ApiException as e:
         print("Exception when calling NotificationsApi->get_notifications: %s\n" % e)
 ```
 
+* Api Key Authentication (authCookie):
+```python
+from __future__ import print_function
+import time
+import vrchatapi
+from vrchatapi.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = vrchatapi.Configuration(
+    host = "https://api.vrchat.cloud/api/1"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: apiKeyCookie
+configuration.api_key['apiKeyCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apiKeyCookie'] = 'Bearer'
+
+# Configure API key authorization: authCookie
+configuration.api_key['authCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['authCookie'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with vrchatapi.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = vrchatapi.NotificationsApi(api_client)
+    type = 'all' # str | Only send notifications of this type (can use `all` for all). This parameter no longer does anything, and is deprecated. (optional)
+sent = True # bool | Return notifications sent by the user. Must be false or omitted. (optional)
+hidden = True # bool | Whether to return hidden or non-hidden notifications. True only allowed on type `friendRequest`. (optional)
+after = 'five_minutes_ago' # str | Only return notifications sent after this Date. Ignored if type is `friendRequest`. (optional)
+n = 60 # int | The number of objects to return. (optional) (default to 60)
+offset = 56 # int | A zero-based offset from the default object sorting from where search results start. (optional)
+
+    try:
+        # List Notifications
+        api_response = api_instance.get_notifications(type=type, sent=sent, hidden=hidden, after=after, n=n, offset=offset)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling NotificationsApi->get_notifications: %s\n" % e)
+```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **type** | **str**| Only send notifications of this type (can use &#x60;all&#x60; for all). This parameter no longer does anything, and is deprecated. | [optional]
- **sent** | **bool**| Return notifications sent by the user. Must be false or omitted. | [optional]
- **hidden** | **bool**| Whether to return hidden or non-hidden notifications. True only allowed on type &#x60;friendRequest&#x60;. | [optional]
- **after** | **str**| Only return notifications sent after this Date. Ignored if type is &#x60;friendRequest&#x60;. | [optional]
- **n** | **int**| The number of objects to return. | [optional] if omitted the server will use the default value of 60
- **offset** | **int**| A zero-based offset from the default object sorting from where search results start. | [optional]
+ **type** | **str**| Only send notifications of this type (can use &#x60;all&#x60; for all). This parameter no longer does anything, and is deprecated. | [optional] 
+ **sent** | **bool**| Return notifications sent by the user. Must be false or omitted. | [optional] 
+ **hidden** | **bool**| Whether to return hidden or non-hidden notifications. True only allowed on type &#x60;friendRequest&#x60;. | [optional] 
+ **after** | **str**| Only return notifications sent after this Date. Ignored if type is &#x60;friendRequest&#x60;. | [optional] 
+ **n** | **int**| The number of objects to return. | [optional] [default to 60]
+ **offset** | **int**| A zero-based offset from the default object sorting from where search results start. | [optional] 
 
 ### Return type
 
-[**[Notification]**](Notification.md)
+[**list[Notification]**](Notification.md)
 
 ### Authorization
 
@@ -357,9 +510,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Returns a list of Notifcation objects. |  -  |
@@ -377,14 +528,11 @@ Mark a notification as seen.
 ### Example
 
 * Api Key Authentication (apiKeyCookie):
-* Api Key Authentication (authCookie):
-
 ```python
+from __future__ import print_function
 import time
 import vrchatapi
-from vrchatapi.api import notifications_api
-from vrchatapi.model.notification import Notification
-from vrchatapi.model.error import Error
+from vrchatapi.rest import ApiException
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
 # See configuration.py for a list of all supported configuration parameters.
@@ -412,24 +560,66 @@ configuration.api_key['authCookie'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = notifications_api.NotificationsApi(api_client)
-    notification_id = "notificationId_example" # str | 
+    api_instance = vrchatapi.NotificationsApi(api_client)
+    notification_id = 'notification_id_example' # str | 
 
-    # example passing only required values which don't have defaults set
     try:
         # Mark Notification As Read
         api_response = api_instance.mark_notification_as_read(notification_id)
         pprint(api_response)
-    except vrchatapi.ApiException as e:
+    except ApiException as e:
         print("Exception when calling NotificationsApi->mark_notification_as_read: %s\n" % e)
 ```
 
+* Api Key Authentication (authCookie):
+```python
+from __future__ import print_function
+import time
+import vrchatapi
+from vrchatapi.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = vrchatapi.Configuration(
+    host = "https://api.vrchat.cloud/api/1"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: apiKeyCookie
+configuration.api_key['apiKeyCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apiKeyCookie'] = 'Bearer'
+
+# Configure API key authorization: authCookie
+configuration.api_key['authCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['authCookie'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with vrchatapi.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = vrchatapi.NotificationsApi(api_client)
+    notification_id = 'notification_id_example' # str | 
+
+    try:
+        # Mark Notification As Read
+        api_response = api_instance.mark_notification_as_read(notification_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling NotificationsApi->mark_notification_as_read: %s\n" % e)
+```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **notification_id** | **str**|  |
+ **notification_id** | **str**|  | 
 
 ### Return type
 
@@ -444,9 +634,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Returns a single Notifcation object. |  -  |

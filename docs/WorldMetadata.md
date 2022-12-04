@@ -4,8 +4,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | [**WorldID**](WorldID.md) |  | 
-**metadata** | **{str: (bool, date, datetime, dict, float, int, list, str, none_type)}** |  | 
+**id** | **str** | WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user. | 
+**metadata** | **object** |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

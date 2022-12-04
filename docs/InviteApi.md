@@ -24,14 +24,11 @@ Returns a single Invite Message. This returns the exact same information but les
 ### Example
 
 * Api Key Authentication (apiKeyCookie):
-* Api Key Authentication (authCookie):
-
 ```python
+from __future__ import print_function
 import time
 import vrchatapi
-from vrchatapi.api import invite_api
-from vrchatapi.model.invite_message import InviteMessage
-from vrchatapi.model.error import Error
+from vrchatapi.rest import ApiException
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
 # See configuration.py for a list of all supported configuration parameters.
@@ -59,28 +56,72 @@ configuration.api_key['authCookie'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = invite_api.InviteApi(api_client)
-    user_id = "userId_example" # str | 
-    message_type = "message" # str | 
-    slot = 0 # int | 
+    api_instance = vrchatapi.InviteApi(api_client)
+    user_id = 'user_id_example' # str | 
+message_type = 'message_type_example' # str | 
+slot = 56 # int | 
 
-    # example passing only required values which don't have defaults set
     try:
         # Get Invite Message
         api_response = api_instance.get_invite_message(user_id, message_type, slot)
         pprint(api_response)
-    except vrchatapi.ApiException as e:
+    except ApiException as e:
         print("Exception when calling InviteApi->get_invite_message: %s\n" % e)
 ```
 
+* Api Key Authentication (authCookie):
+```python
+from __future__ import print_function
+import time
+import vrchatapi
+from vrchatapi.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = vrchatapi.Configuration(
+    host = "https://api.vrchat.cloud/api/1"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: apiKeyCookie
+configuration.api_key['apiKeyCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apiKeyCookie'] = 'Bearer'
+
+# Configure API key authorization: authCookie
+configuration.api_key['authCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['authCookie'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with vrchatapi.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = vrchatapi.InviteApi(api_client)
+    user_id = 'user_id_example' # str | 
+message_type = 'message_type_example' # str | 
+slot = 56 # int | 
+
+    try:
+        # Get Invite Message
+        api_response = api_instance.get_invite_message(user_id, message_type, slot)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling InviteApi->get_invite_message: %s\n" % e)
+```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **user_id** | **str**|  |
- **message_type** | **str**|  |
- **slot** | **int**|  |
+ **user_id** | **str**|  | 
+ **message_type** | **str**|  | 
+ **slot** | **int**|  | 
 
 ### Return type
 
@@ -95,9 +136,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Returns a single InviteMessage object. |  -  |
@@ -108,7 +147,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_invite_messages**
-> [InviteMessage] get_invite_messages(user_id, message_type)
+> list[InviteMessage] get_invite_messages(user_id, message_type)
 
 List Invite Messages
 
@@ -117,14 +156,11 @@ Returns a list of all the users Invite Messages. Admin Credentials are required 
 ### Example
 
 * Api Key Authentication (apiKeyCookie):
-* Api Key Authentication (authCookie):
-
 ```python
+from __future__ import print_function
 import time
 import vrchatapi
-from vrchatapi.api import invite_api
-from vrchatapi.model.invite_message import InviteMessage
-from vrchatapi.model.error import Error
+from vrchatapi.rest import ApiException
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
 # See configuration.py for a list of all supported configuration parameters.
@@ -152,30 +188,73 @@ configuration.api_key['authCookie'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = invite_api.InviteApi(api_client)
-    user_id = "userId_example" # str | 
-    message_type = "message" # str | 
+    api_instance = vrchatapi.InviteApi(api_client)
+    user_id = 'user_id_example' # str | 
+message_type = 'message_type_example' # str | 
 
-    # example passing only required values which don't have defaults set
     try:
         # List Invite Messages
         api_response = api_instance.get_invite_messages(user_id, message_type)
         pprint(api_response)
-    except vrchatapi.ApiException as e:
+    except ApiException as e:
         print("Exception when calling InviteApi->get_invite_messages: %s\n" % e)
 ```
 
+* Api Key Authentication (authCookie):
+```python
+from __future__ import print_function
+import time
+import vrchatapi
+from vrchatapi.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = vrchatapi.Configuration(
+    host = "https://api.vrchat.cloud/api/1"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: apiKeyCookie
+configuration.api_key['apiKeyCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apiKeyCookie'] = 'Bearer'
+
+# Configure API key authorization: authCookie
+configuration.api_key['authCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['authCookie'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with vrchatapi.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = vrchatapi.InviteApi(api_client)
+    user_id = 'user_id_example' # str | 
+message_type = 'message_type_example' # str | 
+
+    try:
+        # List Invite Messages
+        api_response = api_instance.get_invite_messages(user_id, message_type)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling InviteApi->get_invite_messages: %s\n" % e)
+```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **user_id** | **str**|  |
- **message_type** | **str**|  |
+ **user_id** | **str**|  | 
+ **message_type** | **str**|  | 
 
 ### Return type
 
-[**[InviteMessage]**](InviteMessage.md)
+[**list[InviteMessage]**](InviteMessage.md)
 
 ### Authorization
 
@@ -186,9 +265,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Returns a list of InviteMessage objects. |  -  |
@@ -207,14 +284,11 @@ Sends self an invite to an instance
 ### Example
 
 * Api Key Authentication (apiKeyCookie):
-* Api Key Authentication (authCookie):
-
 ```python
+from __future__ import print_function
 import time
 import vrchatapi
-from vrchatapi.api import invite_api
-from vrchatapi.model.sent_notification import SentNotification
-from vrchatapi.model.error import Error
+from vrchatapi.rest import ApiException
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
 # See configuration.py for a list of all supported configuration parameters.
@@ -242,26 +316,69 @@ configuration.api_key['authCookie'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = invite_api.InviteApi(api_client)
-    world_id = "worldId_example" # str | 
-    instance_id = "instanceId_example" # str | 
+    api_instance = vrchatapi.InviteApi(api_client)
+    world_id = 'world_id_example' # str | 
+instance_id = 'instance_id_example' # str | 
 
-    # example passing only required values which don't have defaults set
     try:
         # Invite Myself To Instance
         api_response = api_instance.invite_myself_to(world_id, instance_id)
         pprint(api_response)
-    except vrchatapi.ApiException as e:
+    except ApiException as e:
         print("Exception when calling InviteApi->invite_myself_to: %s\n" % e)
 ```
 
+* Api Key Authentication (authCookie):
+```python
+from __future__ import print_function
+import time
+import vrchatapi
+from vrchatapi.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = vrchatapi.Configuration(
+    host = "https://api.vrchat.cloud/api/1"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: apiKeyCookie
+configuration.api_key['apiKeyCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apiKeyCookie'] = 'Bearer'
+
+# Configure API key authorization: authCookie
+configuration.api_key['authCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['authCookie'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with vrchatapi.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = vrchatapi.InviteApi(api_client)
+    world_id = 'world_id_example' # str | 
+instance_id = 'instance_id_example' # str | 
+
+    try:
+        # Invite Myself To Instance
+        api_response = api_instance.invite_myself_to(world_id, instance_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling InviteApi->invite_myself_to: %s\n" % e)
+```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **world_id** | **str**|  |
- **instance_id** | **str**|  |
+ **world_id** | **str**|  | 
+ **instance_id** | **str**|  | 
 
 ### Return type
 
@@ -276,9 +393,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Returns a single SentNotifcation object. |  -  |
@@ -288,7 +403,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **invite_user**
-> SentNotification invite_user(user_id)
+> SentNotification invite_user(user_id, invite_request=invite_request)
 
 Invite User
 
@@ -297,15 +412,11 @@ Sends an invite to a user. Returns the Notification of type `invite` that was se
 ### Example
 
 * Api Key Authentication (apiKeyCookie):
-* Api Key Authentication (authCookie):
-
 ```python
+from __future__ import print_function
 import time
 import vrchatapi
-from vrchatapi.api import invite_api
-from vrchatapi.model.sent_notification import SentNotification
-from vrchatapi.model.invite_request import InviteRequest
-from vrchatapi.model.error import Error
+from vrchatapi.rest import ApiException
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
 # See configuration.py for a list of all supported configuration parameters.
@@ -333,38 +444,69 @@ configuration.api_key['authCookie'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = invite_api.InviteApi(api_client)
-    user_id = "userId_example" # str | 
-    invite_request = InviteRequest(
-        instance_id=InstanceID("wrld_ba913a96-fac4-4048-a062-9aa5db092812:12345~hidden(usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469)~region(eu)~nonce(27e8414a-59a0-4f3d-af1f-f27557eb49a2)"),
-        message_slot=0,
-    ) # InviteRequest | Slot number of the Invite Message to use when inviting a user. (optional)
+    api_instance = vrchatapi.InviteApi(api_client)
+    user_id = 'user_id_example' # str | 
+invite_request = vrchatapi.InviteRequest() # InviteRequest | Slot number of the Invite Message to use when inviting a user. (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Invite User
-        api_response = api_instance.invite_user(user_id)
-        pprint(api_response)
-    except vrchatapi.ApiException as e:
-        print("Exception when calling InviteApi->invite_user: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Invite User
         api_response = api_instance.invite_user(user_id, invite_request=invite_request)
         pprint(api_response)
-    except vrchatapi.ApiException as e:
+    except ApiException as e:
         print("Exception when calling InviteApi->invite_user: %s\n" % e)
 ```
 
+* Api Key Authentication (authCookie):
+```python
+from __future__ import print_function
+import time
+import vrchatapi
+from vrchatapi.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = vrchatapi.Configuration(
+    host = "https://api.vrchat.cloud/api/1"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: apiKeyCookie
+configuration.api_key['apiKeyCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apiKeyCookie'] = 'Bearer'
+
+# Configure API key authorization: authCookie
+configuration.api_key['authCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['authCookie'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with vrchatapi.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = vrchatapi.InviteApi(api_client)
+    user_id = 'user_id_example' # str | 
+invite_request = vrchatapi.InviteRequest() # InviteRequest | Slot number of the Invite Message to use when inviting a user. (optional)
+
+    try:
+        # Invite User
+        api_response = api_instance.invite_user(user_id, invite_request=invite_request)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling InviteApi->invite_user: %s\n" % e)
+```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **user_id** | **str**|  |
- **invite_request** | [**InviteRequest**](InviteRequest.md)| Slot number of the Invite Message to use when inviting a user. | [optional]
+ **user_id** | **str**|  | 
+ **invite_request** | [**InviteRequest**](InviteRequest.md)| Slot number of the Invite Message to use when inviting a user. | [optional] 
 
 ### Return type
 
@@ -379,9 +521,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Returns a single SentNotifcation object. |  -  |
@@ -390,7 +530,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **request_invite**
-> Notification request_invite(user_id)
+> Notification request_invite(user_id, request_invite_request=request_invite_request)
 
 Request Invite
 
@@ -399,15 +539,11 @@ Requests an invite from a user. Returns the Notification of type `requestInvite`
 ### Example
 
 * Api Key Authentication (apiKeyCookie):
-* Api Key Authentication (authCookie):
-
 ```python
+from __future__ import print_function
 import time
 import vrchatapi
-from vrchatapi.api import invite_api
-from vrchatapi.model.notification import Notification
-from vrchatapi.model.error import Error
-from vrchatapi.model.request_invite_request import RequestInviteRequest
+from vrchatapi.rest import ApiException
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
 # See configuration.py for a list of all supported configuration parameters.
@@ -435,37 +571,69 @@ configuration.api_key['authCookie'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = invite_api.InviteApi(api_client)
-    user_id = "userId_example" # str | 
-    request_invite_request = RequestInviteRequest(
-        message_slot=0,
-    ) # RequestInviteRequest | Slot number of the Request Message to use when request an invite. (optional)
+    api_instance = vrchatapi.InviteApi(api_client)
+    user_id = 'user_id_example' # str | 
+request_invite_request = vrchatapi.RequestInviteRequest() # RequestInviteRequest | Slot number of the Request Message to use when request an invite. (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Request Invite
-        api_response = api_instance.request_invite(user_id)
-        pprint(api_response)
-    except vrchatapi.ApiException as e:
-        print("Exception when calling InviteApi->request_invite: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Request Invite
         api_response = api_instance.request_invite(user_id, request_invite_request=request_invite_request)
         pprint(api_response)
-    except vrchatapi.ApiException as e:
+    except ApiException as e:
         print("Exception when calling InviteApi->request_invite: %s\n" % e)
 ```
 
+* Api Key Authentication (authCookie):
+```python
+from __future__ import print_function
+import time
+import vrchatapi
+from vrchatapi.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = vrchatapi.Configuration(
+    host = "https://api.vrchat.cloud/api/1"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: apiKeyCookie
+configuration.api_key['apiKeyCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apiKeyCookie'] = 'Bearer'
+
+# Configure API key authorization: authCookie
+configuration.api_key['authCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['authCookie'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with vrchatapi.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = vrchatapi.InviteApi(api_client)
+    user_id = 'user_id_example' # str | 
+request_invite_request = vrchatapi.RequestInviteRequest() # RequestInviteRequest | Slot number of the Request Message to use when request an invite. (optional)
+
+    try:
+        # Request Invite
+        api_response = api_instance.request_invite(user_id, request_invite_request=request_invite_request)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling InviteApi->request_invite: %s\n" % e)
+```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **user_id** | **str**|  |
- **request_invite_request** | [**RequestInviteRequest**](RequestInviteRequest.md)| Slot number of the Request Message to use when request an invite. | [optional]
+ **user_id** | **str**|  | 
+ **request_invite_request** | [**RequestInviteRequest**](RequestInviteRequest.md)| Slot number of the Request Message to use when request an invite. | [optional] 
 
 ### Return type
 
@@ -480,9 +648,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Returns a single Notifcation object. |  -  |
@@ -491,7 +657,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **reset_invite_message**
-> [InviteMessage] reset_invite_message(user_id, message_type, slot)
+> list[InviteMessage] reset_invite_message(user_id, message_type, slot)
 
 Reset Invite Message
 
@@ -500,14 +666,11 @@ Resets a single Invite Message back to its original message, and then returns a 
 ### Example
 
 * Api Key Authentication (apiKeyCookie):
-* Api Key Authentication (authCookie):
-
 ```python
+from __future__ import print_function
 import time
 import vrchatapi
-from vrchatapi.api import invite_api
-from vrchatapi.model.invite_message import InviteMessage
-from vrchatapi.model.error import Error
+from vrchatapi.rest import ApiException
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
 # See configuration.py for a list of all supported configuration parameters.
@@ -535,32 +698,76 @@ configuration.api_key['authCookie'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = invite_api.InviteApi(api_client)
-    user_id = "userId_example" # str | 
-    message_type = "message" # str | 
-    slot = 0 # int | 
+    api_instance = vrchatapi.InviteApi(api_client)
+    user_id = 'user_id_example' # str | 
+message_type = 'message_type_example' # str | 
+slot = 56 # int | 
 
-    # example passing only required values which don't have defaults set
     try:
         # Reset Invite Message
         api_response = api_instance.reset_invite_message(user_id, message_type, slot)
         pprint(api_response)
-    except vrchatapi.ApiException as e:
+    except ApiException as e:
         print("Exception when calling InviteApi->reset_invite_message: %s\n" % e)
 ```
 
+* Api Key Authentication (authCookie):
+```python
+from __future__ import print_function
+import time
+import vrchatapi
+from vrchatapi.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = vrchatapi.Configuration(
+    host = "https://api.vrchat.cloud/api/1"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: apiKeyCookie
+configuration.api_key['apiKeyCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apiKeyCookie'] = 'Bearer'
+
+# Configure API key authorization: authCookie
+configuration.api_key['authCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['authCookie'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with vrchatapi.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = vrchatapi.InviteApi(api_client)
+    user_id = 'user_id_example' # str | 
+message_type = 'message_type_example' # str | 
+slot = 56 # int | 
+
+    try:
+        # Reset Invite Message
+        api_response = api_instance.reset_invite_message(user_id, message_type, slot)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling InviteApi->reset_invite_message: %s\n" % e)
+```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **user_id** | **str**|  |
- **message_type** | **str**|  |
- **slot** | **int**|  |
+ **user_id** | **str**|  | 
+ **message_type** | **str**|  | 
+ **slot** | **int**|  | 
 
 ### Return type
 
-[**[InviteMessage]**](InviteMessage.md)
+[**list[InviteMessage]**](InviteMessage.md)
 
 ### Authorization
 
@@ -571,9 +778,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Returns a list of InviteMessage objects. |  -  |
@@ -585,7 +790,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **respond_invite**
-> Notification respond_invite(notification_id)
+> Notification respond_invite(notification_id, invite_response=invite_response)
 
 Respond Invite
 
@@ -594,15 +799,11 @@ Respond to an invite request by sending a world invite to the requesting user. `
 ### Example
 
 * Api Key Authentication (apiKeyCookie):
-* Api Key Authentication (authCookie):
-
 ```python
+from __future__ import print_function
 import time
 import vrchatapi
-from vrchatapi.api import invite_api
-from vrchatapi.model.notification import Notification
-from vrchatapi.model.invite_response import InviteResponse
-from vrchatapi.model.error import Error
+from vrchatapi.rest import ApiException
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
 # See configuration.py for a list of all supported configuration parameters.
@@ -630,37 +831,69 @@ configuration.api_key['authCookie'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = invite_api.InviteApi(api_client)
-    notification_id = "notificationId_example" # str | 
-    invite_response = InviteResponse(
-        response_slot=0,
-    ) # InviteResponse | Slot number of the Response Message to use when responding to a user. (optional)
+    api_instance = vrchatapi.InviteApi(api_client)
+    notification_id = 'notification_id_example' # str | 
+invite_response = vrchatapi.InviteResponse() # InviteResponse | Slot number of the Response Message to use when responding to a user. (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Respond Invite
-        api_response = api_instance.respond_invite(notification_id)
-        pprint(api_response)
-    except vrchatapi.ApiException as e:
-        print("Exception when calling InviteApi->respond_invite: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Respond Invite
         api_response = api_instance.respond_invite(notification_id, invite_response=invite_response)
         pprint(api_response)
-    except vrchatapi.ApiException as e:
+    except ApiException as e:
         print("Exception when calling InviteApi->respond_invite: %s\n" % e)
 ```
 
+* Api Key Authentication (authCookie):
+```python
+from __future__ import print_function
+import time
+import vrchatapi
+from vrchatapi.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = vrchatapi.Configuration(
+    host = "https://api.vrchat.cloud/api/1"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: apiKeyCookie
+configuration.api_key['apiKeyCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apiKeyCookie'] = 'Bearer'
+
+# Configure API key authorization: authCookie
+configuration.api_key['authCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['authCookie'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with vrchatapi.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = vrchatapi.InviteApi(api_client)
+    notification_id = 'notification_id_example' # str | 
+invite_response = vrchatapi.InviteResponse() # InviteResponse | Slot number of the Response Message to use when responding to a user. (optional)
+
+    try:
+        # Respond Invite
+        api_response = api_instance.respond_invite(notification_id, invite_response=invite_response)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling InviteApi->respond_invite: %s\n" % e)
+```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **notification_id** | **str**|  |
- **invite_response** | [**InviteResponse**](InviteResponse.md)| Slot number of the Response Message to use when responding to a user. | [optional]
+ **notification_id** | **str**|  | 
+ **invite_response** | [**InviteResponse**](InviteResponse.md)| Slot number of the Response Message to use when responding to a user. | [optional] 
 
 ### Return type
 
@@ -675,9 +908,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Returns a single Notifcation object. |  -  |
@@ -686,7 +917,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_invite_message**
-> [InviteMessage] update_invite_message(user_id, message_type, slot)
+> list[InviteMessage] update_invite_message(user_id, message_type, slot, update_invite_message_request=update_invite_message_request)
 
 Update Invite Message
 
@@ -695,15 +926,11 @@ Updates a single Invite Message and then returns a list of all of them. Admin Cr
 ### Example
 
 * Api Key Authentication (apiKeyCookie):
-* Api Key Authentication (authCookie):
-
 ```python
+from __future__ import print_function
 import time
 import vrchatapi
-from vrchatapi.api import invite_api
-from vrchatapi.model.update_invite_message_request import UpdateInviteMessageRequest
-from vrchatapi.model.invite_message import InviteMessage
-from vrchatapi.model.error import Error
+from vrchatapi.rest import ApiException
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
 # See configuration.py for a list of all supported configuration parameters.
@@ -731,45 +958,79 @@ configuration.api_key['authCookie'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = invite_api.InviteApi(api_client)
-    user_id = "userId_example" # str | 
-    message_type = "message" # str | 
-    slot = 0 # int | 
-    update_invite_message_request = UpdateInviteMessageRequest(
-        message="message_example",
-    ) # UpdateInviteMessageRequest | Message of what to set the invite message to. (optional)
+    api_instance = vrchatapi.InviteApi(api_client)
+    user_id = 'user_id_example' # str | 
+message_type = 'message_type_example' # str | 
+slot = 56 # int | 
+update_invite_message_request = vrchatapi.UpdateInviteMessageRequest() # UpdateInviteMessageRequest | Message of what to set the invite message to. (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Update Invite Message
-        api_response = api_instance.update_invite_message(user_id, message_type, slot)
-        pprint(api_response)
-    except vrchatapi.ApiException as e:
-        print("Exception when calling InviteApi->update_invite_message: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Update Invite Message
         api_response = api_instance.update_invite_message(user_id, message_type, slot, update_invite_message_request=update_invite_message_request)
         pprint(api_response)
-    except vrchatapi.ApiException as e:
+    except ApiException as e:
         print("Exception when calling InviteApi->update_invite_message: %s\n" % e)
 ```
 
+* Api Key Authentication (authCookie):
+```python
+from __future__ import print_function
+import time
+import vrchatapi
+from vrchatapi.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = vrchatapi.Configuration(
+    host = "https://api.vrchat.cloud/api/1"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: apiKeyCookie
+configuration.api_key['apiKeyCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apiKeyCookie'] = 'Bearer'
+
+# Configure API key authorization: authCookie
+configuration.api_key['authCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['authCookie'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with vrchatapi.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = vrchatapi.InviteApi(api_client)
+    user_id = 'user_id_example' # str | 
+message_type = 'message_type_example' # str | 
+slot = 56 # int | 
+update_invite_message_request = vrchatapi.UpdateInviteMessageRequest() # UpdateInviteMessageRequest | Message of what to set the invite message to. (optional)
+
+    try:
+        # Update Invite Message
+        api_response = api_instance.update_invite_message(user_id, message_type, slot, update_invite_message_request=update_invite_message_request)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling InviteApi->update_invite_message: %s\n" % e)
+```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **user_id** | **str**|  |
- **message_type** | **str**|  |
- **slot** | **int**|  |
- **update_invite_message_request** | [**UpdateInviteMessageRequest**](UpdateInviteMessageRequest.md)| Message of what to set the invite message to. | [optional]
+ **user_id** | **str**|  | 
+ **message_type** | **str**|  | 
+ **slot** | **int**|  | 
+ **update_invite_message_request** | [**UpdateInviteMessageRequest**](UpdateInviteMessageRequest.md)| Message of what to set the invite message to. | [optional] 
 
 ### Return type
 
-[**[InviteMessage]**](InviteMessage.md)
+[**list[InviteMessage]**](InviteMessage.md)
 
 ### Authorization
 
@@ -780,9 +1041,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Returns a list of InviteMessage objects. |  -  |

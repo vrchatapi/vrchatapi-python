@@ -1,3 +1,5 @@
+# coding: utf-8
+
 """
     VRChat API Documentation
 
@@ -8,24 +10,18 @@
 """
 
 
-import re  # noqa: F401
-import sys  # noqa: F401
+from __future__ import absolute_import
 
-from vrchatapi.api_client import ApiClient, Endpoint as _Endpoint
-from vrchatapi.model_utils import (  # noqa: F401
-    check_allowed_values,
-    check_validations,
-    date,
-    datetime,
-    file_type,
-    none_type,
-    validate_and_convert_types
+import re  # noqa: F401
+
+# python 2 and python 3 compatibility library
+import six
+
+from vrchatapi.api_client import ApiClient
+from vrchatapi.exceptions import (  # noqa: F401
+    ApiTypeError,
+    ApiValueError
 )
-from vrchatapi.model.avatar import Avatar
-from vrchatapi.model.create_avatar_request import CreateAvatarRequest
-from vrchatapi.model.current_user import CurrentUser
-from vrchatapi.model.error import Error
-from vrchatapi.model.update_avatar_request import UpdateAvatarRequest
 
 
 class AvatarsApi(object):
@@ -39,699 +35,8 @@ class AvatarsApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
-        self.create_avatar_endpoint = _Endpoint(
-            settings={
-                'response_type': (Avatar,),
-                'auth': [
-                    'apiKeyCookie',
-                    'authCookie'
-                ],
-                'endpoint_path': '/avatars',
-                'operation_id': 'create_avatar',
-                'http_method': 'POST',
-                'servers': None,
-            },
-            params_map={
-                'all': [
-                    'create_avatar_request',
-                ],
-                'required': [],
-                'nullable': [
-                ],
-                'enum': [
-                ],
-                'validation': [
-                ]
-            },
-            root_map={
-                'validations': {
-                },
-                'allowed_values': {
-                },
-                'openapi_types': {
-                    'create_avatar_request':
-                        (CreateAvatarRequest,),
-                },
-                'attribute_map': {
-                },
-                'location_map': {
-                    'create_avatar_request': 'body',
-                },
-                'collection_format_map': {
-                }
-            },
-            headers_map={
-                'accept': [
-                    'application/json'
-                ],
-                'content_type': [
-                    'application/json'
-                ]
-            },
-            api_client=api_client
-        )
-        self.delete_avatar_endpoint = _Endpoint(
-            settings={
-                'response_type': (Avatar,),
-                'auth': [
-                    'apiKeyCookie',
-                    'authCookie'
-                ],
-                'endpoint_path': '/avatars/{avatarId}',
-                'operation_id': 'delete_avatar',
-                'http_method': 'DELETE',
-                'servers': None,
-            },
-            params_map={
-                'all': [
-                    'avatar_id',
-                ],
-                'required': [
-                    'avatar_id',
-                ],
-                'nullable': [
-                ],
-                'enum': [
-                ],
-                'validation': [
-                ]
-            },
-            root_map={
-                'validations': {
-                },
-                'allowed_values': {
-                },
-                'openapi_types': {
-                    'avatar_id':
-                        (str,),
-                },
-                'attribute_map': {
-                    'avatar_id': 'avatarId',
-                },
-                'location_map': {
-                    'avatar_id': 'path',
-                },
-                'collection_format_map': {
-                }
-            },
-            headers_map={
-                'accept': [
-                    'application/json'
-                ],
-                'content_type': [],
-            },
-            api_client=api_client
-        )
-        self.get_avatar_endpoint = _Endpoint(
-            settings={
-                'response_type': (Avatar,),
-                'auth': [
-                    'apiKeyCookie',
-                    'authCookie'
-                ],
-                'endpoint_path': '/avatars/{avatarId}',
-                'operation_id': 'get_avatar',
-                'http_method': 'GET',
-                'servers': None,
-            },
-            params_map={
-                'all': [
-                    'avatar_id',
-                ],
-                'required': [
-                    'avatar_id',
-                ],
-                'nullable': [
-                ],
-                'enum': [
-                ],
-                'validation': [
-                ]
-            },
-            root_map={
-                'validations': {
-                },
-                'allowed_values': {
-                },
-                'openapi_types': {
-                    'avatar_id':
-                        (str,),
-                },
-                'attribute_map': {
-                    'avatar_id': 'avatarId',
-                },
-                'location_map': {
-                    'avatar_id': 'path',
-                },
-                'collection_format_map': {
-                }
-            },
-            headers_map={
-                'accept': [
-                    'application/json'
-                ],
-                'content_type': [],
-            },
-            api_client=api_client
-        )
-        self.get_favorited_avatars_endpoint = _Endpoint(
-            settings={
-                'response_type': ([Avatar],),
-                'auth': [
-                    'apiKeyCookie',
-                    'authCookie'
-                ],
-                'endpoint_path': '/avatars/favorites',
-                'operation_id': 'get_favorited_avatars',
-                'http_method': 'GET',
-                'servers': None,
-            },
-            params_map={
-                'all': [
-                    'featured',
-                    'sort',
-                    'n',
-                    'order',
-                    'offset',
-                    'search',
-                    'tag',
-                    'notag',
-                    'release_status',
-                    'max_unity_version',
-                    'min_unity_version',
-                    'platform',
-                    'user_id',
-                ],
-                'required': [],
-                'nullable': [
-                ],
-                'enum': [
-                    'sort',
-                    'order',
-                    'release_status',
-                ],
-                'validation': [
-                    'n',
-                    'offset',
-                ]
-            },
-            root_map={
-                'validations': {
-                    ('n',): {
 
-                        'inclusive_maximum': 100,
-                        'inclusive_minimum': 1,
-                    },
-                    ('offset',): {
-
-                        'inclusive_minimum': 0,
-                    },
-                },
-                'allowed_values': {
-                    ('sort',): {
-
-                        "POPULARITY": "popularity",
-                        "HEAT": "heat",
-                        "TRUST": "trust",
-                        "SHUFFLE": "shuffle",
-                        "RANDOM": "random",
-                        "FAVORITES": "favorites",
-                        "REPORTSCORE": "reportScore",
-                        "REPORTCOUNT": "reportCount",
-                        "PUBLICATIONDATE": "publicationDate",
-                        "LABSPUBLICATIONDATE": "labsPublicationDate",
-                        "CREATED": "created",
-                        "_CREATED_AT": "_created_at",
-                        "UPDATED": "updated",
-                        "_UPDATED_AT": "_updated_at",
-                        "ORDER": "order",
-                        "RELEVANCE": "relevance",
-                        "MAGIC": "magic",
-                        "NAME": "name"
-                    },
-                    ('order',): {
-
-                        "ASCENDING": "ascending",
-                        "DESCENDING": "descending"
-                    },
-                    ('release_status',): {
-
-                        "PUBLIC": "public",
-                        "PRIVATE": "private",
-                        "HIDDEN": "hidden",
-                        "ALL": "all"
-                    },
-                },
-                'openapi_types': {
-                    'featured':
-                        (bool,),
-                    'sort':
-                        (str,),
-                    'n':
-                        (int,),
-                    'order':
-                        (str,),
-                    'offset':
-                        (int,),
-                    'search':
-                        (str,),
-                    'tag':
-                        (str,),
-                    'notag':
-                        (str,),
-                    'release_status':
-                        (str,),
-                    'max_unity_version':
-                        (str,),
-                    'min_unity_version':
-                        (str,),
-                    'platform':
-                        (str,),
-                    'user_id':
-                        (str,),
-                },
-                'attribute_map': {
-                    'featured': 'featured',
-                    'sort': 'sort',
-                    'n': 'n',
-                    'order': 'order',
-                    'offset': 'offset',
-                    'search': 'search',
-                    'tag': 'tag',
-                    'notag': 'notag',
-                    'release_status': 'releaseStatus',
-                    'max_unity_version': 'maxUnityVersion',
-                    'min_unity_version': 'minUnityVersion',
-                    'platform': 'platform',
-                    'user_id': 'userId',
-                },
-                'location_map': {
-                    'featured': 'query',
-                    'sort': 'query',
-                    'n': 'query',
-                    'order': 'query',
-                    'offset': 'query',
-                    'search': 'query',
-                    'tag': 'query',
-                    'notag': 'query',
-                    'release_status': 'query',
-                    'max_unity_version': 'query',
-                    'min_unity_version': 'query',
-                    'platform': 'query',
-                    'user_id': 'query',
-                },
-                'collection_format_map': {
-                }
-            },
-            headers_map={
-                'accept': [
-                    'application/json'
-                ],
-                'content_type': [],
-            },
-            api_client=api_client
-        )
-        self.get_own_avatar_endpoint = _Endpoint(
-            settings={
-                'response_type': (Avatar,),
-                'auth': [
-                    'apiKeyCookie',
-                    'authCookie'
-                ],
-                'endpoint_path': '/users/{userId}/avatar',
-                'operation_id': 'get_own_avatar',
-                'http_method': 'GET',
-                'servers': None,
-            },
-            params_map={
-                'all': [
-                    'user_id',
-                ],
-                'required': [
-                    'user_id',
-                ],
-                'nullable': [
-                ],
-                'enum': [
-                ],
-                'validation': [
-                ]
-            },
-            root_map={
-                'validations': {
-                },
-                'allowed_values': {
-                },
-                'openapi_types': {
-                    'user_id':
-                        (str,),
-                },
-                'attribute_map': {
-                    'user_id': 'userId',
-                },
-                'location_map': {
-                    'user_id': 'path',
-                },
-                'collection_format_map': {
-                }
-            },
-            headers_map={
-                'accept': [
-                    'application/json'
-                ],
-                'content_type': [],
-            },
-            api_client=api_client
-        )
-        self.search_avatars_endpoint = _Endpoint(
-            settings={
-                'response_type': ([Avatar],),
-                'auth': [
-                    'apiKeyCookie',
-                    'authCookie'
-                ],
-                'endpoint_path': '/avatars',
-                'operation_id': 'search_avatars',
-                'http_method': 'GET',
-                'servers': None,
-            },
-            params_map={
-                'all': [
-                    'featured',
-                    'sort',
-                    'user',
-                    'user_id',
-                    'n',
-                    'order',
-                    'offset',
-                    'tag',
-                    'notag',
-                    'release_status',
-                    'max_unity_version',
-                    'min_unity_version',
-                    'platform',
-                ],
-                'required': [],
-                'nullable': [
-                ],
-                'enum': [
-                    'sort',
-                    'user',
-                    'order',
-                    'release_status',
-                ],
-                'validation': [
-                    'n',
-                    'offset',
-                ]
-            },
-            root_map={
-                'validations': {
-                    ('n',): {
-
-                        'inclusive_maximum': 100,
-                        'inclusive_minimum': 1,
-                    },
-                    ('offset',): {
-
-                        'inclusive_minimum': 0,
-                    },
-                },
-                'allowed_values': {
-                    ('sort',): {
-
-                        "POPULARITY": "popularity",
-                        "HEAT": "heat",
-                        "TRUST": "trust",
-                        "SHUFFLE": "shuffle",
-                        "RANDOM": "random",
-                        "FAVORITES": "favorites",
-                        "REPORTSCORE": "reportScore",
-                        "REPORTCOUNT": "reportCount",
-                        "PUBLICATIONDATE": "publicationDate",
-                        "LABSPUBLICATIONDATE": "labsPublicationDate",
-                        "CREATED": "created",
-                        "_CREATED_AT": "_created_at",
-                        "UPDATED": "updated",
-                        "_UPDATED_AT": "_updated_at",
-                        "ORDER": "order",
-                        "RELEVANCE": "relevance",
-                        "MAGIC": "magic",
-                        "NAME": "name"
-                    },
-                    ('user',): {
-
-                        "ME": "me"
-                    },
-                    ('order',): {
-
-                        "ASCENDING": "ascending",
-                        "DESCENDING": "descending"
-                    },
-                    ('release_status',): {
-
-                        "PUBLIC": "public",
-                        "PRIVATE": "private",
-                        "HIDDEN": "hidden",
-                        "ALL": "all"
-                    },
-                },
-                'openapi_types': {
-                    'featured':
-                        (bool,),
-                    'sort':
-                        (str,),
-                    'user':
-                        (str,),
-                    'user_id':
-                        (str,),
-                    'n':
-                        (int,),
-                    'order':
-                        (str,),
-                    'offset':
-                        (int,),
-                    'tag':
-                        (str,),
-                    'notag':
-                        (str,),
-                    'release_status':
-                        (str,),
-                    'max_unity_version':
-                        (str,),
-                    'min_unity_version':
-                        (str,),
-                    'platform':
-                        (str,),
-                },
-                'attribute_map': {
-                    'featured': 'featured',
-                    'sort': 'sort',
-                    'user': 'user',
-                    'user_id': 'userId',
-                    'n': 'n',
-                    'order': 'order',
-                    'offset': 'offset',
-                    'tag': 'tag',
-                    'notag': 'notag',
-                    'release_status': 'releaseStatus',
-                    'max_unity_version': 'maxUnityVersion',
-                    'min_unity_version': 'minUnityVersion',
-                    'platform': 'platform',
-                },
-                'location_map': {
-                    'featured': 'query',
-                    'sort': 'query',
-                    'user': 'query',
-                    'user_id': 'query',
-                    'n': 'query',
-                    'order': 'query',
-                    'offset': 'query',
-                    'tag': 'query',
-                    'notag': 'query',
-                    'release_status': 'query',
-                    'max_unity_version': 'query',
-                    'min_unity_version': 'query',
-                    'platform': 'query',
-                },
-                'collection_format_map': {
-                }
-            },
-            headers_map={
-                'accept': [
-                    'application/json'
-                ],
-                'content_type': [],
-            },
-            api_client=api_client
-        )
-        self.select_avatar_endpoint = _Endpoint(
-            settings={
-                'response_type': (CurrentUser,),
-                'auth': [
-                    'apiKeyCookie',
-                    'authCookie'
-                ],
-                'endpoint_path': '/avatars/{avatarId}/select',
-                'operation_id': 'select_avatar',
-                'http_method': 'PUT',
-                'servers': None,
-            },
-            params_map={
-                'all': [
-                    'avatar_id',
-                ],
-                'required': [
-                    'avatar_id',
-                ],
-                'nullable': [
-                ],
-                'enum': [
-                ],
-                'validation': [
-                ]
-            },
-            root_map={
-                'validations': {
-                },
-                'allowed_values': {
-                },
-                'openapi_types': {
-                    'avatar_id':
-                        (str,),
-                },
-                'attribute_map': {
-                    'avatar_id': 'avatarId',
-                },
-                'location_map': {
-                    'avatar_id': 'path',
-                },
-                'collection_format_map': {
-                }
-            },
-            headers_map={
-                'accept': [
-                    'application/json'
-                ],
-                'content_type': [],
-            },
-            api_client=api_client
-        )
-        self.select_fallback_avatar_endpoint = _Endpoint(
-            settings={
-                'response_type': (CurrentUser,),
-                'auth': [
-                    'apiKeyCookie',
-                    'authCookie'
-                ],
-                'endpoint_path': '/avatars/{avatarId}/selectFallback',
-                'operation_id': 'select_fallback_avatar',
-                'http_method': 'PUT',
-                'servers': None,
-            },
-            params_map={
-                'all': [
-                    'avatar_id',
-                ],
-                'required': [
-                    'avatar_id',
-                ],
-                'nullable': [
-                ],
-                'enum': [
-                ],
-                'validation': [
-                ]
-            },
-            root_map={
-                'validations': {
-                },
-                'allowed_values': {
-                },
-                'openapi_types': {
-                    'avatar_id':
-                        (str,),
-                },
-                'attribute_map': {
-                    'avatar_id': 'avatarId',
-                },
-                'location_map': {
-                    'avatar_id': 'path',
-                },
-                'collection_format_map': {
-                }
-            },
-            headers_map={
-                'accept': [
-                    'application/json'
-                ],
-                'content_type': [],
-            },
-            api_client=api_client
-        )
-        self.update_avatar_endpoint = _Endpoint(
-            settings={
-                'response_type': (Avatar,),
-                'auth': [
-                    'apiKeyCookie',
-                    'authCookie'
-                ],
-                'endpoint_path': '/avatars/{avatarId}',
-                'operation_id': 'update_avatar',
-                'http_method': 'PUT',
-                'servers': None,
-            },
-            params_map={
-                'all': [
-                    'avatar_id',
-                    'update_avatar_request',
-                ],
-                'required': [
-                    'avatar_id',
-                ],
-                'nullable': [
-                ],
-                'enum': [
-                ],
-                'validation': [
-                ]
-            },
-            root_map={
-                'validations': {
-                },
-                'allowed_values': {
-                },
-                'openapi_types': {
-                    'avatar_id':
-                        (str,),
-                    'update_avatar_request':
-                        (UpdateAvatarRequest,),
-                },
-                'attribute_map': {
-                    'avatar_id': 'avatarId',
-                },
-                'location_map': {
-                    'avatar_id': 'path',
-                    'update_avatar_request': 'body',
-                },
-                'collection_format_map': {
-                }
-            },
-            headers_map={
-                'accept': [
-                    'application/json'
-                ],
-                'content_type': [
-                    'application/json'
-                ]
-            },
-            api_client=api_client
-        )
-
-    def create_avatar(
-        self,
-        **kwargs
-    ):
+    def create_avatar(self, **kwargs):  # noqa: E501
         """Create Avatar  # noqa: E501
 
         Create an avatar. It's possible to optionally specify a ID if you want a custom one. Attempting to create an Avatar with an already claimed ID will result in a DB error.  # noqa: E501
@@ -741,60 +46,140 @@ class AvatarsApi(object):
         >>> thread = api.create_avatar(async_req=True)
         >>> result = thread.get()
 
-
-        Keyword Args:
-            create_avatar_request (CreateAvatarRequest): [optional]
-            _return_http_data_only (bool): response data without head status
-                code and headers. Default is True.
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-            async_req (bool): execute request asynchronously
-
-        Returns:
-            Avatar
-                If the method is called asynchronously, returns the request
-                thread.
+        :param create_avatar_request:
+        :type create_avatar_request: CreateAvatarRequest
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :type _preload_content: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: Avatar
         """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_host_index'] = kwargs.get('_host_index')
-        return self.create_avatar_endpoint.call_with_http_info(**kwargs)
+        kwargs['_return_http_data_only'] = True
+        return self.create_avatar_with_http_info(**kwargs)  # noqa: E501
 
-    def delete_avatar(
-        self,
-        avatar_id,
-        **kwargs
-    ):
+    def create_avatar_with_http_info(self, **kwargs):  # noqa: E501
+        """Create Avatar  # noqa: E501
+
+        Create an avatar. It's possible to optionally specify a ID if you want a custom one. Attempting to create an Avatar with an already claimed ID will result in a DB error.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.create_avatar_with_http_info(async_req=True)
+        >>> result = thread.get()
+
+        :param create_avatar_request:
+        :type create_avatar_request: CreateAvatarRequest
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :type _return_http_data_only: bool, optional
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :type _preload_content: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: tuple(Avatar, status_code(int), headers(HTTPHeaderDict))
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'create_avatar_request'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth',
+                '_content_type',
+                '_headers'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method create_avatar" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = dict(local_var_params.get('_headers', {}))
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'create_avatar_request' in local_var_params:
+            body_params = local_var_params['create_avatar_request']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        content_types_list = local_var_params.get('_content_type',
+            self.api_client.select_header_content_type(
+                ['application/json'],
+                'POST', body_params))  # noqa: E501
+        if content_types_list:
+                header_params['Content-Type'] = content_types_list
+
+        # Authentication setting
+        auth_settings = ['apiKeyCookie', 'authCookie']  # noqa: E501
+
+        response_types_map = {
+            200: "Avatar",
+            401: "Error",
+        }
+
+        return self.api_client.call_api(
+            '/avatars', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_types_map=response_types_map,
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))
+
+    def delete_avatar(self, avatar_id, **kwargs):  # noqa: E501
         """Delete Avatar  # noqa: E501
 
         Delete an avatar. Notice an avatar is never fully \"deleted\", only its ReleaseStatus is set to \"hidden\" and the linked Files are deleted. The AvatarID is permanently reserved.  # noqa: E501
@@ -804,63 +189,136 @@ class AvatarsApi(object):
         >>> thread = api.delete_avatar(avatar_id, async_req=True)
         >>> result = thread.get()
 
-        Args:
-            avatar_id (str):
-
-        Keyword Args:
-            _return_http_data_only (bool): response data without head status
-                code and headers. Default is True.
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-            async_req (bool): execute request asynchronously
-
-        Returns:
-            Avatar
-                If the method is called asynchronously, returns the request
-                thread.
+        :param avatar_id: (required)
+        :type avatar_id: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :type _preload_content: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: Avatar
         """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_host_index'] = kwargs.get('_host_index')
-        kwargs['avatar_id'] = \
-            avatar_id
-        return self.delete_avatar_endpoint.call_with_http_info(**kwargs)
+        kwargs['_return_http_data_only'] = True
+        return self.delete_avatar_with_http_info(avatar_id, **kwargs)  # noqa: E501
 
-    def get_avatar(
-        self,
-        avatar_id,
-        **kwargs
-    ):
+    def delete_avatar_with_http_info(self, avatar_id, **kwargs):  # noqa: E501
+        """Delete Avatar  # noqa: E501
+
+        Delete an avatar. Notice an avatar is never fully \"deleted\", only its ReleaseStatus is set to \"hidden\" and the linked Files are deleted. The AvatarID is permanently reserved.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.delete_avatar_with_http_info(avatar_id, async_req=True)
+        >>> result = thread.get()
+
+        :param avatar_id: (required)
+        :type avatar_id: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :type _return_http_data_only: bool, optional
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :type _preload_content: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: tuple(Avatar, status_code(int), headers(HTTPHeaderDict))
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'avatar_id'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth',
+                '_content_type',
+                '_headers'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method delete_avatar" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'avatar_id' is set
+        if self.api_client.client_side_validation and local_var_params.get('avatar_id') is None:  # noqa: E501
+            raise ApiValueError("Missing the required parameter `avatar_id` when calling `delete_avatar`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'avatar_id' in local_var_params:
+            path_params['avatarId'] = local_var_params['avatar_id']  # noqa: E501
+
+        query_params = []
+
+        header_params = dict(local_var_params.get('_headers', {}))
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['apiKeyCookie', 'authCookie']  # noqa: E501
+
+        response_types_map = {
+            200: "Avatar",
+            401: "Error",
+            404: "Error",
+        }
+
+        return self.api_client.call_api(
+            '/avatars/{avatarId}', 'DELETE',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_types_map=response_types_map,
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))
+
+    def get_avatar(self, avatar_id, **kwargs):  # noqa: E501
         """Get Avatar  # noqa: E501
 
         Get information about a specific Avatar.  # noqa: E501
@@ -870,62 +328,136 @@ class AvatarsApi(object):
         >>> thread = api.get_avatar(avatar_id, async_req=True)
         >>> result = thread.get()
 
-        Args:
-            avatar_id (str):
-
-        Keyword Args:
-            _return_http_data_only (bool): response data without head status
-                code and headers. Default is True.
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-            async_req (bool): execute request asynchronously
-
-        Returns:
-            Avatar
-                If the method is called asynchronously, returns the request
-                thread.
+        :param avatar_id: (required)
+        :type avatar_id: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :type _preload_content: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: Avatar
         """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_host_index'] = kwargs.get('_host_index')
-        kwargs['avatar_id'] = \
-            avatar_id
-        return self.get_avatar_endpoint.call_with_http_info(**kwargs)
+        kwargs['_return_http_data_only'] = True
+        return self.get_avatar_with_http_info(avatar_id, **kwargs)  # noqa: E501
 
-    def get_favorited_avatars(
-        self,
-        **kwargs
-    ):
+    def get_avatar_with_http_info(self, avatar_id, **kwargs):  # noqa: E501
+        """Get Avatar  # noqa: E501
+
+        Get information about a specific Avatar.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_avatar_with_http_info(avatar_id, async_req=True)
+        >>> result = thread.get()
+
+        :param avatar_id: (required)
+        :type avatar_id: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :type _return_http_data_only: bool, optional
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :type _preload_content: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: tuple(Avatar, status_code(int), headers(HTTPHeaderDict))
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'avatar_id'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth',
+                '_content_type',
+                '_headers'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_avatar" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'avatar_id' is set
+        if self.api_client.client_side_validation and local_var_params.get('avatar_id') is None:  # noqa: E501
+            raise ApiValueError("Missing the required parameter `avatar_id` when calling `get_avatar`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'avatar_id' in local_var_params:
+            path_params['avatarId'] = local_var_params['avatar_id']  # noqa: E501
+
+        query_params = []
+
+        header_params = dict(local_var_params.get('_headers', {}))
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['apiKeyCookie', 'authCookie']  # noqa: E501
+
+        response_types_map = {
+            200: "Avatar",
+            401: "Error",
+            404: "Error",
+        }
+
+        return self.api_client.call_api(
+            '/avatars/{avatarId}', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_types_map=response_types_map,
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))
+
+    def get_favorited_avatars(self, **kwargs):  # noqa: E501
         """List Favorited Avatars  # noqa: E501
 
         Search and list favorited avatars by query filters.  # noqa: E501
@@ -935,72 +467,223 @@ class AvatarsApi(object):
         >>> thread = api.get_favorited_avatars(async_req=True)
         >>> result = thread.get()
 
-
-        Keyword Args:
-            featured (bool): Filters on featured results.. [optional]
-            sort (str): [optional] if omitted the server will use the default value of "popularity"
-            n (int): The number of objects to return.. [optional] if omitted the server will use the default value of 60
-            order (str): [optional] if omitted the server will use the default value of "descending"
-            offset (int): A zero-based offset from the default object sorting from where search results start.. [optional]
-            search (str): Filters by world name.. [optional]
-            tag (str): Tags to include (comma-separated). Any of the tags needs to be present.. [optional]
-            notag (str): Tags to exclude (comma-separated).. [optional]
-            release_status (str): Filter by ReleaseStatus.. [optional] if omitted the server will use the default value of "public"
-            max_unity_version (str): The maximum Unity version supported by the asset.. [optional]
-            min_unity_version (str): The minimum Unity version supported by the asset.. [optional]
-            platform (str): The platform the asset supports.. [optional]
-            user_id (str): Target user to see information on, admin-only.. [optional]
-            _return_http_data_only (bool): response data without head status
-                code and headers. Default is True.
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-            async_req (bool): execute request asynchronously
-
-        Returns:
-            [Avatar]
-                If the method is called asynchronously, returns the request
-                thread.
+        :param featured: Filters on featured results.
+        :type featured: bool
+        :param sort:
+        :type sort: str
+        :param n: The number of objects to return.
+        :type n: int
+        :param order:
+        :type order: str
+        :param offset: A zero-based offset from the default object sorting from where search results start.
+        :type offset: int
+        :param search: Filters by world name.
+        :type search: str
+        :param tag: Tags to include (comma-separated). Any of the tags needs to be present.
+        :type tag: str
+        :param notag: Tags to exclude (comma-separated).
+        :type notag: str
+        :param release_status: Filter by ReleaseStatus.
+        :type release_status: str
+        :param max_unity_version: The maximum Unity version supported by the asset.
+        :type max_unity_version: str
+        :param min_unity_version: The minimum Unity version supported by the asset.
+        :type min_unity_version: str
+        :param platform: The platform the asset supports.
+        :type platform: str
+        :param user_id: Target user to see information on, admin-only.
+        :type user_id: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :type _preload_content: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: list[Avatar]
         """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_host_index'] = kwargs.get('_host_index')
-        return self.get_favorited_avatars_endpoint.call_with_http_info(**kwargs)
+        kwargs['_return_http_data_only'] = True
+        return self.get_favorited_avatars_with_http_info(**kwargs)  # noqa: E501
 
-    def get_own_avatar(
-        self,
-        user_id,
-        **kwargs
-    ):
+    def get_favorited_avatars_with_http_info(self, **kwargs):  # noqa: E501
+        """List Favorited Avatars  # noqa: E501
+
+        Search and list favorited avatars by query filters.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_favorited_avatars_with_http_info(async_req=True)
+        >>> result = thread.get()
+
+        :param featured: Filters on featured results.
+        :type featured: bool
+        :param sort:
+        :type sort: str
+        :param n: The number of objects to return.
+        :type n: int
+        :param order:
+        :type order: str
+        :param offset: A zero-based offset from the default object sorting from where search results start.
+        :type offset: int
+        :param search: Filters by world name.
+        :type search: str
+        :param tag: Tags to include (comma-separated). Any of the tags needs to be present.
+        :type tag: str
+        :param notag: Tags to exclude (comma-separated).
+        :type notag: str
+        :param release_status: Filter by ReleaseStatus.
+        :type release_status: str
+        :param max_unity_version: The maximum Unity version supported by the asset.
+        :type max_unity_version: str
+        :param min_unity_version: The minimum Unity version supported by the asset.
+        :type min_unity_version: str
+        :param platform: The platform the asset supports.
+        :type platform: str
+        :param user_id: Target user to see information on, admin-only.
+        :type user_id: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :type _return_http_data_only: bool, optional
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :type _preload_content: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: tuple(list[Avatar], status_code(int), headers(HTTPHeaderDict))
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'featured',
+            'sort',
+            'n',
+            'order',
+            'offset',
+            'search',
+            'tag',
+            'notag',
+            'release_status',
+            'max_unity_version',
+            'min_unity_version',
+            'platform',
+            'user_id'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth',
+                '_content_type',
+                '_headers'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_favorited_avatars" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+
+        if self.api_client.client_side_validation and 'n' in local_var_params and local_var_params['n'] > 100:  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `n` when calling `get_favorited_avatars`, must be a value less than or equal to `100`")  # noqa: E501
+        if self.api_client.client_side_validation and 'n' in local_var_params and local_var_params['n'] < 1:  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `n` when calling `get_favorited_avatars`, must be a value greater than or equal to `1`")  # noqa: E501
+        if self.api_client.client_side_validation and 'offset' in local_var_params and local_var_params['offset'] < 0:  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `offset` when calling `get_favorited_avatars`, must be a value greater than or equal to `0`")  # noqa: E501
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+        if local_var_params.get('featured') is not None:  # noqa: E501
+            query_params.append(('featured', local_var_params['featured']))  # noqa: E501
+        if local_var_params.get('sort') is not None:  # noqa: E501
+            query_params.append(('sort', local_var_params['sort']))  # noqa: E501
+        if local_var_params.get('n') is not None:  # noqa: E501
+            query_params.append(('n', local_var_params['n']))  # noqa: E501
+        if local_var_params.get('order') is not None:  # noqa: E501
+            query_params.append(('order', local_var_params['order']))  # noqa: E501
+        if local_var_params.get('offset') is not None:  # noqa: E501
+            query_params.append(('offset', local_var_params['offset']))  # noqa: E501
+        if local_var_params.get('search') is not None:  # noqa: E501
+            query_params.append(('search', local_var_params['search']))  # noqa: E501
+        if local_var_params.get('tag') is not None:  # noqa: E501
+            query_params.append(('tag', local_var_params['tag']))  # noqa: E501
+        if local_var_params.get('notag') is not None:  # noqa: E501
+            query_params.append(('notag', local_var_params['notag']))  # noqa: E501
+        if local_var_params.get('release_status') is not None:  # noqa: E501
+            query_params.append(('releaseStatus', local_var_params['release_status']))  # noqa: E501
+        if local_var_params.get('max_unity_version') is not None:  # noqa: E501
+            query_params.append(('maxUnityVersion', local_var_params['max_unity_version']))  # noqa: E501
+        if local_var_params.get('min_unity_version') is not None:  # noqa: E501
+            query_params.append(('minUnityVersion', local_var_params['min_unity_version']))  # noqa: E501
+        if local_var_params.get('platform') is not None:  # noqa: E501
+            query_params.append(('platform', local_var_params['platform']))  # noqa: E501
+        if local_var_params.get('user_id') is not None:  # noqa: E501
+            query_params.append(('userId', local_var_params['user_id']))  # noqa: E501
+
+        header_params = dict(local_var_params.get('_headers', {}))
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['apiKeyCookie', 'authCookie']  # noqa: E501
+
+        response_types_map = {
+            200: "list[Avatar]",
+            401: "Error",
+            403: "Error",
+        }
+
+        return self.api_client.call_api(
+            '/avatars/favorites', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_types_map=response_types_map,
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))
+
+    def get_own_avatar(self, user_id, **kwargs):  # noqa: E501
         """Get Own Avatar  # noqa: E501
 
         Get the current avatar for the user. This will return an error for any other user than the one logged in.  # noqa: E501
@@ -1010,62 +693,136 @@ class AvatarsApi(object):
         >>> thread = api.get_own_avatar(user_id, async_req=True)
         >>> result = thread.get()
 
-        Args:
-            user_id (str):
-
-        Keyword Args:
-            _return_http_data_only (bool): response data without head status
-                code and headers. Default is True.
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-            async_req (bool): execute request asynchronously
-
-        Returns:
-            Avatar
-                If the method is called asynchronously, returns the request
-                thread.
+        :param user_id: (required)
+        :type user_id: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :type _preload_content: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: Avatar
         """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_host_index'] = kwargs.get('_host_index')
-        kwargs['user_id'] = \
-            user_id
-        return self.get_own_avatar_endpoint.call_with_http_info(**kwargs)
+        kwargs['_return_http_data_only'] = True
+        return self.get_own_avatar_with_http_info(user_id, **kwargs)  # noqa: E501
 
-    def search_avatars(
-        self,
-        **kwargs
-    ):
+    def get_own_avatar_with_http_info(self, user_id, **kwargs):  # noqa: E501
+        """Get Own Avatar  # noqa: E501
+
+        Get the current avatar for the user. This will return an error for any other user than the one logged in.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_own_avatar_with_http_info(user_id, async_req=True)
+        >>> result = thread.get()
+
+        :param user_id: (required)
+        :type user_id: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :type _return_http_data_only: bool, optional
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :type _preload_content: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: tuple(Avatar, status_code(int), headers(HTTPHeaderDict))
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'user_id'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth',
+                '_content_type',
+                '_headers'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_own_avatar" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'user_id' is set
+        if self.api_client.client_side_validation and local_var_params.get('user_id') is None:  # noqa: E501
+            raise ApiValueError("Missing the required parameter `user_id` when calling `get_own_avatar`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'user_id' in local_var_params:
+            path_params['userId'] = local_var_params['user_id']  # noqa: E501
+
+        query_params = []
+
+        header_params = dict(local_var_params.get('_headers', {}))
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['apiKeyCookie', 'authCookie']  # noqa: E501
+
+        response_types_map = {
+            200: "Avatar",
+            401: "Error",
+            403: "Error",
+        }
+
+        return self.api_client.call_api(
+            '/users/{userId}/avatar', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_types_map=response_types_map,
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))
+
+    def search_avatars(self, **kwargs):  # noqa: E501
         """Search Avatars  # noqa: E501
 
         Search and list avatars by query filters. You can only search your own or featured avatars. It is not possible as a normal user to search other peoples avatars.  # noqa: E501
@@ -1075,72 +832,222 @@ class AvatarsApi(object):
         >>> thread = api.search_avatars(async_req=True)
         >>> result = thread.get()
 
-
-        Keyword Args:
-            featured (bool): Filters on featured results.. [optional]
-            sort (str): [optional] if omitted the server will use the default value of "popularity"
-            user (str): Set to `me` for searching own avatars.. [optional] if omitted the server will use the default value of "me"
-            user_id (str): Filter by UserID.. [optional]
-            n (int): The number of objects to return.. [optional] if omitted the server will use the default value of 60
-            order (str): [optional] if omitted the server will use the default value of "descending"
-            offset (int): A zero-based offset from the default object sorting from where search results start.. [optional]
-            tag (str): Tags to include (comma-separated). Any of the tags needs to be present.. [optional]
-            notag (str): Tags to exclude (comma-separated).. [optional]
-            release_status (str): Filter by ReleaseStatus.. [optional] if omitted the server will use the default value of "public"
-            max_unity_version (str): The maximum Unity version supported by the asset.. [optional]
-            min_unity_version (str): The minimum Unity version supported by the asset.. [optional]
-            platform (str): The platform the asset supports.. [optional]
-            _return_http_data_only (bool): response data without head status
-                code and headers. Default is True.
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-            async_req (bool): execute request asynchronously
-
-        Returns:
-            [Avatar]
-                If the method is called asynchronously, returns the request
-                thread.
+        :param featured: Filters on featured results.
+        :type featured: bool
+        :param sort:
+        :type sort: str
+        :param user: Set to `me` for searching own avatars.
+        :type user: str
+        :param user_id: Filter by UserID.
+        :type user_id: str
+        :param n: The number of objects to return.
+        :type n: int
+        :param order:
+        :type order: str
+        :param offset: A zero-based offset from the default object sorting from where search results start.
+        :type offset: int
+        :param tag: Tags to include (comma-separated). Any of the tags needs to be present.
+        :type tag: str
+        :param notag: Tags to exclude (comma-separated).
+        :type notag: str
+        :param release_status: Filter by ReleaseStatus.
+        :type release_status: str
+        :param max_unity_version: The maximum Unity version supported by the asset.
+        :type max_unity_version: str
+        :param min_unity_version: The minimum Unity version supported by the asset.
+        :type min_unity_version: str
+        :param platform: The platform the asset supports.
+        :type platform: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :type _preload_content: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: list[Avatar]
         """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_host_index'] = kwargs.get('_host_index')
-        return self.search_avatars_endpoint.call_with_http_info(**kwargs)
+        kwargs['_return_http_data_only'] = True
+        return self.search_avatars_with_http_info(**kwargs)  # noqa: E501
 
-    def select_avatar(
-        self,
-        avatar_id,
-        **kwargs
-    ):
+    def search_avatars_with_http_info(self, **kwargs):  # noqa: E501
+        """Search Avatars  # noqa: E501
+
+        Search and list avatars by query filters. You can only search your own or featured avatars. It is not possible as a normal user to search other peoples avatars.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.search_avatars_with_http_info(async_req=True)
+        >>> result = thread.get()
+
+        :param featured: Filters on featured results.
+        :type featured: bool
+        :param sort:
+        :type sort: str
+        :param user: Set to `me` for searching own avatars.
+        :type user: str
+        :param user_id: Filter by UserID.
+        :type user_id: str
+        :param n: The number of objects to return.
+        :type n: int
+        :param order:
+        :type order: str
+        :param offset: A zero-based offset from the default object sorting from where search results start.
+        :type offset: int
+        :param tag: Tags to include (comma-separated). Any of the tags needs to be present.
+        :type tag: str
+        :param notag: Tags to exclude (comma-separated).
+        :type notag: str
+        :param release_status: Filter by ReleaseStatus.
+        :type release_status: str
+        :param max_unity_version: The maximum Unity version supported by the asset.
+        :type max_unity_version: str
+        :param min_unity_version: The minimum Unity version supported by the asset.
+        :type min_unity_version: str
+        :param platform: The platform the asset supports.
+        :type platform: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :type _return_http_data_only: bool, optional
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :type _preload_content: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: tuple(list[Avatar], status_code(int), headers(HTTPHeaderDict))
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'featured',
+            'sort',
+            'user',
+            'user_id',
+            'n',
+            'order',
+            'offset',
+            'tag',
+            'notag',
+            'release_status',
+            'max_unity_version',
+            'min_unity_version',
+            'platform'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth',
+                '_content_type',
+                '_headers'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method search_avatars" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+
+        if self.api_client.client_side_validation and 'n' in local_var_params and local_var_params['n'] > 100:  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `n` when calling `search_avatars`, must be a value less than or equal to `100`")  # noqa: E501
+        if self.api_client.client_side_validation and 'n' in local_var_params and local_var_params['n'] < 1:  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `n` when calling `search_avatars`, must be a value greater than or equal to `1`")  # noqa: E501
+        if self.api_client.client_side_validation and 'offset' in local_var_params and local_var_params['offset'] < 0:  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `offset` when calling `search_avatars`, must be a value greater than or equal to `0`")  # noqa: E501
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+        if local_var_params.get('featured') is not None:  # noqa: E501
+            query_params.append(('featured', local_var_params['featured']))  # noqa: E501
+        if local_var_params.get('sort') is not None:  # noqa: E501
+            query_params.append(('sort', local_var_params['sort']))  # noqa: E501
+        if local_var_params.get('user') is not None:  # noqa: E501
+            query_params.append(('user', local_var_params['user']))  # noqa: E501
+        if local_var_params.get('user_id') is not None:  # noqa: E501
+            query_params.append(('userId', local_var_params['user_id']))  # noqa: E501
+        if local_var_params.get('n') is not None:  # noqa: E501
+            query_params.append(('n', local_var_params['n']))  # noqa: E501
+        if local_var_params.get('order') is not None:  # noqa: E501
+            query_params.append(('order', local_var_params['order']))  # noqa: E501
+        if local_var_params.get('offset') is not None:  # noqa: E501
+            query_params.append(('offset', local_var_params['offset']))  # noqa: E501
+        if local_var_params.get('tag') is not None:  # noqa: E501
+            query_params.append(('tag', local_var_params['tag']))  # noqa: E501
+        if local_var_params.get('notag') is not None:  # noqa: E501
+            query_params.append(('notag', local_var_params['notag']))  # noqa: E501
+        if local_var_params.get('release_status') is not None:  # noqa: E501
+            query_params.append(('releaseStatus', local_var_params['release_status']))  # noqa: E501
+        if local_var_params.get('max_unity_version') is not None:  # noqa: E501
+            query_params.append(('maxUnityVersion', local_var_params['max_unity_version']))  # noqa: E501
+        if local_var_params.get('min_unity_version') is not None:  # noqa: E501
+            query_params.append(('minUnityVersion', local_var_params['min_unity_version']))  # noqa: E501
+        if local_var_params.get('platform') is not None:  # noqa: E501
+            query_params.append(('platform', local_var_params['platform']))  # noqa: E501
+
+        header_params = dict(local_var_params.get('_headers', {}))
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['apiKeyCookie', 'authCookie']  # noqa: E501
+
+        response_types_map = {
+            200: "list[Avatar]",
+            401: "Error",
+        }
+
+        return self.api_client.call_api(
+            '/avatars', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_types_map=response_types_map,
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))
+
+    def select_avatar(self, avatar_id, **kwargs):  # noqa: E501
         """Select Avatar  # noqa: E501
 
         Switches into that avatar.  # noqa: E501
@@ -1150,63 +1057,136 @@ class AvatarsApi(object):
         >>> thread = api.select_avatar(avatar_id, async_req=True)
         >>> result = thread.get()
 
-        Args:
-            avatar_id (str):
-
-        Keyword Args:
-            _return_http_data_only (bool): response data without head status
-                code and headers. Default is True.
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-            async_req (bool): execute request asynchronously
-
-        Returns:
-            CurrentUser
-                If the method is called asynchronously, returns the request
-                thread.
+        :param avatar_id: (required)
+        :type avatar_id: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :type _preload_content: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: CurrentUser
         """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_host_index'] = kwargs.get('_host_index')
-        kwargs['avatar_id'] = \
-            avatar_id
-        return self.select_avatar_endpoint.call_with_http_info(**kwargs)
+        kwargs['_return_http_data_only'] = True
+        return self.select_avatar_with_http_info(avatar_id, **kwargs)  # noqa: E501
 
-    def select_fallback_avatar(
-        self,
-        avatar_id,
-        **kwargs
-    ):
+    def select_avatar_with_http_info(self, avatar_id, **kwargs):  # noqa: E501
+        """Select Avatar  # noqa: E501
+
+        Switches into that avatar.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.select_avatar_with_http_info(avatar_id, async_req=True)
+        >>> result = thread.get()
+
+        :param avatar_id: (required)
+        :type avatar_id: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :type _return_http_data_only: bool, optional
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :type _preload_content: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: tuple(CurrentUser, status_code(int), headers(HTTPHeaderDict))
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'avatar_id'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth',
+                '_content_type',
+                '_headers'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method select_avatar" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'avatar_id' is set
+        if self.api_client.client_side_validation and local_var_params.get('avatar_id') is None:  # noqa: E501
+            raise ApiValueError("Missing the required parameter `avatar_id` when calling `select_avatar`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'avatar_id' in local_var_params:
+            path_params['avatarId'] = local_var_params['avatar_id']  # noqa: E501
+
+        query_params = []
+
+        header_params = dict(local_var_params.get('_headers', {}))
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['apiKeyCookie', 'authCookie']  # noqa: E501
+
+        response_types_map = {
+            200: "CurrentUser",
+            401: "Error",
+            404: "Error",
+        }
+
+        return self.api_client.call_api(
+            '/avatars/{avatarId}/select', 'PUT',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_types_map=response_types_map,
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))
+
+    def select_fallback_avatar(self, avatar_id, **kwargs):  # noqa: E501
         """Select Fallback Avatar  # noqa: E501
 
         Switches into that avatar as your fallback avatar.  # noqa: E501
@@ -1216,63 +1196,137 @@ class AvatarsApi(object):
         >>> thread = api.select_fallback_avatar(avatar_id, async_req=True)
         >>> result = thread.get()
 
-        Args:
-            avatar_id (str):
-
-        Keyword Args:
-            _return_http_data_only (bool): response data without head status
-                code and headers. Default is True.
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-            async_req (bool): execute request asynchronously
-
-        Returns:
-            CurrentUser
-                If the method is called asynchronously, returns the request
-                thread.
+        :param avatar_id: (required)
+        :type avatar_id: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :type _preload_content: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: CurrentUser
         """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_host_index'] = kwargs.get('_host_index')
-        kwargs['avatar_id'] = \
-            avatar_id
-        return self.select_fallback_avatar_endpoint.call_with_http_info(**kwargs)
+        kwargs['_return_http_data_only'] = True
+        return self.select_fallback_avatar_with_http_info(avatar_id, **kwargs)  # noqa: E501
 
-    def update_avatar(
-        self,
-        avatar_id,
-        **kwargs
-    ):
+    def select_fallback_avatar_with_http_info(self, avatar_id, **kwargs):  # noqa: E501
+        """Select Fallback Avatar  # noqa: E501
+
+        Switches into that avatar as your fallback avatar.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.select_fallback_avatar_with_http_info(avatar_id, async_req=True)
+        >>> result = thread.get()
+
+        :param avatar_id: (required)
+        :type avatar_id: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :type _return_http_data_only: bool, optional
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :type _preload_content: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: tuple(CurrentUser, status_code(int), headers(HTTPHeaderDict))
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'avatar_id'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth',
+                '_content_type',
+                '_headers'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method select_fallback_avatar" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'avatar_id' is set
+        if self.api_client.client_side_validation and local_var_params.get('avatar_id') is None:  # noqa: E501
+            raise ApiValueError("Missing the required parameter `avatar_id` when calling `select_fallback_avatar`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'avatar_id' in local_var_params:
+            path_params['avatarId'] = local_var_params['avatar_id']  # noqa: E501
+
+        query_params = []
+
+        header_params = dict(local_var_params.get('_headers', {}))
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['apiKeyCookie', 'authCookie']  # noqa: E501
+
+        response_types_map = {
+            200: "CurrentUser",
+            401: "Error",
+            403: "Error",
+            404: "Error",
+        }
+
+        return self.api_client.call_api(
+            '/avatars/{avatarId}/selectFallback', 'PUT',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_types_map=response_types_map,
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))
+
+    def update_avatar(self, avatar_id, **kwargs):  # noqa: E501
         """Update Avatar  # noqa: E501
 
         Update information about a specific avatar.  # noqa: E501
@@ -1282,56 +1336,146 @@ class AvatarsApi(object):
         >>> thread = api.update_avatar(avatar_id, async_req=True)
         >>> result = thread.get()
 
-        Args:
-            avatar_id (str):
-
-        Keyword Args:
-            update_avatar_request (UpdateAvatarRequest): [optional]
-            _return_http_data_only (bool): response data without head status
-                code and headers. Default is True.
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-            async_req (bool): execute request asynchronously
-
-        Returns:
-            Avatar
-                If the method is called asynchronously, returns the request
-                thread.
+        :param avatar_id: (required)
+        :type avatar_id: str
+        :param update_avatar_request:
+        :type update_avatar_request: UpdateAvatarRequest
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :type _preload_content: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: Avatar
         """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_host_index'] = kwargs.get('_host_index')
-        kwargs['avatar_id'] = \
-            avatar_id
-        return self.update_avatar_endpoint.call_with_http_info(**kwargs)
+        kwargs['_return_http_data_only'] = True
+        return self.update_avatar_with_http_info(avatar_id, **kwargs)  # noqa: E501
 
+    def update_avatar_with_http_info(self, avatar_id, **kwargs):  # noqa: E501
+        """Update Avatar  # noqa: E501
+
+        Update information about a specific avatar.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.update_avatar_with_http_info(avatar_id, async_req=True)
+        >>> result = thread.get()
+
+        :param avatar_id: (required)
+        :type avatar_id: str
+        :param update_avatar_request:
+        :type update_avatar_request: UpdateAvatarRequest
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :type _return_http_data_only: bool, optional
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :type _preload_content: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: tuple(Avatar, status_code(int), headers(HTTPHeaderDict))
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'avatar_id',
+            'update_avatar_request'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth',
+                '_content_type',
+                '_headers'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method update_avatar" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'avatar_id' is set
+        if self.api_client.client_side_validation and local_var_params.get('avatar_id') is None:  # noqa: E501
+            raise ApiValueError("Missing the required parameter `avatar_id` when calling `update_avatar`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'avatar_id' in local_var_params:
+            path_params['avatarId'] = local_var_params['avatar_id']  # noqa: E501
+
+        query_params = []
+
+        header_params = dict(local_var_params.get('_headers', {}))
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'update_avatar_request' in local_var_params:
+            body_params = local_var_params['update_avatar_request']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        content_types_list = local_var_params.get('_content_type',
+            self.api_client.select_header_content_type(
+                ['application/json'],
+                'PUT', body_params))  # noqa: E501
+        if content_types_list:
+                header_params['Content-Type'] = content_types_list
+
+        # Authentication setting
+        auth_settings = ['apiKeyCookie', 'authCookie']  # noqa: E501
+
+        response_types_map = {
+            200: "Avatar",
+            401: "Error",
+            404: "Error",
+        }
+
+        return self.api_client.call_api(
+            '/avatars/{avatarId}', 'PUT',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_types_map=response_types_map,
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))

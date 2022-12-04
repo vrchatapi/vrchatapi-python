@@ -1,3 +1,5 @@
+# coding: utf-8
+
 """
     VRChat API Documentation
 
@@ -8,27 +10,18 @@
 """
 
 
-import re  # noqa: F401
-import sys  # noqa: F401
+from __future__ import absolute_import
 
-from vrchatapi.api_client import ApiClient, Endpoint as _Endpoint
-from vrchatapi.model_utils import (  # noqa: F401
-    check_allowed_values,
-    check_validations,
-    date,
-    datetime,
-    file_type,
-    none_type,
-    validate_and_convert_types
+import re  # noqa: F401
+
+# python 2 and python 3 compatibility library
+import six
+
+from vrchatapi.api_client import ApiClient
+from vrchatapi.exceptions import (  # noqa: F401
+    ApiTypeError,
+    ApiValueError
 )
-from vrchatapi.model.create_world_request import CreateWorldRequest
-from vrchatapi.model.error import Error
-from vrchatapi.model.instance import Instance
-from vrchatapi.model.limited_world import LimitedWorld
-from vrchatapi.model.update_world_request import UpdateWorldRequest
-from vrchatapi.model.world import World
-from vrchatapi.model.world_metadata import WorldMetadata
-from vrchatapi.model.world_publish_status import WorldPublishStatus
 
 
 class WorldsApi(object):
@@ -42,1119 +35,8 @@ class WorldsApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
-        self.create_world_endpoint = _Endpoint(
-            settings={
-                'response_type': (World,),
-                'auth': [],
-                'endpoint_path': '/worlds',
-                'operation_id': 'create_world',
-                'http_method': 'POST',
-                'servers': None,
-            },
-            params_map={
-                'all': [
-                    'create_world_request',
-                ],
-                'required': [],
-                'nullable': [
-                ],
-                'enum': [
-                ],
-                'validation': [
-                ]
-            },
-            root_map={
-                'validations': {
-                },
-                'allowed_values': {
-                },
-                'openapi_types': {
-                    'create_world_request':
-                        (CreateWorldRequest,),
-                },
-                'attribute_map': {
-                },
-                'location_map': {
-                    'create_world_request': 'body',
-                },
-                'collection_format_map': {
-                }
-            },
-            headers_map={
-                'accept': [
-                    'application/json'
-                ],
-                'content_type': [
-                    'application/json'
-                ]
-            },
-            api_client=api_client
-        )
-        self.delete_world_endpoint = _Endpoint(
-            settings={
-                'response_type': None,
-                'auth': [
-                    'apiKeyCookie',
-                    'authCookie'
-                ],
-                'endpoint_path': '/worlds/{worldId}',
-                'operation_id': 'delete_world',
-                'http_method': 'DELETE',
-                'servers': None,
-            },
-            params_map={
-                'all': [
-                    'world_id',
-                ],
-                'required': [
-                    'world_id',
-                ],
-                'nullable': [
-                ],
-                'enum': [
-                ],
-                'validation': [
-                ]
-            },
-            root_map={
-                'validations': {
-                },
-                'allowed_values': {
-                },
-                'openapi_types': {
-                    'world_id':
-                        (str,),
-                },
-                'attribute_map': {
-                    'world_id': 'worldId',
-                },
-                'location_map': {
-                    'world_id': 'path',
-                },
-                'collection_format_map': {
-                }
-            },
-            headers_map={
-                'accept': [
-                    'application/json'
-                ],
-                'content_type': [],
-            },
-            api_client=api_client
-        )
-        self.get_active_worlds_endpoint = _Endpoint(
-            settings={
-                'response_type': ([LimitedWorld],),
-                'auth': [
-                    'apiKeyCookie',
-                    'authCookie'
-                ],
-                'endpoint_path': '/worlds/active',
-                'operation_id': 'get_active_worlds',
-                'http_method': 'GET',
-                'servers': None,
-            },
-            params_map={
-                'all': [
-                    'featured',
-                    'sort',
-                    'n',
-                    'order',
-                    'offset',
-                    'search',
-                    'tag',
-                    'notag',
-                    'release_status',
-                    'max_unity_version',
-                    'min_unity_version',
-                    'platform',
-                ],
-                'required': [],
-                'nullable': [
-                ],
-                'enum': [
-                    'sort',
-                    'order',
-                    'release_status',
-                ],
-                'validation': [
-                    'n',
-                    'offset',
-                ]
-            },
-            root_map={
-                'validations': {
-                    ('n',): {
 
-                        'inclusive_maximum': 100,
-                        'inclusive_minimum': 1,
-                    },
-                    ('offset',): {
-
-                        'inclusive_minimum': 0,
-                    },
-                },
-                'allowed_values': {
-                    ('sort',): {
-
-                        "POPULARITY": "popularity",
-                        "HEAT": "heat",
-                        "TRUST": "trust",
-                        "SHUFFLE": "shuffle",
-                        "RANDOM": "random",
-                        "FAVORITES": "favorites",
-                        "REPORTSCORE": "reportScore",
-                        "REPORTCOUNT": "reportCount",
-                        "PUBLICATIONDATE": "publicationDate",
-                        "LABSPUBLICATIONDATE": "labsPublicationDate",
-                        "CREATED": "created",
-                        "_CREATED_AT": "_created_at",
-                        "UPDATED": "updated",
-                        "_UPDATED_AT": "_updated_at",
-                        "ORDER": "order",
-                        "RELEVANCE": "relevance",
-                        "MAGIC": "magic",
-                        "NAME": "name"
-                    },
-                    ('order',): {
-
-                        "ASCENDING": "ascending",
-                        "DESCENDING": "descending"
-                    },
-                    ('release_status',): {
-
-                        "PUBLIC": "public",
-                        "PRIVATE": "private",
-                        "HIDDEN": "hidden",
-                        "ALL": "all"
-                    },
-                },
-                'openapi_types': {
-                    'featured':
-                        (bool,),
-                    'sort':
-                        (str,),
-                    'n':
-                        (int,),
-                    'order':
-                        (str,),
-                    'offset':
-                        (int,),
-                    'search':
-                        (str,),
-                    'tag':
-                        (str,),
-                    'notag':
-                        (str,),
-                    'release_status':
-                        (str,),
-                    'max_unity_version':
-                        (str,),
-                    'min_unity_version':
-                        (str,),
-                    'platform':
-                        (str,),
-                },
-                'attribute_map': {
-                    'featured': 'featured',
-                    'sort': 'sort',
-                    'n': 'n',
-                    'order': 'order',
-                    'offset': 'offset',
-                    'search': 'search',
-                    'tag': 'tag',
-                    'notag': 'notag',
-                    'release_status': 'releaseStatus',
-                    'max_unity_version': 'maxUnityVersion',
-                    'min_unity_version': 'minUnityVersion',
-                    'platform': 'platform',
-                },
-                'location_map': {
-                    'featured': 'query',
-                    'sort': 'query',
-                    'n': 'query',
-                    'order': 'query',
-                    'offset': 'query',
-                    'search': 'query',
-                    'tag': 'query',
-                    'notag': 'query',
-                    'release_status': 'query',
-                    'max_unity_version': 'query',
-                    'min_unity_version': 'query',
-                    'platform': 'query',
-                },
-                'collection_format_map': {
-                }
-            },
-            headers_map={
-                'accept': [
-                    'application/json'
-                ],
-                'content_type': [],
-            },
-            api_client=api_client
-        )
-        self.get_favorited_worlds_endpoint = _Endpoint(
-            settings={
-                'response_type': ([LimitedWorld],),
-                'auth': [
-                    'apiKeyCookie',
-                    'authCookie'
-                ],
-                'endpoint_path': '/worlds/favorites',
-                'operation_id': 'get_favorited_worlds',
-                'http_method': 'GET',
-                'servers': None,
-            },
-            params_map={
-                'all': [
-                    'featured',
-                    'sort',
-                    'n',
-                    'order',
-                    'offset',
-                    'search',
-                    'tag',
-                    'notag',
-                    'release_status',
-                    'max_unity_version',
-                    'min_unity_version',
-                    'platform',
-                    'user_id',
-                ],
-                'required': [],
-                'nullable': [
-                ],
-                'enum': [
-                    'sort',
-                    'order',
-                    'release_status',
-                ],
-                'validation': [
-                    'n',
-                    'offset',
-                ]
-            },
-            root_map={
-                'validations': {
-                    ('n',): {
-
-                        'inclusive_maximum': 100,
-                        'inclusive_minimum': 1,
-                    },
-                    ('offset',): {
-
-                        'inclusive_minimum': 0,
-                    },
-                },
-                'allowed_values': {
-                    ('sort',): {
-
-                        "POPULARITY": "popularity",
-                        "HEAT": "heat",
-                        "TRUST": "trust",
-                        "SHUFFLE": "shuffle",
-                        "RANDOM": "random",
-                        "FAVORITES": "favorites",
-                        "REPORTSCORE": "reportScore",
-                        "REPORTCOUNT": "reportCount",
-                        "PUBLICATIONDATE": "publicationDate",
-                        "LABSPUBLICATIONDATE": "labsPublicationDate",
-                        "CREATED": "created",
-                        "_CREATED_AT": "_created_at",
-                        "UPDATED": "updated",
-                        "_UPDATED_AT": "_updated_at",
-                        "ORDER": "order",
-                        "RELEVANCE": "relevance",
-                        "MAGIC": "magic",
-                        "NAME": "name"
-                    },
-                    ('order',): {
-
-                        "ASCENDING": "ascending",
-                        "DESCENDING": "descending"
-                    },
-                    ('release_status',): {
-
-                        "PUBLIC": "public",
-                        "PRIVATE": "private",
-                        "HIDDEN": "hidden",
-                        "ALL": "all"
-                    },
-                },
-                'openapi_types': {
-                    'featured':
-                        (bool,),
-                    'sort':
-                        (str,),
-                    'n':
-                        (int,),
-                    'order':
-                        (str,),
-                    'offset':
-                        (int,),
-                    'search':
-                        (str,),
-                    'tag':
-                        (str,),
-                    'notag':
-                        (str,),
-                    'release_status':
-                        (str,),
-                    'max_unity_version':
-                        (str,),
-                    'min_unity_version':
-                        (str,),
-                    'platform':
-                        (str,),
-                    'user_id':
-                        (str,),
-                },
-                'attribute_map': {
-                    'featured': 'featured',
-                    'sort': 'sort',
-                    'n': 'n',
-                    'order': 'order',
-                    'offset': 'offset',
-                    'search': 'search',
-                    'tag': 'tag',
-                    'notag': 'notag',
-                    'release_status': 'releaseStatus',
-                    'max_unity_version': 'maxUnityVersion',
-                    'min_unity_version': 'minUnityVersion',
-                    'platform': 'platform',
-                    'user_id': 'userId',
-                },
-                'location_map': {
-                    'featured': 'query',
-                    'sort': 'query',
-                    'n': 'query',
-                    'order': 'query',
-                    'offset': 'query',
-                    'search': 'query',
-                    'tag': 'query',
-                    'notag': 'query',
-                    'release_status': 'query',
-                    'max_unity_version': 'query',
-                    'min_unity_version': 'query',
-                    'platform': 'query',
-                    'user_id': 'query',
-                },
-                'collection_format_map': {
-                }
-            },
-            headers_map={
-                'accept': [
-                    'application/json'
-                ],
-                'content_type': [],
-            },
-            api_client=api_client
-        )
-        self.get_recent_worlds_endpoint = _Endpoint(
-            settings={
-                'response_type': ([LimitedWorld],),
-                'auth': [
-                    'apiKeyCookie',
-                    'authCookie'
-                ],
-                'endpoint_path': '/worlds/recent',
-                'operation_id': 'get_recent_worlds',
-                'http_method': 'GET',
-                'servers': None,
-            },
-            params_map={
-                'all': [
-                    'featured',
-                    'sort',
-                    'n',
-                    'order',
-                    'offset',
-                    'search',
-                    'tag',
-                    'notag',
-                    'release_status',
-                    'max_unity_version',
-                    'min_unity_version',
-                    'platform',
-                    'user_id',
-                ],
-                'required': [],
-                'nullable': [
-                ],
-                'enum': [
-                    'sort',
-                    'order',
-                    'release_status',
-                ],
-                'validation': [
-                    'n',
-                    'offset',
-                ]
-            },
-            root_map={
-                'validations': {
-                    ('n',): {
-
-                        'inclusive_maximum': 100,
-                        'inclusive_minimum': 1,
-                    },
-                    ('offset',): {
-
-                        'inclusive_minimum': 0,
-                    },
-                },
-                'allowed_values': {
-                    ('sort',): {
-
-                        "POPULARITY": "popularity",
-                        "HEAT": "heat",
-                        "TRUST": "trust",
-                        "SHUFFLE": "shuffle",
-                        "RANDOM": "random",
-                        "FAVORITES": "favorites",
-                        "REPORTSCORE": "reportScore",
-                        "REPORTCOUNT": "reportCount",
-                        "PUBLICATIONDATE": "publicationDate",
-                        "LABSPUBLICATIONDATE": "labsPublicationDate",
-                        "CREATED": "created",
-                        "_CREATED_AT": "_created_at",
-                        "UPDATED": "updated",
-                        "_UPDATED_AT": "_updated_at",
-                        "ORDER": "order",
-                        "RELEVANCE": "relevance",
-                        "MAGIC": "magic",
-                        "NAME": "name"
-                    },
-                    ('order',): {
-
-                        "ASCENDING": "ascending",
-                        "DESCENDING": "descending"
-                    },
-                    ('release_status',): {
-
-                        "PUBLIC": "public",
-                        "PRIVATE": "private",
-                        "HIDDEN": "hidden",
-                        "ALL": "all"
-                    },
-                },
-                'openapi_types': {
-                    'featured':
-                        (bool,),
-                    'sort':
-                        (str,),
-                    'n':
-                        (int,),
-                    'order':
-                        (str,),
-                    'offset':
-                        (int,),
-                    'search':
-                        (str,),
-                    'tag':
-                        (str,),
-                    'notag':
-                        (str,),
-                    'release_status':
-                        (str,),
-                    'max_unity_version':
-                        (str,),
-                    'min_unity_version':
-                        (str,),
-                    'platform':
-                        (str,),
-                    'user_id':
-                        (str,),
-                },
-                'attribute_map': {
-                    'featured': 'featured',
-                    'sort': 'sort',
-                    'n': 'n',
-                    'order': 'order',
-                    'offset': 'offset',
-                    'search': 'search',
-                    'tag': 'tag',
-                    'notag': 'notag',
-                    'release_status': 'releaseStatus',
-                    'max_unity_version': 'maxUnityVersion',
-                    'min_unity_version': 'minUnityVersion',
-                    'platform': 'platform',
-                    'user_id': 'userId',
-                },
-                'location_map': {
-                    'featured': 'query',
-                    'sort': 'query',
-                    'n': 'query',
-                    'order': 'query',
-                    'offset': 'query',
-                    'search': 'query',
-                    'tag': 'query',
-                    'notag': 'query',
-                    'release_status': 'query',
-                    'max_unity_version': 'query',
-                    'min_unity_version': 'query',
-                    'platform': 'query',
-                    'user_id': 'query',
-                },
-                'collection_format_map': {
-                }
-            },
-            headers_map={
-                'accept': [
-                    'application/json'
-                ],
-                'content_type': [],
-            },
-            api_client=api_client
-        )
-        self.get_world_endpoint = _Endpoint(
-            settings={
-                'response_type': (World,),
-                'auth': [
-                    'apiKeyCookie'
-                ],
-                'endpoint_path': '/worlds/{worldId}',
-                'operation_id': 'get_world',
-                'http_method': 'GET',
-                'servers': None,
-            },
-            params_map={
-                'all': [
-                    'world_id',
-                ],
-                'required': [
-                    'world_id',
-                ],
-                'nullable': [
-                ],
-                'enum': [
-                ],
-                'validation': [
-                ]
-            },
-            root_map={
-                'validations': {
-                },
-                'allowed_values': {
-                },
-                'openapi_types': {
-                    'world_id':
-                        (str,),
-                },
-                'attribute_map': {
-                    'world_id': 'worldId',
-                },
-                'location_map': {
-                    'world_id': 'path',
-                },
-                'collection_format_map': {
-                }
-            },
-            headers_map={
-                'accept': [
-                    'application/json'
-                ],
-                'content_type': [],
-            },
-            api_client=api_client
-        )
-        self.get_world_instance_endpoint = _Endpoint(
-            settings={
-                'response_type': (Instance,),
-                'auth': [
-                    'apiKeyCookie',
-                    'authCookie'
-                ],
-                'endpoint_path': '/worlds/{worldId}/{instanceId}',
-                'operation_id': 'get_world_instance',
-                'http_method': 'GET',
-                'servers': None,
-            },
-            params_map={
-                'all': [
-                    'world_id',
-                    'instance_id',
-                ],
-                'required': [
-                    'world_id',
-                    'instance_id',
-                ],
-                'nullable': [
-                ],
-                'enum': [
-                ],
-                'validation': [
-                ]
-            },
-            root_map={
-                'validations': {
-                },
-                'allowed_values': {
-                },
-                'openapi_types': {
-                    'world_id':
-                        (str,),
-                    'instance_id':
-                        (str,),
-                },
-                'attribute_map': {
-                    'world_id': 'worldId',
-                    'instance_id': 'instanceId',
-                },
-                'location_map': {
-                    'world_id': 'path',
-                    'instance_id': 'path',
-                },
-                'collection_format_map': {
-                }
-            },
-            headers_map={
-                'accept': [
-                    'application/json'
-                ],
-                'content_type': [],
-            },
-            api_client=api_client
-        )
-        self.get_world_metadata_endpoint = _Endpoint(
-            settings={
-                'response_type': (WorldMetadata,),
-                'auth': [
-                    'apiKeyCookie',
-                    'authCookie'
-                ],
-                'endpoint_path': '/worlds/{worldId}/metadata',
-                'operation_id': 'get_world_metadata',
-                'http_method': 'GET',
-                'servers': None,
-            },
-            params_map={
-                'all': [
-                    'world_id',
-                ],
-                'required': [
-                    'world_id',
-                ],
-                'nullable': [
-                ],
-                'enum': [
-                ],
-                'validation': [
-                ]
-            },
-            root_map={
-                'validations': {
-                },
-                'allowed_values': {
-                },
-                'openapi_types': {
-                    'world_id':
-                        (str,),
-                },
-                'attribute_map': {
-                    'world_id': 'worldId',
-                },
-                'location_map': {
-                    'world_id': 'path',
-                },
-                'collection_format_map': {
-                }
-            },
-            headers_map={
-                'accept': [
-                    'application/json'
-                ],
-                'content_type': [],
-            },
-            api_client=api_client
-        )
-        self.get_world_publish_status_endpoint = _Endpoint(
-            settings={
-                'response_type': (WorldPublishStatus,),
-                'auth': [
-                    'apiKeyCookie',
-                    'authCookie'
-                ],
-                'endpoint_path': '/worlds/{worldId}/publish',
-                'operation_id': 'get_world_publish_status',
-                'http_method': 'GET',
-                'servers': None,
-            },
-            params_map={
-                'all': [
-                    'world_id',
-                ],
-                'required': [
-                    'world_id',
-                ],
-                'nullable': [
-                ],
-                'enum': [
-                ],
-                'validation': [
-                ]
-            },
-            root_map={
-                'validations': {
-                },
-                'allowed_values': {
-                },
-                'openapi_types': {
-                    'world_id':
-                        (str,),
-                },
-                'attribute_map': {
-                    'world_id': 'worldId',
-                },
-                'location_map': {
-                    'world_id': 'path',
-                },
-                'collection_format_map': {
-                }
-            },
-            headers_map={
-                'accept': [
-                    'application/json'
-                ],
-                'content_type': [],
-            },
-            api_client=api_client
-        )
-        self.publish_world_endpoint = _Endpoint(
-            settings={
-                'response_type': None,
-                'auth': [
-                    'apiKeyCookie',
-                    'authCookie'
-                ],
-                'endpoint_path': '/worlds/{worldId}/publish',
-                'operation_id': 'publish_world',
-                'http_method': 'PUT',
-                'servers': None,
-            },
-            params_map={
-                'all': [
-                    'world_id',
-                ],
-                'required': [
-                    'world_id',
-                ],
-                'nullable': [
-                ],
-                'enum': [
-                ],
-                'validation': [
-                ]
-            },
-            root_map={
-                'validations': {
-                },
-                'allowed_values': {
-                },
-                'openapi_types': {
-                    'world_id':
-                        (str,),
-                },
-                'attribute_map': {
-                    'world_id': 'worldId',
-                },
-                'location_map': {
-                    'world_id': 'path',
-                },
-                'collection_format_map': {
-                }
-            },
-            headers_map={
-                'accept': [
-                    'application/json'
-                ],
-                'content_type': [],
-            },
-            api_client=api_client
-        )
-        self.search_worlds_endpoint = _Endpoint(
-            settings={
-                'response_type': ([LimitedWorld],),
-                'auth': [
-                    'apiKeyCookie',
-                    'authCookie'
-                ],
-                'endpoint_path': '/worlds',
-                'operation_id': 'search_worlds',
-                'http_method': 'GET',
-                'servers': None,
-            },
-            params_map={
-                'all': [
-                    'featured',
-                    'sort',
-                    'user',
-                    'user_id',
-                    'n',
-                    'order',
-                    'offset',
-                    'search',
-                    'tag',
-                    'notag',
-                    'release_status',
-                    'max_unity_version',
-                    'min_unity_version',
-                    'platform',
-                ],
-                'required': [],
-                'nullable': [
-                ],
-                'enum': [
-                    'sort',
-                    'user',
-                    'order',
-                    'release_status',
-                ],
-                'validation': [
-                    'n',
-                    'offset',
-                ]
-            },
-            root_map={
-                'validations': {
-                    ('n',): {
-
-                        'inclusive_maximum': 100,
-                        'inclusive_minimum': 1,
-                    },
-                    ('offset',): {
-
-                        'inclusive_minimum': 0,
-                    },
-                },
-                'allowed_values': {
-                    ('sort',): {
-
-                        "POPULARITY": "popularity",
-                        "HEAT": "heat",
-                        "TRUST": "trust",
-                        "SHUFFLE": "shuffle",
-                        "RANDOM": "random",
-                        "FAVORITES": "favorites",
-                        "REPORTSCORE": "reportScore",
-                        "REPORTCOUNT": "reportCount",
-                        "PUBLICATIONDATE": "publicationDate",
-                        "LABSPUBLICATIONDATE": "labsPublicationDate",
-                        "CREATED": "created",
-                        "_CREATED_AT": "_created_at",
-                        "UPDATED": "updated",
-                        "_UPDATED_AT": "_updated_at",
-                        "ORDER": "order",
-                        "RELEVANCE": "relevance",
-                        "MAGIC": "magic",
-                        "NAME": "name"
-                    },
-                    ('user',): {
-
-                        "ME": "me"
-                    },
-                    ('order',): {
-
-                        "ASCENDING": "ascending",
-                        "DESCENDING": "descending"
-                    },
-                    ('release_status',): {
-
-                        "PUBLIC": "public",
-                        "PRIVATE": "private",
-                        "HIDDEN": "hidden",
-                        "ALL": "all"
-                    },
-                },
-                'openapi_types': {
-                    'featured':
-                        (bool,),
-                    'sort':
-                        (str,),
-                    'user':
-                        (str,),
-                    'user_id':
-                        (str,),
-                    'n':
-                        (int,),
-                    'order':
-                        (str,),
-                    'offset':
-                        (int,),
-                    'search':
-                        (str,),
-                    'tag':
-                        (str,),
-                    'notag':
-                        (str,),
-                    'release_status':
-                        (str,),
-                    'max_unity_version':
-                        (str,),
-                    'min_unity_version':
-                        (str,),
-                    'platform':
-                        (str,),
-                },
-                'attribute_map': {
-                    'featured': 'featured',
-                    'sort': 'sort',
-                    'user': 'user',
-                    'user_id': 'userId',
-                    'n': 'n',
-                    'order': 'order',
-                    'offset': 'offset',
-                    'search': 'search',
-                    'tag': 'tag',
-                    'notag': 'notag',
-                    'release_status': 'releaseStatus',
-                    'max_unity_version': 'maxUnityVersion',
-                    'min_unity_version': 'minUnityVersion',
-                    'platform': 'platform',
-                },
-                'location_map': {
-                    'featured': 'query',
-                    'sort': 'query',
-                    'user': 'query',
-                    'user_id': 'query',
-                    'n': 'query',
-                    'order': 'query',
-                    'offset': 'query',
-                    'search': 'query',
-                    'tag': 'query',
-                    'notag': 'query',
-                    'release_status': 'query',
-                    'max_unity_version': 'query',
-                    'min_unity_version': 'query',
-                    'platform': 'query',
-                },
-                'collection_format_map': {
-                }
-            },
-            headers_map={
-                'accept': [
-                    'application/json'
-                ],
-                'content_type': [],
-            },
-            api_client=api_client
-        )
-        self.unpublish_world_endpoint = _Endpoint(
-            settings={
-                'response_type': None,
-                'auth': [
-                    'apiKeyCookie',
-                    'authCookie'
-                ],
-                'endpoint_path': '/worlds/{worldId}/publish',
-                'operation_id': 'unpublish_world',
-                'http_method': 'DELETE',
-                'servers': None,
-            },
-            params_map={
-                'all': [
-                    'world_id',
-                ],
-                'required': [
-                    'world_id',
-                ],
-                'nullable': [
-                ],
-                'enum': [
-                ],
-                'validation': [
-                ]
-            },
-            root_map={
-                'validations': {
-                },
-                'allowed_values': {
-                },
-                'openapi_types': {
-                    'world_id':
-                        (str,),
-                },
-                'attribute_map': {
-                    'world_id': 'worldId',
-                },
-                'location_map': {
-                    'world_id': 'path',
-                },
-                'collection_format_map': {
-                }
-            },
-            headers_map={
-                'accept': [
-                    'application/json'
-                ],
-                'content_type': [],
-            },
-            api_client=api_client
-        )
-        self.update_world_endpoint = _Endpoint(
-            settings={
-                'response_type': (World,),
-                'auth': [
-                    'apiKeyCookie',
-                    'authCookie'
-                ],
-                'endpoint_path': '/worlds/{worldId}',
-                'operation_id': 'update_world',
-                'http_method': 'PUT',
-                'servers': None,
-            },
-            params_map={
-                'all': [
-                    'world_id',
-                    'update_world_request',
-                ],
-                'required': [
-                    'world_id',
-                ],
-                'nullable': [
-                ],
-                'enum': [
-                ],
-                'validation': [
-                ]
-            },
-            root_map={
-                'validations': {
-                },
-                'allowed_values': {
-                },
-                'openapi_types': {
-                    'world_id':
-                        (str,),
-                    'update_world_request':
-                        (UpdateWorldRequest,),
-                },
-                'attribute_map': {
-                    'world_id': 'worldId',
-                },
-                'location_map': {
-                    'world_id': 'path',
-                    'update_world_request': 'body',
-                },
-                'collection_format_map': {
-                }
-            },
-            headers_map={
-                'accept': [
-                    'application/json'
-                ],
-                'content_type': [
-                    'application/json'
-                ]
-            },
-            api_client=api_client
-        )
-
-    def create_world(
-        self,
-        **kwargs
-    ):
+    def create_world(self, **kwargs):  # noqa: E501
         """Create World  # noqa: E501
 
         Create a new world. This endpoint requires `assetUrl` to be a valid File object with `.vrcw` file extension, and `imageUrl` to be a valid File object with an image file extension.  # noqa: E501
@@ -1164,60 +46,141 @@ class WorldsApi(object):
         >>> thread = api.create_world(async_req=True)
         >>> result = thread.get()
 
-
-        Keyword Args:
-            create_world_request (CreateWorldRequest): [optional]
-            _return_http_data_only (bool): response data without head status
-                code and headers. Default is True.
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-            async_req (bool): execute request asynchronously
-
-        Returns:
-            World
-                If the method is called asynchronously, returns the request
-                thread.
+        :param create_world_request: 
+        :type create_world_request: CreateWorldRequest
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :type _preload_content: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: World
         """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_host_index'] = kwargs.get('_host_index')
-        return self.create_world_endpoint.call_with_http_info(**kwargs)
+        kwargs['_return_http_data_only'] = True
+        return self.create_world_with_http_info(**kwargs)  # noqa: E501
 
-    def delete_world(
-        self,
-        world_id,
-        **kwargs
-    ):
+    def create_world_with_http_info(self, **kwargs):  # noqa: E501
+        """Create World  # noqa: E501
+
+        Create a new world. This endpoint requires `assetUrl` to be a valid File object with `.vrcw` file extension, and `imageUrl` to be a valid File object with an image file extension.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.create_world_with_http_info(async_req=True)
+        >>> result = thread.get()
+
+        :param create_world_request: 
+        :type create_world_request: CreateWorldRequest
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :type _return_http_data_only: bool, optional
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :type _preload_content: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: tuple(World, status_code(int), headers(HTTPHeaderDict))
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'create_world_request'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth',
+                '_content_type',
+                '_headers'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method create_world" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = dict(local_var_params.get('_headers', {}))
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'create_world_request' in local_var_params:
+            body_params = local_var_params['create_world_request']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        content_types_list = local_var_params.get('_content_type',
+            self.api_client.select_header_content_type(
+                ['application/json'],
+                'POST', body_params))  # noqa: E501
+        if content_types_list:
+                header_params['Content-Type'] = content_types_list
+
+        # Authentication setting
+        auth_settings = []  # noqa: E501
+
+        response_types_map = {
+            200: "World",
+            400: "Error",
+            401: "Error",
+        }
+
+        return self.api_client.call_api(
+            '/worlds', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_types_map=response_types_map,
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))
+
+    def delete_world(self, world_id, **kwargs):  # noqa: E501
         """Delete World  # noqa: E501
 
         Delete a world. Notice a world is never fully \"deleted\", only its ReleaseStatus is set to \"hidden\" and the linked Files are deleted. The WorldID is permanently reserved.  # noqa: E501
@@ -1227,62 +190,132 @@ class WorldsApi(object):
         >>> thread = api.delete_world(world_id, async_req=True)
         >>> result = thread.get()
 
-        Args:
-            world_id (str):
-
-        Keyword Args:
-            _return_http_data_only (bool): response data without head status
-                code and headers. Default is True.
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-            async_req (bool): execute request asynchronously
-
-        Returns:
-            None
-                If the method is called asynchronously, returns the request
-                thread.
+        :param world_id: (required)
+        :type world_id: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :type _preload_content: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: None
         """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_host_index'] = kwargs.get('_host_index')
-        kwargs['world_id'] = \
-            world_id
-        return self.delete_world_endpoint.call_with_http_info(**kwargs)
+        kwargs['_return_http_data_only'] = True
+        return self.delete_world_with_http_info(world_id, **kwargs)  # noqa: E501
 
-    def get_active_worlds(
-        self,
-        **kwargs
-    ):
+    def delete_world_with_http_info(self, world_id, **kwargs):  # noqa: E501
+        """Delete World  # noqa: E501
+
+        Delete a world. Notice a world is never fully \"deleted\", only its ReleaseStatus is set to \"hidden\" and the linked Files are deleted. The WorldID is permanently reserved.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.delete_world_with_http_info(world_id, async_req=True)
+        >>> result = thread.get()
+
+        :param world_id: (required)
+        :type world_id: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :type _return_http_data_only: bool, optional
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :type _preload_content: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: None
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'world_id'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth',
+                '_content_type',
+                '_headers'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method delete_world" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'world_id' is set
+        if self.api_client.client_side_validation and local_var_params.get('world_id') is None:  # noqa: E501
+            raise ApiValueError("Missing the required parameter `world_id` when calling `delete_world`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'world_id' in local_var_params:
+            path_params['worldId'] = local_var_params['world_id']  # noqa: E501
+
+        query_params = []
+
+        header_params = dict(local_var_params.get('_headers', {}))
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['apiKeyCookie', 'authCookie']  # noqa: E501
+
+        response_types_map = {}
+
+        return self.api_client.call_api(
+            '/worlds/{worldId}', 'DELETE',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_types_map=response_types_map,
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))
+
+    def get_active_worlds(self, **kwargs):  # noqa: E501
         """List Active Worlds  # noqa: E501
 
         Search and list currently Active worlds by query filters.  # noqa: E501
@@ -1292,70 +325,215 @@ class WorldsApi(object):
         >>> thread = api.get_active_worlds(async_req=True)
         >>> result = thread.get()
 
-
-        Keyword Args:
-            featured (bool): Filters on featured results.. [optional]
-            sort (str): [optional] if omitted the server will use the default value of "popularity"
-            n (int): The number of objects to return.. [optional] if omitted the server will use the default value of 60
-            order (str): [optional] if omitted the server will use the default value of "descending"
-            offset (int): A zero-based offset from the default object sorting from where search results start.. [optional]
-            search (str): Filters by world name.. [optional]
-            tag (str): Tags to include (comma-separated). Any of the tags needs to be present.. [optional]
-            notag (str): Tags to exclude (comma-separated).. [optional]
-            release_status (str): Filter by ReleaseStatus.. [optional] if omitted the server will use the default value of "public"
-            max_unity_version (str): The maximum Unity version supported by the asset.. [optional]
-            min_unity_version (str): The minimum Unity version supported by the asset.. [optional]
-            platform (str): The platform the asset supports.. [optional]
-            _return_http_data_only (bool): response data without head status
-                code and headers. Default is True.
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-            async_req (bool): execute request asynchronously
-
-        Returns:
-            [LimitedWorld]
-                If the method is called asynchronously, returns the request
-                thread.
+        :param featured: Filters on featured results.
+        :type featured: bool
+        :param sort:
+        :type sort: str
+        :param n: The number of objects to return.
+        :type n: int
+        :param order:
+        :type order: str
+        :param offset: A zero-based offset from the default object sorting from where search results start.
+        :type offset: int
+        :param search: Filters by world name.
+        :type search: str
+        :param tag: Tags to include (comma-separated). Any of the tags needs to be present.
+        :type tag: str
+        :param notag: Tags to exclude (comma-separated).
+        :type notag: str
+        :param release_status: Filter by ReleaseStatus.
+        :type release_status: str
+        :param max_unity_version: The maximum Unity version supported by the asset.
+        :type max_unity_version: str
+        :param min_unity_version: The minimum Unity version supported by the asset.
+        :type min_unity_version: str
+        :param platform: The platform the asset supports.
+        :type platform: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :type _preload_content: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: list[LimitedWorld]
         """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_host_index'] = kwargs.get('_host_index')
-        return self.get_active_worlds_endpoint.call_with_http_info(**kwargs)
+        kwargs['_return_http_data_only'] = True
+        return self.get_active_worlds_with_http_info(**kwargs)  # noqa: E501
 
-    def get_favorited_worlds(
-        self,
-        **kwargs
-    ):
+    def get_active_worlds_with_http_info(self, **kwargs):  # noqa: E501
+        """List Active Worlds  # noqa: E501
+
+        Search and list currently Active worlds by query filters.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_active_worlds_with_http_info(async_req=True)
+        >>> result = thread.get()
+
+        :param featured: Filters on featured results.
+        :type featured: bool
+        :param sort:
+        :type sort: str
+        :param n: The number of objects to return.
+        :type n: int
+        :param order:
+        :type order: str
+        :param offset: A zero-based offset from the default object sorting from where search results start.
+        :type offset: int
+        :param search: Filters by world name.
+        :type search: str
+        :param tag: Tags to include (comma-separated). Any of the tags needs to be present.
+        :type tag: str
+        :param notag: Tags to exclude (comma-separated).
+        :type notag: str
+        :param release_status: Filter by ReleaseStatus.
+        :type release_status: str
+        :param max_unity_version: The maximum Unity version supported by the asset.
+        :type max_unity_version: str
+        :param min_unity_version: The minimum Unity version supported by the asset.
+        :type min_unity_version: str
+        :param platform: The platform the asset supports.
+        :type platform: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :type _return_http_data_only: bool, optional
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :type _preload_content: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: tuple(list[LimitedWorld], status_code(int), headers(HTTPHeaderDict))
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'featured',
+            'sort',
+            'n',
+            'order',
+            'offset',
+            'search',
+            'tag',
+            'notag',
+            'release_status',
+            'max_unity_version',
+            'min_unity_version',
+            'platform'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth',
+                '_content_type',
+                '_headers'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_active_worlds" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+
+        if self.api_client.client_side_validation and 'n' in local_var_params and local_var_params['n'] > 100:  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `n` when calling `get_active_worlds`, must be a value less than or equal to `100`")  # noqa: E501
+        if self.api_client.client_side_validation and 'n' in local_var_params and local_var_params['n'] < 1:  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `n` when calling `get_active_worlds`, must be a value greater than or equal to `1`")  # noqa: E501
+        if self.api_client.client_side_validation and 'offset' in local_var_params and local_var_params['offset'] < 0:  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `offset` when calling `get_active_worlds`, must be a value greater than or equal to `0`")  # noqa: E501
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+        if local_var_params.get('featured') is not None:  # noqa: E501
+            query_params.append(('featured', local_var_params['featured']))  # noqa: E501
+        if local_var_params.get('sort') is not None:  # noqa: E501
+            query_params.append(('sort', local_var_params['sort']))  # noqa: E501
+        if local_var_params.get('n') is not None:  # noqa: E501
+            query_params.append(('n', local_var_params['n']))  # noqa: E501
+        if local_var_params.get('order') is not None:  # noqa: E501
+            query_params.append(('order', local_var_params['order']))  # noqa: E501
+        if local_var_params.get('offset') is not None:  # noqa: E501
+            query_params.append(('offset', local_var_params['offset']))  # noqa: E501
+        if local_var_params.get('search') is not None:  # noqa: E501
+            query_params.append(('search', local_var_params['search']))  # noqa: E501
+        if local_var_params.get('tag') is not None:  # noqa: E501
+            query_params.append(('tag', local_var_params['tag']))  # noqa: E501
+        if local_var_params.get('notag') is not None:  # noqa: E501
+            query_params.append(('notag', local_var_params['notag']))  # noqa: E501
+        if local_var_params.get('release_status') is not None:  # noqa: E501
+            query_params.append(('releaseStatus', local_var_params['release_status']))  # noqa: E501
+        if local_var_params.get('max_unity_version') is not None:  # noqa: E501
+            query_params.append(('maxUnityVersion', local_var_params['max_unity_version']))  # noqa: E501
+        if local_var_params.get('min_unity_version') is not None:  # noqa: E501
+            query_params.append(('minUnityVersion', local_var_params['min_unity_version']))  # noqa: E501
+        if local_var_params.get('platform') is not None:  # noqa: E501
+            query_params.append(('platform', local_var_params['platform']))  # noqa: E501
+
+        header_params = dict(local_var_params.get('_headers', {}))
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['apiKeyCookie', 'authCookie']  # noqa: E501
+
+        response_types_map = {
+            200: "list[LimitedWorld]",
+            401: "Error",
+        }
+
+        return self.api_client.call_api(
+            '/worlds/active', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_types_map=response_types_map,
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))
+
+    def get_favorited_worlds(self, **kwargs):  # noqa: E501
         """List Favorited Worlds  # noqa: E501
 
         Search and list favorited worlds by query filters.  # noqa: E501
@@ -1365,71 +543,223 @@ class WorldsApi(object):
         >>> thread = api.get_favorited_worlds(async_req=True)
         >>> result = thread.get()
 
-
-        Keyword Args:
-            featured (bool): Filters on featured results.. [optional]
-            sort (str): [optional] if omitted the server will use the default value of "popularity"
-            n (int): The number of objects to return.. [optional] if omitted the server will use the default value of 60
-            order (str): [optional] if omitted the server will use the default value of "descending"
-            offset (int): A zero-based offset from the default object sorting from where search results start.. [optional]
-            search (str): Filters by world name.. [optional]
-            tag (str): Tags to include (comma-separated). Any of the tags needs to be present.. [optional]
-            notag (str): Tags to exclude (comma-separated).. [optional]
-            release_status (str): Filter by ReleaseStatus.. [optional] if omitted the server will use the default value of "public"
-            max_unity_version (str): The maximum Unity version supported by the asset.. [optional]
-            min_unity_version (str): The minimum Unity version supported by the asset.. [optional]
-            platform (str): The platform the asset supports.. [optional]
-            user_id (str): Target user to see information on, admin-only.. [optional]
-            _return_http_data_only (bool): response data without head status
-                code and headers. Default is True.
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-            async_req (bool): execute request asynchronously
-
-        Returns:
-            [LimitedWorld]
-                If the method is called asynchronously, returns the request
-                thread.
+        :param featured: Filters on featured results.
+        :type featured: bool
+        :param sort:
+        :type sort: str
+        :param n: The number of objects to return.
+        :type n: int
+        :param order:
+        :type order: str
+        :param offset: A zero-based offset from the default object sorting from where search results start.
+        :type offset: int
+        :param search: Filters by world name.
+        :type search: str
+        :param tag: Tags to include (comma-separated). Any of the tags needs to be present.
+        :type tag: str
+        :param notag: Tags to exclude (comma-separated).
+        :type notag: str
+        :param release_status: Filter by ReleaseStatus.
+        :type release_status: str
+        :param max_unity_version: The maximum Unity version supported by the asset.
+        :type max_unity_version: str
+        :param min_unity_version: The minimum Unity version supported by the asset.
+        :type min_unity_version: str
+        :param platform: The platform the asset supports.
+        :type platform: str
+        :param user_id: Target user to see information on, admin-only.
+        :type user_id: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :type _preload_content: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: list[LimitedWorld]
         """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_host_index'] = kwargs.get('_host_index')
-        return self.get_favorited_worlds_endpoint.call_with_http_info(**kwargs)
+        kwargs['_return_http_data_only'] = True
+        return self.get_favorited_worlds_with_http_info(**kwargs)  # noqa: E501
 
-    def get_recent_worlds(
-        self,
-        **kwargs
-    ):
+    def get_favorited_worlds_with_http_info(self, **kwargs):  # noqa: E501
+        """List Favorited Worlds  # noqa: E501
+
+        Search and list favorited worlds by query filters.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_favorited_worlds_with_http_info(async_req=True)
+        >>> result = thread.get()
+
+        :param featured: Filters on featured results.
+        :type featured: bool
+        :param sort:
+        :type sort: str
+        :param n: The number of objects to return.
+        :type n: int
+        :param order:
+        :type order: str
+        :param offset: A zero-based offset from the default object sorting from where search results start.
+        :type offset: int
+        :param search: Filters by world name.
+        :type search: str
+        :param tag: Tags to include (comma-separated). Any of the tags needs to be present.
+        :type tag: str
+        :param notag: Tags to exclude (comma-separated).
+        :type notag: str
+        :param release_status: Filter by ReleaseStatus.
+        :type release_status: str
+        :param max_unity_version: The maximum Unity version supported by the asset.
+        :type max_unity_version: str
+        :param min_unity_version: The minimum Unity version supported by the asset.
+        :type min_unity_version: str
+        :param platform: The platform the asset supports.
+        :type platform: str
+        :param user_id: Target user to see information on, admin-only.
+        :type user_id: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :type _return_http_data_only: bool, optional
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :type _preload_content: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: tuple(list[LimitedWorld], status_code(int), headers(HTTPHeaderDict))
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'featured',
+            'sort',
+            'n',
+            'order',
+            'offset',
+            'search',
+            'tag',
+            'notag',
+            'release_status',
+            'max_unity_version',
+            'min_unity_version',
+            'platform',
+            'user_id'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth',
+                '_content_type',
+                '_headers'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_favorited_worlds" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+
+        if self.api_client.client_side_validation and 'n' in local_var_params and local_var_params['n'] > 100:  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `n` when calling `get_favorited_worlds`, must be a value less than or equal to `100`")  # noqa: E501
+        if self.api_client.client_side_validation and 'n' in local_var_params and local_var_params['n'] < 1:  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `n` when calling `get_favorited_worlds`, must be a value greater than or equal to `1`")  # noqa: E501
+        if self.api_client.client_side_validation and 'offset' in local_var_params and local_var_params['offset'] < 0:  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `offset` when calling `get_favorited_worlds`, must be a value greater than or equal to `0`")  # noqa: E501
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+        if local_var_params.get('featured') is not None:  # noqa: E501
+            query_params.append(('featured', local_var_params['featured']))  # noqa: E501
+        if local_var_params.get('sort') is not None:  # noqa: E501
+            query_params.append(('sort', local_var_params['sort']))  # noqa: E501
+        if local_var_params.get('n') is not None:  # noqa: E501
+            query_params.append(('n', local_var_params['n']))  # noqa: E501
+        if local_var_params.get('order') is not None:  # noqa: E501
+            query_params.append(('order', local_var_params['order']))  # noqa: E501
+        if local_var_params.get('offset') is not None:  # noqa: E501
+            query_params.append(('offset', local_var_params['offset']))  # noqa: E501
+        if local_var_params.get('search') is not None:  # noqa: E501
+            query_params.append(('search', local_var_params['search']))  # noqa: E501
+        if local_var_params.get('tag') is not None:  # noqa: E501
+            query_params.append(('tag', local_var_params['tag']))  # noqa: E501
+        if local_var_params.get('notag') is not None:  # noqa: E501
+            query_params.append(('notag', local_var_params['notag']))  # noqa: E501
+        if local_var_params.get('release_status') is not None:  # noqa: E501
+            query_params.append(('releaseStatus', local_var_params['release_status']))  # noqa: E501
+        if local_var_params.get('max_unity_version') is not None:  # noqa: E501
+            query_params.append(('maxUnityVersion', local_var_params['max_unity_version']))  # noqa: E501
+        if local_var_params.get('min_unity_version') is not None:  # noqa: E501
+            query_params.append(('minUnityVersion', local_var_params['min_unity_version']))  # noqa: E501
+        if local_var_params.get('platform') is not None:  # noqa: E501
+            query_params.append(('platform', local_var_params['platform']))  # noqa: E501
+        if local_var_params.get('user_id') is not None:  # noqa: E501
+            query_params.append(('userId', local_var_params['user_id']))  # noqa: E501
+
+        header_params = dict(local_var_params.get('_headers', {}))
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['apiKeyCookie', 'authCookie']  # noqa: E501
+
+        response_types_map = {
+            200: "list[LimitedWorld]",
+            401: "Error",
+            403: "Error",
+        }
+
+        return self.api_client.call_api(
+            '/worlds/favorites', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_types_map=response_types_map,
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))
+
+    def get_recent_worlds(self, **kwargs):  # noqa: E501
         """List Recent Worlds  # noqa: E501
 
         Search and list recently visited worlds by query filters.  # noqa: E501
@@ -1439,72 +769,223 @@ class WorldsApi(object):
         >>> thread = api.get_recent_worlds(async_req=True)
         >>> result = thread.get()
 
-
-        Keyword Args:
-            featured (bool): Filters on featured results.. [optional]
-            sort (str): [optional] if omitted the server will use the default value of "popularity"
-            n (int): The number of objects to return.. [optional] if omitted the server will use the default value of 60
-            order (str): [optional] if omitted the server will use the default value of "descending"
-            offset (int): A zero-based offset from the default object sorting from where search results start.. [optional]
-            search (str): Filters by world name.. [optional]
-            tag (str): Tags to include (comma-separated). Any of the tags needs to be present.. [optional]
-            notag (str): Tags to exclude (comma-separated).. [optional]
-            release_status (str): Filter by ReleaseStatus.. [optional] if omitted the server will use the default value of "public"
-            max_unity_version (str): The maximum Unity version supported by the asset.. [optional]
-            min_unity_version (str): The minimum Unity version supported by the asset.. [optional]
-            platform (str): The platform the asset supports.. [optional]
-            user_id (str): Target user to see information on, admin-only.. [optional]
-            _return_http_data_only (bool): response data without head status
-                code and headers. Default is True.
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-            async_req (bool): execute request asynchronously
-
-        Returns:
-            [LimitedWorld]
-                If the method is called asynchronously, returns the request
-                thread.
+        :param featured: Filters on featured results.
+        :type featured: bool
+        :param sort:
+        :type sort: str
+        :param n: The number of objects to return.
+        :type n: int
+        :param order:
+        :type order: str
+        :param offset: A zero-based offset from the default object sorting from where search results start.
+        :type offset: int
+        :param search: Filters by world name.
+        :type search: str
+        :param tag: Tags to include (comma-separated). Any of the tags needs to be present.
+        :type tag: str
+        :param notag: Tags to exclude (comma-separated).
+        :type notag: str
+        :param release_status: Filter by ReleaseStatus.
+        :type release_status: str
+        :param max_unity_version: The maximum Unity version supported by the asset.
+        :type max_unity_version: str
+        :param min_unity_version: The minimum Unity version supported by the asset.
+        :type min_unity_version: str
+        :param platform: The platform the asset supports.
+        :type platform: str
+        :param user_id: Target user to see information on, admin-only.
+        :type user_id: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :type _preload_content: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: list[LimitedWorld]
         """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_host_index'] = kwargs.get('_host_index')
-        return self.get_recent_worlds_endpoint.call_with_http_info(**kwargs)
+        kwargs['_return_http_data_only'] = True
+        return self.get_recent_worlds_with_http_info(**kwargs)  # noqa: E501
 
-    def get_world(
-        self,
-        world_id,
-        **kwargs
-    ):
+    def get_recent_worlds_with_http_info(self, **kwargs):  # noqa: E501
+        """List Recent Worlds  # noqa: E501
+
+        Search and list recently visited worlds by query filters.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_recent_worlds_with_http_info(async_req=True)
+        >>> result = thread.get()
+
+        :param featured: Filters on featured results.
+        :type featured: bool
+        :param sort:
+        :type sort: str
+        :param n: The number of objects to return.
+        :type n: int
+        :param order:
+        :type order: str
+        :param offset: A zero-based offset from the default object sorting from where search results start.
+        :type offset: int
+        :param search: Filters by world name.
+        :type search: str
+        :param tag: Tags to include (comma-separated). Any of the tags needs to be present.
+        :type tag: str
+        :param notag: Tags to exclude (comma-separated).
+        :type notag: str
+        :param release_status: Filter by ReleaseStatus.
+        :type release_status: str
+        :param max_unity_version: The maximum Unity version supported by the asset.
+        :type max_unity_version: str
+        :param min_unity_version: The minimum Unity version supported by the asset.
+        :type min_unity_version: str
+        :param platform: The platform the asset supports.
+        :type platform: str
+        :param user_id: Target user to see information on, admin-only.
+        :type user_id: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :type _return_http_data_only: bool, optional
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :type _preload_content: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: tuple(list[LimitedWorld], status_code(int), headers(HTTPHeaderDict))
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'featured',
+            'sort',
+            'n',
+            'order',
+            'offset',
+            'search',
+            'tag',
+            'notag',
+            'release_status',
+            'max_unity_version',
+            'min_unity_version',
+            'platform',
+            'user_id'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth',
+                '_content_type',
+                '_headers'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_recent_worlds" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+
+        if self.api_client.client_side_validation and 'n' in local_var_params and local_var_params['n'] > 100:  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `n` when calling `get_recent_worlds`, must be a value less than or equal to `100`")  # noqa: E501
+        if self.api_client.client_side_validation and 'n' in local_var_params and local_var_params['n'] < 1:  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `n` when calling `get_recent_worlds`, must be a value greater than or equal to `1`")  # noqa: E501
+        if self.api_client.client_side_validation and 'offset' in local_var_params and local_var_params['offset'] < 0:  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `offset` when calling `get_recent_worlds`, must be a value greater than or equal to `0`")  # noqa: E501
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+        if local_var_params.get('featured') is not None:  # noqa: E501
+            query_params.append(('featured', local_var_params['featured']))  # noqa: E501
+        if local_var_params.get('sort') is not None:  # noqa: E501
+            query_params.append(('sort', local_var_params['sort']))  # noqa: E501
+        if local_var_params.get('n') is not None:  # noqa: E501
+            query_params.append(('n', local_var_params['n']))  # noqa: E501
+        if local_var_params.get('order') is not None:  # noqa: E501
+            query_params.append(('order', local_var_params['order']))  # noqa: E501
+        if local_var_params.get('offset') is not None:  # noqa: E501
+            query_params.append(('offset', local_var_params['offset']))  # noqa: E501
+        if local_var_params.get('search') is not None:  # noqa: E501
+            query_params.append(('search', local_var_params['search']))  # noqa: E501
+        if local_var_params.get('tag') is not None:  # noqa: E501
+            query_params.append(('tag', local_var_params['tag']))  # noqa: E501
+        if local_var_params.get('notag') is not None:  # noqa: E501
+            query_params.append(('notag', local_var_params['notag']))  # noqa: E501
+        if local_var_params.get('release_status') is not None:  # noqa: E501
+            query_params.append(('releaseStatus', local_var_params['release_status']))  # noqa: E501
+        if local_var_params.get('max_unity_version') is not None:  # noqa: E501
+            query_params.append(('maxUnityVersion', local_var_params['max_unity_version']))  # noqa: E501
+        if local_var_params.get('min_unity_version') is not None:  # noqa: E501
+            query_params.append(('minUnityVersion', local_var_params['min_unity_version']))  # noqa: E501
+        if local_var_params.get('platform') is not None:  # noqa: E501
+            query_params.append(('platform', local_var_params['platform']))  # noqa: E501
+        if local_var_params.get('user_id') is not None:  # noqa: E501
+            query_params.append(('userId', local_var_params['user_id']))  # noqa: E501
+
+        header_params = dict(local_var_params.get('_headers', {}))
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['apiKeyCookie', 'authCookie']  # noqa: E501
+
+        response_types_map = {
+            200: "list[LimitedWorld]",
+            401: "Error",
+            403: "Error",
+        }
+
+        return self.api_client.call_api(
+            '/worlds/recent', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_types_map=response_types_map,
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))
+
+    def get_world(self, world_id, **kwargs):  # noqa: E501
         """Get World by ID  # noqa: E501
 
         Get information about a specific World. Works unauthenticated but when so will always return `0` for certain fields.  # noqa: E501
@@ -1514,64 +995,135 @@ class WorldsApi(object):
         >>> thread = api.get_world(world_id, async_req=True)
         >>> result = thread.get()
 
-        Args:
-            world_id (str):
-
-        Keyword Args:
-            _return_http_data_only (bool): response data without head status
-                code and headers. Default is True.
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-            async_req (bool): execute request asynchronously
-
-        Returns:
-            World
-                If the method is called asynchronously, returns the request
-                thread.
+        :param world_id: (required)
+        :type world_id: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :type _preload_content: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: World
         """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_host_index'] = kwargs.get('_host_index')
-        kwargs['world_id'] = \
-            world_id
-        return self.get_world_endpoint.call_with_http_info(**kwargs)
+        kwargs['_return_http_data_only'] = True
+        return self.get_world_with_http_info(world_id, **kwargs)  # noqa: E501
 
-    def get_world_instance(
-        self,
-        world_id,
-        instance_id,
-        **kwargs
-    ):
+    def get_world_with_http_info(self, world_id, **kwargs):  # noqa: E501
+        """Get World by ID  # noqa: E501
+
+        Get information about a specific World. Works unauthenticated but when so will always return `0` for certain fields.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_world_with_http_info(world_id, async_req=True)
+        >>> result = thread.get()
+
+        :param world_id: (required)
+        :type world_id: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :type _return_http_data_only: bool, optional
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :type _preload_content: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: tuple(World, status_code(int), headers(HTTPHeaderDict))
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'world_id'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth',
+                '_content_type',
+                '_headers'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_world" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'world_id' is set
+        if self.api_client.client_side_validation and local_var_params.get('world_id') is None:  # noqa: E501
+            raise ApiValueError("Missing the required parameter `world_id` when calling `get_world`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'world_id' in local_var_params:
+            path_params['worldId'] = local_var_params['world_id']  # noqa: E501
+
+        query_params = []
+
+        header_params = dict(local_var_params.get('_headers', {}))
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['apiKeyCookie']  # noqa: E501
+
+        response_types_map = {
+            200: "World",
+            404: "Error",
+        }
+
+        return self.api_client.call_api(
+            '/worlds/{worldId}', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_types_map=response_types_map,
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))
+
+    def get_world_instance(self, world_id, instance_id, **kwargs):  # noqa: E501
         """Get World Instance  # noqa: E501
 
         Returns a worlds instance.  # noqa: E501
@@ -1581,66 +1133,145 @@ class WorldsApi(object):
         >>> thread = api.get_world_instance(world_id, instance_id, async_req=True)
         >>> result = thread.get()
 
-        Args:
-            world_id (str):
-            instance_id (str):
-
-        Keyword Args:
-            _return_http_data_only (bool): response data without head status
-                code and headers. Default is True.
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-            async_req (bool): execute request asynchronously
-
-        Returns:
-            Instance
-                If the method is called asynchronously, returns the request
-                thread.
+        :param world_id: (required)
+        :type world_id: str
+        :param instance_id: (required)
+        :type instance_id: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :type _preload_content: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: Instance
         """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_host_index'] = kwargs.get('_host_index')
-        kwargs['world_id'] = \
-            world_id
-        kwargs['instance_id'] = \
-            instance_id
-        return self.get_world_instance_endpoint.call_with_http_info(**kwargs)
+        kwargs['_return_http_data_only'] = True
+        return self.get_world_instance_with_http_info(world_id, instance_id, **kwargs)  # noqa: E501
 
-    def get_world_metadata(
-        self,
-        world_id,
-        **kwargs
-    ):
+    def get_world_instance_with_http_info(self, world_id, instance_id, **kwargs):  # noqa: E501
+        """Get World Instance  # noqa: E501
+
+        Returns a worlds instance.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_world_instance_with_http_info(world_id, instance_id, async_req=True)
+        >>> result = thread.get()
+
+        :param world_id: (required)
+        :type world_id: str
+        :param instance_id: (required)
+        :type instance_id: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :type _return_http_data_only: bool, optional
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :type _preload_content: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: tuple(Instance, status_code(int), headers(HTTPHeaderDict))
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'world_id',
+            'instance_id'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth',
+                '_content_type',
+                '_headers'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_world_instance" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'world_id' is set
+        if self.api_client.client_side_validation and local_var_params.get('world_id') is None:  # noqa: E501
+            raise ApiValueError("Missing the required parameter `world_id` when calling `get_world_instance`")  # noqa: E501
+        # verify the required parameter 'instance_id' is set
+        if self.api_client.client_side_validation and local_var_params.get('instance_id') is None:  # noqa: E501
+            raise ApiValueError("Missing the required parameter `instance_id` when calling `get_world_instance`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'world_id' in local_var_params:
+            path_params['worldId'] = local_var_params['world_id']  # noqa: E501
+        if 'instance_id' in local_var_params:
+            path_params['instanceId'] = local_var_params['instance_id']  # noqa: E501
+
+        query_params = []
+
+        header_params = dict(local_var_params.get('_headers', {}))
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['apiKeyCookie', 'authCookie']  # noqa: E501
+
+        response_types_map = {
+            200: "Instance",
+            401: "Error",
+        }
+
+        return self.api_client.call_api(
+            '/worlds/{worldId}/{instanceId}', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_types_map=response_types_map,
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))
+
+    def get_world_metadata(self, world_id, **kwargs):  # noqa: E501
         """Get World Metadata  # noqa: E501
 
         Return a worlds custom metadata. This is currently believed to be unused. Metadata can be set with `updateWorld` and can be any arbitrary object.  # noqa: E501
@@ -1650,63 +1281,135 @@ class WorldsApi(object):
         >>> thread = api.get_world_metadata(world_id, async_req=True)
         >>> result = thread.get()
 
-        Args:
-            world_id (str):
-
-        Keyword Args:
-            _return_http_data_only (bool): response data without head status
-                code and headers. Default is True.
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-            async_req (bool): execute request asynchronously
-
-        Returns:
-            WorldMetadata
-                If the method is called asynchronously, returns the request
-                thread.
+        :param world_id: (required)
+        :type world_id: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :type _preload_content: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: WorldMetadata
         """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_host_index'] = kwargs.get('_host_index')
-        kwargs['world_id'] = \
-            world_id
-        return self.get_world_metadata_endpoint.call_with_http_info(**kwargs)
+        kwargs['_return_http_data_only'] = True
+        return self.get_world_metadata_with_http_info(world_id, **kwargs)  # noqa: E501
 
-    def get_world_publish_status(
-        self,
-        world_id,
-        **kwargs
-    ):
+    def get_world_metadata_with_http_info(self, world_id, **kwargs):  # noqa: E501
+        """Get World Metadata  # noqa: E501
+
+        Return a worlds custom metadata. This is currently believed to be unused. Metadata can be set with `updateWorld` and can be any arbitrary object.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_world_metadata_with_http_info(world_id, async_req=True)
+        >>> result = thread.get()
+
+        :param world_id: (required)
+        :type world_id: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :type _return_http_data_only: bool, optional
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :type _preload_content: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: tuple(WorldMetadata, status_code(int), headers(HTTPHeaderDict))
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'world_id'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth',
+                '_content_type',
+                '_headers'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_world_metadata" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'world_id' is set
+        if self.api_client.client_side_validation and local_var_params.get('world_id') is None:  # noqa: E501
+            raise ApiValueError("Missing the required parameter `world_id` when calling `get_world_metadata`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'world_id' in local_var_params:
+            path_params['worldId'] = local_var_params['world_id']  # noqa: E501
+
+        query_params = []
+
+        header_params = dict(local_var_params.get('_headers', {}))
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['apiKeyCookie', 'authCookie']  # noqa: E501
+
+        response_types_map = {
+            200: "WorldMetadata",
+            404: "Error",
+        }
+
+        return self.api_client.call_api(
+            '/worlds/{worldId}/metadata', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_types_map=response_types_map,
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))
+
+    def get_world_publish_status(self, world_id, **kwargs):  # noqa: E501
         """Get World Publish Status  # noqa: E501
 
         Returns a worlds publish status.  # noqa: E501
@@ -1716,63 +1419,136 @@ class WorldsApi(object):
         >>> thread = api.get_world_publish_status(world_id, async_req=True)
         >>> result = thread.get()
 
-        Args:
-            world_id (str):
-
-        Keyword Args:
-            _return_http_data_only (bool): response data without head status
-                code and headers. Default is True.
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-            async_req (bool): execute request asynchronously
-
-        Returns:
-            WorldPublishStatus
-                If the method is called asynchronously, returns the request
-                thread.
+        :param world_id: (required)
+        :type world_id: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :type _preload_content: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: WorldPublishStatus
         """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_host_index'] = kwargs.get('_host_index')
-        kwargs['world_id'] = \
-            world_id
-        return self.get_world_publish_status_endpoint.call_with_http_info(**kwargs)
+        kwargs['_return_http_data_only'] = True
+        return self.get_world_publish_status_with_http_info(world_id, **kwargs)  # noqa: E501
 
-    def publish_world(
-        self,
-        world_id,
-        **kwargs
-    ):
+    def get_world_publish_status_with_http_info(self, world_id, **kwargs):  # noqa: E501
+        """Get World Publish Status  # noqa: E501
+
+        Returns a worlds publish status.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_world_publish_status_with_http_info(world_id, async_req=True)
+        >>> result = thread.get()
+
+        :param world_id: (required)
+        :type world_id: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :type _return_http_data_only: bool, optional
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :type _preload_content: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: tuple(WorldPublishStatus, status_code(int), headers(HTTPHeaderDict))
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'world_id'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth',
+                '_content_type',
+                '_headers'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_world_publish_status" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'world_id' is set
+        if self.api_client.client_side_validation and local_var_params.get('world_id') is None:  # noqa: E501
+            raise ApiValueError("Missing the required parameter `world_id` when calling `get_world_publish_status`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'world_id' in local_var_params:
+            path_params['worldId'] = local_var_params['world_id']  # noqa: E501
+
+        query_params = []
+
+        header_params = dict(local_var_params.get('_headers', {}))
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['apiKeyCookie', 'authCookie']  # noqa: E501
+
+        response_types_map = {
+            200: "WorldPublishStatus",
+            401: "Error",
+            404: "Error",
+        }
+
+        return self.api_client.call_api(
+            '/worlds/{worldId}/publish', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_types_map=response_types_map,
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))
+
+    def publish_world(self, world_id, **kwargs):  # noqa: E501
         """Publish World  # noqa: E501
 
         Publish a world. You can only publish one world per week.  # noqa: E501
@@ -1782,62 +1558,132 @@ class WorldsApi(object):
         >>> thread = api.publish_world(world_id, async_req=True)
         >>> result = thread.get()
 
-        Args:
-            world_id (str):
-
-        Keyword Args:
-            _return_http_data_only (bool): response data without head status
-                code and headers. Default is True.
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-            async_req (bool): execute request asynchronously
-
-        Returns:
-            None
-                If the method is called asynchronously, returns the request
-                thread.
+        :param world_id: (required)
+        :type world_id: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :type _preload_content: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: None
         """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_host_index'] = kwargs.get('_host_index')
-        kwargs['world_id'] = \
-            world_id
-        return self.publish_world_endpoint.call_with_http_info(**kwargs)
+        kwargs['_return_http_data_only'] = True
+        return self.publish_world_with_http_info(world_id, **kwargs)  # noqa: E501
 
-    def search_worlds(
-        self,
-        **kwargs
-    ):
+    def publish_world_with_http_info(self, world_id, **kwargs):  # noqa: E501
+        """Publish World  # noqa: E501
+
+        Publish a world. You can only publish one world per week.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.publish_world_with_http_info(world_id, async_req=True)
+        >>> result = thread.get()
+
+        :param world_id: (required)
+        :type world_id: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :type _return_http_data_only: bool, optional
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :type _preload_content: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: None
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'world_id'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth',
+                '_content_type',
+                '_headers'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method publish_world" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'world_id' is set
+        if self.api_client.client_side_validation and local_var_params.get('world_id') is None:  # noqa: E501
+            raise ApiValueError("Missing the required parameter `world_id` when calling `publish_world`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'world_id' in local_var_params:
+            path_params['worldId'] = local_var_params['world_id']  # noqa: E501
+
+        query_params = []
+
+        header_params = dict(local_var_params.get('_headers', {}))
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['apiKeyCookie', 'authCookie']  # noqa: E501
+
+        response_types_map = {}
+
+        return self.api_client.call_api(
+            '/worlds/{worldId}/publish', 'PUT',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_types_map=response_types_map,
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))
+
+    def search_worlds(self, **kwargs):  # noqa: E501
         """Search All Worlds  # noqa: E501
 
         Search and list any worlds by query filters.  # noqa: E501
@@ -1847,73 +1693,229 @@ class WorldsApi(object):
         >>> thread = api.search_worlds(async_req=True)
         >>> result = thread.get()
 
-
-        Keyword Args:
-            featured (bool): Filters on featured results.. [optional]
-            sort (str): [optional] if omitted the server will use the default value of "popularity"
-            user (str): Set to `me` for searching own worlds.. [optional] if omitted the server will use the default value of "me"
-            user_id (str): Filter by UserID.. [optional]
-            n (int): The number of objects to return.. [optional] if omitted the server will use the default value of 60
-            order (str): [optional] if omitted the server will use the default value of "descending"
-            offset (int): A zero-based offset from the default object sorting from where search results start.. [optional]
-            search (str): Filters by world name.. [optional]
-            tag (str): Tags to include (comma-separated). Any of the tags needs to be present.. [optional]
-            notag (str): Tags to exclude (comma-separated).. [optional]
-            release_status (str): Filter by ReleaseStatus.. [optional] if omitted the server will use the default value of "public"
-            max_unity_version (str): The maximum Unity version supported by the asset.. [optional]
-            min_unity_version (str): The minimum Unity version supported by the asset.. [optional]
-            platform (str): The platform the asset supports.. [optional]
-            _return_http_data_only (bool): response data without head status
-                code and headers. Default is True.
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-            async_req (bool): execute request asynchronously
-
-        Returns:
-            [LimitedWorld]
-                If the method is called asynchronously, returns the request
-                thread.
+        :param featured: Filters on featured results.
+        :type featured: bool
+        :param sort:
+        :type sort: str
+        :param user: Set to `me` for searching own worlds.
+        :type user: str
+        :param user_id: Filter by UserID.
+        :type user_id: str
+        :param n: The number of objects to return.
+        :type n: int
+        :param order:
+        :type order: str
+        :param offset: A zero-based offset from the default object sorting from where search results start.
+        :type offset: int
+        :param search: Filters by world name.
+        :type search: str
+        :param tag: Tags to include (comma-separated). Any of the tags needs to be present.
+        :type tag: str
+        :param notag: Tags to exclude (comma-separated).
+        :type notag: str
+        :param release_status: Filter by ReleaseStatus.
+        :type release_status: str
+        :param max_unity_version: The maximum Unity version supported by the asset.
+        :type max_unity_version: str
+        :param min_unity_version: The minimum Unity version supported by the asset.
+        :type min_unity_version: str
+        :param platform: The platform the asset supports.
+        :type platform: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :type _preload_content: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: list[LimitedWorld]
         """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_host_index'] = kwargs.get('_host_index')
-        return self.search_worlds_endpoint.call_with_http_info(**kwargs)
+        kwargs['_return_http_data_only'] = True
+        return self.search_worlds_with_http_info(**kwargs)  # noqa: E501
 
-    def unpublish_world(
-        self,
-        world_id,
-        **kwargs
-    ):
+    def search_worlds_with_http_info(self, **kwargs):  # noqa: E501
+        """Search All Worlds  # noqa: E501
+
+        Search and list any worlds by query filters.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.search_worlds_with_http_info(async_req=True)
+        >>> result = thread.get()
+
+        :param featured: Filters on featured results.
+        :type featured: bool
+        :param sort:
+        :type sort: str
+        :param user: Set to `me` for searching own worlds.
+        :type user: str
+        :param user_id: Filter by UserID.
+        :type user_id: str
+        :param n: The number of objects to return.
+        :type n: int
+        :param order:
+        :type order: str
+        :param offset: A zero-based offset from the default object sorting from where search results start.
+        :type offset: int
+        :param search: Filters by world name.
+        :type search: str
+        :param tag: Tags to include (comma-separated). Any of the tags needs to be present.
+        :type tag: str
+        :param notag: Tags to exclude (comma-separated).
+        :type notag: str
+        :param release_status: Filter by ReleaseStatus.
+        :type release_status: str
+        :param max_unity_version: The maximum Unity version supported by the asset.
+        :type max_unity_version: str
+        :param min_unity_version: The minimum Unity version supported by the asset.
+        :type min_unity_version: str
+        :param platform: The platform the asset supports.
+        :type platform: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :type _return_http_data_only: bool, optional
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :type _preload_content: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: tuple(list[LimitedWorld], status_code(int), headers(HTTPHeaderDict))
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'featured',
+            'sort',
+            'user',
+            'user_id',
+            'n',
+            'order',
+            'offset',
+            'search',
+            'tag',
+            'notag',
+            'release_status',
+            'max_unity_version',
+            'min_unity_version',
+            'platform'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth',
+                '_content_type',
+                '_headers'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method search_worlds" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+
+        if self.api_client.client_side_validation and 'n' in local_var_params and local_var_params['n'] > 100:  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `n` when calling `search_worlds`, must be a value less than or equal to `100`")  # noqa: E501
+        if self.api_client.client_side_validation and 'n' in local_var_params and local_var_params['n'] < 1:  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `n` when calling `search_worlds`, must be a value greater than or equal to `1`")  # noqa: E501
+        if self.api_client.client_side_validation and 'offset' in local_var_params and local_var_params['offset'] < 0:  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `offset` when calling `search_worlds`, must be a value greater than or equal to `0`")  # noqa: E501
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+        if local_var_params.get('featured') is not None:  # noqa: E501
+            query_params.append(('featured', local_var_params['featured']))  # noqa: E501
+        if local_var_params.get('sort') is not None:  # noqa: E501
+            query_params.append(('sort', local_var_params['sort']))  # noqa: E501
+        if local_var_params.get('user') is not None:  # noqa: E501
+            query_params.append(('user', local_var_params['user']))  # noqa: E501
+        if local_var_params.get('user_id') is not None:  # noqa: E501
+            query_params.append(('userId', local_var_params['user_id']))  # noqa: E501
+        if local_var_params.get('n') is not None:  # noqa: E501
+            query_params.append(('n', local_var_params['n']))  # noqa: E501
+        if local_var_params.get('order') is not None:  # noqa: E501
+            query_params.append(('order', local_var_params['order']))  # noqa: E501
+        if local_var_params.get('offset') is not None:  # noqa: E501
+            query_params.append(('offset', local_var_params['offset']))  # noqa: E501
+        if local_var_params.get('search') is not None:  # noqa: E501
+            query_params.append(('search', local_var_params['search']))  # noqa: E501
+        if local_var_params.get('tag') is not None:  # noqa: E501
+            query_params.append(('tag', local_var_params['tag']))  # noqa: E501
+        if local_var_params.get('notag') is not None:  # noqa: E501
+            query_params.append(('notag', local_var_params['notag']))  # noqa: E501
+        if local_var_params.get('release_status') is not None:  # noqa: E501
+            query_params.append(('releaseStatus', local_var_params['release_status']))  # noqa: E501
+        if local_var_params.get('max_unity_version') is not None:  # noqa: E501
+            query_params.append(('maxUnityVersion', local_var_params['max_unity_version']))  # noqa: E501
+        if local_var_params.get('min_unity_version') is not None:  # noqa: E501
+            query_params.append(('minUnityVersion', local_var_params['min_unity_version']))  # noqa: E501
+        if local_var_params.get('platform') is not None:  # noqa: E501
+            query_params.append(('platform', local_var_params['platform']))  # noqa: E501
+
+        header_params = dict(local_var_params.get('_headers', {}))
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['apiKeyCookie', 'authCookie']  # noqa: E501
+
+        response_types_map = {
+            200: "list[LimitedWorld]",
+            401: "Error",
+        }
+
+        return self.api_client.call_api(
+            '/worlds', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_types_map=response_types_map,
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))
+
+    def unpublish_world(self, world_id, **kwargs):  # noqa: E501
         """Unpublish World  # noqa: E501
 
         Unpublish a world.  # noqa: E501
@@ -1923,63 +1925,132 @@ class WorldsApi(object):
         >>> thread = api.unpublish_world(world_id, async_req=True)
         >>> result = thread.get()
 
-        Args:
-            world_id (str):
-
-        Keyword Args:
-            _return_http_data_only (bool): response data without head status
-                code and headers. Default is True.
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-            async_req (bool): execute request asynchronously
-
-        Returns:
-            None
-                If the method is called asynchronously, returns the request
-                thread.
+        :param world_id: (required)
+        :type world_id: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :type _preload_content: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: None
         """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_host_index'] = kwargs.get('_host_index')
-        kwargs['world_id'] = \
-            world_id
-        return self.unpublish_world_endpoint.call_with_http_info(**kwargs)
+        kwargs['_return_http_data_only'] = True
+        return self.unpublish_world_with_http_info(world_id, **kwargs)  # noqa: E501
 
-    def update_world(
-        self,
-        world_id,
-        **kwargs
-    ):
+    def unpublish_world_with_http_info(self, world_id, **kwargs):  # noqa: E501
+        """Unpublish World  # noqa: E501
+
+        Unpublish a world.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.unpublish_world_with_http_info(world_id, async_req=True)
+        >>> result = thread.get()
+
+        :param world_id: (required)
+        :type world_id: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :type _return_http_data_only: bool, optional
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :type _preload_content: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: None
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'world_id'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth',
+                '_content_type',
+                '_headers'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method unpublish_world" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'world_id' is set
+        if self.api_client.client_side_validation and local_var_params.get('world_id') is None:  # noqa: E501
+            raise ApiValueError("Missing the required parameter `world_id` when calling `unpublish_world`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'world_id' in local_var_params:
+            path_params['worldId'] = local_var_params['world_id']  # noqa: E501
+
+        query_params = []
+
+        header_params = dict(local_var_params.get('_headers', {}))
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['apiKeyCookie', 'authCookie']  # noqa: E501
+
+        response_types_map = {}
+
+        return self.api_client.call_api(
+            '/worlds/{worldId}/publish', 'DELETE',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_types_map=response_types_map,
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))
+
+    def update_world(self, world_id, **kwargs):  # noqa: E501
         """Update World  # noqa: E501
 
         Update information about a specific World.  # noqa: E501
@@ -1989,56 +2060,146 @@ class WorldsApi(object):
         >>> thread = api.update_world(world_id, async_req=True)
         >>> result = thread.get()
 
-        Args:
-            world_id (str):
-
-        Keyword Args:
-            update_world_request (UpdateWorldRequest): [optional]
-            _return_http_data_only (bool): response data without head status
-                code and headers. Default is True.
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-            async_req (bool): execute request asynchronously
-
-        Returns:
-            World
-                If the method is called asynchronously, returns the request
-                thread.
+        :param world_id: (required)
+        :type world_id: str
+        :param update_world_request:
+        :type update_world_request: UpdateWorldRequest
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :type _preload_content: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: World
         """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_host_index'] = kwargs.get('_host_index')
-        kwargs['world_id'] = \
-            world_id
-        return self.update_world_endpoint.call_with_http_info(**kwargs)
+        kwargs['_return_http_data_only'] = True
+        return self.update_world_with_http_info(world_id, **kwargs)  # noqa: E501
 
+    def update_world_with_http_info(self, world_id, **kwargs):  # noqa: E501
+        """Update World  # noqa: E501
+
+        Update information about a specific World.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.update_world_with_http_info(world_id, async_req=True)
+        >>> result = thread.get()
+
+        :param world_id: (required)
+        :type world_id: str
+        :param update_world_request:
+        :type update_world_request: UpdateWorldRequest
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :type _return_http_data_only: bool, optional
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :type _preload_content: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: tuple(World, status_code(int), headers(HTTPHeaderDict))
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'world_id',
+            'update_world_request'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth',
+                '_content_type',
+                '_headers'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method update_world" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'world_id' is set
+        if self.api_client.client_side_validation and local_var_params.get('world_id') is None:  # noqa: E501
+            raise ApiValueError("Missing the required parameter `world_id` when calling `update_world`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'world_id' in local_var_params:
+            path_params['worldId'] = local_var_params['world_id']  # noqa: E501
+
+        query_params = []
+
+        header_params = dict(local_var_params.get('_headers', {}))
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'update_world_request' in local_var_params:
+            body_params = local_var_params['update_world_request']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        content_types_list = local_var_params.get('_content_type',
+            self.api_client.select_header_content_type(
+                ['application/json'],
+                'PUT', body_params))  # noqa: E501
+        if content_types_list:
+                header_params['Content-Type'] = content_types_list
+
+        # Authentication setting
+        auth_settings = ['apiKeyCookie', 'authCookie']  # noqa: E501
+
+        response_types_map = {
+            200: "World",
+            401: "Error",
+            404: "Error",
+        }
+
+        return self.api_client.call_api(
+            '/worlds/{worldId}', 'PUT',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_types_map=response_types_map,
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))

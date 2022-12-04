@@ -67,3 +67,7 @@ target/
 
 # Dependency directory
 node_modules
+
+# Patch leftovers
+*.orig
+*.rej

@@ -22,12 +22,11 @@ API config contains configuration that the clients needs to work properly.  Curr
 
 ### Example
 
-
 ```python
+from __future__ import print_function
 import time
 import vrchatapi
-from vrchatapi.api import system_api
-from vrchatapi.model.api_config import APIConfig
+from vrchatapi.rest import ApiException
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
 # See configuration.py for a list of all supported configuration parameters.
@@ -39,17 +38,15 @@ configuration = vrchatapi.Configuration(
 # Enter a context with an instance of the API client
 with vrchatapi.ApiClient() as api_client:
     # Create an instance of the API class
-    api_instance = system_api.SystemApi(api_client)
-
-    # example, this endpoint has no required or optional parameters
+    api_instance = vrchatapi.SystemApi(api_client)
+    
     try:
         # Fetch API Config
         api_response = api_instance.get_config()
         pprint(api_response)
-    except vrchatapi.ApiException as e:
+    except ApiException as e:
         print("Exception when calling SystemApi->get_config: %s\n" % e)
 ```
-
 
 ### Parameters
 This endpoint does not need any parameter.
@@ -67,9 +64,7 @@ No authorization required
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Returns the API&#39;s config. |  * Set-Cookie -  <br>  |
@@ -77,7 +72,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_css**
-> str get_css()
+> str get_css(variant=variant, branch=branch)
 
 Download CSS
 
@@ -85,12 +80,11 @@ Fetches the CSS code to the frontend React website.
 
 ### Example
 
-
 ```python
+from __future__ import print_function
 import time
 import vrchatapi
-from vrchatapi.api import system_api
-from vrchatapi.model.error import Error
+from vrchatapi.rest import ApiException
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
 # See configuration.py for a list of all supported configuration parameters.
@@ -102,27 +96,24 @@ configuration = vrchatapi.Configuration(
 # Enter a context with an instance of the API client
 with vrchatapi.ApiClient() as api_client:
     # Create an instance of the API class
-    api_instance = system_api.SystemApi(api_client)
-    variant = "public" # str | Specifies which `variant` of the site. Public is the end-user site, while `internal` is the staff-only site with special pages for moderation and management. (optional) if omitted the server will use the default value of "public"
-    branch = "main" # str | Specifies which git branch the site should load frontend source code from. (optional) if omitted the server will use the default value of "main"
+    api_instance = vrchatapi.SystemApi(api_client)
+    variant = 'public' # str | Specifies which `variant` of the site. Public is the end-user site, while `internal` is the staff-only site with special pages for moderation and management. (optional) (default to 'public')
+branch = 'main' # str | Specifies which git branch the site should load frontend source code from. (optional) (default to 'main')
 
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Download CSS
         api_response = api_instance.get_css(variant=variant, branch=branch)
         pprint(api_response)
-    except vrchatapi.ApiException as e:
+    except ApiException as e:
         print("Exception when calling SystemApi->get_css: %s\n" % e)
 ```
-
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **variant** | **str**| Specifies which &#x60;variant&#x60; of the site. Public is the end-user site, while &#x60;internal&#x60; is the staff-only site with special pages for moderation and management. | [optional] if omitted the server will use the default value of "public"
- **branch** | **str**| Specifies which git branch the site should load frontend source code from. | [optional] if omitted the server will use the default value of "main"
+ **variant** | **str**| Specifies which &#x60;variant&#x60; of the site. Public is the end-user site, while &#x60;internal&#x60; is the staff-only site with special pages for moderation and management. | [optional] [default to &#39;public&#39;]
+ **branch** | **str**| Specifies which git branch the site should load frontend source code from. | [optional] [default to &#39;main&#39;]
 
 ### Return type
 
@@ -137,9 +128,7 @@ No authorization required
  - **Content-Type**: Not defined
  - **Accept**: text/css, application/json
 
-
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | **Note:** VRChat uses 302 Redirect to Cloudfront. The implementing library **must** support and follow redirects natively. |  -  |
@@ -156,11 +145,11 @@ Returns the current number of online users.  **NOTE:** The response type is not 
 
 ### Example
 
-
 ```python
+from __future__ import print_function
 import time
 import vrchatapi
-from vrchatapi.api import system_api
+from vrchatapi.rest import ApiException
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
 # See configuration.py for a list of all supported configuration parameters.
@@ -172,17 +161,15 @@ configuration = vrchatapi.Configuration(
 # Enter a context with an instance of the API client
 with vrchatapi.ApiClient() as api_client:
     # Create an instance of the API class
-    api_instance = system_api.SystemApi(api_client)
-
-    # example, this endpoint has no required or optional parameters
+    api_instance = vrchatapi.SystemApi(api_client)
+    
     try:
         # Current Online Users
         api_response = api_instance.get_current_online_users()
         pprint(api_response)
-    except vrchatapi.ApiException as e:
+    except ApiException as e:
         print("Exception when calling SystemApi->get_current_online_users: %s\n" % e)
 ```
-
 
 ### Parameters
 This endpoint does not need any parameter.
@@ -200,9 +187,7 @@ No authorization required
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |
@@ -218,12 +203,11 @@ Check API Health
 
 ### Example
 
-
 ```python
+from __future__ import print_function
 import time
 import vrchatapi
-from vrchatapi.api import system_api
-from vrchatapi.model.api_health import APIHealth
+from vrchatapi.rest import ApiException
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
 # See configuration.py for a list of all supported configuration parameters.
@@ -235,17 +219,15 @@ configuration = vrchatapi.Configuration(
 # Enter a context with an instance of the API client
 with vrchatapi.ApiClient() as api_client:
     # Create an instance of the API class
-    api_instance = system_api.SystemApi(api_client)
-
-    # example, this endpoint has no required or optional parameters
+    api_instance = vrchatapi.SystemApi(api_client)
+    
     try:
         # Check API Health
         api_response = api_instance.get_health()
         pprint(api_response)
-    except vrchatapi.ApiException as e:
+    except ApiException as e:
         print("Exception when calling SystemApi->get_health: %s\n" % e)
 ```
-
 
 ### Parameters
 This endpoint does not need any parameter.
@@ -263,9 +245,7 @@ No authorization required
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Returns the API&#39;s health. |  -  |
@@ -273,7 +253,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_info_push**
-> [InfoPush] get_info_push()
+> list[InfoPush] get_info_push(require=require, include=include)
 
 Show Information Notices
 
@@ -281,12 +261,11 @@ IPS (Info Push System) is a system for VRChat to push out dynamic information to
 
 ### Example
 
-
 ```python
+from __future__ import print_function
 import time
 import vrchatapi
-from vrchatapi.api import system_api
-from vrchatapi.model.info_push import InfoPush
+from vrchatapi.rest import ApiException
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
 # See configuration.py for a list of all supported configuration parameters.
@@ -298,31 +277,28 @@ configuration = vrchatapi.Configuration(
 # Enter a context with an instance of the API client
 with vrchatapi.ApiClient() as api_client:
     # Create an instance of the API class
-    api_instance = system_api.SystemApi(api_client)
-    require = "require_example" # str | Tags to include (comma-separated). All of the tags needs to be present. (optional)
-    include = "include_example" # str | Tags to include (comma-separated). Any of the tags needs to be present. (optional)
+    api_instance = vrchatapi.SystemApi(api_client)
+    require = 'require_example' # str | Tags to include (comma-separated). All of the tags needs to be present. (optional)
+include = 'include_example' # str | Tags to include (comma-separated). Any of the tags needs to be present. (optional)
 
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Show Information Notices
         api_response = api_instance.get_info_push(require=require, include=include)
         pprint(api_response)
-    except vrchatapi.ApiException as e:
+    except ApiException as e:
         print("Exception when calling SystemApi->get_info_push: %s\n" % e)
 ```
-
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **require** | **str**| Tags to include (comma-separated). All of the tags needs to be present. | [optional]
- **include** | **str**| Tags to include (comma-separated). Any of the tags needs to be present. | [optional]
+ **require** | **str**| Tags to include (comma-separated). All of the tags needs to be present. | [optional] 
+ **include** | **str**| Tags to include (comma-separated). Any of the tags needs to be present. | [optional] 
 
 ### Return type
 
-[**[InfoPush]**](InfoPush.md)
+[**list[InfoPush]**](InfoPush.md)
 
 ### Authorization
 
@@ -333,9 +309,7 @@ No authorization required
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Returns a list of InfoPush objects. |  -  |
@@ -343,7 +317,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_java_script**
-> str get_java_script()
+> str get_java_script(variant=variant, branch=branch)
 
 Download JavaScript
 
@@ -351,12 +325,11 @@ Fetches the JavaScript code to the frontend React website.
 
 ### Example
 
-
 ```python
+from __future__ import print_function
 import time
 import vrchatapi
-from vrchatapi.api import system_api
-from vrchatapi.model.error import Error
+from vrchatapi.rest import ApiException
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
 # See configuration.py for a list of all supported configuration parameters.
@@ -368,27 +341,24 @@ configuration = vrchatapi.Configuration(
 # Enter a context with an instance of the API client
 with vrchatapi.ApiClient() as api_client:
     # Create an instance of the API class
-    api_instance = system_api.SystemApi(api_client)
-    variant = "public" # str | Specifies which `variant` of the site. Public is the end-user site, while `internal` is the staff-only site with special pages for moderation and management. (optional) if omitted the server will use the default value of "public"
-    branch = "main" # str | Specifies which git branch the site should load frontend source code from. (optional) if omitted the server will use the default value of "main"
+    api_instance = vrchatapi.SystemApi(api_client)
+    variant = 'public' # str | Specifies which `variant` of the site. Public is the end-user site, while `internal` is the staff-only site with special pages for moderation and management. (optional) (default to 'public')
+branch = 'main' # str | Specifies which git branch the site should load frontend source code from. (optional) (default to 'main')
 
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Download JavaScript
         api_response = api_instance.get_java_script(variant=variant, branch=branch)
         pprint(api_response)
-    except vrchatapi.ApiException as e:
+    except ApiException as e:
         print("Exception when calling SystemApi->get_java_script: %s\n" % e)
 ```
-
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **variant** | **str**| Specifies which &#x60;variant&#x60; of the site. Public is the end-user site, while &#x60;internal&#x60; is the staff-only site with special pages for moderation and management. | [optional] if omitted the server will use the default value of "public"
- **branch** | **str**| Specifies which git branch the site should load frontend source code from. | [optional] if omitted the server will use the default value of "main"
+ **variant** | **str**| Specifies which &#x60;variant&#x60; of the site. Public is the end-user site, while &#x60;internal&#x60; is the staff-only site with special pages for moderation and management. | [optional] [default to &#39;public&#39;]
+ **branch** | **str**| Specifies which git branch the site should load frontend source code from. | [optional] [default to &#39;main&#39;]
 
 ### Return type
 
@@ -403,9 +373,7 @@ No authorization required
  - **Content-Type**: Not defined
  - **Accept**: application/javascript, application/json
 
-
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | **Note:** VRChat uses 302 Redirect to Cloudfront. The implementing library **must** support and follow redirects natively. |  -  |
@@ -422,11 +390,11 @@ Returns the current time of the API server.  **NOTE:** The response type is not 
 
 ### Example
 
-
 ```python
+from __future__ import print_function
 import time
 import vrchatapi
-from vrchatapi.api import system_api
+from vrchatapi.rest import ApiException
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
 # See configuration.py for a list of all supported configuration parameters.
@@ -438,17 +406,15 @@ configuration = vrchatapi.Configuration(
 # Enter a context with an instance of the API client
 with vrchatapi.ApiClient() as api_client:
     # Create an instance of the API class
-    api_instance = system_api.SystemApi(api_client)
-
-    # example, this endpoint has no required or optional parameters
+    api_instance = vrchatapi.SystemApi(api_client)
+    
     try:
         # Current System Time
         api_response = api_instance.get_system_time()
         pprint(api_response)
-    except vrchatapi.ApiException as e:
+    except ApiException as e:
         print("Exception when calling SystemApi->get_system_time: %s\n" % e)
 ```
-
 
 ### Parameters
 This endpoint does not need any parameter.
@@ -466,9 +432,7 @@ No authorization required
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |

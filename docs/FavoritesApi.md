@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 
 # **add_favorite**
-> Favorite add_favorite()
+> Favorite add_favorite(add_favorite_request=add_favorite_request)
 
 Add Favorite
 
@@ -24,15 +24,11 @@ Add a new favorite.  Friend groups are named `group_0` through `group_3`. Avatar
 ### Example
 
 * Api Key Authentication (apiKeyCookie):
-* Api Key Authentication (authCookie):
-
 ```python
+from __future__ import print_function
 import time
 import vrchatapi
-from vrchatapi.api import favorites_api
-from vrchatapi.model.error import Error
-from vrchatapi.model.favorite import Favorite
-from vrchatapi.model.add_favorite_request import AddFavoriteRequest
+from vrchatapi.rest import ApiException
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
 # See configuration.py for a list of all supported configuration parameters.
@@ -60,31 +56,66 @@ configuration.api_key['authCookie'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = favorites_api.FavoritesApi(api_client)
-    add_favorite_request = AddFavoriteRequest(
-        type=FavoriteType("friend"),
-        favorite_id="favorite_id_example",
-        tags=[
-            Tag("tags_example"),
-        ],
-    ) # AddFavoriteRequest |  (optional)
+    api_instance = vrchatapi.FavoritesApi(api_client)
+    add_favorite_request = {"type":"friend","favoriteId":"usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469","tags":["group_0"]} # AddFavoriteRequest |  (optional)
 
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Add Favorite
         api_response = api_instance.add_favorite(add_favorite_request=add_favorite_request)
         pprint(api_response)
-    except vrchatapi.ApiException as e:
+    except ApiException as e:
         print("Exception when calling FavoritesApi->add_favorite: %s\n" % e)
 ```
 
+* Api Key Authentication (authCookie):
+```python
+from __future__ import print_function
+import time
+import vrchatapi
+from vrchatapi.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = vrchatapi.Configuration(
+    host = "https://api.vrchat.cloud/api/1"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: apiKeyCookie
+configuration.api_key['apiKeyCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apiKeyCookie'] = 'Bearer'
+
+# Configure API key authorization: authCookie
+configuration.api_key['authCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['authCookie'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with vrchatapi.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = vrchatapi.FavoritesApi(api_client)
+    add_favorite_request = {"type":"friend","favoriteId":"usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469","tags":["group_0"]} # AddFavoriteRequest |  (optional)
+
+    try:
+        # Add Favorite
+        api_response = api_instance.add_favorite(add_favorite_request=add_favorite_request)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling FavoritesApi->add_favorite: %s\n" % e)
+```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **add_favorite_request** | [**AddFavoriteRequest**](AddFavoriteRequest.md)|  | [optional]
+ **add_favorite_request** | [**AddFavoriteRequest**](AddFavoriteRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -99,9 +130,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Returns a single Favorite object. |  -  |
@@ -120,13 +149,11 @@ Clear ALL contents of a specific favorite group.
 ### Example
 
 * Api Key Authentication (apiKeyCookie):
-* Api Key Authentication (authCookie):
-
 ```python
+from __future__ import print_function
 import time
 import vrchatapi
-from vrchatapi.api import favorites_api
-from vrchatapi.model.success import Success
+from vrchatapi.rest import ApiException
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
 # See configuration.py for a list of all supported configuration parameters.
@@ -154,28 +181,72 @@ configuration.api_key['authCookie'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = favorites_api.FavoritesApi(api_client)
-    favorite_group_type = "world" # str | The type of group to fetch, must be a valid FavoriteType.
-    favorite_group_name = "favoriteGroupName_example" # str | 
-    user_id = "userId_example" # str | 
+    api_instance = vrchatapi.FavoritesApi(api_client)
+    favorite_group_type = 'favorite_group_type_example' # str | The type of group to fetch, must be a valid FavoriteType.
+favorite_group_name = 'favorite_group_name_example' # str | 
+user_id = 'user_id_example' # str | 
 
-    # example passing only required values which don't have defaults set
     try:
         # Clear Favorite Group
         api_response = api_instance.clear_favorite_group(favorite_group_type, favorite_group_name, user_id)
         pprint(api_response)
-    except vrchatapi.ApiException as e:
+    except ApiException as e:
         print("Exception when calling FavoritesApi->clear_favorite_group: %s\n" % e)
 ```
 
+* Api Key Authentication (authCookie):
+```python
+from __future__ import print_function
+import time
+import vrchatapi
+from vrchatapi.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = vrchatapi.Configuration(
+    host = "https://api.vrchat.cloud/api/1"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: apiKeyCookie
+configuration.api_key['apiKeyCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apiKeyCookie'] = 'Bearer'
+
+# Configure API key authorization: authCookie
+configuration.api_key['authCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['authCookie'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with vrchatapi.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = vrchatapi.FavoritesApi(api_client)
+    favorite_group_type = 'favorite_group_type_example' # str | The type of group to fetch, must be a valid FavoriteType.
+favorite_group_name = 'favorite_group_name_example' # str | 
+user_id = 'user_id_example' # str | 
+
+    try:
+        # Clear Favorite Group
+        api_response = api_instance.clear_favorite_group(favorite_group_type, favorite_group_name, user_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling FavoritesApi->clear_favorite_group: %s\n" % e)
+```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **favorite_group_type** | **str**| The type of group to fetch, must be a valid FavoriteType. |
- **favorite_group_name** | **str**|  |
- **user_id** | **str**|  |
+ **favorite_group_type** | **str**| The type of group to fetch, must be a valid FavoriteType. | 
+ **favorite_group_name** | **str**|  | 
+ **user_id** | **str**|  | 
 
 ### Return type
 
@@ -190,9 +261,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Success response after clearing a favorite group. |  -  |
@@ -209,14 +278,11 @@ Return information about a specific Favorite.
 ### Example
 
 * Api Key Authentication (apiKeyCookie):
-* Api Key Authentication (authCookie):
-
 ```python
+from __future__ import print_function
 import time
 import vrchatapi
-from vrchatapi.api import favorites_api
-from vrchatapi.model.error import Error
-from vrchatapi.model.favorite import Favorite
+from vrchatapi.rest import ApiException
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
 # See configuration.py for a list of all supported configuration parameters.
@@ -244,24 +310,66 @@ configuration.api_key['authCookie'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = favorites_api.FavoritesApi(api_client)
-    favorite_id = "favoriteId_example" # str | 
+    api_instance = vrchatapi.FavoritesApi(api_client)
+    favorite_id = 'favorite_id_example' # str | 
 
-    # example passing only required values which don't have defaults set
     try:
         # Show Favorite
         api_response = api_instance.get_favorite(favorite_id)
         pprint(api_response)
-    except vrchatapi.ApiException as e:
+    except ApiException as e:
         print("Exception when calling FavoritesApi->get_favorite: %s\n" % e)
 ```
 
+* Api Key Authentication (authCookie):
+```python
+from __future__ import print_function
+import time
+import vrchatapi
+from vrchatapi.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = vrchatapi.Configuration(
+    host = "https://api.vrchat.cloud/api/1"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: apiKeyCookie
+configuration.api_key['apiKeyCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apiKeyCookie'] = 'Bearer'
+
+# Configure API key authorization: authCookie
+configuration.api_key['authCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['authCookie'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with vrchatapi.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = vrchatapi.FavoritesApi(api_client)
+    favorite_id = 'favorite_id_example' # str | 
+
+    try:
+        # Show Favorite
+        api_response = api_instance.get_favorite(favorite_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling FavoritesApi->get_favorite: %s\n" % e)
+```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **favorite_id** | **str**|  |
+ **favorite_id** | **str**|  | 
 
 ### Return type
 
@@ -276,9 +384,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Returns a single Favorite object. |  -  |
@@ -297,13 +403,11 @@ Fetch information about a specific favorite group.
 ### Example
 
 * Api Key Authentication (apiKeyCookie):
-* Api Key Authentication (authCookie):
-
 ```python
+from __future__ import print_function
 import time
 import vrchatapi
-from vrchatapi.api import favorites_api
-from vrchatapi.model.favorite_group import FavoriteGroup
+from vrchatapi.rest import ApiException
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
 # See configuration.py for a list of all supported configuration parameters.
@@ -331,28 +435,72 @@ configuration.api_key['authCookie'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = favorites_api.FavoritesApi(api_client)
-    favorite_group_type = "world" # str | The type of group to fetch, must be a valid FavoriteType.
-    favorite_group_name = "favoriteGroupName_example" # str | 
-    user_id = "userId_example" # str | 
+    api_instance = vrchatapi.FavoritesApi(api_client)
+    favorite_group_type = 'favorite_group_type_example' # str | The type of group to fetch, must be a valid FavoriteType.
+favorite_group_name = 'favorite_group_name_example' # str | 
+user_id = 'user_id_example' # str | 
 
-    # example passing only required values which don't have defaults set
     try:
         # Show Favorite Group
         api_response = api_instance.get_favorite_group(favorite_group_type, favorite_group_name, user_id)
         pprint(api_response)
-    except vrchatapi.ApiException as e:
+    except ApiException as e:
         print("Exception when calling FavoritesApi->get_favorite_group: %s\n" % e)
 ```
 
+* Api Key Authentication (authCookie):
+```python
+from __future__ import print_function
+import time
+import vrchatapi
+from vrchatapi.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = vrchatapi.Configuration(
+    host = "https://api.vrchat.cloud/api/1"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: apiKeyCookie
+configuration.api_key['apiKeyCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apiKeyCookie'] = 'Bearer'
+
+# Configure API key authorization: authCookie
+configuration.api_key['authCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['authCookie'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with vrchatapi.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = vrchatapi.FavoritesApi(api_client)
+    favorite_group_type = 'favorite_group_type_example' # str | The type of group to fetch, must be a valid FavoriteType.
+favorite_group_name = 'favorite_group_name_example' # str | 
+user_id = 'user_id_example' # str | 
+
+    try:
+        # Show Favorite Group
+        api_response = api_instance.get_favorite_group(favorite_group_type, favorite_group_name, user_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling FavoritesApi->get_favorite_group: %s\n" % e)
+```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **favorite_group_type** | **str**| The type of group to fetch, must be a valid FavoriteType. |
- **favorite_group_name** | **str**|  |
- **user_id** | **str**|  |
+ **favorite_group_type** | **str**| The type of group to fetch, must be a valid FavoriteType. | 
+ **favorite_group_name** | **str**|  | 
+ **user_id** | **str**|  | 
 
 ### Return type
 
@@ -367,9 +515,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Returns a single FavoriteGroup object. |  -  |
@@ -377,7 +523,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_favorite_groups**
-> [FavoriteGroup] get_favorite_groups()
+> list[FavoriteGroup] get_favorite_groups(n=n, offset=offset, owner_id=owner_id)
 
 List Favorite Groups
 
@@ -386,14 +532,11 @@ Return a list of favorite groups owned by a user. Returns the same information a
 ### Example
 
 * Api Key Authentication (apiKeyCookie):
-* Api Key Authentication (authCookie):
-
 ```python
+from __future__ import print_function
 import time
 import vrchatapi
-from vrchatapi.api import favorites_api
-from vrchatapi.model.favorite_group import FavoriteGroup
-from vrchatapi.model.error import Error
+from vrchatapi.rest import ApiException
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
 # See configuration.py for a list of all supported configuration parameters.
@@ -421,33 +564,76 @@ configuration.api_key['authCookie'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = favorites_api.FavoritesApi(api_client)
-    n = 60 # int | The number of objects to return. (optional) if omitted the server will use the default value of 60
-    offset = 0 # int | A zero-based offset from the default object sorting from where search results start. (optional)
-    owner_id = "ownerId_example" # str | The owner of whoms favorite groups to return. Must be a UserID. (optional)
+    api_instance = vrchatapi.FavoritesApi(api_client)
+    n = 60 # int | The number of objects to return. (optional) (default to 60)
+offset = 56 # int | A zero-based offset from the default object sorting from where search results start. (optional)
+owner_id = 'owner_id_example' # str | The owner of whoms favorite groups to return. Must be a UserID. (optional)
 
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # List Favorite Groups
         api_response = api_instance.get_favorite_groups(n=n, offset=offset, owner_id=owner_id)
         pprint(api_response)
-    except vrchatapi.ApiException as e:
+    except ApiException as e:
         print("Exception when calling FavoritesApi->get_favorite_groups: %s\n" % e)
 ```
 
+* Api Key Authentication (authCookie):
+```python
+from __future__ import print_function
+import time
+import vrchatapi
+from vrchatapi.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = vrchatapi.Configuration(
+    host = "https://api.vrchat.cloud/api/1"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: apiKeyCookie
+configuration.api_key['apiKeyCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apiKeyCookie'] = 'Bearer'
+
+# Configure API key authorization: authCookie
+configuration.api_key['authCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['authCookie'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with vrchatapi.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = vrchatapi.FavoritesApi(api_client)
+    n = 60 # int | The number of objects to return. (optional) (default to 60)
+offset = 56 # int | A zero-based offset from the default object sorting from where search results start. (optional)
+owner_id = 'owner_id_example' # str | The owner of whoms favorite groups to return. Must be a UserID. (optional)
+
+    try:
+        # List Favorite Groups
+        api_response = api_instance.get_favorite_groups(n=n, offset=offset, owner_id=owner_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling FavoritesApi->get_favorite_groups: %s\n" % e)
+```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **n** | **int**| The number of objects to return. | [optional] if omitted the server will use the default value of 60
- **offset** | **int**| A zero-based offset from the default object sorting from where search results start. | [optional]
- **owner_id** | **str**| The owner of whoms favorite groups to return. Must be a UserID. | [optional]
+ **n** | **int**| The number of objects to return. | [optional] [default to 60]
+ **offset** | **int**| A zero-based offset from the default object sorting from where search results start. | [optional] 
+ **owner_id** | **str**| The owner of whoms favorite groups to return. Must be a UserID. | [optional] 
 
 ### Return type
 
-[**[FavoriteGroup]**](FavoriteGroup.md)
+[**list[FavoriteGroup]**](FavoriteGroup.md)
 
 ### Authorization
 
@@ -458,9 +644,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Returns a list of FavoriteGroup objects. |  -  |
@@ -469,7 +653,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_favorites**
-> [Favorite] get_favorites()
+> list[Favorite] get_favorites(n=n, offset=offset, type=type, tag=tag)
 
 List Favorites
 
@@ -478,14 +662,11 @@ Returns a list of favorites.
 ### Example
 
 * Api Key Authentication (apiKeyCookie):
-* Api Key Authentication (authCookie):
-
 ```python
+from __future__ import print_function
 import time
 import vrchatapi
-from vrchatapi.api import favorites_api
-from vrchatapi.model.error import Error
-from vrchatapi.model.favorite import Favorite
+from vrchatapi.rest import ApiException
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
 # See configuration.py for a list of all supported configuration parameters.
@@ -513,35 +694,79 @@ configuration.api_key['authCookie'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = favorites_api.FavoritesApi(api_client)
-    n = 60 # int | The number of objects to return. (optional) if omitted the server will use the default value of 60
-    offset = 0 # int | A zero-based offset from the default object sorting from where search results start. (optional)
-    type = "type_example" # str | The type of favorites to return, FavoriteType. (optional)
-    tag = "tag_example" # str | Tags to include (comma-separated). Any of the tags needs to be present. (optional)
+    api_instance = vrchatapi.FavoritesApi(api_client)
+    n = 60 # int | The number of objects to return. (optional) (default to 60)
+offset = 56 # int | A zero-based offset from the default object sorting from where search results start. (optional)
+type = 'type_example' # str | The type of favorites to return, FavoriteType. (optional)
+tag = 'tag_example' # str | Tags to include (comma-separated). Any of the tags needs to be present. (optional)
 
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # List Favorites
         api_response = api_instance.get_favorites(n=n, offset=offset, type=type, tag=tag)
         pprint(api_response)
-    except vrchatapi.ApiException as e:
+    except ApiException as e:
         print("Exception when calling FavoritesApi->get_favorites: %s\n" % e)
 ```
 
+* Api Key Authentication (authCookie):
+```python
+from __future__ import print_function
+import time
+import vrchatapi
+from vrchatapi.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = vrchatapi.Configuration(
+    host = "https://api.vrchat.cloud/api/1"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: apiKeyCookie
+configuration.api_key['apiKeyCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apiKeyCookie'] = 'Bearer'
+
+# Configure API key authorization: authCookie
+configuration.api_key['authCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['authCookie'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with vrchatapi.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = vrchatapi.FavoritesApi(api_client)
+    n = 60 # int | The number of objects to return. (optional) (default to 60)
+offset = 56 # int | A zero-based offset from the default object sorting from where search results start. (optional)
+type = 'type_example' # str | The type of favorites to return, FavoriteType. (optional)
+tag = 'tag_example' # str | Tags to include (comma-separated). Any of the tags needs to be present. (optional)
+
+    try:
+        # List Favorites
+        api_response = api_instance.get_favorites(n=n, offset=offset, type=type, tag=tag)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling FavoritesApi->get_favorites: %s\n" % e)
+```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **n** | **int**| The number of objects to return. | [optional] if omitted the server will use the default value of 60
- **offset** | **int**| A zero-based offset from the default object sorting from where search results start. | [optional]
- **type** | **str**| The type of favorites to return, FavoriteType. | [optional]
- **tag** | **str**| Tags to include (comma-separated). Any of the tags needs to be present. | [optional]
+ **n** | **int**| The number of objects to return. | [optional] [default to 60]
+ **offset** | **int**| A zero-based offset from the default object sorting from where search results start. | [optional] 
+ **type** | **str**| The type of favorites to return, FavoriteType. | [optional] 
+ **tag** | **str**| Tags to include (comma-separated). Any of the tags needs to be present. | [optional] 
 
 ### Return type
 
-[**[Favorite]**](Favorite.md)
+[**list[Favorite]**](Favorite.md)
 
 ### Authorization
 
@@ -552,9 +777,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Returns a list of Favorite objects. |  -  |
@@ -572,14 +795,11 @@ Remove a favorite from your favorites list.
 ### Example
 
 * Api Key Authentication (apiKeyCookie):
-* Api Key Authentication (authCookie):
-
 ```python
+from __future__ import print_function
 import time
 import vrchatapi
-from vrchatapi.api import favorites_api
-from vrchatapi.model.success import Success
-from vrchatapi.model.error import Error
+from vrchatapi.rest import ApiException
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
 # See configuration.py for a list of all supported configuration parameters.
@@ -607,24 +827,66 @@ configuration.api_key['authCookie'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = favorites_api.FavoritesApi(api_client)
-    favorite_id = "favoriteId_example" # str | 
+    api_instance = vrchatapi.FavoritesApi(api_client)
+    favorite_id = 'favorite_id_example' # str | 
 
-    # example passing only required values which don't have defaults set
     try:
         # Remove Favorite
         api_response = api_instance.remove_favorite(favorite_id)
         pprint(api_response)
-    except vrchatapi.ApiException as e:
+    except ApiException as e:
         print("Exception when calling FavoritesApi->remove_favorite: %s\n" % e)
 ```
 
+* Api Key Authentication (authCookie):
+```python
+from __future__ import print_function
+import time
+import vrchatapi
+from vrchatapi.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = vrchatapi.Configuration(
+    host = "https://api.vrchat.cloud/api/1"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: apiKeyCookie
+configuration.api_key['apiKeyCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apiKeyCookie'] = 'Bearer'
+
+# Configure API key authorization: authCookie
+configuration.api_key['authCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['authCookie'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with vrchatapi.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = vrchatapi.FavoritesApi(api_client)
+    favorite_id = 'favorite_id_example' # str | 
+
+    try:
+        # Remove Favorite
+        api_response = api_instance.remove_favorite(favorite_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling FavoritesApi->remove_favorite: %s\n" % e)
+```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **favorite_id** | **str**|  |
+ **favorite_id** | **str**|  | 
 
 ### Return type
 
@@ -639,9 +901,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Success response after removing a favorite. |  -  |
@@ -651,7 +911,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_favorite_group**
-> update_favorite_group(favorite_group_type, favorite_group_name, user_id)
+> update_favorite_group(favorite_group_type, favorite_group_name, user_id, update_favorite_group_request=update_favorite_group_request)
 
 Update Favorite Group
 
@@ -660,13 +920,11 @@ Update information about a specific favorite group.
 ### Example
 
 * Api Key Authentication (apiKeyCookie):
-* Api Key Authentication (authCookie):
-
 ```python
+from __future__ import print_function
 import time
 import vrchatapi
-from vrchatapi.api import favorites_api
-from vrchatapi.model.update_favorite_group_request import UpdateFavoriteGroupRequest
+from vrchatapi.rest import ApiException
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
 # See configuration.py for a list of all supported configuration parameters.
@@ -694,43 +952,73 @@ configuration.api_key['authCookie'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = favorites_api.FavoritesApi(api_client)
-    favorite_group_type = "world" # str | The type of group to fetch, must be a valid FavoriteType.
-    favorite_group_name = "favoriteGroupName_example" # str | 
-    user_id = "userId_example" # str | 
-    update_favorite_group_request = UpdateFavoriteGroupRequest(
-        display_name="display_name_example",
-        visibility=FavoriteGroupVisibility("private"),
-        tags=[
-            Tag("tags_example"),
-        ],
-    ) # UpdateFavoriteGroupRequest |  (optional)
+    api_instance = vrchatapi.FavoritesApi(api_client)
+    favorite_group_type = 'favorite_group_type_example' # str | The type of group to fetch, must be a valid FavoriteType.
+favorite_group_name = 'favorite_group_name_example' # str | 
+user_id = 'user_id_example' # str | 
+update_favorite_group_request = vrchatapi.UpdateFavoriteGroupRequest() # UpdateFavoriteGroupRequest |  (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Update Favorite Group
-        api_instance.update_favorite_group(favorite_group_type, favorite_group_name, user_id)
-    except vrchatapi.ApiException as e:
-        print("Exception when calling FavoritesApi->update_favorite_group: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Update Favorite Group
         api_instance.update_favorite_group(favorite_group_type, favorite_group_name, user_id, update_favorite_group_request=update_favorite_group_request)
-    except vrchatapi.ApiException as e:
+    except ApiException as e:
         print("Exception when calling FavoritesApi->update_favorite_group: %s\n" % e)
 ```
 
+* Api Key Authentication (authCookie):
+```python
+from __future__ import print_function
+import time
+import vrchatapi
+from vrchatapi.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = vrchatapi.Configuration(
+    host = "https://api.vrchat.cloud/api/1"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: apiKeyCookie
+configuration.api_key['apiKeyCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apiKeyCookie'] = 'Bearer'
+
+# Configure API key authorization: authCookie
+configuration.api_key['authCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['authCookie'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with vrchatapi.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = vrchatapi.FavoritesApi(api_client)
+    favorite_group_type = 'favorite_group_type_example' # str | The type of group to fetch, must be a valid FavoriteType.
+favorite_group_name = 'favorite_group_name_example' # str | 
+user_id = 'user_id_example' # str | 
+update_favorite_group_request = vrchatapi.UpdateFavoriteGroupRequest() # UpdateFavoriteGroupRequest |  (optional)
+
+    try:
+        # Update Favorite Group
+        api_instance.update_favorite_group(favorite_group_type, favorite_group_name, user_id, update_favorite_group_request=update_favorite_group_request)
+    except ApiException as e:
+        print("Exception when calling FavoritesApi->update_favorite_group: %s\n" % e)
+```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **favorite_group_type** | **str**| The type of group to fetch, must be a valid FavoriteType. |
- **favorite_group_name** | **str**|  |
- **user_id** | **str**|  |
- **update_favorite_group_request** | [**UpdateFavoriteGroupRequest**](UpdateFavoriteGroupRequest.md)|  | [optional]
+ **favorite_group_type** | **str**| The type of group to fetch, must be a valid FavoriteType. | 
+ **favorite_group_name** | **str**|  | 
+ **user_id** | **str**|  | 
+ **update_favorite_group_request** | [**UpdateFavoriteGroupRequest**](UpdateFavoriteGroupRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -745,9 +1033,7 @@ void (empty response body)
  - **Content-Type**: application/json
  - **Accept**: Not defined
 
-
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |

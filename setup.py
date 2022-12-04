@@ -1,3 +1,5 @@
+# coding: utf-8
+
 """
     VRChat API Documentation
 
@@ -91,10 +93,7 @@ VERSION = "1.9.1"
 # prerequisite: setuptools
 # http://pypi.python.org/pypi/setuptools
 
-REQUIRES = [
-  "urllib3 >= 1.25.3",
-  "python-dateutil",
-]
+REQUIRES = ["urllib3 >= 1.25.3", "six >= 1.10", "python-dateutil"]
 
 setup(
     name=NAME,
@@ -104,12 +103,12 @@ setup(
     author_email="me@ariesclark.com",
     url="",
     keywords=["vrchat", "vrchatapi", "vrc"],
-    python_requires=">=3.6",
     install_requires=REQUIRES,
     packages=find_packages(exclude=["test", "tests"]),
     include_package_data=True,
     license="The MIT License (MIT)",
 long_description_content_type="text/markdown",
+    long_description_content_type='text/markdown',
     long_description="""\
 
 ![](https://github.com/vrchatapi/vrchatapi.github.io/blob/main/static/assets/img/lang/lang_python_banner_1500x300.png?raw=true)

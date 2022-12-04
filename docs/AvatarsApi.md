@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 
 # **create_avatar**
-> Avatar create_avatar()
+> Avatar create_avatar(create_avatar_request=create_avatar_request)
 
 Create Avatar
 
@@ -25,15 +25,11 @@ Create an avatar. It's possible to optionally specify a ID if you want a custom 
 ### Example
 
 * Api Key Authentication (apiKeyCookie):
-* Api Key Authentication (authCookie):
-
 ```python
+from __future__ import print_function
 import time
 import vrchatapi
-from vrchatapi.api import avatars_api
-from vrchatapi.model.create_avatar_request import CreateAvatarRequest
-from vrchatapi.model.avatar import Avatar
-from vrchatapi.model.error import Error
+from vrchatapi.rest import ApiException
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
 # See configuration.py for a list of all supported configuration parameters.
@@ -61,37 +57,66 @@ configuration.api_key['authCookie'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = avatars_api.AvatarsApi(api_client)
-    create_avatar_request = CreateAvatarRequest(
-        asset_url="asset_url_example",
-        id=AvatarID("avtr_912d66a4-4714-43b8-8407-7de2cafbf55b"),
-        name="name_example",
-        description="description_example",
-        tags=[
-            Tag("tags_example"),
-        ],
-        image_url="image_url_example",
-        release_status=ReleaseStatus("public"),
-        version=1,
-        unity_package_url="unity_package_url_example",
-    ) # CreateAvatarRequest |  (optional)
+    api_instance = vrchatapi.AvatarsApi(api_client)
+    create_avatar_request = vrchatapi.CreateAvatarRequest() # CreateAvatarRequest |  (optional)
 
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Create Avatar
         api_response = api_instance.create_avatar(create_avatar_request=create_avatar_request)
         pprint(api_response)
-    except vrchatapi.ApiException as e:
+    except ApiException as e:
         print("Exception when calling AvatarsApi->create_avatar: %s\n" % e)
 ```
 
+* Api Key Authentication (authCookie):
+```python
+from __future__ import print_function
+import time
+import vrchatapi
+from vrchatapi.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = vrchatapi.Configuration(
+    host = "https://api.vrchat.cloud/api/1"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: apiKeyCookie
+configuration.api_key['apiKeyCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apiKeyCookie'] = 'Bearer'
+
+# Configure API key authorization: authCookie
+configuration.api_key['authCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['authCookie'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with vrchatapi.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = vrchatapi.AvatarsApi(api_client)
+    create_avatar_request = vrchatapi.CreateAvatarRequest() # CreateAvatarRequest |  (optional)
+
+    try:
+        # Create Avatar
+        api_response = api_instance.create_avatar(create_avatar_request=create_avatar_request)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling AvatarsApi->create_avatar: %s\n" % e)
+```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **create_avatar_request** | [**CreateAvatarRequest**](CreateAvatarRequest.md)|  | [optional]
+ **create_avatar_request** | [**CreateAvatarRequest**](CreateAvatarRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -106,9 +131,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Returns a single Avatar object. |  -  |
@@ -126,14 +149,11 @@ Delete an avatar. Notice an avatar is never fully \"deleted\", only its ReleaseS
 ### Example
 
 * Api Key Authentication (apiKeyCookie):
-* Api Key Authentication (authCookie):
-
 ```python
+from __future__ import print_function
 import time
 import vrchatapi
-from vrchatapi.api import avatars_api
-from vrchatapi.model.avatar import Avatar
-from vrchatapi.model.error import Error
+from vrchatapi.rest import ApiException
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
 # See configuration.py for a list of all supported configuration parameters.
@@ -161,24 +181,66 @@ configuration.api_key['authCookie'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = avatars_api.AvatarsApi(api_client)
-    avatar_id = "avatarId_example" # str | 
+    api_instance = vrchatapi.AvatarsApi(api_client)
+    avatar_id = 'avatar_id_example' # str | 
 
-    # example passing only required values which don't have defaults set
     try:
         # Delete Avatar
         api_response = api_instance.delete_avatar(avatar_id)
         pprint(api_response)
-    except vrchatapi.ApiException as e:
+    except ApiException as e:
         print("Exception when calling AvatarsApi->delete_avatar: %s\n" % e)
 ```
 
+* Api Key Authentication (authCookie):
+```python
+from __future__ import print_function
+import time
+import vrchatapi
+from vrchatapi.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = vrchatapi.Configuration(
+    host = "https://api.vrchat.cloud/api/1"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: apiKeyCookie
+configuration.api_key['apiKeyCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apiKeyCookie'] = 'Bearer'
+
+# Configure API key authorization: authCookie
+configuration.api_key['authCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['authCookie'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with vrchatapi.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = vrchatapi.AvatarsApi(api_client)
+    avatar_id = 'avatar_id_example' # str | 
+
+    try:
+        # Delete Avatar
+        api_response = api_instance.delete_avatar(avatar_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling AvatarsApi->delete_avatar: %s\n" % e)
+```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **avatar_id** | **str**|  |
+ **avatar_id** | **str**|  | 
 
 ### Return type
 
@@ -193,9 +255,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Returns a single Avatar object. |  -  |
@@ -214,14 +274,11 @@ Get information about a specific Avatar.
 ### Example
 
 * Api Key Authentication (apiKeyCookie):
-* Api Key Authentication (authCookie):
-
 ```python
+from __future__ import print_function
 import time
 import vrchatapi
-from vrchatapi.api import avatars_api
-from vrchatapi.model.avatar import Avatar
-from vrchatapi.model.error import Error
+from vrchatapi.rest import ApiException
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
 # See configuration.py for a list of all supported configuration parameters.
@@ -249,24 +306,66 @@ configuration.api_key['authCookie'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = avatars_api.AvatarsApi(api_client)
-    avatar_id = "avatarId_example" # str | 
+    api_instance = vrchatapi.AvatarsApi(api_client)
+    avatar_id = 'avatar_id_example' # str | 
 
-    # example passing only required values which don't have defaults set
     try:
         # Get Avatar
         api_response = api_instance.get_avatar(avatar_id)
         pprint(api_response)
-    except vrchatapi.ApiException as e:
+    except ApiException as e:
         print("Exception when calling AvatarsApi->get_avatar: %s\n" % e)
 ```
 
+* Api Key Authentication (authCookie):
+```python
+from __future__ import print_function
+import time
+import vrchatapi
+from vrchatapi.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = vrchatapi.Configuration(
+    host = "https://api.vrchat.cloud/api/1"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: apiKeyCookie
+configuration.api_key['apiKeyCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apiKeyCookie'] = 'Bearer'
+
+# Configure API key authorization: authCookie
+configuration.api_key['authCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['authCookie'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with vrchatapi.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = vrchatapi.AvatarsApi(api_client)
+    avatar_id = 'avatar_id_example' # str | 
+
+    try:
+        # Get Avatar
+        api_response = api_instance.get_avatar(avatar_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling AvatarsApi->get_avatar: %s\n" % e)
+```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **avatar_id** | **str**|  |
+ **avatar_id** | **str**|  | 
 
 ### Return type
 
@@ -281,9 +380,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Returns a single Avatar object. |  -  |
@@ -293,7 +390,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_favorited_avatars**
-> [Avatar] get_favorited_avatars()
+> list[Avatar] get_favorited_avatars(featured=featured, sort=sort, n=n, order=order, offset=offset, search=search, tag=tag, notag=notag, release_status=release_status, max_unity_version=max_unity_version, min_unity_version=min_unity_version, platform=platform, user_id=user_id)
 
 List Favorited Avatars
 
@@ -302,14 +399,11 @@ Search and list favorited avatars by query filters.
 ### Example
 
 * Api Key Authentication (apiKeyCookie):
-* Api Key Authentication (authCookie):
-
 ```python
+from __future__ import print_function
 import time
 import vrchatapi
-from vrchatapi.api import avatars_api
-from vrchatapi.model.avatar import Avatar
-from vrchatapi.model.error import Error
+from vrchatapi.rest import ApiException
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
 # See configuration.py for a list of all supported configuration parameters.
@@ -337,53 +431,106 @@ configuration.api_key['authCookie'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = avatars_api.AvatarsApi(api_client)
+    api_instance = vrchatapi.AvatarsApi(api_client)
     featured = True # bool | Filters on featured results. (optional)
-    sort = "popularity" # str |  (optional) if omitted the server will use the default value of "popularity"
-    n = 60 # int | The number of objects to return. (optional) if omitted the server will use the default value of 60
-    order = "descending" # str |  (optional) if omitted the server will use the default value of "descending"
-    offset = 0 # int | A zero-based offset from the default object sorting from where search results start. (optional)
-    search = "search_example" # str | Filters by world name. (optional)
-    tag = "tag_example" # str | Tags to include (comma-separated). Any of the tags needs to be present. (optional)
-    notag = "notag_example" # str | Tags to exclude (comma-separated). (optional)
-    release_status = "public" # str | Filter by ReleaseStatus. (optional) if omitted the server will use the default value of "public"
-    max_unity_version = "maxUnityVersion_example" # str | The maximum Unity version supported by the asset. (optional)
-    min_unity_version = "minUnityVersion_example" # str | The minimum Unity version supported by the asset. (optional)
-    platform = "platform_example" # str | The platform the asset supports. (optional)
-    user_id = "userId_example" # str | Target user to see information on, admin-only. (optional)
+sort = 'popularity' # str |  (optional) (default to 'popularity')
+n = 60 # int | The number of objects to return. (optional) (default to 60)
+order = 'descending' # str |  (optional) (default to 'descending')
+offset = 56 # int | A zero-based offset from the default object sorting from where search results start. (optional)
+search = 'search_example' # str | Filters by world name. (optional)
+tag = 'tag_example' # str | Tags to include (comma-separated). Any of the tags needs to be present. (optional)
+notag = 'notag_example' # str | Tags to exclude (comma-separated). (optional)
+release_status = 'public' # str | Filter by ReleaseStatus. (optional) (default to 'public')
+max_unity_version = 'max_unity_version_example' # str | The maximum Unity version supported by the asset. (optional)
+min_unity_version = 'min_unity_version_example' # str | The minimum Unity version supported by the asset. (optional)
+platform = 'platform_example' # str | The platform the asset supports. (optional)
+user_id = 'user_id_example' # str | Target user to see information on, admin-only. (optional)
 
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # List Favorited Avatars
         api_response = api_instance.get_favorited_avatars(featured=featured, sort=sort, n=n, order=order, offset=offset, search=search, tag=tag, notag=notag, release_status=release_status, max_unity_version=max_unity_version, min_unity_version=min_unity_version, platform=platform, user_id=user_id)
         pprint(api_response)
-    except vrchatapi.ApiException as e:
+    except ApiException as e:
         print("Exception when calling AvatarsApi->get_favorited_avatars: %s\n" % e)
 ```
 
+* Api Key Authentication (authCookie):
+```python
+from __future__ import print_function
+import time
+import vrchatapi
+from vrchatapi.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = vrchatapi.Configuration(
+    host = "https://api.vrchat.cloud/api/1"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: apiKeyCookie
+configuration.api_key['apiKeyCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apiKeyCookie'] = 'Bearer'
+
+# Configure API key authorization: authCookie
+configuration.api_key['authCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['authCookie'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with vrchatapi.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = vrchatapi.AvatarsApi(api_client)
+    featured = True # bool | Filters on featured results. (optional)
+sort = 'popularity' # str |  (optional) (default to 'popularity')
+n = 60 # int | The number of objects to return. (optional) (default to 60)
+order = 'descending' # str |  (optional) (default to 'descending')
+offset = 56 # int | A zero-based offset from the default object sorting from where search results start. (optional)
+search = 'search_example' # str | Filters by world name. (optional)
+tag = 'tag_example' # str | Tags to include (comma-separated). Any of the tags needs to be present. (optional)
+notag = 'notag_example' # str | Tags to exclude (comma-separated). (optional)
+release_status = 'public' # str | Filter by ReleaseStatus. (optional) (default to 'public')
+max_unity_version = 'max_unity_version_example' # str | The maximum Unity version supported by the asset. (optional)
+min_unity_version = 'min_unity_version_example' # str | The minimum Unity version supported by the asset. (optional)
+platform = 'platform_example' # str | The platform the asset supports. (optional)
+user_id = 'user_id_example' # str | Target user to see information on, admin-only. (optional)
+
+    try:
+        # List Favorited Avatars
+        api_response = api_instance.get_favorited_avatars(featured=featured, sort=sort, n=n, order=order, offset=offset, search=search, tag=tag, notag=notag, release_status=release_status, max_unity_version=max_unity_version, min_unity_version=min_unity_version, platform=platform, user_id=user_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling AvatarsApi->get_favorited_avatars: %s\n" % e)
+```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **featured** | **bool**| Filters on featured results. | [optional]
- **sort** | **str**|  | [optional] if omitted the server will use the default value of "popularity"
- **n** | **int**| The number of objects to return. | [optional] if omitted the server will use the default value of 60
- **order** | **str**|  | [optional] if omitted the server will use the default value of "descending"
- **offset** | **int**| A zero-based offset from the default object sorting from where search results start. | [optional]
- **search** | **str**| Filters by world name. | [optional]
- **tag** | **str**| Tags to include (comma-separated). Any of the tags needs to be present. | [optional]
- **notag** | **str**| Tags to exclude (comma-separated). | [optional]
- **release_status** | **str**| Filter by ReleaseStatus. | [optional] if omitted the server will use the default value of "public"
- **max_unity_version** | **str**| The maximum Unity version supported by the asset. | [optional]
- **min_unity_version** | **str**| The minimum Unity version supported by the asset. | [optional]
- **platform** | **str**| The platform the asset supports. | [optional]
- **user_id** | **str**| Target user to see information on, admin-only. | [optional]
+ **featured** | **bool**| Filters on featured results. | [optional] 
+ **sort** | **str**|  | [optional] [default to &#39;popularity&#39;]
+ **n** | **int**| The number of objects to return. | [optional] [default to 60]
+ **order** | **str**|  | [optional] [default to &#39;descending&#39;]
+ **offset** | **int**| A zero-based offset from the default object sorting from where search results start. | [optional] 
+ **search** | **str**| Filters by world name. | [optional] 
+ **tag** | **str**| Tags to include (comma-separated). Any of the tags needs to be present. | [optional] 
+ **notag** | **str**| Tags to exclude (comma-separated). | [optional] 
+ **release_status** | **str**| Filter by ReleaseStatus. | [optional] [default to &#39;public&#39;]
+ **max_unity_version** | **str**| The maximum Unity version supported by the asset. | [optional] 
+ **min_unity_version** | **str**| The minimum Unity version supported by the asset. | [optional] 
+ **platform** | **str**| The platform the asset supports. | [optional] 
+ **user_id** | **str**| Target user to see information on, admin-only. | [optional] 
 
 ### Return type
 
-[**[Avatar]**](Avatar.md)
+[**list[Avatar]**](Avatar.md)
 
 ### Authorization
 
@@ -394,9 +541,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Returns a list of Avatar objects. |  -  |
@@ -415,14 +560,11 @@ Get the current avatar for the user. This will return an error for any other use
 ### Example
 
 * Api Key Authentication (apiKeyCookie):
-* Api Key Authentication (authCookie):
-
 ```python
+from __future__ import print_function
 import time
 import vrchatapi
-from vrchatapi.api import avatars_api
-from vrchatapi.model.avatar import Avatar
-from vrchatapi.model.error import Error
+from vrchatapi.rest import ApiException
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
 # See configuration.py for a list of all supported configuration parameters.
@@ -450,24 +592,66 @@ configuration.api_key['authCookie'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = avatars_api.AvatarsApi(api_client)
-    user_id = "userId_example" # str | 
+    api_instance = vrchatapi.AvatarsApi(api_client)
+    user_id = 'user_id_example' # str | 
 
-    # example passing only required values which don't have defaults set
     try:
         # Get Own Avatar
         api_response = api_instance.get_own_avatar(user_id)
         pprint(api_response)
-    except vrchatapi.ApiException as e:
+    except ApiException as e:
         print("Exception when calling AvatarsApi->get_own_avatar: %s\n" % e)
 ```
 
+* Api Key Authentication (authCookie):
+```python
+from __future__ import print_function
+import time
+import vrchatapi
+from vrchatapi.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = vrchatapi.Configuration(
+    host = "https://api.vrchat.cloud/api/1"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: apiKeyCookie
+configuration.api_key['apiKeyCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apiKeyCookie'] = 'Bearer'
+
+# Configure API key authorization: authCookie
+configuration.api_key['authCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['authCookie'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with vrchatapi.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = vrchatapi.AvatarsApi(api_client)
+    user_id = 'user_id_example' # str | 
+
+    try:
+        # Get Own Avatar
+        api_response = api_instance.get_own_avatar(user_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling AvatarsApi->get_own_avatar: %s\n" % e)
+```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **user_id** | **str**|  |
+ **user_id** | **str**|  | 
 
 ### Return type
 
@@ -482,9 +666,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Returns a single Avatar object. |  -  |
@@ -494,7 +676,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **search_avatars**
-> [Avatar] search_avatars()
+> list[Avatar] search_avatars(featured=featured, sort=sort, user=user, user_id=user_id, n=n, order=order, offset=offset, tag=tag, notag=notag, release_status=release_status, max_unity_version=max_unity_version, min_unity_version=min_unity_version, platform=platform)
 
 Search Avatars
 
@@ -503,14 +685,11 @@ Search and list avatars by query filters. You can only search your own or featur
 ### Example
 
 * Api Key Authentication (apiKeyCookie):
-* Api Key Authentication (authCookie):
-
 ```python
+from __future__ import print_function
 import time
 import vrchatapi
-from vrchatapi.api import avatars_api
-from vrchatapi.model.avatar import Avatar
-from vrchatapi.model.error import Error
+from vrchatapi.rest import ApiException
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
 # See configuration.py for a list of all supported configuration parameters.
@@ -538,53 +717,106 @@ configuration.api_key['authCookie'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = avatars_api.AvatarsApi(api_client)
+    api_instance = vrchatapi.AvatarsApi(api_client)
     featured = True # bool | Filters on featured results. (optional)
-    sort = "popularity" # str |  (optional) if omitted the server will use the default value of "popularity"
-    user = "me" # str | Set to `me` for searching own avatars. (optional) if omitted the server will use the default value of "me"
-    user_id = "userId_example" # str | Filter by UserID. (optional)
-    n = 60 # int | The number of objects to return. (optional) if omitted the server will use the default value of 60
-    order = "descending" # str |  (optional) if omitted the server will use the default value of "descending"
-    offset = 0 # int | A zero-based offset from the default object sorting from where search results start. (optional)
-    tag = "tag_example" # str | Tags to include (comma-separated). Any of the tags needs to be present. (optional)
-    notag = "notag_example" # str | Tags to exclude (comma-separated). (optional)
-    release_status = "public" # str | Filter by ReleaseStatus. (optional) if omitted the server will use the default value of "public"
-    max_unity_version = "maxUnityVersion_example" # str | The maximum Unity version supported by the asset. (optional)
-    min_unity_version = "minUnityVersion_example" # str | The minimum Unity version supported by the asset. (optional)
-    platform = "platform_example" # str | The platform the asset supports. (optional)
+sort = 'popularity' # str |  (optional) (default to 'popularity')
+user = 'user_example' # str | Set to `me` for searching own avatars. (optional)
+user_id = 'user_id_example' # str | Filter by UserID. (optional)
+n = 60 # int | The number of objects to return. (optional) (default to 60)
+order = 'descending' # str |  (optional) (default to 'descending')
+offset = 56 # int | A zero-based offset from the default object sorting from where search results start. (optional)
+tag = 'tag_example' # str | Tags to include (comma-separated). Any of the tags needs to be present. (optional)
+notag = 'notag_example' # str | Tags to exclude (comma-separated). (optional)
+release_status = 'public' # str | Filter by ReleaseStatus. (optional) (default to 'public')
+max_unity_version = 'max_unity_version_example' # str | The maximum Unity version supported by the asset. (optional)
+min_unity_version = 'min_unity_version_example' # str | The minimum Unity version supported by the asset. (optional)
+platform = 'platform_example' # str | The platform the asset supports. (optional)
 
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Search Avatars
         api_response = api_instance.search_avatars(featured=featured, sort=sort, user=user, user_id=user_id, n=n, order=order, offset=offset, tag=tag, notag=notag, release_status=release_status, max_unity_version=max_unity_version, min_unity_version=min_unity_version, platform=platform)
         pprint(api_response)
-    except vrchatapi.ApiException as e:
+    except ApiException as e:
         print("Exception when calling AvatarsApi->search_avatars: %s\n" % e)
 ```
 
+* Api Key Authentication (authCookie):
+```python
+from __future__ import print_function
+import time
+import vrchatapi
+from vrchatapi.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = vrchatapi.Configuration(
+    host = "https://api.vrchat.cloud/api/1"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: apiKeyCookie
+configuration.api_key['apiKeyCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apiKeyCookie'] = 'Bearer'
+
+# Configure API key authorization: authCookie
+configuration.api_key['authCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['authCookie'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with vrchatapi.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = vrchatapi.AvatarsApi(api_client)
+    featured = True # bool | Filters on featured results. (optional)
+sort = 'popularity' # str |  (optional) (default to 'popularity')
+user = 'user_example' # str | Set to `me` for searching own avatars. (optional)
+user_id = 'user_id_example' # str | Filter by UserID. (optional)
+n = 60 # int | The number of objects to return. (optional) (default to 60)
+order = 'descending' # str |  (optional) (default to 'descending')
+offset = 56 # int | A zero-based offset from the default object sorting from where search results start. (optional)
+tag = 'tag_example' # str | Tags to include (comma-separated). Any of the tags needs to be present. (optional)
+notag = 'notag_example' # str | Tags to exclude (comma-separated). (optional)
+release_status = 'public' # str | Filter by ReleaseStatus. (optional) (default to 'public')
+max_unity_version = 'max_unity_version_example' # str | The maximum Unity version supported by the asset. (optional)
+min_unity_version = 'min_unity_version_example' # str | The minimum Unity version supported by the asset. (optional)
+platform = 'platform_example' # str | The platform the asset supports. (optional)
+
+    try:
+        # Search Avatars
+        api_response = api_instance.search_avatars(featured=featured, sort=sort, user=user, user_id=user_id, n=n, order=order, offset=offset, tag=tag, notag=notag, release_status=release_status, max_unity_version=max_unity_version, min_unity_version=min_unity_version, platform=platform)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling AvatarsApi->search_avatars: %s\n" % e)
+```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **featured** | **bool**| Filters on featured results. | [optional]
- **sort** | **str**|  | [optional] if omitted the server will use the default value of "popularity"
- **user** | **str**| Set to &#x60;me&#x60; for searching own avatars. | [optional] if omitted the server will use the default value of "me"
- **user_id** | **str**| Filter by UserID. | [optional]
- **n** | **int**| The number of objects to return. | [optional] if omitted the server will use the default value of 60
- **order** | **str**|  | [optional] if omitted the server will use the default value of "descending"
- **offset** | **int**| A zero-based offset from the default object sorting from where search results start. | [optional]
- **tag** | **str**| Tags to include (comma-separated). Any of the tags needs to be present. | [optional]
- **notag** | **str**| Tags to exclude (comma-separated). | [optional]
- **release_status** | **str**| Filter by ReleaseStatus. | [optional] if omitted the server will use the default value of "public"
- **max_unity_version** | **str**| The maximum Unity version supported by the asset. | [optional]
- **min_unity_version** | **str**| The minimum Unity version supported by the asset. | [optional]
- **platform** | **str**| The platform the asset supports. | [optional]
+ **featured** | **bool**| Filters on featured results. | [optional] 
+ **sort** | **str**|  | [optional] [default to &#39;popularity&#39;]
+ **user** | **str**| Set to &#x60;me&#x60; for searching own avatars. | [optional] 
+ **user_id** | **str**| Filter by UserID. | [optional] 
+ **n** | **int**| The number of objects to return. | [optional] [default to 60]
+ **order** | **str**|  | [optional] [default to &#39;descending&#39;]
+ **offset** | **int**| A zero-based offset from the default object sorting from where search results start. | [optional] 
+ **tag** | **str**| Tags to include (comma-separated). Any of the tags needs to be present. | [optional] 
+ **notag** | **str**| Tags to exclude (comma-separated). | [optional] 
+ **release_status** | **str**| Filter by ReleaseStatus. | [optional] [default to &#39;public&#39;]
+ **max_unity_version** | **str**| The maximum Unity version supported by the asset. | [optional] 
+ **min_unity_version** | **str**| The minimum Unity version supported by the asset. | [optional] 
+ **platform** | **str**| The platform the asset supports. | [optional] 
 
 ### Return type
 
-[**[Avatar]**](Avatar.md)
+[**list[Avatar]**](Avatar.md)
 
 ### Authorization
 
@@ -595,9 +827,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Returns a list of Avatar objects. |  -  |
@@ -615,14 +845,11 @@ Switches into that avatar.
 ### Example
 
 * Api Key Authentication (apiKeyCookie):
-* Api Key Authentication (authCookie):
-
 ```python
+from __future__ import print_function
 import time
 import vrchatapi
-from vrchatapi.api import avatars_api
-from vrchatapi.model.current_user import CurrentUser
-from vrchatapi.model.error import Error
+from vrchatapi.rest import ApiException
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
 # See configuration.py for a list of all supported configuration parameters.
@@ -650,24 +877,66 @@ configuration.api_key['authCookie'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = avatars_api.AvatarsApi(api_client)
-    avatar_id = "avatarId_example" # str | 
+    api_instance = vrchatapi.AvatarsApi(api_client)
+    avatar_id = 'avatar_id_example' # str | 
 
-    # example passing only required values which don't have defaults set
     try:
         # Select Avatar
         api_response = api_instance.select_avatar(avatar_id)
         pprint(api_response)
-    except vrchatapi.ApiException as e:
+    except ApiException as e:
         print("Exception when calling AvatarsApi->select_avatar: %s\n" % e)
 ```
 
+* Api Key Authentication (authCookie):
+```python
+from __future__ import print_function
+import time
+import vrchatapi
+from vrchatapi.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = vrchatapi.Configuration(
+    host = "https://api.vrchat.cloud/api/1"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: apiKeyCookie
+configuration.api_key['apiKeyCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apiKeyCookie'] = 'Bearer'
+
+# Configure API key authorization: authCookie
+configuration.api_key['authCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['authCookie'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with vrchatapi.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = vrchatapi.AvatarsApi(api_client)
+    avatar_id = 'avatar_id_example' # str | 
+
+    try:
+        # Select Avatar
+        api_response = api_instance.select_avatar(avatar_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling AvatarsApi->select_avatar: %s\n" % e)
+```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **avatar_id** | **str**|  |
+ **avatar_id** | **str**|  | 
 
 ### Return type
 
@@ -682,9 +951,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Returns a single CurrentUser object. |  -  |
@@ -703,14 +970,11 @@ Switches into that avatar as your fallback avatar.
 ### Example
 
 * Api Key Authentication (apiKeyCookie):
-* Api Key Authentication (authCookie):
-
 ```python
+from __future__ import print_function
 import time
 import vrchatapi
-from vrchatapi.api import avatars_api
-from vrchatapi.model.current_user import CurrentUser
-from vrchatapi.model.error import Error
+from vrchatapi.rest import ApiException
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
 # See configuration.py for a list of all supported configuration parameters.
@@ -738,24 +1002,66 @@ configuration.api_key['authCookie'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = avatars_api.AvatarsApi(api_client)
-    avatar_id = "avatarId_example" # str | 
+    api_instance = vrchatapi.AvatarsApi(api_client)
+    avatar_id = 'avatar_id_example' # str | 
 
-    # example passing only required values which don't have defaults set
     try:
         # Select Fallback Avatar
         api_response = api_instance.select_fallback_avatar(avatar_id)
         pprint(api_response)
-    except vrchatapi.ApiException as e:
+    except ApiException as e:
         print("Exception when calling AvatarsApi->select_fallback_avatar: %s\n" % e)
 ```
 
+* Api Key Authentication (authCookie):
+```python
+from __future__ import print_function
+import time
+import vrchatapi
+from vrchatapi.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = vrchatapi.Configuration(
+    host = "https://api.vrchat.cloud/api/1"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: apiKeyCookie
+configuration.api_key['apiKeyCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apiKeyCookie'] = 'Bearer'
+
+# Configure API key authorization: authCookie
+configuration.api_key['authCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['authCookie'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with vrchatapi.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = vrchatapi.AvatarsApi(api_client)
+    avatar_id = 'avatar_id_example' # str | 
+
+    try:
+        # Select Fallback Avatar
+        api_response = api_instance.select_fallback_avatar(avatar_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling AvatarsApi->select_fallback_avatar: %s\n" % e)
+```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **avatar_id** | **str**|  |
+ **avatar_id** | **str**|  | 
 
 ### Return type
 
@@ -770,9 +1076,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Returns a single CurrentUser object. |  -  |
@@ -783,7 +1087,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_avatar**
-> Avatar update_avatar(avatar_id)
+> Avatar update_avatar(avatar_id, update_avatar_request=update_avatar_request)
 
 Update Avatar
 
@@ -792,15 +1096,11 @@ Update information about a specific avatar.
 ### Example
 
 * Api Key Authentication (apiKeyCookie):
-* Api Key Authentication (authCookie):
-
 ```python
+from __future__ import print_function
 import time
 import vrchatapi
-from vrchatapi.api import avatars_api
-from vrchatapi.model.avatar import Avatar
-from vrchatapi.model.update_avatar_request import UpdateAvatarRequest
-from vrchatapi.model.error import Error
+from vrchatapi.rest import ApiException
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
 # See configuration.py for a list of all supported configuration parameters.
@@ -828,47 +1128,69 @@ configuration.api_key['authCookie'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = avatars_api.AvatarsApi(api_client)
-    avatar_id = "avatarId_example" # str | 
-    update_avatar_request = UpdateAvatarRequest(
-        asset_url="asset_url_example",
-        id=AvatarID("avtr_912d66a4-4714-43b8-8407-7de2cafbf55b"),
-        name="name_example",
-        description="description_example",
-        tags=[
-            Tag("tags_example"),
-        ],
-        image_url="image_url_example",
-        release_status=ReleaseStatus("public"),
-        version=1,
-        unity_package_url="unity_package_url_example",
-    ) # UpdateAvatarRequest |  (optional)
+    api_instance = vrchatapi.AvatarsApi(api_client)
+    avatar_id = 'avatar_id_example' # str | 
+update_avatar_request = vrchatapi.UpdateAvatarRequest() # UpdateAvatarRequest |  (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Update Avatar
-        api_response = api_instance.update_avatar(avatar_id)
-        pprint(api_response)
-    except vrchatapi.ApiException as e:
-        print("Exception when calling AvatarsApi->update_avatar: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Update Avatar
         api_response = api_instance.update_avatar(avatar_id, update_avatar_request=update_avatar_request)
         pprint(api_response)
-    except vrchatapi.ApiException as e:
+    except ApiException as e:
         print("Exception when calling AvatarsApi->update_avatar: %s\n" % e)
 ```
 
+* Api Key Authentication (authCookie):
+```python
+from __future__ import print_function
+import time
+import vrchatapi
+from vrchatapi.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = vrchatapi.Configuration(
+    host = "https://api.vrchat.cloud/api/1"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: apiKeyCookie
+configuration.api_key['apiKeyCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apiKeyCookie'] = 'Bearer'
+
+# Configure API key authorization: authCookie
+configuration.api_key['authCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['authCookie'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with vrchatapi.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = vrchatapi.AvatarsApi(api_client)
+    avatar_id = 'avatar_id_example' # str | 
+update_avatar_request = vrchatapi.UpdateAvatarRequest() # UpdateAvatarRequest |  (optional)
+
+    try:
+        # Update Avatar
+        api_response = api_instance.update_avatar(avatar_id, update_avatar_request=update_avatar_request)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling AvatarsApi->update_avatar: %s\n" % e)
+```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **avatar_id** | **str**|  |
- **update_avatar_request** | [**UpdateAvatarRequest**](UpdateAvatarRequest.md)|  | [optional]
+ **avatar_id** | **str**|  | 
+ **update_avatar_request** | [**UpdateAvatarRequest**](UpdateAvatarRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -883,9 +1205,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Returns a single Avatar object. |  -  |

@@ -5,7 +5,7 @@ npm install @openapitools/openapi-generator-cli
 rm vrchatapi docs -rf
 
 ./node_modules/\@openapitools/openapi-generator-cli/main.js generate \
--g python \
+-g python-legacy \
 --additional-properties=packageName=vrchatapi,projectName=vrchatapi \
 --git-user-id=vrchatapi \
 --git-repo-id=vrchatapi-python \
@@ -20,9 +20,6 @@ sed -i '/headers = headers or {}/r patches/cookiejar_add.py' ./vrchatapi/rest.py
 sed -i 's/if _preload_content/abcdefvrc\n\n        if _preload_content/g' ./vrchatapi/rest.py
 sed -i '/abcdefvrc/r patches/cookiejar_extract.py' ./vrchatapi/rest.py
 sed -i 's/        abcdefvrc//g' ./vrchatapi/rest.py
-
-# Fix bools with url query params
-patch ./vrchatapi/api_client.py < ./patches/bool_query_param.patch
 
 # Fix description, keywords, etc...
 # Echo to trim whitespace
