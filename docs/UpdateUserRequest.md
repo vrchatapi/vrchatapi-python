@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **email** | **str** |  | [optional] 
 **birthday** | **date** |  | [optional] 
 **accepted_tos_version** | **float** |  | [optional] 
-**tags** | **list[str]** |  | [optional] 
+**tags** | **list[str]** |   | [optional] 
 **status** | [**UserStatus**](UserStatus.md) |  | [optional] 
 **status_description** | **str** |  | [optional] 
 **bio** | **str** |  | [optional] 

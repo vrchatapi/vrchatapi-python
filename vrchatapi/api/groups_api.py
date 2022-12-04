@@ -103,6 +103,7 @@ class GroupsApi(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
@@ -122,7 +123,9 @@ class GroupsApi(object):
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
@@ -135,12 +138,10 @@ class GroupsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'group_id' is set
-        if self.api_client.client_side_validation and ('group_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['group_id'] is None):  # noqa: E501
+        if self.api_client.client_side_validation and local_var_params.get('group_id') is None:  # noqa: E501
             raise ApiValueError("Missing the required parameter `group_id` when calling `add_group_gallery_image`")  # noqa: E501
         # verify the required parameter 'group_gallery_id' is set
-        if self.api_client.client_side_validation and ('group_gallery_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['group_gallery_id'] is None):  # noqa: E501
+        if self.api_client.client_side_validation and local_var_params.get('group_gallery_id') is None:  # noqa: E501
             raise ApiValueError("Missing the required parameter `group_gallery_id` when calling `add_group_gallery_image`")  # noqa: E501
 
         if self.api_client.client_side_validation and 'group_id' in local_var_params and not re.search(r'grp_[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}', local_var_params['group_id']):  # noqa: E501
@@ -157,7 +158,7 @@ class GroupsApi(object):
 
         query_params = []
 
-        header_params = {}
+        header_params = dict(local_var_params.get('_headers', {}))
 
         form_params = []
         local_var_files = {}
@@ -170,8 +171,12 @@ class GroupsApi(object):
             ['application/json'])  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        content_types_list = local_var_params.get('_content_type',
+            self.api_client.select_header_content_type(
+                ['application/json'],
+                'POST', body_params))  # noqa: E501
+        if content_types_list:
+                header_params['Content-Type'] = content_types_list
 
         # Authentication setting
         auth_settings = ['apiKeyCookie', 'authCookie']  # noqa: E501
@@ -266,6 +271,7 @@ class GroupsApi(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
@@ -285,7 +291,9 @@ class GroupsApi(object):
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
@@ -298,16 +306,13 @@ class GroupsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'group_id' is set
-        if self.api_client.client_side_validation and ('group_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['group_id'] is None):  # noqa: E501
+        if self.api_client.client_side_validation and local_var_params.get('group_id') is None:  # noqa: E501
             raise ApiValueError("Missing the required parameter `group_id` when calling `add_group_member_role`")  # noqa: E501
         # verify the required parameter 'user_id' is set
-        if self.api_client.client_side_validation and ('user_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['user_id'] is None):  # noqa: E501
+        if self.api_client.client_side_validation and local_var_params.get('user_id') is None:  # noqa: E501
             raise ApiValueError("Missing the required parameter `user_id` when calling `add_group_member_role`")  # noqa: E501
         # verify the required parameter 'group_role_id' is set
-        if self.api_client.client_side_validation and ('group_role_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['group_role_id'] is None):  # noqa: E501
+        if self.api_client.client_side_validation and local_var_params.get('group_role_id') is None:  # noqa: E501
             raise ApiValueError("Missing the required parameter `group_role_id` when calling `add_group_member_role`")  # noqa: E501
 
         if self.api_client.client_side_validation and 'group_id' in local_var_params and not re.search(r'grp_[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}', local_var_params['group_id']):  # noqa: E501
@@ -326,7 +331,7 @@ class GroupsApi(object):
 
         query_params = []
 
-        header_params = {}
+        header_params = dict(local_var_params.get('_headers', {}))
 
         form_params = []
         local_var_files = {}
@@ -425,6 +430,7 @@ class GroupsApi(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
@@ -443,7 +449,9 @@ class GroupsApi(object):
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
@@ -456,8 +464,7 @@ class GroupsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'group_id' is set
-        if self.api_client.client_side_validation and ('group_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['group_id'] is None):  # noqa: E501
+        if self.api_client.client_side_validation and local_var_params.get('group_id') is None:  # noqa: E501
             raise ApiValueError("Missing the required parameter `group_id` when calling `ban_group_member`")  # noqa: E501
 
         if self.api_client.client_side_validation and 'group_id' in local_var_params and not re.search(r'grp_[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}', local_var_params['group_id']):  # noqa: E501
@@ -470,7 +477,7 @@ class GroupsApi(object):
 
         query_params = []
 
-        header_params = {}
+        header_params = dict(local_var_params.get('_headers', {}))
 
         form_params = []
         local_var_files = {}
@@ -483,8 +490,12 @@ class GroupsApi(object):
             ['application/json'])  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        content_types_list = local_var_params.get('_content_type',
+            self.api_client.select_header_content_type(
+                ['application/json'],
+                'POST', body_params))  # noqa: E501
+        if content_types_list:
+                header_params['Content-Type'] = content_types_list
 
         # Authentication setting
         auth_settings = ['apiKeyCookie', 'authCookie']  # noqa: E501
@@ -571,6 +582,7 @@ class GroupsApi(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
@@ -588,7 +600,9 @@ class GroupsApi(object):
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
@@ -601,8 +615,7 @@ class GroupsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'group_id' is set
-        if self.api_client.client_side_validation and ('group_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['group_id'] is None):  # noqa: E501
+        if self.api_client.client_side_validation and local_var_params.get('group_id') is None:  # noqa: E501
             raise ApiValueError("Missing the required parameter `group_id` when calling `cancel_group_request`")  # noqa: E501
 
         if self.api_client.client_side_validation and 'group_id' in local_var_params and not re.search(r'grp_[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}', local_var_params['group_id']):  # noqa: E501
@@ -615,7 +628,7 @@ class GroupsApi(object):
 
         query_params = []
 
-        header_params = {}
+        header_params = dict(local_var_params.get('_headers', {}))
 
         form_params = []
         local_var_files = {}
@@ -706,6 +719,7 @@ class GroupsApi(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
@@ -723,7 +737,9 @@ class GroupsApi(object):
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
@@ -742,7 +758,7 @@ class GroupsApi(object):
 
         query_params = []
 
-        header_params = {}
+        header_params = dict(local_var_params.get('_headers', {}))
 
         form_params = []
         local_var_files = {}
@@ -755,8 +771,12 @@ class GroupsApi(object):
             ['application/json'])  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        content_types_list = local_var_params.get('_content_type',
+            self.api_client.select_header_content_type(
+                ['application/json'],
+                'POST', body_params))  # noqa: E501
+        if content_types_list:
+                header_params['Content-Type'] = content_types_list
 
         # Authentication setting
         auth_settings = ['apiKeyCookie', 'authCookie']  # noqa: E501
@@ -846,6 +866,7 @@ class GroupsApi(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
@@ -864,7 +885,9 @@ class GroupsApi(object):
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
@@ -877,8 +900,7 @@ class GroupsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'group_id' is set
-        if self.api_client.client_side_validation and ('group_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['group_id'] is None):  # noqa: E501
+        if self.api_client.client_side_validation and local_var_params.get('group_id') is None:  # noqa: E501
             raise ApiValueError("Missing the required parameter `group_id` when calling `create_group_announcement`")  # noqa: E501
 
         if self.api_client.client_side_validation and 'group_id' in local_var_params and not re.search(r'grp_[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}', local_var_params['group_id']):  # noqa: E501
@@ -891,7 +913,7 @@ class GroupsApi(object):
 
         query_params = []
 
-        header_params = {}
+        header_params = dict(local_var_params.get('_headers', {}))
 
         form_params = []
         local_var_files = {}
@@ -904,8 +926,12 @@ class GroupsApi(object):
             ['application/json'])  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        content_types_list = local_var_params.get('_content_type',
+            self.api_client.select_header_content_type(
+                ['application/json'],
+                'POST', body_params))  # noqa: E501
+        if content_types_list:
+                header_params['Content-Type'] = content_types_list
 
         # Authentication setting
         auth_settings = ['apiKeyCookie', 'authCookie']  # noqa: E501
@@ -996,6 +1022,7 @@ class GroupsApi(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
@@ -1014,7 +1041,9 @@ class GroupsApi(object):
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
@@ -1027,8 +1056,7 @@ class GroupsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'group_id' is set
-        if self.api_client.client_side_validation and ('group_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['group_id'] is None):  # noqa: E501
+        if self.api_client.client_side_validation and local_var_params.get('group_id') is None:  # noqa: E501
             raise ApiValueError("Missing the required parameter `group_id` when calling `create_group_gallery`")  # noqa: E501
 
         if self.api_client.client_side_validation and 'group_id' in local_var_params and not re.search(r'grp_[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}', local_var_params['group_id']):  # noqa: E501
@@ -1041,7 +1069,7 @@ class GroupsApi(object):
 
         query_params = []
 
-        header_params = {}
+        header_params = dict(local_var_params.get('_headers', {}))
 
         form_params = []
         local_var_files = {}
@@ -1054,8 +1082,12 @@ class GroupsApi(object):
             ['application/json'])  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        content_types_list = local_var_params.get('_content_type',
+            self.api_client.select_header_content_type(
+                ['application/json'],
+                'POST', body_params))  # noqa: E501
+        if content_types_list:
+                header_params['Content-Type'] = content_types_list
 
         # Authentication setting
         auth_settings = ['apiKeyCookie', 'authCookie']  # noqa: E501
@@ -1146,6 +1178,7 @@ class GroupsApi(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
@@ -1164,7 +1197,9 @@ class GroupsApi(object):
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
@@ -1177,8 +1212,7 @@ class GroupsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'group_id' is set
-        if self.api_client.client_side_validation and ('group_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['group_id'] is None):  # noqa: E501
+        if self.api_client.client_side_validation and local_var_params.get('group_id') is None:  # noqa: E501
             raise ApiValueError("Missing the required parameter `group_id` when calling `create_group_invite`")  # noqa: E501
 
         if self.api_client.client_side_validation and 'group_id' in local_var_params and not re.search(r'grp_[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}', local_var_params['group_id']):  # noqa: E501
@@ -1191,7 +1225,7 @@ class GroupsApi(object):
 
         query_params = []
 
-        header_params = {}
+        header_params = dict(local_var_params.get('_headers', {}))
 
         form_params = []
         local_var_files = {}
@@ -1204,8 +1238,12 @@ class GroupsApi(object):
             ['application/json'])  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        content_types_list = local_var_params.get('_content_type',
+            self.api_client.select_header_content_type(
+                ['application/json'],
+                'POST', body_params))  # noqa: E501
+        if content_types_list:
+                header_params['Content-Type'] = content_types_list
 
         # Authentication setting
         auth_settings = ['apiKeyCookie', 'authCookie']  # noqa: E501
@@ -1292,6 +1330,7 @@ class GroupsApi(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
@@ -1310,7 +1349,9 @@ class GroupsApi(object):
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
@@ -1323,8 +1364,7 @@ class GroupsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'group_id' is set
-        if self.api_client.client_side_validation and ('group_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['group_id'] is None):  # noqa: E501
+        if self.api_client.client_side_validation and local_var_params.get('group_id') is None:  # noqa: E501
             raise ApiValueError("Missing the required parameter `group_id` when calling `create_group_role`")  # noqa: E501
 
         if self.api_client.client_side_validation and 'group_id' in local_var_params and not re.search(r'grp_[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}', local_var_params['group_id']):  # noqa: E501
@@ -1337,7 +1377,7 @@ class GroupsApi(object):
 
         query_params = []
 
-        header_params = {}
+        header_params = dict(local_var_params.get('_headers', {}))
 
         form_params = []
         local_var_files = {}
@@ -1350,8 +1390,12 @@ class GroupsApi(object):
             ['application/json'])  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        content_types_list = local_var_params.get('_content_type',
+            self.api_client.select_header_content_type(
+                ['application/json'],
+                'POST', body_params))  # noqa: E501
+        if content_types_list:
+                header_params['Content-Type'] = content_types_list
 
         # Authentication setting
         auth_settings = ['apiKeyCookie', 'authCookie']  # noqa: E501
@@ -1438,6 +1482,7 @@ class GroupsApi(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
@@ -1455,7 +1500,9 @@ class GroupsApi(object):
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
@@ -1468,8 +1515,7 @@ class GroupsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'group_id' is set
-        if self.api_client.client_side_validation and ('group_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['group_id'] is None):  # noqa: E501
+        if self.api_client.client_side_validation and local_var_params.get('group_id') is None:  # noqa: E501
             raise ApiValueError("Missing the required parameter `group_id` when calling `delete_group`")  # noqa: E501
 
         if self.api_client.client_side_validation and 'group_id' in local_var_params and not re.search(r'grp_[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}', local_var_params['group_id']):  # noqa: E501
@@ -1482,7 +1528,7 @@ class GroupsApi(object):
 
         query_params = []
 
-        header_params = {}
+        header_params = dict(local_var_params.get('_headers', {}))
 
         form_params = []
         local_var_files = {}
@@ -1577,6 +1623,7 @@ class GroupsApi(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
@@ -1594,7 +1641,9 @@ class GroupsApi(object):
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
@@ -1607,8 +1656,7 @@ class GroupsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'group_id' is set
-        if self.api_client.client_side_validation and ('group_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['group_id'] is None):  # noqa: E501
+        if self.api_client.client_side_validation and local_var_params.get('group_id') is None:  # noqa: E501
             raise ApiValueError("Missing the required parameter `group_id` when calling `delete_group_announcement`")  # noqa: E501
 
         if self.api_client.client_side_validation and 'group_id' in local_var_params and not re.search(r'grp_[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}', local_var_params['group_id']):  # noqa: E501
@@ -1621,7 +1669,7 @@ class GroupsApi(object):
 
         query_params = []
 
-        header_params = {}
+        header_params = dict(local_var_params.get('_headers', {}))
 
         form_params = []
         local_var_files = {}
@@ -1720,6 +1768,7 @@ class GroupsApi(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
@@ -1738,7 +1787,9 @@ class GroupsApi(object):
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
@@ -1751,12 +1802,10 @@ class GroupsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'group_id' is set
-        if self.api_client.client_side_validation and ('group_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['group_id'] is None):  # noqa: E501
+        if self.api_client.client_side_validation and local_var_params.get('group_id') is None:  # noqa: E501
             raise ApiValueError("Missing the required parameter `group_id` when calling `delete_group_gallery`")  # noqa: E501
         # verify the required parameter 'group_gallery_id' is set
-        if self.api_client.client_side_validation and ('group_gallery_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['group_gallery_id'] is None):  # noqa: E501
+        if self.api_client.client_side_validation and local_var_params.get('group_gallery_id') is None:  # noqa: E501
             raise ApiValueError("Missing the required parameter `group_gallery_id` when calling `delete_group_gallery`")  # noqa: E501
 
         if self.api_client.client_side_validation and 'group_id' in local_var_params and not re.search(r'grp_[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}', local_var_params['group_id']):  # noqa: E501
@@ -1773,7 +1822,7 @@ class GroupsApi(object):
 
         query_params = []
 
-        header_params = {}
+        header_params = dict(local_var_params.get('_headers', {}))
 
         form_params = []
         local_var_files = {}
@@ -1876,6 +1925,7 @@ class GroupsApi(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
@@ -1895,7 +1945,9 @@ class GroupsApi(object):
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
@@ -1908,16 +1960,13 @@ class GroupsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'group_id' is set
-        if self.api_client.client_side_validation and ('group_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['group_id'] is None):  # noqa: E501
+        if self.api_client.client_side_validation and local_var_params.get('group_id') is None:  # noqa: E501
             raise ApiValueError("Missing the required parameter `group_id` when calling `delete_group_gallery_image`")  # noqa: E501
         # verify the required parameter 'group_gallery_id' is set
-        if self.api_client.client_side_validation and ('group_gallery_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['group_gallery_id'] is None):  # noqa: E501
+        if self.api_client.client_side_validation and local_var_params.get('group_gallery_id') is None:  # noqa: E501
             raise ApiValueError("Missing the required parameter `group_gallery_id` when calling `delete_group_gallery_image`")  # noqa: E501
         # verify the required parameter 'group_gallery_image_id' is set
-        if self.api_client.client_side_validation and ('group_gallery_image_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['group_gallery_image_id'] is None):  # noqa: E501
+        if self.api_client.client_side_validation and local_var_params.get('group_gallery_image_id') is None:  # noqa: E501
             raise ApiValueError("Missing the required parameter `group_gallery_image_id` when calling `delete_group_gallery_image`")  # noqa: E501
 
         if self.api_client.client_side_validation and 'group_id' in local_var_params and not re.search(r'grp_[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}', local_var_params['group_id']):  # noqa: E501
@@ -1938,7 +1987,7 @@ class GroupsApi(object):
 
         query_params = []
 
-        header_params = {}
+        header_params = dict(local_var_params.get('_headers', {}))
 
         form_params = []
         local_var_files = {}
@@ -2038,6 +2087,7 @@ class GroupsApi(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
@@ -2056,7 +2106,9 @@ class GroupsApi(object):
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
@@ -2069,12 +2121,10 @@ class GroupsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'group_id' is set
-        if self.api_client.client_side_validation and ('group_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['group_id'] is None):  # noqa: E501
+        if self.api_client.client_side_validation and local_var_params.get('group_id') is None:  # noqa: E501
             raise ApiValueError("Missing the required parameter `group_id` when calling `delete_group_invite`")  # noqa: E501
         # verify the required parameter 'user_id' is set
-        if self.api_client.client_side_validation and ('user_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['user_id'] is None):  # noqa: E501
+        if self.api_client.client_side_validation and local_var_params.get('user_id') is None:  # noqa: E501
             raise ApiValueError("Missing the required parameter `user_id` when calling `delete_group_invite`")  # noqa: E501
 
         if self.api_client.client_side_validation and 'group_id' in local_var_params and not re.search(r'grp_[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}', local_var_params['group_id']):  # noqa: E501
@@ -2089,7 +2139,7 @@ class GroupsApi(object):
 
         query_params = []
 
-        header_params = {}
+        header_params = dict(local_var_params.get('_headers', {}))
 
         form_params = []
         local_var_files = {}
@@ -2184,6 +2234,7 @@ class GroupsApi(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
@@ -2202,7 +2253,9 @@ class GroupsApi(object):
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
@@ -2215,12 +2268,10 @@ class GroupsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'group_id' is set
-        if self.api_client.client_side_validation and ('group_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['group_id'] is None):  # noqa: E501
+        if self.api_client.client_side_validation and local_var_params.get('group_id') is None:  # noqa: E501
             raise ApiValueError("Missing the required parameter `group_id` when calling `delete_group_role`")  # noqa: E501
         # verify the required parameter 'group_role_id' is set
-        if self.api_client.client_side_validation and ('group_role_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['group_role_id'] is None):  # noqa: E501
+        if self.api_client.client_side_validation and local_var_params.get('group_role_id') is None:  # noqa: E501
             raise ApiValueError("Missing the required parameter `group_role_id` when calling `delete_group_role`")  # noqa: E501
 
         if self.api_client.client_side_validation and 'group_id' in local_var_params and not re.search(r'grp_[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}', local_var_params['group_id']):  # noqa: E501
@@ -2237,7 +2288,7 @@ class GroupsApi(object):
 
         query_params = []
 
-        header_params = {}
+        header_params = dict(local_var_params.get('_headers', {}))
 
         form_params = []
         local_var_files = {}
@@ -2336,6 +2387,7 @@ class GroupsApi(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
@@ -2354,7 +2406,9 @@ class GroupsApi(object):
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
@@ -2367,8 +2421,7 @@ class GroupsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'group_id' is set
-        if self.api_client.client_side_validation and ('group_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['group_id'] is None):  # noqa: E501
+        if self.api_client.client_side_validation and local_var_params.get('group_id') is None:  # noqa: E501
             raise ApiValueError("Missing the required parameter `group_id` when calling `get_group`")  # noqa: E501
 
         if self.api_client.client_side_validation and 'group_id' in local_var_params and not re.search(r'grp_[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}', local_var_params['group_id']):  # noqa: E501
@@ -2380,10 +2433,10 @@ class GroupsApi(object):
             path_params['groupId'] = local_var_params['group_id']  # noqa: E501
 
         query_params = []
-        if 'include_roles' in local_var_params and local_var_params['include_roles'] is not None:  # noqa: E501
+        if local_var_params.get('include_roles') is not None:  # noqa: E501
             query_params.append(('includeRoles', local_var_params['include_roles']))  # noqa: E501
 
-        header_params = {}
+        header_params = dict(local_var_params.get('_headers', {}))
 
         form_params = []
         local_var_files = {}
@@ -2478,6 +2531,7 @@ class GroupsApi(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
@@ -2495,7 +2549,9 @@ class GroupsApi(object):
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
@@ -2508,8 +2564,7 @@ class GroupsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'group_id' is set
-        if self.api_client.client_side_validation and ('group_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['group_id'] is None):  # noqa: E501
+        if self.api_client.client_side_validation and local_var_params.get('group_id') is None:  # noqa: E501
             raise ApiValueError("Missing the required parameter `group_id` when calling `get_group_announcements`")  # noqa: E501
 
         if self.api_client.client_side_validation and 'group_id' in local_var_params and not re.search(r'grp_[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}', local_var_params['group_id']):  # noqa: E501
@@ -2522,7 +2577,7 @@ class GroupsApi(object):
 
         query_params = []
 
-        header_params = {}
+        header_params = dict(local_var_params.get('_headers', {}))
 
         form_params = []
         local_var_files = {}
@@ -2633,6 +2688,7 @@ class GroupsApi(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
@@ -2654,7 +2710,9 @@ class GroupsApi(object):
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
@@ -2667,8 +2725,7 @@ class GroupsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'group_id' is set
-        if self.api_client.client_side_validation and ('group_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['group_id'] is None):  # noqa: E501
+        if self.api_client.client_side_validation and local_var_params.get('group_id') is None:  # noqa: E501
             raise ApiValueError("Missing the required parameter `group_id` when calling `get_group_audit_logs`")  # noqa: E501
 
         if self.api_client.client_side_validation and 'group_id' in local_var_params and not re.search(r'grp_[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}', local_var_params['group_id']):  # noqa: E501
@@ -2686,16 +2743,16 @@ class GroupsApi(object):
             path_params['groupId'] = local_var_params['group_id']  # noqa: E501
 
         query_params = []
-        if 'n' in local_var_params and local_var_params['n'] is not None:  # noqa: E501
+        if local_var_params.get('n') is not None:  # noqa: E501
             query_params.append(('n', local_var_params['n']))  # noqa: E501
-        if 'offset' in local_var_params and local_var_params['offset'] is not None:  # noqa: E501
+        if local_var_params.get('offset') is not None:  # noqa: E501
             query_params.append(('offset', local_var_params['offset']))  # noqa: E501
-        if 'start_date' in local_var_params and local_var_params['start_date'] is not None:  # noqa: E501
+        if local_var_params.get('start_date') is not None:  # noqa: E501
             query_params.append(('startDate', local_var_params['start_date']))  # noqa: E501
-        if 'end_date' in local_var_params and local_var_params['end_date'] is not None:  # noqa: E501
+        if local_var_params.get('end_date') is not None:  # noqa: E501
             query_params.append(('endDate', local_var_params['end_date']))  # noqa: E501
 
-        header_params = {}
+        header_params = dict(local_var_params.get('_headers', {}))
 
         form_params = []
         local_var_files = {}
@@ -2798,6 +2855,7 @@ class GroupsApi(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
@@ -2817,7 +2875,9 @@ class GroupsApi(object):
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
@@ -2830,8 +2890,7 @@ class GroupsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'group_id' is set
-        if self.api_client.client_side_validation and ('group_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['group_id'] is None):  # noqa: E501
+        if self.api_client.client_side_validation and local_var_params.get('group_id') is None:  # noqa: E501
             raise ApiValueError("Missing the required parameter `group_id` when calling `get_group_bans`")  # noqa: E501
 
         if self.api_client.client_side_validation and 'group_id' in local_var_params and not re.search(r'grp_[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}', local_var_params['group_id']):  # noqa: E501
@@ -2849,12 +2908,12 @@ class GroupsApi(object):
             path_params['groupId'] = local_var_params['group_id']  # noqa: E501
 
         query_params = []
-        if 'n' in local_var_params and local_var_params['n'] is not None:  # noqa: E501
+        if local_var_params.get('n') is not None:  # noqa: E501
             query_params.append(('n', local_var_params['n']))  # noqa: E501
-        if 'offset' in local_var_params and local_var_params['offset'] is not None:  # noqa: E501
+        if local_var_params.get('offset') is not None:  # noqa: E501
             query_params.append(('offset', local_var_params['offset']))  # noqa: E501
 
-        header_params = {}
+        header_params = dict(local_var_params.get('_headers', {}))
 
         form_params = []
         local_var_files = {}
@@ -2965,6 +3024,7 @@ class GroupsApi(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
@@ -2986,7 +3046,9 @@ class GroupsApi(object):
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
@@ -2999,12 +3061,10 @@ class GroupsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'group_id' is set
-        if self.api_client.client_side_validation and ('group_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['group_id'] is None):  # noqa: E501
+        if self.api_client.client_side_validation and local_var_params.get('group_id') is None:  # noqa: E501
             raise ApiValueError("Missing the required parameter `group_id` when calling `get_group_gallery_images`")  # noqa: E501
         # verify the required parameter 'group_gallery_id' is set
-        if self.api_client.client_side_validation and ('group_gallery_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['group_gallery_id'] is None):  # noqa: E501
+        if self.api_client.client_side_validation and local_var_params.get('group_gallery_id') is None:  # noqa: E501
             raise ApiValueError("Missing the required parameter `group_gallery_id` when calling `get_group_gallery_images`")  # noqa: E501
 
         if self.api_client.client_side_validation and 'group_id' in local_var_params and not re.search(r'grp_[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}', local_var_params['group_id']):  # noqa: E501
@@ -3026,14 +3086,14 @@ class GroupsApi(object):
             path_params['groupGalleryId'] = local_var_params['group_gallery_id']  # noqa: E501
 
         query_params = []
-        if 'n' in local_var_params and local_var_params['n'] is not None:  # noqa: E501
+        if local_var_params.get('n') is not None:  # noqa: E501
             query_params.append(('n', local_var_params['n']))  # noqa: E501
-        if 'offset' in local_var_params and local_var_params['offset'] is not None:  # noqa: E501
+        if local_var_params.get('offset') is not None:  # noqa: E501
             query_params.append(('offset', local_var_params['offset']))  # noqa: E501
-        if 'approved' in local_var_params and local_var_params['approved'] is not None:  # noqa: E501
+        if local_var_params.get('approved') is not None:  # noqa: E501
             query_params.append(('approved', local_var_params['approved']))  # noqa: E501
 
-        header_params = {}
+        header_params = dict(local_var_params.get('_headers', {}))
 
         form_params = []
         local_var_files = {}
@@ -3128,6 +3188,7 @@ class GroupsApi(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
@@ -3145,7 +3206,9 @@ class GroupsApi(object):
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
@@ -3158,8 +3221,7 @@ class GroupsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'group_id' is set
-        if self.api_client.client_side_validation and ('group_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['group_id'] is None):  # noqa: E501
+        if self.api_client.client_side_validation and local_var_params.get('group_id') is None:  # noqa: E501
             raise ApiValueError("Missing the required parameter `group_id` when calling `get_group_invites`")  # noqa: E501
 
         if self.api_client.client_side_validation and 'group_id' in local_var_params and not re.search(r'grp_[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}', local_var_params['group_id']):  # noqa: E501
@@ -3172,7 +3234,7 @@ class GroupsApi(object):
 
         query_params = []
 
-        header_params = {}
+        header_params = dict(local_var_params.get('_headers', {}))
 
         form_params = []
         local_var_files = {}
@@ -3272,6 +3334,7 @@ class GroupsApi(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
@@ -3290,7 +3353,9 @@ class GroupsApi(object):
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
@@ -3303,12 +3368,10 @@ class GroupsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'group_id' is set
-        if self.api_client.client_side_validation and ('group_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['group_id'] is None):  # noqa: E501
+        if self.api_client.client_side_validation and local_var_params.get('group_id') is None:  # noqa: E501
             raise ApiValueError("Missing the required parameter `group_id` when calling `get_group_member`")  # noqa: E501
         # verify the required parameter 'user_id' is set
-        if self.api_client.client_side_validation and ('user_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['user_id'] is None):  # noqa: E501
+        if self.api_client.client_side_validation and local_var_params.get('user_id') is None:  # noqa: E501
             raise ApiValueError("Missing the required parameter `user_id` when calling `get_group_member`")  # noqa: E501
 
         if self.api_client.client_side_validation and 'group_id' in local_var_params and not re.search(r'grp_[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}', local_var_params['group_id']):  # noqa: E501
@@ -3323,7 +3386,7 @@ class GroupsApi(object):
 
         query_params = []
 
-        header_params = {}
+        header_params = dict(local_var_params.get('_headers', {}))
 
         form_params = []
         local_var_files = {}
@@ -3426,6 +3489,7 @@ class GroupsApi(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
@@ -3445,7 +3509,9 @@ class GroupsApi(object):
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
@@ -3458,8 +3524,7 @@ class GroupsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'group_id' is set
-        if self.api_client.client_side_validation and ('group_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['group_id'] is None):  # noqa: E501
+        if self.api_client.client_side_validation and local_var_params.get('group_id') is None:  # noqa: E501
             raise ApiValueError("Missing the required parameter `group_id` when calling `get_group_members`")  # noqa: E501
 
         if self.api_client.client_side_validation and 'group_id' in local_var_params and not re.search(r'grp_[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}', local_var_params['group_id']):  # noqa: E501
@@ -3477,12 +3542,12 @@ class GroupsApi(object):
             path_params['groupId'] = local_var_params['group_id']  # noqa: E501
 
         query_params = []
-        if 'n' in local_var_params and local_var_params['n'] is not None:  # noqa: E501
+        if local_var_params.get('n') is not None:  # noqa: E501
             query_params.append(('n', local_var_params['n']))  # noqa: E501
-        if 'offset' in local_var_params and local_var_params['offset'] is not None:  # noqa: E501
+        if local_var_params.get('offset') is not None:  # noqa: E501
             query_params.append(('offset', local_var_params['offset']))  # noqa: E501
 
-        header_params = {}
+        header_params = dict(local_var_params.get('_headers', {}))
 
         form_params = []
         local_var_files = {}
@@ -3578,6 +3643,7 @@ class GroupsApi(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
@@ -3595,7 +3661,9 @@ class GroupsApi(object):
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
@@ -3608,8 +3676,7 @@ class GroupsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'group_id' is set
-        if self.api_client.client_side_validation and ('group_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['group_id'] is None):  # noqa: E501
+        if self.api_client.client_side_validation and local_var_params.get('group_id') is None:  # noqa: E501
             raise ApiValueError("Missing the required parameter `group_id` when calling `get_group_permissions`")  # noqa: E501
 
         if self.api_client.client_side_validation and 'group_id' in local_var_params and not re.search(r'grp_[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}', local_var_params['group_id']):  # noqa: E501
@@ -3622,7 +3689,7 @@ class GroupsApi(object):
 
         query_params = []
 
-        header_params = {}
+        header_params = dict(local_var_params.get('_headers', {}))
 
         form_params = []
         local_var_files = {}
@@ -3718,6 +3785,7 @@ class GroupsApi(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
@@ -3735,7 +3803,9 @@ class GroupsApi(object):
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
@@ -3748,8 +3818,7 @@ class GroupsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'group_id' is set
-        if self.api_client.client_side_validation and ('group_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['group_id'] is None):  # noqa: E501
+        if self.api_client.client_side_validation and local_var_params.get('group_id') is None:  # noqa: E501
             raise ApiValueError("Missing the required parameter `group_id` when calling `get_group_requests`")  # noqa: E501
 
         if self.api_client.client_side_validation and 'group_id' in local_var_params and not re.search(r'grp_[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}', local_var_params['group_id']):  # noqa: E501
@@ -3762,7 +3831,7 @@ class GroupsApi(object):
 
         query_params = []
 
-        header_params = {}
+        header_params = dict(local_var_params.get('_headers', {}))
 
         form_params = []
         local_var_files = {}
@@ -3857,6 +3926,7 @@ class GroupsApi(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
@@ -3874,7 +3944,9 @@ class GroupsApi(object):
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
@@ -3887,8 +3959,7 @@ class GroupsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'group_id' is set
-        if self.api_client.client_side_validation and ('group_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['group_id'] is None):  # noqa: E501
+        if self.api_client.client_side_validation and local_var_params.get('group_id') is None:  # noqa: E501
             raise ApiValueError("Missing the required parameter `group_id` when calling `get_group_roles`")  # noqa: E501
 
         if self.api_client.client_side_validation and 'group_id' in local_var_params and not re.search(r'grp_[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}', local_var_params['group_id']):  # noqa: E501
@@ -3901,7 +3972,7 @@ class GroupsApi(object):
 
         query_params = []
 
-        header_params = {}
+        header_params = dict(local_var_params.get('_headers', {}))
 
         form_params = []
         local_var_files = {}
@@ -3996,6 +4067,7 @@ class GroupsApi(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
@@ -4013,7 +4085,9 @@ class GroupsApi(object):
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
@@ -4026,8 +4100,7 @@ class GroupsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'group_id' is set
-        if self.api_client.client_side_validation and ('group_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['group_id'] is None):  # noqa: E501
+        if self.api_client.client_side_validation and local_var_params.get('group_id') is None:  # noqa: E501
             raise ApiValueError("Missing the required parameter `group_id` when calling `join_group`")  # noqa: E501
 
         if self.api_client.client_side_validation and 'group_id' in local_var_params and not re.search(r'grp_[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}', local_var_params['group_id']):  # noqa: E501
@@ -4040,7 +4113,7 @@ class GroupsApi(object):
 
         query_params = []
 
-        header_params = {}
+        header_params = dict(local_var_params.get('_headers', {}))
 
         form_params = []
         local_var_files = {}
@@ -4140,6 +4213,7 @@ class GroupsApi(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
@@ -4158,7 +4232,9 @@ class GroupsApi(object):
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
@@ -4171,12 +4247,10 @@ class GroupsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'group_id' is set
-        if self.api_client.client_side_validation and ('group_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['group_id'] is None):  # noqa: E501
+        if self.api_client.client_side_validation and local_var_params.get('group_id') is None:  # noqa: E501
             raise ApiValueError("Missing the required parameter `group_id` when calling `kick_group_member`")  # noqa: E501
         # verify the required parameter 'user_id' is set
-        if self.api_client.client_side_validation and ('user_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['user_id'] is None):  # noqa: E501
+        if self.api_client.client_side_validation and local_var_params.get('user_id') is None:  # noqa: E501
             raise ApiValueError("Missing the required parameter `user_id` when calling `kick_group_member`")  # noqa: E501
 
         if self.api_client.client_side_validation and 'group_id' in local_var_params and not re.search(r'grp_[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}', local_var_params['group_id']):  # noqa: E501
@@ -4191,7 +4265,7 @@ class GroupsApi(object):
 
         query_params = []
 
-        header_params = {}
+        header_params = dict(local_var_params.get('_headers', {}))
 
         form_params = []
         local_var_files = {}
@@ -4282,6 +4356,7 @@ class GroupsApi(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
@@ -4299,7 +4374,9 @@ class GroupsApi(object):
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
@@ -4312,8 +4389,7 @@ class GroupsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'group_id' is set
-        if self.api_client.client_side_validation and ('group_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['group_id'] is None):  # noqa: E501
+        if self.api_client.client_side_validation and local_var_params.get('group_id') is None:  # noqa: E501
             raise ApiValueError("Missing the required parameter `group_id` when calling `leave_group`")  # noqa: E501
 
         if self.api_client.client_side_validation and 'group_id' in local_var_params and not re.search(r'grp_[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}', local_var_params['group_id']):  # noqa: E501
@@ -4326,7 +4402,7 @@ class GroupsApi(object):
 
         query_params = []
 
-        header_params = {}
+        header_params = dict(local_var_params.get('_headers', {}))
 
         form_params = []
         local_var_files = {}
@@ -4425,6 +4501,7 @@ class GroupsApi(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
@@ -4444,7 +4521,9 @@ class GroupsApi(object):
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
@@ -4457,16 +4536,13 @@ class GroupsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'group_id' is set
-        if self.api_client.client_side_validation and ('group_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['group_id'] is None):  # noqa: E501
+        if self.api_client.client_side_validation and local_var_params.get('group_id') is None:  # noqa: E501
             raise ApiValueError("Missing the required parameter `group_id` when calling `remove_group_member_role`")  # noqa: E501
         # verify the required parameter 'user_id' is set
-        if self.api_client.client_side_validation and ('user_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['user_id'] is None):  # noqa: E501
+        if self.api_client.client_side_validation and local_var_params.get('user_id') is None:  # noqa: E501
             raise ApiValueError("Missing the required parameter `user_id` when calling `remove_group_member_role`")  # noqa: E501
         # verify the required parameter 'group_role_id' is set
-        if self.api_client.client_side_validation and ('group_role_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['group_role_id'] is None):  # noqa: E501
+        if self.api_client.client_side_validation and local_var_params.get('group_role_id') is None:  # noqa: E501
             raise ApiValueError("Missing the required parameter `group_role_id` when calling `remove_group_member_role`")  # noqa: E501
 
         if self.api_client.client_side_validation and 'group_id' in local_var_params and not re.search(r'grp_[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}', local_var_params['group_id']):  # noqa: E501
@@ -4485,7 +4561,7 @@ class GroupsApi(object):
 
         query_params = []
 
-        header_params = {}
+        header_params = dict(local_var_params.get('_headers', {}))
 
         form_params = []
         local_var_files = {}
@@ -4588,6 +4664,7 @@ class GroupsApi(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
@@ -4607,7 +4684,9 @@ class GroupsApi(object):
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
@@ -4620,12 +4699,10 @@ class GroupsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'group_id' is set
-        if self.api_client.client_side_validation and ('group_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['group_id'] is None):  # noqa: E501
+        if self.api_client.client_side_validation and local_var_params.get('group_id') is None:  # noqa: E501
             raise ApiValueError("Missing the required parameter `group_id` when calling `respond_group_join_request`")  # noqa: E501
         # verify the required parameter 'user_id' is set
-        if self.api_client.client_side_validation and ('user_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['user_id'] is None):  # noqa: E501
+        if self.api_client.client_side_validation and local_var_params.get('user_id') is None:  # noqa: E501
             raise ApiValueError("Missing the required parameter `user_id` when calling `respond_group_join_request`")  # noqa: E501
 
         if self.api_client.client_side_validation and 'group_id' in local_var_params and not re.search(r'grp_[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}', local_var_params['group_id']):  # noqa: E501
@@ -4640,7 +4717,7 @@ class GroupsApi(object):
 
         query_params = []
 
-        header_params = {}
+        header_params = dict(local_var_params.get('_headers', {}))
 
         form_params = []
         local_var_files = {}
@@ -4653,8 +4730,12 @@ class GroupsApi(object):
             ['application/json'])  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        content_types_list = local_var_params.get('_content_type',
+            self.api_client.select_header_content_type(
+                ['application/json'],
+                'PUT', body_params))  # noqa: E501
+        if content_types_list:
+                header_params['Content-Type'] = content_types_list
 
         # Authentication setting
         auth_settings = ['apiKeyCookie', 'authCookie']  # noqa: E501
@@ -4741,6 +4822,7 @@ class GroupsApi(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
@@ -4759,7 +4841,9 @@ class GroupsApi(object):
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
@@ -4772,12 +4856,10 @@ class GroupsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'group_id' is set
-        if self.api_client.client_side_validation and ('group_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['group_id'] is None):  # noqa: E501
+        if self.api_client.client_side_validation and local_var_params.get('group_id') is None:  # noqa: E501
             raise ApiValueError("Missing the required parameter `group_id` when calling `unban_group_member`")  # noqa: E501
         # verify the required parameter 'user_id' is set
-        if self.api_client.client_side_validation and ('user_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['user_id'] is None):  # noqa: E501
+        if self.api_client.client_side_validation and local_var_params.get('user_id') is None:  # noqa: E501
             raise ApiValueError("Missing the required parameter `user_id` when calling `unban_group_member`")  # noqa: E501
 
         if self.api_client.client_side_validation and 'group_id' in local_var_params and not re.search(r'grp_[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}', local_var_params['group_id']):  # noqa: E501
@@ -4792,7 +4874,7 @@ class GroupsApi(object):
 
         query_params = []
 
-        header_params = {}
+        header_params = dict(local_var_params.get('_headers', {}))
 
         form_params = []
         local_var_files = {}
@@ -4891,6 +4973,7 @@ class GroupsApi(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
@@ -4909,7 +4992,9 @@ class GroupsApi(object):
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
@@ -4922,8 +5007,7 @@ class GroupsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'group_id' is set
-        if self.api_client.client_side_validation and ('group_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['group_id'] is None):  # noqa: E501
+        if self.api_client.client_side_validation and local_var_params.get('group_id') is None:  # noqa: E501
             raise ApiValueError("Missing the required parameter `group_id` when calling `update_group`")  # noqa: E501
 
         if self.api_client.client_side_validation and 'group_id' in local_var_params and not re.search(r'grp_[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}', local_var_params['group_id']):  # noqa: E501
@@ -4936,7 +5020,7 @@ class GroupsApi(object):
 
         query_params = []
 
-        header_params = {}
+        header_params = dict(local_var_params.get('_headers', {}))
 
         form_params = []
         local_var_files = {}
@@ -4949,8 +5033,12 @@ class GroupsApi(object):
             ['application/json'])  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        content_types_list = local_var_params.get('_content_type',
+            self.api_client.select_header_content_type(
+                ['application/json'],
+                'PUT', body_params))  # noqa: E501
+        if content_types_list:
+                header_params['Content-Type'] = content_types_list
 
         # Authentication setting
         auth_settings = ['apiKeyCookie', 'authCookie']  # noqa: E501
@@ -5045,6 +5133,7 @@ class GroupsApi(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
@@ -5064,7 +5153,9 @@ class GroupsApi(object):
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
@@ -5077,12 +5168,10 @@ class GroupsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'group_id' is set
-        if self.api_client.client_side_validation and ('group_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['group_id'] is None):  # noqa: E501
+        if self.api_client.client_side_validation and local_var_params.get('group_id') is None:  # noqa: E501
             raise ApiValueError("Missing the required parameter `group_id` when calling `update_group_gallery`")  # noqa: E501
         # verify the required parameter 'group_gallery_id' is set
-        if self.api_client.client_side_validation and ('group_gallery_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['group_gallery_id'] is None):  # noqa: E501
+        if self.api_client.client_side_validation and local_var_params.get('group_gallery_id') is None:  # noqa: E501
             raise ApiValueError("Missing the required parameter `group_gallery_id` when calling `update_group_gallery`")  # noqa: E501
 
         if self.api_client.client_side_validation and 'group_id' in local_var_params and not re.search(r'grp_[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}', local_var_params['group_id']):  # noqa: E501
@@ -5099,7 +5188,7 @@ class GroupsApi(object):
 
         query_params = []
 
-        header_params = {}
+        header_params = dict(local_var_params.get('_headers', {}))
 
         form_params = []
         local_var_files = {}
@@ -5112,8 +5201,12 @@ class GroupsApi(object):
             ['application/json'])  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        content_types_list = local_var_params.get('_content_type',
+            self.api_client.select_header_content_type(
+                ['application/json'],
+                'PUT', body_params))  # noqa: E501
+        if content_types_list:
+                header_params['Content-Type'] = content_types_list
 
         # Authentication setting
         auth_settings = ['apiKeyCookie', 'authCookie']  # noqa: E501
@@ -5208,6 +5301,7 @@ class GroupsApi(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
@@ -5227,7 +5321,9 @@ class GroupsApi(object):
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
@@ -5240,12 +5336,10 @@ class GroupsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'group_id' is set
-        if self.api_client.client_side_validation and ('group_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['group_id'] is None):  # noqa: E501
+        if self.api_client.client_side_validation and local_var_params.get('group_id') is None:  # noqa: E501
             raise ApiValueError("Missing the required parameter `group_id` when calling `update_group_member`")  # noqa: E501
         # verify the required parameter 'user_id' is set
-        if self.api_client.client_side_validation and ('user_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['user_id'] is None):  # noqa: E501
+        if self.api_client.client_side_validation and local_var_params.get('user_id') is None:  # noqa: E501
             raise ApiValueError("Missing the required parameter `user_id` when calling `update_group_member`")  # noqa: E501
 
         if self.api_client.client_side_validation and 'group_id' in local_var_params and not re.search(r'grp_[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}', local_var_params['group_id']):  # noqa: E501
@@ -5260,7 +5354,7 @@ class GroupsApi(object):
 
         query_params = []
 
-        header_params = {}
+        header_params = dict(local_var_params.get('_headers', {}))
 
         form_params = []
         local_var_files = {}
@@ -5273,8 +5367,12 @@ class GroupsApi(object):
             ['application/json'])  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        content_types_list = local_var_params.get('_content_type',
+            self.api_client.select_header_content_type(
+                ['application/json'],
+                'PUT', body_params))  # noqa: E501
+        if content_types_list:
+                header_params['Content-Type'] = content_types_list
 
         # Authentication setting
         auth_settings = ['apiKeyCookie', 'authCookie']  # noqa: E501
@@ -5369,6 +5467,7 @@ class GroupsApi(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
@@ -5388,7 +5487,9 @@ class GroupsApi(object):
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
@@ -5401,12 +5502,10 @@ class GroupsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'group_id' is set
-        if self.api_client.client_side_validation and ('group_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['group_id'] is None):  # noqa: E501
+        if self.api_client.client_side_validation and local_var_params.get('group_id') is None:  # noqa: E501
             raise ApiValueError("Missing the required parameter `group_id` when calling `update_group_role`")  # noqa: E501
         # verify the required parameter 'group_role_id' is set
-        if self.api_client.client_side_validation and ('group_role_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['group_role_id'] is None):  # noqa: E501
+        if self.api_client.client_side_validation and local_var_params.get('group_role_id') is None:  # noqa: E501
             raise ApiValueError("Missing the required parameter `group_role_id` when calling `update_group_role`")  # noqa: E501
 
         if self.api_client.client_side_validation and 'group_id' in local_var_params and not re.search(r'grp_[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}', local_var_params['group_id']):  # noqa: E501
@@ -5423,7 +5522,7 @@ class GroupsApi(object):
 
         query_params = []
 
-        header_params = {}
+        header_params = dict(local_var_params.get('_headers', {}))
 
         form_params = []
         local_var_files = {}
@@ -5436,8 +5535,12 @@ class GroupsApi(object):
             ['application/json'])  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        content_types_list = local_var_params.get('_content_type',
+            self.api_client.select_header_content_type(
+                ['application/json'],
+                'PUT', body_params))  # noqa: E501
+        if content_types_list:
+                header_params['Content-Type'] = content_types_list
 
         # Authentication setting
         auth_settings = ['apiKeyCookie', 'authCookie']  # noqa: E501

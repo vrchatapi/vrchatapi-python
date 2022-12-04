@@ -57,7 +57,7 @@ class CreateGroupRequest(object):
         'role_template': 'roleTemplate'
     }
 
-    def __init__(self, name=None, short_code=None, description=None, join_state=None, icon_id='null', banner_id='null', privacy=None, role_template=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, name=None, short_code=None, description=None, join_state=None, icon_id=None, banner_id=None, privacy=None, role_template=None, local_vars_configuration=None):  # noqa: E501
         """CreateGroupRequest - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration.get_default_copy()

@@ -997,6 +997,7 @@ class CurrentUser(object):
     def past_display_names(self):
         """Gets the past_display_names of this CurrentUser.  # noqa: E501
 
+           # noqa: E501
 
         :return: The past_display_names of this CurrentUser.  # noqa: E501
         :rtype: list[PastDisplayName]
@@ -1007,6 +1008,7 @@ class CurrentUser(object):
     def past_display_names(self, past_display_names):
         """Sets the past_display_names of this CurrentUser.
 
+           # noqa: E501
 
         :param past_display_names: The past_display_names of this CurrentUser.  # noqa: E501
         :type past_display_names: list[PastDisplayName]

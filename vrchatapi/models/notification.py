@@ -167,6 +167,7 @@ class Notification(object):
     def message(self):
         """Gets the message of this Notification.  # noqa: E501
 
+          # noqa: E501
 
         :return: The message of this Notification.  # noqa: E501
         :rtype: str
@@ -177,6 +178,7 @@ class Notification(object):
     def message(self, message):
         """Sets the message of this Notification.
 
+          # noqa: E501
 
         :param message: The message of this Notification.  # noqa: E501
         :type message: str

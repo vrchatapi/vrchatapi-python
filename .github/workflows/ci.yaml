@@ -24,7 +24,7 @@ jobs:
       - name: Install OpenAPI Generator CLI
         run: npm install @openapitools/openapi-generator-cli
       - name: Set OpenAPI Generator version
-        run: ./node_modules/\@openapitools/openapi-generator-cli/main.js version-manager set 5.3.0
+        run: ./node_modules/\@openapitools/openapi-generator-cli/main.js version-manager set 6.2.1
       - name: Set up Python 3.9
         uses: actions/setup-python@v1
         with:
@@ -47,7 +47,7 @@ jobs:
       - name: Build a binary wheel and a source tarball
         run: python -m build --sdist --wheel --outdir dist/ .
       - name: Publish SDK 📦 to PyPI
-        uses: pypa/gh-action-pypi-publish@master
+        uses: pypa/gh-action-pypi-publish@release/v1
         with:
           skip_existing: true
           password: ${{ secrets.PYPI_API_TOKEN }}

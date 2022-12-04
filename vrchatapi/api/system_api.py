@@ -91,6 +91,7 @@ class SystemApi(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
@@ -107,7 +108,9 @@ class SystemApi(object):
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
@@ -126,7 +129,7 @@ class SystemApi(object):
 
         query_params = []
 
-        header_params = {}
+        header_params = dict(local_var_params.get('_headers', {}))
 
         form_params = []
         local_var_files = {}
@@ -223,6 +226,7 @@ class SystemApi(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
@@ -241,7 +245,9 @@ class SystemApi(object):
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
@@ -259,12 +265,12 @@ class SystemApi(object):
         path_params = {}
 
         query_params = []
-        if 'variant' in local_var_params and local_var_params['variant'] is not None:  # noqa: E501
+        if local_var_params.get('variant') is not None:  # noqa: E501
             query_params.append(('variant', local_var_params['variant']))  # noqa: E501
-        if 'branch' in local_var_params and local_var_params['branch'] is not None:  # noqa: E501
+        if local_var_params.get('branch') is not None:  # noqa: E501
             query_params.append(('branch', local_var_params['branch']))  # noqa: E501
 
-        header_params = {}
+        header_params = dict(local_var_params.get('_headers', {}))
 
         form_params = []
         local_var_files = {}
@@ -354,6 +360,7 @@ class SystemApi(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
@@ -370,7 +377,9 @@ class SystemApi(object):
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
@@ -389,7 +398,7 @@ class SystemApi(object):
 
         query_params = []
 
-        header_params = {}
+        header_params = dict(local_var_params.get('_headers', {}))
 
         form_params = []
         local_var_files = {}
@@ -478,6 +487,7 @@ class SystemApi(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
@@ -494,7 +504,9 @@ class SystemApi(object):
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
@@ -513,7 +525,7 @@ class SystemApi(object):
 
         query_params = []
 
-        header_params = {}
+        header_params = dict(local_var_params.get('_headers', {}))
 
         form_params = []
         local_var_files = {}
@@ -610,6 +622,7 @@ class SystemApi(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
@@ -628,7 +641,9 @@ class SystemApi(object):
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
@@ -646,12 +661,12 @@ class SystemApi(object):
         path_params = {}
 
         query_params = []
-        if 'require' in local_var_params and local_var_params['require'] is not None:  # noqa: E501
+        if local_var_params.get('require') is not None:  # noqa: E501
             query_params.append(('require', local_var_params['require']))  # noqa: E501
-        if 'include' in local_var_params and local_var_params['include'] is not None:  # noqa: E501
+        if local_var_params.get('include') is not None:  # noqa: E501
             query_params.append(('include', local_var_params['include']))  # noqa: E501
 
-        header_params = {}
+        header_params = dict(local_var_params.get('_headers', {}))
 
         form_params = []
         local_var_files = {}
@@ -748,6 +763,7 @@ class SystemApi(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
@@ -766,7 +782,9 @@ class SystemApi(object):
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
@@ -784,12 +802,12 @@ class SystemApi(object):
         path_params = {}
 
         query_params = []
-        if 'variant' in local_var_params and local_var_params['variant'] is not None:  # noqa: E501
+        if local_var_params.get('variant') is not None:  # noqa: E501
             query_params.append(('variant', local_var_params['variant']))  # noqa: E501
-        if 'branch' in local_var_params and local_var_params['branch'] is not None:  # noqa: E501
+        if local_var_params.get('branch') is not None:  # noqa: E501
             query_params.append(('branch', local_var_params['branch']))  # noqa: E501
 
-        header_params = {}
+        header_params = dict(local_var_params.get('_headers', {}))
 
         form_params = []
         local_var_files = {}
@@ -879,6 +897,7 @@ class SystemApi(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
@@ -895,7 +914,9 @@ class SystemApi(object):
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
@@ -914,7 +935,7 @@ class SystemApi(object):
 
         query_params = []
 
-        header_params = {}
+        header_params = dict(local_var_params.get('_headers', {}))
 
         form_params = []
         local_var_files = {}

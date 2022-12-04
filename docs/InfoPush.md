@@ -1,6 +1,7 @@
 # InfoPush
 
 
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
@@ -8,7 +9,7 @@ Name | Type | Description | Notes
 **is_enabled** | **bool** |  | [default to True]
 **release_status** | [**ReleaseStatus**](ReleaseStatus.md) |  | 
 **priority** | **int** |  | 
-**tags** | **list[str]** |  | 
+**tags** | **list[str]** |   | 
 **data** | [**InfoPushData**](InfoPushData.md) |  | 
 **hash** | **str** | Unknown usage, MD5 | 
 **created_at** | **datetime** |  | 

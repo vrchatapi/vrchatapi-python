@@ -1,6 +1,7 @@
 # LimitedUser
 
 
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

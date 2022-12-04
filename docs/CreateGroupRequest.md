@@ -8,8 +8,8 @@ Name | Type | Description | Notes
 **short_code** | **str** |  | 
 **description** | **str** |  | [optional] 
 **join_state** | [**GroupJoinState**](GroupJoinState.md) |  | [optional] 
-**icon_id** | **str** |  | [optional] [default to 'null']
-**banner_id** | **str** |  | [optional] [default to 'null']
+**icon_id** | **str** |  | [optional] 
+**banner_id** | **str** |  | [optional] 
 **privacy** | [**GroupPrivacy**](GroupPrivacy.md) |  | [optional] 
 **role_template** | [**GroupRoleTemplate**](GroupRoleTemplate.md) |  | 
 

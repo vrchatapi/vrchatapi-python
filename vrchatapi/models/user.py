@@ -709,6 +709,7 @@ class User(object):
     def tags(self):
         """Gets the tags of this User.  # noqa: E501
 
+           # noqa: E501
 
         :return: The tags of this User.  # noqa: E501
         :rtype: list[str]
@@ -719,6 +720,7 @@ class User(object):
     def tags(self, tags):
         """Sets the tags of this User.
 
+           # noqa: E501
 
         :param tags: The tags of this User.  # noqa: E501
         :type tags: list[str]

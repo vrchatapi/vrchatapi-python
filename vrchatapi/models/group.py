@@ -562,6 +562,7 @@ class Group(object):
     def tags(self):
         """Gets the tags of this Group.  # noqa: E501
 
+           # noqa: E501
 
         :return: The tags of this Group.  # noqa: E501
         :rtype: list[str]
@@ -572,6 +573,7 @@ class Group(object):
     def tags(self, tags):
         """Sets the tags of this Group.
 
+           # noqa: E501
 
         :param tags: The tags of this Group.  # noqa: E501
         :type tags: list[str]
@@ -583,6 +585,7 @@ class Group(object):
     def galleries(self):
         """Gets the galleries of this Group.  # noqa: E501
 
+           # noqa: E501
 
         :return: The galleries of this Group.  # noqa: E501
         :rtype: list[GroupGallery]
@@ -593,6 +596,7 @@ class Group(object):
     def galleries(self, galleries):
         """Sets the galleries of this Group.
 
+           # noqa: E501
 
         :param galleries: The galleries of this Group.  # noqa: E501
         :type galleries: list[GroupGallery]

@@ -91,6 +91,7 @@ class PlayermoderationApi(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
@@ -107,7 +108,9 @@ class PlayermoderationApi(object):
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
@@ -126,7 +129,7 @@ class PlayermoderationApi(object):
 
         query_params = []
 
-        header_params = {}
+        header_params = dict(local_var_params.get('_headers', {}))
 
         form_params = []
         local_var_files = {}
@@ -220,6 +223,7 @@ class PlayermoderationApi(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
@@ -237,7 +241,9 @@ class PlayermoderationApi(object):
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
@@ -250,8 +256,7 @@ class PlayermoderationApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'player_moderation_id' is set
-        if self.api_client.client_side_validation and ('player_moderation_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['player_moderation_id'] is None):  # noqa: E501
+        if self.api_client.client_side_validation and local_var_params.get('player_moderation_id') is None:  # noqa: E501
             raise ApiValueError("Missing the required parameter `player_moderation_id` when calling `delete_player_moderation`")  # noqa: E501
 
         collection_formats = {}
@@ -262,7 +267,7 @@ class PlayermoderationApi(object):
 
         query_params = []
 
-        header_params = {}
+        header_params = dict(local_var_params.get('_headers', {}))
 
         form_params = []
         local_var_files = {}
@@ -357,6 +362,7 @@ class PlayermoderationApi(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
@@ -374,7 +380,9 @@ class PlayermoderationApi(object):
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
@@ -387,8 +395,7 @@ class PlayermoderationApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'player_moderation_id' is set
-        if self.api_client.client_side_validation and ('player_moderation_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['player_moderation_id'] is None):  # noqa: E501
+        if self.api_client.client_side_validation and local_var_params.get('player_moderation_id') is None:  # noqa: E501
             raise ApiValueError("Missing the required parameter `player_moderation_id` when calling `get_player_moderation`")  # noqa: E501
 
         collection_formats = {}
@@ -399,7 +406,7 @@ class PlayermoderationApi(object):
 
         query_params = []
 
-        header_params = {}
+        header_params = dict(local_var_params.get('_headers', {}))
 
         form_params = []
         local_var_files = {}
@@ -498,6 +505,7 @@ class PlayermoderationApi(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
@@ -516,7 +524,9 @@ class PlayermoderationApi(object):
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
@@ -534,12 +544,12 @@ class PlayermoderationApi(object):
         path_params = {}
 
         query_params = []
-        if 'type' in local_var_params and local_var_params['type'] is not None:  # noqa: E501
+        if local_var_params.get('type') is not None:  # noqa: E501
             query_params.append(('type', local_var_params['type']))  # noqa: E501
-        if 'target_user_id' in local_var_params and local_var_params['target_user_id'] is not None:  # noqa: E501
+        if local_var_params.get('target_user_id') is not None:  # noqa: E501
             query_params.append(('targetUserId', local_var_params['target_user_id']))  # noqa: E501
 
-        header_params = {}
+        header_params = dict(local_var_params.get('_headers', {}))
 
         form_params = []
         local_var_files = {}
@@ -584,7 +594,7 @@ class PlayermoderationApi(object):
         >>> thread = api.moderate_user(async_req=True)
         >>> result = thread.get()
 
-        :param moderate_user_request:
+        :param moderate_user_request: 
         :type moderate_user_request: ModerateUserRequest
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
@@ -614,7 +624,7 @@ class PlayermoderationApi(object):
         >>> thread = api.moderate_user_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param moderate_user_request:
+        :param moderate_user_request: 
         :type moderate_user_request: ModerateUserRequest
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
@@ -633,6 +643,7 @@ class PlayermoderationApi(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
@@ -650,7 +661,9 @@ class PlayermoderationApi(object):
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
@@ -669,7 +682,7 @@ class PlayermoderationApi(object):
 
         query_params = []
 
-        header_params = {}
+        header_params = dict(local_var_params.get('_headers', {}))
 
         form_params = []
         local_var_files = {}
@@ -682,8 +695,12 @@ class PlayermoderationApi(object):
             ['application/json'])  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        content_types_list = local_var_params.get('_content_type',
+            self.api_client.select_header_content_type(
+                ['application/json'],
+                'POST', body_params))  # noqa: E501
+        if content_types_list:
+                header_params['Content-Type'] = content_types_list
 
         # Authentication setting
         auth_settings = ['apiKeyCookie', 'authCookie']  # noqa: E501
@@ -769,6 +786,7 @@ class PlayermoderationApi(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
@@ -786,7 +804,9 @@ class PlayermoderationApi(object):
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
@@ -805,7 +825,7 @@ class PlayermoderationApi(object):
 
         query_params = []
 
-        header_params = {}
+        header_params = dict(local_var_params.get('_headers', {}))
 
         form_params = []
         local_var_files = {}
@@ -818,8 +838,12 @@ class PlayermoderationApi(object):
             ['application/json'])  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        content_types_list = local_var_params.get('_content_type',
+            self.api_client.select_header_content_type(
+                ['application/json'],
+                'PUT', body_params))  # noqa: E501
+        if content_types_list:
+                header_params['Content-Type'] = content_types_list
 
         # Authentication setting
         auth_settings = ['apiKeyCookie', 'authCookie']  # noqa: E501

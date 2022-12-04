@@ -1,6 +1,7 @@
 # World
 
 
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
@@ -26,7 +27,7 @@ Name | Type | Description | Notes
 **public_occupants** | **int** | Will always be &#x60;0&#x60; when unauthenticated. | [optional] [default to 0]
 **publication_date** | **str** |  | 
 **release_status** | [**ReleaseStatus**](ReleaseStatus.md) |  | 
-**tags** | **list[str]** |  | 
+**tags** | **list[str]** |   | 
 **thumbnail_image_url** | **str** |  | 
 **unity_packages** | [**list[UnityPackage]**](UnityPackage.md) | Empty if unauthenticated. | 
 **updated_at** | **datetime** |  | 

@@ -103,6 +103,7 @@ class InviteApi(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
@@ -122,7 +123,9 @@ class InviteApi(object):
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
@@ -135,16 +138,13 @@ class InviteApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'user_id' is set
-        if self.api_client.client_side_validation and ('user_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['user_id'] is None):  # noqa: E501
+        if self.api_client.client_side_validation and local_var_params.get('user_id') is None:  # noqa: E501
             raise ApiValueError("Missing the required parameter `user_id` when calling `get_invite_message`")  # noqa: E501
         # verify the required parameter 'message_type' is set
-        if self.api_client.client_side_validation and ('message_type' not in local_var_params or  # noqa: E501
-                                                        local_var_params['message_type'] is None):  # noqa: E501
+        if self.api_client.client_side_validation and local_var_params.get('message_type') is None:  # noqa: E501
             raise ApiValueError("Missing the required parameter `message_type` when calling `get_invite_message`")  # noqa: E501
         # verify the required parameter 'slot' is set
-        if self.api_client.client_side_validation and ('slot' not in local_var_params or  # noqa: E501
-                                                        local_var_params['slot'] is None):  # noqa: E501
+        if self.api_client.client_side_validation and local_var_params.get('slot') is None:  # noqa: E501
             raise ApiValueError("Missing the required parameter `slot` when calling `get_invite_message`")  # noqa: E501
 
         if self.api_client.client_side_validation and 'slot' in local_var_params and local_var_params['slot'] > 11:  # noqa: E501
@@ -163,7 +163,7 @@ class InviteApi(object):
 
         query_params = []
 
-        header_params = {}
+        header_params = dict(local_var_params.get('_headers', {}))
 
         form_params = []
         local_var_files = {}
@@ -263,6 +263,7 @@ class InviteApi(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
@@ -281,7 +282,9 @@ class InviteApi(object):
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
@@ -294,12 +297,10 @@ class InviteApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'user_id' is set
-        if self.api_client.client_side_validation and ('user_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['user_id'] is None):  # noqa: E501
+        if self.api_client.client_side_validation and local_var_params.get('user_id') is None:  # noqa: E501
             raise ApiValueError("Missing the required parameter `user_id` when calling `get_invite_messages`")  # noqa: E501
         # verify the required parameter 'message_type' is set
-        if self.api_client.client_side_validation and ('message_type' not in local_var_params or  # noqa: E501
-                                                        local_var_params['message_type'] is None):  # noqa: E501
+        if self.api_client.client_side_validation and local_var_params.get('message_type') is None:  # noqa: E501
             raise ApiValueError("Missing the required parameter `message_type` when calling `get_invite_messages`")  # noqa: E501
 
         collection_formats = {}
@@ -312,7 +313,7 @@ class InviteApi(object):
 
         query_params = []
 
-        header_params = {}
+        header_params = dict(local_var_params.get('_headers', {}))
 
         form_params = []
         local_var_files = {}
@@ -411,6 +412,7 @@ class InviteApi(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
@@ -429,7 +431,9 @@ class InviteApi(object):
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
@@ -442,12 +446,10 @@ class InviteApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'world_id' is set
-        if self.api_client.client_side_validation and ('world_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['world_id'] is None):  # noqa: E501
+        if self.api_client.client_side_validation and local_var_params.get('world_id') is None:  # noqa: E501
             raise ApiValueError("Missing the required parameter `world_id` when calling `invite_myself_to`")  # noqa: E501
         # verify the required parameter 'instance_id' is set
-        if self.api_client.client_side_validation and ('instance_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['instance_id'] is None):  # noqa: E501
+        if self.api_client.client_side_validation and local_var_params.get('instance_id') is None:  # noqa: E501
             raise ApiValueError("Missing the required parameter `instance_id` when calling `invite_myself_to`")  # noqa: E501
 
         collection_formats = {}
@@ -460,7 +462,7 @@ class InviteApi(object):
 
         query_params = []
 
-        header_params = {}
+        header_params = dict(local_var_params.get('_headers', {}))
 
         form_params = []
         local_var_files = {}
@@ -559,6 +561,7 @@ class InviteApi(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
@@ -577,7 +580,9 @@ class InviteApi(object):
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
@@ -590,8 +595,7 @@ class InviteApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'user_id' is set
-        if self.api_client.client_side_validation and ('user_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['user_id'] is None):  # noqa: E501
+        if self.api_client.client_side_validation and local_var_params.get('user_id') is None:  # noqa: E501
             raise ApiValueError("Missing the required parameter `user_id` when calling `invite_user`")  # noqa: E501
 
         collection_formats = {}
@@ -602,7 +606,7 @@ class InviteApi(object):
 
         query_params = []
 
-        header_params = {}
+        header_params = dict(local_var_params.get('_headers', {}))
 
         form_params = []
         local_var_files = {}
@@ -615,8 +619,12 @@ class InviteApi(object):
             ['application/json'])  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        content_types_list = local_var_params.get('_content_type',
+            self.api_client.select_header_content_type(
+                ['application/json'],
+                'POST', body_params))  # noqa: E501
+        if content_types_list:
+                header_params['Content-Type'] = content_types_list
 
         # Authentication setting
         auth_settings = ['apiKeyCookie', 'authCookie']  # noqa: E501
@@ -706,6 +714,7 @@ class InviteApi(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
@@ -724,7 +733,9 @@ class InviteApi(object):
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
@@ -737,8 +748,7 @@ class InviteApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'user_id' is set
-        if self.api_client.client_side_validation and ('user_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['user_id'] is None):  # noqa: E501
+        if self.api_client.client_side_validation and local_var_params.get('user_id') is None:  # noqa: E501
             raise ApiValueError("Missing the required parameter `user_id` when calling `request_invite`")  # noqa: E501
 
         collection_formats = {}
@@ -749,7 +759,7 @@ class InviteApi(object):
 
         query_params = []
 
-        header_params = {}
+        header_params = dict(local_var_params.get('_headers', {}))
 
         form_params = []
         local_var_files = {}
@@ -762,8 +772,12 @@ class InviteApi(object):
             ['application/json'])  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        content_types_list = local_var_params.get('_content_type',
+            self.api_client.select_header_content_type(
+                ['application/json'],
+                'POST', body_params))  # noqa: E501
+        if content_types_list:
+                header_params['Content-Type'] = content_types_list
 
         # Authentication setting
         auth_settings = ['apiKeyCookie', 'authCookie']  # noqa: E501
@@ -857,6 +871,7 @@ class InviteApi(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
@@ -876,7 +891,9 @@ class InviteApi(object):
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
@@ -889,16 +906,13 @@ class InviteApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'user_id' is set
-        if self.api_client.client_side_validation and ('user_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['user_id'] is None):  # noqa: E501
+        if self.api_client.client_side_validation and local_var_params.get('user_id') is None:  # noqa: E501
             raise ApiValueError("Missing the required parameter `user_id` when calling `reset_invite_message`")  # noqa: E501
         # verify the required parameter 'message_type' is set
-        if self.api_client.client_side_validation and ('message_type' not in local_var_params or  # noqa: E501
-                                                        local_var_params['message_type'] is None):  # noqa: E501
+        if self.api_client.client_side_validation and local_var_params.get('message_type') is None:  # noqa: E501
             raise ApiValueError("Missing the required parameter `message_type` when calling `reset_invite_message`")  # noqa: E501
         # verify the required parameter 'slot' is set
-        if self.api_client.client_side_validation and ('slot' not in local_var_params or  # noqa: E501
-                                                        local_var_params['slot'] is None):  # noqa: E501
+        if self.api_client.client_side_validation and local_var_params.get('slot') is None:  # noqa: E501
             raise ApiValueError("Missing the required parameter `slot` when calling `reset_invite_message`")  # noqa: E501
 
         if self.api_client.client_side_validation and 'slot' in local_var_params and local_var_params['slot'] > 11:  # noqa: E501
@@ -917,7 +931,7 @@ class InviteApi(object):
 
         query_params = []
 
-        header_params = {}
+        header_params = dict(local_var_params.get('_headers', {}))
 
         form_params = []
         local_var_files = {}
@@ -1018,6 +1032,7 @@ class InviteApi(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
@@ -1036,7 +1051,9 @@ class InviteApi(object):
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
@@ -1049,8 +1066,7 @@ class InviteApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'notification_id' is set
-        if self.api_client.client_side_validation and ('notification_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['notification_id'] is None):  # noqa: E501
+        if self.api_client.client_side_validation and local_var_params.get('notification_id') is None:  # noqa: E501
             raise ApiValueError("Missing the required parameter `notification_id` when calling `respond_invite`")  # noqa: E501
 
         collection_formats = {}
@@ -1061,7 +1077,7 @@ class InviteApi(object):
 
         query_params = []
 
-        header_params = {}
+        header_params = dict(local_var_params.get('_headers', {}))
 
         form_params = []
         local_var_files = {}
@@ -1074,8 +1090,12 @@ class InviteApi(object):
             ['application/json'])  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        content_types_list = local_var_params.get('_content_type',
+            self.api_client.select_header_content_type(
+                ['application/json'],
+                'POST', body_params))  # noqa: E501
+        if content_types_list:
+                header_params['Content-Type'] = content_types_list
 
         # Authentication setting
         auth_settings = ['apiKeyCookie', 'authCookie']  # noqa: E501
@@ -1173,6 +1193,7 @@ class InviteApi(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
@@ -1193,7 +1214,9 @@ class InviteApi(object):
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
@@ -1206,16 +1229,13 @@ class InviteApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'user_id' is set
-        if self.api_client.client_side_validation and ('user_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['user_id'] is None):  # noqa: E501
+        if self.api_client.client_side_validation and local_var_params.get('user_id') is None:  # noqa: E501
             raise ApiValueError("Missing the required parameter `user_id` when calling `update_invite_message`")  # noqa: E501
         # verify the required parameter 'message_type' is set
-        if self.api_client.client_side_validation and ('message_type' not in local_var_params or  # noqa: E501
-                                                        local_var_params['message_type'] is None):  # noqa: E501
+        if self.api_client.client_side_validation and local_var_params.get('message_type') is None:  # noqa: E501
             raise ApiValueError("Missing the required parameter `message_type` when calling `update_invite_message`")  # noqa: E501
         # verify the required parameter 'slot' is set
-        if self.api_client.client_side_validation and ('slot' not in local_var_params or  # noqa: E501
-                                                        local_var_params['slot'] is None):  # noqa: E501
+        if self.api_client.client_side_validation and local_var_params.get('slot') is None:  # noqa: E501
             raise ApiValueError("Missing the required parameter `slot` when calling `update_invite_message`")  # noqa: E501
 
         if self.api_client.client_side_validation and 'slot' in local_var_params and local_var_params['slot'] > 11:  # noqa: E501
@@ -1234,7 +1254,7 @@ class InviteApi(object):
 
         query_params = []
 
-        header_params = {}
+        header_params = dict(local_var_params.get('_headers', {}))
 
         form_params = []
         local_var_files = {}
@@ -1247,8 +1267,12 @@ class InviteApi(object):
             ['application/json'])  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        content_types_list = local_var_params.get('_content_type',
+            self.api_client.select_header_content_type(
+                ['application/json'],
+                'PUT', body_params))  # noqa: E501
+        if content_types_list:
+                header_params['Content-Type'] = content_types_list
 
         # Authentication setting
         auth_settings = ['apiKeyCookie', 'authCookie']  # noqa: E501

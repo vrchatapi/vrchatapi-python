@@ -61,7 +61,7 @@ class UpdateGroupRequest(object):
         'tags': 'tags'
     }
 
-    def __init__(self, name=None, short_code=None, description=None, join_state=None, icon_id='null', banner_id='null', languages=None, links=None, rules=None, tags=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, name=None, short_code=None, description=None, join_state=None, icon_id=None, banner_id=None, languages=None, links=None, rules=None, tags=None, local_vars_configuration=None):  # noqa: E501
         """UpdateGroupRequest - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration.get_default_copy()
@@ -317,6 +317,7 @@ class UpdateGroupRequest(object):
     def tags(self):
         """Gets the tags of this UpdateGroupRequest.  # noqa: E501
 
+           # noqa: E501
 
         :return: The tags of this UpdateGroupRequest.  # noqa: E501
         :rtype: list[str]
@@ -327,6 +328,7 @@ class UpdateGroupRequest(object):
     def tags(self, tags):
         """Sets the tags of this UpdateGroupRequest.
 
+           # noqa: E501
 
         :param tags: The tags of this UpdateGroupRequest.  # noqa: E501
         :type tags: list[str]

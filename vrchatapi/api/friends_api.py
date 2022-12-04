@@ -95,6 +95,7 @@ class FriendsApi(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
@@ -112,7 +113,9 @@ class FriendsApi(object):
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
@@ -125,8 +128,7 @@ class FriendsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'user_id' is set
-        if self.api_client.client_side_validation and ('user_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['user_id'] is None):  # noqa: E501
+        if self.api_client.client_side_validation and local_var_params.get('user_id') is None:  # noqa: E501
             raise ApiValueError("Missing the required parameter `user_id` when calling `delete_friend_request`")  # noqa: E501
 
         collection_formats = {}
@@ -137,7 +139,7 @@ class FriendsApi(object):
 
         query_params = []
 
-        header_params = {}
+        header_params = dict(local_var_params.get('_headers', {}))
 
         form_params = []
         local_var_files = {}
@@ -232,6 +234,7 @@ class FriendsApi(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
@@ -249,7 +252,9 @@ class FriendsApi(object):
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
@@ -262,8 +267,7 @@ class FriendsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'user_id' is set
-        if self.api_client.client_side_validation and ('user_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['user_id'] is None):  # noqa: E501
+        if self.api_client.client_side_validation and local_var_params.get('user_id') is None:  # noqa: E501
             raise ApiValueError("Missing the required parameter `user_id` when calling `friend`")  # noqa: E501
 
         collection_formats = {}
@@ -274,7 +278,7 @@ class FriendsApi(object):
 
         query_params = []
 
-        header_params = {}
+        header_params = dict(local_var_params.get('_headers', {}))
 
         form_params = []
         local_var_files = {}
@@ -369,6 +373,7 @@ class FriendsApi(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
@@ -386,7 +391,9 @@ class FriendsApi(object):
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
@@ -399,8 +406,7 @@ class FriendsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'user_id' is set
-        if self.api_client.client_side_validation and ('user_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['user_id'] is None):  # noqa: E501
+        if self.api_client.client_side_validation and local_var_params.get('user_id') is None:  # noqa: E501
             raise ApiValueError("Missing the required parameter `user_id` when calling `get_friend_status`")  # noqa: E501
 
         collection_formats = {}
@@ -411,7 +417,7 @@ class FriendsApi(object):
 
         query_params = []
 
-        header_params = {}
+        header_params = dict(local_var_params.get('_headers', {}))
 
         form_params = []
         local_var_files = {}
@@ -513,6 +519,7 @@ class FriendsApi(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
@@ -532,7 +539,9 @@ class FriendsApi(object):
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
@@ -556,14 +565,14 @@ class FriendsApi(object):
         path_params = {}
 
         query_params = []
-        if 'offset' in local_var_params and local_var_params['offset'] is not None:  # noqa: E501
+        if local_var_params.get('offset') is not None:  # noqa: E501
             query_params.append(('offset', local_var_params['offset']))  # noqa: E501
-        if 'n' in local_var_params and local_var_params['n'] is not None:  # noqa: E501
+        if local_var_params.get('n') is not None:  # noqa: E501
             query_params.append(('n', local_var_params['n']))  # noqa: E501
-        if 'offline' in local_var_params and local_var_params['offline'] is not None:  # noqa: E501
+        if local_var_params.get('offline') is not None:  # noqa: E501
             query_params.append(('offline', local_var_params['offline']))  # noqa: E501
 
-        header_params = {}
+        header_params = dict(local_var_params.get('_headers', {}))
 
         form_params = []
         local_var_files = {}
@@ -657,6 +666,7 @@ class FriendsApi(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
@@ -674,7 +684,9 @@ class FriendsApi(object):
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
@@ -687,8 +699,7 @@ class FriendsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'user_id' is set
-        if self.api_client.client_side_validation and ('user_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['user_id'] is None):  # noqa: E501
+        if self.api_client.client_side_validation and local_var_params.get('user_id') is None:  # noqa: E501
             raise ApiValueError("Missing the required parameter `user_id` when calling `unfriend`")  # noqa: E501
 
         collection_formats = {}
@@ -699,7 +710,7 @@ class FriendsApi(object):
 
         query_params = []
 
-        header_params = {}
+        header_params = dict(local_var_params.get('_headers', {}))
 
         form_params = []
         local_var_files = {}

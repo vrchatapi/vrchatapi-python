@@ -46,7 +46,7 @@ class WorldsApi(object):
         >>> thread = api.create_world(async_req=True)
         >>> result = thread.get()
 
-        :param create_world_request:
+        :param create_world_request: 
         :type create_world_request: CreateWorldRequest
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
@@ -76,7 +76,7 @@ class WorldsApi(object):
         >>> thread = api.create_world_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param create_world_request:
+        :param create_world_request: 
         :type create_world_request: CreateWorldRequest
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
@@ -95,6 +95,7 @@ class WorldsApi(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
@@ -112,7 +113,9 @@ class WorldsApi(object):
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
@@ -131,7 +134,7 @@ class WorldsApi(object):
 
         query_params = []
 
-        header_params = {}
+        header_params = dict(local_var_params.get('_headers', {}))
 
         form_params = []
         local_var_files = {}
@@ -144,8 +147,12 @@ class WorldsApi(object):
             ['application/json'])  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        content_types_list = local_var_params.get('_content_type',
+            self.api_client.select_header_content_type(
+                ['application/json'],
+                'POST', body_params))  # noqa: E501
+        if content_types_list:
+                header_params['Content-Type'] = content_types_list
 
         # Authentication setting
         auth_settings = []  # noqa: E501
@@ -232,6 +239,7 @@ class WorldsApi(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
@@ -249,7 +257,9 @@ class WorldsApi(object):
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
@@ -262,8 +272,7 @@ class WorldsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'world_id' is set
-        if self.api_client.client_side_validation and ('world_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['world_id'] is None):  # noqa: E501
+        if self.api_client.client_side_validation and local_var_params.get('world_id') is None:  # noqa: E501
             raise ApiValueError("Missing the required parameter `world_id` when calling `delete_world`")  # noqa: E501
 
         collection_formats = {}
@@ -274,7 +283,7 @@ class WorldsApi(object):
 
         query_params = []
 
-        header_params = {}
+        header_params = dict(local_var_params.get('_headers', {}))
 
         form_params = []
         local_var_files = {}
@@ -409,6 +418,7 @@ class WorldsApi(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
@@ -437,7 +447,9 @@ class WorldsApi(object):
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
@@ -461,32 +473,32 @@ class WorldsApi(object):
         path_params = {}
 
         query_params = []
-        if 'featured' in local_var_params and local_var_params['featured'] is not None:  # noqa: E501
+        if local_var_params.get('featured') is not None:  # noqa: E501
             query_params.append(('featured', local_var_params['featured']))  # noqa: E501
-        if 'sort' in local_var_params and local_var_params['sort'] is not None:  # noqa: E501
+        if local_var_params.get('sort') is not None:  # noqa: E501
             query_params.append(('sort', local_var_params['sort']))  # noqa: E501
-        if 'n' in local_var_params and local_var_params['n'] is not None:  # noqa: E501
+        if local_var_params.get('n') is not None:  # noqa: E501
             query_params.append(('n', local_var_params['n']))  # noqa: E501
-        if 'order' in local_var_params and local_var_params['order'] is not None:  # noqa: E501
+        if local_var_params.get('order') is not None:  # noqa: E501
             query_params.append(('order', local_var_params['order']))  # noqa: E501
-        if 'offset' in local_var_params and local_var_params['offset'] is not None:  # noqa: E501
+        if local_var_params.get('offset') is not None:  # noqa: E501
             query_params.append(('offset', local_var_params['offset']))  # noqa: E501
-        if 'search' in local_var_params and local_var_params['search'] is not None:  # noqa: E501
+        if local_var_params.get('search') is not None:  # noqa: E501
             query_params.append(('search', local_var_params['search']))  # noqa: E501
-        if 'tag' in local_var_params and local_var_params['tag'] is not None:  # noqa: E501
+        if local_var_params.get('tag') is not None:  # noqa: E501
             query_params.append(('tag', local_var_params['tag']))  # noqa: E501
-        if 'notag' in local_var_params and local_var_params['notag'] is not None:  # noqa: E501
+        if local_var_params.get('notag') is not None:  # noqa: E501
             query_params.append(('notag', local_var_params['notag']))  # noqa: E501
-        if 'release_status' in local_var_params and local_var_params['release_status'] is not None:  # noqa: E501
+        if local_var_params.get('release_status') is not None:  # noqa: E501
             query_params.append(('releaseStatus', local_var_params['release_status']))  # noqa: E501
-        if 'max_unity_version' in local_var_params and local_var_params['max_unity_version'] is not None:  # noqa: E501
+        if local_var_params.get('max_unity_version') is not None:  # noqa: E501
             query_params.append(('maxUnityVersion', local_var_params['max_unity_version']))  # noqa: E501
-        if 'min_unity_version' in local_var_params and local_var_params['min_unity_version'] is not None:  # noqa: E501
+        if local_var_params.get('min_unity_version') is not None:  # noqa: E501
             query_params.append(('minUnityVersion', local_var_params['min_unity_version']))  # noqa: E501
-        if 'platform' in local_var_params and local_var_params['platform'] is not None:  # noqa: E501
+        if local_var_params.get('platform') is not None:  # noqa: E501
             query_params.append(('platform', local_var_params['platform']))  # noqa: E501
 
-        header_params = {}
+        header_params = dict(local_var_params.get('_headers', {}))
 
         form_params = []
         local_var_files = {}
@@ -628,6 +640,7 @@ class WorldsApi(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
@@ -657,7 +670,9 @@ class WorldsApi(object):
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
@@ -681,34 +696,34 @@ class WorldsApi(object):
         path_params = {}
 
         query_params = []
-        if 'featured' in local_var_params and local_var_params['featured'] is not None:  # noqa: E501
+        if local_var_params.get('featured') is not None:  # noqa: E501
             query_params.append(('featured', local_var_params['featured']))  # noqa: E501
-        if 'sort' in local_var_params and local_var_params['sort'] is not None:  # noqa: E501
+        if local_var_params.get('sort') is not None:  # noqa: E501
             query_params.append(('sort', local_var_params['sort']))  # noqa: E501
-        if 'n' in local_var_params and local_var_params['n'] is not None:  # noqa: E501
+        if local_var_params.get('n') is not None:  # noqa: E501
             query_params.append(('n', local_var_params['n']))  # noqa: E501
-        if 'order' in local_var_params and local_var_params['order'] is not None:  # noqa: E501
+        if local_var_params.get('order') is not None:  # noqa: E501
             query_params.append(('order', local_var_params['order']))  # noqa: E501
-        if 'offset' in local_var_params and local_var_params['offset'] is not None:  # noqa: E501
+        if local_var_params.get('offset') is not None:  # noqa: E501
             query_params.append(('offset', local_var_params['offset']))  # noqa: E501
-        if 'search' in local_var_params and local_var_params['search'] is not None:  # noqa: E501
+        if local_var_params.get('search') is not None:  # noqa: E501
             query_params.append(('search', local_var_params['search']))  # noqa: E501
-        if 'tag' in local_var_params and local_var_params['tag'] is not None:  # noqa: E501
+        if local_var_params.get('tag') is not None:  # noqa: E501
             query_params.append(('tag', local_var_params['tag']))  # noqa: E501
-        if 'notag' in local_var_params and local_var_params['notag'] is not None:  # noqa: E501
+        if local_var_params.get('notag') is not None:  # noqa: E501
             query_params.append(('notag', local_var_params['notag']))  # noqa: E501
-        if 'release_status' in local_var_params and local_var_params['release_status'] is not None:  # noqa: E501
+        if local_var_params.get('release_status') is not None:  # noqa: E501
             query_params.append(('releaseStatus', local_var_params['release_status']))  # noqa: E501
-        if 'max_unity_version' in local_var_params and local_var_params['max_unity_version'] is not None:  # noqa: E501
+        if local_var_params.get('max_unity_version') is not None:  # noqa: E501
             query_params.append(('maxUnityVersion', local_var_params['max_unity_version']))  # noqa: E501
-        if 'min_unity_version' in local_var_params and local_var_params['min_unity_version'] is not None:  # noqa: E501
+        if local_var_params.get('min_unity_version') is not None:  # noqa: E501
             query_params.append(('minUnityVersion', local_var_params['min_unity_version']))  # noqa: E501
-        if 'platform' in local_var_params and local_var_params['platform'] is not None:  # noqa: E501
+        if local_var_params.get('platform') is not None:  # noqa: E501
             query_params.append(('platform', local_var_params['platform']))  # noqa: E501
-        if 'user_id' in local_var_params and local_var_params['user_id'] is not None:  # noqa: E501
+        if local_var_params.get('user_id') is not None:  # noqa: E501
             query_params.append(('userId', local_var_params['user_id']))  # noqa: E501
 
-        header_params = {}
+        header_params = dict(local_var_params.get('_headers', {}))
 
         form_params = []
         local_var_files = {}
@@ -851,6 +866,7 @@ class WorldsApi(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
@@ -880,7 +896,9 @@ class WorldsApi(object):
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
@@ -904,34 +922,34 @@ class WorldsApi(object):
         path_params = {}
 
         query_params = []
-        if 'featured' in local_var_params and local_var_params['featured'] is not None:  # noqa: E501
+        if local_var_params.get('featured') is not None:  # noqa: E501
             query_params.append(('featured', local_var_params['featured']))  # noqa: E501
-        if 'sort' in local_var_params and local_var_params['sort'] is not None:  # noqa: E501
+        if local_var_params.get('sort') is not None:  # noqa: E501
             query_params.append(('sort', local_var_params['sort']))  # noqa: E501
-        if 'n' in local_var_params and local_var_params['n'] is not None:  # noqa: E501
+        if local_var_params.get('n') is not None:  # noqa: E501
             query_params.append(('n', local_var_params['n']))  # noqa: E501
-        if 'order' in local_var_params and local_var_params['order'] is not None:  # noqa: E501
+        if local_var_params.get('order') is not None:  # noqa: E501
             query_params.append(('order', local_var_params['order']))  # noqa: E501
-        if 'offset' in local_var_params and local_var_params['offset'] is not None:  # noqa: E501
+        if local_var_params.get('offset') is not None:  # noqa: E501
             query_params.append(('offset', local_var_params['offset']))  # noqa: E501
-        if 'search' in local_var_params and local_var_params['search'] is not None:  # noqa: E501
+        if local_var_params.get('search') is not None:  # noqa: E501
             query_params.append(('search', local_var_params['search']))  # noqa: E501
-        if 'tag' in local_var_params and local_var_params['tag'] is not None:  # noqa: E501
+        if local_var_params.get('tag') is not None:  # noqa: E501
             query_params.append(('tag', local_var_params['tag']))  # noqa: E501
-        if 'notag' in local_var_params and local_var_params['notag'] is not None:  # noqa: E501
+        if local_var_params.get('notag') is not None:  # noqa: E501
             query_params.append(('notag', local_var_params['notag']))  # noqa: E501
-        if 'release_status' in local_var_params and local_var_params['release_status'] is not None:  # noqa: E501
+        if local_var_params.get('release_status') is not None:  # noqa: E501
             query_params.append(('releaseStatus', local_var_params['release_status']))  # noqa: E501
-        if 'max_unity_version' in local_var_params and local_var_params['max_unity_version'] is not None:  # noqa: E501
+        if local_var_params.get('max_unity_version') is not None:  # noqa: E501
             query_params.append(('maxUnityVersion', local_var_params['max_unity_version']))  # noqa: E501
-        if 'min_unity_version' in local_var_params and local_var_params['min_unity_version'] is not None:  # noqa: E501
+        if local_var_params.get('min_unity_version') is not None:  # noqa: E501
             query_params.append(('minUnityVersion', local_var_params['min_unity_version']))  # noqa: E501
-        if 'platform' in local_var_params and local_var_params['platform'] is not None:  # noqa: E501
+        if local_var_params.get('platform') is not None:  # noqa: E501
             query_params.append(('platform', local_var_params['platform']))  # noqa: E501
-        if 'user_id' in local_var_params and local_var_params['user_id'] is not None:  # noqa: E501
+        if local_var_params.get('user_id') is not None:  # noqa: E501
             query_params.append(('userId', local_var_params['user_id']))  # noqa: E501
 
-        header_params = {}
+        header_params = dict(local_var_params.get('_headers', {}))
 
         form_params = []
         local_var_files = {}
@@ -1026,6 +1044,7 @@ class WorldsApi(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
@@ -1043,7 +1062,9 @@ class WorldsApi(object):
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
@@ -1056,8 +1077,7 @@ class WorldsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'world_id' is set
-        if self.api_client.client_side_validation and ('world_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['world_id'] is None):  # noqa: E501
+        if self.api_client.client_side_validation and local_var_params.get('world_id') is None:  # noqa: E501
             raise ApiValueError("Missing the required parameter `world_id` when calling `get_world`")  # noqa: E501
 
         collection_formats = {}
@@ -1068,7 +1088,7 @@ class WorldsApi(object):
 
         query_params = []
 
-        header_params = {}
+        header_params = dict(local_var_params.get('_headers', {}))
 
         form_params = []
         local_var_files = {}
@@ -1166,6 +1186,7 @@ class WorldsApi(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
@@ -1184,7 +1205,9 @@ class WorldsApi(object):
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
@@ -1197,12 +1220,10 @@ class WorldsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'world_id' is set
-        if self.api_client.client_side_validation and ('world_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['world_id'] is None):  # noqa: E501
+        if self.api_client.client_side_validation and local_var_params.get('world_id') is None:  # noqa: E501
             raise ApiValueError("Missing the required parameter `world_id` when calling `get_world_instance`")  # noqa: E501
         # verify the required parameter 'instance_id' is set
-        if self.api_client.client_side_validation and ('instance_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['instance_id'] is None):  # noqa: E501
+        if self.api_client.client_side_validation and local_var_params.get('instance_id') is None:  # noqa: E501
             raise ApiValueError("Missing the required parameter `instance_id` when calling `get_world_instance`")  # noqa: E501
 
         collection_formats = {}
@@ -1215,7 +1236,7 @@ class WorldsApi(object):
 
         query_params = []
 
-        header_params = {}
+        header_params = dict(local_var_params.get('_headers', {}))
 
         form_params = []
         local_var_files = {}
@@ -1309,6 +1330,7 @@ class WorldsApi(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
@@ -1326,7 +1348,9 @@ class WorldsApi(object):
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
@@ -1339,8 +1363,7 @@ class WorldsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'world_id' is set
-        if self.api_client.client_side_validation and ('world_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['world_id'] is None):  # noqa: E501
+        if self.api_client.client_side_validation and local_var_params.get('world_id') is None:  # noqa: E501
             raise ApiValueError("Missing the required parameter `world_id` when calling `get_world_metadata`")  # noqa: E501
 
         collection_formats = {}
@@ -1351,7 +1374,7 @@ class WorldsApi(object):
 
         query_params = []
 
-        header_params = {}
+        header_params = dict(local_var_params.get('_headers', {}))
 
         form_params = []
         local_var_files = {}
@@ -1445,6 +1468,7 @@ class WorldsApi(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
@@ -1462,7 +1486,9 @@ class WorldsApi(object):
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
@@ -1475,8 +1501,7 @@ class WorldsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'world_id' is set
-        if self.api_client.client_side_validation and ('world_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['world_id'] is None):  # noqa: E501
+        if self.api_client.client_side_validation and local_var_params.get('world_id') is None:  # noqa: E501
             raise ApiValueError("Missing the required parameter `world_id` when calling `get_world_publish_status`")  # noqa: E501
 
         collection_formats = {}
@@ -1487,7 +1512,7 @@ class WorldsApi(object):
 
         query_params = []
 
-        header_params = {}
+        header_params = dict(local_var_params.get('_headers', {}))
 
         form_params = []
         local_var_files = {}
@@ -1582,6 +1607,7 @@ class WorldsApi(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
@@ -1599,7 +1625,9 @@ class WorldsApi(object):
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
@@ -1612,8 +1640,7 @@ class WorldsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'world_id' is set
-        if self.api_client.client_side_validation and ('world_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['world_id'] is None):  # noqa: E501
+        if self.api_client.client_side_validation and local_var_params.get('world_id') is None:  # noqa: E501
             raise ApiValueError("Missing the required parameter `world_id` when calling `publish_world`")  # noqa: E501
 
         collection_formats = {}
@@ -1624,7 +1651,7 @@ class WorldsApi(object):
 
         query_params = []
 
-        header_params = {}
+        header_params = dict(local_var_params.get('_headers', {}))
 
         form_params = []
         local_var_files = {}
@@ -1767,6 +1794,7 @@ class WorldsApi(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
@@ -1797,7 +1825,9 @@ class WorldsApi(object):
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
@@ -1821,36 +1851,36 @@ class WorldsApi(object):
         path_params = {}
 
         query_params = []
-        if 'featured' in local_var_params and local_var_params['featured'] is not None:  # noqa: E501
+        if local_var_params.get('featured') is not None:  # noqa: E501
             query_params.append(('featured', local_var_params['featured']))  # noqa: E501
-        if 'sort' in local_var_params and local_var_params['sort'] is not None:  # noqa: E501
+        if local_var_params.get('sort') is not None:  # noqa: E501
             query_params.append(('sort', local_var_params['sort']))  # noqa: E501
-        if 'user' in local_var_params and local_var_params['user'] is not None:  # noqa: E501
+        if local_var_params.get('user') is not None:  # noqa: E501
             query_params.append(('user', local_var_params['user']))  # noqa: E501
-        if 'user_id' in local_var_params and local_var_params['user_id'] is not None:  # noqa: E501
+        if local_var_params.get('user_id') is not None:  # noqa: E501
             query_params.append(('userId', local_var_params['user_id']))  # noqa: E501
-        if 'n' in local_var_params and local_var_params['n'] is not None:  # noqa: E501
+        if local_var_params.get('n') is not None:  # noqa: E501
             query_params.append(('n', local_var_params['n']))  # noqa: E501
-        if 'order' in local_var_params and local_var_params['order'] is not None:  # noqa: E501
+        if local_var_params.get('order') is not None:  # noqa: E501
             query_params.append(('order', local_var_params['order']))  # noqa: E501
-        if 'offset' in local_var_params and local_var_params['offset'] is not None:  # noqa: E501
+        if local_var_params.get('offset') is not None:  # noqa: E501
             query_params.append(('offset', local_var_params['offset']))  # noqa: E501
-        if 'search' in local_var_params and local_var_params['search'] is not None:  # noqa: E501
+        if local_var_params.get('search') is not None:  # noqa: E501
             query_params.append(('search', local_var_params['search']))  # noqa: E501
-        if 'tag' in local_var_params and local_var_params['tag'] is not None:  # noqa: E501
+        if local_var_params.get('tag') is not None:  # noqa: E501
             query_params.append(('tag', local_var_params['tag']))  # noqa: E501
-        if 'notag' in local_var_params and local_var_params['notag'] is not None:  # noqa: E501
+        if local_var_params.get('notag') is not None:  # noqa: E501
             query_params.append(('notag', local_var_params['notag']))  # noqa: E501
-        if 'release_status' in local_var_params and local_var_params['release_status'] is not None:  # noqa: E501
+        if local_var_params.get('release_status') is not None:  # noqa: E501
             query_params.append(('releaseStatus', local_var_params['release_status']))  # noqa: E501
-        if 'max_unity_version' in local_var_params and local_var_params['max_unity_version'] is not None:  # noqa: E501
+        if local_var_params.get('max_unity_version') is not None:  # noqa: E501
             query_params.append(('maxUnityVersion', local_var_params['max_unity_version']))  # noqa: E501
-        if 'min_unity_version' in local_var_params and local_var_params['min_unity_version'] is not None:  # noqa: E501
+        if local_var_params.get('min_unity_version') is not None:  # noqa: E501
             query_params.append(('minUnityVersion', local_var_params['min_unity_version']))  # noqa: E501
-        if 'platform' in local_var_params and local_var_params['platform'] is not None:  # noqa: E501
+        if local_var_params.get('platform') is not None:  # noqa: E501
             query_params.append(('platform', local_var_params['platform']))  # noqa: E501
 
-        header_params = {}
+        header_params = dict(local_var_params.get('_headers', {}))
 
         form_params = []
         local_var_files = {}
@@ -1944,6 +1974,7 @@ class WorldsApi(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
@@ -1961,7 +1992,9 @@ class WorldsApi(object):
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
@@ -1974,8 +2007,7 @@ class WorldsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'world_id' is set
-        if self.api_client.client_side_validation and ('world_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['world_id'] is None):  # noqa: E501
+        if self.api_client.client_side_validation and local_var_params.get('world_id') is None:  # noqa: E501
             raise ApiValueError("Missing the required parameter `world_id` when calling `unpublish_world`")  # noqa: E501
 
         collection_formats = {}
@@ -1986,7 +2018,7 @@ class WorldsApi(object):
 
         query_params = []
 
-        header_params = {}
+        header_params = dict(local_var_params.get('_headers', {}))
 
         form_params = []
         local_var_files = {}
@@ -2081,6 +2113,7 @@ class WorldsApi(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
@@ -2099,7 +2132,9 @@ class WorldsApi(object):
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
@@ -2112,8 +2147,7 @@ class WorldsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'world_id' is set
-        if self.api_client.client_side_validation and ('world_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['world_id'] is None):  # noqa: E501
+        if self.api_client.client_side_validation and local_var_params.get('world_id') is None:  # noqa: E501
             raise ApiValueError("Missing the required parameter `world_id` when calling `update_world`")  # noqa: E501
 
         collection_formats = {}
@@ -2124,7 +2158,7 @@ class WorldsApi(object):
 
         query_params = []
 
-        header_params = {}
+        header_params = dict(local_var_params.get('_headers', {}))
 
         form_params = []
         local_var_files = {}
@@ -2137,8 +2171,12 @@ class WorldsApi(object):
             ['application/json'])  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        content_types_list = local_var_params.get('_content_type',
+            self.api_client.select_header_content_type(
+                ['application/json'],
+                'PUT', body_params))  # noqa: E501
+        if content_types_list:
+                header_params['Content-Type'] = content_types_list
 
         # Authentication setting
         auth_settings = ['apiKeyCookie', 'authCookie']  # noqa: E501

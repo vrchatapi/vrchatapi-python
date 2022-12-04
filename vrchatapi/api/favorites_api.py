@@ -46,7 +46,7 @@ class FavoritesApi(object):
         >>> thread = api.add_favorite(async_req=True)
         >>> result = thread.get()
 
-        :param add_favorite_request:
+        :param add_favorite_request: 
         :type add_favorite_request: AddFavoriteRequest
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
@@ -76,7 +76,7 @@ class FavoritesApi(object):
         >>> thread = api.add_favorite_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param add_favorite_request:
+        :param add_favorite_request: 
         :type add_favorite_request: AddFavoriteRequest
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
@@ -95,6 +95,7 @@ class FavoritesApi(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
@@ -112,7 +113,9 @@ class FavoritesApi(object):
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
@@ -131,7 +134,7 @@ class FavoritesApi(object):
 
         query_params = []
 
-        header_params = {}
+        header_params = dict(local_var_params.get('_headers', {}))
 
         form_params = []
         local_var_files = {}
@@ -144,8 +147,12 @@ class FavoritesApi(object):
             ['application/json'])  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        content_types_list = local_var_params.get('_content_type',
+            self.api_client.select_header_content_type(
+                ['application/json'],
+                'POST', body_params))  # noqa: E501
+        if content_types_list:
+                header_params['Content-Type'] = content_types_list
 
         # Authentication setting
         auth_settings = ['apiKeyCookie', 'authCookie']  # noqa: E501
@@ -240,6 +247,7 @@ class FavoritesApi(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
@@ -259,7 +267,9 @@ class FavoritesApi(object):
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
@@ -272,16 +282,13 @@ class FavoritesApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'favorite_group_type' is set
-        if self.api_client.client_side_validation and ('favorite_group_type' not in local_var_params or  # noqa: E501
-                                                        local_var_params['favorite_group_type'] is None):  # noqa: E501
+        if self.api_client.client_side_validation and local_var_params.get('favorite_group_type') is None:  # noqa: E501
             raise ApiValueError("Missing the required parameter `favorite_group_type` when calling `clear_favorite_group`")  # noqa: E501
         # verify the required parameter 'favorite_group_name' is set
-        if self.api_client.client_side_validation and ('favorite_group_name' not in local_var_params or  # noqa: E501
-                                                        local_var_params['favorite_group_name'] is None):  # noqa: E501
+        if self.api_client.client_side_validation and local_var_params.get('favorite_group_name') is None:  # noqa: E501
             raise ApiValueError("Missing the required parameter `favorite_group_name` when calling `clear_favorite_group`")  # noqa: E501
         # verify the required parameter 'user_id' is set
-        if self.api_client.client_side_validation and ('user_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['user_id'] is None):  # noqa: E501
+        if self.api_client.client_side_validation and local_var_params.get('user_id') is None:  # noqa: E501
             raise ApiValueError("Missing the required parameter `user_id` when calling `clear_favorite_group`")  # noqa: E501
 
         collection_formats = {}
@@ -296,7 +303,7 @@ class FavoritesApi(object):
 
         query_params = []
 
-        header_params = {}
+        header_params = dict(local_var_params.get('_headers', {}))
 
         form_params = []
         local_var_files = {}
@@ -389,6 +396,7 @@ class FavoritesApi(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
@@ -406,7 +414,9 @@ class FavoritesApi(object):
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
@@ -419,8 +429,7 @@ class FavoritesApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'favorite_id' is set
-        if self.api_client.client_side_validation and ('favorite_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['favorite_id'] is None):  # noqa: E501
+        if self.api_client.client_side_validation and local_var_params.get('favorite_id') is None:  # noqa: E501
             raise ApiValueError("Missing the required parameter `favorite_id` when calling `get_favorite`")  # noqa: E501
 
         collection_formats = {}
@@ -431,7 +440,7 @@ class FavoritesApi(object):
 
         query_params = []
 
-        header_params = {}
+        header_params = dict(local_var_params.get('_headers', {}))
 
         form_params = []
         local_var_files = {}
@@ -534,6 +543,7 @@ class FavoritesApi(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
@@ -553,7 +563,9 @@ class FavoritesApi(object):
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
@@ -566,16 +578,13 @@ class FavoritesApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'favorite_group_type' is set
-        if self.api_client.client_side_validation and ('favorite_group_type' not in local_var_params or  # noqa: E501
-                                                        local_var_params['favorite_group_type'] is None):  # noqa: E501
+        if self.api_client.client_side_validation and local_var_params.get('favorite_group_type') is None:  # noqa: E501
             raise ApiValueError("Missing the required parameter `favorite_group_type` when calling `get_favorite_group`")  # noqa: E501
         # verify the required parameter 'favorite_group_name' is set
-        if self.api_client.client_side_validation and ('favorite_group_name' not in local_var_params or  # noqa: E501
-                                                        local_var_params['favorite_group_name'] is None):  # noqa: E501
+        if self.api_client.client_side_validation and local_var_params.get('favorite_group_name') is None:  # noqa: E501
             raise ApiValueError("Missing the required parameter `favorite_group_name` when calling `get_favorite_group`")  # noqa: E501
         # verify the required parameter 'user_id' is set
-        if self.api_client.client_side_validation and ('user_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['user_id'] is None):  # noqa: E501
+        if self.api_client.client_side_validation and local_var_params.get('user_id') is None:  # noqa: E501
             raise ApiValueError("Missing the required parameter `user_id` when calling `get_favorite_group`")  # noqa: E501
 
         collection_formats = {}
@@ -590,7 +599,7 @@ class FavoritesApi(object):
 
         query_params = []
 
-        header_params = {}
+        header_params = dict(local_var_params.get('_headers', {}))
 
         form_params = []
         local_var_files = {}
@@ -691,6 +700,7 @@ class FavoritesApi(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
@@ -710,7 +720,9 @@ class FavoritesApi(object):
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
@@ -734,14 +746,14 @@ class FavoritesApi(object):
         path_params = {}
 
         query_params = []
-        if 'n' in local_var_params and local_var_params['n'] is not None:  # noqa: E501
+        if local_var_params.get('n') is not None:  # noqa: E501
             query_params.append(('n', local_var_params['n']))  # noqa: E501
-        if 'offset' in local_var_params and local_var_params['offset'] is not None:  # noqa: E501
+        if local_var_params.get('offset') is not None:  # noqa: E501
             query_params.append(('offset', local_var_params['offset']))  # noqa: E501
-        if 'owner_id' in local_var_params and local_var_params['owner_id'] is not None:  # noqa: E501
+        if local_var_params.get('owner_id') is not None:  # noqa: E501
             query_params.append(('ownerId', local_var_params['owner_id']))  # noqa: E501
 
-        header_params = {}
+        header_params = dict(local_var_params.get('_headers', {}))
 
         form_params = []
         local_var_files = {}
@@ -847,6 +859,7 @@ class FavoritesApi(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
@@ -867,7 +880,9 @@ class FavoritesApi(object):
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
@@ -891,16 +906,16 @@ class FavoritesApi(object):
         path_params = {}
 
         query_params = []
-        if 'n' in local_var_params and local_var_params['n'] is not None:  # noqa: E501
+        if local_var_params.get('n') is not None:  # noqa: E501
             query_params.append(('n', local_var_params['n']))  # noqa: E501
-        if 'offset' in local_var_params and local_var_params['offset'] is not None:  # noqa: E501
+        if local_var_params.get('offset') is not None:  # noqa: E501
             query_params.append(('offset', local_var_params['offset']))  # noqa: E501
-        if 'type' in local_var_params and local_var_params['type'] is not None:  # noqa: E501
+        if local_var_params.get('type') is not None:  # noqa: E501
             query_params.append(('type', local_var_params['type']))  # noqa: E501
-        if 'tag' in local_var_params and local_var_params['tag'] is not None:  # noqa: E501
+        if local_var_params.get('tag') is not None:  # noqa: E501
             query_params.append(('tag', local_var_params['tag']))  # noqa: E501
 
-        header_params = {}
+        header_params = dict(local_var_params.get('_headers', {}))
 
         form_params = []
         local_var_files = {}
@@ -994,6 +1009,7 @@ class FavoritesApi(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
@@ -1011,7 +1027,9 @@ class FavoritesApi(object):
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
@@ -1024,8 +1042,7 @@ class FavoritesApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'favorite_id' is set
-        if self.api_client.client_side_validation and ('favorite_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['favorite_id'] is None):  # noqa: E501
+        if self.api_client.client_side_validation and local_var_params.get('favorite_id') is None:  # noqa: E501
             raise ApiValueError("Missing the required parameter `favorite_id` when calling `remove_favorite`")  # noqa: E501
 
         collection_formats = {}
@@ -1036,7 +1053,7 @@ class FavoritesApi(object):
 
         query_params = []
 
-        header_params = {}
+        header_params = dict(local_var_params.get('_headers', {}))
 
         form_params = []
         local_var_files = {}
@@ -1143,6 +1160,7 @@ class FavoritesApi(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
@@ -1163,7 +1181,9 @@ class FavoritesApi(object):
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
@@ -1176,16 +1196,13 @@ class FavoritesApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'favorite_group_type' is set
-        if self.api_client.client_side_validation and ('favorite_group_type' not in local_var_params or  # noqa: E501
-                                                        local_var_params['favorite_group_type'] is None):  # noqa: E501
+        if self.api_client.client_side_validation and local_var_params.get('favorite_group_type') is None:  # noqa: E501
             raise ApiValueError("Missing the required parameter `favorite_group_type` when calling `update_favorite_group`")  # noqa: E501
         # verify the required parameter 'favorite_group_name' is set
-        if self.api_client.client_side_validation and ('favorite_group_name' not in local_var_params or  # noqa: E501
-                                                        local_var_params['favorite_group_name'] is None):  # noqa: E501
+        if self.api_client.client_side_validation and local_var_params.get('favorite_group_name') is None:  # noqa: E501
             raise ApiValueError("Missing the required parameter `favorite_group_name` when calling `update_favorite_group`")  # noqa: E501
         # verify the required parameter 'user_id' is set
-        if self.api_client.client_side_validation and ('user_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['user_id'] is None):  # noqa: E501
+        if self.api_client.client_side_validation and local_var_params.get('user_id') is None:  # noqa: E501
             raise ApiValueError("Missing the required parameter `user_id` when calling `update_favorite_group`")  # noqa: E501
 
         collection_formats = {}
@@ -1200,7 +1217,7 @@ class FavoritesApi(object):
 
         query_params = []
 
-        header_params = {}
+        header_params = dict(local_var_params.get('_headers', {}))
 
         form_params = []
         local_var_files = {}
@@ -1209,8 +1226,12 @@ class FavoritesApi(object):
         if 'update_favorite_group_request' in local_var_params:
             body_params = local_var_params['update_favorite_group_request']
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        content_types_list = local_var_params.get('_content_type',
+            self.api_client.select_header_content_type(
+                ['application/json'],
+                'PUT', body_params))  # noqa: E501
+        if content_types_list:
+                header_params['Content-Type'] = content_types_list
 
         # Authentication setting
         auth_settings = ['apiKeyCookie', 'authCookie']  # noqa: E501

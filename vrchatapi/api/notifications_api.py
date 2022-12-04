@@ -95,6 +95,7 @@ class NotificationsApi(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
@@ -112,7 +113,9 @@ class NotificationsApi(object):
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
@@ -125,8 +128,7 @@ class NotificationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'notification_id' is set
-        if self.api_client.client_side_validation and ('notification_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['notification_id'] is None):  # noqa: E501
+        if self.api_client.client_side_validation and local_var_params.get('notification_id') is None:  # noqa: E501
             raise ApiValueError("Missing the required parameter `notification_id` when calling `accept_friend_request`")  # noqa: E501
 
         collection_formats = {}
@@ -137,7 +139,7 @@ class NotificationsApi(object):
 
         query_params = []
 
-        header_params = {}
+        header_params = dict(local_var_params.get('_headers', {}))
 
         form_params = []
         local_var_files = {}
@@ -228,6 +230,7 @@ class NotificationsApi(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
@@ -244,7 +247,9 @@ class NotificationsApi(object):
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
@@ -263,7 +268,7 @@ class NotificationsApi(object):
 
         query_params = []
 
-        header_params = {}
+        header_params = dict(local_var_params.get('_headers', {}))
 
         form_params = []
         local_var_files = {}
@@ -357,6 +362,7 @@ class NotificationsApi(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
@@ -374,7 +380,9 @@ class NotificationsApi(object):
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
@@ -387,8 +395,7 @@ class NotificationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'notification_id' is set
-        if self.api_client.client_side_validation and ('notification_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['notification_id'] is None):  # noqa: E501
+        if self.api_client.client_side_validation and local_var_params.get('notification_id') is None:  # noqa: E501
             raise ApiValueError("Missing the required parameter `notification_id` when calling `delete_notification`")  # noqa: E501
 
         collection_formats = {}
@@ -399,7 +406,7 @@ class NotificationsApi(object):
 
         query_params = []
 
-        header_params = {}
+        header_params = dict(local_var_params.get('_headers', {}))
 
         form_params = []
         local_var_files = {}
@@ -513,6 +520,7 @@ class NotificationsApi(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
@@ -535,7 +543,9 @@ class NotificationsApi(object):
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
@@ -559,20 +569,20 @@ class NotificationsApi(object):
         path_params = {}
 
         query_params = []
-        if 'type' in local_var_params and local_var_params['type'] is not None:  # noqa: E501
+        if local_var_params.get('type') is not None:  # noqa: E501
             query_params.append(('type', local_var_params['type']))  # noqa: E501
-        if 'sent' in local_var_params and local_var_params['sent'] is not None:  # noqa: E501
+        if local_var_params.get('sent') is not None:  # noqa: E501
             query_params.append(('sent', local_var_params['sent']))  # noqa: E501
-        if 'hidden' in local_var_params and local_var_params['hidden'] is not None:  # noqa: E501
+        if local_var_params.get('hidden') is not None:  # noqa: E501
             query_params.append(('hidden', local_var_params['hidden']))  # noqa: E501
-        if 'after' in local_var_params and local_var_params['after'] is not None:  # noqa: E501
+        if local_var_params.get('after') is not None:  # noqa: E501
             query_params.append(('after', local_var_params['after']))  # noqa: E501
-        if 'n' in local_var_params and local_var_params['n'] is not None:  # noqa: E501
+        if local_var_params.get('n') is not None:  # noqa: E501
             query_params.append(('n', local_var_params['n']))  # noqa: E501
-        if 'offset' in local_var_params and local_var_params['offset'] is not None:  # noqa: E501
+        if local_var_params.get('offset') is not None:  # noqa: E501
             query_params.append(('offset', local_var_params['offset']))  # noqa: E501
 
-        header_params = {}
+        header_params = dict(local_var_params.get('_headers', {}))
 
         form_params = []
         local_var_files = {}
@@ -666,6 +676,7 @@ class NotificationsApi(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
@@ -683,7 +694,9 @@ class NotificationsApi(object):
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
@@ -696,8 +709,7 @@ class NotificationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'notification_id' is set
-        if self.api_client.client_side_validation and ('notification_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['notification_id'] is None):  # noqa: E501
+        if self.api_client.client_side_validation and local_var_params.get('notification_id') is None:  # noqa: E501
             raise ApiValueError("Missing the required parameter `notification_id` when calling `mark_notification_as_read`")  # noqa: E501
 
         collection_formats = {}
@@ -708,7 +720,7 @@ class NotificationsApi(object):
 
         query_params = []
 
-        header_params = {}
+        header_params = dict(local_var_params.get('_headers', {}))
 
         form_params = []
         local_var_files = {}

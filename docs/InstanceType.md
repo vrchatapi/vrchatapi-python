@@ -1,6 +1,7 @@
 # InstanceType
 
 
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

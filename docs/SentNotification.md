@@ -1,6 +1,7 @@
 # SentNotification
 
 
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
