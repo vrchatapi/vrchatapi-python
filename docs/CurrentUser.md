@@ -6,10 +6,11 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **accepted_tos_version** | **int** |  | 
 **account_deletion_date** | **date** |  | [optional] 
-**active_friends** | **list[str]** |  | [optional] 
+**account_deletion_log** | [**list[AccountDeletionLog]**](AccountDeletionLog.md) |   | [optional] 
+**active_friends** | **list[str]** |   | [optional] 
 **allow_avatar_copying** | **bool** |  | 
 **bio** | **str** |  | 
-**bio_links** | **list[str]** |  | 
+**bio_links** | **list[str]** |   | 
 **current_avatar** | **str** |  | 
 **current_avatar_asset_url** | **str** |  | 
 **current_avatar_image_url** | **str** | When profilePicOverride is not empty, use it instead. | 

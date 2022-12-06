@@ -4,6 +4,7 @@ docs/APIConfigAnnouncement.md
 docs/APIConfigDownloadURLList.md
 docs/APIConfigEvents.md
 docs/APIHealth.md
+docs/AccountDeletionLog.md
 docs/AddFavoriteRequest.md
 docs/AddGroupGalleryImageRequest.md
 docs/AuthenticationApi.md
@@ -159,6 +160,7 @@ vrchatapi/api_client.py
 vrchatapi/configuration.py
 vrchatapi/exceptions.py
 vrchatapi/models/__init__.py
+vrchatapi/models/account_deletion_log.py
 vrchatapi/models/add_favorite_request.py
 vrchatapi/models/add_group_gallery_image_request.py
 vrchatapi/models/api_config.py
