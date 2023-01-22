@@ -30,7 +30,7 @@ Below is an example on how to login to the API and fetch your own user informati
 import vrchatapi
 from vrchatapi.api import authentication_api
 from vrchatapi.exceptions import UnauthorizedException
-from vrchatapi.model.two_factor_auth_code import TwoFactorAuthCode
+from vrchatapi.models.two_factor_auth_code import TwoFactorAuthCode
 
 configuration = vrchatapi.Configuration(
     username = 'username',
