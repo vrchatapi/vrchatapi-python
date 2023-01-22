@@ -111,6 +111,7 @@ docs/TransactionStatus.md
 docs/TransactionSteamInfo.md
 docs/TransactionSteamWalletInfo.md
 docs/TwoFactorAuthCode.md
+docs/TwoFactorEmailCode.md
 docs/UnityPackage.md
 docs/UpdateAvatarRequest.md
 docs/UpdateFavoriteGroupRequest.md
@@ -127,6 +128,7 @@ docs/UserState.md
 docs/UserStatus.md
 docs/UserSubscription.md
 docs/UsersApi.md
+docs/Verify2FAEmailCodeResult.md
 docs/Verify2FAResult.md
 docs/VerifyAuthTokenResult.md
 docs/World.md
@@ -259,6 +261,7 @@ vrchatapi/models/transaction_status.py
 vrchatapi/models/transaction_steam_info.py
 vrchatapi/models/transaction_steam_wallet_info.py
 vrchatapi/models/two_factor_auth_code.py
+vrchatapi/models/two_factor_email_code.py
 vrchatapi/models/unity_package.py
 vrchatapi/models/update_avatar_request.py
 vrchatapi/models/update_favorite_group_request.py
@@ -274,6 +277,7 @@ vrchatapi/models/user_exists.py
 vrchatapi/models/user_state.py
 vrchatapi/models/user_status.py
 vrchatapi/models/user_subscription.py
+vrchatapi/models/verify2_fa_email_code_result.py
 vrchatapi/models/verify2_fa_result.py
 vrchatapi/models/verify_auth_token_result.py
 vrchatapi/models/world.py
