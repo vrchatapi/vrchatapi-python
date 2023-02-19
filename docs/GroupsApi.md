@@ -3375,11 +3375,11 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **join_group**
-> Group join_group(group_id)
+> GroupMember join_group(group_id)
 
 Join Group
 
-Join a Group by ID and returns the joined Group.
+Join a Group by ID and returns the member object.
 
 ### Example
 
@@ -3479,7 +3479,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Group**](Group.md)
+[**GroupMember**](GroupMember.md)
 
 ### Authorization
 
@@ -3493,7 +3493,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Returns a single Group object. |  -  |
+**200** | Returns a list of GroupMember objects. |  -  |
 **400** | Error response when trying to join a group that the user is already a member of. |  -  |
 **401** | Error response due to missing apiKey or auth cookie. |  -  |
 **404** | Error response when trying to perform operations on a non-existing group. |  -  |
