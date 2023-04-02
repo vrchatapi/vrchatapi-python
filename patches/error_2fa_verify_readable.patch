@@ -1,13 +1,16 @@
-diff --git a/vrchatapi/rest.py b/vrchatapi/rest.py
-index aac58f3..703ae1b 100644
---- a/vrchatapi/rest.py
-+++ b/vrchatapi/rest.py
-@@ -239,6 +239,10 @@ class RESTClientObject(object):
+diff --git a/./rest.py b/./restpatch.py
+index 3702266e..c19c578c 100644
+--- a/./rest.py
++++ b/./restpatch.py
+@@ -245,6 +245,13 @@ class RESTClientObject(object):
  
              raise ApiException(http_resp=r)
  
 +        if re.match(b'{"\w{21}":\["totp","otp"]}', r.data) is not None:
 +            r.reason = "2 Factor Authentication verification is required"
++            raise UnauthorizedException(http_resp=r)
++        elif re.match(b'{"\w{21}":\["emailOtp"]}', r.data) is not None:
++            r.reason = "Email 2 Factor Authentication verification is required"
 +            raise UnauthorizedException(http_resp=r)
 +
          return r
