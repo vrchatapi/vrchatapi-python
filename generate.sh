@@ -1,6 +1,6 @@
 #!/bin/bash
 
-npm install @openapitools/openapi-generator-cli
+npm install @openapitools/openapi-generator-cli 
 
 rm vrchatapi docs -rf
 
@@ -12,14 +12,6 @@ rm vrchatapi docs -rf
 -o . \
 -i https://raw.githubusercontent.com/vrchatapi/specification/gh-pages/openapi.yaml \
 --http-user-agent="vrchatapi-py"
-
-# Enable Global cookies
-sed -i '/cert_reqs = ssl.CERT_NONE/r patches/cookiejar_init.py' ./vrchatapi/rest.py
-sed -i '/headers = headers or {}/r patches/cookiejar_add.py' ./vrchatapi/rest.py
-
-sed -i 's/if _preload_content/abcdefvrc\n\n        if _preload_content/g' ./vrchatapi/rest.py
-sed -i '/abcdefvrc/r patches/cookiejar_extract.py' ./vrchatapi/rest.py
-sed -i 's/        abcdefvrc//g' ./vrchatapi/rest.py
 
 # Fix description, keywords, etc...
 # Echo to trim whitespace
@@ -35,6 +27,9 @@ sed -i 's/abcdefvrc//g' ./setup.py
 
 # Remove messily pasted markdown at top of every file
 find vrchatapi -type f -exec sed -i '/VRChat API Banner/d' {} \;
+
+# Enable Global cookies
+patch ./vrchatapi/rest.py < ./patches/cookiejar.patch
 
 # Make 2fa required error readable
 patch ./vrchatapi/rest.py < ./patches/error_2fa_verify_readable.patch
