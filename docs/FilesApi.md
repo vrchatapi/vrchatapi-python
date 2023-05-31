@@ -25,50 +25,6 @@ Creates a new File object
 
 ### Example
 
-* Api Key Authentication (apiKeyCookie):
-```python
-from __future__ import print_function
-import time
-import vrchatapi
-from vrchatapi.rest import ApiException
-from pprint import pprint
-# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
-# See configuration.py for a list of all supported configuration parameters.
-configuration = vrchatapi.Configuration(
-    host = "https://api.vrchat.cloud/api/1"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: apiKeyCookie
-configuration.api_key['apiKeyCookie'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['apiKeyCookie'] = 'Bearer'
-
-# Configure API key authorization: authCookie
-configuration.api_key['authCookie'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['authCookie'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with vrchatapi.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = vrchatapi.FilesApi(api_client)
-    create_file_request = vrchatapi.CreateFileRequest() # CreateFileRequest |  (optional)
-
-    try:
-        # Create File
-        api_response = api_instance.create_file(create_file_request=create_file_request)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling FilesApi->create_file: %s\n" % e)
-```
-
 * Api Key Authentication (authCookie):
 ```python
 from __future__ import print_function
@@ -86,12 +42,6 @@ configuration = vrchatapi.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
-
-# Configure API key authorization: apiKeyCookie
-configuration.api_key['apiKeyCookie'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['apiKeyCookie'] = 'Bearer'
 
 # Configure API key authorization: authCookie
 configuration.api_key['authCookie'] = 'YOUR_API_KEY'
@@ -125,7 +75,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apiKeyCookie](../README.md#apiKeyCookie), [authCookie](../README.md#authCookie)
+[authCookie](../README.md#authCookie)
 
 ### HTTP request headers
 
@@ -148,51 +98,6 @@ Creates a new FileVersion. Once a Version has been created, proceed to the `/fil
 
 ### Example
 
-* Api Key Authentication (apiKeyCookie):
-```python
-from __future__ import print_function
-import time
-import vrchatapi
-from vrchatapi.rest import ApiException
-from pprint import pprint
-# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
-# See configuration.py for a list of all supported configuration parameters.
-configuration = vrchatapi.Configuration(
-    host = "https://api.vrchat.cloud/api/1"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: apiKeyCookie
-configuration.api_key['apiKeyCookie'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['apiKeyCookie'] = 'Bearer'
-
-# Configure API key authorization: authCookie
-configuration.api_key['authCookie'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['authCookie'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with vrchatapi.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = vrchatapi.FilesApi(api_client)
-    file_id = 'file_00000000-0000-0000-0000-000000000000' # str | Must be a valid file ID.
-create_file_version_request = vrchatapi.CreateFileVersionRequest() # CreateFileVersionRequest |  (optional)
-
-    try:
-        # Create File Version
-        api_response = api_instance.create_file_version(file_id, create_file_version_request=create_file_version_request)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling FilesApi->create_file_version: %s\n" % e)
-```
-
 * Api Key Authentication (authCookie):
 ```python
 from __future__ import print_function
@@ -210,12 +115,6 @@ configuration = vrchatapi.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
-
-# Configure API key authorization: apiKeyCookie
-configuration.api_key['apiKeyCookie'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['apiKeyCookie'] = 'Bearer'
 
 # Configure API key authorization: authCookie
 configuration.api_key['authCookie'] = 'YOUR_API_KEY'
@@ -251,7 +150,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apiKeyCookie](../README.md#apiKeyCookie), [authCookie](../README.md#authCookie)
+[authCookie](../README.md#authCookie)
 
 ### HTTP request headers
 
@@ -274,50 +173,6 @@ Deletes a File object.
 
 ### Example
 
-* Api Key Authentication (apiKeyCookie):
-```python
-from __future__ import print_function
-import time
-import vrchatapi
-from vrchatapi.rest import ApiException
-from pprint import pprint
-# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
-# See configuration.py for a list of all supported configuration parameters.
-configuration = vrchatapi.Configuration(
-    host = "https://api.vrchat.cloud/api/1"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: apiKeyCookie
-configuration.api_key['apiKeyCookie'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['apiKeyCookie'] = 'Bearer'
-
-# Configure API key authorization: authCookie
-configuration.api_key['authCookie'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['authCookie'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with vrchatapi.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = vrchatapi.FilesApi(api_client)
-    file_id = 'file_00000000-0000-0000-0000-000000000000' # str | Must be a valid file ID.
-
-    try:
-        # Delete File
-        api_response = api_instance.delete_file(file_id)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling FilesApi->delete_file: %s\n" % e)
-```
-
 * Api Key Authentication (authCookie):
 ```python
 from __future__ import print_function
@@ -335,12 +190,6 @@ configuration = vrchatapi.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
-
-# Configure API key authorization: apiKeyCookie
-configuration.api_key['apiKeyCookie'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['apiKeyCookie'] = 'Bearer'
 
 # Configure API key authorization: authCookie
 configuration.api_key['authCookie'] = 'YOUR_API_KEY'
@@ -374,7 +223,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apiKeyCookie](../README.md#apiKeyCookie), [authCookie](../README.md#authCookie)
+[authCookie](../README.md#authCookie)
 
 ### HTTP request headers
 
@@ -398,51 +247,6 @@ Delete a specific version of a file. You can only delete the latest version.
 
 ### Example
 
-* Api Key Authentication (apiKeyCookie):
-```python
-from __future__ import print_function
-import time
-import vrchatapi
-from vrchatapi.rest import ApiException
-from pprint import pprint
-# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
-# See configuration.py for a list of all supported configuration parameters.
-configuration = vrchatapi.Configuration(
-    host = "https://api.vrchat.cloud/api/1"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: apiKeyCookie
-configuration.api_key['apiKeyCookie'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['apiKeyCookie'] = 'Bearer'
-
-# Configure API key authorization: authCookie
-configuration.api_key['authCookie'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['authCookie'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with vrchatapi.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = vrchatapi.FilesApi(api_client)
-    file_id = 'file_00000000-0000-0000-0000-000000000000' # str | Must be a valid file ID.
-version_id = 1 # int | Version ID of the asset.
-
-    try:
-        # Delete File Version
-        api_response = api_instance.delete_file_version(file_id, version_id)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling FilesApi->delete_file_version: %s\n" % e)
-```
-
 * Api Key Authentication (authCookie):
 ```python
 from __future__ import print_function
@@ -460,12 +264,6 @@ configuration = vrchatapi.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
-
-# Configure API key authorization: apiKeyCookie
-configuration.api_key['apiKeyCookie'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['apiKeyCookie'] = 'Bearer'
 
 # Configure API key authorization: authCookie
 configuration.api_key['authCookie'] = 'YOUR_API_KEY'
@@ -501,7 +299,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apiKeyCookie](../README.md#apiKeyCookie), [authCookie](../README.md#authCookie)
+[authCookie](../README.md#authCookie)
 
 ### HTTP request headers
 
@@ -526,50 +324,6 @@ Downloads the file with the provided version number.  **Version Note:** Version 
 
 ### Example
 
-* Api Key Authentication (apiKeyCookie):
-```python
-from __future__ import print_function
-import time
-import vrchatapi
-from vrchatapi.rest import ApiException
-from pprint import pprint
-# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
-# See configuration.py for a list of all supported configuration parameters.
-configuration = vrchatapi.Configuration(
-    host = "https://api.vrchat.cloud/api/1"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: apiKeyCookie
-configuration.api_key['apiKeyCookie'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['apiKeyCookie'] = 'Bearer'
-
-# Configure API key authorization: authCookie
-configuration.api_key['authCookie'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['authCookie'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with vrchatapi.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = vrchatapi.FilesApi(api_client)
-    file_id = 'file_00000000-0000-0000-0000-000000000000' # str | Must be a valid file ID.
-version_id = 1 # int | Version ID of the asset.
-
-    try:
-        # Download File Version
-        api_instance.download_file_version(file_id, version_id)
-    except ApiException as e:
-        print("Exception when calling FilesApi->download_file_version: %s\n" % e)
-```
-
 * Api Key Authentication (authCookie):
 ```python
 from __future__ import print_function
@@ -587,12 +341,6 @@ configuration = vrchatapi.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
-
-# Configure API key authorization: apiKeyCookie
-configuration.api_key['apiKeyCookie'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['apiKeyCookie'] = 'Bearer'
 
 # Configure API key authorization: authCookie
 configuration.api_key['authCookie'] = 'YOUR_API_KEY'
@@ -627,7 +375,7 @@ void (empty response body)
 
 ### Authorization
 
-[apiKeyCookie](../README.md#apiKeyCookie), [authCookie](../README.md#authCookie)
+[authCookie](../README.md#authCookie)
 
 ### HTTP request headers
 
@@ -650,53 +398,6 @@ Finish an upload of a FileData. This will mark it as \"complete\". After uploadi
 
 ### Example
 
-* Api Key Authentication (apiKeyCookie):
-```python
-from __future__ import print_function
-import time
-import vrchatapi
-from vrchatapi.rest import ApiException
-from pprint import pprint
-# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
-# See configuration.py for a list of all supported configuration parameters.
-configuration = vrchatapi.Configuration(
-    host = "https://api.vrchat.cloud/api/1"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: apiKeyCookie
-configuration.api_key['apiKeyCookie'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['apiKeyCookie'] = 'Bearer'
-
-# Configure API key authorization: authCookie
-configuration.api_key['authCookie'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['authCookie'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with vrchatapi.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = vrchatapi.FilesApi(api_client)
-    file_id = 'file_00000000-0000-0000-0000-000000000000' # str | Must be a valid file ID.
-version_id = 1 # int | Version ID of the asset.
-file_type = 'file' # str | Type of file.
-finish_file_data_upload_request = {"etags":["xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx","yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy"],"nextPartNumber":"0","maxParts":"0"} # FinishFileDataUploadRequest | Please see documentation on ETag's: [https://teppen.io/2018/06/23/aws_s3_etags/](https://teppen.io/2018/06/23/aws_s3_etags/)  ETag's should NOT be present when uploading a `signature`. (optional)
-
-    try:
-        # Finish FileData Upload
-        api_response = api_instance.finish_file_data_upload(file_id, version_id, file_type, finish_file_data_upload_request=finish_file_data_upload_request)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling FilesApi->finish_file_data_upload: %s\n" % e)
-```
-
 * Api Key Authentication (authCookie):
 ```python
 from __future__ import print_function
@@ -714,12 +415,6 @@ configuration = vrchatapi.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
-
-# Configure API key authorization: apiKeyCookie
-configuration.api_key['apiKeyCookie'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['apiKeyCookie'] = 'Bearer'
 
 # Configure API key authorization: authCookie
 configuration.api_key['authCookie'] = 'YOUR_API_KEY'
@@ -759,7 +454,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apiKeyCookie](../README.md#apiKeyCookie), [authCookie](../README.md#authCookie)
+[authCookie](../README.md#authCookie)
 
 ### HTTP request headers
 
@@ -782,50 +477,6 @@ Shows general information about the \"File\" object. Each File can have several 
 
 ### Example
 
-* Api Key Authentication (apiKeyCookie):
-```python
-from __future__ import print_function
-import time
-import vrchatapi
-from vrchatapi.rest import ApiException
-from pprint import pprint
-# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
-# See configuration.py for a list of all supported configuration parameters.
-configuration = vrchatapi.Configuration(
-    host = "https://api.vrchat.cloud/api/1"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: apiKeyCookie
-configuration.api_key['apiKeyCookie'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['apiKeyCookie'] = 'Bearer'
-
-# Configure API key authorization: authCookie
-configuration.api_key['authCookie'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['authCookie'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with vrchatapi.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = vrchatapi.FilesApi(api_client)
-    file_id = 'file_00000000-0000-0000-0000-000000000000' # str | Must be a valid file ID.
-
-    try:
-        # Show File
-        api_response = api_instance.get_file(file_id)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling FilesApi->get_file: %s\n" % e)
-```
-
 * Api Key Authentication (authCookie):
 ```python
 from __future__ import print_function
@@ -843,12 +494,6 @@ configuration = vrchatapi.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
-
-# Configure API key authorization: apiKeyCookie
-configuration.api_key['apiKeyCookie'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['apiKeyCookie'] = 'Bearer'
 
 # Configure API key authorization: authCookie
 configuration.api_key['authCookie'] = 'YOUR_API_KEY'
@@ -882,7 +527,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apiKeyCookie](../README.md#apiKeyCookie), [authCookie](../README.md#authCookie)
+[authCookie](../README.md#authCookie)
 
 ### HTTP request headers
 
@@ -906,52 +551,6 @@ Retrieves the upload status for file upload. Can currently only be accessed when
 
 ### Example
 
-* Api Key Authentication (apiKeyCookie):
-```python
-from __future__ import print_function
-import time
-import vrchatapi
-from vrchatapi.rest import ApiException
-from pprint import pprint
-# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
-# See configuration.py for a list of all supported configuration parameters.
-configuration = vrchatapi.Configuration(
-    host = "https://api.vrchat.cloud/api/1"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: apiKeyCookie
-configuration.api_key['apiKeyCookie'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['apiKeyCookie'] = 'Bearer'
-
-# Configure API key authorization: authCookie
-configuration.api_key['authCookie'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['authCookie'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with vrchatapi.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = vrchatapi.FilesApi(api_client)
-    file_id = 'file_00000000-0000-0000-0000-000000000000' # str | Must be a valid file ID.
-version_id = 1 # int | Version ID of the asset.
-file_type = 'file' # str | Type of file.
-
-    try:
-        # Check FileData Upload Status
-        api_response = api_instance.get_file_data_upload_status(file_id, version_id, file_type)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling FilesApi->get_file_data_upload_status: %s\n" % e)
-```
-
 * Api Key Authentication (authCookie):
 ```python
 from __future__ import print_function
@@ -969,12 +568,6 @@ configuration = vrchatapi.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
-
-# Configure API key authorization: apiKeyCookie
-configuration.api_key['apiKeyCookie'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['apiKeyCookie'] = 'Bearer'
 
 # Configure API key authorization: authCookie
 configuration.api_key['authCookie'] = 'YOUR_API_KEY'
@@ -1012,7 +605,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apiKeyCookie](../README.md#apiKeyCookie), [authCookie](../README.md#authCookie)
+[authCookie](../README.md#authCookie)
 
 ### HTTP request headers
 
@@ -1035,53 +628,6 @@ Returns a list of files
 
 ### Example
 
-* Api Key Authentication (apiKeyCookie):
-```python
-from __future__ import print_function
-import time
-import vrchatapi
-from vrchatapi.rest import ApiException
-from pprint import pprint
-# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
-# See configuration.py for a list of all supported configuration parameters.
-configuration = vrchatapi.Configuration(
-    host = "https://api.vrchat.cloud/api/1"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: apiKeyCookie
-configuration.api_key['apiKeyCookie'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['apiKeyCookie'] = 'Bearer'
-
-# Configure API key authorization: authCookie
-configuration.api_key['authCookie'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['authCookie'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with vrchatapi.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = vrchatapi.FilesApi(api_client)
-    tag = 'tag_example' # str | Tag, for example \"icon\" or \"gallery\", not included by default. (optional)
-user_id = 'user_id_example' # str | UserID, will always generate a 500 permission error. (optional)
-n = 60 # int | The number of objects to return. (optional) (default to 60)
-offset = 56 # int | A zero-based offset from the default object sorting from where search results start. (optional)
-
-    try:
-        # List Files
-        api_response = api_instance.get_files(tag=tag, user_id=user_id, n=n, offset=offset)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling FilesApi->get_files: %s\n" % e)
-```
-
 * Api Key Authentication (authCookie):
 ```python
 from __future__ import print_function
@@ -1099,12 +645,6 @@ configuration = vrchatapi.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
-
-# Configure API key authorization: apiKeyCookie
-configuration.api_key['apiKeyCookie'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['apiKeyCookie'] = 'Bearer'
 
 # Configure API key authorization: authCookie
 configuration.api_key['authCookie'] = 'YOUR_API_KEY'
@@ -1144,7 +684,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apiKeyCookie](../README.md#apiKeyCookie), [authCookie](../README.md#authCookie)
+[authCookie](../README.md#authCookie)
 
 ### HTTP request headers
 
@@ -1167,53 +707,6 @@ Starts an upload of a specific FilePart. This endpoint will return an AWS URL wh
 
 ### Example
 
-* Api Key Authentication (apiKeyCookie):
-```python
-from __future__ import print_function
-import time
-import vrchatapi
-from vrchatapi.rest import ApiException
-from pprint import pprint
-# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
-# See configuration.py for a list of all supported configuration parameters.
-configuration = vrchatapi.Configuration(
-    host = "https://api.vrchat.cloud/api/1"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: apiKeyCookie
-configuration.api_key['apiKeyCookie'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['apiKeyCookie'] = 'Bearer'
-
-# Configure API key authorization: authCookie
-configuration.api_key['authCookie'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['authCookie'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with vrchatapi.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = vrchatapi.FilesApi(api_client)
-    file_id = 'file_00000000-0000-0000-0000-000000000000' # str | Must be a valid file ID.
-version_id = 1 # int | Version ID of the asset.
-file_type = 'file' # str | Type of file.
-part_number = 1 # int | The part number to start uploading. If not provided, the first part will be started. (optional)
-
-    try:
-        # Start FileData Upload
-        api_response = api_instance.start_file_data_upload(file_id, version_id, file_type, part_number=part_number)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling FilesApi->start_file_data_upload: %s\n" % e)
-```
-
 * Api Key Authentication (authCookie):
 ```python
 from __future__ import print_function
@@ -1231,12 +724,6 @@ configuration = vrchatapi.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
-
-# Configure API key authorization: apiKeyCookie
-configuration.api_key['apiKeyCookie'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['apiKeyCookie'] = 'Bearer'
 
 # Configure API key authorization: authCookie
 configuration.api_key['authCookie'] = 'YOUR_API_KEY'
@@ -1276,7 +763,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apiKeyCookie](../README.md#apiKeyCookie), [authCookie](../README.md#authCookie)
+[authCookie](../README.md#authCookie)
 
 ### HTTP request headers
 

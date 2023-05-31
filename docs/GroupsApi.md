@@ -51,52 +51,6 @@ Adds an image to a Group gallery.
 
 ### Example
 
-* Api Key Authentication (apiKeyCookie):
-```python
-from __future__ import print_function
-import time
-import vrchatapi
-from vrchatapi.rest import ApiException
-from pprint import pprint
-# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
-# See configuration.py for a list of all supported configuration parameters.
-configuration = vrchatapi.Configuration(
-    host = "https://api.vrchat.cloud/api/1"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: apiKeyCookie
-configuration.api_key['apiKeyCookie'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['apiKeyCookie'] = 'Bearer'
-
-# Configure API key authorization: authCookie
-configuration.api_key['authCookie'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['authCookie'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with vrchatapi.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = vrchatapi.GroupsApi(api_client)
-    group_id = 'grp_00000000-0000-0000-0000-000000000000' # str | Must be a valid group ID.
-group_gallery_id = 'ggal_00000000-0000-0000-0000-000000000000' # str | Must be a valid group gallery ID.
-add_group_gallery_image_request = vrchatapi.AddGroupGalleryImageRequest() # AddGroupGalleryImageRequest |  (optional)
-
-    try:
-        # Add Group Gallery Image
-        api_response = api_instance.add_group_gallery_image(group_id, group_gallery_id, add_group_gallery_image_request=add_group_gallery_image_request)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling GroupsApi->add_group_gallery_image: %s\n" % e)
-```
-
 * Api Key Authentication (authCookie):
 ```python
 from __future__ import print_function
@@ -114,12 +68,6 @@ configuration = vrchatapi.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
-
-# Configure API key authorization: apiKeyCookie
-configuration.api_key['apiKeyCookie'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['apiKeyCookie'] = 'Bearer'
 
 # Configure API key authorization: authCookie
 configuration.api_key['authCookie'] = 'YOUR_API_KEY'
@@ -157,7 +105,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apiKeyCookie](../README.md#apiKeyCookie), [authCookie](../README.md#authCookie)
+[authCookie](../README.md#authCookie)
 
 ### HTTP request headers
 
@@ -168,7 +116,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Returns a single GroupGalleryImage object. |  -  |
-**401** | Error response due to missing apiKey or auth cookie. |  -  |
+**401** | Error response due to missing auth cookie. |  -  |
 **404** | Error response when trying to perform operations on a non-existing group. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -181,52 +129,6 @@ Add Role to GroupMember
 Adds a Role to a Group Member
 
 ### Example
-
-* Api Key Authentication (apiKeyCookie):
-```python
-from __future__ import print_function
-import time
-import vrchatapi
-from vrchatapi.rest import ApiException
-from pprint import pprint
-# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
-# See configuration.py for a list of all supported configuration parameters.
-configuration = vrchatapi.Configuration(
-    host = "https://api.vrchat.cloud/api/1"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: apiKeyCookie
-configuration.api_key['apiKeyCookie'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['apiKeyCookie'] = 'Bearer'
-
-# Configure API key authorization: authCookie
-configuration.api_key['authCookie'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['authCookie'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with vrchatapi.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = vrchatapi.GroupsApi(api_client)
-    group_id = 'grp_00000000-0000-0000-0000-000000000000' # str | Must be a valid group ID.
-user_id = 'user_id_example' # str | Must be a valid user ID.
-group_role_id = 'grol_00000000-0000-0000-0000-000000000000' # str | Must be a valid group role ID.
-
-    try:
-        # Add Role to GroupMember
-        api_response = api_instance.add_group_member_role(group_id, user_id, group_role_id)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling GroupsApi->add_group_member_role: %s\n" % e)
-```
 
 * Api Key Authentication (authCookie):
 ```python
@@ -245,12 +147,6 @@ configuration = vrchatapi.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
-
-# Configure API key authorization: apiKeyCookie
-configuration.api_key['apiKeyCookie'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['apiKeyCookie'] = 'Bearer'
 
 # Configure API key authorization: authCookie
 configuration.api_key['authCookie'] = 'YOUR_API_KEY'
@@ -288,7 +184,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apiKeyCookie](../README.md#apiKeyCookie), [authCookie](../README.md#authCookie)
+[authCookie](../README.md#authCookie)
 
 ### HTTP request headers
 
@@ -299,7 +195,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Returns a list of GroupRoleID objects. |  -  |
-**401** | Error response due to missing apiKey or auth cookie. |  -  |
+**401** | Error response due to missing auth cookie. |  -  |
 **404** | Error response when trying to perform operations on a non-existing group. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -312,51 +208,6 @@ Ban Group Member
 Bans a user from a Group.
 
 ### Example
-
-* Api Key Authentication (apiKeyCookie):
-```python
-from __future__ import print_function
-import time
-import vrchatapi
-from vrchatapi.rest import ApiException
-from pprint import pprint
-# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
-# See configuration.py for a list of all supported configuration parameters.
-configuration = vrchatapi.Configuration(
-    host = "https://api.vrchat.cloud/api/1"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: apiKeyCookie
-configuration.api_key['apiKeyCookie'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['apiKeyCookie'] = 'Bearer'
-
-# Configure API key authorization: authCookie
-configuration.api_key['authCookie'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['authCookie'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with vrchatapi.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = vrchatapi.GroupsApi(api_client)
-    group_id = 'grp_00000000-0000-0000-0000-000000000000' # str | Must be a valid group ID.
-ban_group_member_request = vrchatapi.BanGroupMemberRequest() # BanGroupMemberRequest |  (optional)
-
-    try:
-        # Ban Group Member
-        api_response = api_instance.ban_group_member(group_id, ban_group_member_request=ban_group_member_request)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling GroupsApi->ban_group_member: %s\n" % e)
-```
 
 * Api Key Authentication (authCookie):
 ```python
@@ -375,12 +226,6 @@ configuration = vrchatapi.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
-
-# Configure API key authorization: apiKeyCookie
-configuration.api_key['apiKeyCookie'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['apiKeyCookie'] = 'Bearer'
 
 # Configure API key authorization: authCookie
 configuration.api_key['authCookie'] = 'YOUR_API_KEY'
@@ -416,7 +261,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apiKeyCookie](../README.md#apiKeyCookie), [authCookie](../README.md#authCookie)
+[authCookie](../README.md#authCookie)
 
 ### HTTP request headers
 
@@ -427,7 +272,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Returns a list of GroupMember objects. |  -  |
-**401** | Error response due to missing apiKey or auth cookie. |  -  |
+**401** | Error response due to missing auth cookie. |  -  |
 **404** | Error response when trying to perform operations on a non-existing group. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -440,49 +285,6 @@ Cancel Group Join Request
 Cancels a request sent to join the group.
 
 ### Example
-
-* Api Key Authentication (apiKeyCookie):
-```python
-from __future__ import print_function
-import time
-import vrchatapi
-from vrchatapi.rest import ApiException
-from pprint import pprint
-# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
-# See configuration.py for a list of all supported configuration parameters.
-configuration = vrchatapi.Configuration(
-    host = "https://api.vrchat.cloud/api/1"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: apiKeyCookie
-configuration.api_key['apiKeyCookie'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['apiKeyCookie'] = 'Bearer'
-
-# Configure API key authorization: authCookie
-configuration.api_key['authCookie'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['authCookie'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with vrchatapi.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = vrchatapi.GroupsApi(api_client)
-    group_id = 'grp_00000000-0000-0000-0000-000000000000' # str | Must be a valid group ID.
-
-    try:
-        # Cancel Group Join Request
-        api_instance.cancel_group_request(group_id)
-    except ApiException as e:
-        print("Exception when calling GroupsApi->cancel_group_request: %s\n" % e)
-```
 
 * Api Key Authentication (authCookie):
 ```python
@@ -501,12 +303,6 @@ configuration = vrchatapi.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
-
-# Configure API key authorization: apiKeyCookie
-configuration.api_key['apiKeyCookie'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['apiKeyCookie'] = 'Bearer'
 
 # Configure API key authorization: authCookie
 configuration.api_key['authCookie'] = 'YOUR_API_KEY'
@@ -539,7 +335,7 @@ void (empty response body)
 
 ### Authorization
 
-[apiKeyCookie](../README.md#apiKeyCookie), [authCookie](../README.md#authCookie)
+[authCookie](../README.md#authCookie)
 
 ### HTTP request headers
 
@@ -565,50 +361,6 @@ Creates a Group and returns a Group object. **Requires VRC+ Subscription.**
 
 ### Example
 
-* Api Key Authentication (apiKeyCookie):
-```python
-from __future__ import print_function
-import time
-import vrchatapi
-from vrchatapi.rest import ApiException
-from pprint import pprint
-# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
-# See configuration.py for a list of all supported configuration parameters.
-configuration = vrchatapi.Configuration(
-    host = "https://api.vrchat.cloud/api/1"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: apiKeyCookie
-configuration.api_key['apiKeyCookie'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['apiKeyCookie'] = 'Bearer'
-
-# Configure API key authorization: authCookie
-configuration.api_key['authCookie'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['authCookie'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with vrchatapi.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = vrchatapi.GroupsApi(api_client)
-    create_group_request = vrchatapi.CreateGroupRequest() # CreateGroupRequest |  (optional)
-
-    try:
-        # Create Group
-        api_response = api_instance.create_group(create_group_request=create_group_request)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling GroupsApi->create_group: %s\n" % e)
-```
-
 * Api Key Authentication (authCookie):
 ```python
 from __future__ import print_function
@@ -626,12 +378,6 @@ configuration = vrchatapi.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
-
-# Configure API key authorization: apiKeyCookie
-configuration.api_key['apiKeyCookie'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['apiKeyCookie'] = 'Bearer'
 
 # Configure API key authorization: authCookie
 configuration.api_key['authCookie'] = 'YOUR_API_KEY'
@@ -665,7 +411,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apiKeyCookie](../README.md#apiKeyCookie), [authCookie](../README.md#authCookie)
+[authCookie](../README.md#authCookie)
 
 ### HTTP request headers
 
@@ -676,7 +422,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Returns a single Group object. |  -  |
-**401** | Error response due to missing apiKey or auth cookie. |  -  |
+**401** | Error response due to missing auth cookie. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -688,51 +434,6 @@ Create Group Announcement
 Creates an Announcement for a Group.
 
 ### Example
-
-* Api Key Authentication (apiKeyCookie):
-```python
-from __future__ import print_function
-import time
-import vrchatapi
-from vrchatapi.rest import ApiException
-from pprint import pprint
-# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
-# See configuration.py for a list of all supported configuration parameters.
-configuration = vrchatapi.Configuration(
-    host = "https://api.vrchat.cloud/api/1"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: apiKeyCookie
-configuration.api_key['apiKeyCookie'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['apiKeyCookie'] = 'Bearer'
-
-# Configure API key authorization: authCookie
-configuration.api_key['authCookie'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['authCookie'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with vrchatapi.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = vrchatapi.GroupsApi(api_client)
-    group_id = 'grp_00000000-0000-0000-0000-000000000000' # str | Must be a valid group ID.
-create_group_announcement_request = vrchatapi.CreateGroupAnnouncementRequest() # CreateGroupAnnouncementRequest |  (optional)
-
-    try:
-        # Create Group Announcement
-        api_response = api_instance.create_group_announcement(group_id, create_group_announcement_request=create_group_announcement_request)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling GroupsApi->create_group_announcement: %s\n" % e)
-```
 
 * Api Key Authentication (authCookie):
 ```python
@@ -751,12 +452,6 @@ configuration = vrchatapi.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
-
-# Configure API key authorization: apiKeyCookie
-configuration.api_key['apiKeyCookie'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['apiKeyCookie'] = 'Bearer'
 
 # Configure API key authorization: authCookie
 configuration.api_key['authCookie'] = 'YOUR_API_KEY'
@@ -792,7 +487,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apiKeyCookie](../README.md#apiKeyCookie), [authCookie](../README.md#authCookie)
+[authCookie](../README.md#authCookie)
 
 ### HTTP request headers
 
@@ -803,7 +498,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Returns a single GroupAnnouncement object. |  -  |
-**401** | Error response due to missing apiKey or auth cookie. |  -  |
+**401** | Error response due to missing auth cookie. |  -  |
 **404** | Error response when trying to perform operations on a non-existing group. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -816,51 +511,6 @@ Create Group Gallery
 Creates a gallery for a Group.
 
 ### Example
-
-* Api Key Authentication (apiKeyCookie):
-```python
-from __future__ import print_function
-import time
-import vrchatapi
-from vrchatapi.rest import ApiException
-from pprint import pprint
-# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
-# See configuration.py for a list of all supported configuration parameters.
-configuration = vrchatapi.Configuration(
-    host = "https://api.vrchat.cloud/api/1"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: apiKeyCookie
-configuration.api_key['apiKeyCookie'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['apiKeyCookie'] = 'Bearer'
-
-# Configure API key authorization: authCookie
-configuration.api_key['authCookie'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['authCookie'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with vrchatapi.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = vrchatapi.GroupsApi(api_client)
-    group_id = 'grp_00000000-0000-0000-0000-000000000000' # str | Must be a valid group ID.
-create_group_gallery_request = vrchatapi.CreateGroupGalleryRequest() # CreateGroupGalleryRequest |  (optional)
-
-    try:
-        # Create Group Gallery
-        api_response = api_instance.create_group_gallery(group_id, create_group_gallery_request=create_group_gallery_request)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling GroupsApi->create_group_gallery: %s\n" % e)
-```
 
 * Api Key Authentication (authCookie):
 ```python
@@ -879,12 +529,6 @@ configuration = vrchatapi.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
-
-# Configure API key authorization: apiKeyCookie
-configuration.api_key['apiKeyCookie'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['apiKeyCookie'] = 'Bearer'
 
 # Configure API key authorization: authCookie
 configuration.api_key['authCookie'] = 'YOUR_API_KEY'
@@ -920,7 +564,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apiKeyCookie](../README.md#apiKeyCookie), [authCookie](../README.md#authCookie)
+[authCookie](../README.md#authCookie)
 
 ### HTTP request headers
 
@@ -931,7 +575,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Returns a single GroupGallery object. |  -  |
-**401** | Error response due to missing apiKey or auth cookie. |  -  |
+**401** | Error response due to missing auth cookie. |  -  |
 **404** | Error response when trying to perform operations on a non-existing group. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -944,50 +588,6 @@ Invite User to Group
 Sends an invite to a user to join the group.
 
 ### Example
-
-* Api Key Authentication (apiKeyCookie):
-```python
-from __future__ import print_function
-import time
-import vrchatapi
-from vrchatapi.rest import ApiException
-from pprint import pprint
-# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
-# See configuration.py for a list of all supported configuration parameters.
-configuration = vrchatapi.Configuration(
-    host = "https://api.vrchat.cloud/api/1"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: apiKeyCookie
-configuration.api_key['apiKeyCookie'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['apiKeyCookie'] = 'Bearer'
-
-# Configure API key authorization: authCookie
-configuration.api_key['authCookie'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['authCookie'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with vrchatapi.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = vrchatapi.GroupsApi(api_client)
-    group_id = 'grp_00000000-0000-0000-0000-000000000000' # str | Must be a valid group ID.
-create_group_invite_request = vrchatapi.CreateGroupInviteRequest() # CreateGroupInviteRequest |  (optional)
-
-    try:
-        # Invite User to Group
-        api_instance.create_group_invite(group_id, create_group_invite_request=create_group_invite_request)
-    except ApiException as e:
-        print("Exception when calling GroupsApi->create_group_invite: %s\n" % e)
-```
 
 * Api Key Authentication (authCookie):
 ```python
@@ -1006,12 +606,6 @@ configuration = vrchatapi.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
-
-# Configure API key authorization: apiKeyCookie
-configuration.api_key['apiKeyCookie'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['apiKeyCookie'] = 'Bearer'
 
 # Configure API key authorization: authCookie
 configuration.api_key['authCookie'] = 'YOUR_API_KEY'
@@ -1046,7 +640,7 @@ void (empty response body)
 
 ### Authorization
 
-[apiKeyCookie](../README.md#apiKeyCookie), [authCookie](../README.md#authCookie)
+[authCookie](../README.md#authCookie)
 
 ### HTTP request headers
 
@@ -1058,7 +652,7 @@ void (empty response body)
 |-------------|-------------|------------------|
 **200** | OK |  -  |
 **400** | User &lt;displayName&gt; is already invited |  -  |
-**401** | Error response due to missing apiKey or auth cookie. |  -  |
+**401** | Error response due to missing auth cookie. |  -  |
 **404** | Error response when trying to perform operations on a non-existing group. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1071,51 +665,6 @@ Create GroupRole
 Create a Group role.
 
 ### Example
-
-* Api Key Authentication (apiKeyCookie):
-```python
-from __future__ import print_function
-import time
-import vrchatapi
-from vrchatapi.rest import ApiException
-from pprint import pprint
-# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
-# See configuration.py for a list of all supported configuration parameters.
-configuration = vrchatapi.Configuration(
-    host = "https://api.vrchat.cloud/api/1"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: apiKeyCookie
-configuration.api_key['apiKeyCookie'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['apiKeyCookie'] = 'Bearer'
-
-# Configure API key authorization: authCookie
-configuration.api_key['authCookie'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['authCookie'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with vrchatapi.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = vrchatapi.GroupsApi(api_client)
-    group_id = 'grp_00000000-0000-0000-0000-000000000000' # str | Must be a valid group ID.
-create_group_role_request = vrchatapi.CreateGroupRoleRequest() # CreateGroupRoleRequest |  (optional)
-
-    try:
-        # Create GroupRole
-        api_response = api_instance.create_group_role(group_id, create_group_role_request=create_group_role_request)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling GroupsApi->create_group_role: %s\n" % e)
-```
 
 * Api Key Authentication (authCookie):
 ```python
@@ -1134,12 +683,6 @@ configuration = vrchatapi.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
-
-# Configure API key authorization: apiKeyCookie
-configuration.api_key['apiKeyCookie'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['apiKeyCookie'] = 'Bearer'
 
 # Configure API key authorization: authCookie
 configuration.api_key['authCookie'] = 'YOUR_API_KEY'
@@ -1175,7 +718,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apiKeyCookie](../README.md#apiKeyCookie), [authCookie](../README.md#authCookie)
+[authCookie](../README.md#authCookie)
 
 ### HTTP request headers
 
@@ -1186,7 +729,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Returns a single GroupRole object. |  -  |
-**401** | Error response due to missing apiKey or auth cookie. |  -  |
+**401** | Error response due to missing auth cookie. |  -  |
 **404** | Error response when trying to perform operations on a non-existing group. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1200,50 +743,6 @@ Deletes a Group.
 
 ### Example
 
-* Api Key Authentication (apiKeyCookie):
-```python
-from __future__ import print_function
-import time
-import vrchatapi
-from vrchatapi.rest import ApiException
-from pprint import pprint
-# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
-# See configuration.py for a list of all supported configuration parameters.
-configuration = vrchatapi.Configuration(
-    host = "https://api.vrchat.cloud/api/1"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: apiKeyCookie
-configuration.api_key['apiKeyCookie'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['apiKeyCookie'] = 'Bearer'
-
-# Configure API key authorization: authCookie
-configuration.api_key['authCookie'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['authCookie'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with vrchatapi.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = vrchatapi.GroupsApi(api_client)
-    group_id = 'grp_00000000-0000-0000-0000-000000000000' # str | Must be a valid group ID.
-
-    try:
-        # Delete Group
-        api_response = api_instance.delete_group(group_id)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling GroupsApi->delete_group: %s\n" % e)
-```
-
 * Api Key Authentication (authCookie):
 ```python
 from __future__ import print_function
@@ -1261,12 +760,6 @@ configuration = vrchatapi.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
-
-# Configure API key authorization: apiKeyCookie
-configuration.api_key['apiKeyCookie'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['apiKeyCookie'] = 'Bearer'
 
 # Configure API key authorization: authCookie
 configuration.api_key['authCookie'] = 'YOUR_API_KEY'
@@ -1300,7 +793,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apiKeyCookie](../README.md#apiKeyCookie), [authCookie](../README.md#authCookie)
+[authCookie](../README.md#authCookie)
 
 ### HTTP request headers
 
@@ -1311,7 +804,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful response after deleting a Group. |  -  |
-**401** | Error response due to missing apiKey or auth cookie. |  -  |
+**401** | Error response due to missing auth cookie. |  -  |
 **404** | Error response when trying to perform operations on a non-existing group. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1325,50 +818,6 @@ Deletes the announcement for a Group.
 
 ### Example
 
-* Api Key Authentication (apiKeyCookie):
-```python
-from __future__ import print_function
-import time
-import vrchatapi
-from vrchatapi.rest import ApiException
-from pprint import pprint
-# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
-# See configuration.py for a list of all supported configuration parameters.
-configuration = vrchatapi.Configuration(
-    host = "https://api.vrchat.cloud/api/1"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: apiKeyCookie
-configuration.api_key['apiKeyCookie'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['apiKeyCookie'] = 'Bearer'
-
-# Configure API key authorization: authCookie
-configuration.api_key['authCookie'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['authCookie'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with vrchatapi.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = vrchatapi.GroupsApi(api_client)
-    group_id = 'grp_00000000-0000-0000-0000-000000000000' # str | Must be a valid group ID.
-
-    try:
-        # Delete Group Announcement
-        api_response = api_instance.delete_group_announcement(group_id)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling GroupsApi->delete_group_announcement: %s\n" % e)
-```
-
 * Api Key Authentication (authCookie):
 ```python
 from __future__ import print_function
@@ -1386,12 +835,6 @@ configuration = vrchatapi.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
-
-# Configure API key authorization: apiKeyCookie
-configuration.api_key['apiKeyCookie'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['apiKeyCookie'] = 'Bearer'
 
 # Configure API key authorization: authCookie
 configuration.api_key['authCookie'] = 'YOUR_API_KEY'
@@ -1425,7 +868,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apiKeyCookie](../README.md#apiKeyCookie), [authCookie](../README.md#authCookie)
+[authCookie](../README.md#authCookie)
 
 ### HTTP request headers
 
@@ -1436,7 +879,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful response after deleting/clearing the group announcement. |  -  |
-**401** | Error response due to missing apiKey or auth cookie. |  -  |
+**401** | Error response due to missing auth cookie. |  -  |
 **404** | Error response when trying to perform operations on a non-existing group. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1449,51 +892,6 @@ Delete Group Gallery
 Deletes a gallery for a Group.
 
 ### Example
-
-* Api Key Authentication (apiKeyCookie):
-```python
-from __future__ import print_function
-import time
-import vrchatapi
-from vrchatapi.rest import ApiException
-from pprint import pprint
-# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
-# See configuration.py for a list of all supported configuration parameters.
-configuration = vrchatapi.Configuration(
-    host = "https://api.vrchat.cloud/api/1"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: apiKeyCookie
-configuration.api_key['apiKeyCookie'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['apiKeyCookie'] = 'Bearer'
-
-# Configure API key authorization: authCookie
-configuration.api_key['authCookie'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['authCookie'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with vrchatapi.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = vrchatapi.GroupsApi(api_client)
-    group_id = 'grp_00000000-0000-0000-0000-000000000000' # str | Must be a valid group ID.
-group_gallery_id = 'ggal_00000000-0000-0000-0000-000000000000' # str | Must be a valid group gallery ID.
-
-    try:
-        # Delete Group Gallery
-        api_response = api_instance.delete_group_gallery(group_id, group_gallery_id)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling GroupsApi->delete_group_gallery: %s\n" % e)
-```
 
 * Api Key Authentication (authCookie):
 ```python
@@ -1512,12 +910,6 @@ configuration = vrchatapi.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
-
-# Configure API key authorization: apiKeyCookie
-configuration.api_key['apiKeyCookie'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['apiKeyCookie'] = 'Bearer'
 
 # Configure API key authorization: authCookie
 configuration.api_key['authCookie'] = 'YOUR_API_KEY'
@@ -1553,7 +945,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apiKeyCookie](../README.md#apiKeyCookie), [authCookie](../README.md#authCookie)
+[authCookie](../README.md#authCookie)
 
 ### HTTP request headers
 
@@ -1564,7 +956,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful response after deleting a group gallery. |  -  |
-**401** | Error response due to missing apiKey or auth cookie. |  -  |
+**401** | Error response due to missing auth cookie. |  -  |
 **404** | Error response when trying to perform operations on a non-existing group. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1577,52 +969,6 @@ Delete Group Gallery Image
 Deletes an image from a Group gallery.
 
 ### Example
-
-* Api Key Authentication (apiKeyCookie):
-```python
-from __future__ import print_function
-import time
-import vrchatapi
-from vrchatapi.rest import ApiException
-from pprint import pprint
-# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
-# See configuration.py for a list of all supported configuration parameters.
-configuration = vrchatapi.Configuration(
-    host = "https://api.vrchat.cloud/api/1"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: apiKeyCookie
-configuration.api_key['apiKeyCookie'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['apiKeyCookie'] = 'Bearer'
-
-# Configure API key authorization: authCookie
-configuration.api_key['authCookie'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['authCookie'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with vrchatapi.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = vrchatapi.GroupsApi(api_client)
-    group_id = 'grp_00000000-0000-0000-0000-000000000000' # str | Must be a valid group ID.
-group_gallery_id = 'ggal_00000000-0000-0000-0000-000000000000' # str | Must be a valid group gallery ID.
-group_gallery_image_id = 'ggim_00000000-0000-0000-0000-000000000000' # str | Must be a valid group gallery image ID.
-
-    try:
-        # Delete Group Gallery Image
-        api_response = api_instance.delete_group_gallery_image(group_id, group_gallery_id, group_gallery_image_id)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling GroupsApi->delete_group_gallery_image: %s\n" % e)
-```
 
 * Api Key Authentication (authCookie):
 ```python
@@ -1641,12 +987,6 @@ configuration = vrchatapi.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
-
-# Configure API key authorization: apiKeyCookie
-configuration.api_key['apiKeyCookie'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['apiKeyCookie'] = 'Bearer'
 
 # Configure API key authorization: authCookie
 configuration.api_key['authCookie'] = 'YOUR_API_KEY'
@@ -1684,7 +1024,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apiKeyCookie](../README.md#apiKeyCookie), [authCookie](../README.md#authCookie)
+[authCookie](../README.md#authCookie)
 
 ### HTTP request headers
 
@@ -1695,7 +1035,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful response after deleting a group gallery image. |  -  |
-**401** | Error response due to missing apiKey or auth cookie. |  -  |
+**401** | Error response due to missing auth cookie. |  -  |
 **403** | Error response when trying to delete a submission to a group&#39;s gallery when the user does not have permission to do so. |  -  |
 **404** | Error response when trying to perform operations on a non-existing group. |  -  |
 
@@ -1709,50 +1049,6 @@ Delete User Invite
 Deletes an Group invite sent to a User
 
 ### Example
-
-* Api Key Authentication (apiKeyCookie):
-```python
-from __future__ import print_function
-import time
-import vrchatapi
-from vrchatapi.rest import ApiException
-from pprint import pprint
-# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
-# See configuration.py for a list of all supported configuration parameters.
-configuration = vrchatapi.Configuration(
-    host = "https://api.vrchat.cloud/api/1"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: apiKeyCookie
-configuration.api_key['apiKeyCookie'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['apiKeyCookie'] = 'Bearer'
-
-# Configure API key authorization: authCookie
-configuration.api_key['authCookie'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['authCookie'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with vrchatapi.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = vrchatapi.GroupsApi(api_client)
-    group_id = 'grp_00000000-0000-0000-0000-000000000000' # str | Must be a valid group ID.
-user_id = 'user_id_example' # str | Must be a valid user ID.
-
-    try:
-        # Delete User Invite
-        api_instance.delete_group_invite(group_id, user_id)
-    except ApiException as e:
-        print("Exception when calling GroupsApi->delete_group_invite: %s\n" % e)
-```
 
 * Api Key Authentication (authCookie):
 ```python
@@ -1771,12 +1067,6 @@ configuration = vrchatapi.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
-
-# Configure API key authorization: apiKeyCookie
-configuration.api_key['apiKeyCookie'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['apiKeyCookie'] = 'Bearer'
 
 # Configure API key authorization: authCookie
 configuration.api_key['authCookie'] = 'YOUR_API_KEY'
@@ -1811,7 +1101,7 @@ void (empty response body)
 
 ### Authorization
 
-[apiKeyCookie](../README.md#apiKeyCookie), [authCookie](../README.md#authCookie)
+[authCookie](../README.md#authCookie)
 
 ### HTTP request headers
 
@@ -1822,7 +1112,7 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |
-**401** | Error response due to missing apiKey or auth cookie. |  -  |
+**401** | Error response due to missing auth cookie. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1834,51 +1124,6 @@ Delete Group Role
 Deletes a Group Role by ID and returns the remaining roles.
 
 ### Example
-
-* Api Key Authentication (apiKeyCookie):
-```python
-from __future__ import print_function
-import time
-import vrchatapi
-from vrchatapi.rest import ApiException
-from pprint import pprint
-# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
-# See configuration.py for a list of all supported configuration parameters.
-configuration = vrchatapi.Configuration(
-    host = "https://api.vrchat.cloud/api/1"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: apiKeyCookie
-configuration.api_key['apiKeyCookie'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['apiKeyCookie'] = 'Bearer'
-
-# Configure API key authorization: authCookie
-configuration.api_key['authCookie'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['authCookie'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with vrchatapi.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = vrchatapi.GroupsApi(api_client)
-    group_id = 'grp_00000000-0000-0000-0000-000000000000' # str | Must be a valid group ID.
-group_role_id = 'grol_00000000-0000-0000-0000-000000000000' # str | Must be a valid group role ID.
-
-    try:
-        # Delete Group Role
-        api_response = api_instance.delete_group_role(group_id, group_role_id)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling GroupsApi->delete_group_role: %s\n" % e)
-```
 
 * Api Key Authentication (authCookie):
 ```python
@@ -1897,12 +1142,6 @@ configuration = vrchatapi.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
-
-# Configure API key authorization: apiKeyCookie
-configuration.api_key['apiKeyCookie'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['apiKeyCookie'] = 'Bearer'
 
 # Configure API key authorization: authCookie
 configuration.api_key['authCookie'] = 'YOUR_API_KEY'
@@ -1938,7 +1177,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apiKeyCookie](../README.md#apiKeyCookie), [authCookie](../README.md#authCookie)
+[authCookie](../README.md#authCookie)
 
 ### HTTP request headers
 
@@ -1949,7 +1188,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Returns a list of GroupRole objects. |  -  |
-**401** | Error response due to missing apiKey or auth cookie. |  -  |
+**401** | Error response due to missing auth cookie. |  -  |
 **404** | Error response when trying to perform operations on a group you are not member of. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1962,51 +1201,6 @@ Get Group by ID
 Returns a single Group by ID.
 
 ### Example
-
-* Api Key Authentication (apiKeyCookie):
-```python
-from __future__ import print_function
-import time
-import vrchatapi
-from vrchatapi.rest import ApiException
-from pprint import pprint
-# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
-# See configuration.py for a list of all supported configuration parameters.
-configuration = vrchatapi.Configuration(
-    host = "https://api.vrchat.cloud/api/1"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: apiKeyCookie
-configuration.api_key['apiKeyCookie'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['apiKeyCookie'] = 'Bearer'
-
-# Configure API key authorization: authCookie
-configuration.api_key['authCookie'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['authCookie'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with vrchatapi.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = vrchatapi.GroupsApi(api_client)
-    group_id = 'grp_00000000-0000-0000-0000-000000000000' # str | Must be a valid group ID.
-include_roles = True # bool | Include roles for the Group object. Defaults to false. (optional)
-
-    try:
-        # Get Group by ID
-        api_response = api_instance.get_group(group_id, include_roles=include_roles)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling GroupsApi->get_group: %s\n" % e)
-```
 
 * Api Key Authentication (authCookie):
 ```python
@@ -2025,12 +1219,6 @@ configuration = vrchatapi.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
-
-# Configure API key authorization: apiKeyCookie
-configuration.api_key['apiKeyCookie'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['apiKeyCookie'] = 'Bearer'
 
 # Configure API key authorization: authCookie
 configuration.api_key['authCookie'] = 'YOUR_API_KEY'
@@ -2066,7 +1254,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apiKeyCookie](../README.md#apiKeyCookie), [authCookie](../README.md#authCookie)
+[authCookie](../README.md#authCookie)
 
 ### HTTP request headers
 
@@ -2077,7 +1265,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Returns a single Group object. |  -  |
-**401** | Error response due to missing apiKey or auth cookie. |  -  |
+**401** | Error response due to missing auth cookie. |  -  |
 **404** | Error response when trying to perform operations on a non-existing group. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -2090,50 +1278,6 @@ Get Group Announcement
 Returns the announcement for a Group. If no announcement has been made, then it returns **empty object**.  If an announcement exists, then it will always return all fields except `imageId` and `imageUrl` which may be null.
 
 ### Example
-
-* Api Key Authentication (apiKeyCookie):
-```python
-from __future__ import print_function
-import time
-import vrchatapi
-from vrchatapi.rest import ApiException
-from pprint import pprint
-# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
-# See configuration.py for a list of all supported configuration parameters.
-configuration = vrchatapi.Configuration(
-    host = "https://api.vrchat.cloud/api/1"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: apiKeyCookie
-configuration.api_key['apiKeyCookie'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['apiKeyCookie'] = 'Bearer'
-
-# Configure API key authorization: authCookie
-configuration.api_key['authCookie'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['authCookie'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with vrchatapi.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = vrchatapi.GroupsApi(api_client)
-    group_id = 'grp_00000000-0000-0000-0000-000000000000' # str | Must be a valid group ID.
-
-    try:
-        # Get Group Announcement
-        api_response = api_instance.get_group_announcements(group_id)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling GroupsApi->get_group_announcements: %s\n" % e)
-```
 
 * Api Key Authentication (authCookie):
 ```python
@@ -2152,12 +1296,6 @@ configuration = vrchatapi.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
-
-# Configure API key authorization: apiKeyCookie
-configuration.api_key['apiKeyCookie'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['apiKeyCookie'] = 'Bearer'
 
 # Configure API key authorization: authCookie
 configuration.api_key['authCookie'] = 'YOUR_API_KEY'
@@ -2191,7 +1329,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apiKeyCookie](../README.md#apiKeyCookie), [authCookie](../README.md#authCookie)
+[authCookie](../README.md#authCookie)
 
 ### HTTP request headers
 
@@ -2202,7 +1340,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Returns a single GroupAnnouncement object. |  -  |
-**401** | Error response due to missing apiKey or auth cookie. |  -  |
+**401** | Error response due to missing auth cookie. |  -  |
 **404** | Error response when trying to perform operations on a non-existing group. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -2215,54 +1353,6 @@ Get Group Audit Logs
 Returns a list of audit logs for a Group.
 
 ### Example
-
-* Api Key Authentication (apiKeyCookie):
-```python
-from __future__ import print_function
-import time
-import vrchatapi
-from vrchatapi.rest import ApiException
-from pprint import pprint
-# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
-# See configuration.py for a list of all supported configuration parameters.
-configuration = vrchatapi.Configuration(
-    host = "https://api.vrchat.cloud/api/1"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: apiKeyCookie
-configuration.api_key['apiKeyCookie'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['apiKeyCookie'] = 'Bearer'
-
-# Configure API key authorization: authCookie
-configuration.api_key['authCookie'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['authCookie'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with vrchatapi.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = vrchatapi.GroupsApi(api_client)
-    group_id = 'grp_00000000-0000-0000-0000-000000000000' # str | Must be a valid group ID.
-n = 60 # int | The number of objects to return. (optional) (default to 60)
-offset = 56 # int | A zero-based offset from the default object sorting from where search results start. (optional)
-start_date = '2013-10-20T19:20:30+01:00' # datetime | The start date of the search range. (optional)
-end_date = '2013-10-20T19:20:30+01:00' # datetime | The end date of the search range. (optional)
-
-    try:
-        # Get Group Audit Logs
-        api_response = api_instance.get_group_audit_logs(group_id, n=n, offset=offset, start_date=start_date, end_date=end_date)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling GroupsApi->get_group_audit_logs: %s\n" % e)
-```
 
 * Api Key Authentication (authCookie):
 ```python
@@ -2281,12 +1371,6 @@ configuration = vrchatapi.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
-
-# Configure API key authorization: apiKeyCookie
-configuration.api_key['apiKeyCookie'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['apiKeyCookie'] = 'Bearer'
 
 # Configure API key authorization: authCookie
 configuration.api_key['authCookie'] = 'YOUR_API_KEY'
@@ -2328,7 +1412,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apiKeyCookie](../README.md#apiKeyCookie), [authCookie](../README.md#authCookie)
+[authCookie](../README.md#authCookie)
 
 ### HTTP request headers
 
@@ -2339,7 +1423,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Returns a list of GroupAudit objects, wrapped in new pagination format. |  -  |
-**401** | Error response due to missing apiKey or auth cookie. |  -  |
+**401** | Error response due to missing auth cookie. |  -  |
 **404** | Error response when trying to perform operations on a non-existing group. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -2352,52 +1436,6 @@ Get Group Bans
 Returns a list of banned users for a Group.
 
 ### Example
-
-* Api Key Authentication (apiKeyCookie):
-```python
-from __future__ import print_function
-import time
-import vrchatapi
-from vrchatapi.rest import ApiException
-from pprint import pprint
-# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
-# See configuration.py for a list of all supported configuration parameters.
-configuration = vrchatapi.Configuration(
-    host = "https://api.vrchat.cloud/api/1"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: apiKeyCookie
-configuration.api_key['apiKeyCookie'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['apiKeyCookie'] = 'Bearer'
-
-# Configure API key authorization: authCookie
-configuration.api_key['authCookie'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['authCookie'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with vrchatapi.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = vrchatapi.GroupsApi(api_client)
-    group_id = 'grp_00000000-0000-0000-0000-000000000000' # str | Must be a valid group ID.
-n = 60 # int | The number of objects to return. (optional) (default to 60)
-offset = 56 # int | A zero-based offset from the default object sorting from where search results start. (optional)
-
-    try:
-        # Get Group Bans
-        api_response = api_instance.get_group_bans(group_id, n=n, offset=offset)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling GroupsApi->get_group_bans: %s\n" % e)
-```
 
 * Api Key Authentication (authCookie):
 ```python
@@ -2416,12 +1454,6 @@ configuration = vrchatapi.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
-
-# Configure API key authorization: apiKeyCookie
-configuration.api_key['apiKeyCookie'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['apiKeyCookie'] = 'Bearer'
 
 # Configure API key authorization: authCookie
 configuration.api_key['authCookie'] = 'YOUR_API_KEY'
@@ -2459,7 +1491,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apiKeyCookie](../README.md#apiKeyCookie), [authCookie](../README.md#authCookie)
+[authCookie](../README.md#authCookie)
 
 ### HTTP request headers
 
@@ -2470,7 +1502,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Returns a list of GroupMember objects. |  -  |
-**401** | Error response due to missing apiKey or auth cookie. |  -  |
+**401** | Error response due to missing auth cookie. |  -  |
 **404** | Error response when trying to perform operations on a non-existing group. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -2483,54 +1515,6 @@ Get Group Gallery Images
 Returns a list of images for a Group gallery.
 
 ### Example
-
-* Api Key Authentication (apiKeyCookie):
-```python
-from __future__ import print_function
-import time
-import vrchatapi
-from vrchatapi.rest import ApiException
-from pprint import pprint
-# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
-# See configuration.py for a list of all supported configuration parameters.
-configuration = vrchatapi.Configuration(
-    host = "https://api.vrchat.cloud/api/1"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: apiKeyCookie
-configuration.api_key['apiKeyCookie'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['apiKeyCookie'] = 'Bearer'
-
-# Configure API key authorization: authCookie
-configuration.api_key['authCookie'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['authCookie'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with vrchatapi.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = vrchatapi.GroupsApi(api_client)
-    group_id = 'grp_00000000-0000-0000-0000-000000000000' # str | Must be a valid group ID.
-group_gallery_id = 'ggal_00000000-0000-0000-0000-000000000000' # str | Must be a valid group gallery ID.
-n = 60 # int | The number of objects to return. (optional) (default to 60)
-offset = 56 # int | A zero-based offset from the default object sorting from where search results start. (optional)
-approved = True # bool | If specified, only returns images that have been approved or not approved. (optional)
-
-    try:
-        # Get Group Gallery Images
-        api_response = api_instance.get_group_gallery_images(group_id, group_gallery_id, n=n, offset=offset, approved=approved)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling GroupsApi->get_group_gallery_images: %s\n" % e)
-```
 
 * Api Key Authentication (authCookie):
 ```python
@@ -2549,12 +1533,6 @@ configuration = vrchatapi.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
-
-# Configure API key authorization: apiKeyCookie
-configuration.api_key['apiKeyCookie'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['apiKeyCookie'] = 'Bearer'
 
 # Configure API key authorization: authCookie
 configuration.api_key['authCookie'] = 'YOUR_API_KEY'
@@ -2596,7 +1574,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apiKeyCookie](../README.md#apiKeyCookie), [authCookie](../README.md#authCookie)
+[authCookie](../README.md#authCookie)
 
 ### HTTP request headers
 
@@ -2607,7 +1585,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Returns a list of GroupGalleryImage objects. |  -  |
-**401** | Error response due to missing apiKey or auth cookie. |  -  |
+**401** | Error response due to missing auth cookie. |  -  |
 **404** | Error response when trying to perform operations on a non-existing group. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -2620,50 +1598,6 @@ Get Group Invites Sent
 Returns a list of members that have been invited to the Group.
 
 ### Example
-
-* Api Key Authentication (apiKeyCookie):
-```python
-from __future__ import print_function
-import time
-import vrchatapi
-from vrchatapi.rest import ApiException
-from pprint import pprint
-# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
-# See configuration.py for a list of all supported configuration parameters.
-configuration = vrchatapi.Configuration(
-    host = "https://api.vrchat.cloud/api/1"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: apiKeyCookie
-configuration.api_key['apiKeyCookie'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['apiKeyCookie'] = 'Bearer'
-
-# Configure API key authorization: authCookie
-configuration.api_key['authCookie'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['authCookie'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with vrchatapi.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = vrchatapi.GroupsApi(api_client)
-    group_id = 'grp_00000000-0000-0000-0000-000000000000' # str | Must be a valid group ID.
-
-    try:
-        # Get Group Invites Sent
-        api_response = api_instance.get_group_invites(group_id)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling GroupsApi->get_group_invites: %s\n" % e)
-```
 
 * Api Key Authentication (authCookie):
 ```python
@@ -2682,12 +1616,6 @@ configuration = vrchatapi.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
-
-# Configure API key authorization: apiKeyCookie
-configuration.api_key['apiKeyCookie'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['apiKeyCookie'] = 'Bearer'
 
 # Configure API key authorization: authCookie
 configuration.api_key['authCookie'] = 'YOUR_API_KEY'
@@ -2721,7 +1649,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apiKeyCookie](../README.md#apiKeyCookie), [authCookie](../README.md#authCookie)
+[authCookie](../README.md#authCookie)
 
 ### HTTP request headers
 
@@ -2732,7 +1660,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Returns a list of GroupMember objects. |  -  |
-**401** | Error response due to missing apiKey or auth cookie. |  -  |
+**401** | Error response due to missing auth cookie. |  -  |
 **403** | Error response when trying to perform operations on a group you are not member of. |  -  |
 **404** | Error response when trying to perform operations on a non-existing group. |  -  |
 
@@ -2746,51 +1674,6 @@ Get Group Member
 Returns a LimitedGroup Member.
 
 ### Example
-
-* Api Key Authentication (apiKeyCookie):
-```python
-from __future__ import print_function
-import time
-import vrchatapi
-from vrchatapi.rest import ApiException
-from pprint import pprint
-# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
-# See configuration.py for a list of all supported configuration parameters.
-configuration = vrchatapi.Configuration(
-    host = "https://api.vrchat.cloud/api/1"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: apiKeyCookie
-configuration.api_key['apiKeyCookie'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['apiKeyCookie'] = 'Bearer'
-
-# Configure API key authorization: authCookie
-configuration.api_key['authCookie'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['authCookie'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with vrchatapi.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = vrchatapi.GroupsApi(api_client)
-    group_id = 'grp_00000000-0000-0000-0000-000000000000' # str | Must be a valid group ID.
-user_id = 'user_id_example' # str | Must be a valid user ID.
-
-    try:
-        # Get Group Member
-        api_response = api_instance.get_group_member(group_id, user_id)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling GroupsApi->get_group_member: %s\n" % e)
-```
 
 * Api Key Authentication (authCookie):
 ```python
@@ -2809,12 +1692,6 @@ configuration = vrchatapi.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
-
-# Configure API key authorization: apiKeyCookie
-configuration.api_key['apiKeyCookie'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['apiKeyCookie'] = 'Bearer'
 
 # Configure API key authorization: authCookie
 configuration.api_key['authCookie'] = 'YOUR_API_KEY'
@@ -2850,7 +1727,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apiKeyCookie](../README.md#apiKeyCookie), [authCookie](../README.md#authCookie)
+[authCookie](../README.md#authCookie)
 
 ### HTTP request headers
 
@@ -2861,7 +1738,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Returns a list of GroupMember objects. |  -  |
-**401** | Error response due to missing apiKey or auth cookie. |  -  |
+**401** | Error response due to missing auth cookie. |  -  |
 **404** | Error response when trying to perform operations on a non-existing group. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -2874,52 +1751,6 @@ List Group Members
 Returns a List of all **other** Group Members. This endpoint will never return the user calling the endpoint. Information about the user calling the endpoint must be found in the `myMember` field of the Group object.
 
 ### Example
-
-* Api Key Authentication (apiKeyCookie):
-```python
-from __future__ import print_function
-import time
-import vrchatapi
-from vrchatapi.rest import ApiException
-from pprint import pprint
-# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
-# See configuration.py for a list of all supported configuration parameters.
-configuration = vrchatapi.Configuration(
-    host = "https://api.vrchat.cloud/api/1"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: apiKeyCookie
-configuration.api_key['apiKeyCookie'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['apiKeyCookie'] = 'Bearer'
-
-# Configure API key authorization: authCookie
-configuration.api_key['authCookie'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['authCookie'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with vrchatapi.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = vrchatapi.GroupsApi(api_client)
-    group_id = 'grp_00000000-0000-0000-0000-000000000000' # str | Must be a valid group ID.
-n = 60 # int | The number of objects to return. (optional) (default to 60)
-offset = 56 # int | A zero-based offset from the default object sorting from where search results start. (optional)
-
-    try:
-        # List Group Members
-        api_response = api_instance.get_group_members(group_id, n=n, offset=offset)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling GroupsApi->get_group_members: %s\n" % e)
-```
 
 * Api Key Authentication (authCookie):
 ```python
@@ -2938,12 +1769,6 @@ configuration = vrchatapi.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
-
-# Configure API key authorization: apiKeyCookie
-configuration.api_key['apiKeyCookie'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['apiKeyCookie'] = 'Bearer'
 
 # Configure API key authorization: authCookie
 configuration.api_key['authCookie'] = 'YOUR_API_KEY'
@@ -2981,7 +1806,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apiKeyCookie](../README.md#apiKeyCookie), [authCookie](../README.md#authCookie)
+[authCookie](../README.md#authCookie)
 
 ### HTTP request headers
 
@@ -2993,7 +1818,7 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 **200** | Returns a list of GroupMember objects. |  -  |
 **400** | Error response when trying to search list of users with an invalid request. |  -  |
-**401** | Error response due to missing apiKey or auth cookie. |  -  |
+**401** | Error response due to missing auth cookie. |  -  |
 **404** | Error response when trying to perform operations on a non-existing group. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -3006,50 +1831,6 @@ List Group Permissions
 Returns a List of all possible/available permissions for a Group.
 
 ### Example
-
-* Api Key Authentication (apiKeyCookie):
-```python
-from __future__ import print_function
-import time
-import vrchatapi
-from vrchatapi.rest import ApiException
-from pprint import pprint
-# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
-# See configuration.py for a list of all supported configuration parameters.
-configuration = vrchatapi.Configuration(
-    host = "https://api.vrchat.cloud/api/1"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: apiKeyCookie
-configuration.api_key['apiKeyCookie'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['apiKeyCookie'] = 'Bearer'
-
-# Configure API key authorization: authCookie
-configuration.api_key['authCookie'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['authCookie'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with vrchatapi.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = vrchatapi.GroupsApi(api_client)
-    group_id = 'grp_00000000-0000-0000-0000-000000000000' # str | Must be a valid group ID.
-
-    try:
-        # List Group Permissions
-        api_response = api_instance.get_group_permissions(group_id)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling GroupsApi->get_group_permissions: %s\n" % e)
-```
 
 * Api Key Authentication (authCookie):
 ```python
@@ -3068,12 +1849,6 @@ configuration = vrchatapi.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
-
-# Configure API key authorization: apiKeyCookie
-configuration.api_key['apiKeyCookie'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['apiKeyCookie'] = 'Bearer'
 
 # Configure API key authorization: authCookie
 configuration.api_key['authCookie'] = 'YOUR_API_KEY'
@@ -3107,7 +1882,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apiKeyCookie](../README.md#apiKeyCookie), [authCookie](../README.md#authCookie)
+[authCookie](../README.md#authCookie)
 
 ### HTTP request headers
 
@@ -3119,7 +1894,7 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 **200** | Returns a list of GroupPermission objects. |  -  |
 **400** | Error response when trying to search list of users with an invalid request. |  -  |
-**401** | Error response due to missing apiKey or auth cookie. |  -  |
+**401** | Error response due to missing auth cookie. |  -  |
 **404** | Error response when trying to perform operations on a non-existing group. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -3132,50 +1907,6 @@ Get Group Join Requests
 Returns a list of members that have requested to join the Group.
 
 ### Example
-
-* Api Key Authentication (apiKeyCookie):
-```python
-from __future__ import print_function
-import time
-import vrchatapi
-from vrchatapi.rest import ApiException
-from pprint import pprint
-# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
-# See configuration.py for a list of all supported configuration parameters.
-configuration = vrchatapi.Configuration(
-    host = "https://api.vrchat.cloud/api/1"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: apiKeyCookie
-configuration.api_key['apiKeyCookie'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['apiKeyCookie'] = 'Bearer'
-
-# Configure API key authorization: authCookie
-configuration.api_key['authCookie'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['authCookie'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with vrchatapi.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = vrchatapi.GroupsApi(api_client)
-    group_id = 'grp_00000000-0000-0000-0000-000000000000' # str | Must be a valid group ID.
-
-    try:
-        # Get Group Join Requests
-        api_response = api_instance.get_group_requests(group_id)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling GroupsApi->get_group_requests: %s\n" % e)
-```
 
 * Api Key Authentication (authCookie):
 ```python
@@ -3194,12 +1925,6 @@ configuration = vrchatapi.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
-
-# Configure API key authorization: apiKeyCookie
-configuration.api_key['apiKeyCookie'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['apiKeyCookie'] = 'Bearer'
 
 # Configure API key authorization: authCookie
 configuration.api_key['authCookie'] = 'YOUR_API_KEY'
@@ -3233,7 +1958,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apiKeyCookie](../README.md#apiKeyCookie), [authCookie](../README.md#authCookie)
+[authCookie](../README.md#authCookie)
 
 ### HTTP request headers
 
@@ -3258,50 +1983,6 @@ Returns a Group Role by ID.
 
 ### Example
 
-* Api Key Authentication (apiKeyCookie):
-```python
-from __future__ import print_function
-import time
-import vrchatapi
-from vrchatapi.rest import ApiException
-from pprint import pprint
-# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
-# See configuration.py for a list of all supported configuration parameters.
-configuration = vrchatapi.Configuration(
-    host = "https://api.vrchat.cloud/api/1"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: apiKeyCookie
-configuration.api_key['apiKeyCookie'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['apiKeyCookie'] = 'Bearer'
-
-# Configure API key authorization: authCookie
-configuration.api_key['authCookie'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['authCookie'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with vrchatapi.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = vrchatapi.GroupsApi(api_client)
-    group_id = 'grp_00000000-0000-0000-0000-000000000000' # str | Must be a valid group ID.
-
-    try:
-        # Get Group Roles
-        api_response = api_instance.get_group_roles(group_id)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling GroupsApi->get_group_roles: %s\n" % e)
-```
-
 * Api Key Authentication (authCookie):
 ```python
 from __future__ import print_function
@@ -3319,12 +2000,6 @@ configuration = vrchatapi.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
-
-# Configure API key authorization: apiKeyCookie
-configuration.api_key['apiKeyCookie'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['apiKeyCookie'] = 'Bearer'
 
 # Configure API key authorization: authCookie
 configuration.api_key['authCookie'] = 'YOUR_API_KEY'
@@ -3358,7 +2033,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apiKeyCookie](../README.md#apiKeyCookie), [authCookie](../README.md#authCookie)
+[authCookie](../README.md#authCookie)
 
 ### HTTP request headers
 
@@ -3369,7 +2044,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Returns a list of GroupRole objects. |  -  |
-**401** | Error response due to missing apiKey or auth cookie. |  -  |
+**401** | Error response due to missing auth cookie. |  -  |
 **404** | Error response when trying to perform operations on a non-existing group. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -3382,50 +2057,6 @@ Join Group
 Join a Group by ID and returns the member object.
 
 ### Example
-
-* Api Key Authentication (apiKeyCookie):
-```python
-from __future__ import print_function
-import time
-import vrchatapi
-from vrchatapi.rest import ApiException
-from pprint import pprint
-# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
-# See configuration.py for a list of all supported configuration parameters.
-configuration = vrchatapi.Configuration(
-    host = "https://api.vrchat.cloud/api/1"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: apiKeyCookie
-configuration.api_key['apiKeyCookie'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['apiKeyCookie'] = 'Bearer'
-
-# Configure API key authorization: authCookie
-configuration.api_key['authCookie'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['authCookie'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with vrchatapi.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = vrchatapi.GroupsApi(api_client)
-    group_id = 'grp_00000000-0000-0000-0000-000000000000' # str | Must be a valid group ID.
-
-    try:
-        # Join Group
-        api_response = api_instance.join_group(group_id)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling GroupsApi->join_group: %s\n" % e)
-```
 
 * Api Key Authentication (authCookie):
 ```python
@@ -3444,12 +2075,6 @@ configuration = vrchatapi.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
-
-# Configure API key authorization: apiKeyCookie
-configuration.api_key['apiKeyCookie'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['apiKeyCookie'] = 'Bearer'
 
 # Configure API key authorization: authCookie
 configuration.api_key['authCookie'] = 'YOUR_API_KEY'
@@ -3483,7 +2108,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apiKeyCookie](../README.md#apiKeyCookie), [authCookie](../README.md#authCookie)
+[authCookie](../README.md#authCookie)
 
 ### HTTP request headers
 
@@ -3495,7 +2120,7 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 **200** | Returns a list of GroupMember objects. |  -  |
 **400** | Error response when trying to join a group that the user is already a member of. |  -  |
-**401** | Error response due to missing apiKey or auth cookie. |  -  |
+**401** | Error response due to missing auth cookie. |  -  |
 **404** | Error response when trying to perform operations on a non-existing group. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -3508,50 +2133,6 @@ Kick Group Member
 Kicks a Group Member from the Group. The current user must have the \"Remove Group Members\" permission.
 
 ### Example
-
-* Api Key Authentication (apiKeyCookie):
-```python
-from __future__ import print_function
-import time
-import vrchatapi
-from vrchatapi.rest import ApiException
-from pprint import pprint
-# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
-# See configuration.py for a list of all supported configuration parameters.
-configuration = vrchatapi.Configuration(
-    host = "https://api.vrchat.cloud/api/1"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: apiKeyCookie
-configuration.api_key['apiKeyCookie'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['apiKeyCookie'] = 'Bearer'
-
-# Configure API key authorization: authCookie
-configuration.api_key['authCookie'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['authCookie'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with vrchatapi.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = vrchatapi.GroupsApi(api_client)
-    group_id = 'grp_00000000-0000-0000-0000-000000000000' # str | Must be a valid group ID.
-user_id = 'user_id_example' # str | Must be a valid user ID.
-
-    try:
-        # Kick Group Member
-        api_instance.kick_group_member(group_id, user_id)
-    except ApiException as e:
-        print("Exception when calling GroupsApi->kick_group_member: %s\n" % e)
-```
 
 * Api Key Authentication (authCookie):
 ```python
@@ -3570,12 +2151,6 @@ configuration = vrchatapi.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
-
-# Configure API key authorization: apiKeyCookie
-configuration.api_key['apiKeyCookie'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['apiKeyCookie'] = 'Bearer'
 
 # Configure API key authorization: authCookie
 configuration.api_key['authCookie'] = 'YOUR_API_KEY'
@@ -3610,7 +2185,7 @@ void (empty response body)
 
 ### Authorization
 
-[apiKeyCookie](../README.md#apiKeyCookie), [authCookie](../README.md#authCookie)
+[authCookie](../README.md#authCookie)
 
 ### HTTP request headers
 
@@ -3621,7 +2196,7 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |
-**401** | Error response due to missing apiKey or auth cookie. |  -  |
+**401** | Error response due to missing auth cookie. |  -  |
 **403** | Error response when trying to perform operations on a group you are not member of. |  -  |
 **404** | Error response when trying to perform operations on a non-existing group. |  -  |
 
@@ -3635,49 +2210,6 @@ Leave Group
 Leave a group by ID.
 
 ### Example
-
-* Api Key Authentication (apiKeyCookie):
-```python
-from __future__ import print_function
-import time
-import vrchatapi
-from vrchatapi.rest import ApiException
-from pprint import pprint
-# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
-# See configuration.py for a list of all supported configuration parameters.
-configuration = vrchatapi.Configuration(
-    host = "https://api.vrchat.cloud/api/1"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: apiKeyCookie
-configuration.api_key['apiKeyCookie'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['apiKeyCookie'] = 'Bearer'
-
-# Configure API key authorization: authCookie
-configuration.api_key['authCookie'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['authCookie'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with vrchatapi.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = vrchatapi.GroupsApi(api_client)
-    group_id = 'grp_00000000-0000-0000-0000-000000000000' # str | Must be a valid group ID.
-
-    try:
-        # Leave Group
-        api_instance.leave_group(group_id)
-    except ApiException as e:
-        print("Exception when calling GroupsApi->leave_group: %s\n" % e)
-```
 
 * Api Key Authentication (authCookie):
 ```python
@@ -3696,12 +2228,6 @@ configuration = vrchatapi.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
-
-# Configure API key authorization: apiKeyCookie
-configuration.api_key['apiKeyCookie'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['apiKeyCookie'] = 'Bearer'
 
 # Configure API key authorization: authCookie
 configuration.api_key['authCookie'] = 'YOUR_API_KEY'
@@ -3734,7 +2260,7 @@ void (empty response body)
 
 ### Authorization
 
-[apiKeyCookie](../README.md#apiKeyCookie), [authCookie](../README.md#authCookie)
+[authCookie](../README.md#authCookie)
 
 ### HTTP request headers
 
@@ -3759,52 +2285,6 @@ Removes a Role from a Group Member
 
 ### Example
 
-* Api Key Authentication (apiKeyCookie):
-```python
-from __future__ import print_function
-import time
-import vrchatapi
-from vrchatapi.rest import ApiException
-from pprint import pprint
-# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
-# See configuration.py for a list of all supported configuration parameters.
-configuration = vrchatapi.Configuration(
-    host = "https://api.vrchat.cloud/api/1"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: apiKeyCookie
-configuration.api_key['apiKeyCookie'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['apiKeyCookie'] = 'Bearer'
-
-# Configure API key authorization: authCookie
-configuration.api_key['authCookie'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['authCookie'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with vrchatapi.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = vrchatapi.GroupsApi(api_client)
-    group_id = 'grp_00000000-0000-0000-0000-000000000000' # str | Must be a valid group ID.
-user_id = 'user_id_example' # str | Must be a valid user ID.
-group_role_id = 'grol_00000000-0000-0000-0000-000000000000' # str | Must be a valid group role ID.
-
-    try:
-        # Remove Role from GroupMember
-        api_response = api_instance.remove_group_member_role(group_id, user_id, group_role_id)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling GroupsApi->remove_group_member_role: %s\n" % e)
-```
-
 * Api Key Authentication (authCookie):
 ```python
 from __future__ import print_function
@@ -3822,12 +2302,6 @@ configuration = vrchatapi.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
-
-# Configure API key authorization: apiKeyCookie
-configuration.api_key['apiKeyCookie'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['apiKeyCookie'] = 'Bearer'
 
 # Configure API key authorization: authCookie
 configuration.api_key['authCookie'] = 'YOUR_API_KEY'
@@ -3865,7 +2339,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apiKeyCookie](../README.md#apiKeyCookie), [authCookie](../README.md#authCookie)
+[authCookie](../README.md#authCookie)
 
 ### HTTP request headers
 
@@ -3876,7 +2350,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Returns a list of GroupRoleID objects. |  -  |
-**401** | Error response due to missing apiKey or auth cookie. |  -  |
+**401** | Error response due to missing auth cookie. |  -  |
 **404** | Error response when trying to perform operations on a non-existing group. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -3889,51 +2363,6 @@ Respond Group Join request
 Responds to a Group Join Request with Accept/Deny
 
 ### Example
-
-* Api Key Authentication (apiKeyCookie):
-```python
-from __future__ import print_function
-import time
-import vrchatapi
-from vrchatapi.rest import ApiException
-from pprint import pprint
-# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
-# See configuration.py for a list of all supported configuration parameters.
-configuration = vrchatapi.Configuration(
-    host = "https://api.vrchat.cloud/api/1"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: apiKeyCookie
-configuration.api_key['apiKeyCookie'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['apiKeyCookie'] = 'Bearer'
-
-# Configure API key authorization: authCookie
-configuration.api_key['authCookie'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['authCookie'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with vrchatapi.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = vrchatapi.GroupsApi(api_client)
-    group_id = 'grp_00000000-0000-0000-0000-000000000000' # str | Must be a valid group ID.
-user_id = 'user_id_example' # str | Must be a valid user ID.
-respond_group_join_request = vrchatapi.RespondGroupJoinRequest() # RespondGroupJoinRequest |  (optional)
-
-    try:
-        # Respond Group Join request
-        api_instance.respond_group_join_request(group_id, user_id, respond_group_join_request=respond_group_join_request)
-    except ApiException as e:
-        print("Exception when calling GroupsApi->respond_group_join_request: %s\n" % e)
-```
 
 * Api Key Authentication (authCookie):
 ```python
@@ -3952,12 +2381,6 @@ configuration = vrchatapi.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
-
-# Configure API key authorization: apiKeyCookie
-configuration.api_key['apiKeyCookie'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['apiKeyCookie'] = 'Bearer'
 
 # Configure API key authorization: authCookie
 configuration.api_key['authCookie'] = 'YOUR_API_KEY'
@@ -3994,7 +2417,7 @@ void (empty response body)
 
 ### Authorization
 
-[apiKeyCookie](../README.md#apiKeyCookie), [authCookie](../README.md#authCookie)
+[authCookie](../README.md#authCookie)
 
 ### HTTP request headers
 
@@ -4005,7 +2428,7 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |
-**401** | Error response due to missing apiKey or auth cookie. |  -  |
+**401** | Error response due to missing auth cookie. |  -  |
 **404** | Error response when trying to perform operations on a non-existing group. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -4018,51 +2441,6 @@ Unban Group Member
 Unbans a user from a Group.
 
 ### Example
-
-* Api Key Authentication (apiKeyCookie):
-```python
-from __future__ import print_function
-import time
-import vrchatapi
-from vrchatapi.rest import ApiException
-from pprint import pprint
-# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
-# See configuration.py for a list of all supported configuration parameters.
-configuration = vrchatapi.Configuration(
-    host = "https://api.vrchat.cloud/api/1"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: apiKeyCookie
-configuration.api_key['apiKeyCookie'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['apiKeyCookie'] = 'Bearer'
-
-# Configure API key authorization: authCookie
-configuration.api_key['authCookie'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['authCookie'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with vrchatapi.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = vrchatapi.GroupsApi(api_client)
-    group_id = 'grp_00000000-0000-0000-0000-000000000000' # str | Must be a valid group ID.
-user_id = 'user_id_example' # str | Must be a valid user ID.
-
-    try:
-        # Unban Group Member
-        api_response = api_instance.unban_group_member(group_id, user_id)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling GroupsApi->unban_group_member: %s\n" % e)
-```
 
 * Api Key Authentication (authCookie):
 ```python
@@ -4081,12 +2459,6 @@ configuration = vrchatapi.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
-
-# Configure API key authorization: apiKeyCookie
-configuration.api_key['apiKeyCookie'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['apiKeyCookie'] = 'Bearer'
 
 # Configure API key authorization: authCookie
 configuration.api_key['authCookie'] = 'YOUR_API_KEY'
@@ -4122,7 +2494,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apiKeyCookie](../README.md#apiKeyCookie), [authCookie](../README.md#authCookie)
+[authCookie](../README.md#authCookie)
 
 ### HTTP request headers
 
@@ -4133,7 +2505,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Returns a list of GroupMember objects. |  -  |
-**401** | Error response due to missing apiKey or auth cookie. |  -  |
+**401** | Error response due to missing auth cookie. |  -  |
 **404** | Error response when trying to perform operations on a non-existing group. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -4146,51 +2518,6 @@ Update Group
 Updates a Group and returns it.
 
 ### Example
-
-* Api Key Authentication (apiKeyCookie):
-```python
-from __future__ import print_function
-import time
-import vrchatapi
-from vrchatapi.rest import ApiException
-from pprint import pprint
-# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
-# See configuration.py for a list of all supported configuration parameters.
-configuration = vrchatapi.Configuration(
-    host = "https://api.vrchat.cloud/api/1"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: apiKeyCookie
-configuration.api_key['apiKeyCookie'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['apiKeyCookie'] = 'Bearer'
-
-# Configure API key authorization: authCookie
-configuration.api_key['authCookie'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['authCookie'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with vrchatapi.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = vrchatapi.GroupsApi(api_client)
-    group_id = 'grp_00000000-0000-0000-0000-000000000000' # str | Must be a valid group ID.
-update_group_request = vrchatapi.UpdateGroupRequest() # UpdateGroupRequest |  (optional)
-
-    try:
-        # Update Group
-        api_response = api_instance.update_group(group_id, update_group_request=update_group_request)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling GroupsApi->update_group: %s\n" % e)
-```
 
 * Api Key Authentication (authCookie):
 ```python
@@ -4209,12 +2536,6 @@ configuration = vrchatapi.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
-
-# Configure API key authorization: apiKeyCookie
-configuration.api_key['apiKeyCookie'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['apiKeyCookie'] = 'Bearer'
 
 # Configure API key authorization: authCookie
 configuration.api_key['authCookie'] = 'YOUR_API_KEY'
@@ -4250,7 +2571,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apiKeyCookie](../README.md#apiKeyCookie), [authCookie](../README.md#authCookie)
+[authCookie](../README.md#authCookie)
 
 ### HTTP request headers
 
@@ -4261,7 +2582,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Returns a single Group object. |  -  |
-**401** | Error response due to missing apiKey or auth cookie. |  -  |
+**401** | Error response due to missing auth cookie. |  -  |
 **404** | Error response when trying to perform operations on a non-existing group. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -4274,52 +2595,6 @@ Update Group Gallery
 Updates a gallery for a Group.
 
 ### Example
-
-* Api Key Authentication (apiKeyCookie):
-```python
-from __future__ import print_function
-import time
-import vrchatapi
-from vrchatapi.rest import ApiException
-from pprint import pprint
-# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
-# See configuration.py for a list of all supported configuration parameters.
-configuration = vrchatapi.Configuration(
-    host = "https://api.vrchat.cloud/api/1"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: apiKeyCookie
-configuration.api_key['apiKeyCookie'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['apiKeyCookie'] = 'Bearer'
-
-# Configure API key authorization: authCookie
-configuration.api_key['authCookie'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['authCookie'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with vrchatapi.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = vrchatapi.GroupsApi(api_client)
-    group_id = 'grp_00000000-0000-0000-0000-000000000000' # str | Must be a valid group ID.
-group_gallery_id = 'ggal_00000000-0000-0000-0000-000000000000' # str | Must be a valid group gallery ID.
-update_group_gallery_request = vrchatapi.UpdateGroupGalleryRequest() # UpdateGroupGalleryRequest |  (optional)
-
-    try:
-        # Update Group Gallery
-        api_response = api_instance.update_group_gallery(group_id, group_gallery_id, update_group_gallery_request=update_group_gallery_request)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling GroupsApi->update_group_gallery: %s\n" % e)
-```
 
 * Api Key Authentication (authCookie):
 ```python
@@ -4338,12 +2613,6 @@ configuration = vrchatapi.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
-
-# Configure API key authorization: apiKeyCookie
-configuration.api_key['apiKeyCookie'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['apiKeyCookie'] = 'Bearer'
 
 # Configure API key authorization: authCookie
 configuration.api_key['authCookie'] = 'YOUR_API_KEY'
@@ -4381,7 +2650,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apiKeyCookie](../README.md#apiKeyCookie), [authCookie](../README.md#authCookie)
+[authCookie](../README.md#authCookie)
 
 ### HTTP request headers
 
@@ -4392,7 +2661,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Returns a single GroupGallery object. |  -  |
-**401** | Error response due to missing apiKey or auth cookie. |  -  |
+**401** | Error response due to missing auth cookie. |  -  |
 **404** | Error response when trying to perform operations on a non-existing group. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -4405,52 +2674,6 @@ Update Group Member
 Updates a Group Member
 
 ### Example
-
-* Api Key Authentication (apiKeyCookie):
-```python
-from __future__ import print_function
-import time
-import vrchatapi
-from vrchatapi.rest import ApiException
-from pprint import pprint
-# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
-# See configuration.py for a list of all supported configuration parameters.
-configuration = vrchatapi.Configuration(
-    host = "https://api.vrchat.cloud/api/1"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: apiKeyCookie
-configuration.api_key['apiKeyCookie'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['apiKeyCookie'] = 'Bearer'
-
-# Configure API key authorization: authCookie
-configuration.api_key['authCookie'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['authCookie'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with vrchatapi.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = vrchatapi.GroupsApi(api_client)
-    group_id = 'grp_00000000-0000-0000-0000-000000000000' # str | Must be a valid group ID.
-user_id = 'user_id_example' # str | Must be a valid user ID.
-update_group_member_request = vrchatapi.UpdateGroupMemberRequest() # UpdateGroupMemberRequest |  (optional)
-
-    try:
-        # Update Group Member
-        api_response = api_instance.update_group_member(group_id, user_id, update_group_member_request=update_group_member_request)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling GroupsApi->update_group_member: %s\n" % e)
-```
 
 * Api Key Authentication (authCookie):
 ```python
@@ -4469,12 +2692,6 @@ configuration = vrchatapi.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
-
-# Configure API key authorization: apiKeyCookie
-configuration.api_key['apiKeyCookie'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['apiKeyCookie'] = 'Bearer'
 
 # Configure API key authorization: authCookie
 configuration.api_key['authCookie'] = 'YOUR_API_KEY'
@@ -4512,7 +2729,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apiKeyCookie](../README.md#apiKeyCookie), [authCookie](../README.md#authCookie)
+[authCookie](../README.md#authCookie)
 
 ### HTTP request headers
 
@@ -4523,7 +2740,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Returns a list of GroupMember objects. |  -  |
-**401** | Error response due to missing apiKey or auth cookie. |  -  |
+**401** | Error response due to missing auth cookie. |  -  |
 **404** | Error response when trying to perform operations on a non-existing group. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -4536,52 +2753,6 @@ Update Group Role
 Updates a group role by ID.
 
 ### Example
-
-* Api Key Authentication (apiKeyCookie):
-```python
-from __future__ import print_function
-import time
-import vrchatapi
-from vrchatapi.rest import ApiException
-from pprint import pprint
-# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
-# See configuration.py for a list of all supported configuration parameters.
-configuration = vrchatapi.Configuration(
-    host = "https://api.vrchat.cloud/api/1"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: apiKeyCookie
-configuration.api_key['apiKeyCookie'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['apiKeyCookie'] = 'Bearer'
-
-# Configure API key authorization: authCookie
-configuration.api_key['authCookie'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['authCookie'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with vrchatapi.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = vrchatapi.GroupsApi(api_client)
-    group_id = 'grp_00000000-0000-0000-0000-000000000000' # str | Must be a valid group ID.
-group_role_id = 'grol_00000000-0000-0000-0000-000000000000' # str | Must be a valid group role ID.
-update_group_role_request = vrchatapi.UpdateGroupRoleRequest() # UpdateGroupRoleRequest |  (optional)
-
-    try:
-        # Update Group Role
-        api_response = api_instance.update_group_role(group_id, group_role_id, update_group_role_request=update_group_role_request)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling GroupsApi->update_group_role: %s\n" % e)
-```
 
 * Api Key Authentication (authCookie):
 ```python
@@ -4600,12 +2771,6 @@ configuration = vrchatapi.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
-
-# Configure API key authorization: apiKeyCookie
-configuration.api_key['apiKeyCookie'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['apiKeyCookie'] = 'Bearer'
 
 # Configure API key authorization: authCookie
 configuration.api_key['authCookie'] = 'YOUR_API_KEY'
@@ -4643,7 +2808,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apiKeyCookie](../README.md#apiKeyCookie), [authCookie](../README.md#authCookie)
+[authCookie](../README.md#authCookie)
 
 ### HTTP request headers
 
@@ -4654,7 +2819,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Returns a list of GroupRole objects. |  -  |
-**401** | Error response due to missing apiKey or auth cookie. |  -  |
+**401** | Error response due to missing auth cookie. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
