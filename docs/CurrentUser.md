@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **accepted_tos_version** | **int** |  | 
+**accepted_privacy_version** | **int** |  | [optional] 
 **account_deletion_date** | **date** |  | [optional] 
 **account_deletion_log** | [**list[AccountDeletionLog]**](AccountDeletionLog.md) |   | [optional] 
 **active_friends** | **list[str]** |   | [optional] 
@@ -30,6 +31,7 @@ Name | Type | Description | Notes
 **home_location** | **str** | WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user. | 
 **id** | **str** | A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed. | 
 **is_friend** | **bool** |  | [default to False]
+**last_activity** | **datetime** |  | [optional] 
 **last_login** | **datetime** |  | 
 **last_platform** | **str** | This can be &#x60;standalonewindows&#x60; or &#x60;android&#x60;, but can also pretty much be any random Unity verison such as &#x60;2019.2.4-801-Release&#x60; or &#x60;2019.2.2-772-Release&#x60; or even &#x60;unknownplatform&#x60;. | 
 **obfuscated_email** | **str** |  | 
@@ -38,6 +40,7 @@ Name | Type | Description | Notes
 **offline_friends** | **list[str]** |  | [optional] 
 **online_friends** | **list[str]** |  | [optional] 
 **past_display_names** | [**list[PastDisplayName]**](PastDisplayName.md) |   | 
+**presence** | [**CurrentUserPresence**](CurrentUserPresence.md) |  | [optional] 
 **profile_pic_override** | **str** |  | 
 **state** | [**UserState**](UserState.md) |  | 
 **status** | [**UserStatus**](UserStatus.md) |  | 
@@ -50,6 +53,7 @@ Name | Type | Description | Notes
 **two_factor_auth_enabled** | **bool** |  | 
 **two_factor_auth_enabled_date** | **datetime** |  | [optional] 
 **unsubscribe** | **bool** |  | 
+**updated_at** | **datetime** |  | [optional] 
 **user_icon** | **str** |  | 
 **username** | **str** | -| **DEPRECATED:** VRChat API no longer return usernames of other users. [See issue by Tupper for more information](https://github.com/pypy-vrc/VRCX/issues/429). | [optional] 
 
