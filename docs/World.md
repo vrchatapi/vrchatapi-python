@@ -30,7 +30,7 @@ Name | Type | Description | Notes
 **release_status** | [**ReleaseStatus**](ReleaseStatus.md) |  | 
 **tags** | **list[str]** |   | 
 **thumbnail_image_url** | **str** |  | 
-**unity_packages** | [**list[UnityPackage]**](UnityPackage.md) | Empty if unauthenticated. | 
+**unity_packages** | [**list[UnityPackage]**](UnityPackage.md) | Empty if unauthenticated. | [optional] 
 **updated_at** | **datetime** |  | 
 **version** | **int** |  | [default to 0]
 **visits** | **int** |  | [default to 0]
