@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **author_id** | **str** | A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed. | 
 **author_name** | **str** |  | 
 **capacity** | **int** |  | 
+**recommended_capacity** | **int** |  | [optional] 
 **created_at** | **datetime** |  | 
 **favorites** | **int** |  | [default to 0]
 **heat** | **int** |  | [default to 0]
@@ -24,6 +25,7 @@ Name | Type | Description | Notes
 **thumbnail_image_url** | **str** |  | 
 **unity_packages** | [**list[LimitedUnityPackage]**](LimitedUnityPackage.md) |   | 
 **updated_at** | **datetime** |  | 
+**udon_products** | **list[str]** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

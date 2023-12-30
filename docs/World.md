@@ -34,6 +34,7 @@ Name | Type | Description | Notes
 **updated_at** | **datetime** |  | 
 **version** | **int** |  | [default to 0]
 **visits** | **int** |  | [default to 0]
+**udon_products** | **list[str]** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

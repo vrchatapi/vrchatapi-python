@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **current_avatar_asset_url** | **str** |  | 
 **current_avatar_image_url** | **str** | When profilePicOverride is not empty, use it instead. | 
 **current_avatar_thumbnail_image_url** | **str** | When profilePicOverride is not empty, use it instead. | 
+**current_avatar_tags** | **list[str]** |  | [optional] 
 **date_joined** | **date** |  | 
 **developer_type** | [**DeveloperType**](DeveloperType.md) |  | 
 **display_name** | **str** |  | 
@@ -25,6 +26,9 @@ Name | Type | Description | Notes
 **friend_key** | **str** |  | 
 **friends** | **list[str]** |  | 
 **has_birthday** | **bool** |  | 
+**hide_content_filter_settings** | **bool** |  | [optional] 
+**user_language** | **str** |  | [optional] 
+**user_language_code** | **str** |  | [optional] 
 **has_email** | **bool** |  | 
 **has_logged_in_from_client** | **bool** |  | 
 **has_pending_email** | **bool** |  | 
@@ -37,6 +41,9 @@ Name | Type | Description | Notes
 **obfuscated_email** | **str** |  | 
 **obfuscated_pending_email** | **str** |  | 
 **oculus_id** | **str** |  | 
+**google_id** | **str** |  | [optional] 
+**pico_id** | **str** |  | [optional] 
+**vive_id** | **str** |  | [optional] 
 **offline_friends** | **list[str]** |  | [optional] 
 **online_friends** | **list[str]** |  | [optional] 
 **past_display_names** | [**list[PastDisplayName]**](PastDisplayName.md) |   | 
