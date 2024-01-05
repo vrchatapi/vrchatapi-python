@@ -79,6 +79,7 @@ docs/License.md
 docs/LicenseAction.md
 docs/LicenseGroup.md
 docs/LicenseType.md
+docs/LimitedGroup.md
 docs/LimitedUnityPackage.md
 docs/LimitedUser.md
 docs/LimitedWorld.md
@@ -234,6 +235,7 @@ vrchatapi/models/license.py
 vrchatapi/models/license_action.py
 vrchatapi/models/license_group.py
 vrchatapi/models/license_type.py
+vrchatapi/models/limited_group.py
 vrchatapi/models/limited_unity_package.py
 vrchatapi/models/limited_user.py
 vrchatapi/models/limited_world.py

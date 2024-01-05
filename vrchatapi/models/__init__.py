@@ -85,6 +85,7 @@ from vrchatapi.models.license import License
 from vrchatapi.models.license_action import LicenseAction
 from vrchatapi.models.license_group import LicenseGroup
 from vrchatapi.models.license_type import LicenseType
+from vrchatapi.models.limited_group import LimitedGroup
 from vrchatapi.models.limited_unity_package import LimitedUnityPackage
 from vrchatapi.models.limited_user import LimitedUser
 from vrchatapi.models.limited_world import LimitedWorld

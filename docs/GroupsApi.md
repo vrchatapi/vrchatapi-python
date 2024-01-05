@@ -35,6 +35,7 @@ Method | HTTP request | Description
 [**leave_group**](GroupsApi.md#leave_group) | **POST** /groups/{groupId}/leave | Leave Group
 [**remove_group_member_role**](GroupsApi.md#remove_group_member_role) | **DELETE** /groups/{groupId}/members/{userId}/roles/{groupRoleId} | Remove Role from GroupMember
 [**respond_group_join_request**](GroupsApi.md#respond_group_join_request) | **PUT** /groups/{groupId}/requests/{userId} | Respond Group Join request
+[**search_groups**](GroupsApi.md#search_groups) | **GET** /groups | Search Group
 [**unban_group_member**](GroupsApi.md#unban_group_member) | **DELETE** /groups/{groupId}/bans/{userId} | Unban Group Member
 [**update_group**](GroupsApi.md#update_group) | **PUT** /groups/{groupId} | Update Group
 [**update_group_gallery**](GroupsApi.md#update_group_gallery) | **PUT** /groups/{groupId}/galleries/{groupGalleryId} | Update Group Gallery
@@ -2430,6 +2431,73 @@ void (empty response body)
 **200** | OK |  -  |
 **401** | Error response due to missing auth cookie. |  -  |
 **404** | Error response when trying to perform operations on a non-existing group. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **search_groups**
+> list[LimitedGroup] search_groups(query=query, offset=offset, n=n)
+
+Search Group
+
+Searches Groups by name or shortCode
+
+### Example
+
+```python
+from __future__ import print_function
+import time
+import vrchatapi
+from vrchatapi.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = vrchatapi.Configuration(
+    host = "https://api.vrchat.cloud/api/1"
+)
+
+
+# Enter a context with an instance of the API client
+with vrchatapi.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = vrchatapi.GroupsApi(api_client)
+    query = 'query_example' # str | Query to search for, can be either Group Name or Group shortCode (optional)
+offset = 56 # int | A zero-based offset from the default object sorting from where search results start. (optional)
+n = 60 # int | The number of objects to return. (optional) (default to 60)
+
+    try:
+        # Search Group
+        api_response = api_instance.search_groups(query=query, offset=offset, n=n)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling GroupsApi->search_groups: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **query** | **str**| Query to search for, can be either Group Name or Group shortCode | [optional] 
+ **offset** | **int**| A zero-based offset from the default object sorting from where search results start. | [optional] 
+ **n** | **int**| The number of objects to return. | [optional] [default to 60]
+
+### Return type
+
+[**list[LimitedGroup]**](LimitedGroup.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Returns a list of LimitedGroup objects. |  -  |
+**401** | Error response due to missing auth cookie. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
