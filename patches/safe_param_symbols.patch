@@ -1,0 +1,13 @@
+diff --git a/vrchatapi/configuration.py b/vrchatapi/configuration.py
+index 4d594f94..70354d29 100644
+--- a/vrchatapi/configuration.py
++++ b/vrchatapi/configuration.py
+@@ -221,7 +221,7 @@ conf = vrchatapi.Configuration(
+         self.proxy_headers = None
+         """Proxy headers
+         """
+-        self.safe_chars_for_path_param = ''
++        self.safe_chars_for_path_param = '~()'
+         """Safe chars for path_param
+         """
+         self.retries = None

@@ -33,3 +33,6 @@ patch ./vrchatapi/rest.py < ./patches/cookiejar.patch
 
 # Make 2fa required error readable
 patch ./vrchatapi/rest.py < ./patches/error_2fa_verify_readable.patch
+
+# Add common symbols to safe path parameter symbols
+patch ./vrchatapi/configuration.py < ./patches/safe_param_symbols.patch.patch
