@@ -221,7 +221,7 @@ conf = vrchatapi.Configuration(
         self.proxy_headers = None
         """Proxy headers
         """
-        self.safe_chars_for_path_param = ''
+        self.safe_chars_for_path_param = '~()'
         """Safe chars for path_param
         """
         self.retries = None
