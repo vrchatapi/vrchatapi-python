@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **is_representing** | **bool** | Whether the user is representing the group. This makes the group show up above the name tag in-game. | [optional] [default to False]
 **user** | [**GroupMemberLimitedUser**](GroupMemberLimitedUser.md) |  | [optional] 
 **role_ids** | **list[str]** |  | [optional] 
+**m_role_ids** | **list[str]** |  | [optional] 
 **joined_at** | **datetime** |  | [optional] 
 **membership_status** | **str** |  | [optional] 
 **visibility** | **str** |  | [optional] 
@@ -17,6 +18,8 @@ Name | Type | Description | Notes
 **created_at** | **datetime** | Only visible via the /groups/:groupId/members endpoint, **not** when fetching a specific user. | [optional] 
 **banned_at** | **datetime** | Only visible via the /groups/:groupId/members endpoint, **not** when fetching a specific user. | [optional] 
 **manager_notes** | **str** | Only visible via the /groups/:groupId/members endpoint, **not** when fetching a specific user. | [optional] 
+**last_post_read_at** | **datetime** |  | [optional] 
+**has_joined_from_purchase** | **bool** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

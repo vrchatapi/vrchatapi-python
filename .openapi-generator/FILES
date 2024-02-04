@@ -58,6 +58,7 @@ docs/GroupPermission.md
 docs/GroupPrivacy.md
 docs/GroupRole.md
 docs/GroupRoleTemplate.md
+docs/GroupSearchSort.md
 docs/GroupUserVisibility.md
 docs/GroupsApi.md
 docs/InfoPush.md
@@ -217,6 +218,7 @@ vrchatapi/models/group_permission.py
 vrchatapi/models/group_privacy.py
 vrchatapi/models/group_role.py
 vrchatapi/models/group_role_template.py
+vrchatapi/models/group_search_sort.py
 vrchatapi/models/group_user_visibility.py
 vrchatapi/models/info_push.py
 vrchatapi/models/info_push_data.py

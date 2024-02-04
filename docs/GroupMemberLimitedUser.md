@@ -9,6 +9,9 @@ Name | Type | Description | Notes
 **display_name** | **str** |  | [optional] 
 **thumbnail_url** | **str** |  | [optional] 
 **icon_url** | **str** |  | [optional] 
+**profile_pic_override** | **str** |  | [optional] 
+**current_avatar_thumbnail_image_url** | **str** |  | [optional] 
+**current_avatar_tags** | **list[str]** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
