@@ -1,6 +1,7 @@
 on:
   repository_dispatch:
     types: [spec_release]
+  workflow_dispatch:
 #on: push
 
 name: Generate VRChat API SDK
