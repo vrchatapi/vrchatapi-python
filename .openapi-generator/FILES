@@ -99,6 +99,7 @@ docs/PlayerModerationType.md
 docs/PlayermoderationApi.md
 docs/Region.md
 docs/ReleaseStatus.md
+docs/RepresentedGroup.md
 docs/RequestInviteRequest.md
 docs/RespondGroupJoinRequest.md
 docs/Response.md
@@ -253,6 +254,7 @@ vrchatapi/models/player_moderation.py
 vrchatapi/models/player_moderation_type.py
 vrchatapi/models/region.py
 vrchatapi/models/release_status.py
+vrchatapi/models/represented_group.py
 vrchatapi/models/request_invite_request.py
 vrchatapi/models/respond_group_join_request.py
 vrchatapi/models/response.py
