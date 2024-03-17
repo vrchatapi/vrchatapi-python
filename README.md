@@ -43,6 +43,8 @@ configuration = vrchatapi.Configuration(
 
 # Enter a context with an instance of the API client
 with vrchatapi.ApiClient(configuration) as api_client:
+    # Set our User-Agent as per VRChat Usage Policy
+    api_client.user_agent = "MyProject/1.0 my@email.com"
 
     # Instantiate instances of API classes
     auth_api = authentication_api.AuthenticationApi(api_client)
