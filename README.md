@@ -69,7 +69,7 @@ with vrchatapi.ApiClient(configuration) as api_client:
     print("Logged in as:", current_user.display_name)
 ```
 
-See [example.py](https://github.com/vrchatapi/vrchatapi-python/blob/main/example.py) for more example usage on getting started.
+See [Examples](https://github.com/vrchatapi/vrchatapi-python/blob/main/examples/README.md) for more example usage on getting started.
 
 ## Contributing
 
