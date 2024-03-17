@@ -4,7 +4,6 @@
 
 ```Python
 # Step 1. We begin with creating a Configuration, which contains the username and password for authentication.
-# Step 1. We begin with creating a Configuration, which contains the username and password for authentication.
 import vrchatapi
 from vrchatapi.api import authentication_api
 from vrchatapi.exceptions import UnauthorizedException
