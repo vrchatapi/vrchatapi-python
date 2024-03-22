@@ -1592,7 +1592,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_group_invites**
-> list[GroupMember] get_group_invites(group_id)
+> list[GroupMember] get_group_invites(group_id, n=n, offset=offset)
 
 Get Group Invites Sent
 
@@ -1629,10 +1629,12 @@ with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = vrchatapi.GroupsApi(api_client)
     group_id = 'grp_00000000-0000-0000-0000-000000000000' # str | Must be a valid group ID.
+n = 60 # int | The number of objects to return. (optional) (default to 60)
+offset = 56 # int | A zero-based offset from the default object sorting from where search results start. (optional)
 
     try:
         # Get Group Invites Sent
-        api_response = api_instance.get_group_invites(group_id)
+        api_response = api_instance.get_group_invites(group_id, n=n, offset=offset)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling GroupsApi->get_group_invites: %s\n" % e)
@@ -1643,6 +1645,8 @@ with vrchatapi.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **group_id** | **str**| Must be a valid group ID. | 
+ **n** | **int**| The number of objects to return. | [optional] [default to 60]
+ **offset** | **int**| A zero-based offset from the default object sorting from where search results start. | [optional] 
 
 ### Return type
 
@@ -1903,7 +1907,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_group_requests**
-> list[GroupMember] get_group_requests(group_id)
+> list[GroupMember] get_group_requests(group_id, n=n, offset=offset)
 
 Get Group Join Requests
 
@@ -1940,10 +1944,12 @@ with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = vrchatapi.GroupsApi(api_client)
     group_id = 'grp_00000000-0000-0000-0000-000000000000' # str | Must be a valid group ID.
+n = 60 # int | The number of objects to return. (optional) (default to 60)
+offset = 56 # int | A zero-based offset from the default object sorting from where search results start. (optional)
 
     try:
         # Get Group Join Requests
-        api_response = api_instance.get_group_requests(group_id)
+        api_response = api_instance.get_group_requests(group_id, n=n, offset=offset)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling GroupsApi->get_group_requests: %s\n" % e)
@@ -1954,6 +1960,8 @@ with vrchatapi.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **group_id** | **str**| Must be a valid group ID. | 
+ **n** | **int**| The number of objects to return. | [optional] [default to 60]
+ **offset** | **int**| A zero-based offset from the default object sorting from where search results start. | [optional] 
 
 ### Return type
 
