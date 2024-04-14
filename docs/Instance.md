@@ -28,6 +28,14 @@ Name | Type | Description | Notes
 **hidden** | **str** | A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed. | [optional] 
 **friends** | **str** | A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed. | [optional] 
 **private** | **str** | A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed. | [optional] 
+**queue_enabled** | **bool** |  | 
+**queue_size** | **int** |  | 
+**recommended_capacity** | **int** |  | 
+**role_restricted** | **bool** |  | 
+**strict** | **bool** |  | 
+**user_count** | **int** |  | 
+**world** | [**World**](World.md) |  | 
+**users** | [**list[LimitedUser]**](LimitedUser.md) | The users field is present on instances created by the requesting user. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

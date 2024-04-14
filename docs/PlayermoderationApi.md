@@ -309,7 +309,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **moderate_user**
-> PlayerModeration moderate_user(moderate_user_request=moderate_user_request)
+> PlayerModeration moderate_user(moderate_user_request)
 
 Moderate User
 
@@ -345,11 +345,11 @@ configuration.api_key['authCookie'] = 'YOUR_API_KEY'
 with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = vrchatapi.PlayermoderationApi(api_client)
-    moderate_user_request = vrchatapi.ModerateUserRequest() # ModerateUserRequest |  (optional)
+    moderate_user_request = vrchatapi.ModerateUserRequest() # ModerateUserRequest | 
 
     try:
         # Moderate User
-        api_response = api_instance.moderate_user(moderate_user_request=moderate_user_request)
+        api_response = api_instance.moderate_user(moderate_user_request)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling PlayermoderationApi->moderate_user: %s\n" % e)
@@ -359,7 +359,7 @@ with vrchatapi.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **moderate_user_request** | [**ModerateUserRequest**](ModerateUserRequest.md)|  | [optional] 
+ **moderate_user_request** | [**ModerateUserRequest**](ModerateUserRequest.md)|  | 
 
 ### Return type
 
@@ -383,7 +383,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **unmoderate_user**
-> Success unmoderate_user(moderate_user_request=moderate_user_request)
+> Success unmoderate_user(moderate_user_request)
 
 Unmoderate User
 
@@ -419,11 +419,11 @@ configuration.api_key['authCookie'] = 'YOUR_API_KEY'
 with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = vrchatapi.PlayermoderationApi(api_client)
-    moderate_user_request = vrchatapi.ModerateUserRequest() # ModerateUserRequest |  (optional)
+    moderate_user_request = vrchatapi.ModerateUserRequest() # ModerateUserRequest | 
 
     try:
         # Unmoderate User
-        api_response = api_instance.unmoderate_user(moderate_user_request=moderate_user_request)
+        api_response = api_instance.unmoderate_user(moderate_user_request)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling PlayermoderationApi->unmoderate_user: %s\n" % e)
@@ -433,7 +433,7 @@ with vrchatapi.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **moderate_user_request** | [**ModerateUserRequest**](ModerateUserRequest.md)|  | [optional] 
+ **moderate_user_request** | [**ModerateUserRequest**](ModerateUserRequest.md)|  | 
 
 ### Return type
 

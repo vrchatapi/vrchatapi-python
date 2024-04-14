@@ -408,7 +408,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **verify2_fa**
-> Verify2FAResult verify2_fa(two_factor_auth_code=two_factor_auth_code)
+> Verify2FAResult verify2_fa(two_factor_auth_code)
 
 Verify 2FA code
 
@@ -444,11 +444,11 @@ configuration.api_key['authCookie'] = 'YOUR_API_KEY'
 with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = vrchatapi.AuthenticationApi(api_client)
-    two_factor_auth_code = vrchatapi.TwoFactorAuthCode() # TwoFactorAuthCode |  (optional)
+    two_factor_auth_code = vrchatapi.TwoFactorAuthCode() # TwoFactorAuthCode | 
 
     try:
         # Verify 2FA code
-        api_response = api_instance.verify2_fa(two_factor_auth_code=two_factor_auth_code)
+        api_response = api_instance.verify2_fa(two_factor_auth_code)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling AuthenticationApi->verify2_fa: %s\n" % e)
@@ -458,7 +458,7 @@ with vrchatapi.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **two_factor_auth_code** | [**TwoFactorAuthCode**](TwoFactorAuthCode.md)|  | [optional] 
+ **two_factor_auth_code** | [**TwoFactorAuthCode**](TwoFactorAuthCode.md)|  | 
 
 ### Return type
 
@@ -482,7 +482,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **verify2_fa_email_code**
-> Verify2FAEmailCodeResult verify2_fa_email_code(two_factor_email_code=two_factor_email_code)
+> Verify2FAEmailCodeResult verify2_fa_email_code(two_factor_email_code)
 
 Verify 2FA email code
 
@@ -518,11 +518,11 @@ configuration.api_key['authCookie'] = 'YOUR_API_KEY'
 with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = vrchatapi.AuthenticationApi(api_client)
-    two_factor_email_code = vrchatapi.TwoFactorEmailCode() # TwoFactorEmailCode |  (optional)
+    two_factor_email_code = vrchatapi.TwoFactorEmailCode() # TwoFactorEmailCode | 
 
     try:
         # Verify 2FA email code
-        api_response = api_instance.verify2_fa_email_code(two_factor_email_code=two_factor_email_code)
+        api_response = api_instance.verify2_fa_email_code(two_factor_email_code)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling AuthenticationApi->verify2_fa_email_code: %s\n" % e)
@@ -532,7 +532,7 @@ with vrchatapi.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **two_factor_email_code** | [**TwoFactorEmailCode**](TwoFactorEmailCode.md)|  | [optional] 
+ **two_factor_email_code** | [**TwoFactorEmailCode**](TwoFactorEmailCode.md)|  | 
 
 ### Return type
 
@@ -626,7 +626,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **verify_recovery_code**
-> Verify2FAResult verify_recovery_code(two_factor_auth_code=two_factor_auth_code)
+> Verify2FAResult verify_recovery_code(two_factor_auth_code)
 
 Verify 2FA code with Recovery code
 
@@ -662,11 +662,11 @@ configuration.api_key['authCookie'] = 'YOUR_API_KEY'
 with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = vrchatapi.AuthenticationApi(api_client)
-    two_factor_auth_code = vrchatapi.TwoFactorAuthCode() # TwoFactorAuthCode |  (optional)
+    two_factor_auth_code = vrchatapi.TwoFactorAuthCode() # TwoFactorAuthCode | 
 
     try:
         # Verify 2FA code with Recovery code
-        api_response = api_instance.verify_recovery_code(two_factor_auth_code=two_factor_auth_code)
+        api_response = api_instance.verify_recovery_code(two_factor_auth_code)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling AuthenticationApi->verify_recovery_code: %s\n" % e)
@@ -676,7 +676,7 @@ with vrchatapi.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **two_factor_auth_code** | [**TwoFactorAuthCode**](TwoFactorAuthCode.md)|  | [optional] 
+ **two_factor_auth_code** | [**TwoFactorAuthCode**](TwoFactorAuthCode.md)|  | 
 
 ### Return type
 

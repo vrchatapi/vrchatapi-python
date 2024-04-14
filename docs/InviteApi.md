@@ -249,7 +249,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **invite_user**
-> SentNotification invite_user(user_id, invite_request=invite_request)
+> SentNotification invite_user(user_id, invite_request)
 
 Invite User
 
@@ -286,11 +286,11 @@ with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = vrchatapi.InviteApi(api_client)
     user_id = 'user_id_example' # str | Must be a valid user ID.
-invite_request = vrchatapi.InviteRequest() # InviteRequest | Slot number of the Invite Message to use when inviting a user. (optional)
+invite_request = vrchatapi.InviteRequest() # InviteRequest | Slot number of the Invite Message to use when inviting a user.
 
     try:
         # Invite User
-        api_response = api_instance.invite_user(user_id, invite_request=invite_request)
+        api_response = api_instance.invite_user(user_id, invite_request)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling InviteApi->invite_user: %s\n" % e)
@@ -301,7 +301,7 @@ invite_request = vrchatapi.InviteRequest() # InviteRequest | Slot number of the 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **user_id** | **str**| Must be a valid user ID. | 
- **invite_request** | [**InviteRequest**](InviteRequest.md)| Slot number of the Invite Message to use when inviting a user. | [optional] 
+ **invite_request** | [**InviteRequest**](InviteRequest.md)| Slot number of the Invite Message to use when inviting a user. | 
 
 ### Return type
 
@@ -482,7 +482,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **respond_invite**
-> Notification respond_invite(notification_id, invite_response=invite_response)
+> Notification respond_invite(notification_id, invite_response)
 
 Respond Invite
 
@@ -519,11 +519,11 @@ with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = vrchatapi.InviteApi(api_client)
     notification_id = 'notification_id_example' # str | Must be a valid notification ID.
-invite_response = vrchatapi.InviteResponse() # InviteResponse | Slot number of the Response Message to use when responding to a user. (optional)
+invite_response = vrchatapi.InviteResponse() # InviteResponse | Slot number of the Response Message to use when responding to a user.
 
     try:
         # Respond Invite
-        api_response = api_instance.respond_invite(notification_id, invite_response=invite_response)
+        api_response = api_instance.respond_invite(notification_id, invite_response)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling InviteApi->respond_invite: %s\n" % e)
@@ -534,7 +534,7 @@ invite_response = vrchatapi.InviteResponse() # InviteResponse | Slot number of t
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **notification_id** | **str**| Must be a valid notification ID. | 
- **invite_response** | [**InviteResponse**](InviteResponse.md)| Slot number of the Response Message to use when responding to a user. | [optional] 
+ **invite_response** | [**InviteResponse**](InviteResponse.md)| Slot number of the Response Message to use when responding to a user. | 
 
 ### Return type
 

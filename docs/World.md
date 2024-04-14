@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 **instances** | **list[list[object]]** | Will always be an empty list when unauthenticated. | [optional] 
 **labs_publication_date** | **str** |  | 
 **name** | **str** |  | 
-**namespace** | **str** |  | 
+**namespace** | **str** |  | [optional] 
 **occupants** | **int** | Will always be &#x60;0&#x60; when unauthenticated. | [optional] [default to 0]
 **organization** | **str** |  | [default to 'vrchat']
 **popularity** | **int** |  | [default to 0]

@@ -44,7 +44,7 @@ Method | HTTP request | Description
 
 
 # **add_group_gallery_image**
-> GroupGalleryImage add_group_gallery_image(group_id, group_gallery_id, add_group_gallery_image_request=add_group_gallery_image_request)
+> GroupGalleryImage add_group_gallery_image(group_id, group_gallery_id, add_group_gallery_image_request)
 
 Add Group Gallery Image
 
@@ -82,11 +82,11 @@ with vrchatapi.ApiClient(configuration) as api_client:
     api_instance = vrchatapi.GroupsApi(api_client)
     group_id = 'grp_00000000-0000-0000-0000-000000000000' # str | Must be a valid group ID.
 group_gallery_id = 'ggal_00000000-0000-0000-0000-000000000000' # str | Must be a valid group gallery ID.
-add_group_gallery_image_request = vrchatapi.AddGroupGalleryImageRequest() # AddGroupGalleryImageRequest |  (optional)
+add_group_gallery_image_request = vrchatapi.AddGroupGalleryImageRequest() # AddGroupGalleryImageRequest | 
 
     try:
         # Add Group Gallery Image
-        api_response = api_instance.add_group_gallery_image(group_id, group_gallery_id, add_group_gallery_image_request=add_group_gallery_image_request)
+        api_response = api_instance.add_group_gallery_image(group_id, group_gallery_id, add_group_gallery_image_request)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling GroupsApi->add_group_gallery_image: %s\n" % e)
@@ -98,7 +98,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **group_id** | **str**| Must be a valid group ID. | 
  **group_gallery_id** | **str**| Must be a valid group gallery ID. | 
- **add_group_gallery_image_request** | [**AddGroupGalleryImageRequest**](AddGroupGalleryImageRequest.md)|  | [optional] 
+ **add_group_gallery_image_request** | [**AddGroupGalleryImageRequest**](AddGroupGalleryImageRequest.md)|  | 
 
 ### Return type
 
@@ -202,7 +202,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **ban_group_member**
-> GroupMember ban_group_member(group_id, ban_group_member_request=ban_group_member_request)
+> GroupMember ban_group_member(group_id, ban_group_member_request)
 
 Ban Group Member
 
@@ -239,11 +239,11 @@ with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = vrchatapi.GroupsApi(api_client)
     group_id = 'grp_00000000-0000-0000-0000-000000000000' # str | Must be a valid group ID.
-ban_group_member_request = vrchatapi.BanGroupMemberRequest() # BanGroupMemberRequest |  (optional)
+ban_group_member_request = vrchatapi.BanGroupMemberRequest() # BanGroupMemberRequest | 
 
     try:
         # Ban Group Member
-        api_response = api_instance.ban_group_member(group_id, ban_group_member_request=ban_group_member_request)
+        api_response = api_instance.ban_group_member(group_id, ban_group_member_request)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling GroupsApi->ban_group_member: %s\n" % e)
@@ -254,7 +254,7 @@ ban_group_member_request = vrchatapi.BanGroupMemberRequest() # BanGroupMemberReq
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **group_id** | **str**| Must be a valid group ID. | 
- **ban_group_member_request** | [**BanGroupMemberRequest**](BanGroupMemberRequest.md)|  | [optional] 
+ **ban_group_member_request** | [**BanGroupMemberRequest**](BanGroupMemberRequest.md)|  | 
 
 ### Return type
 
@@ -354,7 +354,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_group**
-> Group create_group(create_group_request=create_group_request)
+> Group create_group(create_group_request)
 
 Create Group
 
@@ -390,11 +390,11 @@ configuration.api_key['authCookie'] = 'YOUR_API_KEY'
 with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = vrchatapi.GroupsApi(api_client)
-    create_group_request = vrchatapi.CreateGroupRequest() # CreateGroupRequest |  (optional)
+    create_group_request = vrchatapi.CreateGroupRequest() # CreateGroupRequest | 
 
     try:
         # Create Group
-        api_response = api_instance.create_group(create_group_request=create_group_request)
+        api_response = api_instance.create_group(create_group_request)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling GroupsApi->create_group: %s\n" % e)
@@ -404,7 +404,7 @@ with vrchatapi.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **create_group_request** | [**CreateGroupRequest**](CreateGroupRequest.md)|  | [optional] 
+ **create_group_request** | [**CreateGroupRequest**](CreateGroupRequest.md)|  | 
 
 ### Return type
 
@@ -428,7 +428,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_group_announcement**
-> GroupAnnouncement create_group_announcement(group_id, create_group_announcement_request=create_group_announcement_request)
+> GroupAnnouncement create_group_announcement(group_id, create_group_announcement_request)
 
 Create Group Announcement
 
@@ -465,11 +465,11 @@ with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = vrchatapi.GroupsApi(api_client)
     group_id = 'grp_00000000-0000-0000-0000-000000000000' # str | Must be a valid group ID.
-create_group_announcement_request = vrchatapi.CreateGroupAnnouncementRequest() # CreateGroupAnnouncementRequest |  (optional)
+create_group_announcement_request = vrchatapi.CreateGroupAnnouncementRequest() # CreateGroupAnnouncementRequest | 
 
     try:
         # Create Group Announcement
-        api_response = api_instance.create_group_announcement(group_id, create_group_announcement_request=create_group_announcement_request)
+        api_response = api_instance.create_group_announcement(group_id, create_group_announcement_request)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling GroupsApi->create_group_announcement: %s\n" % e)
@@ -480,7 +480,7 @@ create_group_announcement_request = vrchatapi.CreateGroupAnnouncementRequest() #
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **group_id** | **str**| Must be a valid group ID. | 
- **create_group_announcement_request** | [**CreateGroupAnnouncementRequest**](CreateGroupAnnouncementRequest.md)|  | [optional] 
+ **create_group_announcement_request** | [**CreateGroupAnnouncementRequest**](CreateGroupAnnouncementRequest.md)|  | 
 
 ### Return type
 
@@ -505,7 +505,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_group_gallery**
-> GroupGallery create_group_gallery(group_id, create_group_gallery_request=create_group_gallery_request)
+> GroupGallery create_group_gallery(group_id, create_group_gallery_request)
 
 Create Group Gallery
 
@@ -542,11 +542,11 @@ with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = vrchatapi.GroupsApi(api_client)
     group_id = 'grp_00000000-0000-0000-0000-000000000000' # str | Must be a valid group ID.
-create_group_gallery_request = vrchatapi.CreateGroupGalleryRequest() # CreateGroupGalleryRequest |  (optional)
+create_group_gallery_request = vrchatapi.CreateGroupGalleryRequest() # CreateGroupGalleryRequest | 
 
     try:
         # Create Group Gallery
-        api_response = api_instance.create_group_gallery(group_id, create_group_gallery_request=create_group_gallery_request)
+        api_response = api_instance.create_group_gallery(group_id, create_group_gallery_request)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling GroupsApi->create_group_gallery: %s\n" % e)
@@ -557,7 +557,7 @@ create_group_gallery_request = vrchatapi.CreateGroupGalleryRequest() # CreateGro
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **group_id** | **str**| Must be a valid group ID. | 
- **create_group_gallery_request** | [**CreateGroupGalleryRequest**](CreateGroupGalleryRequest.md)|  | [optional] 
+ **create_group_gallery_request** | [**CreateGroupGalleryRequest**](CreateGroupGalleryRequest.md)|  | 
 
 ### Return type
 
@@ -582,7 +582,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_group_invite**
-> create_group_invite(group_id, create_group_invite_request=create_group_invite_request)
+> create_group_invite(group_id, create_group_invite_request)
 
 Invite User to Group
 
@@ -619,11 +619,11 @@ with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = vrchatapi.GroupsApi(api_client)
     group_id = 'grp_00000000-0000-0000-0000-000000000000' # str | Must be a valid group ID.
-create_group_invite_request = vrchatapi.CreateGroupInviteRequest() # CreateGroupInviteRequest |  (optional)
+create_group_invite_request = vrchatapi.CreateGroupInviteRequest() # CreateGroupInviteRequest | 
 
     try:
         # Invite User to Group
-        api_instance.create_group_invite(group_id, create_group_invite_request=create_group_invite_request)
+        api_instance.create_group_invite(group_id, create_group_invite_request)
     except ApiException as e:
         print("Exception when calling GroupsApi->create_group_invite: %s\n" % e)
 ```
@@ -633,7 +633,7 @@ create_group_invite_request = vrchatapi.CreateGroupInviteRequest() # CreateGroup
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **group_id** | **str**| Must be a valid group ID. | 
- **create_group_invite_request** | [**CreateGroupInviteRequest**](CreateGroupInviteRequest.md)|  | [optional] 
+ **create_group_invite_request** | [**CreateGroupInviteRequest**](CreateGroupInviteRequest.md)|  | 
 
 ### Return type
 
@@ -659,7 +659,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_group_role**
-> GroupRole create_group_role(group_id, create_group_role_request=create_group_role_request)
+> GroupRole create_group_role(group_id, create_group_role_request)
 
 Create GroupRole
 
@@ -696,11 +696,11 @@ with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = vrchatapi.GroupsApi(api_client)
     group_id = 'grp_00000000-0000-0000-0000-000000000000' # str | Must be a valid group ID.
-create_group_role_request = vrchatapi.CreateGroupRoleRequest() # CreateGroupRoleRequest |  (optional)
+create_group_role_request = vrchatapi.CreateGroupRoleRequest() # CreateGroupRoleRequest | 
 
     try:
         # Create GroupRole
-        api_response = api_instance.create_group_role(group_id, create_group_role_request=create_group_role_request)
+        api_response = api_instance.create_group_role(group_id, create_group_role_request)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling GroupsApi->create_group_role: %s\n" % e)
@@ -711,7 +711,7 @@ create_group_role_request = vrchatapi.CreateGroupRoleRequest() # CreateGroupRole
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **group_id** | **str**| Must be a valid group ID. | 
- **create_group_role_request** | [**CreateGroupRoleRequest**](CreateGroupRoleRequest.md)|  | [optional] 
+ **create_group_role_request** | [**CreateGroupRoleRequest**](CreateGroupRoleRequest.md)|  | 
 
 ### Return type
 
@@ -2367,7 +2367,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **respond_group_join_request**
-> respond_group_join_request(group_id, user_id, respond_group_join_request=respond_group_join_request)
+> respond_group_join_request(group_id, user_id, respond_group_join_request)
 
 Respond Group Join request
 
@@ -2405,11 +2405,11 @@ with vrchatapi.ApiClient(configuration) as api_client:
     api_instance = vrchatapi.GroupsApi(api_client)
     group_id = 'grp_00000000-0000-0000-0000-000000000000' # str | Must be a valid group ID.
 user_id = 'user_id_example' # str | Must be a valid user ID.
-respond_group_join_request = vrchatapi.RespondGroupJoinRequest() # RespondGroupJoinRequest |  (optional)
+respond_group_join_request = vrchatapi.RespondGroupJoinRequest() # RespondGroupJoinRequest | 
 
     try:
         # Respond Group Join request
-        api_instance.respond_group_join_request(group_id, user_id, respond_group_join_request=respond_group_join_request)
+        api_instance.respond_group_join_request(group_id, user_id, respond_group_join_request)
     except ApiException as e:
         print("Exception when calling GroupsApi->respond_group_join_request: %s\n" % e)
 ```
@@ -2420,7 +2420,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **group_id** | **str**| Must be a valid group ID. | 
  **user_id** | **str**| Must be a valid user ID. | 
- **respond_group_join_request** | [**RespondGroupJoinRequest**](RespondGroupJoinRequest.md)|  | [optional] 
+ **respond_group_join_request** | [**RespondGroupJoinRequest**](RespondGroupJoinRequest.md)|  | 
 
 ### Return type
 

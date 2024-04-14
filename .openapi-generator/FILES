@@ -48,6 +48,7 @@ docs/GroupAnnouncement.md
 docs/GroupAuditLogEntry.md
 docs/GroupGallery.md
 docs/GroupGalleryImage.md
+docs/GroupJoinRequestAction.md
 docs/GroupJoinState.md
 docs/GroupLimitedMember.md
 docs/GroupMember.md
@@ -209,6 +210,7 @@ vrchatapi/models/group_announcement.py
 vrchatapi/models/group_audit_log_entry.py
 vrchatapi/models/group_gallery.py
 vrchatapi/models/group_gallery_image.py
+vrchatapi/models/group_join_request_action.py
 vrchatapi/models/group_join_state.py
 vrchatapi/models/group_limited_member.py
 vrchatapi/models/group_member.py

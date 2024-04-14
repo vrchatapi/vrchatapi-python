@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **role_ids** | **list[str]** |  | [optional] 
 **m_role_ids** | **list[str]** |  | [optional] 
 **joined_at** | **datetime** |  | [optional] 
-**membership_status** | **str** |  | [optional] 
+**membership_status** | [**GroupMemberStatus**](GroupMemberStatus.md) |  | [optional] 
 **visibility** | **str** |  | [optional] 
 **is_subscribed_to_announcements** | **bool** |  | [optional] [default to False]
 **created_at** | **datetime** | Only visible via the /groups/:groupId/members endpoint, **not** when fetching a specific user. | [optional] 
