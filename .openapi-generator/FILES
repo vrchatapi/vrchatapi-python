@@ -44,6 +44,7 @@ docs/FinishFileDataUploadRequest.md
 docs/FriendStatus.md
 docs/FriendsApi.md
 docs/Group.md
+docs/GroupAccessType.md
 docs/GroupAnnouncement.md
 docs/GroupAuditLogEntry.md
 docs/GroupGallery.md
@@ -206,6 +207,7 @@ vrchatapi/models/file_version_upload_status.py
 vrchatapi/models/finish_file_data_upload_request.py
 vrchatapi/models/friend_status.py
 vrchatapi/models/group.py
+vrchatapi/models/group_access_type.py
 vrchatapi/models/group_announcement.py
 vrchatapi/models/group_audit_log_entry.py
 vrchatapi/models/group_gallery.py
