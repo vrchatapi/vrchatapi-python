@@ -18,6 +18,7 @@ docs/CreateFileVersionRequest.md
 docs/CreateGroupAnnouncementRequest.md
 docs/CreateGroupGalleryRequest.md
 docs/CreateGroupInviteRequest.md
+docs/CreateGroupPostRequest.md
 docs/CreateGroupRequest.md
 docs/CreateGroupRoleRequest.md
 docs/CreateWorldRequest.md
@@ -58,6 +59,8 @@ docs/GroupMemberLimitedUser.md
 docs/GroupMemberStatus.md
 docs/GroupMyMember.md
 docs/GroupPermission.md
+docs/GroupPost.md
+docs/GroupPostVisibility.md
 docs/GroupPrivacy.md
 docs/GroupRole.md
 docs/GroupRoleTemplate.md
@@ -186,6 +189,7 @@ vrchatapi/models/create_file_version_request.py
 vrchatapi/models/create_group_announcement_request.py
 vrchatapi/models/create_group_gallery_request.py
 vrchatapi/models/create_group_invite_request.py
+vrchatapi/models/create_group_post_request.py
 vrchatapi/models/create_group_request.py
 vrchatapi/models/create_group_role_request.py
 vrchatapi/models/create_world_request.py
@@ -222,6 +226,8 @@ vrchatapi/models/group_member_limited_user.py
 vrchatapi/models/group_member_status.py
 vrchatapi/models/group_my_member.py
 vrchatapi/models/group_permission.py
+vrchatapi/models/group_post.py
+vrchatapi/models/group_post_visibility.py
 vrchatapi/models/group_privacy.py
 vrchatapi/models/group_role.py
 vrchatapi/models/group_role_template.py
