@@ -21,6 +21,7 @@ docs/CreateGroupInviteRequest.md
 docs/CreateGroupPostRequest.md
 docs/CreateGroupRequest.md
 docs/CreateGroupRoleRequest.md
+docs/CreateInstanceRequest.md
 docs/CreateWorldRequest.md
 docs/CurrentUser.md
 docs/CurrentUserPresence.md
@@ -93,6 +94,11 @@ docs/LimitedWorld.md
 docs/MIMEType.md
 docs/ModerateUserRequest.md
 docs/Notification.md
+docs/NotificationDetailInvite.md
+docs/NotificationDetailInviteResponse.md
+docs/NotificationDetailRequestInvite.md
+docs/NotificationDetailRequestInviteResponse.md
+docs/NotificationDetailVoteToKick.md
 docs/NotificationType.md
 docs/NotificationsApi.md
 docs/OrderOption.md
@@ -192,6 +198,7 @@ vrchatapi/models/create_group_invite_request.py
 vrchatapi/models/create_group_post_request.py
 vrchatapi/models/create_group_request.py
 vrchatapi/models/create_group_role_request.py
+vrchatapi/models/create_instance_request.py
 vrchatapi/models/create_world_request.py
 vrchatapi/models/current_user.py
 vrchatapi/models/current_user_presence.py
@@ -257,6 +264,11 @@ vrchatapi/models/limited_world.py
 vrchatapi/models/mime_type.py
 vrchatapi/models/moderate_user_request.py
 vrchatapi/models/notification.py
+vrchatapi/models/notification_detail_invite.py
+vrchatapi/models/notification_detail_invite_response.py
+vrchatapi/models/notification_detail_request_invite.py
+vrchatapi/models/notification_detail_request_invite_response.py
+vrchatapi/models/notification_detail_vote_to_kick.py
 vrchatapi/models/notification_type.py
 vrchatapi/models/order_option.py
 vrchatapi/models/paginated_group_audit_log_entry_list.py
