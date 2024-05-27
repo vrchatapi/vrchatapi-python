@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **recommended_capacity** | **int** |  | [optional] 
 **created_at** | **datetime** |  | 
 **favorites** | **int** |  | [default to 0]
+**visits** | **int** |  | [optional] [default to 0]
 **heat** | **int** |  | [default to 0]
 **id** | **str** | WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user. | 
 **image_url** | **str** |  | 
@@ -19,6 +20,7 @@ Name | Type | Description | Notes
 **occupants** | **int** |  | [default to 0]
 **organization** | **str** |  | [default to 'vrchat']
 **popularity** | **int** |  | [default to 0]
+**preview_youtube_id** | **str** |  | [optional] 
 **publication_date** | **str** |  | 
 **release_status** | [**ReleaseStatus**](ReleaseStatus.md) |  | 
 **tags** | **list[str]** |   | 

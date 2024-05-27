@@ -10,13 +10,14 @@ Name | Type | Description | Notes
 **account_deletion_log** | [**list[AccountDeletionLog]**](AccountDeletionLog.md) |   | [optional] 
 **active_friends** | **list[str]** |   | [optional] 
 **allow_avatar_copying** | **bool** |  | 
+**badges** | [**list[Badge]**](Badge.md) |   | [optional] 
 **bio** | **str** |  | 
 **bio_links** | **list[str]** |   | 
 **current_avatar** | **str** |  | 
 **current_avatar_asset_url** | **str** |  | 
 **current_avatar_image_url** | **str** | When profilePicOverride is not empty, use it instead. | 
 **current_avatar_thumbnail_image_url** | **str** | When profilePicOverride is not empty, use it instead. | 
-**current_avatar_tags** | **list[str]** |  | [optional] 
+**current_avatar_tags** | **list[str]** |  | 
 **date_joined** | **date** |  | 
 **developer_type** | [**DeveloperType**](DeveloperType.md) |  | 
 **display_name** | **str** |  | 
@@ -37,11 +38,13 @@ Name | Type | Description | Notes
 **is_friend** | **bool** |  | [default to False]
 **last_activity** | **datetime** |  | [optional] 
 **last_login** | **datetime** |  | 
+**last_mobile** | **datetime** |  | 
 **last_platform** | **str** | This can be &#x60;standalonewindows&#x60; or &#x60;android&#x60;, but can also pretty much be any random Unity verison such as &#x60;2019.2.4-801-Release&#x60; or &#x60;2019.2.2-772-Release&#x60; or even &#x60;unknownplatform&#x60;. | 
 **obfuscated_email** | **str** |  | 
 **obfuscated_pending_email** | **str** |  | 
 **oculus_id** | **str** |  | 
 **google_id** | **str** |  | [optional] 
+**google_details** | **object** |  | [optional] 
 **pico_id** | **str** |  | [optional] 
 **vive_id** | **str** |  | [optional] 
 **offline_friends** | **list[str]** |  | [optional] 
@@ -49,6 +52,7 @@ Name | Type | Description | Notes
 **past_display_names** | [**list[PastDisplayName]**](PastDisplayName.md) |   | 
 **presence** | [**CurrentUserPresence**](CurrentUserPresence.md) |  | [optional] 
 **profile_pic_override** | **str** |  | 
+**pronouns** | **str** |  | 
 **state** | [**UserState**](UserState.md) |  | 
 **status** | [**UserStatus**](UserStatus.md) |  | 
 **status_description** | **str** |  | 

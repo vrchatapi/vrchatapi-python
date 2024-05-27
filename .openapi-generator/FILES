@@ -11,6 +11,7 @@ docs/AuthenticationApi.md
 docs/Avatar.md
 docs/AvatarUnityPackageUrlObject.md
 docs/AvatarsApi.md
+docs/Badge.md
 docs/BanGroupMemberRequest.md
 docs/CreateAvatarRequest.md
 docs/CreateFileRequest.md
@@ -75,6 +76,7 @@ docs/InfoPushDataArticleContent.md
 docs/InfoPushDataClickable.md
 docs/Instance.md
 docs/InstancePlatforms.md
+docs/InstanceRegion.md
 docs/InstanceShortNameResponse.md
 docs/InstanceType.md
 docs/InstancesApi.md
@@ -90,6 +92,7 @@ docs/LicenseType.md
 docs/LimitedGroup.md
 docs/LimitedUnityPackage.md
 docs/LimitedUser.md
+docs/LimitedUserGroups.md
 docs/LimitedWorld.md
 docs/MIMEType.md
 docs/ModerateUserRequest.md
@@ -188,6 +191,7 @@ vrchatapi/models/api_config_events.py
 vrchatapi/models/api_health.py
 vrchatapi/models/avatar.py
 vrchatapi/models/avatar_unity_package_url_object.py
+vrchatapi/models/badge.py
 vrchatapi/models/ban_group_member_request.py
 vrchatapi/models/create_avatar_request.py
 vrchatapi/models/create_file_request.py
@@ -247,6 +251,7 @@ vrchatapi/models/info_push_data_article_content.py
 vrchatapi/models/info_push_data_clickable.py
 vrchatapi/models/instance.py
 vrchatapi/models/instance_platforms.py
+vrchatapi/models/instance_region.py
 vrchatapi/models/instance_short_name_response.py
 vrchatapi/models/instance_type.py
 vrchatapi/models/invite_message.py
@@ -260,6 +265,7 @@ vrchatapi/models/license_type.py
 vrchatapi/models/limited_group.py
 vrchatapi/models/limited_unity_package.py
 vrchatapi/models/limited_user.py
+vrchatapi/models/limited_user_groups.py
 vrchatapi/models/limited_world.py
 vrchatapi/models/mime_type.py
 vrchatapi/models/moderate_user_request.py

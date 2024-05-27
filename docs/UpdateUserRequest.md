@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **status_description** | **str** |  | [optional] 
 **bio** | **str** |  | [optional] 
 **bio_links** | **list[str]** |  | [optional] 
+**pronouns** | **str** |  | [optional] 
 **user_icon** | **str** | MUST be a valid VRChat /file/ url. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
