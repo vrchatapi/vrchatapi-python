@@ -25,6 +25,7 @@ Name | Type | Description | Notes
 **location** | **str** | WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user. | [optional] 
 **note** | **str** |  | [optional] 
 **profile_pic_override** | **str** |  | 
+**profile_pic_override_thumbnail** | **str** |  | 
 **pronouns** | **str** |  | 
 **state** | [**UserState**](UserState.md) |  | 
 **status** | [**UserStatus**](UserStatus.md) |  | 

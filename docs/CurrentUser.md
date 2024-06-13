@@ -35,6 +35,7 @@ Name | Type | Description | Notes
 **has_pending_email** | **bool** |  | 
 **home_location** | **str** | WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user. | 
 **id** | **str** | A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed. | 
+**is_booping_enabled** | **bool** |  | [optional] [default to True]
 **is_friend** | **bool** |  | [default to False]
 **last_activity** | **datetime** |  | [optional] 
 **last_login** | **datetime** |  | 
@@ -52,6 +53,7 @@ Name | Type | Description | Notes
 **past_display_names** | [**list[PastDisplayName]**](PastDisplayName.md) |   | 
 **presence** | [**CurrentUserPresence**](CurrentUserPresence.md) |  | [optional] 
 **profile_pic_override** | **str** |  | 
+**profile_pic_override_thumbnail** | **str** |  | 
 **pronouns** | **str** |  | 
 **state** | [**UserState**](UserState.md) |  | 
 **status** | [**UserStatus**](UserStatus.md) |  | 

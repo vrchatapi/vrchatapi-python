@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **bio** | **str** |  | [optional] 
 **bio_links** | **list[str]** |  | [optional] 
 **pronouns** | **str** |  | [optional] 
+**is_booping_enabled** | **bool** |  | [optional] 
 **user_icon** | **str** | MUST be a valid VRChat /file/ url. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
