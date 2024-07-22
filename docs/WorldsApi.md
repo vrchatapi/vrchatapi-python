@@ -814,7 +814,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **search_worlds**
-> list[LimitedWorld] search_worlds(featured=featured, sort=sort, user=user, user_id=user_id, n=n, order=order, offset=offset, search=search, tag=tag, notag=notag, release_status=release_status, max_unity_version=max_unity_version, min_unity_version=min_unity_version, platform=platform)
+> list[LimitedWorld] search_worlds(featured=featured, sort=sort, user=user, user_id=user_id, n=n, order=order, offset=offset, search=search, tag=tag, notag=notag, release_status=release_status, max_unity_version=max_unity_version, min_unity_version=min_unity_version, platform=platform, fuzzy=fuzzy)
 
 Search All Worlds
 
@@ -864,10 +864,11 @@ release_status = vrchatapi.ReleaseStatus() # ReleaseStatus | Filter by ReleaseSt
 max_unity_version = 'max_unity_version_example' # str | The maximum Unity version supported by the asset. (optional)
 min_unity_version = 'min_unity_version_example' # str | The minimum Unity version supported by the asset. (optional)
 platform = 'platform_example' # str | The platform the asset supports. (optional)
+fuzzy = True # bool |  (optional)
 
     try:
         # Search All Worlds
-        api_response = api_instance.search_worlds(featured=featured, sort=sort, user=user, user_id=user_id, n=n, order=order, offset=offset, search=search, tag=tag, notag=notag, release_status=release_status, max_unity_version=max_unity_version, min_unity_version=min_unity_version, platform=platform)
+        api_response = api_instance.search_worlds(featured=featured, sort=sort, user=user, user_id=user_id, n=n, order=order, offset=offset, search=search, tag=tag, notag=notag, release_status=release_status, max_unity_version=max_unity_version, min_unity_version=min_unity_version, platform=platform, fuzzy=fuzzy)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling WorldsApi->search_worlds: %s\n" % e)
@@ -891,6 +892,7 @@ Name | Type | Description  | Notes
  **max_unity_version** | **str**| The maximum Unity version supported by the asset. | [optional] 
  **min_unity_version** | **str**| The minimum Unity version supported by the asset. | [optional] 
  **platform** | **str**| The platform the asset supports. | [optional] 
+ **fuzzy** | **bool**|  | [optional] 
 
 ### Return type
 

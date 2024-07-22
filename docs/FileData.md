@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **category** | **str** |  | [default to 'queued']
 **file_name** | **str** |  | 
-**md5** | **str** |  | 
+**md5** | **str** |  | [optional] 
 **size_in_bytes** | **int** |  | 
 **status** | [**FileStatus**](FileStatus.md) |  | 
 **upload_id** | **str** |  | [default to '']

@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 
 # **check_user_exists**
-> UserExists check_user_exists(email=email, display_name=display_name, user_id=user_id, exclude_user_id=exclude_user_id)
+> UserExists check_user_exists(email=email, display_name=display_name, username=username, exclude_user_id=exclude_user_id)
 
 Check User Exists
 
@@ -42,12 +42,12 @@ with vrchatapi.ApiClient() as api_client:
     api_instance = vrchatapi.AuthenticationApi(api_client)
     email = 'email_example' # str | Filter by email. (optional)
 display_name = 'display_name_example' # str | Filter by displayName. (optional)
-user_id = 'user_id_example' # str | Filter by UserID. (optional)
+username = 'username_example' # str | Filter by Username. (optional)
 exclude_user_id = 'exclude_user_id_example' # str | Exclude by UserID. (optional)
 
     try:
         # Check User Exists
-        api_response = api_instance.check_user_exists(email=email, display_name=display_name, user_id=user_id, exclude_user_id=exclude_user_id)
+        api_response = api_instance.check_user_exists(email=email, display_name=display_name, username=username, exclude_user_id=exclude_user_id)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling AuthenticationApi->check_user_exists: %s\n" % e)
@@ -59,7 +59,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **email** | **str**| Filter by email. | [optional] 
  **display_name** | **str**| Filter by displayName. | [optional] 
- **user_id** | **str**| Filter by UserID. | [optional] 
+ **username** | **str**| Filter by Username. | [optional] 
  **exclude_user_id** | **str**| Exclude by UserID. | [optional] 
 
 ### Return type

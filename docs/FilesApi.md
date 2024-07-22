@@ -165,7 +165,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_file**
-> Success delete_file(file_id)
+> File delete_file(file_id)
 
 Delete File
 
@@ -219,7 +219,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Success**](Success.md)
+[**File**](File.md)
 
 ### Authorization
 
@@ -233,7 +233,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Successful response after deleting a File. |  -  |
+**200** | Returns a single File object. |  -  |
 **404** | Error response when trying to delete a non-existent file. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -311,7 +311,7 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 **200** | Returns a single File object. |  -  |
 **400** | Error response when trying to delete the initial version of a file. Delete the main File object instead. |  -  |
-**500** | Error response when trying to delete any version of a file that is not hte last one. |  -  |
+**500** | Error response when trying to delete any version of a file that is not the last one. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -380,12 +380,13 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Raw file |  -  |
+**404** | Error response when trying to show information about a non-existent file. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
