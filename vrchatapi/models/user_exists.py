@@ -36,23 +36,27 @@ class UserExists(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'user_exists': 'bool'
+        'user_exists': 'bool',
+        'name_ok': 'bool'
     }
 
     attribute_map = {
-        'user_exists': 'userExists'
+        'user_exists': 'userExists',
+        'name_ok': 'nameOk'
     }
 
-    def __init__(self, user_exists=False, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, user_exists=False, name_ok=False, local_vars_configuration=None):  # noqa: E501
         """UserExists - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration.get_default_copy()
         self.local_vars_configuration = local_vars_configuration
 
         self._user_exists = None
+        self._name_ok = None
         self.discriminator = None
 
         self.user_exists = user_exists
+        self.name_ok = name_ok
 
     @property
     def user_exists(self):
@@ -78,6 +82,31 @@ class UserExists(object):
             raise ValueError("Invalid value for `user_exists`, must not be `None`")  # noqa: E501
 
         self._user_exists = user_exists
+
+    @property
+    def name_ok(self):
+        """Gets the name_ok of this UserExists.  # noqa: E501
+
+        Is the username valid?  # noqa: E501
+
+        :return: The name_ok of this UserExists.  # noqa: E501
+        :rtype: bool
+        """
+        return self._name_ok
+
+    @name_ok.setter
+    def name_ok(self, name_ok):
+        """Sets the name_ok of this UserExists.
+
+        Is the username valid?  # noqa: E501
+
+        :param name_ok: The name_ok of this UserExists.  # noqa: E501
+        :type name_ok: bool
+        """
+        if self.local_vars_configuration.client_side_validation and name_ok is None:  # noqa: E501
+            raise ValueError("Invalid value for `name_ok`, must not be `None`")  # noqa: E501
+
+        self._name_ok = name_ok
 
     def to_dict(self, serialize=False):
         """Returns the model properties as a dict"""

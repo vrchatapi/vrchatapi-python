@@ -46,7 +46,7 @@ class UserSubscription(object):
         'tier': 'float',
         'active': 'bool',
         'status': 'TransactionStatus',
-        'starts': 'datetime',
+        'starts': 'str',
         'expires': 'datetime',
         'created_at': 'datetime',
         'updated_at': 'datetime',
@@ -361,7 +361,7 @@ class UserSubscription(object):
 
 
         :return: The starts of this UserSubscription.  # noqa: E501
-        :rtype: datetime
+        :rtype: str
         """
         return self._starts
 
@@ -371,7 +371,7 @@ class UserSubscription(object):
 
 
         :param starts: The starts of this UserSubscription.  # noqa: E501
-        :type starts: datetime
+        :type starts: str
         """
 
         self._starts = starts

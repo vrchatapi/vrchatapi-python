@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 **tier** | **float** |  | 
 **active** | **bool** |  | [default to True]
 **status** | [**TransactionStatus**](TransactionStatus.md) |  | 
-**starts** | **datetime** |  | [optional] 
+**starts** | **str** |  | [optional] 
 **expires** | **datetime** |  | 
 **created_at** | **datetime** |  | 
 **updated_at** | **datetime** |  | 

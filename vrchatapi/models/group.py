@@ -174,8 +174,7 @@ class Group(object):
             self.created_at = created_at
         if updated_at is not None:
             self.updated_at = updated_at
-        if last_post_created_at is not None:
-            self.last_post_created_at = last_post_created_at
+        self.last_post_created_at = last_post_created_at
         if online_member_count is not None:
             self.online_member_count = online_member_count
         if membership_status is not None:
@@ -568,7 +567,6 @@ class Group(object):
     def tags(self):
         """Gets the tags of this Group.  # noqa: E501
 
-           # noqa: E501
 
         :return: The tags of this Group.  # noqa: E501
         :rtype: list[str]
@@ -579,7 +577,6 @@ class Group(object):
     def tags(self, tags):
         """Sets the tags of this Group.
 
-           # noqa: E501
 
         :param tags: The tags of this Group.  # noqa: E501
         :type tags: list[str]
@@ -614,7 +611,6 @@ class Group(object):
     def galleries(self):
         """Gets the galleries of this Group.  # noqa: E501
 
-           # noqa: E501
 
         :return: The galleries of this Group.  # noqa: E501
         :rtype: list[GroupGallery]
@@ -625,7 +621,6 @@ class Group(object):
     def galleries(self, galleries):
         """Sets the galleries of this Group.
 
-           # noqa: E501
 
         :param galleries: The galleries of this Group.  # noqa: E501
         :type galleries: list[GroupGallery]

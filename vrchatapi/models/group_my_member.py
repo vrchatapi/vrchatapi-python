@@ -114,8 +114,7 @@ class GroupMyMember(object):
             self.user_id = user_id
         if role_ids is not None:
             self.role_ids = role_ids
-        if accepted_by_display_name is not None:
-            self.accepted_by_display_name = accepted_by_display_name
+        self.accepted_by_display_name = accepted_by_display_name
         if accepted_by_id is not None:
             self.accepted_by_id = accepted_by_id
         if created_at is not None:
@@ -137,8 +136,7 @@ class GroupMyMember(object):
             self.has2_fa = has2_fa
         if has_joined_from_purchase is not None:
             self.has_joined_from_purchase = has_joined_from_purchase
-        if last_post_read_at is not None:
-            self.last_post_read_at = last_post_read_at
+        self.last_post_read_at = last_post_read_at
         if m_role_ids is not None:
             self.m_role_ids = m_role_ids
         if permissions is not None:

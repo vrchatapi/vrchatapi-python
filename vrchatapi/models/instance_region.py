@@ -35,8 +35,9 @@ class InstanceRegion(object):
     USE = "use"
     EU = "eu"
     JP = "jp"
+    UNKNOWN = "unknown"
 
-    allowable_values = [US, USE, EU, JP]  # noqa: E501
+    allowable_values = [US, USE, EU, JP, UNKNOWN]  # noqa: E501
 
     """
     Attributes:
