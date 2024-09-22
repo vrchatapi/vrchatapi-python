@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **amount** | **float** |  | 
 **description** | **str** |  | 
 **period** | [**SubscriptionPeriod**](SubscriptionPeriod.md) |  | 
-**tier** | **float** |  | 
+**tier** | **int** |  | 
 **active** | **bool** |  | [default to True]
 **status** | [**TransactionStatus**](TransactionStatus.md) |  | 
 **starts** | **str** |  | [optional] 

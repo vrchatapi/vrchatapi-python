@@ -1987,7 +1987,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_group_members**
-> list[GroupMember] get_group_members(group_id, n=n, offset=offset, sort=sort)
+> list[GroupMember] get_group_members(group_id, n=n, offset=offset, sort=sort, role_id=role_id)
 
 List Group Members
 
@@ -2027,10 +2027,11 @@ with vrchatapi.ApiClient(configuration) as api_client:
 n = 60 # int | The number of objects to return. (optional) (default to 60)
 offset = 56 # int | A zero-based offset from the default object sorting from where search results start. (optional)
 sort = vrchatapi.GroupSearchSort() # GroupSearchSort | The sort order of Group Member results (optional)
+role_id = 'role_id_example' # str | Only returns members with a specific groupRoleId (optional)
 
     try:
         # List Group Members
-        api_response = api_instance.get_group_members(group_id, n=n, offset=offset, sort=sort)
+        api_response = api_instance.get_group_members(group_id, n=n, offset=offset, sort=sort, role_id=role_id)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling GroupsApi->get_group_members: %s\n" % e)
@@ -2044,6 +2045,7 @@ Name | Type | Description  | Notes
  **n** | **int**| The number of objects to return. | [optional] [default to 60]
  **offset** | **int**| A zero-based offset from the default object sorting from where search results start. | [optional] 
  **sort** | [**GroupSearchSort**](.md)| The sort order of Group Member results | [optional] 
+ **role_id** | **str**| Only returns members with a specific groupRoleId | [optional] 
 
 ### Return type
 

@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **tags** | **list[str]** |   | [optional] 
 **image_url** | **str** |  | 
 **release_status** | [**ReleaseStatus**](ReleaseStatus.md) |  | [optional] 
-**version** | **float** |  | [optional] [default to 1]
+**version** | **int** |  | [optional] [default to 1]
 **unity_package_url** | **str** |  | [optional] 
 **unity_version** | **str** |  | [optional] [default to '5.3.4p1']
 

@@ -7,8 +7,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **upload_id** | **str** |  | 
 **file_name** | **str** |  | 
-**next_part_number** | **float** |  | 
-**max_parts** | **float** |  | 
+**next_part_number** | **int** |  | 
+**max_parts** | **int** |  | 
 **parts** | **list[object]** |  | 
 **etags** | **list[object]** | Unknown | 
 

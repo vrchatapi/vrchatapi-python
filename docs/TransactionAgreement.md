@@ -6,11 +6,11 @@ Represents a single Transaction, which is likely between VRChat and Steam.
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **agreement_id** | **str** |  | 
-**item_id** | **float** |  | 
+**item_id** | **int** |  | 
 **agreement** | **str** |  | 
 **status** | **str** | This is NOT TransactionStatus, but whatever Steam return. | 
 **period** | **str** |  | 
-**frequency** | **float** |  | 
+**frequency** | **int** |  | 
 **billing_type** | **str** |  | 
 **start_date** | **str** |  | 
 **end_date** | **str** |  | 
@@ -21,8 +21,8 @@ Name | Type | Description | Notes
 **last_payment** | **str** |  | 
 **last_amount** | **float** |  | 
 **last_amount_vat** | **float** |  | 
-**outstanding** | **float** |  | 
-**failed_attempts** | **float** |  | 
+**outstanding** | **int** |  | 
+**failed_attempts** | **int** |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
