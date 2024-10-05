@@ -28,6 +28,7 @@ Name | Type | Description | Notes
 **public_occupants** | **int** | Will always be &#x60;0&#x60; when unauthenticated. | [optional] [default to 0]
 **publication_date** | **str** |  | 
 **release_status** | [**ReleaseStatus**](ReleaseStatus.md) |  | 
+**store_id** | **str** |  | 
 **tags** | **list[str]** |   | 
 **thumbnail_image_url** | **str** |  | 
 **unity_packages** | [**list[UnityPackage]**](UnityPackage.md) | Empty if unauthenticated. | [optional] 

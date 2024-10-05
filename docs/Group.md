@@ -4,6 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**badges** | **list[str]** |  | [optional] 
 **id** | **str** |  | [optional] 
 **name** | **str** |  | [optional] 
 **short_code** | **str** |  | [optional] 

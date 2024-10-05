@@ -23,6 +23,7 @@ Name | Type | Description | Notes
 **preview_youtube_id** | **str** |  | [optional] 
 **publication_date** | **str** |  | 
 **release_status** | [**ReleaseStatus**](ReleaseStatus.md) |  | 
+**store_id** | **str** |  | 
 **tags** | **list[str]** |   | 
 **thumbnail_image_url** | **str** |  | 
 **unity_packages** | [**list[LimitedUnityPackage]**](LimitedUnityPackage.md) |   | 
