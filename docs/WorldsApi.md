@@ -254,7 +254,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_favorited_worlds**
-> list[LimitedWorld] get_favorited_worlds(featured=featured, sort=sort, n=n, order=order, offset=offset, search=search, tag=tag, notag=notag, release_status=release_status, max_unity_version=max_unity_version, min_unity_version=min_unity_version, platform=platform, user_id=user_id)
+> list[FavoritedWorld] get_favorited_worlds(featured=featured, sort=sort, n=n, order=order, offset=offset, search=search, tag=tag, notag=notag, release_status=release_status, max_unity_version=max_unity_version, min_unity_version=min_unity_version, platform=platform, user_id=user_id)
 
 List Favorited Worlds
 
@@ -332,7 +332,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**list[LimitedWorld]**](LimitedWorld.md)
+[**list[FavoritedWorld]**](FavoritedWorld.md)
 
 ### Authorization
 
@@ -346,7 +346,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Returns a list of LimitedWorld objects. |  -  |
+**200** | Returns a list of FavoritedWorld objects. |  -  |
 **401** | Error response due to missing auth cookie. |  -  |
 **403** | Error response when trying to see favourited worlds of another user without sufficient admin permissions. |  -  |
 

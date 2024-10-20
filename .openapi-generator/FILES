@@ -47,6 +47,7 @@ docs/Favorite.md
 docs/FavoriteGroup.md
 docs/FavoriteGroupVisibility.md
 docs/FavoriteType.md
+docs/FavoritedWorld.md
 docs/FavoritesApi.md
 docs/File.md
 docs/FileData.md
@@ -97,6 +98,9 @@ docs/InviteMessage.md
 docs/InviteMessageType.md
 docs/InviteRequest.md
 docs/InviteResponse.md
+docs/Jam.md
+docs/JamStateChangeDates.md
+docs/JamsApi.md
 docs/License.md
 docs/LicenseAction.md
 docs/LicenseGroup.md
@@ -136,6 +140,7 @@ docs/RespondGroupJoinRequest.md
 docs/Response.md
 docs/SentNotification.md
 docs/SortOption.md
+docs/Submission.md
 docs/Subscription.md
 docs/SubscriptionPeriod.md
 docs/Success.md
@@ -187,6 +192,7 @@ vrchatapi/api/friends_api.py
 vrchatapi/api/groups_api.py
 vrchatapi/api/instances_api.py
 vrchatapi/api/invite_api.py
+vrchatapi/api/jams_api.py
 vrchatapi/api/notifications_api.py
 vrchatapi/api/permissions_api.py
 vrchatapi/api/playermoderation_api.py
@@ -242,6 +248,7 @@ vrchatapi/models/favorite.py
 vrchatapi/models/favorite_group.py
 vrchatapi/models/favorite_group_visibility.py
 vrchatapi/models/favorite_type.py
+vrchatapi/models/favorited_world.py
 vrchatapi/models/file.py
 vrchatapi/models/file_data.py
 vrchatapi/models/file_status.py
@@ -286,6 +293,8 @@ vrchatapi/models/invite_message.py
 vrchatapi/models/invite_message_type.py
 vrchatapi/models/invite_request.py
 vrchatapi/models/invite_response.py
+vrchatapi/models/jam.py
+vrchatapi/models/jam_state_change_dates.py
 vrchatapi/models/license.py
 vrchatapi/models/license_action.py
 vrchatapi/models/license_group.py
@@ -322,6 +331,7 @@ vrchatapi/models/respond_group_join_request.py
 vrchatapi/models/response.py
 vrchatapi/models/sent_notification.py
 vrchatapi/models/sort_option.py
+vrchatapi/models/submission.py
 vrchatapi/models/subscription.py
 vrchatapi/models/subscription_period.py
 vrchatapi/models/success.py

@@ -12,6 +12,7 @@ from vrchatapi.api.friends_api import FriendsApi
 from vrchatapi.api.groups_api import GroupsApi
 from vrchatapi.api.instances_api import InstancesApi
 from vrchatapi.api.invite_api import InviteApi
+from vrchatapi.api.jams_api import JamsApi
 from vrchatapi.api.notifications_api import NotificationsApi
 from vrchatapi.api.permissions_api import PermissionsApi
 from vrchatapi.api.playermoderation_api import PlayermoderationApi
