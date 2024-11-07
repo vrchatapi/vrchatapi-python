@@ -1,6 +1,6 @@
 # vrchatapi.FriendsApi
 
-All URIs are relative to *https://vrchat.com/api/1*
+All URIs are relative to *https://api.vrchat.cloud/api/1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -27,10 +27,10 @@ import time
 import vrchatapi
 from vrchatapi.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to https://vrchat.com/api/1
+# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
 # See configuration.py for a list of all supported configuration parameters.
 configuration = vrchatapi.Configuration(
-    host = "https://vrchat.com/api/1"
+    host = "https://api.vrchat.cloud/api/1"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -102,10 +102,10 @@ import time
 import vrchatapi
 from vrchatapi.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to https://vrchat.com/api/1
+# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
 # See configuration.py for a list of all supported configuration parameters.
 configuration = vrchatapi.Configuration(
-    host = "https://vrchat.com/api/1"
+    host = "https://api.vrchat.cloud/api/1"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -178,10 +178,10 @@ import time
 import vrchatapi
 from vrchatapi.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to https://vrchat.com/api/1
+# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
 # See configuration.py for a list of all supported configuration parameters.
 configuration = vrchatapi.Configuration(
-    host = "https://vrchat.com/api/1"
+    host = "https://api.vrchat.cloud/api/1"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -252,10 +252,10 @@ import time
 import vrchatapi
 from vrchatapi.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to https://vrchat.com/api/1
+# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
 # See configuration.py for a list of all supported configuration parameters.
 configuration = vrchatapi.Configuration(
-    host = "https://vrchat.com/api/1"
+    host = "https://api.vrchat.cloud/api/1"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -330,10 +330,10 @@ import time
 import vrchatapi
 from vrchatapi.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to https://vrchat.com/api/1
+# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
 # See configuration.py for a list of all supported configuration parameters.
 configuration = vrchatapi.Configuration(
-    host = "https://vrchat.com/api/1"
+    host = "https://api.vrchat.cloud/api/1"
 )
 
 # The client must configure the authentication and authorization parameters
