@@ -1,6 +1,7 @@
 .gitlab-ci.yml
 docs/APIConfig.md
 docs/APIConfigAnnouncement.md
+docs/APIConfigAvatarPerfLimiter.md
 docs/APIConfigConstants.md
 docs/APIConfigConstantsGROUPS.md
 docs/APIConfigConstantsINSTANCE.md
@@ -123,6 +124,7 @@ docs/NotificationsApi.md
 docs/OrderOption.md
 docs/PaginatedGroupAuditLogEntryList.md
 docs/PastDisplayName.md
+docs/PerformanceLimiterInfo.md
 docs/PerformanceRatings.md
 docs/Permission.md
 docs/PermissionsApi.md
@@ -208,6 +210,7 @@ vrchatapi/models/add_favorite_request.py
 vrchatapi/models/add_group_gallery_image_request.py
 vrchatapi/models/api_config.py
 vrchatapi/models/api_config_announcement.py
+vrchatapi/models/api_config_avatar_perf_limiter.py
 vrchatapi/models/api_config_constants.py
 vrchatapi/models/api_config_constants_groups.py
 vrchatapi/models/api_config_constants_instance.py
@@ -316,6 +319,7 @@ vrchatapi/models/notification_type.py
 vrchatapi/models/order_option.py
 vrchatapi/models/paginated_group_audit_log_entry_list.py
 vrchatapi/models/past_display_name.py
+vrchatapi/models/performance_limiter_info.py
 vrchatapi/models/performance_ratings.py
 vrchatapi/models/permission.py
 vrchatapi/models/platform_build_info.py

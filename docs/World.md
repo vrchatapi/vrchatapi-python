@@ -32,6 +32,7 @@ Name | Type | Description | Notes
 **thumbnail_image_url** | **str** |  | 
 **unity_packages** | [**list[UnityPackage]**](UnityPackage.md) | Empty if unauthenticated. | [optional] 
 **updated_at** | **datetime** |  | 
+**url_list** | **list[str]** |  | [optional] 
 **version** | **int** |  | [default to 0]
 **visits** | **int** |  | [default to 0]
 **udon_products** | **list[str]** |  | [optional] 

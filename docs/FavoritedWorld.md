@@ -31,6 +31,7 @@ Name | Type | Description | Notes
 **thumbnail_image_url** | **str** |  | 
 **unity_packages** | [**list[UnityPackage]**](UnityPackage.md) |   | 
 **updated_at** | **datetime** |  | 
+**url_list** | **list[str]** |  | 
 **udon_products** | **list[str]** |  | [optional] 
 **version** | **int** |  | 
 

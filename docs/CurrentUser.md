@@ -9,6 +9,8 @@ Name | Type | Description | Notes
 **account_deletion_date** | **date** |  | [optional] 
 **account_deletion_log** | [**list[AccountDeletionLog]**](AccountDeletionLog.md) |   | [optional] 
 **active_friends** | **list[str]** |   | [optional] 
+**age_verification_status** | **str** |  | 
+**age_verified** | **bool** |  | 
 **allow_avatar_copying** | **bool** |  | 
 **badges** | [**list[Badge]**](Badge.md) |   | [optional] 
 **bio** | **str** |  | 
@@ -35,6 +37,7 @@ Name | Type | Description | Notes
 **has_pending_email** | **bool** |  | 
 **home_location** | **str** | WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user. | 
 **id** | **str** | A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed. | 
+**is_adult** | **bool** |  | 
 **is_booping_enabled** | **bool** |  | [optional] [default to True]
 **is_friend** | **bool** |  | [default to False]
 **last_activity** | **datetime** |  | [optional] 

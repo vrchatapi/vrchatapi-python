@@ -4,6 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**age_verification_status** | **str** |  | 
 **allow_avatar_copying** | **bool** |  | [default to True]
 **badges** | [**list[Badge]**](Badge.md) |   | [optional] 
 **bio** | **str** |  | 

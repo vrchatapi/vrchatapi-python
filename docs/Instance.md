@@ -6,6 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **active** | **bool** |  | [default to True]
+**age_gate** | **str** |  | [optional] 
 **can_request_invite** | **bool** |  | [default to True]
 **capacity** | **int** |  | 
 **client_number** | **str** | Always returns \&quot;unknown\&quot;. | 
@@ -22,7 +23,7 @@ Name | Type | Description | Notes
 **permanent** | **bool** |  | [default to False]
 **photon_region** | [**Region**](Region.md) |  | 
 **platforms** | [**InstancePlatforms**](InstancePlatforms.md) |  | 
-**player_persistence_enabled** | **str** |  | 
+**player_persistence_enabled** | **bool** |  | 
 **region** | [**InstanceRegion**](InstanceRegion.md) |  | 
 **secure_name** | **str** |  | 
 **short_name** | **str** |  | [optional] 
