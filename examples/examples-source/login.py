@@ -6,8 +6,8 @@ from vrchatapi.models.two_factor_auth_code import TwoFactorAuthCode
 from vrchatapi.models.two_factor_email_code import TwoFactorEmailCode
 
 configuration = vrchatapi.Configuration(
-    username = 'username',
-    password = 'password',
+    username='username',
+    password='password',
 )
 
 # Step 2. VRChat consists of several API's (WorldsApi, UsersApi, FilesApi, NotificationsApi, FriendsApi, etc...)
@@ -16,7 +16,7 @@ configuration = vrchatapi.Configuration(
 # Enter a context with an instance of the API client
 with vrchatapi.ApiClient(configuration) as api_client:
     # Set our User-Agent as per VRChat Usage Policy
-    api_client.user_agent = "MyProject/1.0 my@email.com"
+    api_client.user_agent = "ExampleProgram/0.0.1 my@email.com"
 
     # Instantiate instances of API classes
     auth_api = authentication_api.AuthenticationApi(api_client)

@@ -4,16 +4,13 @@ from vrchatapi.exceptions import UnauthorizedException
 from vrchatapi.models.two_factor_auth_code import TwoFactorAuthCode
 from vrchatapi.models.two_factor_email_code import TwoFactorEmailCode
 
-# We import the class that corrisponds to the section of the API we want to use
-from vrchatapi.api.worlds_api import WorldsApi
-
 configuration = vrchatapi.Configuration(
-    username = 'username',
-    password = 'password',
+    username='username',
+    password='password',
 )
 
 with vrchatapi.ApiClient(configuration) as api_client:
-    api_client.user_agent = "MyProject/1.0 my@email.com"
+    api_client.user_agent = "ExampleProgram/0.0.1 my@email.com"
     auth_api = authentication_api.AuthenticationApi(api_client)
 
     try:
@@ -30,8 +27,7 @@ with vrchatapi.ApiClient(configuration) as api_client:
     except vrchatapi.ApiException as e:
         print("Exception when calling API: %s\n", e)
 
+    cookie_jar = api_client.rest_client.cookie_jar._cookies["vrchat.com"]["/"]
     print("Logged in as:", current_user.display_name)
-
-    # Now we are logged in, we can init and use the API class :)
-    worlds_api = WorldsApi(api_client) # All API section classes require an ApiClient object to be passed!
-    active_worlds = worlds_api.get_active_worlds()
+    print("auth: " + cookie_jar["auth"].value)
+    print("twoFactorAuth: " + cookie_jar["twoFactorAuth"].value)

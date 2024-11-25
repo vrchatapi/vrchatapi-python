@@ -5,7 +5,7 @@ from vrchatapi.api.worlds_api import WorldsApi
 
 # We don't add a configuration file/set a username and password
 with vrchatapi.ApiClient() as api_client:
-    api_client.user_agent = "MyProject/1.0 my@email.com"
+    api_client.user_agent = "ExampleProgram/0.0.1 my@email.com"
 
     # We don't use the authentication API at all, since we don't need to
     world_api = WorldsApi(api_client)
