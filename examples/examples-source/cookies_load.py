@@ -22,7 +22,7 @@ configuration = vrchatapi.Configuration(
 )
 
 with vrchatapi.ApiClient(configuration) as api_client:
-    api_client.user_agent = "MyProject/1.0 my@email.com"
+    api_client.user_agent = "ExampleProgram/0.0.1 my@email.com"
     api_client.rest_client.cookie_jar.set_cookie(
         make_cookie("auth", "[AUTH_COOKIE_HERE]"))
     api_client.rest_client.cookie_jar.set_cookie(

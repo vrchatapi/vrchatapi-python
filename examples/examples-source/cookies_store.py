@@ -10,7 +10,7 @@ configuration = vrchatapi.Configuration(
 )
 
 with vrchatapi.ApiClient(configuration) as api_client:
-    api_client.user_agent = "MyProject/1.0 my@email.com"
+    api_client.user_agent = "ExampleProgram/0.0.1 my@email.com"
     auth_api = authentication_api.AuthenticationApi(api_client)
 
     try:
