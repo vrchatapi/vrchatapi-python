@@ -6,8 +6,8 @@ from vrchatapi.models.two_factor_auth_code import TwoFactorAuthCode
 from vrchatapi.models.two_factor_email_code import TwoFactorEmailCode
 
 configuration = vrchatapi.Configuration(
-    username = 'username',
-    password = 'password',
+    username='username',
+    password='password',
 )
 
 # Step 2. VRChat consists of several API's (WorldsApi, UsersApi, FilesApi, NotificationsApi, FriendsApi, etc...)
