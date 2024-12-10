@@ -27,7 +27,7 @@ with vrchatapi.ApiClient(configuration) as api_client:
     except vrchatapi.ApiException as e:
         print("Exception when calling API: %s\n", e)
 
-    cookie_jar = api_client.rest_client.cookie_jar._cookies["vrchat.com"]["/"]
+    cookie_jar = api_client.rest_client.cookie_jar._cookies["api.vrchat.cloud"]["/"]
     print("Logged in as:", current_user.display_name)
     print("auth: " + cookie_jar["auth"].value)
     print("twoFactorAuth: " + cookie_jar["twoFactorAuth"].value)
