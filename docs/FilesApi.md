@@ -11,6 +11,9 @@ Method | HTTP request | Description
 [**download_file_version**](FilesApi.md#download_file_version) | **GET** /file/{fileId}/{versionId} | Download File Version
 [**finish_file_data_upload**](FilesApi.md#finish_file_data_upload) | **PUT** /file/{fileId}/{versionId}/{fileType}/finish | Finish FileData Upload
 [**get_file**](FilesApi.md#get_file) | **GET** /file/{fileId} | Show File
+[**get_file_analysis**](FilesApi.md#get_file_analysis) | **GET** /analysis/{fileId}/{versionId} | Get File Version Analysis
+[**get_file_analysis_security**](FilesApi.md#get_file_analysis_security) | **GET** /analysis/{fileId}/{versionId}/security | Get File Version Analysis Security
+[**get_file_analysis_standard**](FilesApi.md#get_file_analysis_standard) | **GET** /analysis/{fileId}/{versionId}/standard | Get File Version Analysis Standard
 [**get_file_data_upload_status**](FilesApi.md#get_file_data_upload_status) | **GET** /file/{fileId}/{versionId}/{fileType}/status | Check FileData Upload Status
 [**get_files**](FilesApi.md#get_files) | **GET** /files | List Files
 [**start_file_data_upload**](FilesApi.md#start_file_data_upload) | **PUT** /file/{fileId}/{versionId}/{fileType}/start | Start FileData Upload
@@ -539,6 +542,234 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Returns a single File object. |  -  |
+**404** | Error response when trying to show information about a non-existent file. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_file_analysis**
+> FileAnalysis get_file_analysis(file_id, version_id)
+
+Get File Version Analysis
+
+Get the performance analysis for the uploaded assets of an avatar
+
+### Example
+
+* Api Key Authentication (authCookie):
+```python
+from __future__ import print_function
+import time
+import vrchatapi
+from vrchatapi.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = vrchatapi.Configuration(
+    host = "https://api.vrchat.cloud/api/1"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: authCookie
+configuration.api_key['authCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['authCookie'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with vrchatapi.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = vrchatapi.FilesApi(api_client)
+    file_id = 'file_00000000-0000-0000-0000-000000000000' # str | Must be a valid file ID.
+version_id = 1 # int | Version ID of the asset.
+
+    try:
+        # Get File Version Analysis
+        api_response = api_instance.get_file_analysis(file_id, version_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling FilesApi->get_file_analysis: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **file_id** | **str**| Must be a valid file ID. | 
+ **version_id** | **int**| Version ID of the asset. | 
+
+### Return type
+
+[**FileAnalysis**](FileAnalysis.md)
+
+### Authorization
+
+[authCookie](../README.md#authCookie)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Returns a single FileAnalysis object. |  -  |
+**404** | Error response when trying to show information about a non-existent file. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_file_analysis_security**
+> FileAnalysis get_file_analysis_security(file_id, version_id)
+
+Get File Version Analysis Security
+
+Get the security performance analysis for the uploaded assets of an avatar
+
+### Example
+
+* Api Key Authentication (authCookie):
+```python
+from __future__ import print_function
+import time
+import vrchatapi
+from vrchatapi.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = vrchatapi.Configuration(
+    host = "https://api.vrchat.cloud/api/1"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: authCookie
+configuration.api_key['authCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['authCookie'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with vrchatapi.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = vrchatapi.FilesApi(api_client)
+    file_id = 'file_00000000-0000-0000-0000-000000000000' # str | Must be a valid file ID.
+version_id = 1 # int | Version ID of the asset.
+
+    try:
+        # Get File Version Analysis Security
+        api_response = api_instance.get_file_analysis_security(file_id, version_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling FilesApi->get_file_analysis_security: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **file_id** | **str**| Must be a valid file ID. | 
+ **version_id** | **int**| Version ID of the asset. | 
+
+### Return type
+
+[**FileAnalysis**](FileAnalysis.md)
+
+### Authorization
+
+[authCookie](../README.md#authCookie)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Returns a single FileAnalysis object. |  -  |
+**404** | Error response when trying to show information about a non-existent file. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_file_analysis_standard**
+> FileAnalysis get_file_analysis_standard(file_id, version_id)
+
+Get File Version Analysis Standard
+
+Get the standard performance analysis for the uploaded assets of an avatar
+
+### Example
+
+* Api Key Authentication (authCookie):
+```python
+from __future__ import print_function
+import time
+import vrchatapi
+from vrchatapi.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = vrchatapi.Configuration(
+    host = "https://api.vrchat.cloud/api/1"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: authCookie
+configuration.api_key['authCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['authCookie'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with vrchatapi.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = vrchatapi.FilesApi(api_client)
+    file_id = 'file_00000000-0000-0000-0000-000000000000' # str | Must be a valid file ID.
+version_id = 1 # int | Version ID of the asset.
+
+    try:
+        # Get File Version Analysis Standard
+        api_response = api_instance.get_file_analysis_standard(file_id, version_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling FilesApi->get_file_analysis_standard: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **file_id** | **str**| Must be a valid file ID. | 
+ **version_id** | **int**| Version ID of the asset. | 
+
+### Return type
+
+[**FileAnalysis**](FileAnalysis.md)
+
+### Authorization
+
+[authCookie](../README.md#authCookie)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Returns a single FileAnalysis object. |  -  |
 **404** | Error response when trying to show information about a non-existent file. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

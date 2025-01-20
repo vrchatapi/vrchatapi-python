@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **active** | **bool** |  | [default to True]
-**age_gate** | **str** |  | [optional] 
+**age_gate** | **bool** |  | [optional] 
 **can_request_invite** | **bool** |  | [default to True]
 **capacity** | **int** |  | 
 **client_number** | **str** | Always returns \&quot;unknown\&quot;. | 

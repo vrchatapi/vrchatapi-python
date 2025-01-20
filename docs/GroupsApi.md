@@ -514,7 +514,7 @@ Name | Type | Description  | Notes
 
 Create Group Announcement
 
-Creates an Announcement for a Group.
+Creates an Announcement for a Group. Warning: This will also remove all announcements. To make proper announcements, use the posts endpoint instead
 
 ### Example
 
@@ -1508,7 +1508,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_group_audit_logs**
-> PaginatedGroupAuditLogEntryList get_group_audit_logs(group_id, n=n, offset=offset, start_date=start_date, end_date=end_date)
+> PaginatedGroupAuditLogEntryList get_group_audit_logs(group_id, n=n, offset=offset, start_date=start_date, end_date=end_date, actor_ids=actor_ids, event_types=event_types, target_ids=target_ids)
 
 Get Group Audit Logs
 
@@ -1549,10 +1549,13 @@ n = 60 # int | The number of objects to return. (optional) (default to 60)
 offset = 56 # int | A zero-based offset from the default object sorting from where search results start. (optional)
 start_date = '2013-10-20T19:20:30+01:00' # datetime | The start date of the search range. (optional)
 end_date = '2013-10-20T19:20:30+01:00' # datetime | The end date of the search range. (optional)
+actor_ids = 'usr_00000000-0000-0000-0000-000000000000,usr_11111111-1111-1111-1111-111111111111' # str | The comma-separated actor ids to search for. (optional)
+event_types = 'group.member.remove,group.instance.kick' # str | The comma-separated event types to search for. (optional)
+target_ids = 'usr_00000000-0000-0000-0000-000000000000,usr_11111111-1111-1111-1111-111111111111' # str | The comma-separated target ids to search for. (optional)
 
     try:
         # Get Group Audit Logs
-        api_response = api_instance.get_group_audit_logs(group_id, n=n, offset=offset, start_date=start_date, end_date=end_date)
+        api_response = api_instance.get_group_audit_logs(group_id, n=n, offset=offset, start_date=start_date, end_date=end_date, actor_ids=actor_ids, event_types=event_types, target_ids=target_ids)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling GroupsApi->get_group_audit_logs: %s\n" % e)
@@ -1567,6 +1570,9 @@ Name | Type | Description  | Notes
  **offset** | **int**| A zero-based offset from the default object sorting from where search results start. | [optional] 
  **start_date** | **datetime**| The start date of the search range. | [optional] 
  **end_date** | **datetime**| The end date of the search range. | [optional] 
+ **actor_ids** | **str**| The comma-separated actor ids to search for. | [optional] 
+ **event_types** | **str**| The comma-separated event types to search for. | [optional] 
+ **target_ids** | **str**| The comma-separated target ids to search for. | [optional] 
 
 ### Return type
 

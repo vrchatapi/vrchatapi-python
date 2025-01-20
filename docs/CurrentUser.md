@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **account_deletion_date** | **date** |  | [optional] 
 **account_deletion_log** | [**list[AccountDeletionLog]**](AccountDeletionLog.md) |   | [optional] 
 **active_friends** | **list[str]** |   | [optional] 
-**age_verification_status** | **str** |  | 
+**age_verification_status** | [**AgeVerificationStatus**](AgeVerificationStatus.md) |  | 
 **age_verified** | **bool** |  | 
 **allow_avatar_copying** | **bool** |  | 
 **badges** | [**list[Badge]**](Badge.md) |   | [optional] 

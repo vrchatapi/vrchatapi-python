@@ -21,6 +21,7 @@ Name | Type | Description | Notes
 **updated_at** | **datetime** |  | 
 **license_groups** | **list[str]** |  | 
 **is_gift** | **bool** |  | [default to False]
+**is_bulk_gift** | **bool** |  | [default to False]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

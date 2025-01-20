@@ -4,6 +4,9 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**age_verification_slots_available** | **bool** |  | [optional] 
+**age_verification_beta_code** | **str** |  | [optional] 
+**age_verification_beta_slots** | **float** |  | [optional] 
 **badges** | **list[str]** |  | [optional] 
 **id** | **str** |  | [optional] 
 **name** | **str** |  | [optional] 
