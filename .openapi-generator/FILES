@@ -84,6 +84,7 @@ docs/GroupMemberLimitedUser.md
 docs/GroupMemberStatus.md
 docs/GroupMyMember.md
 docs/GroupPermission.md
+docs/GroupPermissions.md
 docs/GroupPost.md
 docs/GroupPostVisibility.md
 docs/GroupPrivacy.md
@@ -304,6 +305,7 @@ vrchatapi/models/group_member_limited_user.py
 vrchatapi/models/group_member_status.py
 vrchatapi/models/group_my_member.py
 vrchatapi/models/group_permission.py
+vrchatapi/models/group_permissions.py
 vrchatapi/models/group_post.py
 vrchatapi/models/group_post_visibility.py
 vrchatapi/models/group_privacy.py

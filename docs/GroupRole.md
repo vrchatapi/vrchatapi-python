@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **name** | **str** |  | [optional] 
 **description** | **str** |  | [optional] 
 **is_self_assignable** | **bool** |  | [optional] [default to False]
-**permissions** | **list[str]** |  | [optional] 
+**permissions** | [**list[GroupPermissions]**](GroupPermissions.md) |  | [optional] 
 **is_management_role** | **bool** |  | [optional] [default to False]
 **requires_two_factor** | **bool** |  | [optional] [default to False]
 **requires_purchase** | **bool** |  | [optional] [default to False]

@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 **has_joined_from_purchase** | **bool** |  | [optional] [default to False]
 **last_post_read_at** | **datetime** |  | [optional] 
 **m_role_ids** | **list[str]** |  | [optional] 
-**permissions** | **list[str]** |  | [optional] 
+**permissions** | [**list[GroupPermissions]**](GroupPermissions.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

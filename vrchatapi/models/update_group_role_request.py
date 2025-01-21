@@ -39,7 +39,7 @@ class UpdateGroupRoleRequest(object):
         'name': 'str',
         'description': 'str',
         'is_self_assignable': 'bool',
-        'permissions': 'list[str]',
+        'permissions': 'list[GroupPermissions]',
         'order': 'int'
     }
 
@@ -144,7 +144,7 @@ class UpdateGroupRoleRequest(object):
 
 
         :return: The permissions of this UpdateGroupRoleRequest.  # noqa: E501
-        :rtype: list[str]
+        :rtype: list[GroupPermissions]
         """
         return self._permissions
 
@@ -154,16 +154,8 @@ class UpdateGroupRoleRequest(object):
 
 
         :param permissions: The permissions of this UpdateGroupRoleRequest.  # noqa: E501
-        :type permissions: list[str]
+        :type permissions: list[GroupPermissions]
         """
-        allowed_values = ["\*", "group-announcement-manage", "group-audit-view", "group-bans-manage", "group-data-manage", "group-default-role-manage", "group-galleries-manage", "group-instance-age-gated-create", "group-instance-join", "group-instance-manage", "group-instance-moderate", "group-instance-open-create", "group-instance-plus-create", "group-instance-plus-portal", "group-instance-plus-portal-unlocked", "group-instance-public-create", "group-instance-queue-priority", "group-instance-restricted-create", "group-invites-manage", "group-members-manage", "group-members-remove", "group-members-viewall", "group-roles-assign", "group-roles-manage"]  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                not set(permissions).issubset(set(allowed_values))):  # noqa: E501
-            raise ValueError(
-                "Invalid values for `permissions` [{0}], must be a subset of [{1}]"  # noqa: E501
-                .format(", ".join(map(str, set(permissions) - set(allowed_values))),  # noqa: E501
-                        ", ".join(map(str, allowed_values)))
-            )
 
         self._permissions = permissions
 

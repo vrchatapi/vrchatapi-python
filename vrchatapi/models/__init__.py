@@ -93,6 +93,7 @@ from vrchatapi.models.group_member_limited_user import GroupMemberLimitedUser
 from vrchatapi.models.group_member_status import GroupMemberStatus
 from vrchatapi.models.group_my_member import GroupMyMember
 from vrchatapi.models.group_permission import GroupPermission
+from vrchatapi.models.group_permissions import GroupPermissions
 from vrchatapi.models.group_post import GroupPost
 from vrchatapi.models.group_post_visibility import GroupPostVisibility
 from vrchatapi.models.group_privacy import GroupPrivacy
