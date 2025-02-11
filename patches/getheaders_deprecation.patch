@@ -13,3 +13,4 @@ index d31433eb..b9e76e60 100644
          """Returns a given response header."""
 -        return self.urllib3_response.getheader(name, default)
 +        return self.urllib3_response.headers.get(name, default)
+
