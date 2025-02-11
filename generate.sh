@@ -34,5 +34,8 @@ patch ./vrchatapi/rest.py < ./patches/cookiejar.patch
 # Make 2fa required error readable
 patch ./vrchatapi/rest.py < ./patches/error_2fa_verify_readable.patch
 
+# Fixes getheaders deprecation warning
+patch ./vrchatapi/rest.py < ./patches/getheaders_deprecation.patch
+
 # Add common symbols to safe path parameter symbols
 patch ./vrchatapi/configuration.py < ./patches/safe_param_symbols.patch
