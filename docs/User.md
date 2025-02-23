@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **age_verification_status** | [**AgeVerificationStatus**](AgeVerificationStatus.md) |  | 
+**age_verified** | **bool** | &#x60;true&#x60; if, user is age verified (not 18+). | 
 **allow_avatar_copying** | **bool** |  | [default to True]
 **badges** | [**list[Badge]**](Badge.md) |   | [optional] 
 **bio** | **str** |  | 

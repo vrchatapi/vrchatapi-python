@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **account_deletion_log** | [**list[AccountDeletionLog]**](AccountDeletionLog.md) |   | [optional] 
 **active_friends** | **list[str]** |   | [optional] 
 **age_verification_status** | [**AgeVerificationStatus**](AgeVerificationStatus.md) |  | 
-**age_verified** | **bool** |  | 
+**age_verified** | **bool** | &#x60;true&#x60; if, user is age verified (not 18+). | 
 **allow_avatar_copying** | **bool** |  | 
 **badges** | [**list[Badge]**](Badge.md) |   | [optional] 
 **bio** | **str** |  | 
@@ -55,6 +55,7 @@ Name | Type | Description | Notes
 **online_friends** | **list[str]** |  | [optional] 
 **past_display_names** | [**list[PastDisplayName]**](PastDisplayName.md) |   | 
 **presence** | [**CurrentUserPresence**](CurrentUserPresence.md) |  | [optional] 
+**platform_history** | [**list[CurrentUserPlatformHistoryInner]**](CurrentUserPlatformHistoryInner.md) |  | [optional] 
 **profile_pic_override** | **str** |  | 
 **profile_pic_override_thumbnail** | **str** |  | 
 **pronouns** | **str** |  | 

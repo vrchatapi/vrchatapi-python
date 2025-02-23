@@ -1,5 +1,6 @@
 .gitlab-ci.yml
 docs/APIConfig.md
+docs/APIConfigAccessLogsUrls.md
 docs/APIConfigAnnouncement.md
 docs/APIConfigAvatarPerfLimiter.md
 docs/APIConfigConstants.md
@@ -15,6 +16,11 @@ docs/APIConfigEvents.md
 docs/APIConfigMinSupportedClientBuildNumber.md
 docs/APIConfigOfflineAnalysis.md
 docs/APIConfigReportCategories.md
+docs/APIConfigReportOptions.md
+docs/APIConfigReportOptionsAvatar.md
+docs/APIConfigReportOptionsGroup.md
+docs/APIConfigReportOptionsUser.md
+docs/APIConfigReportOptionsWorld.md
 docs/APIConfigReportReasons.md
 docs/APIHealth.md
 docs/AccountDeletionLog.md
@@ -41,6 +47,7 @@ docs/CreateGroupRoleRequest.md
 docs/CreateInstanceRequest.md
 docs/CreateWorldRequest.md
 docs/CurrentUser.md
+docs/CurrentUserPlatformHistoryInner.md
 docs/CurrentUserPresence.md
 docs/DeploymentGroup.md
 docs/DeveloperType.md
@@ -231,6 +238,7 @@ vrchatapi/models/add_favorite_request.py
 vrchatapi/models/add_group_gallery_image_request.py
 vrchatapi/models/age_verification_status.py
 vrchatapi/models/api_config.py
+vrchatapi/models/api_config_access_logs_urls.py
 vrchatapi/models/api_config_announcement.py
 vrchatapi/models/api_config_avatar_perf_limiter.py
 vrchatapi/models/api_config_constants.py
@@ -246,6 +254,11 @@ vrchatapi/models/api_config_events.py
 vrchatapi/models/api_config_min_supported_client_build_number.py
 vrchatapi/models/api_config_offline_analysis.py
 vrchatapi/models/api_config_report_categories.py
+vrchatapi/models/api_config_report_options.py
+vrchatapi/models/api_config_report_options_avatar.py
+vrchatapi/models/api_config_report_options_group.py
+vrchatapi/models/api_config_report_options_user.py
+vrchatapi/models/api_config_report_options_world.py
 vrchatapi/models/api_config_report_reasons.py
 vrchatapi/models/api_health.py
 vrchatapi/models/avatar.py
@@ -266,6 +279,7 @@ vrchatapi/models/create_group_role_request.py
 vrchatapi/models/create_instance_request.py
 vrchatapi/models/create_world_request.py
 vrchatapi/models/current_user.py
+vrchatapi/models/current_user_platform_history_inner.py
 vrchatapi/models/current_user_presence.py
 vrchatapi/models/deployment_group.py
 vrchatapi/models/developer_type.py
