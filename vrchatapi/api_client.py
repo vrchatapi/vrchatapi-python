@@ -151,6 +151,12 @@ class ApiClient(object):
 
         # query parameters
         if query_params:
+            ## PATCH -- convert boolean value into lower str for query param
+            for param in query_params:
+                if type(param[1]) == bool:
+                    query_params[query_params.index(param)] = \
+                        (param[0], "true" if param[1] else "false")
+
             query_params = self.sanitize_for_serialization(query_params)
             query_params = self.parameters_to_tuples(query_params,
                                                      collection_formats)
