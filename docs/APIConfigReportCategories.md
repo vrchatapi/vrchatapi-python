@@ -6,6 +6,7 @@ Categories available for reporting objectionable content
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **avatar** | [**ReportCategory**](ReportCategory.md) |  | 
+**avatarpage** | [**ReportCategory**](ReportCategory.md) |  | [optional] 
 **behavior** | [**ReportCategory**](ReportCategory.md) |  | 
 **chat** | [**ReportCategory**](ReportCategory.md) |  | 
 **emoji** | [**ReportCategory**](ReportCategory.md) |  | [optional] 

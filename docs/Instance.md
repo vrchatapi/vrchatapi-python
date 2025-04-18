@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **client_number** | **str** | Always returns \&quot;unknown\&quot;. | 
 **display_name** | **str** |  | 
 **full** | **bool** |  | [default to False]
-**game_server_version** | **int** |  | 
+**game_server_version** | **int** |  | [optional] 
 **id** | **str** | InstanceID can be \&quot;offline\&quot; on User profiles if you are not friends with that user and \&quot;private\&quot; if you are friends and user is in private instance. | 
 **instance_id** | **str** |  | 
 **instance_persistence_enabled** | **str** |  | 

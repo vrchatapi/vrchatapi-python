@@ -35,6 +35,7 @@ docs/AvatarsApi.md
 docs/Badge.md
 docs/Balance.md
 docs/BanGroupMemberRequest.md
+docs/ChangeUserTagsRequest.md
 docs/CreateAvatarRequest.md
 docs/CreateFileRequest.md
 docs/CreateFileVersionRequest.md
@@ -49,7 +50,6 @@ docs/CreateWorldRequest.md
 docs/CurrentUser.md
 docs/CurrentUserPlatformHistoryInner.md
 docs/CurrentUserPresence.md
-docs/DeploymentGroup.md
 docs/DeveloperType.md
 docs/DynamicContentRow.md
 docs/EconomyApi.md
@@ -75,6 +75,7 @@ docs/FilesApi.md
 docs/FinishFileDataUploadRequest.md
 docs/FriendStatus.md
 docs/FriendsApi.md
+docs/GetGroupPosts200Response.md
 docs/GetUserGroupInstances200Response.md
 docs/Group.md
 docs/GroupAccessType.md
@@ -129,6 +130,7 @@ docs/LimitedUser.md
 docs/LimitedUserGroups.md
 docs/LimitedWorld.md
 docs/MIMEType.md
+docs/ModelPrint.md
 docs/ModerateUserRequest.md
 docs/Notification.md
 docs/NotificationDetailInvite.md
@@ -149,6 +151,8 @@ docs/PlatformBuildInfo.md
 docs/PlayerModeration.md
 docs/PlayerModerationType.md
 docs/PlayermoderationApi.md
+docs/PrintFiles.md
+docs/PrintsApi.md
 docs/Product.md
 docs/ProductListing.md
 docs/ProductListingType.md
@@ -163,6 +167,8 @@ docs/RequestInviteRequest.md
 docs/RespondGroupJoinRequest.md
 docs/Response.md
 docs/SentNotification.md
+docs/ServiceQueueStats.md
+docs/ServiceStatus.md
 docs/SortOption.md
 docs/Submission.md
 docs/Subscription.md
@@ -187,6 +193,7 @@ docs/UpdateGroupMemberRequest.md
 docs/UpdateGroupRequest.md
 docs/UpdateGroupRoleRequest.md
 docs/UpdateInviteMessageRequest.md
+docs/UpdateUserBadgeRequest.md
 docs/UpdateUserNoteRequest.md
 docs/UpdateUserRequest.md
 docs/UpdateWorldRequest.md
@@ -226,6 +233,7 @@ vrchatapi/api/jams_api.py
 vrchatapi/api/notifications_api.py
 vrchatapi/api/permissions_api.py
 vrchatapi/api/playermoderation_api.py
+vrchatapi/api/prints_api.py
 vrchatapi/api/system_api.py
 vrchatapi/api/users_api.py
 vrchatapi/api/worlds_api.py
@@ -267,6 +275,7 @@ vrchatapi/models/avatar_unity_package_url_object.py
 vrchatapi/models/badge.py
 vrchatapi/models/balance.py
 vrchatapi/models/ban_group_member_request.py
+vrchatapi/models/change_user_tags_request.py
 vrchatapi/models/create_avatar_request.py
 vrchatapi/models/create_file_request.py
 vrchatapi/models/create_file_version_request.py
@@ -281,7 +290,6 @@ vrchatapi/models/create_world_request.py
 vrchatapi/models/current_user.py
 vrchatapi/models/current_user_platform_history_inner.py
 vrchatapi/models/current_user_presence.py
-vrchatapi/models/deployment_group.py
 vrchatapi/models/developer_type.py
 vrchatapi/models/dynamic_content_row.py
 vrchatapi/models/error.py
@@ -303,6 +311,7 @@ vrchatapi/models/file_version.py
 vrchatapi/models/file_version_upload_status.py
 vrchatapi/models/finish_file_data_upload_request.py
 vrchatapi/models/friend_status.py
+vrchatapi/models/get_group_posts200_response.py
 vrchatapi/models/get_user_group_instances200_response.py
 vrchatapi/models/group.py
 vrchatapi/models/group_access_type.py
@@ -353,6 +362,7 @@ vrchatapi/models/limited_user.py
 vrchatapi/models/limited_user_groups.py
 vrchatapi/models/limited_world.py
 vrchatapi/models/mime_type.py
+vrchatapi/models/model_print.py
 vrchatapi/models/moderate_user_request.py
 vrchatapi/models/notification.py
 vrchatapi/models/notification_detail_invite.py
@@ -370,6 +380,7 @@ vrchatapi/models/permission.py
 vrchatapi/models/platform_build_info.py
 vrchatapi/models/player_moderation.py
 vrchatapi/models/player_moderation_type.py
+vrchatapi/models/print_files.py
 vrchatapi/models/product.py
 vrchatapi/models/product_listing.py
 vrchatapi/models/product_listing_type.py
@@ -384,6 +395,8 @@ vrchatapi/models/request_invite_request.py
 vrchatapi/models/respond_group_join_request.py
 vrchatapi/models/response.py
 vrchatapi/models/sent_notification.py
+vrchatapi/models/service_queue_stats.py
+vrchatapi/models/service_status.py
 vrchatapi/models/sort_option.py
 vrchatapi/models/submission.py
 vrchatapi/models/subscription.py
@@ -407,6 +420,7 @@ vrchatapi/models/update_group_member_request.py
 vrchatapi/models/update_group_request.py
 vrchatapi/models/update_group_role_request.py
 vrchatapi/models/update_invite_message_request.py
+vrchatapi/models/update_user_badge_request.py
 vrchatapi/models/update_user_note_request.py
 vrchatapi/models/update_user_request.py
 vrchatapi/models/update_world_request.py

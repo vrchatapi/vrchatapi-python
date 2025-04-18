@@ -31,7 +31,7 @@ Method | HTTP request | Description
 [**get_group_member**](GroupsApi.md#get_group_member) | **GET** /groups/{groupId}/members/{userId} | Get Group Member
 [**get_group_members**](GroupsApi.md#get_group_members) | **GET** /groups/{groupId}/members | List Group Members
 [**get_group_permissions**](GroupsApi.md#get_group_permissions) | **GET** /groups/{groupId}/permissions | List Group Permissions
-[**get_group_post**](GroupsApi.md#get_group_post) | **GET** /groups/{groupId}/posts | Get posts from a Group
+[**get_group_posts**](GroupsApi.md#get_group_posts) | **GET** /groups/{groupId}/posts | Get posts from a Group
 [**get_group_requests**](GroupsApi.md#get_group_requests) | **GET** /groups/{groupId}/requests | Get Group Join Requests
 [**get_group_roles**](GroupsApi.md#get_group_roles) | **GET** /groups/{groupId}/roles | Get Group Roles
 [**join_group**](GroupsApi.md#join_group) | **POST** /groups/{groupId}/join | Join Group
@@ -2152,8 +2152,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **get_group_post**
-> GroupPost get_group_post(group_id, n=n, offset=offset, public_only=public_only)
+# **get_group_posts**
+> GetGroupPosts200Response get_group_posts(group_id, n=n, offset=offset, public_only=public_only)
 
 Get posts from a Group
 
@@ -2196,10 +2196,10 @@ public_only = True # bool | See public posts only. (optional)
 
     try:
         # Get posts from a Group
-        api_response = api_instance.get_group_post(group_id, n=n, offset=offset, public_only=public_only)
+        api_response = api_instance.get_group_posts(group_id, n=n, offset=offset, public_only=public_only)
         pprint(api_response)
     except ApiException as e:
-        print("Exception when calling GroupsApi->get_group_post: %s\n" % e)
+        print("Exception when calling GroupsApi->get_group_posts: %s\n" % e)
 ```
 
 ### Parameters
@@ -2213,7 +2213,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GroupPost**](GroupPost.md)
+[**GetGroupPosts200Response**](GetGroupPosts200Response.md)
 
 ### Authorization
 
@@ -2227,7 +2227,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Returns a GroupPost object. |  -  |
+**200** | Returns a GroupPost Array. |  -  |
 **401** | Error response due to missing auth cookie. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

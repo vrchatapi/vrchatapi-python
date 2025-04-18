@@ -16,6 +16,7 @@ from vrchatapi.api.jams_api import JamsApi
 from vrchatapi.api.notifications_api import NotificationsApi
 from vrchatapi.api.permissions_api import PermissionsApi
 from vrchatapi.api.playermoderation_api import PlayermoderationApi
+from vrchatapi.api.prints_api import PrintsApi
 from vrchatapi.api.system_api import SystemApi
 from vrchatapi.api.users_api import UsersApi
 from vrchatapi.api.worlds_api import WorldsApi
