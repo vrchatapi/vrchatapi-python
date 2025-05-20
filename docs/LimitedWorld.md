@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **capacity** | **int** |  | 
 **recommended_capacity** | **int** |  | [optional] 
 **created_at** | **datetime** |  | 
+**default_content_settings** | [**InstanceContentSettings**](InstanceContentSettings.md) |  | [optional] 
 **favorites** | **int** |  | [default to 0]
 **visits** | **int** |  | [optional] [default to 0]
 **heat** | **int** |  | [default to 0]
@@ -23,6 +24,7 @@ Name | Type | Description | Notes
 **preview_youtube_id** | **str** |  | [optional] 
 **publication_date** | **str** |  | 
 **release_status** | [**ReleaseStatus**](ReleaseStatus.md) |  | 
+**store_id** | **str** |  | [optional] 
 **tags** | **list[str]** |   | 
 **thumbnail_image_url** | **str** |  | 
 **unity_packages** | [**list[LimitedUnityPackage]**](LimitedUnityPackage.md) |   | 

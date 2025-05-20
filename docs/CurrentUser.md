@@ -12,9 +12,11 @@ Name | Type | Description | Notes
 **age_verification_status** | [**AgeVerificationStatus**](AgeVerificationStatus.md) |  | 
 **age_verified** | **bool** | &#x60;true&#x60; if, user is age verified (not 18+). | 
 **allow_avatar_copying** | **bool** |  | 
+**auth_token** | **str** | The auth token for NEWLY REGISTERED ACCOUNTS ONLY (/auth/register) | [optional] 
 **badges** | [**list[Badge]**](Badge.md) |   | [optional] 
 **bio** | **str** |  | 
 **bio_links** | **list[str]** |   | 
+**content_filters** | **list[str]** | These tags begin with &#x60;content_&#x60; and control content gating | [optional] 
 **current_avatar** | **str** |  | 
 **current_avatar_image_url** | **str** | When profilePicOverride is not empty, use it instead. | 
 **current_avatar_thumbnail_image_url** | **str** | When profilePicOverride is not empty, use it instead. | 

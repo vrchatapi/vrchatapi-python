@@ -244,7 +244,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_favorite_groups**
-> list[FavoriteGroup] get_favorite_groups(n=n, offset=offset, owner_id=owner_id)
+> list[FavoriteGroup] get_favorite_groups(n=n, offset=offset, user_id=user_id, owner_id=owner_id)
 
 List Favorite Groups
 
@@ -282,11 +282,12 @@ with vrchatapi.ApiClient(configuration) as api_client:
     api_instance = vrchatapi.FavoritesApi(api_client)
     n = 60 # int | The number of objects to return. (optional) (default to 60)
 offset = 56 # int | A zero-based offset from the default object sorting from where search results start. (optional)
+user_id = 'user_id_example' # str | Target user to see information on, admin-only. (optional)
 owner_id = 'owner_id_example' # str | The owner of whoms favorite groups to return. Must be a UserID. (optional)
 
     try:
         # List Favorite Groups
-        api_response = api_instance.get_favorite_groups(n=n, offset=offset, owner_id=owner_id)
+        api_response = api_instance.get_favorite_groups(n=n, offset=offset, user_id=user_id, owner_id=owner_id)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling FavoritesApi->get_favorite_groups: %s\n" % e)
@@ -298,6 +299,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **n** | **int**| The number of objects to return. | [optional] [default to 60]
  **offset** | **int**| A zero-based offset from the default object sorting from where search results start. | [optional] 
+ **user_id** | **str**| Target user to see information on, admin-only. | [optional] 
  **owner_id** | **str**| The owner of whoms favorite groups to return. Must be a UserID. | [optional] 
 
 ### Return type

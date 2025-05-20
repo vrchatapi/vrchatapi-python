@@ -8,9 +8,12 @@ Method | HTTP request | Description
 [**get_invite_messages**](InviteApi.md#get_invite_messages) | **GET** /message/{userId}/{messageType} | List Invite Messages
 [**invite_myself_to**](InviteApi.md#invite_myself_to) | **POST** /invite/myself/to/{worldId}:{instanceId} | Invite Myself To Instance
 [**invite_user**](InviteApi.md#invite_user) | **POST** /invite/{userId} | Invite User
+[**invite_user_with_photo**](InviteApi.md#invite_user_with_photo) | **POST** /invite/{userId}/photo | Invite User with photo
 [**request_invite**](InviteApi.md#request_invite) | **POST** /requestInvite/{userId} | Request Invite
+[**request_invite_with_photo**](InviteApi.md#request_invite_with_photo) | **POST** /requestInvite/{userId}/photo | Request Invite with photo
 [**reset_invite_message**](InviteApi.md#reset_invite_message) | **DELETE** /message/{userId}/{messageType}/{slot} | Reset Invite Message
 [**respond_invite**](InviteApi.md#respond_invite) | **POST** /invite/{notificationId}/response | Respond Invite
+[**respond_invite_with_photo**](InviteApi.md#respond_invite_with_photo) | **POST** /invite/{notificationId}/response/photo | Respond Invite with photo
 [**update_invite_message**](InviteApi.md#update_invite_message) | **PUT** /message/{userId}/{messageType}/{slot} | Update Invite Message
 
 
@@ -324,6 +327,84 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **invite_user_with_photo**
+> SentNotification invite_user_with_photo(user_id, image, data)
+
+Invite User with photo
+
+Sends an photo invite to a user. Returns the Notification of type `invite` that was sent.
+
+### Example
+
+* Api Key Authentication (authCookie):
+```python
+from __future__ import print_function
+import time
+import vrchatapi
+from vrchatapi.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = vrchatapi.Configuration(
+    host = "https://api.vrchat.cloud/api/1"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: authCookie
+configuration.api_key['authCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['authCookie'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with vrchatapi.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = vrchatapi.InviteApi(api_client)
+    user_id = 'user_id_example' # str | Must be a valid user ID.
+image = '/path/to/file' # file | The binary blob of the png file.
+data = vrchatapi.InviteRequest() # InviteRequest | 
+
+    try:
+        # Invite User with photo
+        api_response = api_instance.invite_user_with_photo(user_id, image, data)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling InviteApi->invite_user_with_photo: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **user_id** | **str**| Must be a valid user ID. | 
+ **image** | **file**| The binary blob of the png file. | 
+ **data** | [**InviteRequest**](InviteRequest.md)|  | 
+
+### Return type
+
+[**SentNotification**](SentNotification.md)
+
+### Authorization
+
+[authCookie](../README.md#authCookie)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Returns a single SentNotifcation object. |  -  |
+**403** | Error response when trying to invite someome whom you are not friends with. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **request_invite**
 > Notification request_invite(user_id, request_invite_request=request_invite_request)
 
@@ -390,6 +471,84 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Returns a single Notifcation object. |  -  |
+**403** | Error response when trying to invite someome whom you are not friends with. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **request_invite_with_photo**
+> Notification request_invite_with_photo(user_id, image, data)
+
+Request Invite with photo
+
+Requests with photo an invite from a user. Returns the Notification of type `requestInvite` that was sent.
+
+### Example
+
+* Api Key Authentication (authCookie):
+```python
+from __future__ import print_function
+import time
+import vrchatapi
+from vrchatapi.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = vrchatapi.Configuration(
+    host = "https://api.vrchat.cloud/api/1"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: authCookie
+configuration.api_key['authCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['authCookie'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with vrchatapi.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = vrchatapi.InviteApi(api_client)
+    user_id = 'user_id_example' # str | Must be a valid user ID.
+image = '/path/to/file' # file | The binary blob of the png file.
+data = vrchatapi.RequestInviteRequest() # RequestInviteRequest | 
+
+    try:
+        # Request Invite with photo
+        api_response = api_instance.request_invite_with_photo(user_id, image, data)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling InviteApi->request_invite_with_photo: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **user_id** | **str**| Must be a valid user ID. | 
+ **image** | **file**| The binary blob of the png file. | 
+ **data** | [**RequestInviteRequest**](RequestInviteRequest.md)|  | 
+
+### Return type
+
+[**Notification**](Notification.md)
+
+### Authorization
+
+[authCookie](../README.md#authCookie)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
  - **Accept**: application/json
 
 ### HTTP response details
@@ -486,7 +645,7 @@ Name | Type | Description  | Notes
 
 Respond Invite
 
-Respond to an invite request by sending a world invite to the requesting user. `:notificationId` is the ID of the requesting notification.
+Respond to an invite or invite request without accepting it. `:notificationId` is the ID of the requesting notification.  In case the notification being replied to is an invite, the `responseSlot` refers to a response message from the the `message` collection. In case the notification is an invite request, it will refer to one from the `requestResponse` collection instead.
 
 ### Example
 
@@ -547,6 +706,84 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Returns a single Notifcation object. |  -  |
+**400** | Error response when trying to respond to an invite and something went wrong. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **respond_invite_with_photo**
+> Notification respond_invite_with_photo(notification_id, image, data)
+
+Respond Invite with photo
+
+Respond with photo to an invite or invite request without accepting it. `:notificationId` is the ID of the requesting notification.  In case the notification being replied to is an invite, the `responseSlot` refers to a response message from the the `message` collection. In case the notification is an invite request, it will refer to one from the `requestResponse` collection instead.'
+
+### Example
+
+* Api Key Authentication (authCookie):
+```python
+from __future__ import print_function
+import time
+import vrchatapi
+from vrchatapi.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = vrchatapi.Configuration(
+    host = "https://api.vrchat.cloud/api/1"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: authCookie
+configuration.api_key['authCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['authCookie'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with vrchatapi.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = vrchatapi.InviteApi(api_client)
+    notification_id = 'notification_id_example' # str | Must be a valid notification ID.
+image = '/path/to/file' # file | The binary blob of the png file.
+data = vrchatapi.InviteResponse() # InviteResponse | 
+
+    try:
+        # Respond Invite with photo
+        api_response = api_instance.respond_invite_with_photo(notification_id, image, data)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling InviteApi->respond_invite_with_photo: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **notification_id** | **str**| Must be a valid notification ID. | 
+ **image** | **file**| The binary blob of the png file. | 
+ **data** | [**InviteResponse**](InviteResponse.md)|  | 
+
+### Return type
+
+[**Notification**](Notification.md)
+
+### Authorization
+
+[authCookie](../README.md#authCookie)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
  - **Accept**: application/json
 
 ### HTTP response details

@@ -89,6 +89,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Returns a single Avatar object. |  -  |
+**400** | Error response due to missing permissions. |  -  |
 **401** | Error response when set featured to true without being an admin. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

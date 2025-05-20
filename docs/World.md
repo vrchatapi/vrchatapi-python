@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **capacity** | **int** |  | 
 **recommended_capacity** | **int** |  | 
 **created_at** | **datetime** |  | 
+**default_content_settings** | [**InstanceContentSettings**](InstanceContentSettings.md) |  | [optional] 
 **description** | **str** |  | 
 **favorites** | **int** |  | [optional] [default to 0]
 **featured** | **bool** |  | [default to False]
@@ -28,6 +29,7 @@ Name | Type | Description | Notes
 **public_occupants** | **int** | Will always be &#x60;0&#x60; when unauthenticated. | [optional] [default to 0]
 **publication_date** | **str** |  | 
 **release_status** | [**ReleaseStatus**](ReleaseStatus.md) |  | 
+**store_id** | **str** |  | [optional] 
 **tags** | **list[str]** |   | 
 **thumbnail_image_url** | **str** |  | 
 **unity_packages** | [**list[UnityPackage]**](UnityPackage.md) | Empty if unauthenticated. | [optional] 

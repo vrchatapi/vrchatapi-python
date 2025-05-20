@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **can_request_invite** | **bool** |  | [default to True]
 **capacity** | **int** |  | 
 **client_number** | **str** | Always returns \&quot;unknown\&quot;. | 
+**content_settings** | [**InstanceContentSettings**](InstanceContentSettings.md) |  | 
 **display_name** | **str** |  | 
 **full** | **bool** |  | [default to False]
 **game_server_version** | **int** |  | [optional] 

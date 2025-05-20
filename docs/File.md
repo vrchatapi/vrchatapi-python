@@ -5,6 +5,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**animation_style** | **str** |  | [optional] 
+**mask_tag** | **str** |  | [optional] 
 **extension** | **str** |  | 
 **id** | **str** |  | 
 **mime_type** | [**MIMEType**](MIMEType.md) |  | 

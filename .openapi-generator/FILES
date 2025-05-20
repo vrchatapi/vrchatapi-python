@@ -29,6 +29,7 @@ docs/AddGroupGalleryImageRequest.md
 docs/AgeVerificationStatus.md
 docs/AuthenticationApi.md
 docs/Avatar.md
+docs/AvatarPublishedListingsInner.md
 docs/AvatarStyles.md
 docs/AvatarUnityPackageUrlObject.md
 docs/AvatarsApi.md
@@ -51,6 +52,7 @@ docs/CurrentUser.md
 docs/CurrentUserPlatformHistoryInner.md
 docs/CurrentUserPresence.md
 docs/DeveloperType.md
+docs/Disable2FAResult.md
 docs/DynamicContentRow.md
 docs/EconomyApi.md
 docs/Error.md
@@ -98,6 +100,8 @@ docs/GroupPostVisibility.md
 docs/GroupPrivacy.md
 docs/GroupRole.md
 docs/GroupRoleTemplate.md
+docs/GroupRoleTemplateValues.md
+docs/GroupRoleTemplateValuesRoles.md
 docs/GroupSearchSort.md
 docs/GroupUserVisibility.md
 docs/GroupsApi.md
@@ -107,6 +111,7 @@ docs/InfoPushDataArticle.md
 docs/InfoPushDataArticleContent.md
 docs/InfoPushDataClickable.md
 docs/Instance.md
+docs/InstanceContentSettings.md
 docs/InstancePlatforms.md
 docs/InstanceRegion.md
 docs/InstanceShortNameResponse.md
@@ -143,6 +148,7 @@ docs/NotificationsApi.md
 docs/OrderOption.md
 docs/PaginatedGroupAuditLogEntryList.md
 docs/PastDisplayName.md
+docs/Pending2FAResult.md
 docs/PerformanceLimiterInfo.md
 docs/PerformanceRatings.md
 docs/Permission.md
@@ -159,6 +165,7 @@ docs/ProductListingType.md
 docs/ProductListingVariant.md
 docs/ProductType.md
 docs/Region.md
+docs/RegisterUserAccountRequest.md
 docs/ReleaseStatus.md
 docs/ReportCategory.md
 docs/ReportReason.md
@@ -185,6 +192,8 @@ docs/TransactionSteamInfo.md
 docs/TransactionSteamWalletInfo.md
 docs/TwoFactorAuthCode.md
 docs/TwoFactorEmailCode.md
+docs/TwoFactorRecoveryCodes.md
+docs/TwoFactorRecoveryCodesOtpInner.md
 docs/UnityPackage.md
 docs/UpdateAvatarRequest.md
 docs/UpdateFavoriteGroupRequest.md
@@ -270,6 +279,7 @@ vrchatapi/models/api_config_report_options_world.py
 vrchatapi/models/api_config_report_reasons.py
 vrchatapi/models/api_health.py
 vrchatapi/models/avatar.py
+vrchatapi/models/avatar_published_listings_inner.py
 vrchatapi/models/avatar_styles.py
 vrchatapi/models/avatar_unity_package_url_object.py
 vrchatapi/models/badge.py
@@ -291,6 +301,7 @@ vrchatapi/models/current_user.py
 vrchatapi/models/current_user_platform_history_inner.py
 vrchatapi/models/current_user_presence.py
 vrchatapi/models/developer_type.py
+vrchatapi/models/disable2_fa_result.py
 vrchatapi/models/dynamic_content_row.py
 vrchatapi/models/error.py
 vrchatapi/models/favorite.py
@@ -334,6 +345,8 @@ vrchatapi/models/group_post_visibility.py
 vrchatapi/models/group_privacy.py
 vrchatapi/models/group_role.py
 vrchatapi/models/group_role_template.py
+vrchatapi/models/group_role_template_values.py
+vrchatapi/models/group_role_template_values_roles.py
 vrchatapi/models/group_search_sort.py
 vrchatapi/models/group_user_visibility.py
 vrchatapi/models/info_push.py
@@ -342,6 +355,7 @@ vrchatapi/models/info_push_data_article.py
 vrchatapi/models/info_push_data_article_content.py
 vrchatapi/models/info_push_data_clickable.py
 vrchatapi/models/instance.py
+vrchatapi/models/instance_content_settings.py
 vrchatapi/models/instance_platforms.py
 vrchatapi/models/instance_region.py
 vrchatapi/models/instance_short_name_response.py
@@ -374,6 +388,7 @@ vrchatapi/models/notification_type.py
 vrchatapi/models/order_option.py
 vrchatapi/models/paginated_group_audit_log_entry_list.py
 vrchatapi/models/past_display_name.py
+vrchatapi/models/pending2_fa_result.py
 vrchatapi/models/performance_limiter_info.py
 vrchatapi/models/performance_ratings.py
 vrchatapi/models/permission.py
@@ -387,6 +402,7 @@ vrchatapi/models/product_listing_type.py
 vrchatapi/models/product_listing_variant.py
 vrchatapi/models/product_type.py
 vrchatapi/models/region.py
+vrchatapi/models/register_user_account_request.py
 vrchatapi/models/release_status.py
 vrchatapi/models/report_category.py
 vrchatapi/models/report_reason.py
@@ -412,6 +428,8 @@ vrchatapi/models/transaction_steam_info.py
 vrchatapi/models/transaction_steam_wallet_info.py
 vrchatapi/models/two_factor_auth_code.py
 vrchatapi/models/two_factor_email_code.py
+vrchatapi/models/two_factor_recovery_codes.py
+vrchatapi/models/two_factor_recovery_codes_otp_inner.py
 vrchatapi/models/unity_package.py
 vrchatapi/models/update_avatar_request.py
 vrchatapi/models/update_favorite_group_request.py

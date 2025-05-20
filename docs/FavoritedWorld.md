@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **description** | **str** |  | 
 **recommended_capacity** | **int** |  | [optional] 
 **created_at** | **datetime** |  | 
+**default_content_settings** | [**InstanceContentSettings**](InstanceContentSettings.md) |  | [optional] 
 **favorites** | **int** |  | [default to 0]
 **favorite_group** | **str** |  | 
 **favorite_id** | **str** |  | 

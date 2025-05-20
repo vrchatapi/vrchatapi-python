@@ -17,6 +17,9 @@ Method | HTTP request | Description
 [**get_file_data_upload_status**](FilesApi.md#get_file_data_upload_status) | **GET** /file/{fileId}/{versionId}/{fileType}/status | Check FileData Upload Status
 [**get_files**](FilesApi.md#get_files) | **GET** /files | List Files
 [**start_file_data_upload**](FilesApi.md#start_file_data_upload) | **PUT** /file/{fileId}/{versionId}/{fileType}/start | Start FileData Upload
+[**upload_gallery_image**](FilesApi.md#upload_gallery_image) | **POST** /gallery | Upload gallery image
+[**upload_icon**](FilesApi.md#upload_icon) | **POST** /icon | Upload icon
+[**upload_image**](FilesApi.md#upload_image) | **POST** /file/image | Upload gallery image, icon, emoji or sticker
 
 
 # **create_file**
@@ -319,7 +322,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **download_file_version**
-> download_file_version(file_id, version_id)
+> file download_file_version(file_id, version_id)
 
 Download File Version
 
@@ -360,7 +363,8 @@ version_id = 1 # int | Version ID of the asset.
 
     try:
         # Download File Version
-        api_instance.download_file_version(file_id, version_id)
+        api_response = api_instance.download_file_version(file_id, version_id)
+        pprint(api_response)
     except ApiException as e:
         print("Exception when calling FilesApi->download_file_version: %s\n" % e)
 ```
@@ -374,7 +378,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+**file**
 
 ### Authorization
 
@@ -383,7 +387,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: image/*, application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -1010,6 +1014,235 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 **200** | See [https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html](AWS REST docs - PUT Object) |  -  |
 **400** | Error response when trying to start an upload against a FileVersion that is already marked as  &#x60;complete&#x60;. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **upload_gallery_image**
+> File upload_gallery_image(file)
+
+Upload gallery image
+
+Upload a gallery image
+
+### Example
+
+* Api Key Authentication (authCookie):
+```python
+from __future__ import print_function
+import time
+import vrchatapi
+from vrchatapi.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = vrchatapi.Configuration(
+    host = "https://api.vrchat.cloud/api/1"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: authCookie
+configuration.api_key['authCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['authCookie'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with vrchatapi.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = vrchatapi.FilesApi(api_client)
+    file = '/path/to/file' # file | The binary blob of the png file.
+
+    try:
+        # Upload gallery image
+        api_response = api_instance.upload_gallery_image(file)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling FilesApi->upload_gallery_image: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **file** | **file**| The binary blob of the png file. | 
+
+### Return type
+
+[**File**](File.md)
+
+### Authorization
+
+[authCookie](../README.md#authCookie)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Returns a single File object. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **upload_icon**
+> File upload_icon(file)
+
+Upload icon
+
+Upload an icon
+
+### Example
+
+* Api Key Authentication (authCookie):
+```python
+from __future__ import print_function
+import time
+import vrchatapi
+from vrchatapi.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = vrchatapi.Configuration(
+    host = "https://api.vrchat.cloud/api/1"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: authCookie
+configuration.api_key['authCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['authCookie'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with vrchatapi.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = vrchatapi.FilesApi(api_client)
+    file = '/path/to/file' # file | The binary blob of the png file.
+
+    try:
+        # Upload icon
+        api_response = api_instance.upload_icon(file)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling FilesApi->upload_icon: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **file** | **file**| The binary blob of the png file. | 
+
+### Return type
+
+[**File**](File.md)
+
+### Authorization
+
+[authCookie](../README.md#authCookie)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Returns a single File object. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **upload_image**
+> File upload_image(file, tag, frames=frames, frames_over_time=frames_over_time, animation_style=animation_style, mask_tag=mask_tag)
+
+Upload gallery image, icon, emoji or sticker
+
+Upload an image, which can be an icon, gallery image, sticker or emoji
+
+### Example
+
+* Api Key Authentication (authCookie):
+```python
+from __future__ import print_function
+import time
+import vrchatapi
+from vrchatapi.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = vrchatapi.Configuration(
+    host = "https://api.vrchat.cloud/api/1"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: authCookie
+configuration.api_key['authCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['authCookie'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with vrchatapi.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = vrchatapi.FilesApi(api_client)
+    file = '/path/to/file' # file | The binary blob of the png file.
+tag = 'tag_example' # str | Needs to be either icon, gallery, sticker, emoji, or emojianimated
+frames = 56 # int | Required for emojianimated. Total number of frames to be animated (2-64) (optional)
+frames_over_time = 56 # int | Required for emojianimated. Animation frames per second (1-64) (optional)
+animation_style = 'animation_style_example' # str | Animation style for sticker, required for emoji. (optional)
+mask_tag = 'mask_tag_example' # str | Mask of the sticker, optional for emoji. (optional)
+
+    try:
+        # Upload gallery image, icon, emoji or sticker
+        api_response = api_instance.upload_image(file, tag, frames=frames, frames_over_time=frames_over_time, animation_style=animation_style, mask_tag=mask_tag)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling FilesApi->upload_image: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **file** | **file**| The binary blob of the png file. | 
+ **tag** | **str**| Needs to be either icon, gallery, sticker, emoji, or emojianimated | 
+ **frames** | **int**| Required for emojianimated. Total number of frames to be animated (2-64) | [optional] 
+ **frames_over_time** | **int**| Required for emojianimated. Animation frames per second (1-64) | [optional] 
+ **animation_style** | **str**| Animation style for sticker, required for emoji. | [optional] 
+ **mask_tag** | **str**| Mask of the sticker, optional for emoji. | [optional] 
+
+### Return type
+
+[**File**](File.md)
+
+### Authorization
+
+[authCookie](../README.md#authCookie)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Returns a single File object. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
