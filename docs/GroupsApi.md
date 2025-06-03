@@ -46,6 +46,7 @@ Method | HTTP request | Description
 [**update_group_gallery**](GroupsApi.md#update_group_gallery) | **PUT** /groups/{groupId}/galleries/{groupGalleryId} | Update Group Gallery
 [**update_group_member**](GroupsApi.md#update_group_member) | **PUT** /groups/{groupId}/members/{userId} | Update Group Member
 [**update_group_post**](GroupsApi.md#update_group_post) | **PUT** /groups/{groupId}/posts/{notificationId} | Edits a Group post
+[**update_group_representation**](GroupsApi.md#update_group_representation) | **PUT** /groups/{groupId}/representation | Update Group Representation
 [**update_group_role**](GroupsApi.md#update_group_role) | **PUT** /groups/{groupId}/roles/{groupRoleId} | Update Group Role
 
 
@@ -3299,6 +3300,83 @@ Name | Type | Description  | Notes
 **200** | Returns a GroupPost object. |  -  |
 **401** | Error response due to missing auth cookie. |  -  |
 **404** | Response after deleting a group post. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **update_group_representation**
+> Success update_group_representation(group_id, update_group_representation_request)
+
+Update Group Representation
+
+Updates whether the user is representing the group.  When `isRepresenting` is set to `true`, this flag will be set to `false` for all other groups
+
+### Example
+
+* Api Key Authentication (authCookie):
+```python
+from __future__ import print_function
+import time
+import vrchatapi
+from vrchatapi.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = vrchatapi.Configuration(
+    host = "https://api.vrchat.cloud/api/1"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: authCookie
+configuration.api_key['authCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['authCookie'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with vrchatapi.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = vrchatapi.GroupsApi(api_client)
+    group_id = 'grp_00000000-0000-0000-0000-000000000000' # str | Must be a valid group ID.
+update_group_representation_request = vrchatapi.UpdateGroupRepresentationRequest() # UpdateGroupRepresentationRequest | 
+
+    try:
+        # Update Group Representation
+        api_response = api_instance.update_group_representation(group_id, update_group_representation_request)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling GroupsApi->update_group_representation: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **group_id** | **str**| Must be a valid group ID. | 
+ **update_group_representation_request** | [**UpdateGroupRepresentationRequest**](UpdateGroupRepresentationRequest.md)|  | 
+
+### Return type
+
+[**Success**](Success.md)
+
+### Authorization
+
+[authCookie](../README.md#authCookie)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response after updating group representation. |  -  |
+**401** | Error response due to missing auth cookie. |  -  |
+**403** | Error response when trying to perform operations on a group you are not member of. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

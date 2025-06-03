@@ -135,6 +135,7 @@ docs/LimitedUser.md
 docs/LimitedUserGroups.md
 docs/LimitedWorld.md
 docs/MIMEType.md
+docs/MiscellaneousApi.md
 docs/ModelPrint.md
 docs/ModerateUserRequest.md
 docs/Notification.md
@@ -152,7 +153,6 @@ docs/Pending2FAResult.md
 docs/PerformanceLimiterInfo.md
 docs/PerformanceRatings.md
 docs/Permission.md
-docs/PermissionsApi.md
 docs/PlatformBuildInfo.md
 docs/PlayerModeration.md
 docs/PlayerModerationType.md
@@ -181,7 +181,6 @@ docs/Submission.md
 docs/Subscription.md
 docs/SubscriptionPeriod.md
 docs/Success.md
-docs/SystemApi.md
 docs/TiliaStatus.md
 docs/TiliaTOS.md
 docs/TokenBundle.md
@@ -199,6 +198,7 @@ docs/UpdateAvatarRequest.md
 docs/UpdateFavoriteGroupRequest.md
 docs/UpdateGroupGalleryRequest.md
 docs/UpdateGroupMemberRequest.md
+docs/UpdateGroupRepresentationRequest.md
 docs/UpdateGroupRequest.md
 docs/UpdateGroupRoleRequest.md
 docs/UpdateInviteMessageRequest.md
@@ -239,11 +239,10 @@ vrchatapi/api/groups_api.py
 vrchatapi/api/instances_api.py
 vrchatapi/api/invite_api.py
 vrchatapi/api/jams_api.py
+vrchatapi/api/miscellaneous_api.py
 vrchatapi/api/notifications_api.py
-vrchatapi/api/permissions_api.py
 vrchatapi/api/playermoderation_api.py
 vrchatapi/api/prints_api.py
-vrchatapi/api/system_api.py
 vrchatapi/api/users_api.py
 vrchatapi/api/worlds_api.py
 vrchatapi/api_client.py
@@ -435,6 +434,7 @@ vrchatapi/models/update_avatar_request.py
 vrchatapi/models/update_favorite_group_request.py
 vrchatapi/models/update_group_gallery_request.py
 vrchatapi/models/update_group_member_request.py
+vrchatapi/models/update_group_representation_request.py
 vrchatapi/models/update_group_request.py
 vrchatapi/models/update_group_role_request.py
 vrchatapi/models/update_invite_message_request.py
