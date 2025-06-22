@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **google_product_id** | **str** |  | [optional] 
 **google_plan_id** | **str** |  | [optional] 
 **pico_sku** | **str** |  | [optional] 
+**apple_product_id** | **str** |  | [optional] 
 **amount** | **float** |  | 
 **description** | **str** |  | 
 **period** | [**SubscriptionPeriod**](SubscriptionPeriod.md) |  | 

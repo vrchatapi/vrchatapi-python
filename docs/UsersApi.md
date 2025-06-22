@@ -1005,7 +1005,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **search_users**
-> list[LimitedUser] search_users(search=search, developer_type=developer_type, n=n, offset=offset)
+> list[LimitedUserSearch] search_users(search=search, developer_type=developer_type, n=n, offset=offset)
 
 Search All Users
 
@@ -1065,7 +1065,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**list[LimitedUser]**](LimitedUser.md)
+[**list[LimitedUserSearch]**](LimitedUserSearch.md)
 
 ### Authorization
 
@@ -1079,7 +1079,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Returns a list of LimitedUser objects. |  -  |
+**200** | Returns a list of LimitedUserSearch objects. |  -  |
 **400** | Error response when trying to search list of users with an invalid request. |  -  |
 **401** | Error response due to missing auth cookie. |  -  |
 

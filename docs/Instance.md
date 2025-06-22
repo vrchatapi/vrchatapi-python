@@ -41,7 +41,7 @@ Name | Type | Description | Notes
 **strict** | **bool** |  | 
 **user_count** | **int** |  | 
 **world** | [**World**](World.md) |  | 
-**users** | [**list[LimitedUser]**](LimitedUser.md) | The users field is present on instances created by the requesting user. | [optional] 
+**users** | [**list[LimitedUserInstance]**](LimitedUserInstance.md) | The users field is present on instances created by the requesting user. | [optional] 
 **group_access_type** | [**GroupAccessType**](GroupAccessType.md) |  | [optional] 
 **has_capacity_for_you** | **bool** |  | [optional] 
 **nonce** | **str** |  | [optional] 
