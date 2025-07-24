@@ -438,7 +438,7 @@ with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = vrchatapi.UsersApi(api_client)
     user_id = 'user_id_example' # str | Must be a valid user ID.
-content_id = True # bool | Filter for users' previously submitted feedback, e.g., a groupId, useeId, avatarId, etc. (optional)
+content_id = True # bool | Filter for users' previously submitted feedback, e.g., a groupId, userId, avatarId, etc. (optional)
 n = 60 # int | The number of objects to return. (optional) (default to 60)
 offset = 56 # int | A zero-based offset from the default object sorting from where search results start. (optional)
 
@@ -455,7 +455,7 @@ offset = 56 # int | A zero-based offset from the default object sorting from whe
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **user_id** | **str**| Must be a valid user ID. | 
- **content_id** | **bool**| Filter for users&#39; previously submitted feedback, e.g., a groupId, useeId, avatarId, etc. | [optional] 
+ **content_id** | **bool**| Filter for users&#39; previously submitted feedback, e.g., a groupId, userId, avatarId, etc. | [optional] 
  **n** | **int**| The number of objects to return. | [optional] [default to 60]
  **offset** | **int**| A zero-based offset from the default object sorting from where search results start. | [optional] 
 

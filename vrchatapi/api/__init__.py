@@ -11,11 +11,13 @@ from vrchatapi.api.files_api import FilesApi
 from vrchatapi.api.friends_api import FriendsApi
 from vrchatapi.api.groups_api import GroupsApi
 from vrchatapi.api.instances_api import InstancesApi
+from vrchatapi.api.inventory_api import InventoryApi
 from vrchatapi.api.invite_api import InviteApi
 from vrchatapi.api.jams_api import JamsApi
 from vrchatapi.api.miscellaneous_api import MiscellaneousApi
 from vrchatapi.api.notifications_api import NotificationsApi
 from vrchatapi.api.playermoderation_api import PlayermoderationApi
 from vrchatapi.api.prints_api import PrintsApi
+from vrchatapi.api.props_api import PropsApi
 from vrchatapi.api.users_api import UsersApi
 from vrchatapi.api.worlds_api import WorldsApi

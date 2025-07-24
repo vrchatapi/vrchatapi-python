@@ -353,7 +353,7 @@ n = 60 # int | The number of objects to return. (optional) (default to 60)
 offset = 56 # int | A zero-based offset from the default object sorting from where search results start. (optional)
 hydrate = True # bool | Populates some fields and changes types of others for certain objects. (optional)
 group_id = 'grp_00000000-0000-0000-0000-000000000000' # str | Must be a valid group ID. (optional)
-active = True # bool | Filter for users' listings. (optional)
+active = True # bool | Filter for users' listings and inventory bundles. (optional)
 
     try:
         # Get User Product Listings
@@ -372,7 +372,7 @@ Name | Type | Description  | Notes
  **offset** | **int**| A zero-based offset from the default object sorting from where search results start. | [optional] 
  **hydrate** | **bool**| Populates some fields and changes types of others for certain objects. | [optional] 
  **group_id** | **str**| Must be a valid group ID. | [optional] 
- **active** | **bool**| Filter for users&#39; listings. | [optional] 
+ **active** | **bool**| Filter for users&#39; listings and inventory bundles. | [optional] 
 
 ### Return type
 
