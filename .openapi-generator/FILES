@@ -40,8 +40,12 @@ docs/AvatarsApi.md
 docs/Badge.md
 docs/Balance.md
 docs/BanGroupMemberRequest.md
+docs/CalendarApi.md
+docs/CalendarEvent.md
+docs/CalendarEventUserInterest.md
 docs/ChangeUserTagsRequest.md
 docs/CreateAvatarRequest.md
+docs/CreateCalendarEventRequest.md
 docs/CreateFileRequest.md
 docs/CreateFileVersionRequest.md
 docs/CreateGroupAnnouncementRequest.md
@@ -79,6 +83,7 @@ docs/FileVersion.md
 docs/FileVersionUploadStatus.md
 docs/FilesApi.md
 docs/FinishFileDataUploadRequest.md
+docs/FollowCalendarEventRequest.md
 docs/FriendStatus.md
 docs/FriendsApi.md
 docs/GetGroupPosts200Response.md
@@ -162,6 +167,7 @@ docs/NotificationDetailVoteToKick.md
 docs/NotificationType.md
 docs/NotificationsApi.md
 docs/OrderOption.md
+docs/PaginatedCalendarEventList.md
 docs/PaginatedGroupAuditLogEntryList.md
 docs/PastDisplayName.md
 docs/Pending2FAResult.md
@@ -213,6 +219,7 @@ docs/TwoFactorRecoveryCodes.md
 docs/TwoFactorRecoveryCodesOtpInner.md
 docs/UnityPackage.md
 docs/UpdateAvatarRequest.md
+docs/UpdateCalendarEventRequest.md
 docs/UpdateFavoriteGroupRequest.md
 docs/UpdateGroupGalleryRequest.md
 docs/UpdateGroupMemberRequest.md
@@ -249,6 +256,7 @@ vrchatapi/__init__.py
 vrchatapi/api/__init__.py
 vrchatapi/api/authentication_api.py
 vrchatapi/api/avatars_api.py
+vrchatapi/api/calendar_api.py
 vrchatapi/api/economy_api.py
 vrchatapi/api/favorites_api.py
 vrchatapi/api/files_api.py
@@ -308,8 +316,11 @@ vrchatapi/models/avatar_unity_package_url_object.py
 vrchatapi/models/badge.py
 vrchatapi/models/balance.py
 vrchatapi/models/ban_group_member_request.py
+vrchatapi/models/calendar_event.py
+vrchatapi/models/calendar_event_user_interest.py
 vrchatapi/models/change_user_tags_request.py
 vrchatapi/models/create_avatar_request.py
+vrchatapi/models/create_calendar_event_request.py
 vrchatapi/models/create_file_request.py
 vrchatapi/models/create_file_version_request.py
 vrchatapi/models/create_group_announcement_request.py
@@ -344,6 +355,7 @@ vrchatapi/models/file_upload_url.py
 vrchatapi/models/file_version.py
 vrchatapi/models/file_version_upload_status.py
 vrchatapi/models/finish_file_data_upload_request.py
+vrchatapi/models/follow_calendar_event_request.py
 vrchatapi/models/friend_status.py
 vrchatapi/models/get_group_posts200_response.py
 vrchatapi/models/get_user_group_instances200_response.py
@@ -419,6 +431,7 @@ vrchatapi/models/notification_detail_request_invite_response.py
 vrchatapi/models/notification_detail_vote_to_kick.py
 vrchatapi/models/notification_type.py
 vrchatapi/models/order_option.py
+vrchatapi/models/paginated_calendar_event_list.py
 vrchatapi/models/paginated_group_audit_log_entry_list.py
 vrchatapi/models/past_display_name.py
 vrchatapi/models/pending2_fa_result.py
@@ -467,6 +480,7 @@ vrchatapi/models/two_factor_recovery_codes.py
 vrchatapi/models/two_factor_recovery_codes_otp_inner.py
 vrchatapi/models/unity_package.py
 vrchatapi/models/update_avatar_request.py
+vrchatapi/models/update_calendar_event_request.py
 vrchatapi/models/update_favorite_group_request.py
 vrchatapi/models/update_group_gallery_request.py
 vrchatapi/models/update_group_member_request.py

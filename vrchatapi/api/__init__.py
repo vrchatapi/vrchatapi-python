@@ -5,6 +5,7 @@ from __future__ import absolute_import
 # import apis into api package
 from vrchatapi.api.authentication_api import AuthenticationApi
 from vrchatapi.api.avatars_api import AvatarsApi
+from vrchatapi.api.calendar_api import CalendarApi
 from vrchatapi.api.economy_api import EconomyApi
 from vrchatapi.api.favorites_api import FavoritesApi
 from vrchatapi.api.files_api import FilesApi
