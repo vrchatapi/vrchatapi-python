@@ -5,23 +5,23 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **active** | **bool** |  | 
-**archived** | **bool** |  | 
 **buyer_refundable** | **bool** |  | 
-**created** | **datetime** |  | 
 **description** | **str** |  | 
 **display_name** | **str** |  | 
 **duration** | **int** |  | [optional] 
 **duration_type** | **str** |  | [optional] 
-**group_icon** | **str** |  | 
-**group_id** | **str** |  | 
-**group_name** | **str** |  | 
+**group_icon** | **str** |  | [optional] 
+**group_id** | **str** |  | [optional] 
+**group_name** | **str** |  | [optional] 
+**has_avatar** | **bool** |  | 
+**has_udon** | **bool** |  | 
 **hydrated_products** | [**list[Product]**](Product.md) |  | [optional] 
 **id** | **str** |  | 
-**image_id** | **str** |  | 
-**instant** | **bool** |  | 
+**image_id** | **str** |  | [optional] 
+**image_url** | **str** |  | [optional] 
 **listing_type** | [**ProductListingType**](ProductListingType.md) |  | 
-**listing_variants** | [**list[ProductListingVariant]**](ProductListingVariant.md) |  | 
-**permanent** | **bool** |  | 
+**listing_variants** | [**list[ProductListingVariant]**](ProductListingVariant.md) |  | [optional] 
+**permanent** | **bool** |  | [optional] 
 **price_tokens** | **int** |  | 
 **product_ids** | **list[str]** |  | 
 **product_type** | [**ProductType**](ProductType.md) |  | 
@@ -33,8 +33,7 @@ Name | Type | Description | Notes
 **seller_id** | **str** |  | 
 **stackable** | **bool** |  | 
 **store_ids** | **list[str]** |  | 
-**tags** | **list[str]** |  | 
-**updated** | **datetime** |  | 
+**tags** | **list[str]** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

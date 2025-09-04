@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **highest_price** | **int** |  | [optional] 
 **id** | **str** |  | 
 **image_url** | **str** |  | 
+**listing_date** | **str** |  | 
 **lock** | **bool** |  | [optional] 
 **lowest_price** | **int** |  | [optional] 
 **name** | **str** |  | 

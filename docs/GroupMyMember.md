@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **manager_notes** | **str** |  | [optional] 
 **membership_status** | **str** |  | [optional] 
 **is_subscribed_to_announcements** | **bool** |  | [optional] [default to True]
+**is_subscribed_to_event_announcements** | **bool** |  | [optional] 
 **visibility** | **str** |  | [optional] 
 **is_representing** | **bool** |  | [optional] [default to False]
 **joined_at** | **datetime** |  | [optional] 

@@ -60,6 +60,7 @@ Name | Type | Description | Notes
 **profile_pic_override** | **str** |  | 
 **profile_pic_override_thumbnail** | **str** |  | 
 **pronouns** | **str** |  | 
+**pronouns_history** | **list[str]** |  | 
 **queued_instance** | **str** |  | [optional] 
 **receive_mobile_invitations** | **bool** |  | [optional] 
 **state** | [**UserState**](UserState.md) |  | 
