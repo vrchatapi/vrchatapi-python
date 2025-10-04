@@ -24,14 +24,14 @@ Name | Type | Description | Notes
 **last_activity** | **datetime** |  | 
 **last_mobile** | **datetime** |  | 
 **platform** | **str** |  | [optional] 
-**profile_pic_override** | **str** |  | 
-**profile_pic_override_thumbnail** | **str** |  | 
+**profile_pic_override** | **str** |  | [optional] 
+**profile_pic_override_thumbnail** | **str** |  | [optional] 
 **pronouns** | **str** |  | 
 **state** | [**UserState**](UserState.md) |  | 
 **status** | [**UserStatus**](UserStatus.md) |  | 
 **status_description** | **str** |  | 
 **tags** | **list[str]** |  | 
-**user_icon** | **str** |  | 
+**user_icon** | **str** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

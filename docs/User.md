@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 **last_login** | **str** | Either a date-time or empty string. | 
 **last_mobile** | **str** |  | [optional] 
 **last_platform** | **str** | This can be &#x60;standalonewindows&#x60; or &#x60;android&#x60;, but can also pretty much be any random Unity verison such as &#x60;2019.2.4-801-Release&#x60; or &#x60;2019.2.2-772-Release&#x60; or even &#x60;unknownplatform&#x60;. | 
-**location** | **str** | WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user. | [optional] 
+**location** | **str** | Represents a unique location, consisting of a world identifier and an instance identifier, or \&quot;offline\&quot; if the user is not on your friends list. | [optional] 
 **note** | **str** |  | [optional] 
 **platform** | **str** |  | [optional] 
 **profile_pic_override** | **str** |  | 

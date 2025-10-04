@@ -62,6 +62,7 @@ docs/CurrentUserPresence.md
 docs/DeveloperType.md
 docs/Disable2FAResult.md
 docs/DynamicContentRow.md
+docs/EconomyAccount.md
 docs/EconomyApi.md
 docs/Error.md
 docs/Favorite.md
@@ -129,6 +130,7 @@ docs/InstancesApi.md
 docs/Inventory.md
 docs/InventoryApi.md
 docs/InventoryDrop.md
+docs/InventoryFlag.md
 docs/InventoryItem.md
 docs/InventoryItemType.md
 docs/InventoryMetadata.md
@@ -166,6 +168,7 @@ docs/NotificationDetailRequestInviteResponse.md
 docs/NotificationDetailVoteToKick.md
 docs/NotificationType.md
 docs/NotificationsApi.md
+docs/OkStatus.md
 docs/OrderOption.md
 docs/PaginatedCalendarEventList.md
 docs/PaginatedGroupAuditLogEntryList.md
@@ -200,7 +203,12 @@ docs/Response.md
 docs/SentNotification.md
 docs/ServiceQueueStats.md
 docs/ServiceStatus.md
+docs/ShareInventoryItemDirectRequest.md
 docs/SortOption.md
+docs/Store.md
+docs/StoreShelf.md
+docs/StoreType.md
+docs/StoreView.md
 docs/Submission.md
 docs/Subscription.md
 docs/SubscriptionPeriod.md
@@ -226,6 +234,7 @@ docs/UpdateGroupMemberRequest.md
 docs/UpdateGroupRepresentationRequest.md
 docs/UpdateGroupRequest.md
 docs/UpdateGroupRoleRequest.md
+docs/UpdateInventoryItemRequest.md
 docs/UpdateInviteMessageRequest.md
 docs/UpdateUserBadgeRequest.md
 docs/UpdateUserNoteRequest.md
@@ -238,6 +247,7 @@ docs/UserNoteTargetUser.md
 docs/UserState.md
 docs/UserStatus.md
 docs/UserSubscription.md
+docs/UserSubscriptionEligible.md
 docs/UsersApi.md
 docs/Verify2FAEmailCodeResult.md
 docs/Verify2FAResult.md
@@ -337,6 +347,7 @@ vrchatapi/models/current_user_presence.py
 vrchatapi/models/developer_type.py
 vrchatapi/models/disable2_fa_result.py
 vrchatapi/models/dynamic_content_row.py
+vrchatapi/models/economy_account.py
 vrchatapi/models/error.py
 vrchatapi/models/favorite.py
 vrchatapi/models/favorite_group.py
@@ -397,6 +408,7 @@ vrchatapi/models/instance_short_name_response.py
 vrchatapi/models/instance_type.py
 vrchatapi/models/inventory.py
 vrchatapi/models/inventory_drop.py
+vrchatapi/models/inventory_flag.py
 vrchatapi/models/inventory_item.py
 vrchatapi/models/inventory_item_type.py
 vrchatapi/models/inventory_metadata.py
@@ -430,6 +442,7 @@ vrchatapi/models/notification_detail_request_invite.py
 vrchatapi/models/notification_detail_request_invite_response.py
 vrchatapi/models/notification_detail_vote_to_kick.py
 vrchatapi/models/notification_type.py
+vrchatapi/models/ok_status.py
 vrchatapi/models/order_option.py
 vrchatapi/models/paginated_calendar_event_list.py
 vrchatapi/models/paginated_group_audit_log_entry_list.py
@@ -461,7 +474,12 @@ vrchatapi/models/response.py
 vrchatapi/models/sent_notification.py
 vrchatapi/models/service_queue_stats.py
 vrchatapi/models/service_status.py
+vrchatapi/models/share_inventory_item_direct_request.py
 vrchatapi/models/sort_option.py
+vrchatapi/models/store.py
+vrchatapi/models/store_shelf.py
+vrchatapi/models/store_type.py
+vrchatapi/models/store_view.py
 vrchatapi/models/submission.py
 vrchatapi/models/subscription.py
 vrchatapi/models/subscription_period.py
@@ -487,6 +505,7 @@ vrchatapi/models/update_group_member_request.py
 vrchatapi/models/update_group_representation_request.py
 vrchatapi/models/update_group_request.py
 vrchatapi/models/update_group_role_request.py
+vrchatapi/models/update_inventory_item_request.py
 vrchatapi/models/update_invite_message_request.py
 vrchatapi/models/update_user_badge_request.py
 vrchatapi/models/update_user_note_request.py
@@ -499,6 +518,7 @@ vrchatapi/models/user_note_target_user.py
 vrchatapi/models/user_state.py
 vrchatapi/models/user_status.py
 vrchatapi/models/user_subscription.py
+vrchatapi/models/user_subscription_eligible.py
 vrchatapi/models/verify2_fa_email_code_result.py
 vrchatapi/models/verify2_fa_result.py
 vrchatapi/models/verify_auth_token_result.py

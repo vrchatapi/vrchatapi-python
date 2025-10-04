@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **access_type** | **str** |  | 
 **category** | **str** |  | [optional] 
 **close_instance_after_end_minutes** | **int** |  | [optional] 
-**created_at** | **datetime** |  | 
+**created_at** | **datetime** |  | [optional] 
 **deleted_at** | **datetime** |  | [optional] 
 **description** | **str** |  | [optional] 
 **ends_at** | **datetime** |  | [optional] 
