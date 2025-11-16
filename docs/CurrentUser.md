@@ -23,6 +23,8 @@ Name | Type | Description | Notes
 **current_avatar_tags** | **list[str]** |  | 
 **date_joined** | **date** |  | 
 **developer_type** | [**DeveloperType**](DeveloperType.md) |  | 
+**discord_details** | [**DiscordDetails**](DiscordDetails.md) |  | [optional] 
+**discord_id** | **str** | https://discord.com/developers/docs/reference#snowflakes | [optional] 
 **display_name** | **str** |  | 
 **email_verified** | **bool** |  | 
 **fallback_avatar** | **str** |  | [optional] 

@@ -31,6 +31,8 @@ docs/AdminUnityPackage.md
 docs/AgeVerificationStatus.md
 docs/AuthenticationApi.md
 docs/Avatar.md
+docs/AvatarModeration.md
+docs/AvatarModerationType.md
 docs/AvatarPerformance.md
 docs/AvatarPublishedListingsInner.md
 docs/AvatarStyle.md
@@ -55,12 +57,14 @@ docs/CreateGroupPostRequest.md
 docs/CreateGroupRequest.md
 docs/CreateGroupRoleRequest.md
 docs/CreateInstanceRequest.md
+docs/CreatePermissionRequest.md
 docs/CreateWorldRequest.md
 docs/CurrentUser.md
 docs/CurrentUserPlatformHistoryInner.md
 docs/CurrentUserPresence.md
 docs/DeveloperType.md
 docs/Disable2FAResult.md
+docs/DiscordDetails.md
 docs/DynamicContentRow.md
 docs/EconomyAccount.md
 docs/EconomyApi.md
@@ -236,6 +240,7 @@ docs/UpdateGroupRequest.md
 docs/UpdateGroupRoleRequest.md
 docs/UpdateInventoryItemRequest.md
 docs/UpdateInviteMessageRequest.md
+docs/UpdatePermissionRequest.md
 docs/UpdateUserBadgeRequest.md
 docs/UpdateUserNoteRequest.md
 docs/UpdateUserRequest.md
@@ -318,6 +323,8 @@ vrchatapi/models/api_config_report_options_world.py
 vrchatapi/models/api_config_report_reasons.py
 vrchatapi/models/api_health.py
 vrchatapi/models/avatar.py
+vrchatapi/models/avatar_moderation.py
+vrchatapi/models/avatar_moderation_type.py
 vrchatapi/models/avatar_performance.py
 vrchatapi/models/avatar_published_listings_inner.py
 vrchatapi/models/avatar_style.py
@@ -340,12 +347,14 @@ vrchatapi/models/create_group_post_request.py
 vrchatapi/models/create_group_request.py
 vrchatapi/models/create_group_role_request.py
 vrchatapi/models/create_instance_request.py
+vrchatapi/models/create_permission_request.py
 vrchatapi/models/create_world_request.py
 vrchatapi/models/current_user.py
 vrchatapi/models/current_user_platform_history_inner.py
 vrchatapi/models/current_user_presence.py
 vrchatapi/models/developer_type.py
 vrchatapi/models/disable2_fa_result.py
+vrchatapi/models/discord_details.py
 vrchatapi/models/dynamic_content_row.py
 vrchatapi/models/economy_account.py
 vrchatapi/models/error.py
@@ -507,6 +516,7 @@ vrchatapi/models/update_group_request.py
 vrchatapi/models/update_group_role_request.py
 vrchatapi/models/update_inventory_item_request.py
 vrchatapi/models/update_invite_message_request.py
+vrchatapi/models/update_permission_request.py
 vrchatapi/models/update_user_badge_request.py
 vrchatapi/models/update_user_note_request.py
 vrchatapi/models/update_user_request.py

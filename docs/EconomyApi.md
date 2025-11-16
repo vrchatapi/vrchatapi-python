@@ -5,6 +5,8 @@ All URIs are relative to *https://api.vrchat.cloud/api/1*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**get_active_licenses**](EconomyApi.md#get_active_licenses) | **GET** /economy/licenses/active | Get Active Licenses
+[**get_admin_transaction**](EconomyApi.md#get_admin_transaction) | **GET** /Admin/transactions/{transactionId} | Get Admin Transactions
+[**get_admin_transactions**](EconomyApi.md#get_admin_transactions) | **GET** /Admin/transactions | Get Admin Transactions
 [**get_balance**](EconomyApi.md#get_balance) | **GET** /user/{userId}/balance | Get Balance
 [**get_balance_earnings**](EconomyApi.md#get_balance_earnings) | **GET** /user/{userId}/balance/earnings | Get Balance Earnings
 [**get_current_subscriptions**](EconomyApi.md#get_current_subscriptions) | **GET** /auth/user/subscription | Get Current Subscriptions
@@ -89,6 +91,150 @@ This endpoint does not need any parameter.
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Returns a list of License objects. |  -  |
+**401** | Error response due to missing auth cookie. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_admin_transaction**
+> Transaction get_admin_transaction(transaction_id)
+
+Get Admin Transactions
+
+Get a single Admin transactions by ID. This returns the exact same information as `getAdminTransactions`, so no point in using this endpoint.
+
+### Example
+
+* Api Key Authentication (authCookie):
+```python
+from __future__ import print_function
+import time
+import vrchatapi
+from vrchatapi.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = vrchatapi.Configuration(
+    host = "https://api.vrchat.cloud/api/1"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: authCookie
+configuration.api_key['authCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['authCookie'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with vrchatapi.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = vrchatapi.EconomyApi(api_client)
+    transaction_id = 'transaction_id_example' # str | Must be a valid transaction ID.
+
+    try:
+        # Get Admin Transactions
+        api_response = api_instance.get_admin_transaction(transaction_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling EconomyApi->get_admin_transaction: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **transaction_id** | **str**| Must be a valid transaction ID. | 
+
+### Return type
+
+[**Transaction**](Transaction.md)
+
+### Authorization
+
+[authCookie](../README.md#authCookie)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Returns a single Transaction object. |  -  |
+**401** | Error response due to missing auth cookie. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_admin_transactions**
+> list[Transaction] get_admin_transactions()
+
+Get Admin Transactions
+
+Get all own Admin transactions.
+
+### Example
+
+* Api Key Authentication (authCookie):
+```python
+from __future__ import print_function
+import time
+import vrchatapi
+from vrchatapi.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = vrchatapi.Configuration(
+    host = "https://api.vrchat.cloud/api/1"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: authCookie
+configuration.api_key['authCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['authCookie'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with vrchatapi.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = vrchatapi.EconomyApi(api_client)
+    
+    try:
+        # Get Admin Transactions
+        api_response = api_instance.get_admin_transactions()
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling EconomyApi->get_admin_transactions: %s\n" % e)
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**list[Transaction]**](Transaction.md)
+
+### Authorization
+
+[authCookie](../README.md#authCookie)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Returns a list of Transaction objects. |  -  |
 **401** | Error response due to missing auth cookie. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

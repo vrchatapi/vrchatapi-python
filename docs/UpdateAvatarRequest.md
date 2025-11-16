@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **image_url** | **str** |  | [optional] 
 **release_status** | [**ReleaseStatus**](ReleaseStatus.md) |  | [optional] 
 **version** | **int** |  | [optional] [default to 1]
+**featured** | **bool** | Enabling featured tag requires Admin Credentials. | [optional] 
 **unity_package_url** | **str** |  | [optional] 
 **unity_version** | **str** |  | [optional] [default to '5.3.4p1']
 

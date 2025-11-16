@@ -17,6 +17,7 @@ Method | HTTP request | Description
 [**get_user_notes**](UsersApi.md#get_user_notes) | **GET** /userNotes | Get User Notes
 [**get_user_represented_group**](UsersApi.md#get_user_represented_group) | **GET** /users/{userId}/groups/represented | Get user&#39;s current represented group
 [**remove_tags**](UsersApi.md#remove_tags) | **POST** /users/{userId}/removeTags | Remove User Tags
+[**search_active_users**](UsersApi.md#search_active_users) | **GET** /users/active | Search Active Users
 [**search_users**](UsersApi.md#search_users) | **GET** /users | Search All Users
 [**update_badge**](UsersApi.md#update_badge) | **PUT** /users/{userId}/badges/{badgeId} | Update User Badge
 [**update_user**](UsersApi.md#update_user) | **PUT** /users/{userId} | Update User Info
@@ -1001,6 +1002,87 @@ Name | Type | Description  | Notes
 **200** | Returns a single CurrentUser object. |  -  |
 **400** | Error response when a user attempts to add an invalid, restricted, or duplicate tag to their profile, attempts to add tags above the limit for their profile, or attempts to remove invalid, restricted, or absent tag from their profile. |  -  |
 **401** | Error response due to missing auth cookie. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **search_active_users**
+> list[LimitedUserFriend] search_active_users(search, developer_type=developer_type, offset=offset, n=n)
+
+Search Active Users
+
+**REQUIRES ADMIN CREDENTIALS**. Search and list any Active users by text query.
+
+### Example
+
+* Api Key Authentication (authCookie):
+```python
+from __future__ import print_function
+import time
+import vrchatapi
+from vrchatapi.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = vrchatapi.Configuration(
+    host = "https://api.vrchat.cloud/api/1"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: authCookie
+configuration.api_key['authCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['authCookie'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with vrchatapi.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = vrchatapi.UsersApi(api_client)
+    search = 'search_example' # str | Username to search for
+developer_type = 'developer_type_example' # str | Active user by developer type, none for normal users and internal for moderators (optional)
+offset = 56 # int | A zero-based offset from the default object sorting from where search results start. (optional)
+n = 60 # int | The number of objects to return. (optional) (default to 60)
+
+    try:
+        # Search Active Users
+        api_response = api_instance.search_active_users(search, developer_type=developer_type, offset=offset, n=n)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling UsersApi->search_active_users: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **search** | **str**| Username to search for | 
+ **developer_type** | **str**| Active user by developer type, none for normal users and internal for moderators | [optional] 
+ **offset** | **int**| A zero-based offset from the default object sorting from where search results start. | [optional] 
+ **n** | **int**| The number of objects to return. | [optional] [default to 60]
+
+### Return type
+
+[**list[LimitedUserFriend]**](LimitedUserFriend.md)
+
+### Authorization
+
+[authCookie](../README.md#authCookie)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**401** | Error response due to missing auth cookie. |  -  |
+**403** | Error response due to missing Administrator credentials. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

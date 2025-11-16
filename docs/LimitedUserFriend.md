@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **bio** | **str** |  | [optional] 
 **bio_links** | **list[str]** |   | [optional] 
-**current_avatar_image_url** | **str** | When profilePicOverride is not empty, use it instead. | 
+**current_avatar_image_url** | **str** | When profilePicOverride is not empty, use it instead. | [optional] 
 **current_avatar_thumbnail_image_url** | **str** | When profilePicOverride is not empty, use it instead. | [optional] 
 **current_avatar_tags** | **list[str]** |  | [optional] 
 **developer_type** | [**DeveloperType**](DeveloperType.md) |  | 

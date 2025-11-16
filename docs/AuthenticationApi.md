@@ -11,6 +11,7 @@ Method | HTTP request | Description
 [**disable2_fa**](AuthenticationApi.md#disable2_fa) | **DELETE** /auth/twofactorauth | Disable 2FA
 [**enable2_fa**](AuthenticationApi.md#enable2_fa) | **POST** /auth/twofactorauth/totp/pending | Enable time-based 2FA codes
 [**get_current_user**](AuthenticationApi.md#get_current_user) | **GET** /auth/user | Login and/or Get Current User Info
+[**get_global_avatar_moderations**](AuthenticationApi.md#get_global_avatar_moderations) | **GET** /auth/user/avatarmoderations | Get Global Avatar Moderations
 [**get_recovery_codes**](AuthenticationApi.md#get_recovery_codes) | **GET** /auth/user/twofactorauth/otp | Get 2FA Recovery codes
 [**logout**](AuthenticationApi.md#logout) | **PUT** /logout | Logout
 [**register_user_account**](AuthenticationApi.md#register_user_account) | **POST** /auth/register | Register User Account
@@ -615,6 +616,76 @@ This endpoint does not need any parameter.
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  * Set-Cookie - Successful authentication returns an &#x60;auth&#x60; cookie. <br>  |
+**401** | Error response due to missing auth cookie. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_global_avatar_moderations**
+> list[AvatarModeration] get_global_avatar_moderations()
+
+Get Global Avatar Moderations
+
+Returns list of globally blocked avatars.
+
+### Example
+
+* Api Key Authentication (authCookie):
+```python
+from __future__ import print_function
+import time
+import vrchatapi
+from vrchatapi.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = vrchatapi.Configuration(
+    host = "https://api.vrchat.cloud/api/1"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: authCookie
+configuration.api_key['authCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['authCookie'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with vrchatapi.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = vrchatapi.AuthenticationApi(api_client)
+    
+    try:
+        # Get Global Avatar Moderations
+        api_response = api_instance.get_global_avatar_moderations()
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling AuthenticationApi->get_global_avatar_moderations: %s\n" % e)
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**list[AvatarModeration]**](AvatarModeration.md)
+
+### Authorization
+
+[authCookie](../README.md#authCookie)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Returns list of globally blocked avatars with timestamps |  -  |
 **401** | Error response due to missing auth cookie. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

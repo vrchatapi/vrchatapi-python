@@ -6,12 +6,12 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **access_type** | **str** |  | 
-**category** | **str** |  | [optional] 
+**category** | **str** |  | 
 **close_instance_after_end_minutes** | **int** |  | [optional] 
 **created_at** | **datetime** |  | [optional] 
 **deleted_at** | **datetime** |  | [optional] 
-**description** | **str** |  | [optional] 
-**ends_at** | **datetime** |  | [optional] 
+**description** | **str** |  | 
+**ends_at** | **datetime** |  | 
 **featured** | **bool** |  | [optional] 
 **guest_early_join_minutes** | **int** |  | [optional] 
 **host_early_join_minutes** | **int** |  | [optional] 
@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 **owner_id** | **str** |  | [optional] 
 **platforms** | **list[str]** |   | [optional] 
 **role_ids** | **list[str]** |   | [optional] 
-**starts_at** | **datetime** |  | [optional] 
+**starts_at** | **datetime** |  | 
 **tags** | **list[str]** |   | [optional] 
 **title** | **str** |  | 
 **type** | **str** |  | [optional] 
