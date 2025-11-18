@@ -17,6 +17,7 @@ import logging
 import multiprocessing
 import sys
 import urllib3
+import urllib.parse
 
 import six
 from six.moves import http_client as httplib
@@ -396,8 +397,13 @@ conf = vrchatapi.Configuration(
         password = ""
         if self.password is not None:
             password = self.password
+
+        #URL encoding username/password to avoid issues with special characters
+        encoded_username = urllib.parse.quote(username)
+        encoded_password = urllib.parse.quote(password)
+
         return urllib3.util.make_headers(
-            basic_auth=username + ':' + password
+            basic_auth=encoded_username + ':' + encoded_password
         ).get('authorization')
 
     def auth_settings(self):

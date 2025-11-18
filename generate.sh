@@ -39,3 +39,6 @@ patch ./vrchatapi/configuration.py < ./patches/safe_param_symbols.patch
 
 # Boolean to lower str conversion for query parameters
 patch ./vrchatapi/api_client.py < ./patches/query_param_bool.patch
+
+# Add URL encoding to basic auth parameters
+patch ./vrchatapi/configuration.py < ./patches/encode_basic_auth.patch
