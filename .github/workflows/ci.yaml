@@ -1,8 +1,17 @@
 on:
   repository_dispatch:
-    types: [spec_release]
+    types: [release]
   workflow_dispatch:
-#on: push
+    inputs:
+      json:
+        description: 'Passed json from repository_dispatch'
+        required: true
+        type: string
+      version_postfix:
+        description: 'Additional string to concatenate onto the existing version before release'
+        required: false
+        type: string
+        default: ''
 
 name: Generate VRChat API SDK
 
@@ -10,11 +19,19 @@ jobs:
   generate:
     runs-on: ubuntu-latest
     name: Generate VRChat API SDK
+    env:
+      ARTIFACT_NAME: "openapi.yaml"
+      INPUT: ${{ github.event_name == 'repository_dispatch' && github.event.client_payload || inputs.json }}
+      SPEC_URL: ${{ fromJSON(github.event_name == 'repository_dispatch' && github.event.client_payload || inputs.json)['artifacts']['openapi-legacy.yaml'] }}
+      PASSED_VERSION: ${{ fromJSON(github.event_name == 'repository_dispatch' && github.event.client_payload || inputs.json)['version'] }}
+      VERSION_POSTPEND: ${{ github.event_name == 'workflow_dispatch' && inputs.version_postfix || '' }}
     steps:
       - uses: actions/setup-node@v1
         with:
           node-version: 16
+
       - uses: actions/checkout@v2
+
       - name: 'Cache node_modules'
         uses: actions/cache@v4
         with:
@@ -22,31 +39,46 @@ jobs:
           key: ${{ runner.os }}-node-v16-${{ hashFiles('**/generate.sh') }}
           restore-keys: |
             ${{ runner.os }}-node-v16
+
       - name: Install OpenAPI Generator CLI
         run: npm install @openapitools/openapi-generator-cli
+
       - name: Set OpenAPI Generator version
         run: ./node_modules/\@openapitools/openapi-generator-cli/main.js version-manager set 6.2.1
+
       - name: Set up Python 3.9
         uses: actions/setup-python@v1
         with:
           python-version: 3.9
-      - name: Generate SDK Client
-        run: bash ./generate.sh
+
+      - name: Download Specification
+        run: wget "${SPEC_URL}" '--output-document' "${ARTIFACT_NAME}"
+
       - name: Check version number
         run: |
-          echo "spec_version=$(grep "VERSION =" setup.py | cut -d "\"" -f 2)" >> $GITHUB_ENV
-      - name: Print version number
-        run: echo ${{ env.spec_version }}
+          vrchat_sdk_version=$(( ${PASSED_VERSION%%.*} + 1)).${PASSED_VERSION#*.}${VERSION_POSTPEND}
+          echo "Version is: ${vrchat_sdk_version}" 
+          echo "vrchat_sdk_version=$vrchat_sdk_version" >> $GITHUB_ENV 
+
+      - name: Generate SDK Client
+        run: bash ./generate.sh "${ARTIFACT_NAME}" "${vrchat_sdk_version}"
+
+      - name: Delete openapi.yaml file
+        run: unlink ${ARTIFACT_NAME}
+
       - name: Deploy SDK back into main branch
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           branch: main
           folder: .
           commit-message: "Upgrade Python SDK to spec ${{ env.spec_version }}"
+
       - name: Install pypa/build
         run: python -m pip install build --user
+
       - name: Build a binary wheel and a source tarball
         run: python -m build --sdist --wheel --outdir dist/ .
+
       - name: Publish SDK 📦 to PyPI
         uses: pypa/gh-action-pypi-publish@release/v1
         with:
