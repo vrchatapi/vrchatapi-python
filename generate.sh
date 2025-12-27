@@ -1,7 +1,10 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-npm install @openapitools/openapi-generator-cli 
-
+if [ ${#} -le 1 ]
+then
+  echo "Usage: generate.sh <openapi.yaml> <version>" >&2
+  exit 1
+fi
 rm vrchatapi docs -rf
 
 ./node_modules/\@openapitools/openapi-generator-cli/main.js generate \
@@ -10,13 +13,12 @@ rm vrchatapi docs -rf
 --git-user-id=vrchatapi \
 --git-repo-id=vrchatapi-python \
 -o . \
--i https://raw.githubusercontent.com/vrchatapi/specification/gh-pages/openapi.yaml \
+-i "${1}" \
 --http-user-agent="vrchatapi-py"
 
 # Fix description, keywords, etc...
 # Echo to trim whitespace
-VERSION=`echo $(cat setup.py | grep "The version of the OpenAPI document" | cut -d ":" -f 2)`
-sed -i "s/VERSION = \"1.0.0\"/VERSION = \"$VERSION\"/" ./setup.py
+sed -i "s/VERSION = \"1.0.0\"/VERSION = \"${2}\"/" ./setup.py
 sed -i 's/description="VRChat API Documentation"/description="VRChat API Library for Python"/' ./setup.py
 sed -i 's/keywords=\["OpenAPI", "OpenAPI-Generator", "VRChat API Documentation"\]/keywords=["vrchat", "vrchatapi", "vrc"]/' ./setup.py
 
