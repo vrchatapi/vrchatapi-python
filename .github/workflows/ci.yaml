@@ -56,7 +56,7 @@ jobs:
 
       - name: Check version number
         run: |
-          vrchat_sdk_version=$(( ${PASSED_VERSION%%.*} + 1)).${PASSED_VERSION#*.}${VERSION_POSTPEND}
+          vrchat_sdk_version=$(( ${PASSED_VERSION%%.*})).${PASSED_VERSION#*.}${VERSION_POSTPEND}
           echo "Version is: ${vrchat_sdk_version}" 
           echo "vrchat_sdk_version=$vrchat_sdk_version" >> $GITHUB_ENV 
 
