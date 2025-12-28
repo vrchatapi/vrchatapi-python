@@ -71,7 +71,7 @@ jobs:
         with:
           branch: main
           folder: .
-          commit-message: "Upgrade Python SDK to spec ${{ env.spec_version }}"
+          commit-message: "Upgrade Python SDK to spec ${vrchat_sdk_version}"
 
       - name: Install pypa/build
         run: python -m pip install build --user
