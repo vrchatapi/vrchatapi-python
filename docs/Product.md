@@ -4,8 +4,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**archived** | **bool** |  | 
-**created** | **datetime** |  | 
+**archived** | **bool** |  | [optional] 
+**created** | **datetime** |  | [optional] 
 **description** | **str** |  | 
 **display_name** | **str** |  | 
 **group_access** | **bool** |  | [optional] [default to False]
@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 **seller_display_name** | **str** |  | 
 **seller_id** | **str** |  | 
 **tags** | **list[str]** |  | 
-**updated** | **datetime** |  | 
+**updated** | **datetime** |  | [optional] 
 **use_for_subscriber_list** | **bool** |  | [optional] [default to False]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

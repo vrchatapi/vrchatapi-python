@@ -5,11 +5,18 @@ All URIs are relative to *https://api.vrchat.cloud/api/1*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**accept_friend_request**](NotificationsApi.md#accept_friend_request) | **PUT** /auth/user/notifications/{notificationId}/accept | Accept Friend Request
+[**acknowledge_notification_v2**](NotificationsApi.md#acknowledge_notification_v2) | **POST** /notifications/{notificationId}/see | Acknowledge NotificationV2
 [**clear_notifications**](NotificationsApi.md#clear_notifications) | **PUT** /auth/user/notifications/clear | Clear All Notifications
+[**delete_all_notification_v2s**](NotificationsApi.md#delete_all_notification_v2s) | **DELETE** /notifications | Delete All NotificationV2s
 [**delete_notification**](NotificationsApi.md#delete_notification) | **PUT** /auth/user/notifications/{notificationId}/hide | Delete Notification
+[**delete_notification_v2**](NotificationsApi.md#delete_notification_v2) | **DELETE** /notifications/{notificationId} | Delete NotificationV2
 [**get_notification**](NotificationsApi.md#get_notification) | **GET** /auth/user/notifications/{notificationId} | Show notification
+[**get_notification_v2**](NotificationsApi.md#get_notification_v2) | **GET** /notifications/{notificationId} | Get NotificationV2
+[**get_notification_v2s**](NotificationsApi.md#get_notification_v2s) | **GET** /notifications | List NotificationV2s
 [**get_notifications**](NotificationsApi.md#get_notifications) | **GET** /auth/user/notifications | List Notifications
 [**mark_notification_as_read**](NotificationsApi.md#mark_notification_as_read) | **PUT** /auth/user/notifications/{notificationId}/see | Mark Notification As Read
+[**reply_notification_v2**](NotificationsApi.md#reply_notification_v2) | **POST** /notifications/{notificationId}/reply | Reply NotificationV2
+[**respond_notification_v2**](NotificationsApi.md#respond_notification_v2) | **POST** /notifications/{notificationId}/respond | Respond NotificationV2
 
 
 # **accept_friend_request**
@@ -87,6 +94,81 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **acknowledge_notification_v2**
+> NotificationV2 acknowledge_notification_v2(notification_id)
+
+Acknowledge NotificationV2
+
+Acknowledge a specific notification
+
+### Example
+
+* Api Key Authentication (authCookie):
+```python
+from __future__ import print_function
+import time
+import vrchatapi
+from vrchatapi.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = vrchatapi.Configuration(
+    host = "https://api.vrchat.cloud/api/1"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: authCookie
+configuration.api_key['authCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['authCookie'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with vrchatapi.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = vrchatapi.NotificationsApi(api_client)
+    notification_id = 'notification_id_example' # str | Must be a valid notification ID.
+
+    try:
+        # Acknowledge NotificationV2
+        api_response = api_instance.acknowledge_notification_v2(notification_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling NotificationsApi->acknowledge_notification_v2: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **notification_id** | **str**| Must be a valid notification ID. | 
+
+### Return type
+
+[**NotificationV2**](NotificationV2.md)
+
+### Authorization
+
+[authCookie](../README.md#authCookie)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Returns a single NotifcationV2 object. |  -  |
+**401** | Error response due to missing auth cookie. |  -  |
+**404** | Error response when trying to perform operations on a non-existing notification. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **clear_notifications**
 > Success clear_notifications()
 
@@ -131,6 +213,76 @@ with vrchatapi.ApiClient(configuration) as api_client:
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling NotificationsApi->clear_notifications: %s\n" % e)
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**Success**](Success.md)
+
+### Authorization
+
+[authCookie](../README.md#authCookie)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response after clearing all notifications. |  -  |
+**401** | Error response due to missing auth cookie. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **delete_all_notification_v2s**
+> Success delete_all_notification_v2s()
+
+Delete All NotificationV2s
+
+Delete all of the current user's notifications.
+
+### Example
+
+* Api Key Authentication (authCookie):
+```python
+from __future__ import print_function
+import time
+import vrchatapi
+from vrchatapi.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = vrchatapi.Configuration(
+    host = "https://api.vrchat.cloud/api/1"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: authCookie
+configuration.api_key['authCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['authCookie'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with vrchatapi.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = vrchatapi.NotificationsApi(api_client)
+    
+    try:
+        # Delete All NotificationV2s
+        api_response = api_instance.delete_all_notification_v2s()
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling NotificationsApi->delete_all_notification_v2s: %s\n" % e)
 ```
 
 ### Parameters
@@ -231,6 +383,82 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **delete_notification_v2**
+> Success delete_notification_v2(notification_id)
+
+Delete NotificationV2
+
+Delete a specific notification
+
+### Example
+
+* Api Key Authentication (authCookie):
+```python
+from __future__ import print_function
+import time
+import vrchatapi
+from vrchatapi.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = vrchatapi.Configuration(
+    host = "https://api.vrchat.cloud/api/1"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: authCookie
+configuration.api_key['authCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['authCookie'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with vrchatapi.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = vrchatapi.NotificationsApi(api_client)
+    notification_id = 'notification_id_example' # str | Must be a valid notification ID.
+
+    try:
+        # Delete NotificationV2
+        api_response = api_instance.delete_notification_v2(notification_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling NotificationsApi->delete_notification_v2: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **notification_id** | **str**| Must be a valid notification ID. | 
+
+### Return type
+
+[**Success**](Success.md)
+
+### Authorization
+
+[authCookie](../README.md#authCookie)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response after clearing a notification. |  -  |
+**400** | Error response when trying to perform an invalid operations on a notification. |  -  |
+**401** | Error response due to missing auth cookie. |  -  |
+**404** | Error response when trying to perform operations on a non-existing notification. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **get_notification**
 > Notification get_notification(notification_id)
 
@@ -303,6 +531,156 @@ Name | Type | Description  | Notes
 **200** | Returns a single Notifcation object. |  -  |
 **401** | Error response due to missing auth cookie. |  -  |
 **404** | Error response when trying to perform operations on a non-existing notification. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_notification_v2**
+> NotificationV2 get_notification_v2(notification_id)
+
+Get NotificationV2
+
+Get a specific notification. Appears to require admin credentials by default. Expect a 403 Forbidden error response for normal users.
+
+### Example
+
+* Api Key Authentication (authCookie):
+```python
+from __future__ import print_function
+import time
+import vrchatapi
+from vrchatapi.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = vrchatapi.Configuration(
+    host = "https://api.vrchat.cloud/api/1"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: authCookie
+configuration.api_key['authCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['authCookie'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with vrchatapi.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = vrchatapi.NotificationsApi(api_client)
+    notification_id = 'notification_id_example' # str | Must be a valid notification ID.
+
+    try:
+        # Get NotificationV2
+        api_response = api_instance.get_notification_v2(notification_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling NotificationsApi->get_notification_v2: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **notification_id** | **str**| Must be a valid notification ID. | 
+
+### Return type
+
+[**NotificationV2**](NotificationV2.md)
+
+### Authorization
+
+[authCookie](../README.md#authCookie)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Returns a single NotifcationV2 object. |  -  |
+**401** | Error response due to missing auth cookie. |  -  |
+**403** | Error response due to missing Administrator credentials. |  -  |
+**404** | Error response when trying to perform operations on a non-existing notification. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_notification_v2s**
+> list[NotificationV2] get_notification_v2s(limit=limit)
+
+List NotificationV2s
+
+Retrieve all of the current user's notifications.
+
+### Example
+
+* Api Key Authentication (authCookie):
+```python
+from __future__ import print_function
+import time
+import vrchatapi
+from vrchatapi.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = vrchatapi.Configuration(
+    host = "https://api.vrchat.cloud/api/1"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: authCookie
+configuration.api_key['authCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['authCookie'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with vrchatapi.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = vrchatapi.NotificationsApi(api_client)
+    limit = 100 # int | The maximum number of entries to get. (optional)
+
+    try:
+        # List NotificationV2s
+        api_response = api_instance.get_notification_v2s(limit=limit)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling NotificationsApi->get_notification_v2s: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **limit** | **int**| The maximum number of entries to get. | [optional] 
+
+### Return type
+
+[**list[NotificationV2]**](NotificationV2.md)
+
+### Authorization
+
+[authCookie](../README.md#authCookie)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Returns a list of NotifcationV2 objects. |  -  |
+**401** | Error response due to missing auth cookie. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -461,6 +839,162 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 **200** | Returns a single Notifcation object. |  -  |
 **401** | Error response due to missing auth cookie. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **reply_notification_v2**
+> NotificationV2 reply_notification_v2(notification_id, body)
+
+Reply NotificationV2
+
+Reply to a specific notification
+
+### Example
+
+* Api Key Authentication (authCookie):
+```python
+from __future__ import print_function
+import time
+import vrchatapi
+from vrchatapi.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = vrchatapi.Configuration(
+    host = "https://api.vrchat.cloud/api/1"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: authCookie
+configuration.api_key['authCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['authCookie'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with vrchatapi.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = vrchatapi.NotificationsApi(api_client)
+    notification_id = 'notification_id_example' # str | Must be a valid notification ID.
+body = None # object | 
+
+    try:
+        # Reply NotificationV2
+        api_response = api_instance.reply_notification_v2(notification_id, body)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling NotificationsApi->reply_notification_v2: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **notification_id** | **str**| Must be a valid notification ID. | 
+ **body** | **object**|  | 
+
+### Return type
+
+[**NotificationV2**](NotificationV2.md)
+
+### Authorization
+
+[authCookie](../README.md#authCookie)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Returns a single NotifcationV2 object. |  -  |
+**400** | Error response when trying to perform an invalid operations on a notification. |  -  |
+**401** | Error response due to missing auth cookie. |  -  |
+**404** | Error response when trying to perform operations on a non-existing notification. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **respond_notification_v2**
+> NotificationV2 respond_notification_v2(notification_id, respond_notification_v2_request)
+
+Respond NotificationV2
+
+Respond to a specific notification
+
+### Example
+
+* Api Key Authentication (authCookie):
+```python
+from __future__ import print_function
+import time
+import vrchatapi
+from vrchatapi.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = vrchatapi.Configuration(
+    host = "https://api.vrchat.cloud/api/1"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: authCookie
+configuration.api_key['authCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['authCookie'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with vrchatapi.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = vrchatapi.NotificationsApi(api_client)
+    notification_id = 'notification_id_example' # str | Must be a valid notification ID.
+respond_notification_v2_request = vrchatapi.RespondNotificationV2Request() # RespondNotificationV2Request | 
+
+    try:
+        # Respond NotificationV2
+        api_response = api_instance.respond_notification_v2(notification_id, respond_notification_v2_request)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling NotificationsApi->respond_notification_v2: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **notification_id** | **str**| Must be a valid notification ID. | 
+ **respond_notification_v2_request** | [**RespondNotificationV2Request**](RespondNotificationV2Request.md)|  | 
+
+### Return type
+
+[**NotificationV2**](NotificationV2.md)
+
+### Authorization
+
+[authCookie](../README.md#authCookie)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Returns a single NotifcationV2 object. |  -  |
+**400** | Error response when trying to perform an invalid operations on a notification. |  -  |
+**401** | Error response due to missing auth cookie. |  -  |
+**404** | Error response when trying to perform operations on a non-existing notification. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

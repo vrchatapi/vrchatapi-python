@@ -15,12 +15,12 @@ Name | Type | Description | Notes
 **max_count_per_user** | **int** |  | [default to 1]
 **name** | **str** |  | 
 **release_status** | [**ReleaseStatus**](ReleaseStatus.md) |  | 
-**spawn_type** | **int** |  | [default to 0]
+**spawn_type** | **int** | How a prop is summoned and interacted with. 0: the prop fixed to some surface in the world 1: the prop is a pickup and may be held by users 2: ??? | [default to 1]
 **tags** | **list[str]** |  | 
 **thumbnail_image_url** | **str** |  | 
 **unity_package_url** | **str** |  | 
 **unity_packages** | [**list[PropUnityPackage]**](PropUnityPackage.md) |  | 
-**world_placement_mask** | **int** |  | [default to 1]
+**world_placement_mask** | **int** | Bitmask for restrictions on what world surfaces a prop may be summoned. 0: no restrictions 1: floors 2: walls 4: ceilings | [default to 1]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

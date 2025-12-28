@@ -4,8 +4,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**description** | **str** |  | [optional] 
 **name** | **str** |  | [optional] 
+**description** | **str** |  | [optional] 
 **base_permissions** | [**list[GroupPermissions]**](GroupPermissions.md) |  | [optional] 
 **is_added_on_join** | **bool** |  | [optional] [default to False]
 

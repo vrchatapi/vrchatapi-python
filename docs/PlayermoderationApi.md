@@ -81,7 +81,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_player_moderations**
-> list[PlayerModeration] get_player_moderations(type=type, source_user_id=source_user_id, target_user_id=target_user_id)
+> list[PlayerModeration] get_player_moderations(type=type, target_user_id=target_user_id)
 
 Search Player Moderations
 
@@ -118,12 +118,11 @@ with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = vrchatapi.PlayermoderationApi(api_client)
     type = vrchatapi.PlayerModerationType() # PlayerModerationType | Must be one of PlayerModerationType. (optional)
-source_user_id = 'source_user_id_example' # str | Must be valid UserID. Trying to view someone else's moderations results with \"Can't view someone else's player moderations\" error. (optional)
 target_user_id = 'target_user_id_example' # str | Must be valid UserID. (optional)
 
     try:
         # Search Player Moderations
-        api_response = api_instance.get_player_moderations(type=type, source_user_id=source_user_id, target_user_id=target_user_id)
+        api_response = api_instance.get_player_moderations(type=type, target_user_id=target_user_id)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling PlayermoderationApi->get_player_moderations: %s\n" % e)
@@ -134,7 +133,6 @@ target_user_id = 'target_user_id_example' # str | Must be valid UserID. (optiona
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **type** | [**PlayerModerationType**](.md)| Must be one of PlayerModerationType. | [optional] 
- **source_user_id** | **str**| Must be valid UserID. Trying to view someone else&#39;s moderations results with \&quot;Can&#39;t view someone else&#39;s player moderations\&quot; error. | [optional] 
  **target_user_id** | **str**| Must be valid UserID. | [optional] 
 
 ### Return type

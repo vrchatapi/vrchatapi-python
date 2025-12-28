@@ -6,18 +6,25 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**add_tags**](UsersApi.md#add_tags) | **POST** /users/{userId}/addTags | Add User Tags
 [**check_user_persistence_exists**](UsersApi.md#check_user_persistence_exists) | **GET** /users/{userId}/{worldId}/persist/exists | Check User Persistence Exists
+[**delete_all_user_persistence_data**](UsersApi.md#delete_all_user_persistence_data) | **DELETE** /users/{userId}/persist | Delete All User Persistence Data
 [**delete_user_persistence**](UsersApi.md#delete_user_persistence) | **DELETE** /users/{userId}/{worldId}/persist | Delete User Persistence
+[**get_blocked_groups**](UsersApi.md#get_blocked_groups) | **GET** /users/{userId}/groups/userblocked | Get User Group Blocks
+[**get_invited_groups**](UsersApi.md#get_invited_groups) | **GET** /users/{userId}/groups/invited | Get User Group Invited
+[**get_mutual_friends**](UsersApi.md#get_mutual_friends) | **GET** /users/{userId}/mutuals/friends | Get User Mutual Friends
+[**get_mutual_groups**](UsersApi.md#get_mutual_groups) | **GET** /users/{userId}/mutuals/groups | Get User Mutual Groups
+[**get_mutuals**](UsersApi.md#get_mutuals) | **GET** /users/{userId}/mutuals | Get User Mutuals
 [**get_user**](UsersApi.md#get_user) | **GET** /users/{userId} | Get User by ID
+[**get_user_all_group_permissions**](UsersApi.md#get_user_all_group_permissions) | **GET** /users/{userId}/groups/permissions | Get user&#39;s permissions for all joined groups.
 [**get_user_by_name**](UsersApi.md#get_user_by_name) | **GET** /users/{username}/name | Get User by Username
 [**get_user_feedback**](UsersApi.md#get_user_feedback) | **GET** /users/{userId}/feedback | Get User Feedback
 [**get_user_group_instances**](UsersApi.md#get_user_group_instances) | **GET** /users/{userId}/instances/groups | Get User Group Instances
+[**get_user_group_instances_for_group**](UsersApi.md#get_user_group_instances_for_group) | **GET** /users/{userId}/instances/groups/{groupId} | Get User Group Instances for a specific Group
 [**get_user_group_requests**](UsersApi.md#get_user_group_requests) | **GET** /users/{userId}/groups/requested | Get User Group Requests
 [**get_user_groups**](UsersApi.md#get_user_groups) | **GET** /users/{userId}/groups | Get User Groups
 [**get_user_note**](UsersApi.md#get_user_note) | **GET** /userNotes/{userNoteId} | Get User Note
 [**get_user_notes**](UsersApi.md#get_user_notes) | **GET** /userNotes | Get User Notes
 [**get_user_represented_group**](UsersApi.md#get_user_represented_group) | **GET** /users/{userId}/groups/represented | Get user&#39;s current represented group
 [**remove_tags**](UsersApi.md#remove_tags) | **POST** /users/{userId}/removeTags | Remove User Tags
-[**search_active_users**](UsersApi.md#search_active_users) | **GET** /users/active | Search Active Users
 [**search_users**](UsersApi.md#search_users) | **GET** /users | Search All Users
 [**update_badge**](UsersApi.md#update_badge) | **PUT** /users/{userId}/badges/{badgeId} | Update User Badge
 [**update_user**](UsersApi.md#update_user) | **PUT** /users/{userId} | Update User Info
@@ -177,6 +184,79 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **delete_all_user_persistence_data**
+> delete_all_user_persistence_data(user_id)
+
+Delete All User Persistence Data
+
+Deletes all of the user's persistence data for every world.
+
+### Example
+
+* Api Key Authentication (authCookie):
+```python
+from __future__ import print_function
+import time
+import vrchatapi
+from vrchatapi.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = vrchatapi.Configuration(
+    host = "https://api.vrchat.cloud/api/1"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: authCookie
+configuration.api_key['authCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['authCookie'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with vrchatapi.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = vrchatapi.UsersApi(api_client)
+    user_id = 'user_id_example' # str | Must be a valid user ID.
+
+    try:
+        # Delete All User Persistence Data
+        api_instance.delete_all_user_persistence_data(user_id)
+    except ApiException as e:
+        print("Exception when calling UsersApi->delete_all_user_persistence_data: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **user_id** | **str**| Must be a valid user ID. | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[authCookie](../README.md#authCookie)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | The user&#39;s persistence data for all worlds is deleted. |  -  |
+**401** | Error response due to missing auth cookie. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **delete_user_persistence**
 > delete_user_persistence(user_id, world_id)
 
@@ -253,6 +333,384 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **get_blocked_groups**
+> list[Group] get_blocked_groups(user_id)
+
+Get User Group Blocks
+
+Returns a list of Groups the user has blocked.
+
+### Example
+
+* Api Key Authentication (authCookie):
+```python
+from __future__ import print_function
+import time
+import vrchatapi
+from vrchatapi.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = vrchatapi.Configuration(
+    host = "https://api.vrchat.cloud/api/1"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: authCookie
+configuration.api_key['authCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['authCookie'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with vrchatapi.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = vrchatapi.UsersApi(api_client)
+    user_id = 'user_id_example' # str | Must be a valid user ID.
+
+    try:
+        # Get User Group Blocks
+        api_response = api_instance.get_blocked_groups(user_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling UsersApi->get_blocked_groups: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **user_id** | **str**| Must be a valid user ID. | 
+
+### Return type
+
+[**list[Group]**](Group.md)
+
+### Authorization
+
+[authCookie](../README.md#authCookie)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Returns a list of Group objects. |  -  |
+**401** | Error response due to missing auth cookie. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_invited_groups**
+> list[Group] get_invited_groups(user_id)
+
+Get User Group Invited
+
+Returns a list of Groups the user has been invited to.
+
+### Example
+
+* Api Key Authentication (authCookie):
+```python
+from __future__ import print_function
+import time
+import vrchatapi
+from vrchatapi.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = vrchatapi.Configuration(
+    host = "https://api.vrchat.cloud/api/1"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: authCookie
+configuration.api_key['authCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['authCookie'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with vrchatapi.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = vrchatapi.UsersApi(api_client)
+    user_id = 'user_id_example' # str | Must be a valid user ID.
+
+    try:
+        # Get User Group Invited
+        api_response = api_instance.get_invited_groups(user_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling UsersApi->get_invited_groups: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **user_id** | **str**| Must be a valid user ID. | 
+
+### Return type
+
+[**list[Group]**](Group.md)
+
+### Authorization
+
+[authCookie](../README.md#authCookie)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Returns a list of Group objects. |  -  |
+**401** | Error response due to missing auth cookie. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_mutual_friends**
+> list[MutualFriend] get_mutual_friends(user_id, n=n, offset=offset)
+
+Get User Mutual Friends
+
+Gets a list of mutual friends between the logged in user and the specified user
+
+### Example
+
+* Api Key Authentication (authCookie):
+```python
+from __future__ import print_function
+import time
+import vrchatapi
+from vrchatapi.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = vrchatapi.Configuration(
+    host = "https://api.vrchat.cloud/api/1"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: authCookie
+configuration.api_key['authCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['authCookie'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with vrchatapi.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = vrchatapi.UsersApi(api_client)
+    user_id = 'user_id_example' # str | Must be a valid user ID.
+n = 60 # int | The number of objects to return. (optional) (default to 60)
+offset = 56 # int | A zero-based offset from the default object sorting from where search results start. (optional)
+
+    try:
+        # Get User Mutual Friends
+        api_response = api_instance.get_mutual_friends(user_id, n=n, offset=offset)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling UsersApi->get_mutual_friends: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **user_id** | **str**| Must be a valid user ID. | 
+ **n** | **int**| The number of objects to return. | [optional] [default to 60]
+ **offset** | **int**| A zero-based offset from the default object sorting from where search results start. | [optional] 
+
+### Return type
+
+[**list[MutualFriend]**](MutualFriend.md)
+
+### Authorization
+
+[authCookie](../README.md#authCookie)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Returns a list of MutualFriend objects. |  -  |
+**401** | Error response due to missing auth cookie. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_mutual_groups**
+> list[LimitedUserGroups] get_mutual_groups(user_id, n=n, offset=offset)
+
+Get User Mutual Groups
+
+Gets a list of mutual groups between the logged in user and the specified user
+
+### Example
+
+* Api Key Authentication (authCookie):
+```python
+from __future__ import print_function
+import time
+import vrchatapi
+from vrchatapi.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = vrchatapi.Configuration(
+    host = "https://api.vrchat.cloud/api/1"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: authCookie
+configuration.api_key['authCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['authCookie'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with vrchatapi.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = vrchatapi.UsersApi(api_client)
+    user_id = 'user_id_example' # str | Must be a valid user ID.
+n = 60 # int | The number of objects to return. (optional) (default to 60)
+offset = 56 # int | A zero-based offset from the default object sorting from where search results start. (optional)
+
+    try:
+        # Get User Mutual Groups
+        api_response = api_instance.get_mutual_groups(user_id, n=n, offset=offset)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling UsersApi->get_mutual_groups: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **user_id** | **str**| Must be a valid user ID. | 
+ **n** | **int**| The number of objects to return. | [optional] [default to 60]
+ **offset** | **int**| A zero-based offset from the default object sorting from where search results start. | [optional] 
+
+### Return type
+
+[**list[LimitedUserGroups]**](LimitedUserGroups.md)
+
+### Authorization
+
+[authCookie](../README.md#authCookie)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Returns a list of LimitedUserGroups objects. |  -  |
+**401** | Error response due to missing auth cookie. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_mutuals**
+> Mutuals get_mutuals(user_id)
+
+Get User Mutuals
+
+Gets the counts of mutuals between the logged in user and the specified user
+
+### Example
+
+* Api Key Authentication (authCookie):
+```python
+from __future__ import print_function
+import time
+import vrchatapi
+from vrchatapi.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = vrchatapi.Configuration(
+    host = "https://api.vrchat.cloud/api/1"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: authCookie
+configuration.api_key['authCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['authCookie'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with vrchatapi.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = vrchatapi.UsersApi(api_client)
+    user_id = 'user_id_example' # str | Must be a valid user ID.
+
+    try:
+        # Get User Mutuals
+        api_response = api_instance.get_mutuals(user_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling UsersApi->get_mutuals: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **user_id** | **str**| Must be a valid user ID. | 
+
+### Return type
+
+[**Mutuals**](Mutuals.md)
+
+### Authorization
+
+[authCookie](../README.md#authCookie)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Returns a single Mutuals object. |  -  |
+**401** | Error response due to missing auth cookie. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **get_user**
 > User get_user(user_id)
 
@@ -323,6 +781,82 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Returns a single User object. |  -  |
+**401** | Error response due to missing auth cookie. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_user_all_group_permissions**
+> dict(str, list[GroupPermissions]) get_user_all_group_permissions(user_id, group_ids=group_ids)
+
+Get user's permissions for all joined groups.
+
+Returns a mapping of GroupIDs to arrays of GroupPermissions.
+
+### Example
+
+* Api Key Authentication (authCookie):
+```python
+from __future__ import print_function
+import time
+import vrchatapi
+from vrchatapi.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = vrchatapi.Configuration(
+    host = "https://api.vrchat.cloud/api/1"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: authCookie
+configuration.api_key['authCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['authCookie'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with vrchatapi.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = vrchatapi.UsersApi(api_client)
+    user_id = 'user_id_example' # str | Must be a valid user ID.
+group_ids = 'grp_00000000-0000-0000-0000-000000000000,grp_11111111-1111-1111-1111-111111111111' # str | Comma-separated (no spaces!) list of GroupIDs to retrieve permissions for. (optional)
+
+    try:
+        # Get user's permissions for all joined groups.
+        api_response = api_instance.get_user_all_group_permissions(user_id, group_ids=group_ids)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling UsersApi->get_user_all_group_permissions: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **user_id** | **str**| Must be a valid user ID. | 
+ **group_ids** | **str**| Comma-separated (no spaces!) list of GroupIDs to retrieve permissions for. | [optional] 
+
+### Return type
+
+**dict(str, list[GroupPermissions])**
+
+### Authorization
+
+[authCookie](../README.md#authCookie)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | The group permissions the user has for every joined group. |  -  |
 **401** | Error response due to missing auth cookie. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -533,6 +1067,83 @@ with vrchatapi.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **user_id** | **str**| Must be a valid user ID. | 
+
+### Return type
+
+[**GetUserGroupInstances200Response**](GetUserGroupInstances200Response.md)
+
+### Authorization
+
+[authCookie](../README.md#authCookie)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Returns a list of Instance objects with a fetched at time. |  -  |
+**401** | Error response due to missing auth cookie. |  -  |
+**403** | Error response when trying get group instances of another user. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_user_group_instances_for_group**
+> GetUserGroupInstances200Response get_user_group_instances_for_group(user_id, group_id)
+
+Get User Group Instances for a specific Group
+
+Returns a list of a group's instances for a user
+
+### Example
+
+* Api Key Authentication (authCookie):
+```python
+from __future__ import print_function
+import time
+import vrchatapi
+from vrchatapi.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = vrchatapi.Configuration(
+    host = "https://api.vrchat.cloud/api/1"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: authCookie
+configuration.api_key['authCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['authCookie'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with vrchatapi.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = vrchatapi.UsersApi(api_client)
+    user_id = 'user_id_example' # str | Must be a valid user ID.
+group_id = 'grp_00000000-0000-0000-0000-000000000000' # str | Must be a valid group ID.
+
+    try:
+        # Get User Group Instances for a specific Group
+        api_response = api_instance.get_user_group_instances_for_group(user_id, group_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling UsersApi->get_user_group_instances_for_group: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **user_id** | **str**| Must be a valid user ID. | 
+ **group_id** | **str**| Must be a valid group ID. | 
 
 ### Return type
 
@@ -1005,89 +1616,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **search_active_users**
-> list[LimitedUserFriend] search_active_users(search, developer_type=developer_type, offset=offset, n=n)
-
-Search Active Users
-
-**REQUIRES ADMIN CREDENTIALS**. Search and list any Active users by text query.
-
-### Example
-
-* Api Key Authentication (authCookie):
-```python
-from __future__ import print_function
-import time
-import vrchatapi
-from vrchatapi.rest import ApiException
-from pprint import pprint
-# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
-# See configuration.py for a list of all supported configuration parameters.
-configuration = vrchatapi.Configuration(
-    host = "https://api.vrchat.cloud/api/1"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: authCookie
-configuration.api_key['authCookie'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['authCookie'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with vrchatapi.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = vrchatapi.UsersApi(api_client)
-    search = 'search_example' # str | Username to search for
-developer_type = 'developer_type_example' # str | Active user by developer type, none for normal users and internal for moderators (optional)
-offset = 56 # int | A zero-based offset from the default object sorting from where search results start. (optional)
-n = 60 # int | The number of objects to return. (optional) (default to 60)
-
-    try:
-        # Search Active Users
-        api_response = api_instance.search_active_users(search, developer_type=developer_type, offset=offset, n=n)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling UsersApi->search_active_users: %s\n" % e)
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **search** | **str**| Username to search for | 
- **developer_type** | **str**| Active user by developer type, none for normal users and internal for moderators | [optional] 
- **offset** | **int**| A zero-based offset from the default object sorting from where search results start. | [optional] 
- **n** | **int**| The number of objects to return. | [optional] [default to 60]
-
-### Return type
-
-[**list[LimitedUserFriend]**](LimitedUserFriend.md)
-
-### Authorization
-
-[authCookie](../README.md#authCookie)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | OK |  -  |
-**401** | Error response due to missing auth cookie. |  -  |
-**403** | Error response due to missing Administrator credentials. |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 # **search_users**
-> list[LimitedUserSearch] search_users(search=search, developer_type=developer_type, n=n, offset=offset)
+> list[LimitedUserSearch] search_users(search=search, developer_type=developer_type, n=n, offset=offset, is_internal_variant=is_internal_variant)
 
 Search All Users
 
@@ -1127,10 +1657,11 @@ with vrchatapi.ApiClient(configuration) as api_client:
 developer_type = 'developer_type_example' # str | Active user by developer type, none for normal users and internal for moderators (optional)
 n = 60 # int | The number of objects to return. (optional) (default to 60)
 offset = 56 # int | A zero-based offset from the default object sorting from where search results start. (optional)
+is_internal_variant = false # bool | Not quite sure what this actually does (exists on the website but doesn't seem to be used) (optional)
 
     try:
         # Search All Users
-        api_response = api_instance.search_users(search=search, developer_type=developer_type, n=n, offset=offset)
+        api_response = api_instance.search_users(search=search, developer_type=developer_type, n=n, offset=offset, is_internal_variant=is_internal_variant)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling UsersApi->search_users: %s\n" % e)
@@ -1144,6 +1675,7 @@ Name | Type | Description  | Notes
  **developer_type** | **str**| Active user by developer type, none for normal users and internal for moderators | [optional] 
  **n** | **int**| The number of objects to return. | [optional] [default to 60]
  **offset** | **int**| A zero-based offset from the default object sorting from where search results start. | [optional] 
+ **is_internal_variant** | **bool**| Not quite sure what this actually does (exists on the website but doesn&#39;t seem to be used) | [optional] 
 
 ### Return type
 

@@ -773,7 +773,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **search_avatars**
-> list[Avatar] search_avatars(featured=featured, sort=sort, user=user, user_id=user_id, n=n, order=order, offset=offset, tag=tag, notag=notag, release_status=release_status, max_unity_version=max_unity_version, min_unity_version=min_unity_version, platform=platform)
+> list[Avatar] search_avatars(featured=featured, sort=sort, user=user, user_id=user_id, n=n, order=order, offset=offset, tag=tag, notag=notag, release_status=release_status, max_unity_version=max_unity_version, min_unity_version=min_unity_version, platform=platform, is_internal_variant=is_internal_variant)
 
 Search Avatars
 
@@ -822,10 +822,11 @@ release_status = vrchatapi.ReleaseStatus() # ReleaseStatus | Filter by ReleaseSt
 max_unity_version = 'max_unity_version_example' # str | The maximum Unity version supported by the asset. (optional)
 min_unity_version = 'min_unity_version_example' # str | The minimum Unity version supported by the asset. (optional)
 platform = 'platform_example' # str | The platform the asset supports. (optional)
+is_internal_variant = false # bool | Not quite sure what this actually does (exists on the website but doesn't seem to be used) (optional)
 
     try:
         # Search Avatars
-        api_response = api_instance.search_avatars(featured=featured, sort=sort, user=user, user_id=user_id, n=n, order=order, offset=offset, tag=tag, notag=notag, release_status=release_status, max_unity_version=max_unity_version, min_unity_version=min_unity_version, platform=platform)
+        api_response = api_instance.search_avatars(featured=featured, sort=sort, user=user, user_id=user_id, n=n, order=order, offset=offset, tag=tag, notag=notag, release_status=release_status, max_unity_version=max_unity_version, min_unity_version=min_unity_version, platform=platform, is_internal_variant=is_internal_variant)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling AvatarsApi->search_avatars: %s\n" % e)
@@ -848,6 +849,7 @@ Name | Type | Description  | Notes
  **max_unity_version** | **str**| The maximum Unity version supported by the asset. | [optional] 
  **min_unity_version** | **str**| The minimum Unity version supported by the asset. | [optional] 
  **platform** | **str**| The platform the asset supports. | [optional] 
+ **is_internal_variant** | **bool**| Not quite sure what this actually does (exists on the website but doesn&#39;t seem to be used) | [optional] 
 
 ### Return type
 

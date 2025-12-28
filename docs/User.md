@@ -11,8 +11,8 @@ Name | Type | Description | Notes
 **bio** | **str** |  | 
 **bio_links** | **list[str]** |  | 
 **current_avatar_image_url** | **str** | When profilePicOverride is not empty, use it instead. | 
-**current_avatar_thumbnail_image_url** | **str** | When profilePicOverride is not empty, use it instead. | 
 **current_avatar_tags** | **list[str]** |  | 
+**current_avatar_thumbnail_image_url** | **str** | When profilePicOverride is not empty, use it instead. | 
 **date_joined** | **date** |  | 
 **developer_type** | [**DeveloperType**](DeveloperType.md) |  | 
 **display_name** | **str** | A users visual display name. This is what shows up in-game, and can different from their &#x60;username&#x60;. Changing display name is restricted to a cooldown period. | 
@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 **last_activity** | **str** | Either a date-time or empty string. | 
 **last_login** | **str** | Either a date-time or empty string. | 
 **last_mobile** | **str** |  | [optional] 
-**last_platform** | **str** | This can be &#x60;standalonewindows&#x60; or &#x60;android&#x60;, but can also pretty much be any random Unity verison such as &#x60;2019.2.4-801-Release&#x60; or &#x60;2019.2.2-772-Release&#x60; or even &#x60;unknownplatform&#x60;. | 
+**last_platform** | **str** | This is normally &#x60;android&#x60;, &#x60;ios&#x60;, &#x60;standalonewindows&#x60;, &#x60;web&#x60;, or the empty value &#x60;&#x60;, but also supposedly can be any random Unity version such as &#x60;2019.2.4-801-Release&#x60; or &#x60;2019.2.2-772-Release&#x60; or even &#x60;unknownplatform&#x60;. | 
 **location** | **str** | Represents a unique location, consisting of a world identifier and an instance identifier, or \&quot;offline\&quot; if the user is not on your friends list. | [optional] 
 **note** | **str** |  | [optional] 
 **platform** | **str** |  | [optional] 

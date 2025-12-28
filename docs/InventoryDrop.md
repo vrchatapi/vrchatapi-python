@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **drop_expiry_date** | **datetime** |  | 
 **end_drop_date** | **datetime** |  | 
 **id** | **str** |  | 
+**is_disabled** | **bool** |  | 
 **name** | **str** |  | 
 **notification_details** | [**InventoryNotificationDetails**](InventoryNotificationDetails.md) |  | 
 **start_drop_date** | **datetime** |  | 

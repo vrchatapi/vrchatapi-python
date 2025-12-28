@@ -51,7 +51,7 @@ configuration.api_key['authCookie'] = 'YOUR_API_KEY'
 with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = vrchatapi.FavoritesApi(api_client)
-    add_favorite_request = {"type":"friend","favoriteId":"usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469","tags":["group_0"]} # AddFavoriteRequest |  (optional)
+    add_favorite_request = {"type":"avatar","favoriteId":"avtr_912d66a4-4714-43b8-8407-7de2cafbf55b","tags":["avatars1"]} # AddFavoriteRequest |  (optional)
 
     try:
         # Add Favorite

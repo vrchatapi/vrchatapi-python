@@ -11,13 +11,17 @@ Method | HTTP request | Description
 [**download_file_version**](FilesApi.md#download_file_version) | **GET** /file/{fileId}/{versionId} | Download File Version
 [**finish_file_data_upload**](FilesApi.md#finish_file_data_upload) | **PUT** /file/{fileId}/{versionId}/{fileType}/finish | Finish FileData Upload
 [**get_admin_asset_bundle**](FilesApi.md#get_admin_asset_bundle) | **GET** /adminassetbundles/{adminAssetBundleId} | Get AdminAssetBundle
+[**get_content_agreement_status**](FilesApi.md#get_content_agreement_status) | **GET** /agreement | Get Content Agreement Status
 [**get_file**](FilesApi.md#get_file) | **GET** /file/{fileId} | Show File
 [**get_file_analysis**](FilesApi.md#get_file_analysis) | **GET** /analysis/{fileId}/{versionId} | Get File Version Analysis
 [**get_file_analysis_security**](FilesApi.md#get_file_analysis_security) | **GET** /analysis/{fileId}/{versionId}/security | Get File Version Analysis Security
 [**get_file_analysis_standard**](FilesApi.md#get_file_analysis_standard) | **GET** /analysis/{fileId}/{versionId}/standard | Get File Version Analysis Standard
 [**get_file_data_upload_status**](FilesApi.md#get_file_data_upload_status) | **GET** /file/{fileId}/{versionId}/{fileType}/status | Check FileData Upload Status
 [**get_files**](FilesApi.md#get_files) | **GET** /files | List Files
+[**set_group_gallery_file_order**](FilesApi.md#set_group_gallery_file_order) | **PUT** /files/order | Set Group Gallery File Order
 [**start_file_data_upload**](FilesApi.md#start_file_data_upload) | **PUT** /file/{fileId}/{versionId}/{fileType}/start | Start FileData Upload
+[**submit_content_agreement**](FilesApi.md#submit_content_agreement) | **POST** /agreement | Submit Content Agreement
+[**update_asset_review_notes**](FilesApi.md#update_asset_review_notes) | **PUT** /assetReview/{assetReviewId}/notes | Update Asset Review Notes
 [**upload_gallery_image**](FilesApi.md#upload_gallery_image) | **POST** /gallery | Upload gallery image
 [**upload_icon**](FilesApi.md#upload_icon) | **POST** /icon | Upload icon
 [**upload_image**](FilesApi.md#upload_image) | **POST** /file/image | Upload gallery image, icon, emoji or sticker
@@ -438,7 +442,7 @@ with vrchatapi.ApiClient(configuration) as api_client:
     file_id = 'file_00000000-0000-0000-0000-000000000000' # str | Must be a valid file ID.
 version_id = 1 # int | Version ID of the asset.
 file_type = 'file' # str | Type of file.
-finish_file_data_upload_request = {"etags":["xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx","yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy"],"nextPartNumber":"0","maxParts":"0"} # FinishFileDataUploadRequest | Please see documentation on ETag's: [https://teppen.io/2018/06/23/aws_s3_etags/](https://teppen.io/2018/06/23/aws_s3_etags/)  ETag's should NOT be present when uploading a `signature`. (optional)
+finish_file_data_upload_request = {"etags":["xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx","yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy"],"maxParts":"0","nextPartNumber":"0"} # FinishFileDataUploadRequest | Please see documentation on ETag's: [https://teppen.io/2018/06/23/aws_s3_etags/](https://teppen.io/2018/06/23/aws_s3_etags/)  ETag's should NOT be present when uploading a `signature`. (optional)
 
     try:
         # Finish FileData Upload
@@ -547,6 +551,84 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Returns a single AdminAssetBundle object. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_content_agreement_status**
+> AgreementStatus get_content_agreement_status(agreement_code, content_id, version)
+
+Get Content Agreement Status
+
+Returns the agreement status of the currently authenticated user for the given agreementCode, contentId, and version.
+
+### Example
+
+* Api Key Authentication (authCookie):
+```python
+from __future__ import print_function
+import time
+import vrchatapi
+from vrchatapi.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = vrchatapi.Configuration(
+    host = "https://api.vrchat.cloud/api/1"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: authCookie
+configuration.api_key['authCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['authCookie'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with vrchatapi.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = vrchatapi.FilesApi(api_client)
+    agreement_code = vrchatapi.AgreementCode() # AgreementCode | The type of agreement (currently content.copyright.owned)
+content_id = 'avtr_c38a1615-5bf5-42b4-84eb-a8b6c37cbd11' # str | The id of the content being uploaded, such as a WorldID, AvatarID, or PropID
+version = 1 # int | The version of the agreement (currently 1)
+
+    try:
+        # Get Content Agreement Status
+        api_response = api_instance.get_content_agreement_status(agreement_code, content_id, version)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling FilesApi->get_content_agreement_status: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **agreement_code** | [**AgreementCode**](.md)| The type of agreement (currently content.copyright.owned) | 
+ **content_id** | **str**| The id of the content being uploaded, such as a WorldID, AvatarID, or PropID | 
+ **version** | **int**| The version of the agreement (currently 1) | 
+
+### Return type
+
+[**AgreementStatus**](AgreementStatus.md)
+
+### Authorization
+
+[authCookie](../README.md#authCookie)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Returns a single AgreementStatus object. |  -  |
+**401** | Error response due to missing auth cookie. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1011,6 +1093,80 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **set_group_gallery_file_order**
+> GroupGalleryFileOrder set_group_gallery_file_order(group_gallery_file_order_request=group_gallery_file_order_request)
+
+Set Group Gallery File Order
+
+Set the order of the files in a group gallery
+
+### Example
+
+* Api Key Authentication (authCookie):
+```python
+from __future__ import print_function
+import time
+import vrchatapi
+from vrchatapi.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = vrchatapi.Configuration(
+    host = "https://api.vrchat.cloud/api/1"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: authCookie
+configuration.api_key['authCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['authCookie'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with vrchatapi.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = vrchatapi.FilesApi(api_client)
+    group_gallery_file_order_request = vrchatapi.GroupGalleryFileOrderRequest() # GroupGalleryFileOrderRequest |  (optional)
+
+    try:
+        # Set Group Gallery File Order
+        api_response = api_instance.set_group_gallery_file_order(group_gallery_file_order_request=group_gallery_file_order_request)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling FilesApi->set_group_gallery_file_order: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **group_gallery_file_order_request** | [**GroupGalleryFileOrderRequest**](GroupGalleryFileOrderRequest.md)|  | [optional] 
+
+### Return type
+
+[**GroupGalleryFileOrder**](GroupGalleryFileOrder.md)
+
+### Authorization
+
+[authCookie](../README.md#authCookie)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Returns a list of File IDs. |  -  |
+**404** | Error response when trying to show information about a non-existent file. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **start_file_data_upload**
 > FileUploadURL start_file_data_upload(file_id, version_id, file_type, part_number=part_number)
 
@@ -1088,6 +1244,155 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 **200** | See [https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html](AWS REST docs - PUT Object) |  -  |
 **400** | Error response when trying to start an upload against a FileVersion that is already marked as  &#x60;complete&#x60;. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **submit_content_agreement**
+> Agreement submit_content_agreement(agreement_request=agreement_request)
+
+Submit Content Agreement
+
+Returns the agreement of the currently authenticated user for the given agreementCode, contentId, and version.
+
+### Example
+
+* Api Key Authentication (authCookie):
+```python
+from __future__ import print_function
+import time
+import vrchatapi
+from vrchatapi.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = vrchatapi.Configuration(
+    host = "https://api.vrchat.cloud/api/1"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: authCookie
+configuration.api_key['authCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['authCookie'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with vrchatapi.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = vrchatapi.FilesApi(api_client)
+    agreement_request = vrchatapi.AgreementRequest() # AgreementRequest |  (optional)
+
+    try:
+        # Submit Content Agreement
+        api_response = api_instance.submit_content_agreement(agreement_request=agreement_request)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling FilesApi->submit_content_agreement: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **agreement_request** | [**AgreementRequest**](AgreementRequest.md)|  | [optional] 
+
+### Return type
+
+[**Agreement**](Agreement.md)
+
+### Authorization
+
+[authCookie](../README.md#authCookie)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Returns a single Agreement object. |  -  |
+**401** | Error response due to missing auth cookie. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **update_asset_review_notes**
+> update_asset_review_notes(asset_review_id, update_asset_review_notes_request=update_asset_review_notes_request)
+
+Update Asset Review Notes
+
+Update notes regarding an asset review.
+
+### Example
+
+* Api Key Authentication (authCookie):
+```python
+from __future__ import print_function
+import time
+import vrchatapi
+from vrchatapi.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = vrchatapi.Configuration(
+    host = "https://api.vrchat.cloud/api/1"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: authCookie
+configuration.api_key['authCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['authCookie'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with vrchatapi.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = vrchatapi.FilesApi(api_client)
+    asset_review_id = 'asset_review_id_example' # str | Must be an valid asset review ID.
+update_asset_review_notes_request = vrchatapi.UpdateAssetReviewNotesRequest() # UpdateAssetReviewNotesRequest |  (optional)
+
+    try:
+        # Update Asset Review Notes
+        api_instance.update_asset_review_notes(asset_review_id, update_asset_review_notes_request=update_asset_review_notes_request)
+    except ApiException as e:
+        print("Exception when calling FilesApi->update_asset_review_notes: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **asset_review_id** | **str**| Must be an valid asset review ID. | 
+ **update_asset_review_notes_request** | [**UpdateAssetReviewNotesRequest**](UpdateAssetReviewNotesRequest.md)|  | [optional] 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[authCookie](../README.md#authCookie)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | The asset review notes are submitted. |  -  |
+**401** | Error response due to missing auth cookie. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1238,7 +1543,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **upload_image**
-> File upload_image(file, tag, frames=frames, frames_over_time=frames_over_time, animation_style=animation_style, mask_tag=mask_tag)
+> File upload_image(file, tag, animation_style=animation_style, frames=frames, frames_over_time=frames_over_time, loop_style=loop_style, mask_tag=mask_tag)
 
 Upload gallery image, icon, emoji or sticker
 
@@ -1275,15 +1580,16 @@ with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = vrchatapi.FilesApi(api_client)
     file = '/path/to/file' # file | The binary blob of the png file.
-tag = 'tag_example' # str | Needs to be either icon, gallery, sticker, emoji, or emojianimated
-frames = 56 # int | Required for emojianimated. Total number of frames to be animated (2-64) (optional)
-frames_over_time = 56 # int | Required for emojianimated. Animation frames per second (1-64) (optional)
-animation_style = 'animation_style_example' # str | Animation style for sticker, required for emoji. (optional)
-mask_tag = 'mask_tag_example' # str | Mask of the sticker, optional for emoji. (optional)
+tag = vrchatapi.ImagePurpose() # ImagePurpose | 
+animation_style = vrchatapi.ImageAnimationStyle() # ImageAnimationStyle |  (optional)
+frames = 56 # int | Required for animated images. Total number of frames of the spritesheet to be animated. (optional)
+frames_over_time = 56 # int | Required for animated images. Animation frames per second. (optional)
+loop_style = vrchatapi.ImageLoopStyle() # ImageLoopStyle |  (optional)
+mask_tag = vrchatapi.ImageMask() # ImageMask |  (optional)
 
     try:
         # Upload gallery image, icon, emoji or sticker
-        api_response = api_instance.upload_image(file, tag, frames=frames, frames_over_time=frames_over_time, animation_style=animation_style, mask_tag=mask_tag)
+        api_response = api_instance.upload_image(file, tag, animation_style=animation_style, frames=frames, frames_over_time=frames_over_time, loop_style=loop_style, mask_tag=mask_tag)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling FilesApi->upload_image: %s\n" % e)
@@ -1294,11 +1600,12 @@ mask_tag = 'mask_tag_example' # str | Mask of the sticker, optional for emoji. (
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **file** | **file**| The binary blob of the png file. | 
- **tag** | **str**| Needs to be either icon, gallery, sticker, emoji, or emojianimated | 
- **frames** | **int**| Required for emojianimated. Total number of frames to be animated (2-64) | [optional] 
- **frames_over_time** | **int**| Required for emojianimated. Animation frames per second (1-64) | [optional] 
- **animation_style** | **str**| Animation style for sticker, required for emoji. | [optional] 
- **mask_tag** | **str**| Mask of the sticker, optional for emoji. | [optional] 
+ **tag** | [**ImagePurpose**](ImagePurpose.md)|  | 
+ **animation_style** | [**ImageAnimationStyle**](ImageAnimationStyle.md)|  | [optional] 
+ **frames** | **int**| Required for animated images. Total number of frames of the spritesheet to be animated. | [optional] 
+ **frames_over_time** | **int**| Required for animated images. Animation frames per second. | [optional] 
+ **loop_style** | [**ImageLoopStyle**](ImageLoopStyle.md)|  | [optional] 
+ **mask_tag** | [**ImageMask**](ImageMask.md)|  | [optional] 
 
 ### Return type
 

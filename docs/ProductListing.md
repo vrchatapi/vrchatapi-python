@@ -31,9 +31,13 @@ Name | Type | Description | Notes
 **refundable** | **bool** |  | 
 **seller_display_name** | **str** |  | 
 **seller_id** | **str** |  | 
+**sold_by_vrc** | **bool** |  | [optional] 
 **stackable** | **bool** |  | 
 **store_ids** | **list[str]** |  | 
+**subtitle** | **str** |  | [optional] 
 **tags** | **list[str]** |  | [optional] 
+**vrc_plus_discount_price** | **int** |  | [optional] 
+**when_to_expire** | **datetime** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -328,7 +328,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **invite_user_with_photo**
-> SentNotification invite_user_with_photo(user_id, image, data)
+> SentNotification invite_user_with_photo(user_id, data, image)
 
 Invite User with photo
 
@@ -365,12 +365,12 @@ with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = vrchatapi.InviteApi(api_client)
     user_id = 'user_id_example' # str | Must be a valid user ID.
-image = '/path/to/file' # file | The binary blob of the png file.
 data = vrchatapi.InviteRequest() # InviteRequest | 
+image = '/path/to/file' # file | The binary blob of the png file.
 
     try:
         # Invite User with photo
-        api_response = api_instance.invite_user_with_photo(user_id, image, data)
+        api_response = api_instance.invite_user_with_photo(user_id, data, image)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling InviteApi->invite_user_with_photo: %s\n" % e)
@@ -381,8 +381,8 @@ data = vrchatapi.InviteRequest() # InviteRequest |
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **user_id** | **str**| Must be a valid user ID. | 
- **image** | **file**| The binary blob of the png file. | 
  **data** | [**InviteRequest**](InviteRequest.md)|  | 
+ **image** | **file**| The binary blob of the png file. | 
 
 ### Return type
 
@@ -482,7 +482,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **request_invite_with_photo**
-> Notification request_invite_with_photo(user_id, image, data)
+> Notification request_invite_with_photo(user_id, data, image)
 
 Request Invite with photo
 
@@ -519,12 +519,12 @@ with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = vrchatapi.InviteApi(api_client)
     user_id = 'user_id_example' # str | Must be a valid user ID.
-image = '/path/to/file' # file | The binary blob of the png file.
 data = vrchatapi.RequestInviteRequest() # RequestInviteRequest | 
+image = '/path/to/file' # file | The binary blob of the png file.
 
     try:
         # Request Invite with photo
-        api_response = api_instance.request_invite_with_photo(user_id, image, data)
+        api_response = api_instance.request_invite_with_photo(user_id, data, image)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling InviteApi->request_invite_with_photo: %s\n" % e)
@@ -535,8 +535,8 @@ data = vrchatapi.RequestInviteRequest() # RequestInviteRequest |
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **user_id** | **str**| Must be a valid user ID. | 
- **image** | **file**| The binary blob of the png file. | 
  **data** | [**RequestInviteRequest**](RequestInviteRequest.md)|  | 
+ **image** | **file**| The binary blob of the png file. | 
 
 ### Return type
 
@@ -717,7 +717,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **respond_invite_with_photo**
-> Notification respond_invite_with_photo(notification_id, image, data)
+> Notification respond_invite_with_photo(notification_id, data, image)
 
 Respond Invite with photo
 
@@ -754,12 +754,12 @@ with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = vrchatapi.InviteApi(api_client)
     notification_id = 'notification_id_example' # str | Must be a valid notification ID.
-image = '/path/to/file' # file | The binary blob of the png file.
 data = vrchatapi.InviteResponse() # InviteResponse | 
+image = '/path/to/file' # file | The binary blob of the png file.
 
     try:
         # Respond Invite with photo
-        api_response = api_instance.respond_invite_with_photo(notification_id, image, data)
+        api_response = api_instance.respond_invite_with_photo(notification_id, data, image)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling InviteApi->respond_invite_with_photo: %s\n" % e)
@@ -770,8 +770,8 @@ data = vrchatapi.InviteResponse() # InviteResponse |
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **notification_id** | **str**| Must be a valid notification ID. | 
- **image** | **file**| The binary blob of the png file. | 
  **data** | [**InviteResponse**](InviteResponse.md)|  | 
+ **image** | **file**| The binary blob of the png file. | 
 
 ### Return type
 

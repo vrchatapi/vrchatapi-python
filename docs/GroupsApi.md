@@ -8,12 +8,15 @@ Method | HTTP request | Description
 [**add_group_member_role**](GroupsApi.md#add_group_member_role) | **PUT** /groups/{groupId}/members/{userId}/roles/{groupRoleId} | Add Role to GroupMember
 [**add_group_post**](GroupsApi.md#add_group_post) | **POST** /groups/{groupId}/posts | Create a post in a Group
 [**ban_group_member**](GroupsApi.md#ban_group_member) | **POST** /groups/{groupId}/bans | Ban Group Member
+[**block_group**](GroupsApi.md#block_group) | **POST** /groups/{groupId}/block | Block Group
 [**cancel_group_request**](GroupsApi.md#cancel_group_request) | **DELETE** /groups/{groupId}/requests | Cancel Group Join Request
+[**cancel_group_transfer**](GroupsApi.md#cancel_group_transfer) | **DELETE** /groups/{groupId}/transfer | Cancel Group Transfer
 [**create_group**](GroupsApi.md#create_group) | **POST** /groups | Create Group
 [**create_group_announcement**](GroupsApi.md#create_group_announcement) | **POST** /groups/{groupId}/announcement | Create Group Announcement
 [**create_group_gallery**](GroupsApi.md#create_group_gallery) | **POST** /groups/{groupId}/galleries | Create Group Gallery
 [**create_group_invite**](GroupsApi.md#create_group_invite) | **POST** /groups/{groupId}/invites | Invite User to Group
 [**create_group_role**](GroupsApi.md#create_group_role) | **POST** /groups/{groupId}/roles | Create GroupRole
+[**decline_group_invite**](GroupsApi.md#decline_group_invite) | **PUT** /groups/{groupId}/invites | Decline Invite from Group
 [**delete_group**](GroupsApi.md#delete_group) | **DELETE** /groups/{groupId} | Delete Group
 [**delete_group_announcement**](GroupsApi.md#delete_group_announcement) | **DELETE** /groups/{groupId}/announcement | Delete Group Announcement
 [**delete_group_gallery**](GroupsApi.md#delete_group_gallery) | **DELETE** /groups/{groupId}/galleries/{groupGalleryId} | Delete Group Gallery
@@ -23,6 +26,7 @@ Method | HTTP request | Description
 [**delete_group_role**](GroupsApi.md#delete_group_role) | **DELETE** /groups/{groupId}/roles/{groupRoleId} | Delete Group Role
 [**get_group**](GroupsApi.md#get_group) | **GET** /groups/{groupId} | Get Group by ID
 [**get_group_announcements**](GroupsApi.md#get_group_announcements) | **GET** /groups/{groupId}/announcement | Get Group Announcement
+[**get_group_audit_log_entry_types**](GroupsApi.md#get_group_audit_log_entry_types) | **GET** /groups/{groupId}/auditLogTypes | Get Group Audit Log Entry Types
 [**get_group_audit_logs**](GroupsApi.md#get_group_audit_logs) | **GET** /groups/{groupId}/auditLogs | Get Group Audit Logs
 [**get_group_bans**](GroupsApi.md#get_group_bans) | **GET** /groups/{groupId}/bans | Get Group Bans
 [**get_group_gallery_images**](GroupsApi.md#get_group_gallery_images) | **GET** /groups/{groupId}/galleries/{groupGalleryId} | Get Group Gallery Images
@@ -35,11 +39,14 @@ Method | HTTP request | Description
 [**get_group_requests**](GroupsApi.md#get_group_requests) | **GET** /groups/{groupId}/requests | Get Group Join Requests
 [**get_group_role_templates**](GroupsApi.md#get_group_role_templates) | **GET** /groups/roleTemplates | Get Group Role Templates
 [**get_group_roles**](GroupsApi.md#get_group_roles) | **GET** /groups/{groupId}/roles | Get Group Roles
+[**get_group_transferability**](GroupsApi.md#get_group_transferability) | **GET** /groups/{groupId}/transfer | Get Group Transferability
+[**initiate_or_accept_group_transfer**](GroupsApi.md#initiate_or_accept_group_transfer) | **POST** /groups/{groupId}/transfer | Initiate or Accept Group Transfer
 [**join_group**](GroupsApi.md#join_group) | **POST** /groups/{groupId}/join | Join Group
 [**kick_group_member**](GroupsApi.md#kick_group_member) | **DELETE** /groups/{groupId}/members/{userId} | Kick Group Member
 [**leave_group**](GroupsApi.md#leave_group) | **POST** /groups/{groupId}/leave | Leave Group
 [**remove_group_member_role**](GroupsApi.md#remove_group_member_role) | **DELETE** /groups/{groupId}/members/{userId}/roles/{groupRoleId} | Remove Role from GroupMember
 [**respond_group_join_request**](GroupsApi.md#respond_group_join_request) | **PUT** /groups/{groupId}/requests/{userId} | Respond Group Join request
+[**search_group_members**](GroupsApi.md#search_group_members) | **GET** /groups/{groupId}/members/search | Search Group Members
 [**search_groups**](GroupsApi.md#search_groups) | **GET** /groups | Search Group
 [**unban_group_member**](GroupsApi.md#unban_group_member) | **DELETE** /groups/{groupId}/bans/{userId} | Unban Group Member
 [**update_group**](GroupsApi.md#update_group) | **PUT** /groups/{groupId} | Update Group
@@ -362,6 +369,83 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **block_group**
+> Success block_group(group_id)
+
+Block Group
+
+Blocks a Group for the current user. To unblock a group, call kickGroupMember (DELETE /groups/{groupId}/members/{userId}).
+
+### Example
+
+* Api Key Authentication (authCookie):
+```python
+from __future__ import print_function
+import time
+import vrchatapi
+from vrchatapi.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = vrchatapi.Configuration(
+    host = "https://api.vrchat.cloud/api/1"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: authCookie
+configuration.api_key['authCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['authCookie'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with vrchatapi.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = vrchatapi.GroupsApi(api_client)
+    group_id = 'grp_00000000-0000-0000-0000-000000000000' # str | Must be a valid group ID.
+
+    try:
+        # Block Group
+        api_response = api_instance.block_group(group_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling GroupsApi->block_group: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **group_id** | **str**| Must be a valid group ID. | 
+
+### Return type
+
+[**Success**](Success.md)
+
+### Authorization
+
+[authCookie](../README.md#authCookie)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response after blocking a Group. |  -  |
+**400** | Bad request error response when banning a user |  -  |
+**401** | Error response due to missing auth cookie. |  -  |
+**403** | Error response when trying to block a group you already have blocked. |  -  |
+**404** | Error response when trying to perform operations on a non-existing group. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **cancel_group_request**
 > cancel_group_request(group_id)
 
@@ -433,6 +517,82 @@ void (empty response body)
 **200** | OK |  -  |
 **400** | You can&#39;t cancel a join request if you didn&#39;t request to join․ |  -  |
 **403** | Error response when trying to perform operations on a group you are not member of. |  -  |
+**404** | Error response when trying to perform operations on a non-existing group. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **cancel_group_transfer**
+> Success cancel_group_transfer(group_id)
+
+Cancel Group Transfer
+
+Cancel a Group Transfer.
+
+### Example
+
+* Api Key Authentication (authCookie):
+```python
+from __future__ import print_function
+import time
+import vrchatapi
+from vrchatapi.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = vrchatapi.Configuration(
+    host = "https://api.vrchat.cloud/api/1"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: authCookie
+configuration.api_key['authCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['authCookie'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with vrchatapi.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = vrchatapi.GroupsApi(api_client)
+    group_id = 'grp_00000000-0000-0000-0000-000000000000' # str | Must be a valid group ID.
+
+    try:
+        # Cancel Group Transfer
+        api_response = api_instance.cancel_group_transfer(group_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling GroupsApi->cancel_group_transfer: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **group_id** | **str**| Must be a valid group ID. | 
+
+### Return type
+
+[**Success**](Success.md)
+
+### Authorization
+
+[authCookie](../README.md#authCookie)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response after cancelling a group transfer. |  -  |
+**400** | Error response when trying to cancel a transfer for a group without a pending transfer. |  -  |
+**401** | Error response due to missing auth cookie. |  -  |
 **404** | Error response when trying to perform operations on a non-existing group. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -820,8 +980,86 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **decline_group_invite**
+> Success decline_group_invite(group_id, decline_group_invite_request=decline_group_invite_request)
+
+Decline Invite from Group
+
+Declines an invite to the user from a group.
+
+### Example
+
+* Api Key Authentication (authCookie):
+```python
+from __future__ import print_function
+import time
+import vrchatapi
+from vrchatapi.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = vrchatapi.Configuration(
+    host = "https://api.vrchat.cloud/api/1"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: authCookie
+configuration.api_key['authCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['authCookie'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with vrchatapi.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = vrchatapi.GroupsApi(api_client)
+    group_id = 'grp_00000000-0000-0000-0000-000000000000' # str | Must be a valid group ID.
+decline_group_invite_request = vrchatapi.DeclineGroupInviteRequest() # DeclineGroupInviteRequest |  (optional)
+
+    try:
+        # Decline Invite from Group
+        api_response = api_instance.decline_group_invite(group_id, decline_group_invite_request=decline_group_invite_request)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling GroupsApi->decline_group_invite: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **group_id** | **str**| Must be a valid group ID. | 
+ **decline_group_invite_request** | [**DeclineGroupInviteRequest**](DeclineGroupInviteRequest.md)|  | [optional] 
+
+### Return type
+
+[**Success**](Success.md)
+
+### Authorization
+
+[authCookie](../README.md#authCookie)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response after declining a group invite. |  -  |
+**400** | Bad request error response when declining a group invite. |  -  |
+**401** | Error response due to missing auth cookie. |  -  |
+**404** | Error response when trying to perform operations on a non-existing group. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **delete_group**
-> Success delete_group(group_id)
+> Success delete_group(group_id, hard_delete=hard_delete)
 
 Delete Group
 
@@ -858,10 +1096,11 @@ with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = vrchatapi.GroupsApi(api_client)
     group_id = 'grp_00000000-0000-0000-0000-000000000000' # str | Must be a valid group ID.
+hard_delete = True # bool |  (optional)
 
     try:
         # Delete Group
-        api_response = api_instance.delete_group(group_id)
+        api_response = api_instance.delete_group(group_id, hard_delete=hard_delete)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling GroupsApi->delete_group: %s\n" % e)
@@ -872,6 +1111,7 @@ with vrchatapi.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **group_id** | **str**| Must be a valid group ID. | 
+ **hard_delete** | **bool**|  | [optional] 
 
 ### Return type
 
@@ -1439,7 +1679,7 @@ Name | Type | Description  | Notes
 
 Get Group Announcement
 
-Returns the announcement for a Group. If no announcement has been made, then it returns **empty object**.  If an announcement exists, then it will always return all fields except `imageId` and `imageUrl` which may be null.
+Returns the announcement for a Group. If no announcement has been made, then it returns **empty object**. If an announcement exists, then it will always return all fields except `imageId` and `imageUrl` which may be null.
 
 ### Example
 
@@ -1504,6 +1744,81 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Returns a single GroupAnnouncement object. |  -  |
+**401** | Error response due to missing auth cookie. |  -  |
+**404** | Error response when trying to perform operations on a non-existing group. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_group_audit_log_entry_types**
+> list[str] get_group_audit_log_entry_types(group_id)
+
+Get Group Audit Log Entry Types
+
+Returns a list of audit log entry types for which the group has entries.
+
+### Example
+
+* Api Key Authentication (authCookie):
+```python
+from __future__ import print_function
+import time
+import vrchatapi
+from vrchatapi.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = vrchatapi.Configuration(
+    host = "https://api.vrchat.cloud/api/1"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: authCookie
+configuration.api_key['authCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['authCookie'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with vrchatapi.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = vrchatapi.GroupsApi(api_client)
+    group_id = 'grp_00000000-0000-0000-0000-000000000000' # str | Must be a valid group ID.
+
+    try:
+        # Get Group Audit Log Entry Types
+        api_response = api_instance.get_group_audit_log_entry_types(group_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling GroupsApi->get_group_audit_log_entry_types: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **group_id** | **str**| Must be a valid group ID. | 
+
+### Return type
+
+**list[str]**
+
+### Authorization
+
+[authCookie](../README.md#authCookie)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Returns a list of GroupAuditLogEntryTypes. |  -  |
 **401** | Error response due to missing auth cookie. |  -  |
 **404** | Error response when trying to perform operations on a non-existing group. |  -  |
 
@@ -2461,8 +2776,164 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **get_group_transferability**
+> GroupTransferable get_group_transferability(group_id, transfer_target_id=transfer_target_id)
+
+Get Group Transferability
+
+Returns the transferability of the group to a given user.
+
+### Example
+
+* Api Key Authentication (authCookie):
+```python
+from __future__ import print_function
+import time
+import vrchatapi
+from vrchatapi.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = vrchatapi.Configuration(
+    host = "https://api.vrchat.cloud/api/1"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: authCookie
+configuration.api_key['authCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['authCookie'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with vrchatapi.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = vrchatapi.GroupsApi(api_client)
+    group_id = 'grp_00000000-0000-0000-0000-000000000000' # str | Must be a valid group ID.
+transfer_target_id = 'transfer_target_id_example' # str | The UserID of the prospective transferee. (optional)
+
+    try:
+        # Get Group Transferability
+        api_response = api_instance.get_group_transferability(group_id, transfer_target_id=transfer_target_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling GroupsApi->get_group_transferability: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **group_id** | **str**| Must be a valid group ID. | 
+ **transfer_target_id** | **str**| The UserID of the prospective transferee. | [optional] 
+
+### Return type
+
+[**GroupTransferable**](GroupTransferable.md)
+
+### Authorization
+
+[authCookie](../README.md#authCookie)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Returns a single GroupTransferable object. |  -  |
+**401** | Error response due to missing auth cookie. |  -  |
+**403** | Error response when trying to perform operations on a group you are not member of. |  -  |
+**404** | Error response when trying to perform operations on a non-existing group. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **initiate_or_accept_group_transfer**
+> Success initiate_or_accept_group_transfer(group_id, transfer_group_request=transfer_group_request)
+
+Initiate or Accept Group Transfer
+
+To initiate, must be logged in as the current owner and specify the transferTargetId in the body. To accept, must be logged in as the user targetted by a pending transfer, no body is required.
+
+### Example
+
+* Api Key Authentication (authCookie):
+```python
+from __future__ import print_function
+import time
+import vrchatapi
+from vrchatapi.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = vrchatapi.Configuration(
+    host = "https://api.vrchat.cloud/api/1"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: authCookie
+configuration.api_key['authCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['authCookie'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with vrchatapi.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = vrchatapi.GroupsApi(api_client)
+    group_id = 'grp_00000000-0000-0000-0000-000000000000' # str | Must be a valid group ID.
+transfer_group_request = vrchatapi.TransferGroupRequest() # TransferGroupRequest |  (optional)
+
+    try:
+        # Initiate or Accept Group Transfer
+        api_response = api_instance.initiate_or_accept_group_transfer(group_id, transfer_group_request=transfer_group_request)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling GroupsApi->initiate_or_accept_group_transfer: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **group_id** | **str**| Must be a valid group ID. | 
+ **transfer_group_request** | [**TransferGroupRequest**](TransferGroupRequest.md)|  | [optional] 
+
+### Return type
+
+[**Success**](Success.md)
+
+### Authorization
+
+[authCookie](../README.md#authCookie)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response after initiating or completing a group transfer. |  -  |
+**401** | Error response due to missing auth cookie. |  -  |
+**403** | Error response when trying to transfer a group to an ineligible target user. |  -  |
+**404** | Error response when trying to perform operations on a non-existing group. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **join_group**
-> GroupMember join_group(group_id)
+> GroupMember join_group(group_id, confirm_override_block=confirm_override_block, join_group_request=join_group_request)
 
 Join Group
 
@@ -2499,10 +2970,12 @@ with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = vrchatapi.GroupsApi(api_client)
     group_id = 'grp_00000000-0000-0000-0000-000000000000' # str | Must be a valid group ID.
+confirm_override_block = True # bool | Manually override the failure that would occur if the user has blocked the group. (optional)
+join_group_request = vrchatapi.JoinGroupRequest() # JoinGroupRequest |  (optional)
 
     try:
         # Join Group
-        api_response = api_instance.join_group(group_id)
+        api_response = api_instance.join_group(group_id, confirm_override_block=confirm_override_block, join_group_request=join_group_request)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling GroupsApi->join_group: %s\n" % e)
@@ -2513,6 +2986,8 @@ with vrchatapi.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **group_id** | **str**| Must be a valid group ID. | 
+ **confirm_override_block** | **bool**| Manually override the failure that would occur if the user has blocked the group. | [optional] 
+ **join_group_request** | [**JoinGroupRequest**](JoinGroupRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -2524,7 +2999,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 ### HTTP response details
@@ -2538,11 +3013,11 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **kick_group_member**
-> kick_group_member(group_id, user_id)
+> Success kick_group_member(group_id, user_id)
 
 Kick Group Member
 
-Kicks a Group Member from the Group. The current user must have the \"Remove Group Members\" permission.
+Kicks a Group Member from the Group. The current user must have the \"Remove Group Members\" permission. Also used for unblocking groups.
 
 ### Example
 
@@ -2579,7 +3054,8 @@ user_id = 'user_id_example' # str | Must be a valid user ID.
 
     try:
         # Kick Group Member
-        api_instance.kick_group_member(group_id, user_id)
+        api_response = api_instance.kick_group_member(group_id, user_id)
+        pprint(api_response)
     except ApiException as e:
         print("Exception when calling GroupsApi->kick_group_member: %s\n" % e)
 ```
@@ -2593,7 +3069,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**Success**](Success.md)
 
 ### Authorization
 
@@ -2607,7 +3083,7 @@ void (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
+**200** | Successful response after deleting a group member. |  -  |
 **401** | Error response due to missing auth cookie. |  -  |
 **403** | Error response when trying to perform operations on a group you are not member of. |  -  |
 **404** | Error response when trying to perform operations on a non-existing group. |  -  |
@@ -2840,6 +3316,88 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |
+**401** | Error response due to missing auth cookie. |  -  |
+**404** | Error response when trying to perform operations on a non-existing group. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **search_group_members**
+> SearchGroupMembers200Response search_group_members(group_id, query, n=n, offset=offset)
+
+Search Group Members
+
+Search for members in the group by displayName.
+
+### Example
+
+* Api Key Authentication (authCookie):
+```python
+from __future__ import print_function
+import time
+import vrchatapi
+from vrchatapi.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = vrchatapi.Configuration(
+    host = "https://api.vrchat.cloud/api/1"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: authCookie
+configuration.api_key['authCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['authCookie'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with vrchatapi.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = vrchatapi.GroupsApi(api_client)
+    group_id = 'grp_00000000-0000-0000-0000-000000000000' # str | Must be a valid group ID.
+query = 'query_example' # str | Filter for member displayName.
+n = 60 # int | The number of objects to return. (optional) (default to 60)
+offset = 56 # int | A zero-based offset from the default object sorting from where search results start. (optional)
+
+    try:
+        # Search Group Members
+        api_response = api_instance.search_group_members(group_id, query, n=n, offset=offset)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling GroupsApi->search_group_members: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **group_id** | **str**| Must be a valid group ID. | 
+ **query** | **str**| Filter for member displayName. | 
+ **n** | **int**| The number of objects to return. | [optional] [default to 60]
+ **offset** | **int**| A zero-based offset from the default object sorting from where search results start. | [optional] 
+
+### Return type
+
+[**SearchGroupMembers200Response**](SearchGroupMembers200Response.md)
+
+### Authorization
+
+[authCookie](../README.md#authCookie)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Returns a list of GroupMember objects from a search. |  -  |
+**400** | Error response when trying to search list of users with an invalid request. |  -  |
 **401** | Error response due to missing auth cookie. |  -  |
 **404** | Error response when trying to perform operations on a non-existing group. |  -  |
 
