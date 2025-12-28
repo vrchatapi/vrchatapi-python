@@ -21,9 +21,9 @@ jobs:
     name: Generate VRChat API SDK
     env:
       ARTIFACT_NAME: "openapi.yaml"
-      INPUT: ${{ github.event_name == 'repository_dispatch' && github.event.client_payload || inputs.json }}
-      SPEC_URL: ${{ fromJSON(github.event_name == 'repository_dispatch' && github.event.client_payload || inputs.json)['artifacts']['openapi-legacy.yaml'] }}
-      PASSED_VERSION: ${{ fromJSON(github.event_name == 'repository_dispatch' && github.event.client_payload || inputs.json)['version'] }}
+      INPUT: ${{ github.event_name == 'repository_dispatch' && toJSON(github.event.client_payload) || inputs.json }}
+      SPEC_URL: ${{ (github.event_name == 'repository_dispatch' && github.event.client_payload || fromJSON(inputs.json))['artifacts']['openapi-legacy.yaml'] }}
+      PASSED_VERSION: ${{ (github.event_name == 'repository_dispatch' && github.event.client_payload || fromJSON(inputs.json))['version'] }}
       VERSION_POSTPEND: ${{ github.event_name == 'workflow_dispatch' && inputs.version_postfix || '' }}
     steps:
       - uses: actions/setup-node@v1
