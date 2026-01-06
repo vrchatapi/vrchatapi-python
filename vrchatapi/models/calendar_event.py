@@ -53,9 +53,12 @@ class CalendarEvent(object):
         'interested_user_count': 'int',
         'is_draft': 'bool',
         'languages': 'list[str]',
+        'occurrence_kind': 'str',
         'owner_id': 'str',
         'platforms': 'list[CalendarEventPlatform]',
+        'recurrence': 'str',
         'role_ids': 'list[str]',
+        'series_id': 'str',
         'starts_at': 'datetime',
         'tags': 'list[str]',
         'title': 'str',
@@ -83,9 +86,12 @@ class CalendarEvent(object):
         'interested_user_count': 'interestedUserCount',
         'is_draft': 'isDraft',
         'languages': 'languages',
+        'occurrence_kind': 'occurrenceKind',
         'owner_id': 'ownerId',
         'platforms': 'platforms',
+        'recurrence': 'recurrence',
         'role_ids': 'roleIds',
+        'series_id': 'seriesId',
         'starts_at': 'startsAt',
         'tags': 'tags',
         'title': 'title',
@@ -95,7 +101,7 @@ class CalendarEvent(object):
         'uses_instance_overflow': 'usesInstanceOverflow'
     }
 
-    def __init__(self, access_type=None, category=None, close_instance_after_end_minutes=None, created_at=None, deleted_at=None, description=None, duration_in_ms=None, ends_at=None, featured=None, guest_early_join_minutes=None, host_early_join_minutes=None, id=None, image_id=None, image_url=None, interested_user_count=None, is_draft=None, languages=None, owner_id=None, platforms=None, role_ids=None, starts_at=None, tags=None, title=None, type=None, updated_at=None, user_interest=None, uses_instance_overflow=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, access_type=None, category=None, close_instance_after_end_minutes=None, created_at=None, deleted_at=None, description=None, duration_in_ms=None, ends_at=None, featured=None, guest_early_join_minutes=None, host_early_join_minutes=None, id=None, image_id=None, image_url=None, interested_user_count=None, is_draft=None, languages=None, occurrence_kind=None, owner_id=None, platforms=None, recurrence=None, role_ids=None, series_id=None, starts_at=None, tags=None, title=None, type=None, updated_at=None, user_interest=None, uses_instance_overflow=None, local_vars_configuration=None):  # noqa: E501
         """CalendarEvent - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration.get_default_copy()
@@ -118,9 +124,12 @@ class CalendarEvent(object):
         self._interested_user_count = None
         self._is_draft = None
         self._languages = None
+        self._occurrence_kind = None
         self._owner_id = None
         self._platforms = None
+        self._recurrence = None
         self._role_ids = None
+        self._series_id = None
         self._starts_at = None
         self._tags = None
         self._title = None
@@ -157,11 +166,15 @@ class CalendarEvent(object):
             self.is_draft = is_draft
         if languages is not None:
             self.languages = languages
+        if occurrence_kind is not None:
+            self.occurrence_kind = occurrence_kind
         if owner_id is not None:
             self.owner_id = owner_id
         if platforms is not None:
             self.platforms = platforms
+        self.recurrence = recurrence
         self.role_ids = role_ids
+        self.series_id = series_id
         self.starts_at = starts_at
         if tags is not None:
             self.tags = tags
@@ -545,6 +558,29 @@ class CalendarEvent(object):
         self._languages = languages
 
     @property
+    def occurrence_kind(self):
+        """Gets the occurrence_kind of this CalendarEvent.  # noqa: E501
+
+        So far if it exists, always the string \"single\"  # noqa: E501
+
+        :return: The occurrence_kind of this CalendarEvent.  # noqa: E501
+        :rtype: str
+        """
+        return self._occurrence_kind
+
+    @occurrence_kind.setter
+    def occurrence_kind(self, occurrence_kind):
+        """Sets the occurrence_kind of this CalendarEvent.
+
+        So far if it exists, always the string \"single\"  # noqa: E501
+
+        :param occurrence_kind: The occurrence_kind of this CalendarEvent.  # noqa: E501
+        :type occurrence_kind: str
+        """
+
+        self._occurrence_kind = occurrence_kind
+
+    @property
     def owner_id(self):
         """Gets the owner_id of this CalendarEvent.  # noqa: E501
 
@@ -587,6 +623,29 @@ class CalendarEvent(object):
         self._platforms = platforms
 
     @property
+    def recurrence(self):
+        """Gets the recurrence of this CalendarEvent.  # noqa: E501
+
+        So far unused, always \"null\"  # noqa: E501
+
+        :return: The recurrence of this CalendarEvent.  # noqa: E501
+        :rtype: str
+        """
+        return self._recurrence
+
+    @recurrence.setter
+    def recurrence(self, recurrence):
+        """Sets the recurrence of this CalendarEvent.
+
+        So far unused, always \"null\"  # noqa: E501
+
+        :param recurrence: The recurrence of this CalendarEvent.  # noqa: E501
+        :type recurrence: str
+        """
+
+        self._recurrence = recurrence
+
+    @property
     def role_ids(self):
         """Gets the role_ids of this CalendarEvent.  # noqa: E501
 
@@ -608,6 +667,29 @@ class CalendarEvent(object):
         """
 
         self._role_ids = role_ids
+
+    @property
+    def series_id(self):
+        """Gets the series_id of this CalendarEvent.  # noqa: E501
+
+        So far unused, always \"null\"  # noqa: E501
+
+        :return: The series_id of this CalendarEvent.  # noqa: E501
+        :rtype: str
+        """
+        return self._series_id
+
+    @series_id.setter
+    def series_id(self, series_id):
+        """Sets the series_id of this CalendarEvent.
+
+        So far unused, always \"null\"  # noqa: E501
+
+        :param series_id: The series_id of this CalendarEvent.  # noqa: E501
+        :type series_id: str
+        """
+
+        self._series_id = series_id
 
     @property
     def starts_at(self):
