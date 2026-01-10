@@ -4310,7 +4310,7 @@ class GroupsApi(object):
     def get_group_member(self, group_id, user_id, **kwargs):  # noqa: E501
         """Get Group Member  # noqa: E501
 
-        Returns a LimitedGroup Member.  # noqa: E501
+        Returns a GroupMember.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -4334,7 +4334,7 @@ class GroupsApi(object):
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: GroupLimitedMember
+        :rtype: GroupMember
         """
         kwargs['_return_http_data_only'] = True
         return self.get_group_member_with_http_info(group_id, user_id, **kwargs)  # noqa: E501
@@ -4342,7 +4342,7 @@ class GroupsApi(object):
     def get_group_member_with_http_info(self, group_id, user_id, **kwargs):  # noqa: E501
         """Get Group Member  # noqa: E501
 
-        Returns a LimitedGroup Member.  # noqa: E501
+        Returns a GroupMember.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -4374,7 +4374,7 @@ class GroupsApi(object):
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: tuple(GroupLimitedMember, status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(GroupMember, status_code(int), headers(HTTPHeaderDict))
         """
 
         local_var_params = locals()
@@ -4434,7 +4434,7 @@ class GroupsApi(object):
         auth_settings = ['authCookie']  # noqa: E501
 
         response_types_map = {
-            200: "GroupLimitedMember",
+            200: "GroupMember",
             401: "Error",
             403: "Error",
             404: "Error",
@@ -7265,7 +7265,7 @@ class GroupsApi(object):
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: GroupLimitedMember
+        :rtype: GroupMember
         """
         kwargs['_return_http_data_only'] = True
         return self.update_group_member_with_http_info(group_id, user_id, **kwargs)  # noqa: E501
@@ -7307,7 +7307,7 @@ class GroupsApi(object):
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: tuple(GroupLimitedMember, status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(GroupMember, status_code(int), headers(HTTPHeaderDict))
         """
 
         local_var_params = locals()
@@ -7378,7 +7378,7 @@ class GroupsApi(object):
         auth_settings = ['authCookie']  # noqa: E501
 
         response_types_map = {
-            200: "GroupLimitedMember",
+            200: "GroupMember",
             401: "Error",
             404: "Error",
         }

@@ -110,38 +110,29 @@ class GroupMember(object):
         self.accepted_by_id = accepted_by_id
         self.banned_at = banned_at
         self.created_at = created_at
-        if group_id is not None:
-            self.group_id = group_id
+        self.group_id = group_id
         if has_joined_from_purchase is not None:
             self.has_joined_from_purchase = has_joined_from_purchase
-        if id is not None:
-            self.id = id
-        if is_representing is not None:
-            self.is_representing = is_representing
-        if is_subscribed_to_announcements is not None:
-            self.is_subscribed_to_announcements = is_subscribed_to_announcements
+        self.id = id
+        self.is_representing = is_representing
+        self.is_subscribed_to_announcements = is_subscribed_to_announcements
         if is_subscribed_to_event_announcements is not None:
             self.is_subscribed_to_event_announcements = is_subscribed_to_event_announcements
         self.joined_at = joined_at
         self.last_post_read_at = last_post_read_at
-        if m_role_ids is not None:
-            self.m_role_ids = m_role_ids
+        self.m_role_ids = m_role_ids
         self.manager_notes = manager_notes
-        if membership_status is not None:
-            self.membership_status = membership_status
-        if role_ids is not None:
-            self.role_ids = role_ids
-        if user is not None:
-            self.user = user
-        if user_id is not None:
-            self.user_id = user_id
-        if visibility is not None:
-            self.visibility = visibility
+        self.membership_status = membership_status
+        self.role_ids = role_ids
+        self.user = user
+        self.user_id = user_id
+        self.visibility = visibility
 
     @property
     def accepted_by_display_name(self):
         """Gets the accepted_by_display_name of this GroupMember.  # noqa: E501
 
+        Only missing when explicitly fetching own user.  # noqa: E501
 
         :return: The accepted_by_display_name of this GroupMember.  # noqa: E501
         :rtype: str
@@ -152,6 +143,7 @@ class GroupMember(object):
     def accepted_by_display_name(self, accepted_by_display_name):
         """Sets the accepted_by_display_name of this GroupMember.
 
+        Only missing when explicitly fetching own user.  # noqa: E501
 
         :param accepted_by_display_name: The accepted_by_display_name of this GroupMember.  # noqa: E501
         :type accepted_by_display_name: str
@@ -163,6 +155,7 @@ class GroupMember(object):
     def accepted_by_id(self):
         """Gets the accepted_by_id of this GroupMember.  # noqa: E501
 
+        Only missing when explicitly fetching own user.  # noqa: E501
 
         :return: The accepted_by_id of this GroupMember.  # noqa: E501
         :rtype: str
@@ -173,6 +166,7 @@ class GroupMember(object):
     def accepted_by_id(self, accepted_by_id):
         """Sets the accepted_by_id of this GroupMember.
 
+        Only missing when explicitly fetching own user.  # noqa: E501
 
         :param accepted_by_id: The accepted_by_id of this GroupMember.  # noqa: E501
         :type accepted_by_id: str
@@ -184,7 +178,7 @@ class GroupMember(object):
     def banned_at(self):
         """Gets the banned_at of this GroupMember.  # noqa: E501
 
-        Only visible via the /groups/:groupId/members endpoint, **not** when fetching a specific user.  # noqa: E501
+        Only missing when explicitly fetching own user.  # noqa: E501
 
         :return: The banned_at of this GroupMember.  # noqa: E501
         :rtype: datetime
@@ -195,7 +189,7 @@ class GroupMember(object):
     def banned_at(self, banned_at):
         """Sets the banned_at of this GroupMember.
 
-        Only visible via the /groups/:groupId/members endpoint, **not** when fetching a specific user.  # noqa: E501
+        Only missing when explicitly fetching own user.  # noqa: E501
 
         :param banned_at: The banned_at of this GroupMember.  # noqa: E501
         :type banned_at: datetime
@@ -207,7 +201,7 @@ class GroupMember(object):
     def created_at(self):
         """Gets the created_at of this GroupMember.  # noqa: E501
 
-        Only visible via the /groups/:groupId/members endpoint, **not** when fetching a specific user.  # noqa: E501
+        Only missing when explicitly fetching own user.  # noqa: E501
 
         :return: The created_at of this GroupMember.  # noqa: E501
         :rtype: datetime
@@ -218,7 +212,7 @@ class GroupMember(object):
     def created_at(self, created_at):
         """Sets the created_at of this GroupMember.
 
-        Only visible via the /groups/:groupId/members endpoint, **not** when fetching a specific user.  # noqa: E501
+        Only missing when explicitly fetching own user.  # noqa: E501
 
         :param created_at: The created_at of this GroupMember.  # noqa: E501
         :type created_at: datetime
@@ -244,6 +238,8 @@ class GroupMember(object):
         :param group_id: The group_id of this GroupMember.  # noqa: E501
         :type group_id: str
         """
+        if self.local_vars_configuration.client_side_validation and group_id is None:  # noqa: E501
+            raise ValueError("Invalid value for `group_id`, must not be `None`")  # noqa: E501
 
         self._group_id = group_id
 
@@ -251,6 +247,7 @@ class GroupMember(object):
     def has_joined_from_purchase(self):
         """Gets the has_joined_from_purchase of this GroupMember.  # noqa: E501
 
+        Missing when explicitly fetching own user, or when group isn't linked to a purchase.  # noqa: E501
 
         :return: The has_joined_from_purchase of this GroupMember.  # noqa: E501
         :rtype: bool
@@ -261,6 +258,7 @@ class GroupMember(object):
     def has_joined_from_purchase(self, has_joined_from_purchase):
         """Sets the has_joined_from_purchase of this GroupMember.
 
+        Missing when explicitly fetching own user, or when group isn't linked to a purchase.  # noqa: E501
 
         :param has_joined_from_purchase: The has_joined_from_purchase of this GroupMember.  # noqa: E501
         :type has_joined_from_purchase: bool
@@ -286,6 +284,8 @@ class GroupMember(object):
         :param id: The id of this GroupMember.  # noqa: E501
         :type id: str
         """
+        if self.local_vars_configuration.client_side_validation and id is None:  # noqa: E501
+            raise ValueError("Invalid value for `id`, must not be `None`")  # noqa: E501
 
         self._id = id
 
@@ -309,6 +309,8 @@ class GroupMember(object):
         :param is_representing: The is_representing of this GroupMember.  # noqa: E501
         :type is_representing: bool
         """
+        if self.local_vars_configuration.client_side_validation and is_representing is None:  # noqa: E501
+            raise ValueError("Invalid value for `is_representing`, must not be `None`")  # noqa: E501
 
         self._is_representing = is_representing
 
@@ -330,6 +332,8 @@ class GroupMember(object):
         :param is_subscribed_to_announcements: The is_subscribed_to_announcements of this GroupMember.  # noqa: E501
         :type is_subscribed_to_announcements: bool
         """
+        if self.local_vars_configuration.client_side_validation and is_subscribed_to_announcements is None:  # noqa: E501
+            raise ValueError("Invalid value for `is_subscribed_to_announcements`, must not be `None`")  # noqa: E501
 
         self._is_subscribed_to_announcements = is_subscribed_to_announcements
 
@@ -337,6 +341,7 @@ class GroupMember(object):
     def is_subscribed_to_event_announcements(self):
         """Gets the is_subscribed_to_event_announcements of this GroupMember.  # noqa: E501
 
+        Only missing when explicitly fetching own user.  # noqa: E501
 
         :return: The is_subscribed_to_event_announcements of this GroupMember.  # noqa: E501
         :rtype: bool
@@ -347,6 +352,7 @@ class GroupMember(object):
     def is_subscribed_to_event_announcements(self, is_subscribed_to_event_announcements):
         """Sets the is_subscribed_to_event_announcements of this GroupMember.
 
+        Only missing when explicitly fetching own user.  # noqa: E501
 
         :param is_subscribed_to_event_announcements: The is_subscribed_to_event_announcements of this GroupMember.  # noqa: E501
         :type is_subscribed_to_event_announcements: bool
@@ -414,6 +420,8 @@ class GroupMember(object):
         :param m_role_ids: The m_role_ids of this GroupMember.  # noqa: E501
         :type m_role_ids: list[str]
         """
+        if self.local_vars_configuration.client_side_validation and m_role_ids is None:  # noqa: E501
+            raise ValueError("Invalid value for `m_role_ids`, must not be `None`")  # noqa: E501
 
         self._m_role_ids = m_role_ids
 
@@ -421,7 +429,7 @@ class GroupMember(object):
     def manager_notes(self):
         """Gets the manager_notes of this GroupMember.  # noqa: E501
 
-        Only visible via the /groups/:groupId/members endpoint, **not** when fetching a specific user.  # noqa: E501
+        Only missing when explicitly fetching own user.  # noqa: E501
 
         :return: The manager_notes of this GroupMember.  # noqa: E501
         :rtype: str
@@ -432,7 +440,7 @@ class GroupMember(object):
     def manager_notes(self, manager_notes):
         """Sets the manager_notes of this GroupMember.
 
-        Only visible via the /groups/:groupId/members endpoint, **not** when fetching a specific user.  # noqa: E501
+        Only missing when explicitly fetching own user.  # noqa: E501
 
         :param manager_notes: The manager_notes of this GroupMember.  # noqa: E501
         :type manager_notes: str
@@ -458,6 +466,8 @@ class GroupMember(object):
         :param membership_status: The membership_status of this GroupMember.  # noqa: E501
         :type membership_status: GroupMemberStatus
         """
+        if self.local_vars_configuration.client_side_validation and membership_status is None:  # noqa: E501
+            raise ValueError("Invalid value for `membership_status`, must not be `None`")  # noqa: E501
 
         self._membership_status = membership_status
 
@@ -479,6 +489,8 @@ class GroupMember(object):
         :param role_ids: The role_ids of this GroupMember.  # noqa: E501
         :type role_ids: list[str]
         """
+        if self.local_vars_configuration.client_side_validation and role_ids is None:  # noqa: E501
+            raise ValueError("Invalid value for `role_ids`, must not be `None`")  # noqa: E501
 
         self._role_ids = role_ids
 
@@ -523,6 +535,8 @@ class GroupMember(object):
         :param user_id: The user_id of this GroupMember.  # noqa: E501
         :type user_id: str
         """
+        if self.local_vars_configuration.client_side_validation and user_id is None:  # noqa: E501
+            raise ValueError("Invalid value for `user_id`, must not be `None`")  # noqa: E501
 
         self._user_id = user_id
 
@@ -544,6 +558,8 @@ class GroupMember(object):
         :param visibility: The visibility of this GroupMember.  # noqa: E501
         :type visibility: str
         """
+        if self.local_vars_configuration.client_side_validation and visibility is None:  # noqa: E501
+            raise ValueError("Invalid value for `visibility`, must not be `None`")  # noqa: E501
 
         self._visibility = visibility
 

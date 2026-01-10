@@ -156,7 +156,6 @@ from vrchatapi.models.group_gallery_image import GroupGalleryImage
 from vrchatapi.models.group_instance import GroupInstance
 from vrchatapi.models.group_join_request_action import GroupJoinRequestAction
 from vrchatapi.models.group_join_state import GroupJoinState
-from vrchatapi.models.group_limited_member import GroupLimitedMember
 from vrchatapi.models.group_member import GroupMember
 from vrchatapi.models.group_member_limited_user import GroupMemberLimitedUser
 from vrchatapi.models.group_member_status import GroupMemberStatus

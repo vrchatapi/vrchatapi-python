@@ -115,7 +115,6 @@ docs/GroupGalleryImage.md
 docs/GroupInstance.md
 docs/GroupJoinRequestAction.md
 docs/GroupJoinState.md
-docs/GroupLimitedMember.md
 docs/GroupMember.md
 docs/GroupMemberLimitedUser.md
 docs/GroupMemberStatus.md
@@ -450,7 +449,6 @@ vrchatapi/models/group_gallery_image.py
 vrchatapi/models/group_instance.py
 vrchatapi/models/group_join_request_action.py
 vrchatapi/models/group_join_state.py
-vrchatapi/models/group_limited_member.py
 vrchatapi/models/group_member.py
 vrchatapi/models/group_member_limited_user.py
 vrchatapi/models/group_member_status.py

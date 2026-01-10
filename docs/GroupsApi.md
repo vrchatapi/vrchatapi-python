@@ -2232,11 +2232,11 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_group_member**
-> GroupLimitedMember get_group_member(group_id, user_id)
+> GroupMember get_group_member(group_id, user_id)
 
 Get Group Member
 
-Returns a LimitedGroup Member.
+Returns a GroupMember.
 
 ### Example
 
@@ -2288,7 +2288,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GroupLimitedMember**](GroupLimitedMember.md)
+[**GroupMember**](GroupMember.md)
 
 ### Authorization
 
@@ -3704,7 +3704,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_group_member**
-> GroupLimitedMember update_group_member(group_id, user_id, update_group_member_request=update_group_member_request)
+> GroupMember update_group_member(group_id, user_id, update_group_member_request=update_group_member_request)
 
 Update Group Member
 
@@ -3762,7 +3762,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GroupLimitedMember**](GroupLimitedMember.md)
+[**GroupMember**](GroupMember.md)
 
 ### Authorization
 
