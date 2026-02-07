@@ -46,10 +46,10 @@ jobs:
       - name: Set OpenAPI Generator version
         run: ./node_modules/\@openapitools/openapi-generator-cli/main.js version-manager set 6.2.1
 
-      - name: Set up Python 3.9
+      - name: Set up Python 3.14
         uses: actions/setup-python@v1
         with:
-          python-version: 3.9
+          python-version: 3.14
 
       - name: Download Specification
         run: wget "${SPEC_URL}" '--output-document' "${ARTIFACT_NAME}"
