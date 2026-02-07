@@ -31,11 +31,11 @@ class AgeVerificationStatus(object):
     """
     allowed enum values
     """
-    hidden = "18+"
-    plus18 = "hidden"
+    plus18 = "18+"
+    hidden = "hidden"
     verified = "verified"
 
-    allowable_values = [hidden, plus18, verified]  # noqa: E501
+    allowable_values = [plus18, hidden, verified]  # noqa: E501
 
     """
     Attributes:
