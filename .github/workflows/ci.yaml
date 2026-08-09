@@ -1,76 +1,44 @@
 on:
-  repository_dispatch:
-    types: [release]
-  workflow_dispatch:
+  push:
+    branches:
+      - '**'
+  pull_request:
+  workflow_call:
     inputs:
-      json:
-        description: 'Passed json from repository_dispatch'
-        required: true
-        type: string
-      version_postfix:
-        description: 'Additional string to concatenate onto the existing version before release'
+      ref:
+        description: Ref of this repository to build.
         required: false
         type: string
-        default: ''
+        default: main
 
-name: Generate VRChat API SDK
+name: CI
 
 jobs:
-  generate:
+  build:
     runs-on: ubuntu-latest
-    name: Generate VRChat API SDK
-    env:
-      ARTIFACT_NAME: "openapi.yaml"
-      INPUT: ${{ github.event_name == 'repository_dispatch' && toJSON(github.event.client_payload) || inputs.json }}
-      SPEC_URL: ${{ (github.event_name == 'repository_dispatch' && github.event.client_payload || fromJSON(inputs.json))['artifacts']['openapi-legacy.yaml'] }}
-      PASSED_VERSION: ${{ (github.event_name == 'repository_dispatch' && github.event.client_payload || fromJSON(inputs.json))['version'] }}
-      VERSION_POSTPEND: ${{ github.event_name == 'workflow_dispatch' && inputs.version_postfix || '' }}
     steps:
       - uses: actions/checkout@v7
+        with:
+          repository: vrchatapi/vrchatapi-python
+          ref: ${{ inputs.ref || github.ref }}
 
       - uses: vrchatapi/specification/.github/actions/setup-generator@ci/modernise-actions
 
-      - name: Set up Python 3.14
-        uses: actions/setup-python@v7
+      - uses: vrchatapi/specification/.github/actions/download@ci/modernise-actions
         with:
-          python-version: 3.14
+          bundle: openapi-legacy.yaml
 
-      - name: Download Specification
-        run: wget "${SPEC_URL}" '--output-document' "${ARTIFACT_NAME}"
-
-      - name: Set version
-        id: version
-        run: |
-          # Replace using bash
-          VERSION="${PASSED_VERSION}${VERSION_POSTPEND}"
-          CLEAN_VERSION="${VERSION/-nightly./.dev}"
-          echo "version=${CLEAN_VERSION}" >> $GITHUB_OUTPUT
-
-      - name: Apply Version Postpend
-        if: ${{ github.event_name == 'workflow_dispatch' && inputs.version_postfix != '' }}
-        run: yq '--inplace' ".info.version |= \"${{ steps.version.outputs.version }}\"" "${ARTIFACT_NAME}"
-
-      - name: Generate SDK Client
-        run: bash ./generate.sh "${ARTIFACT_NAME}" "${{ steps.version.outputs.version }}"
-
-      - name: Delete openapi.yaml file
-        run: unlink ${ARTIFACT_NAME}
-
-      - name: Deploy SDK back into main branch
-        uses: JamesIves/github-pages-deploy-action@v4.9.0
+      - uses: actions/setup-python@v7
         with:
-          branch: main
-          folder: .
-          commit-message: "Upgrade Python SDK to spec ${{ steps.version.outputs.version }}"
+          python-version: '3.14'
+          cache: pip
 
-      - name: Install pypa/build
-        run: python -m pip install build --user
+      - run: bash ./generate.sh openapi-legacy.yaml "$(yq -r '.info.version' openapi-legacy.yaml)"
 
-      - name: Build a binary wheel and a source tarball
-        run: python -m build --sdist --wheel --outdir dist/ .
+      - run: python -m pip install build
 
-      - name: Publish SDK 📦 to PyPI
-        uses: pypa/gh-action-pypi-publish@release/v1
-        with:
-          skip_existing: true
-          password: ${{ secrets.PYPI_API_TOKEN }}
+      - run: python -m build
+
+      - run: python -m pip install dist/*.whl
+
+      - run: python -c "import vrchatapi; print(vrchatapi.__name__)"
