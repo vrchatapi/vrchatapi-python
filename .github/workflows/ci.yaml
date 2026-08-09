@@ -11,9 +11,9 @@ on:
         type: string
         default: main
     outputs:
-      artifact:
-        description: Download URL for the built distributions.
-        value: ${{ jobs.build.outputs.artifact }}
+      install:
+        description: How to get what this run built.
+        value: ${{ jobs.build.outputs.install }}
 
 name: CI
 
@@ -44,7 +44,7 @@ jobs:
     needs: generate
     runs-on: ubuntu-latest
     outputs:
-      artifact: ${{ steps.upload.outputs.artifact-url }}
+      install: "[download](${{ steps.upload.outputs.artifact-url }})"
     steps:
       - uses: actions/download-artifact@v8
         with:
