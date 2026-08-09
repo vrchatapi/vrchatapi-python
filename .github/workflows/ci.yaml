@@ -14,7 +14,7 @@ on:
 name: CI
 
 jobs:
-  build:
+  generate:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
@@ -28,16 +28,48 @@ jobs:
         with:
           bundle: openapi-legacy.yaml
 
+      - run: bash ./generate.sh openapi-legacy.yaml "$(yq -r '.info.version' openapi-legacy.yaml)"
+
+      - uses: actions/upload-artifact@v7
+        with:
+          name: generated-python
+          path: .
+          include-hidden-files: true
+
+  build:
+    needs: generate
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v8
+        with:
+          name: generated-python
+
       - uses: actions/setup-python@v7
         with:
           python-version: '3.14'
           cache: pip
 
-      - run: bash ./generate.sh openapi-legacy.yaml "$(yq -r '.info.version' openapi-legacy.yaml)"
-
       - run: python -m pip install build
 
       - run: python -m build
+
+      - uses: actions/upload-artifact@v7
+        with:
+          name: dist-python
+          path: dist
+
+  install:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v8
+        with:
+          name: dist-python
+          path: dist
+
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.14'
 
       - run: python -m pip install dist/*.whl
 
