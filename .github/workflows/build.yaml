@@ -5,13 +5,13 @@ on:
   pull_request:
   workflow_call:
     inputs:
-      spec-artifact:
+      artifact:
         description: >-
-          Artifact holding the bundled specification. Only reachable when the
-          caller shares this run; when empty the latest published one is used.
+          Take the bundle from this run's artifacts rather than the latest
+          release. Only set it when the caller shares the run.
         required: false
-        type: string
-        default: ''
+        type: boolean
+        default: false
       ref:
         description: Ref of this repository to build.
         required: false
@@ -24,19 +24,18 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: vrchatapi/specification/.github/actions/sdk-spec@ci/modernise-actions
+      - uses: vrchatapi/specification/.github/actions/setup@ci/modernise-actions
         with:
           repository: vrchatapi/vrchatapi-python
           ref: ${{ inputs.ref || github.ref }}
-          generator-version: 6.2.1
-          spec-artifact: ${{ inputs.spec-artifact }}
-          spec-file: openapi-legacy.yaml
+          bundle: openapi-legacy.yaml
+          artifact: ${{ inputs.artifact }}
+          generator: 6.2.1
 
       - uses: actions/setup-python@v7
         with:
           python-version: '3.14'
 
-      # generate.sh stamps the version into setup.py, so it comes from the spec.
       - run: bash ./generate.sh openapi-legacy.yaml "$(yq -r '.info.version' openapi-legacy.yaml)"
 
       - run: python -m pip install --upgrade pip build
