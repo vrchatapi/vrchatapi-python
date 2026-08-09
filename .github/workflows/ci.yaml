@@ -3,6 +3,19 @@ on:
     branches:
       - '**'
   pull_request:
+  repository_dispatch:
+    types: [release]
+  workflow_dispatch:
+    inputs:
+      json:
+        description: Passed json from repository_dispatch
+        required: true
+        type: string
+      version_postfix:
+        description: Additional string to concatenate onto the existing version before release
+        required: false
+        type: string
+        default: ''
   workflow_call:
     inputs:
       ref:
@@ -13,9 +26,15 @@ on:
 
 name: CI
 
+env:
+  PASSED_VERSION: ${{ (github.event_name == 'repository_dispatch' && github.event.client_payload || fromJSON(inputs.json || '{}'))['version'] }}
+  VERSION_POSTPEND: ${{ github.event_name == 'workflow_dispatch' && inputs.version_postfix || '' }}
+
 jobs:
   generate:
     runs-on: ubuntu-latest
+    outputs:
+      version: ${{ steps.version.outputs.version }}
     steps:
       - uses: actions/checkout@v7
         with:
@@ -28,11 +47,22 @@ jobs:
         with:
           bundle: openapi-legacy.yaml
 
-      - run: bash ./generate.sh openapi-legacy.yaml "$(yq -r '.info.version' openapi-legacy.yaml)"
+      # PyPI wants `.dev` where the specification says `-nightly.`
+      - id: version
+        run: |
+          version="${PASSED_VERSION}${VERSION_POSTPEND}"
+          version="${version:-$(yq -r '.info.version' openapi-legacy.yaml)}"
+
+          echo "version=${version/-nightly./.dev}" >> $GITHUB_OUTPUT
+
+      - if: env.VERSION_POSTPEND != ''
+        run: yq '--inplace' ".info.version |= \"${{ steps.version.outputs.version }}\"" openapi-legacy.yaml
+
+      - run: bash ./generate.sh openapi-legacy.yaml "${{ steps.version.outputs.version }}"
 
       - uses: actions/upload-artifact@v7
         with:
-          name: generated-python
+          name: python-generated
           path: .
           include-hidden-files: true
 
@@ -42,7 +72,7 @@ jobs:
     steps:
       - uses: actions/download-artifact@v8
         with:
-          name: generated-python
+          name: python-generated
 
       - uses: actions/setup-python@v7
         with:
@@ -51,11 +81,11 @@ jobs:
 
       - run: python -m pip install build
 
-      - run: python -m build
+      - run: python -m build --sdist --wheel --outdir dist/ .
 
       - uses: actions/upload-artifact@v7
         with:
-          name: dist-python
+          name: python-package
           path: dist
 
   install:
@@ -64,7 +94,7 @@ jobs:
     steps:
       - uses: actions/download-artifact@v8
         with:
-          name: dist-python
+          name: python-package
           path: dist
 
       - uses: actions/setup-python@v7
@@ -74,3 +104,35 @@ jobs:
       - run: python -m pip install dist/*.whl
 
       - run: python -c "import vrchatapi; print(vrchatapi.__name__)"
+
+  publish:
+    needs:
+      - generate
+      - build
+      - install
+    if: github.event_name == 'repository_dispatch' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/download-artifact@v8
+        with:
+          name: python-generated
+
+      - run: rm -f openapi-legacy.yaml
+
+      - uses: JamesIves/github-pages-deploy-action@v4.9.0
+        with:
+          branch: main
+          folder: .
+          commit-message: Upgrade Python SDK to spec ${{ needs.generate.outputs.version }}
+
+      - uses: actions/download-artifact@v8
+        with:
+          name: python-package
+          path: dist
+
+      - uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          skip_existing: true
+          password: ${{ secrets.PYPI_API_TOKEN }}
