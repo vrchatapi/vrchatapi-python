@@ -10,6 +10,10 @@ on:
         required: false
         type: string
         default: main
+    outputs:
+      artifact:
+        description: Download URL for the built distributions.
+        value: ${{ jobs.build.outputs.artifact }}
 
 name: CI
 
@@ -39,6 +43,8 @@ jobs:
   build:
     needs: generate
     runs-on: ubuntu-latest
+    outputs:
+      artifact: ${{ steps.upload.outputs.artifact-url }}
     steps:
       - uses: actions/download-artifact@v8
         with:
@@ -53,7 +59,8 @@ jobs:
 
       - run: python -m build
 
-      - uses: actions/upload-artifact@v7
+      - id: upload
+        uses: actions/upload-artifact@v7
         with:
           name: dist-python
           path: dist
