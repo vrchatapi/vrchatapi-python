@@ -22,10 +22,11 @@ jobs:
           repository: vrchatapi/vrchatapi-python
           ref: ${{ inputs.ref || github.ref }}
 
-      - uses: vrchatapi/specification/.github/actions/setup@ci/modernise-actions
+      - uses: vrchatapi/specification/.github/actions/generator@ci/modernise-actions
+
+      - uses: vrchatapi/specification/.github/actions/bundle@ci/modernise-actions
         with:
           bundle: openapi-legacy.yaml
-          generator: 6.2.1
 
       - uses: actions/setup-python@v7
         with:

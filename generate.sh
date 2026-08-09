@@ -7,7 +7,7 @@ then
 fi
 rm vrchatapi docs -rf
 
-./node_modules/\@openapitools/openapi-generator-cli/main.js generate \
+openapi-generator generate \
 -g python-legacy \
 --additional-properties=packageName=vrchatapi,projectName=vrchatapi \
 --git-user-id=vrchatapi \
