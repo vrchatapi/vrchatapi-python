@@ -30,13 +30,14 @@ jobs:
           ref: ${{ inputs.ref || github.ref }}
           generator-version: 6.2.1
           spec-artifact: ${{ inputs.spec-artifact }}
+          spec-file: openapi-legacy.yaml
 
       - uses: actions/setup-python@v7
         with:
           python-version: '3.14'
 
       # generate.sh stamps the version into setup.py, so it comes from the spec.
-      - run: bash ./generate.sh openapi.json "$(jq -r '.info.version' openapi.json)"
+      - run: bash ./generate.sh openapi-legacy.yaml "$(yq -r '.info.version' openapi-legacy.yaml)"
 
       - run: python -m pip install --upgrade pip build
 
