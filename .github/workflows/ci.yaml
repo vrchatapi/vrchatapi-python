@@ -10,10 +10,6 @@ on:
         required: false
         type: string
         default: main
-    outputs:
-      install:
-        description: How to get what this run built.
-        value: ${{ jobs.build.outputs.install }}
 
 name: CI
 
@@ -43,8 +39,6 @@ jobs:
   build:
     needs: generate
     runs-on: ubuntu-latest
-    outputs:
-      install: "[download](${{ steps.upload.outputs.artifact-url }})"
     steps:
       - uses: actions/download-artifact@v8
         with:
@@ -59,8 +53,7 @@ jobs:
 
       - run: python -m build
 
-      - id: upload
-        uses: actions/upload-artifact@v7
+      - uses: actions/upload-artifact@v7
         with:
           name: dist-python
           path: dist
