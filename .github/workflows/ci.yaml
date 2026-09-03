@@ -63,7 +63,9 @@ jobs:
       - uses: actions/upload-artifact@v7
         with:
           name: python-generated
-          path: .
+          path: |
+            .
+            !.git/**
           include-hidden-files: true
 
   build:
