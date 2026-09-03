@@ -244,7 +244,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_favorite_groups**
-> list[FavoriteGroup] get_favorite_groups(n=n, offset=offset, user_id=user_id, owner_id=owner_id)
+> list[FavoriteGroup] get_favorite_groups(n=n, offset=offset, type=type, user_id=user_id, owner_id=owner_id)
 
 List Favorite Groups
 
@@ -282,12 +282,13 @@ with vrchatapi.ApiClient(configuration) as api_client:
     api_instance = vrchatapi.FavoritesApi(api_client)
     n = 60 # int | The number of objects to return. (optional) (default to 60)
 offset = 56 # int | A zero-based offset from the default object sorting from where search results start. (optional)
+type = vrchatapi.FavoriteType() # FavoriteType | Filter to a single favorite group type. (optional)
 user_id = 'user_id_example' # str | Target user to see information on, admin-only. (optional)
-owner_id = 'owner_id_example' # str | The owner of whoms favorite groups to return. Must be a UserID. (optional)
+owner_id = 'owner_id_example' # str | The user whose favorite groups to return. Must be a user ID. (optional)
 
     try:
         # List Favorite Groups
-        api_response = api_instance.get_favorite_groups(n=n, offset=offset, user_id=user_id, owner_id=owner_id)
+        api_response = api_instance.get_favorite_groups(n=n, offset=offset, type=type, user_id=user_id, owner_id=owner_id)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling FavoritesApi->get_favorite_groups: %s\n" % e)
@@ -299,8 +300,9 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **n** | **int**| The number of objects to return. | [optional] [default to 60]
  **offset** | **int**| A zero-based offset from the default object sorting from where search results start. | [optional] 
+ **type** | [**FavoriteType**](.md)| Filter to a single favorite group type. | [optional] 
  **user_id** | **str**| Target user to see information on, admin-only. | [optional] 
- **owner_id** | **str**| The owner of whoms favorite groups to return. Must be a UserID. | [optional] 
+ **owner_id** | **str**| The user whose favorite groups to return. Must be a user ID. | [optional] 
 
 ### Return type
 
@@ -543,8 +545,9 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Success response after removing a favorite. |  -  |
+**400** | The request failed validation. VRChat validates the request before it looks up the resource, so this response is returned even when the ID in the path does not exist. The message names the offending field or parameter. |  -  |
 **401** | Error response due to missing auth cookie. |  -  |
-**404** | Error response when trying to show information about a non-existent favorite. |  -  |
+**404** | The requested resource does not exist. The message varies by resource and by route, and only some name the id. Worlds sometimes answer &#x60;model &lt;worldId&gt; not found&#x60; instead of &#x60;World &lt;worldId&gt; not found&#x60;. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

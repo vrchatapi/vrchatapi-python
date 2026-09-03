@@ -4,6 +4,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**acquisition** | **str** |  | [optional] 
+**attribution** | **object** |  | [optional] 
 **collections** | **list[str]** |  | 
 **created_at** | **datetime** |  | 
 **default_attributes** | [**dict(str, InventoryDefaultAttributes1)**](InventoryDefaultAttributes1.md) |  | 
@@ -19,6 +21,7 @@ Name | Type | Description | Notes
 **is_seen** | **bool** |  | 
 **item_type** | [**InventoryItemType**](InventoryItemType.md) |  | 
 **item_type_label** | **str** |  | 
+**last_equipped** | **dict(str, object)** |  | [optional] 
 **metadata** | [**InventoryMetadata**](InventoryMetadata.md) |  | 
 **name** | **str** |  | 
 **quantifiable** | **bool** |  | 

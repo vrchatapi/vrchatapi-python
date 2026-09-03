@@ -160,7 +160,7 @@ void (empty response body)
 **200** | The Prop is successfully deleted. |  -  |
 **401** | Error response due to missing auth cookie. |  -  |
 **403** | Error response due to missing permissions. |  -  |
-**404** | Error response when trying to perform operations on a non-existing prop. |  -  |
+**404** | The requested resource does not exist. The message varies by resource and by route, and only some name the id. Worlds sometimes answer &#x60;model &lt;worldId&gt; not found&#x60; instead of &#x60;World &lt;worldId&gt; not found&#x60;. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -235,7 +235,7 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 **200** | Returns a single Prop object. |  -  |
 **401** | Error response due to missing auth cookie. |  -  |
-**404** | Error response when trying to perform operations on a non-existing prop. |  -  |
+**404** | The requested resource does not exist. The message varies by resource and by route, and only some name the id. Worlds sometimes answer &#x60;model &lt;worldId&gt; not found&#x60; instead of &#x60;World &lt;worldId&gt; not found&#x60;. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -244,7 +244,7 @@ Name | Type | Description  | Notes
 
 Get Prop Publish Status
 
-Returns a PropPublishStatus object.
+Return the PropPublishStatus object. `/props/{propId}` is still served.
 
 ### Example
 
@@ -311,7 +311,7 @@ Name | Type | Description  | Notes
 **200** | Returns a single PropPublishStatus object. |  -  |
 **401** | Error response due to missing auth cookie. |  -  |
 **403** | Error response due to missing permissions. |  -  |
-**404** | Error response when trying to perform operations on a non-existing prop. |  -  |
+**404** | VRChat does not serve this route. A live route answers 200 or 401. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -399,7 +399,7 @@ Name | Type | Description  | Notes
 
 Publish Prop
 
-Publish a Prop and return the updated PropPublishStatus object.
+Publish a prop and return the updated PropPublishStatus object. `/props/{propId}` is still served.
 
 ### Example
 
@@ -466,7 +466,7 @@ Name | Type | Description  | Notes
 **200** | Returns a single PropPublishStatus object. |  -  |
 **401** | Error response due to missing auth cookie. |  -  |
 **403** | Error response due to missing permissions. |  -  |
-**404** | Error response when trying to perform operations on a non-existing prop. |  -  |
+**404** | VRChat does not serve this route. A live route answers 200 or 401. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -475,7 +475,7 @@ Name | Type | Description  | Notes
 
 Unpublish Prop
 
-Unpublish a Prop and return the updated PropPublishStatus object.
+Unpublish a prop and return the updated PropPublishStatus object. `/props/{propId}` is still served.
 
 ### Example
 
@@ -542,7 +542,7 @@ Name | Type | Description  | Notes
 **200** | Returns a single PropPublishStatus object. |  -  |
 **401** | Error response due to missing auth cookie. |  -  |
 **403** | Error response due to missing permissions. |  -  |
-**404** | Error response when trying to perform operations on a non-existing prop. |  -  |
+**404** | VRChat does not serve this route. A live route answers 200 or 401. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -618,9 +618,10 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Returns a single Prop object. |  -  |
+**400** | The request failed validation. VRChat validates the request before it looks up the resource, so this response is returned even when the ID in the path does not exist. The message names the offending field or parameter. |  -  |
 **401** | Error response due to missing auth cookie. |  -  |
 **403** | Error response due to missing permissions. |  -  |
-**404** | Error response when trying to perform operations on a non-existing prop. |  -  |
+**404** | The requested resource does not exist. The message varies by resource and by route, and only some name the id. Worlds sometimes answer &#x60;model &lt;worldId&gt; not found&#x60; instead of &#x60;World &lt;worldId&gt; not found&#x60;. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

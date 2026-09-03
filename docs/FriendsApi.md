@@ -86,7 +86,7 @@ Name | Type | Description  | Notes
 **200** | Successful response after booping a user. |  -  |
 **400** | Error response when trying to unfriend someone who is not a friend. |  -  |
 **401** | Error response due to missing auth cookie. |  -  |
-**404** | Error response when trying to send a friend request to a user which doesn&#39;t exist. |  -  |
+**404** | The requested resource does not exist. The message varies by resource and by route, and only some name the id. Worlds sometimes answer &#x60;model &lt;worldId&gt; not found&#x60; instead of &#x60;World &lt;worldId&gt; not found&#x60;. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -234,10 +234,10 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Returns a single Notifcation object. |  -  |
+**200** | Returns a single Notification object. |  -  |
 **400** | Bad request error response when sending a friend request |  -  |
 **401** | Error response due to missing auth cookie. |  -  |
-**404** | Error response when trying to send a friend request to a user which doesn&#39;t exist. |  -  |
+**404** | The requested resource does not exist. The message varies by resource and by route, and only some name the id. Worlds sometimes answer &#x60;model &lt;worldId&gt; not found&#x60; instead of &#x60;World &lt;worldId&gt; not found&#x60;. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

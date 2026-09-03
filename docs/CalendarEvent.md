@@ -23,6 +23,7 @@ Name | Type | Description | Notes
 **is_draft** | **bool** |  | [optional] 
 **languages** | **list[str]** | Languages that might be spoken at this event | [optional] 
 **occurrence_kind** | [**CalendarEventOccurrenceKind**](CalendarEventOccurrenceKind.md) |  | [optional] 
+**occurrence_modified** | **bool** |  | [optional] 
 **owner_id** | **str** |  | [optional] 
 **platforms** | [**list[CalendarEventPlatform]**](CalendarEventPlatform.md) |  | [optional] 
 **recurrence** | [**CalendarEventRecurrence**](CalendarEventRecurrence.md) |  | [optional] 

@@ -36,8 +36,8 @@ Method | HTTP request | Description
 [**get_tilia_status**](EconomyApi.md#get_tilia_status) | **GET** /tilia/status | Get Tilia Status
 [**get_tilia_tos**](EconomyApi.md#get_tilia_tos) | **GET** /user/{userId}/tilia/tos | Get Tilia TOS Agreement Status
 [**get_token_bundles**](EconomyApi.md#get_token_bundles) | **GET** /tokenBundles | List Token Bundles
-[**get_user_credits_eligible**](EconomyApi.md#get_user_credits_eligible) | **GET** /users/{userId}/credits/eligible | Get User Credits Eligiblity
-[**get_user_subscription_eligible**](EconomyApi.md#get_user_subscription_eligible) | **GET** /users/{userId}/subscription/eligible | Get User Subscription Eligiblity
+[**get_user_credits_eligible**](EconomyApi.md#get_user_credits_eligible) | **GET** /users/{userId}/credits/eligible | Get User Credits Eligibility
+[**get_user_subscription_eligible**](EconomyApi.md#get_user_subscription_eligible) | **GET** /users/{userId}/subscription/eligible | Get User Subscription Eligibility
 [**get_user_tilia_kyc**](EconomyApi.md#get_user_tilia_kyc) | **GET** /user/{userId}/tilia/kyc | Get User Tilia KYC
 [**list_stores**](EconomyApi.md#list_stores) | **GET** /economy/stores | List Stores
 [**list_user_products**](EconomyApi.md#list_user_products) | **GET** /user/{userId}/products | List User Products
@@ -420,7 +420,7 @@ This endpoint does not need any parameter.
 
 Get Balance
 
-Gets the balance of a user
+Return the balance of a user.
 
 ### Example
 
@@ -494,7 +494,7 @@ Name | Type | Description  | Notes
 
 Get Balance Earnings
 
-Gets the balance of a user from earnings
+Return the user's balance from earnings.
 
 ### Example
 
@@ -560,6 +560,7 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 **200** | Returns a single Balance object. |  -  |
 **401** | Error response due to missing auth cookie. |  -  |
+**404** | VRChat does not serve this route. A live route answers 200 or 401. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -708,7 +709,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_earnings_metrics**
-> EarningsMetrics get_earnings_metrics(seller_id, metric_date_start=metric_date_start, metric_date_end=metric_date_end, group_by_duration=group_by_duration)
+> EarningsMetrics get_earnings_metrics(metric_date_start=metric_date_start, metric_date_end=metric_date_end, seller_id=seller_id, group_by_duration=group_by_duration)
 
 Get Earnings Metrics
 
@@ -744,14 +745,14 @@ configuration.api_key['authCookie'] = 'YOUR_API_KEY'
 with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = vrchatapi.EconomyApi(api_client)
-    seller_id = 'seller_id_example' # str | Seller to retrieve economy metrics for.
-metric_date_start = '2026-03-28T23:00:00.000Z' # str | Lower bound for economy metrics queries. Observed formats include both date-only and full ISO timestamps. (optional)
+    metric_date_start = '2026-03-28T23:00:00.000Z' # str | Lower bound for economy metrics queries. Observed formats include both date-only and full ISO timestamps. (optional)
 metric_date_end = '2026-04-04T21:59:59.999Z' # str | Upper bound for economy metrics queries. Observed formats include both date-only and full ISO timestamps. (optional)
+seller_id = 'seller_id_example' # str | Filter results by seller. (optional)
 group_by_duration = 'days' # str | Time bucket size for economy metrics. Observed values include `days` and `years`. (optional)
 
     try:
         # Get Earnings Metrics
-        api_response = api_instance.get_earnings_metrics(seller_id, metric_date_start=metric_date_start, metric_date_end=metric_date_end, group_by_duration=group_by_duration)
+        api_response = api_instance.get_earnings_metrics(metric_date_start=metric_date_start, metric_date_end=metric_date_end, seller_id=seller_id, group_by_duration=group_by_duration)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling EconomyApi->get_earnings_metrics: %s\n" % e)
@@ -761,9 +762,9 @@ group_by_duration = 'days' # str | Time bucket size for economy metrics. Observe
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **seller_id** | **str**| Seller to retrieve economy metrics for. | 
  **metric_date_start** | **str**| Lower bound for economy metrics queries. Observed formats include both date-only and full ISO timestamps. | [optional] 
  **metric_date_end** | **str**| Upper bound for economy metrics queries. Observed formats include both date-only and full ISO timestamps. | [optional] 
+ **seller_id** | **str**| Filter results by seller. | [optional] 
  **group_by_duration** | **str**| Time bucket size for economy metrics. Observed values include &#x60;days&#x60; and &#x60;years&#x60;. | [optional] 
 
 ### Return type
@@ -1005,6 +1006,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Returns an EconomyPayoutStatus object. |  -  |
+**400** | Error response when the account is not in a state that supports the request, such as an account never onboarded for payouts. |  -  |
 **401** | Error response due to missing auth cookie. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1390,6 +1392,7 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 **200** | Returns a list of ProductListing objects. |  -  |
 **401** | Error response due to missing auth cookie. |  -  |
+**403** | Error response when requesting another user&#39;s product listings. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1790,7 +1793,7 @@ This endpoint does not need any parameter.
 
 Get Seller Eligibility
 
-Get the eligibility of the currently authenticated user to become a seller
+Return the current user's eligibility to become a seller.
 
 ### Example
 
@@ -1852,6 +1855,7 @@ This endpoint does not need any parameter.
 |-------------|-------------|------------------|
 **200** | Returns a single SellerEligibility object. |  -  |
 **401** | Error response due to missing auth cookie. |  -  |
+**404** | VRChat does not serve this route. A live route answers 200 or 401. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2156,7 +2160,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_subscriptions**
-> list[Subscription] get_subscriptions()
+> list[Subscription] get_subscriptions(gifts=gifts, recurring=recurring)
 
 List Subscriptions
 
@@ -2192,17 +2196,23 @@ configuration.api_key['authCookie'] = 'YOUR_API_KEY'
 with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = vrchatapi.EconomyApi(api_client)
-    
+    gifts = True # bool | Return giftable subscriptions instead of standard ones. (optional)
+recurring = True # bool | Return recurring subscriptions instead of standard ones. (optional)
+
     try:
         # List Subscriptions
-        api_response = api_instance.get_subscriptions()
+        api_response = api_instance.get_subscriptions(gifts=gifts, recurring=recurring)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling EconomyApi->get_subscriptions: %s\n" % e)
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **gifts** | **bool**| Return giftable subscriptions instead of standard ones. | [optional] 
+ **recurring** | **bool**| Return recurring subscriptions instead of standard ones. | [optional] 
 
 ### Return type
 
@@ -2230,7 +2240,7 @@ This endpoint does not need any parameter.
 
 Get Tilia Status
 
-Gets the status of Tilia integration
+Return the Tilia integration status.
 
 ### Example
 
@@ -2292,6 +2302,7 @@ This endpoint does not need any parameter.
 |-------------|-------------|------------------|
 **200** | Returns a single TiliaStatus object. |  -  |
 **401** | Error response due to missing auth cookie. |  -  |
+**404** | VRChat does not serve this route. A live route answers 200 or 401. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2300,7 +2311,7 @@ This endpoint does not need any parameter.
 
 Get Tilia TOS Agreement Status
 
-Gets the status of the agreement of a user to the Tilia TOS
+Return the user's Tilia TOS agreement status.
 
 ### Example
 
@@ -2366,6 +2377,7 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 **200** | Returns a single TiliaTOS object. |  -  |
 **401** | Error response due to missing auth cookie. |  -  |
+**404** | VRChat does not serve this route. A live route answers 200 or 401. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2442,9 +2454,9 @@ This endpoint does not need any parameter.
 # **get_user_credits_eligible**
 > UserCreditsEligible get_user_credits_eligible(user_id, subscription_id)
 
-Get User Credits Eligiblity
+Get User Credits Eligibility
 
-Get the user's eligibility status for subscriptions based on available credits.
+Return the user's subscription credit eligibility.
 
 ### Example
 
@@ -2480,7 +2492,7 @@ with vrchatapi.ApiClient(configuration) as api_client:
 subscription_id = 'subscription_id_example' # str | 
 
     try:
-        # Get User Credits Eligiblity
+        # Get User Credits Eligibility
         api_response = api_instance.get_user_credits_eligible(user_id, subscription_id)
         pprint(api_response)
     except ApiException as e:
@@ -2512,13 +2524,14 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 **200** | Returns a single UserCreditsEligible object. |  -  |
 **401** | Error response due to missing auth cookie. |  -  |
+**404** | VRChat does not serve this route. A live route answers 200 or 401. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_user_subscription_eligible**
 > UserSubscriptionEligible get_user_subscription_eligible(user_id, steam_id=steam_id)
 
-Get User Subscription Eligiblity
+Get User Subscription Eligibility
 
 Get the user's eligibility status for subscriptions.
 
@@ -2556,7 +2569,7 @@ with vrchatapi.ApiClient(configuration) as api_client:
 steam_id = 'game night' # str | The Steam ID of the user. (optional)
 
     try:
-        # Get User Subscription Eligiblity
+        # Get User Subscription Eligibility
         api_response = api_instance.get_user_subscription_eligible(user_id, steam_id=steam_id)
         pprint(api_response)
     except ApiException as e:
@@ -2661,16 +2674,17 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Returns a TiliaKyc object. |  -  |
+**400** | Error response when the account is not in a state that supports the request, such as an account never onboarded for payouts. |  -  |
 **401** | Error response due to missing auth cookie. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_stores**
-> list[Store] list_stores(seller_id=seller_id, management_pov=management_pov, n=n, offset=offset)
+> list[Store] list_stores(seller_id, management_pov=management_pov, n=n, offset=offset)
 
 List Stores
 
-Lists stores, optionally filtered to a seller and adjusted for management views.
+List a seller's stores, adjusted for management views.
 
 ### Example
 
@@ -2702,14 +2716,14 @@ configuration.api_key['authCookie'] = 'YOUR_API_KEY'
 with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = vrchatapi.EconomyApi(api_client)
-    seller_id = 'seller_id_example' # str | Filter results by seller. (optional)
+    seller_id = 'seller_id_example' # str | Seller to scope the results to.
 management_pov = true # bool | Return stores from the seller management point of view. (optional)
 n = 60 # int | The number of objects to return. (optional) (default to 60)
 offset = 56 # int | A zero-based offset from the default object sorting from where search results start. (optional)
 
     try:
         # List Stores
-        api_response = api_instance.list_stores(seller_id=seller_id, management_pov=management_pov, n=n, offset=offset)
+        api_response = api_instance.list_stores(seller_id, management_pov=management_pov, n=n, offset=offset)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling EconomyApi->list_stores: %s\n" % e)
@@ -2719,7 +2733,7 @@ offset = 56 # int | A zero-based offset from the default object sorting from whe
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **seller_id** | **str**| Filter results by seller. | [optional] 
+ **seller_id** | **str**| Seller to scope the results to. | 
  **management_pov** | **bool**| Return stores from the seller management point of view. | [optional] 
  **n** | **int**| The number of objects to return. | [optional] [default to 60]
  **offset** | **int**| A zero-based offset from the default object sorting from where search results start. | [optional] 
@@ -2741,7 +2755,9 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Returns a list of Store objects. |  -  |
+**400** | The request failed validation. VRChat validates the request before it looks up the resource, so this response is returned even when the ID in the path does not exist. The message names the offending field or parameter. |  -  |
 **401** | Error response due to missing auth cookie. |  -  |
+**403** | Error response when the seller&#39;s stores are unavailable to the caller. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -3056,7 +3072,7 @@ Name | Type | Description  | Notes
 
 Update Tilia TOS Agreement Status
 
-Updates the status of the agreement of a user to the Tilia TOS
+Update the user's Tilia TOS agreement status.
 
 ### Example
 
@@ -3124,6 +3140,7 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 **200** | Returns a UserSubscription object. |  -  |
 **401** | Error response due to missing auth cookie. |  -  |
+**404** | VRChat does not serve this route. A live route answers 200 or 401. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

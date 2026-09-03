@@ -36,6 +36,7 @@ Name | Type | Description | Notes
 **phys_bone_transform_count** | **int** |  | 
 **physics_colliders** | **int** |  | 
 **physics_rigidbodies** | **int** |  | 
+**raycast_count** | **int** |  | [optional] 
 **skinned_mesh_count** | **int** |  | 
 **skinned_mesh_indices** | **int** |  | 
 **skinned_mesh_polygons** | **int** |  | 

@@ -5,6 +5,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**created_at** | **datetime** |  | [optional] 
 **description** | **str** |  | 
 **id** | **str** |  | 
 **is_visible** | **bool** |  | 
@@ -14,6 +15,7 @@ Name | Type | Description | Notes
 **submission_content_gate_date** | **datetime** |  | 
 **submission_content_gated** | **bool** |  | 
 **title** | **str** |  | 
+**type** | **str** |  | 
 **updated_at** | **datetime** |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

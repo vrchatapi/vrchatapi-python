@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **capacity** | **int** |  | 
 **created_at** | **datetime** |  | 
 **default_content_settings** | [**InstanceContentSettings**](InstanceContentSettings.md) |  | [optional] 
+**disabled_prop_abilities** | **list[object]** |  | [optional] 
 **favorites** | **int** |  | [default to 0]
 **heat** | **int** |  | [default to 0]
 **id** | **str** | WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user. | 

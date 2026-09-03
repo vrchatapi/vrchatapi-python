@@ -5,9 +5,11 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **created_at** | **datetime** |  | [optional] 
+**default_role** | **bool** |  | [optional] [default to False]
 **description** | **str** |  | [optional] 
 **group_id** | **str** |  | [optional] 
 **id** | **str** |  | [optional] 
+**is_added_on_join** | **bool** |  | [optional] [default to False]
 **is_management_role** | **bool** |  | [optional] [default to False]
 **is_self_assignable** | **bool** |  | [optional] [default to False]
 **name** | **str** |  | [optional] 

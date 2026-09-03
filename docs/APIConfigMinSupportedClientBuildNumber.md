@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **google_play** | [**PlatformBuildInfo**](PlatformBuildInfo.md) |  | 
 **pc** | [**PlatformBuildInfo**](PlatformBuildInfo.md) |  | 
 **pico_store** | [**PlatformBuildInfo**](PlatformBuildInfo.md) |  | 
-**quest_app_lab** | [**PlatformBuildInfo**](PlatformBuildInfo.md) |  | 
+**quest_app_lab** | [**PlatformBuildInfo**](PlatformBuildInfo.md) |  | [optional] 
 **quest_store** | [**PlatformBuildInfo**](PlatformBuildInfo.md) |  | 
 **test_flight** | [**PlatformBuildInfo**](PlatformBuildInfo.md) |  | 
 **xr_elite** | [**PlatformBuildInfo**](PlatformBuildInfo.md) |  | 

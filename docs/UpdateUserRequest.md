@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **current_password** | **str** |  | [optional] 
 **display_name** | **str** | MUST specify currentPassword as well to change display name | [optional] 
 **email** | **str** |  | [optional] 
+**has_discord_friends_opt_out** | **bool** | Opt out of the Discord Friend Connections feature | [optional] 
 **has_shared_connections_opt_out** | **bool** | Opt out of the Mutuals feature | [optional] 
 **is_booping_enabled** | **bool** |  | [optional] 
 **password** | **str** | MUST specify currentPassword as well to change password | [optional] 

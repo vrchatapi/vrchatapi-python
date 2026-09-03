@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **id** | **str** |  | [optional] 
 **image_id** | **str** |  | [optional] 
 **image_url** | **str** |  | [optional] 
-**role_id** | **list[str]** |   | [optional] 
+**role_ids** | **list[str]** |   | [optional] 
 **text** | **str** |  | [optional] 
 **title** | **str** |  | [optional] 
 **updated_at** | **datetime** |  | [optional] 

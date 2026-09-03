@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **created_at** | **datetime** |  | 
 **default_content_settings** | [**InstanceContentSettings**](InstanceContentSettings.md) |  | [optional] 
 **description** | **str** |  | 
+**disabled_prop_abilities** | **list[object]** |  | [optional] 
 **favorites** | **int** |  | [optional] [default to 0]
 **featured** | **bool** |  | [default to False]
 **heat** | **int** |  | [default to 0]
@@ -29,6 +30,7 @@ Name | Type | Description | Notes
 **publication_date** | **str** |  | 
 **recommended_capacity** | **int** |  | 
 **release_status** | [**ReleaseStatus**](ReleaseStatus.md) |  | 
+**slim_instances** | **list[object]** |  | [optional] 
 **store_id** | **str** |  | [optional] 
 **tags** | **list[str]** |   | 
 **thumbnail_image_url** | **str** |  | 

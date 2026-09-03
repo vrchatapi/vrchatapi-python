@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **inventory_items_to_instantiate** | **list[str]** | Only in bundles | [optional] 
 **mask_tag** | **str** |  | [optional] 
 **prop_id** | **str** |  | [optional] 
+**prop_kind** | **int** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

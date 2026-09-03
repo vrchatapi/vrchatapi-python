@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **created_at** | **datetime** |  | [optional] 
 **default_content_settings** | [**InstanceContentSettings**](InstanceContentSettings.md) |  | [optional] 
 **description** | **str** |  | [optional] 
+**disabled_prop_abilities** | **list[object]** |  | [optional] 
 **favorite_group** | **str** |  | 
 **favorite_id** | **str** |  | 
 **favorites** | **int** |  | [optional] [default to 0]

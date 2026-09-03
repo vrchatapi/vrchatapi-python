@@ -6,6 +6,7 @@ A permission that can be granted to a role in a group.
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **allowed_to_add** | **bool** | Whether the user is allowed to add this permission to a role. | [optional] [default to False]
+**depends_on** | [**list[GroupPermissions]**](GroupPermissions.md) | Other permission names this one is listed against. | [optional] 
 **display_name** | **str** | The display name of the permission. | [optional] 
 **help** | **str** | Human-readable description of the permission. | [optional] 
 **is_management_permission** | **bool** | Whether this permission is a \&quot;management\&quot; permission. | [optional] [default to False]
