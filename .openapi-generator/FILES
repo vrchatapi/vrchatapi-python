@@ -91,7 +91,6 @@ docs/CurrentUser.md
 docs/CurrentUserPlatformHistoryInner.md
 docs/CurrentUserPresence.md
 docs/DeclineGroupInviteRequest.md
-docs/DeprecatedApi.md
 docs/DeveloperType.md
 docs/Disable2FAResult.md
 docs/DiscordDetails.md
@@ -399,7 +398,6 @@ vrchatapi/api/__init__.py
 vrchatapi/api/authentication_api.py
 vrchatapi/api/avatars_api.py
 vrchatapi/api/calendar_api.py
-vrchatapi/api/deprecated_api.py
 vrchatapi/api/economy_api.py
 vrchatapi/api/favorites_api.py
 vrchatapi/api/files_api.py

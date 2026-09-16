@@ -64,6 +64,7 @@ class UserNoteTargetUser(object):
     def id(self):
         """Gets the id of this UserNoteTargetUser.  # noqa: E501
 
+        A users unique ID, usually in the form of `usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469`. Legacy players can have old IDs in the form of `8JoV9XEdpo`. The ID can never be changed.  # noqa: E501
 
         :return: The id of this UserNoteTargetUser.  # noqa: E501
         :rtype: str
@@ -74,6 +75,7 @@ class UserNoteTargetUser(object):
     def id(self, id):
         """Sets the id of this UserNoteTargetUser.
 
+        A users unique ID, usually in the form of `usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469`. Legacy players can have old IDs in the form of `8JoV9XEdpo`. The ID can never be changed.  # noqa: E501
 
         :param id: The id of this UserNoteTargetUser.  # noqa: E501
         :type id: str

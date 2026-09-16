@@ -5,7 +5,7 @@ User object received when querying your friends list
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**banner_color** | **str** |  | [optional] 
+**banner_color** | **str** | Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty. | [optional] 
 **banner_type** | **str** |  | [optional] 
 **banner_url** | **str** |  | [optional] 
 **developer_type** | [**DeveloperType**](DeveloperType.md) |  | 

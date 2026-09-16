@@ -5,7 +5,7 @@ Only visible via the /groups/:groupId/members endpoint, **not** when fetching a 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**banner_color** | **str** |  | [optional] 
+**banner_color** | **str** | Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty. | [optional] 
 **banner_type** | **str** |  | [optional] 
 **banner_url** | **str** |  | [optional] 
 **display_name** | **str** |  | [optional] 

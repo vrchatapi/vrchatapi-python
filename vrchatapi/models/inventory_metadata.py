@@ -224,7 +224,7 @@ class InventoryMetadata(object):
     def gradient_end(self):
         """Gets the gradient_end of this InventoryMetadata.  # noqa: E501
 
-        Hex colour without a leading `#`.  # noqa: E501
+        Six hexadecimal digits, without a leading `#`. May be empty.  # noqa: E501
 
         :return: The gradient_end of this InventoryMetadata.  # noqa: E501
         :rtype: str
@@ -235,7 +235,7 @@ class InventoryMetadata(object):
     def gradient_end(self, gradient_end):
         """Sets the gradient_end of this InventoryMetadata.
 
-        Hex colour without a leading `#`.  # noqa: E501
+        Six hexadecimal digits, without a leading `#`. May be empty.  # noqa: E501
 
         :param gradient_end: The gradient_end of this InventoryMetadata.  # noqa: E501
         :type gradient_end: str
@@ -247,7 +247,7 @@ class InventoryMetadata(object):
     def gradient_start(self):
         """Gets the gradient_start of this InventoryMetadata.  # noqa: E501
 
-        Hex colour without a leading `#`.  # noqa: E501
+        Six hexadecimal digits, without a leading `#`. May be empty.  # noqa: E501
 
         :return: The gradient_start of this InventoryMetadata.  # noqa: E501
         :rtype: str
@@ -258,7 +258,7 @@ class InventoryMetadata(object):
     def gradient_start(self, gradient_start):
         """Sets the gradient_start of this InventoryMetadata.
 
-        Hex colour without a leading `#`.  # noqa: E501
+        Six hexadecimal digits, without a leading `#`. May be empty.  # noqa: E501
 
         :param gradient_start: The gradient_start of this InventoryMetadata.  # noqa: E501
         :type gradient_start: str

@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **age_verified** | **bool** | &#x60;true&#x60; if, user is age verified (not 18+). | 
 **allow_avatar_copying** | **bool** |  | [default to True]
 **apple_details** | **dict(str, object)** |  | [optional] 
-**banner_color** | **str** |  | [optional] 
+**banner_color** | **str** | Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty. | [optional] 
 **banner_type** | **str** |  | [optional] 
 **banner_url** | **str** |  | [optional] 
 **date_joined** | **date** |  | 

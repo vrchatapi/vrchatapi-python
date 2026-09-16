@@ -410,6 +410,7 @@ class User(object):
     def banner_color(self):
         """Gets the banner_color of this User.  # noqa: E501
 
+        Six hexadecimal digits, without a leading `#`. May be empty.  # noqa: E501
 
         :return: The banner_color of this User.  # noqa: E501
         :rtype: str
@@ -420,6 +421,7 @@ class User(object):
     def banner_color(self, banner_color):
         """Sets the banner_color of this User.
 
+        Six hexadecimal digits, without a leading `#`. May be empty.  # noqa: E501
 
         :param banner_color: The banner_color of this User.  # noqa: E501
         :type banner_color: str

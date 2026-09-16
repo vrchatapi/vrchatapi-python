@@ -323,7 +323,7 @@ class PublicProfile(object):
     def background_gradient_bottom(self):
         """Gets the background_gradient_bottom of this PublicProfile.  # noqa: E501
 
-        Hex colour without a leading `#`.  # noqa: E501
+        Six hexadecimal digits, without a leading `#`. May be empty.  # noqa: E501
 
         :return: The background_gradient_bottom of this PublicProfile.  # noqa: E501
         :rtype: str
@@ -334,7 +334,7 @@ class PublicProfile(object):
     def background_gradient_bottom(self, background_gradient_bottom):
         """Sets the background_gradient_bottom of this PublicProfile.
 
-        Hex colour without a leading `#`.  # noqa: E501
+        Six hexadecimal digits, without a leading `#`. May be empty.  # noqa: E501
 
         :param background_gradient_bottom: The background_gradient_bottom of this PublicProfile.  # noqa: E501
         :type background_gradient_bottom: str
@@ -346,7 +346,7 @@ class PublicProfile(object):
     def background_gradient_top(self):
         """Gets the background_gradient_top of this PublicProfile.  # noqa: E501
 
-        Hex colour without a leading `#`.  # noqa: E501
+        Six hexadecimal digits, without a leading `#`. May be empty.  # noqa: E501
 
         :return: The background_gradient_top of this PublicProfile.  # noqa: E501
         :rtype: str
@@ -357,7 +357,7 @@ class PublicProfile(object):
     def background_gradient_top(self, background_gradient_top):
         """Sets the background_gradient_top of this PublicProfile.
 
-        Hex colour without a leading `#`.  # noqa: E501
+        Six hexadecimal digits, without a leading `#`. May be empty.  # noqa: E501
 
         :param background_gradient_top: The background_gradient_top of this PublicProfile.  # noqa: E501
         :type background_gradient_top: str
@@ -453,6 +453,7 @@ class PublicProfile(object):
     def banner_color(self):
         """Gets the banner_color of this PublicProfile.  # noqa: E501
 
+        Six hexadecimal digits, without a leading `#`. May be empty.  # noqa: E501
 
         :return: The banner_color of this PublicProfile.  # noqa: E501
         :rtype: str
@@ -463,6 +464,7 @@ class PublicProfile(object):
     def banner_color(self, banner_color):
         """Sets the banner_color of this PublicProfile.
 
+        Six hexadecimal digits, without a leading `#`. May be empty.  # noqa: E501
 
         :param banner_color: The banner_color of this PublicProfile.  # noqa: E501
         :type banner_color: str
@@ -1047,7 +1049,7 @@ class PublicProfile(object):
     def theme_button_color(self):
         """Gets the theme_button_color of this PublicProfile.  # noqa: E501
 
-        Hex colour without a leading `#`.  # noqa: E501
+        Six hexadecimal digits, without a leading `#`. May be empty.  # noqa: E501
 
         :return: The theme_button_color of this PublicProfile.  # noqa: E501
         :rtype: str
@@ -1058,7 +1060,7 @@ class PublicProfile(object):
     def theme_button_color(self, theme_button_color):
         """Sets the theme_button_color of this PublicProfile.
 
-        Hex colour without a leading `#`.  # noqa: E501
+        Six hexadecimal digits, without a leading `#`. May be empty.  # noqa: E501
 
         :param theme_button_color: The theme_button_color of this PublicProfile.  # noqa: E501
         :type theme_button_color: str
@@ -1070,7 +1072,7 @@ class PublicProfile(object):
     def theme_icon_color(self):
         """Gets the theme_icon_color of this PublicProfile.  # noqa: E501
 
-        Hex colour without a leading `#`.  # noqa: E501
+        Six hexadecimal digits, without a leading `#`. May be empty.  # noqa: E501
 
         :return: The theme_icon_color of this PublicProfile.  # noqa: E501
         :rtype: str
@@ -1081,7 +1083,7 @@ class PublicProfile(object):
     def theme_icon_color(self, theme_icon_color):
         """Sets the theme_icon_color of this PublicProfile.
 
-        Hex colour without a leading `#`.  # noqa: E501
+        Six hexadecimal digits, without a leading `#`. May be empty.  # noqa: E501
 
         :param theme_icon_color: The theme_icon_color of this PublicProfile.  # noqa: E501
         :type theme_icon_color: str
@@ -1114,7 +1116,7 @@ class PublicProfile(object):
     def theme_subtext_color(self):
         """Gets the theme_subtext_color of this PublicProfile.  # noqa: E501
 
-        Hex colour without a leading `#`.  # noqa: E501
+        Six hexadecimal digits, without a leading `#`. May be empty.  # noqa: E501
 
         :return: The theme_subtext_color of this PublicProfile.  # noqa: E501
         :rtype: str
@@ -1125,7 +1127,7 @@ class PublicProfile(object):
     def theme_subtext_color(self, theme_subtext_color):
         """Sets the theme_subtext_color of this PublicProfile.
 
-        Hex colour without a leading `#`.  # noqa: E501
+        Six hexadecimal digits, without a leading `#`. May be empty.  # noqa: E501
 
         :param theme_subtext_color: The theme_subtext_color of this PublicProfile.  # noqa: E501
         :type theme_subtext_color: str
