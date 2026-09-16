@@ -269,6 +269,8 @@ docs/ProductPurchaseProduct.md
 docs/ProductPurchasePurchaseContext.md
 docs/ProductPurchaseRecord.md
 docs/ProductType.md
+docs/ProfileGroup.md
+docs/ProfileGroups.md
 docs/ProfileRepresentedGroup.md
 docs/Prop.md
 docs/PropPublishStatus.md
@@ -651,6 +653,8 @@ vrchatapi/models/product_purchase_product.py
 vrchatapi/models/product_purchase_purchase_context.py
 vrchatapi/models/product_purchase_record.py
 vrchatapi/models/product_type.py
+vrchatapi/models/profile_group.py
+vrchatapi/models/profile_groups.py
 vrchatapi/models/profile_represented_group.py
 vrchatapi/models/prop.py
 vrchatapi/models/prop_publish_status.py

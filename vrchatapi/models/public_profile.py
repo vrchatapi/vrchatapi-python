@@ -42,9 +42,11 @@ class PublicProfile(object):
         'badges': 'list[Badge]',
         'banner_color': 'str',
         'banner_type': 'str',
+        'banner_url': 'str',
         'bio': 'str',
         'bio_links': 'list[str]',
         'display_name': 'str',
+        'groups': 'ProfileGroups',
         'has_vrc_plus': 'bool',
         'icon_frame': 'str',
         'icon_url': 'str',
@@ -54,9 +56,12 @@ class PublicProfile(object):
         'nameplate_effect': 'str',
         'profile_effect': 'str',
         'pronouns': 'str',
+        'public_worlds': 'list[object]',
         'represented_group': 'ProfileRepresentedGroup',
         'theme_id': 'str',
-        'trust_tags': 'list[str]'
+        'total_public_worlds_count': 'int',
+        'trust_tags': 'list[str]',
+        'world_favorite_lists': 'list[object]'
     }
 
     attribute_map = {
@@ -66,9 +71,11 @@ class PublicProfile(object):
         'badges': 'badges',
         'banner_color': 'bannerColor',
         'banner_type': 'bannerType',
+        'banner_url': 'bannerUrl',
         'bio': 'bio',
         'bio_links': 'bioLinks',
         'display_name': 'displayName',
+        'groups': 'groups',
         'has_vrc_plus': 'hasVrcPlus',
         'icon_frame': 'iconFrame',
         'icon_url': 'iconUrl',
@@ -78,12 +85,15 @@ class PublicProfile(object):
         'nameplate_effect': 'nameplateEffect',
         'profile_effect': 'profileEffect',
         'pronouns': 'pronouns',
+        'public_worlds': 'publicWorlds',
         'represented_group': 'representedGroup',
         'theme_id': 'themeId',
-        'trust_tags': 'trustTags'
+        'total_public_worlds_count': 'totalPublicWorldsCount',
+        'trust_tags': 'trustTags',
+        'world_favorite_lists': 'worldFavoriteLists'
     }
 
-    def __init__(self, age_verification_status=None, age_verified=None, background_type=None, badges=None, banner_color=None, banner_type=None, bio=None, bio_links=None, display_name=None, has_vrc_plus=None, icon_frame=None, icon_url=None, id=None, is_economy_creator=None, languages=None, nameplate_effect=None, profile_effect=None, pronouns=None, represented_group=None, theme_id=None, trust_tags=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, age_verification_status=None, age_verified=None, background_type=None, badges=None, banner_color=None, banner_type=None, banner_url=None, bio=None, bio_links=None, display_name=None, groups=None, has_vrc_plus=None, icon_frame=None, icon_url=None, id=None, is_economy_creator=None, languages=None, nameplate_effect=None, profile_effect=None, pronouns=None, public_worlds=None, represented_group=None, theme_id=None, total_public_worlds_count=None, trust_tags=None, world_favorite_lists=None, local_vars_configuration=None):  # noqa: E501
         """PublicProfile - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration.get_default_copy()
@@ -95,9 +105,11 @@ class PublicProfile(object):
         self._badges = None
         self._banner_color = None
         self._banner_type = None
+        self._banner_url = None
         self._bio = None
         self._bio_links = None
         self._display_name = None
+        self._groups = None
         self._has_vrc_plus = None
         self._icon_frame = None
         self._icon_url = None
@@ -107,9 +119,12 @@ class PublicProfile(object):
         self._nameplate_effect = None
         self._profile_effect = None
         self._pronouns = None
+        self._public_worlds = None
         self._represented_group = None
         self._theme_id = None
+        self._total_public_worlds_count = None
         self._trust_tags = None
+        self._world_favorite_lists = None
         self.discriminator = None
 
         if age_verification_status is not None:
@@ -124,12 +139,16 @@ class PublicProfile(object):
             self.banner_color = banner_color
         if banner_type is not None:
             self.banner_type = banner_type
+        if banner_url is not None:
+            self.banner_url = banner_url
         if bio is not None:
             self.bio = bio
         if bio_links is not None:
             self.bio_links = bio_links
         if display_name is not None:
             self.display_name = display_name
+        if groups is not None:
+            self.groups = groups
         if has_vrc_plus is not None:
             self.has_vrc_plus = has_vrc_plus
         if icon_frame is not None:
@@ -148,12 +167,18 @@ class PublicProfile(object):
             self.profile_effect = profile_effect
         if pronouns is not None:
             self.pronouns = pronouns
+        if public_worlds is not None:
+            self.public_worlds = public_worlds
         if represented_group is not None:
             self.represented_group = represented_group
         if theme_id is not None:
             self.theme_id = theme_id
+        if total_public_worlds_count is not None:
+            self.total_public_worlds_count = total_public_worlds_count
         if trust_tags is not None:
             self.trust_tags = trust_tags
+        if world_favorite_lists is not None:
+            self.world_favorite_lists = world_favorite_lists
 
     @property
     def age_verification_status(self):
@@ -284,6 +309,27 @@ class PublicProfile(object):
         self._banner_type = banner_type
 
     @property
+    def banner_url(self):
+        """Gets the banner_url of this PublicProfile.  # noqa: E501
+
+
+        :return: The banner_url of this PublicProfile.  # noqa: E501
+        :rtype: str
+        """
+        return self._banner_url
+
+    @banner_url.setter
+    def banner_url(self, banner_url):
+        """Sets the banner_url of this PublicProfile.
+
+
+        :param banner_url: The banner_url of this PublicProfile.  # noqa: E501
+        :type banner_url: str
+        """
+
+        self._banner_url = banner_url
+
+    @property
     def bio(self):
         """Gets the bio of this PublicProfile.  # noqa: E501
 
@@ -345,6 +391,27 @@ class PublicProfile(object):
         """
 
         self._display_name = display_name
+
+    @property
+    def groups(self):
+        """Gets the groups of this PublicProfile.  # noqa: E501
+
+
+        :return: The groups of this PublicProfile.  # noqa: E501
+        :rtype: ProfileGroups
+        """
+        return self._groups
+
+    @groups.setter
+    def groups(self, groups):
+        """Sets the groups of this PublicProfile.
+
+
+        :param groups: The groups of this PublicProfile.  # noqa: E501
+        :type groups: ProfileGroups
+        """
+
+        self._groups = groups
 
     @property
     def has_vrc_plus(self):
@@ -538,6 +605,27 @@ class PublicProfile(object):
         self._pronouns = pronouns
 
     @property
+    def public_worlds(self):
+        """Gets the public_worlds of this PublicProfile.  # noqa: E501
+
+
+        :return: The public_worlds of this PublicProfile.  # noqa: E501
+        :rtype: list[object]
+        """
+        return self._public_worlds
+
+    @public_worlds.setter
+    def public_worlds(self, public_worlds):
+        """Sets the public_worlds of this PublicProfile.
+
+
+        :param public_worlds: The public_worlds of this PublicProfile.  # noqa: E501
+        :type public_worlds: list[object]
+        """
+
+        self._public_worlds = public_worlds
+
+    @property
     def represented_group(self):
         """Gets the represented_group of this PublicProfile.  # noqa: E501
 
@@ -580,6 +668,27 @@ class PublicProfile(object):
         self._theme_id = theme_id
 
     @property
+    def total_public_worlds_count(self):
+        """Gets the total_public_worlds_count of this PublicProfile.  # noqa: E501
+
+
+        :return: The total_public_worlds_count of this PublicProfile.  # noqa: E501
+        :rtype: int
+        """
+        return self._total_public_worlds_count
+
+    @total_public_worlds_count.setter
+    def total_public_worlds_count(self, total_public_worlds_count):
+        """Sets the total_public_worlds_count of this PublicProfile.
+
+
+        :param total_public_worlds_count: The total_public_worlds_count of this PublicProfile.  # noqa: E501
+        :type total_public_worlds_count: int
+        """
+
+        self._total_public_worlds_count = total_public_worlds_count
+
+    @property
     def trust_tags(self):
         """Gets the trust_tags of this PublicProfile.  # noqa: E501
 
@@ -599,6 +708,27 @@ class PublicProfile(object):
         """
 
         self._trust_tags = trust_tags
+
+    @property
+    def world_favorite_lists(self):
+        """Gets the world_favorite_lists of this PublicProfile.  # noqa: E501
+
+
+        :return: The world_favorite_lists of this PublicProfile.  # noqa: E501
+        :rtype: list[object]
+        """
+        return self._world_favorite_lists
+
+    @world_favorite_lists.setter
+    def world_favorite_lists(self, world_favorite_lists):
+        """Sets the world_favorite_lists of this PublicProfile.
+
+
+        :param world_favorite_lists: The world_favorite_lists of this PublicProfile.  # noqa: E501
+        :type world_favorite_lists: list[object]
+        """
+
+        self._world_favorite_lists = world_favorite_lists
 
     def to_dict(self, serialize=False):
         """Returns the model properties as a dict"""

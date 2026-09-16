@@ -792,7 +792,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_public_profile**
-> PublicProfile get_public_profile(user_id)
+> PublicProfile get_public_profile(user_id, with_groups_and_worlds=with_groups_and_worlds)
 
 Get Public Profile
 
@@ -829,10 +829,11 @@ with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = vrchatapi.UsersApi(api_client)
     user_id = 'user_id_example' # str | Must be a valid user ID.
+with_groups_and_worlds = True # bool | Include `groups`, `publicWorlds` and `totalPublicWorldsCount` in the response. (optional)
 
     try:
         # Get Public Profile
-        api_response = api_instance.get_public_profile(user_id)
+        api_response = api_instance.get_public_profile(user_id, with_groups_and_worlds=with_groups_and_worlds)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling UsersApi->get_public_profile: %s\n" % e)
@@ -843,6 +844,7 @@ with vrchatapi.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **user_id** | **str**| Must be a valid user ID. | 
+ **with_groups_and_worlds** | **bool**| Include &#x60;groups&#x60;, &#x60;publicWorlds&#x60; and &#x60;totalPublicWorldsCount&#x60; in the response. | [optional] 
 
 ### Return type
 

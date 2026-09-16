@@ -1499,6 +1499,8 @@ class UsersApi(object):
 
         :param user_id: Must be a valid user ID. (required)
         :type user_id: str
+        :param with_groups_and_worlds: Include `groups`, `publicWorlds` and `totalPublicWorldsCount` in the response.
+        :type with_groups_and_worlds: bool
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -1529,6 +1531,8 @@ class UsersApi(object):
 
         :param user_id: Must be a valid user ID. (required)
         :type user_id: str
+        :param with_groups_and_worlds: Include `groups`, `publicWorlds` and `totalPublicWorldsCount` in the response.
+        :type with_groups_and_worlds: bool
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
@@ -1556,7 +1560,8 @@ class UsersApi(object):
         local_var_params = locals()
 
         all_params = [
-            'user_id'
+            'user_id',
+            'with_groups_and_worlds'
         ]
         all_params.extend(
             [
@@ -1589,6 +1594,8 @@ class UsersApi(object):
             path_params['userId'] = local_var_params['user_id']  # noqa: E501
 
         query_params = []
+        if local_var_params.get('with_groups_and_worlds') is not None:  # noqa: E501
+            query_params.append(('withGroupsAndWorlds', local_var_params['with_groups_and_worlds']))  # noqa: E501
 
         header_params = dict(local_var_params.get('_headers', {}))
 

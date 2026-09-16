@@ -16,11 +16,6 @@ Name | Type | Description | Notes
 **banner_color** | **str** |  | [optional] 
 **banner_type** | **str** |  | [optional] 
 **banner_url** | **str** |  | [optional] 
-**bio** | **str** |  | 
-**bio_links** | **list[str]** |  | 
-**current_avatar_image_url** | **str** | When profilePicOverride is not empty, use it instead. | 
-**current_avatar_tags** | **list[str]** |  | 
-**current_avatar_thumbnail_image_url** | **str** | When profilePicOverride is not empty, use it instead. | 
 **date_joined** | **date** |  | 
 **developer_type** | [**DeveloperType**](DeveloperType.md) |  | 
 **display_name** | **str** | A users visual display name. This is what shows up in-game, and can different from their &#x60;username&#x60;. Changing display name is restricted to a cooldown period. | 
@@ -41,8 +36,6 @@ Name | Type | Description | Notes
 **note** | **str** |  | [optional] 
 **platform** | **str** |  | [optional] 
 **profile_effect** | **str** |  | [optional] 
-**profile_pic_override** | **str** |  | 
-**profile_pic_override_thumbnail** | **str** |  | 
 **pronouns** | **str** |  | 
 **state** | [**UserState**](UserState.md) |  | 
 **status** | [**UserStatus**](UserStatus.md) |  | 
@@ -51,7 +44,6 @@ Name | Type | Description | Notes
 **traveling_to_instance** | **str** |  | [optional] 
 **traveling_to_location** | **str** |  | [optional] 
 **traveling_to_world** | **str** |  | [optional] 
-**user_icon** | **str** |  | 
 **world_id** | **str** | WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

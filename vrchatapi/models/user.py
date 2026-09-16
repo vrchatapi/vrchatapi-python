@@ -48,11 +48,6 @@ class User(object):
         'banner_color': 'str',
         'banner_type': 'str',
         'banner_url': 'str',
-        'bio': 'str',
-        'bio_links': 'list[str]',
-        'current_avatar_image_url': 'str',
-        'current_avatar_tags': 'list[str]',
-        'current_avatar_thumbnail_image_url': 'str',
         'date_joined': 'date',
         'developer_type': 'DeveloperType',
         'display_name': 'str',
@@ -73,8 +68,6 @@ class User(object):
         'note': 'str',
         'platform': 'str',
         'profile_effect': 'str',
-        'profile_pic_override': 'str',
-        'profile_pic_override_thumbnail': 'str',
         'pronouns': 'str',
         'state': 'UserState',
         'status': 'UserStatus',
@@ -83,7 +76,6 @@ class User(object):
         'traveling_to_instance': 'str',
         'traveling_to_location': 'str',
         'traveling_to_world': 'str',
-        'user_icon': 'str',
         'world_id': 'str'
     }
 
@@ -100,11 +92,6 @@ class User(object):
         'banner_color': 'bannerColor',
         'banner_type': 'bannerType',
         'banner_url': 'bannerUrl',
-        'bio': 'bio',
-        'bio_links': 'bioLinks',
-        'current_avatar_image_url': 'currentAvatarImageUrl',
-        'current_avatar_tags': 'currentAvatarTags',
-        'current_avatar_thumbnail_image_url': 'currentAvatarThumbnailImageUrl',
         'date_joined': 'date_joined',
         'developer_type': 'developerType',
         'display_name': 'displayName',
@@ -125,8 +112,6 @@ class User(object):
         'note': 'note',
         'platform': 'platform',
         'profile_effect': 'profileEffect',
-        'profile_pic_override': 'profilePicOverride',
-        'profile_pic_override_thumbnail': 'profilePicOverrideThumbnail',
         'pronouns': 'pronouns',
         'state': 'state',
         'status': 'status',
@@ -135,11 +120,10 @@ class User(object):
         'traveling_to_instance': 'travelingToInstance',
         'traveling_to_location': 'travelingToLocation',
         'traveling_to_world': 'travelingToWorld',
-        'user_icon': 'userIcon',
         'world_id': 'worldId'
     }
 
-    def __init__(self, accepted_privacy_version=None, accepted_tos_version=None, account_deletion_date=None, account_deletion_log=None, age_verification_status=None, age_verified=None, allow_avatar_copying=True, apple_details=None, badges=None, banner_color=None, banner_type=None, banner_url=None, bio=None, bio_links=None, current_avatar_image_url=None, current_avatar_tags=None, current_avatar_thumbnail_image_url=None, date_joined=None, developer_type=None, display_name=None, friend_key=None, friend_request_status=None, icon_frame=None, icon_url=None, id=None, instance_id=None, is_economy_creator=None, is_friend=None, last_activity=None, last_login=None, last_mobile=None, last_platform=None, location=None, nameplate_effect=None, note=None, platform=None, profile_effect=None, profile_pic_override=None, profile_pic_override_thumbnail=None, pronouns=None, state=None, status=None, status_description=None, tags=None, traveling_to_instance=None, traveling_to_location=None, traveling_to_world=None, user_icon=None, world_id=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, accepted_privacy_version=None, accepted_tos_version=None, account_deletion_date=None, account_deletion_log=None, age_verification_status=None, age_verified=None, allow_avatar_copying=True, apple_details=None, badges=None, banner_color=None, banner_type=None, banner_url=None, date_joined=None, developer_type=None, display_name=None, friend_key=None, friend_request_status=None, icon_frame=None, icon_url=None, id=None, instance_id=None, is_economy_creator=None, is_friend=None, last_activity=None, last_login=None, last_mobile=None, last_platform=None, location=None, nameplate_effect=None, note=None, platform=None, profile_effect=None, pronouns=None, state=None, status=None, status_description=None, tags=None, traveling_to_instance=None, traveling_to_location=None, traveling_to_world=None, world_id=None, local_vars_configuration=None):  # noqa: E501
         """User - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration.get_default_copy()
@@ -157,11 +141,6 @@ class User(object):
         self._banner_color = None
         self._banner_type = None
         self._banner_url = None
-        self._bio = None
-        self._bio_links = None
-        self._current_avatar_image_url = None
-        self._current_avatar_tags = None
-        self._current_avatar_thumbnail_image_url = None
         self._date_joined = None
         self._developer_type = None
         self._display_name = None
@@ -182,8 +161,6 @@ class User(object):
         self._note = None
         self._platform = None
         self._profile_effect = None
-        self._profile_pic_override = None
-        self._profile_pic_override_thumbnail = None
         self._pronouns = None
         self._state = None
         self._status = None
@@ -192,7 +169,6 @@ class User(object):
         self._traveling_to_instance = None
         self._traveling_to_location = None
         self._traveling_to_world = None
-        self._user_icon = None
         self._world_id = None
         self.discriminator = None
 
@@ -215,11 +191,6 @@ class User(object):
             self.banner_type = banner_type
         if banner_url is not None:
             self.banner_url = banner_url
-        self.bio = bio
-        self.bio_links = bio_links
-        self.current_avatar_image_url = current_avatar_image_url
-        self.current_avatar_tags = current_avatar_tags
-        self.current_avatar_thumbnail_image_url = current_avatar_thumbnail_image_url
         self.date_joined = date_joined
         self.developer_type = developer_type
         self.display_name = display_name
@@ -250,8 +221,6 @@ class User(object):
             self.platform = platform
         if profile_effect is not None:
             self.profile_effect = profile_effect
-        self.profile_pic_override = profile_pic_override
-        self.profile_pic_override_thumbnail = profile_pic_override_thumbnail
         self.pronouns = pronouns
         self.state = state
         self.status = status
@@ -263,7 +232,6 @@ class User(object):
             self.traveling_to_location = traveling_to_location
         if traveling_to_world is not None:
             self.traveling_to_world = traveling_to_world
-        self.user_icon = user_icon
         if world_id is not None:
             self.world_id = world_id
 
@@ -528,131 +496,6 @@ class User(object):
         """
 
         self._banner_url = banner_url
-
-    @property
-    def bio(self):
-        """Gets the bio of this User.  # noqa: E501
-
-
-        :return: The bio of this User.  # noqa: E501
-        :rtype: str
-        """
-        return self._bio
-
-    @bio.setter
-    def bio(self, bio):
-        """Sets the bio of this User.
-
-
-        :param bio: The bio of this User.  # noqa: E501
-        :type bio: str
-        """
-        if self.local_vars_configuration.client_side_validation and bio is None:  # noqa: E501
-            raise ValueError("Invalid value for `bio`, must not be `None`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                bio is not None and len(bio) > 512):
-            raise ValueError("Invalid value for `bio`, length must be less than or equal to `512`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                bio is not None and len(bio) < 0):
-            raise ValueError("Invalid value for `bio`, length must be greater than or equal to `0`")  # noqa: E501
-
-        self._bio = bio
-
-    @property
-    def bio_links(self):
-        """Gets the bio_links of this User.  # noqa: E501
-
-
-        :return: The bio_links of this User.  # noqa: E501
-        :rtype: list[str]
-        """
-        return self._bio_links
-
-    @bio_links.setter
-    def bio_links(self, bio_links):
-        """Sets the bio_links of this User.
-
-
-        :param bio_links: The bio_links of this User.  # noqa: E501
-        :type bio_links: list[str]
-        """
-        if self.local_vars_configuration.client_side_validation and bio_links is None:  # noqa: E501
-            raise ValueError("Invalid value for `bio_links`, must not be `None`")  # noqa: E501
-
-        self._bio_links = bio_links
-
-    @property
-    def current_avatar_image_url(self):
-        """Gets the current_avatar_image_url of this User.  # noqa: E501
-
-        When profilePicOverride is not empty, use it instead.  # noqa: E501
-
-        :return: The current_avatar_image_url of this User.  # noqa: E501
-        :rtype: str
-        """
-        return self._current_avatar_image_url
-
-    @current_avatar_image_url.setter
-    def current_avatar_image_url(self, current_avatar_image_url):
-        """Sets the current_avatar_image_url of this User.
-
-        When profilePicOverride is not empty, use it instead.  # noqa: E501
-
-        :param current_avatar_image_url: The current_avatar_image_url of this User.  # noqa: E501
-        :type current_avatar_image_url: str
-        """
-        if self.local_vars_configuration.client_side_validation and current_avatar_image_url is None:  # noqa: E501
-            raise ValueError("Invalid value for `current_avatar_image_url`, must not be `None`")  # noqa: E501
-
-        self._current_avatar_image_url = current_avatar_image_url
-
-    @property
-    def current_avatar_tags(self):
-        """Gets the current_avatar_tags of this User.  # noqa: E501
-
-
-        :return: The current_avatar_tags of this User.  # noqa: E501
-        :rtype: list[str]
-        """
-        return self._current_avatar_tags
-
-    @current_avatar_tags.setter
-    def current_avatar_tags(self, current_avatar_tags):
-        """Sets the current_avatar_tags of this User.
-
-
-        :param current_avatar_tags: The current_avatar_tags of this User.  # noqa: E501
-        :type current_avatar_tags: list[str]
-        """
-        if self.local_vars_configuration.client_side_validation and current_avatar_tags is None:  # noqa: E501
-            raise ValueError("Invalid value for `current_avatar_tags`, must not be `None`")  # noqa: E501
-
-        self._current_avatar_tags = current_avatar_tags
-
-    @property
-    def current_avatar_thumbnail_image_url(self):
-        """Gets the current_avatar_thumbnail_image_url of this User.  # noqa: E501
-
-        When profilePicOverride is not empty, use it instead.  # noqa: E501
-
-        :return: The current_avatar_thumbnail_image_url of this User.  # noqa: E501
-        :rtype: str
-        """
-        return self._current_avatar_thumbnail_image_url
-
-    @current_avatar_thumbnail_image_url.setter
-    def current_avatar_thumbnail_image_url(self, current_avatar_thumbnail_image_url):
-        """Sets the current_avatar_thumbnail_image_url of this User.
-
-        When profilePicOverride is not empty, use it instead.  # noqa: E501
-
-        :param current_avatar_thumbnail_image_url: The current_avatar_thumbnail_image_url of this User.  # noqa: E501
-        :type current_avatar_thumbnail_image_url: str
-        """
-        if self.local_vars_configuration.client_side_validation and current_avatar_thumbnail_image_url is None:  # noqa: E501
-            raise ValueError("Invalid value for `current_avatar_thumbnail_image_url`, must not be `None`")  # noqa: E501
-
-        self._current_avatar_thumbnail_image_url = current_avatar_thumbnail_image_url
 
     @property
     def date_joined(self):
@@ -1111,52 +954,6 @@ class User(object):
         self._profile_effect = profile_effect
 
     @property
-    def profile_pic_override(self):
-        """Gets the profile_pic_override of this User.  # noqa: E501
-
-
-        :return: The profile_pic_override of this User.  # noqa: E501
-        :rtype: str
-        """
-        return self._profile_pic_override
-
-    @profile_pic_override.setter
-    def profile_pic_override(self, profile_pic_override):
-        """Sets the profile_pic_override of this User.
-
-
-        :param profile_pic_override: The profile_pic_override of this User.  # noqa: E501
-        :type profile_pic_override: str
-        """
-        if self.local_vars_configuration.client_side_validation and profile_pic_override is None:  # noqa: E501
-            raise ValueError("Invalid value for `profile_pic_override`, must not be `None`")  # noqa: E501
-
-        self._profile_pic_override = profile_pic_override
-
-    @property
-    def profile_pic_override_thumbnail(self):
-        """Gets the profile_pic_override_thumbnail of this User.  # noqa: E501
-
-
-        :return: The profile_pic_override_thumbnail of this User.  # noqa: E501
-        :rtype: str
-        """
-        return self._profile_pic_override_thumbnail
-
-    @profile_pic_override_thumbnail.setter
-    def profile_pic_override_thumbnail(self, profile_pic_override_thumbnail):
-        """Sets the profile_pic_override_thumbnail of this User.
-
-
-        :param profile_pic_override_thumbnail: The profile_pic_override_thumbnail of this User.  # noqa: E501
-        :type profile_pic_override_thumbnail: str
-        """
-        if self.local_vars_configuration.client_side_validation and profile_pic_override_thumbnail is None:  # noqa: E501
-            raise ValueError("Invalid value for `profile_pic_override_thumbnail`, must not be `None`")  # noqa: E501
-
-        self._profile_pic_override_thumbnail = profile_pic_override_thumbnail
-
-    @property
     def pronouns(self):
         """Gets the pronouns of this User.  # noqa: E501
 
@@ -1335,29 +1132,6 @@ class User(object):
         """
 
         self._traveling_to_world = traveling_to_world
-
-    @property
-    def user_icon(self):
-        """Gets the user_icon of this User.  # noqa: E501
-
-
-        :return: The user_icon of this User.  # noqa: E501
-        :rtype: str
-        """
-        return self._user_icon
-
-    @user_icon.setter
-    def user_icon(self, user_icon):
-        """Sets the user_icon of this User.
-
-
-        :param user_icon: The user_icon of this User.  # noqa: E501
-        :type user_icon: str
-        """
-        if self.local_vars_configuration.client_side_validation and user_icon is None:  # noqa: E501
-            raise ValueError("Invalid value for `user_icon`, must not be `None`")  # noqa: E501
-
-        self._user_icon = user_icon
 
     @property
     def world_id(self):

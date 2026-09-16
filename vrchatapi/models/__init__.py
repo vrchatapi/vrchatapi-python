@@ -267,6 +267,8 @@ from vrchatapi.models.product_purchase_product import ProductPurchaseProduct
 from vrchatapi.models.product_purchase_purchase_context import ProductPurchasePurchaseContext
 from vrchatapi.models.product_purchase_record import ProductPurchaseRecord
 from vrchatapi.models.product_type import ProductType
+from vrchatapi.models.profile_group import ProfileGroup
+from vrchatapi.models.profile_groups import ProfileGroups
 from vrchatapi.models.profile_represented_group import ProfileRepresentedGroup
 from vrchatapi.models.prop import Prop
 from vrchatapi.models.prop_publish_status import PropPublishStatus
