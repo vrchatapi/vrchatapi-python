@@ -565,7 +565,8 @@ class APIConfig(object):
         self.download_link_windows = download_link_windows
         self.download_urls = download_urls
         self.dynamic_world_rows = dynamic_world_rows
-        self.economy_ledger_backfill = economy_ledger_backfill
+        if economy_ledger_backfill is not None:
+            self.economy_ledger_backfill = economy_ledger_backfill
         if economy_ledger_migration_stop is not None:
             self.economy_ledger_migration_stop = economy_ledger_migration_stop
         self.economy_ledger_mode = economy_ledger_mode
@@ -2426,8 +2427,6 @@ class APIConfig(object):
         :param economy_ledger_backfill: The economy_ledger_backfill of this APIConfig.  # noqa: E501
         :type economy_ledger_backfill: bool
         """
-        if self.local_vars_configuration.client_side_validation and economy_ledger_backfill is None:  # noqa: E501
-            raise ValueError("Invalid value for `economy_ledger_backfill`, must not be `None`")  # noqa: E501
 
         self._economy_ledger_backfill = economy_ledger_backfill
 

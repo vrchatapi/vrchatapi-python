@@ -48,6 +48,7 @@ class InfoPushData(object):
         'domain_list': 'list[InfoPushDataDomainListInner]',
         'featured_avatar_category_id': 'str',
         'final_name': 'str',
+        'hover_to_join': 'bool',
         'icon_image_url': 'str',
         'image_url': 'str',
         'ips_query': 'InfoPushIpsQuery',
@@ -80,6 +81,7 @@ class InfoPushData(object):
         'domain_list': 'domainList',
         'featured_avatar_category_id': 'featuredAvatarCategoryId',
         'final_name': 'finalName',
+        'hover_to_join': 'hoverToJoin',
         'icon_image_url': 'iconImageUrl',
         'image_url': 'imageUrl',
         'ips_query': 'ipsQuery',
@@ -99,7 +101,7 @@ class InfoPushData(object):
         'world_tag': 'worldTag'
     }
 
-    def __init__(self, article=None, author_name=None, avatar_id=None, banner_image_url=None, categories=None, category=None, content_list=None, description=None, disclaimer_text=None, domain_list=None, featured_avatar_category_id=None, final_name=None, icon_image_url=None, image_url=None, ips_query=None, is_new=None, listing_ids=None, name=None, on_pressed=None, override_name=None, rows=None, search=None, short_name=None, template=None, thumbnail_image_url=None, tooltip_description=None, version=None, weight=None, world_tag=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, article=None, author_name=None, avatar_id=None, banner_image_url=None, categories=None, category=None, content_list=None, description=None, disclaimer_text=None, domain_list=None, featured_avatar_category_id=None, final_name=None, hover_to_join=None, icon_image_url=None, image_url=None, ips_query=None, is_new=None, listing_ids=None, name=None, on_pressed=None, override_name=None, rows=None, search=None, short_name=None, template=None, thumbnail_image_url=None, tooltip_description=None, version=None, weight=None, world_tag=None, local_vars_configuration=None):  # noqa: E501
         """InfoPushData - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration.get_default_copy()
@@ -117,6 +119,7 @@ class InfoPushData(object):
         self._domain_list = None
         self._featured_avatar_category_id = None
         self._final_name = None
+        self._hover_to_join = None
         self._icon_image_url = None
         self._image_url = None
         self._ips_query = None
@@ -160,6 +163,8 @@ class InfoPushData(object):
             self.featured_avatar_category_id = featured_avatar_category_id
         if final_name is not None:
             self.final_name = final_name
+        if hover_to_join is not None:
+            self.hover_to_join = hover_to_join
         if icon_image_url is not None:
             self.icon_image_url = icon_image_url
         self.image_url = image_url
@@ -441,6 +446,27 @@ class InfoPushData(object):
         """
 
         self._final_name = final_name
+
+    @property
+    def hover_to_join(self):
+        """Gets the hover_to_join of this InfoPushData.  # noqa: E501
+
+
+        :return: The hover_to_join of this InfoPushData.  # noqa: E501
+        :rtype: bool
+        """
+        return self._hover_to_join
+
+    @hover_to_join.setter
+    def hover_to_join(self, hover_to_join):
+        """Sets the hover_to_join of this InfoPushData.
+
+
+        :param hover_to_join: The hover_to_join of this InfoPushData.  # noqa: E501
+        :type hover_to_join: bool
+        """
+
+        self._hover_to_join = hover_to_join
 
     @property
     def icon_image_url(self):

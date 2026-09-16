@@ -102,7 +102,7 @@ class InfoPushDataClickable(object):
         """
         if self.local_vars_configuration.client_side_validation and command is None:  # noqa: E501
             raise ValueError("Invalid value for `command`, must not be `None`")  # noqa: E501
-        allowed_values = ["CannedWorldSearch", "OpenAccountUpgrade", "OpenAvatarsMenu", "OpenHelpArticle", "OpenListingDetails", "OpenSafetyMenu", "OpenURL", "OpenVRCPlusMenu", "OpenVRChatStore", "OpenWorldDetails"]  # noqa: E501
+        allowed_values = ["CannedWorldSearch", "OpenAccountUpgrade", "OpenAvatarsMenu", "OpenHelpArticle", "OpenListingDetails", "OpenSafetyMenu", "OpenURL", "OpenVRCPlusMenu", "OpenVRChatStore", "OpenWorldDetails", "OpenWorldsMenu", "scrollToShelf"]  # noqa: E501
         if self.local_vars_configuration.client_side_validation and command not in allowed_values:  # noqa: E501
             raise ValueError(
                 "Invalid value for `command` ({0}), must be one of {1}"  # noqa: E501

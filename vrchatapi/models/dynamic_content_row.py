@@ -42,6 +42,7 @@ class DynamicContentRow(object):
         'banners_tag': 'str',
         'categories': 'list[str]',
         'featured_results': 'str',
+        'group_pool': 'str',
         'index': 'int',
         'marketplace': 'str',
         'max_price': 'int',
@@ -67,7 +68,8 @@ class DynamicContentRow(object):
         'tag': 'str',
         'tags': 'list[str]',
         'type': 'str',
-        'upcoming_offset_minutes': 'int'
+        'upcoming_offset_minutes': 'int',
+        'world_pool': 'str'
     }
 
     attribute_map = {
@@ -77,6 +79,7 @@ class DynamicContentRow(object):
         'banners_tag': 'bannersTag',
         'categories': 'categories',
         'featured_results': 'featuredResults',
+        'group_pool': 'groupPool',
         'index': 'index',
         'marketplace': 'marketplace',
         'max_price': 'maxPrice',
@@ -102,10 +105,11 @@ class DynamicContentRow(object):
         'tag': 'tag',
         'tags': 'tags',
         'type': 'type',
-        'upcoming_offset_minutes': 'upcomingOffsetMinutes'
+        'upcoming_offset_minutes': 'upcomingOffsetMinutes',
+        'world_pool': 'worldPool'
     }
 
-    def __init__(self, any_style=None, any_tag=None, avatar_specific=None, banners_tag=None, categories=None, featured_results=None, index=None, marketplace=None, max_price=None, min_occupants=None, min_price=None, minimum_interest_count=None, minimum_remaining_minutes=None, mode=None, n=None, name=None, non_featured_results=None, notag=None, params=None, personalized_results=None, platform=None, region=None, scope=None, short_name=None, sort_heading=None, sort_order=None, sort_ownership=None, style=None, tag=None, tags=None, type=None, upcoming_offset_minutes=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, any_style=None, any_tag=None, avatar_specific=None, banners_tag=None, categories=None, featured_results=None, group_pool=None, index=None, marketplace=None, max_price=None, min_occupants=None, min_price=None, minimum_interest_count=None, minimum_remaining_minutes=None, mode=None, n=None, name=None, non_featured_results=None, notag=None, params=None, personalized_results=None, platform=None, region=None, scope=None, short_name=None, sort_heading=None, sort_order=None, sort_ownership=None, style=None, tag=None, tags=None, type=None, upcoming_offset_minutes=None, world_pool=None, local_vars_configuration=None):  # noqa: E501
         """DynamicContentRow - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration.get_default_copy()
@@ -117,6 +121,7 @@ class DynamicContentRow(object):
         self._banners_tag = None
         self._categories = None
         self._featured_results = None
+        self._group_pool = None
         self._index = None
         self._marketplace = None
         self._max_price = None
@@ -143,6 +148,7 @@ class DynamicContentRow(object):
         self._tags = None
         self._type = None
         self._upcoming_offset_minutes = None
+        self._world_pool = None
         self.discriminator = None
 
         self.any_style = any_style
@@ -155,6 +161,8 @@ class DynamicContentRow(object):
             self.categories = categories
         if featured_results is not None:
             self.featured_results = featured_results
+        if group_pool is not None:
+            self.group_pool = group_pool
         if index is not None:
             self.index = index
         if marketplace is not None:
@@ -199,6 +207,8 @@ class DynamicContentRow(object):
             self.type = type
         if upcoming_offset_minutes is not None:
             self.upcoming_offset_minutes = upcoming_offset_minutes
+        if world_pool is not None:
+            self.world_pool = world_pool
 
     @property
     def any_style(self):
@@ -325,6 +335,27 @@ class DynamicContentRow(object):
         """
 
         self._featured_results = featured_results
+
+    @property
+    def group_pool(self):
+        """Gets the group_pool of this DynamicContentRow.  # noqa: E501
+
+
+        :return: The group_pool of this DynamicContentRow.  # noqa: E501
+        :rtype: str
+        """
+        return self._group_pool
+
+    @group_pool.setter
+    def group_pool(self, group_pool):
+        """Sets the group_pool of this DynamicContentRow.
+
+
+        :param group_pool: The group_pool of this DynamicContentRow.  # noqa: E501
+        :type group_pool: str
+        """
+
+        self._group_pool = group_pool
 
     @property
     def index(self):
@@ -896,6 +927,27 @@ class DynamicContentRow(object):
         """
 
         self._upcoming_offset_minutes = upcoming_offset_minutes
+
+    @property
+    def world_pool(self):
+        """Gets the world_pool of this DynamicContentRow.  # noqa: E501
+
+
+        :return: The world_pool of this DynamicContentRow.  # noqa: E501
+        :rtype: str
+        """
+        return self._world_pool
+
+    @world_pool.setter
+    def world_pool(self, world_pool):
+        """Sets the world_pool of this DynamicContentRow.
+
+
+        :param world_pool: The world_pool of this DynamicContentRow.  # noqa: E501
+        :type world_pool: str
+        """
+
+        self._world_pool = world_pool
 
     def to_dict(self, serialize=False):
         """Returns the model properties as a dict"""

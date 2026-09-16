@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **banners_tag** | **str** |  | [optional] 
 **categories** | **list[str]** |  | [optional] 
 **featured_results** | **str** |  | [optional] 
+**group_pool** | **str** |  | [optional] 
 **index** | **int** |  | [optional] 
 **marketplace** | **str** |  | [optional] 
 **max_price** | **int** |  | [optional] 
@@ -36,6 +37,7 @@ Name | Type | Description | Notes
 **tags** | **list[str]** |  | [optional] 
 **type** | **str** | Type is not present if it is a world. | [optional] 
 **upcoming_offset_minutes** | **int** |  | [optional] 
+**world_pool** | **str** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

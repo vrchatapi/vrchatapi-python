@@ -76,7 +76,7 @@ Name | Type | Description | Notes
 **download_link_windows** | **str** | Download link for game on the Oculus Rift website. | 
 **download_urls** | [**APIConfigDownloadURLList**](APIConfigDownloadURLList.md) |  | 
 **dynamic_world_rows** | [**list[DynamicContentRow]**](DynamicContentRow.md) | Array of DynamicWorldRow objects, used by the game to display the list of world rows | 
-**economy_ledger_backfill** | **bool** | Unknown | 
+**economy_ledger_backfill** | **bool** | Unknown | [optional] 
 **economy_ledger_migration_stop** | **str** | Unknown | [optional] 
 **economy_ledger_mode** | **str** | Unknown | 
 **economy_pause_end** | **datetime** | Unknown | 

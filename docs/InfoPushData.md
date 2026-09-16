@@ -17,6 +17,7 @@ Name | Type | Description | Notes
 **domain_list** | [**list[InfoPushDataDomainListInner]**](InfoPushDataDomainListInner.md) |  | [optional] 
 **featured_avatar_category_id** | **str** |  | [optional] 
 **final_name** | **str** |  | [optional] 
+**hover_to_join** | **bool** |  | [optional] 
 **icon_image_url** | **str** |  | [optional] 
 **image_url** | **str** |  | [optional] 
 **ips_query** | [**InfoPushIpsQuery**](InfoPushIpsQuery.md) |  | [optional] 
