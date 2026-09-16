@@ -38,12 +38,12 @@ Name | Type | Description | Notes
 **purchase_count_quantity** | **int** |  | [optional] 
 **quantifiable** | **bool** |  | [optional] 
 **recurrable** | **bool** |  | 
-**refundable** | **bool** |  | 
+**refundable** | **bool** |  | [optional] 
 **seller_display_name** | **str** |  | 
 **seller_id** | **str** |  | 
 **sold_by_vrc** | **bool** |  | [optional] 
 **stackable** | **bool** |  | 
-**store_ids** | **list[str]** |  | 
+**store_ids** | **list[str]** |  | [optional] 
 **subtitle** | **str** |  | [optional] 
 **tags** | **list[str]** |  | [optional] 
 **updated** | **datetime** |  | [optional] 

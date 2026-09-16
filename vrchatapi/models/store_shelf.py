@@ -42,9 +42,13 @@ class StoreShelf(object):
         'listing_ids': 'list[str]',
         'listings': 'list[ProductListing]',
         'shelf_background_image_id': 'str',
+        'shelf_client_banner_image_id': 'str',
         'shelf_description': 'str',
         'shelf_icon_image_id': 'str',
         'shelf_layout': 'str',
+        'shelf_mobile_hero_banner_image_id': 'str',
+        'shelf_mobile_logo_image_id': 'str',
+        'shelf_mobile_secondary_banner_image_id': 'str',
         'shelf_tab_background_image_id': 'str',
         'shelf_title': 'str',
         'updated_at': 'datetime'
@@ -57,15 +61,19 @@ class StoreShelf(object):
         'listing_ids': 'listingIds',
         'listings': 'listings',
         'shelf_background_image_id': 'shelfBackgroundImageId',
+        'shelf_client_banner_image_id': 'shelfClientBannerImageId',
         'shelf_description': 'shelfDescription',
         'shelf_icon_image_id': 'shelfIconImageId',
         'shelf_layout': 'shelfLayout',
+        'shelf_mobile_hero_banner_image_id': 'shelfMobileHeroBannerImageId',
+        'shelf_mobile_logo_image_id': 'shelfMobileLogoImageId',
+        'shelf_mobile_secondary_banner_image_id': 'shelfMobileSecondaryBannerImageId',
         'shelf_tab_background_image_id': 'shelfTabBackgroundImageId',
         'shelf_title': 'shelfTitle',
         'updated_at': 'updatedAt'
     }
 
-    def __init__(self, highlight_listing=None, highlight_listing_id=None, id=None, listing_ids=None, listings=None, shelf_background_image_id=None, shelf_description=None, shelf_icon_image_id=None, shelf_layout=None, shelf_tab_background_image_id=None, shelf_title=None, updated_at=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, highlight_listing=None, highlight_listing_id=None, id=None, listing_ids=None, listings=None, shelf_background_image_id=None, shelf_client_banner_image_id=None, shelf_description=None, shelf_icon_image_id=None, shelf_layout=None, shelf_mobile_hero_banner_image_id=None, shelf_mobile_logo_image_id=None, shelf_mobile_secondary_banner_image_id=None, shelf_tab_background_image_id=None, shelf_title=None, updated_at=None, local_vars_configuration=None):  # noqa: E501
         """StoreShelf - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration.get_default_copy()
@@ -77,9 +85,13 @@ class StoreShelf(object):
         self._listing_ids = None
         self._listings = None
         self._shelf_background_image_id = None
+        self._shelf_client_banner_image_id = None
         self._shelf_description = None
         self._shelf_icon_image_id = None
         self._shelf_layout = None
+        self._shelf_mobile_hero_banner_image_id = None
+        self._shelf_mobile_logo_image_id = None
+        self._shelf_mobile_secondary_banner_image_id = None
         self._shelf_tab_background_image_id = None
         self._shelf_title = None
         self._updated_at = None
@@ -95,10 +107,18 @@ class StoreShelf(object):
             self.listings = listings
         if shelf_background_image_id is not None:
             self.shelf_background_image_id = shelf_background_image_id
+        if shelf_client_banner_image_id is not None:
+            self.shelf_client_banner_image_id = shelf_client_banner_image_id
         self.shelf_description = shelf_description
         if shelf_icon_image_id is not None:
             self.shelf_icon_image_id = shelf_icon_image_id
         self.shelf_layout = shelf_layout
+        if shelf_mobile_hero_banner_image_id is not None:
+            self.shelf_mobile_hero_banner_image_id = shelf_mobile_hero_banner_image_id
+        if shelf_mobile_logo_image_id is not None:
+            self.shelf_mobile_logo_image_id = shelf_mobile_logo_image_id
+        if shelf_mobile_secondary_banner_image_id is not None:
+            self.shelf_mobile_secondary_banner_image_id = shelf_mobile_secondary_banner_image_id
         if shelf_tab_background_image_id is not None:
             self.shelf_tab_background_image_id = shelf_tab_background_image_id
         self.shelf_title = shelf_title
@@ -235,6 +255,27 @@ class StoreShelf(object):
         self._shelf_background_image_id = shelf_background_image_id
 
     @property
+    def shelf_client_banner_image_id(self):
+        """Gets the shelf_client_banner_image_id of this StoreShelf.  # noqa: E501
+
+
+        :return: The shelf_client_banner_image_id of this StoreShelf.  # noqa: E501
+        :rtype: str
+        """
+        return self._shelf_client_banner_image_id
+
+    @shelf_client_banner_image_id.setter
+    def shelf_client_banner_image_id(self, shelf_client_banner_image_id):
+        """Sets the shelf_client_banner_image_id of this StoreShelf.
+
+
+        :param shelf_client_banner_image_id: The shelf_client_banner_image_id of this StoreShelf.  # noqa: E501
+        :type shelf_client_banner_image_id: str
+        """
+
+        self._shelf_client_banner_image_id = shelf_client_banner_image_id
+
+    @property
     def shelf_description(self):
         """Gets the shelf_description of this StoreShelf.  # noqa: E501
 
@@ -300,6 +341,69 @@ class StoreShelf(object):
             raise ValueError("Invalid value for `shelf_layout`, must not be `None`")  # noqa: E501
 
         self._shelf_layout = shelf_layout
+
+    @property
+    def shelf_mobile_hero_banner_image_id(self):
+        """Gets the shelf_mobile_hero_banner_image_id of this StoreShelf.  # noqa: E501
+
+
+        :return: The shelf_mobile_hero_banner_image_id of this StoreShelf.  # noqa: E501
+        :rtype: str
+        """
+        return self._shelf_mobile_hero_banner_image_id
+
+    @shelf_mobile_hero_banner_image_id.setter
+    def shelf_mobile_hero_banner_image_id(self, shelf_mobile_hero_banner_image_id):
+        """Sets the shelf_mobile_hero_banner_image_id of this StoreShelf.
+
+
+        :param shelf_mobile_hero_banner_image_id: The shelf_mobile_hero_banner_image_id of this StoreShelf.  # noqa: E501
+        :type shelf_mobile_hero_banner_image_id: str
+        """
+
+        self._shelf_mobile_hero_banner_image_id = shelf_mobile_hero_banner_image_id
+
+    @property
+    def shelf_mobile_logo_image_id(self):
+        """Gets the shelf_mobile_logo_image_id of this StoreShelf.  # noqa: E501
+
+
+        :return: The shelf_mobile_logo_image_id of this StoreShelf.  # noqa: E501
+        :rtype: str
+        """
+        return self._shelf_mobile_logo_image_id
+
+    @shelf_mobile_logo_image_id.setter
+    def shelf_mobile_logo_image_id(self, shelf_mobile_logo_image_id):
+        """Sets the shelf_mobile_logo_image_id of this StoreShelf.
+
+
+        :param shelf_mobile_logo_image_id: The shelf_mobile_logo_image_id of this StoreShelf.  # noqa: E501
+        :type shelf_mobile_logo_image_id: str
+        """
+
+        self._shelf_mobile_logo_image_id = shelf_mobile_logo_image_id
+
+    @property
+    def shelf_mobile_secondary_banner_image_id(self):
+        """Gets the shelf_mobile_secondary_banner_image_id of this StoreShelf.  # noqa: E501
+
+
+        :return: The shelf_mobile_secondary_banner_image_id of this StoreShelf.  # noqa: E501
+        :rtype: str
+        """
+        return self._shelf_mobile_secondary_banner_image_id
+
+    @shelf_mobile_secondary_banner_image_id.setter
+    def shelf_mobile_secondary_banner_image_id(self, shelf_mobile_secondary_banner_image_id):
+        """Sets the shelf_mobile_secondary_banner_image_id of this StoreShelf.
+
+
+        :param shelf_mobile_secondary_banner_image_id: The shelf_mobile_secondary_banner_image_id of this StoreShelf.  # noqa: E501
+        :type shelf_mobile_secondary_banner_image_id: str
+        """
+
+        self._shelf_mobile_secondary_banner_image_id = shelf_mobile_secondary_banner_image_id
 
     @property
     def shelf_tab_background_image_id(self):

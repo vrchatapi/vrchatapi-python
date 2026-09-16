@@ -5,6 +5,7 @@ Attribution shown alongside a listing.
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**collaboration_id** | **str** |  | [optional] 
 **creator** | [**ProductListingAttributionCreator**](ProductListingAttributionCreator.md) |  | [optional] 
 **publisher** | [**ProductListingAttributionCreator**](ProductListingAttributionCreator.md) |  | [optional] 
 

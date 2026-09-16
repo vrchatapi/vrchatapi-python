@@ -234,13 +234,15 @@ class ProductListing(object):
         if quantifiable is not None:
             self.quantifiable = quantifiable
         self.recurrable = recurrable
-        self.refundable = refundable
+        if refundable is not None:
+            self.refundable = refundable
         self.seller_display_name = seller_display_name
         self.seller_id = seller_id
         if sold_by_vrc is not None:
             self.sold_by_vrc = sold_by_vrc
         self.stackable = stackable
-        self.store_ids = store_ids
+        if store_ids is not None:
+            self.store_ids = store_ids
         if subtitle is not None:
             self.subtitle = subtitle
         if tags is not None:
@@ -1013,8 +1015,6 @@ class ProductListing(object):
         :param refundable: The refundable of this ProductListing.  # noqa: E501
         :type refundable: bool
         """
-        if self.local_vars_configuration.client_side_validation and refundable is None:  # noqa: E501
-            raise ValueError("Invalid value for `refundable`, must not be `None`")  # noqa: E501
 
         self._refundable = refundable
 
@@ -1126,8 +1126,6 @@ class ProductListing(object):
         :param store_ids: The store_ids of this ProductListing.  # noqa: E501
         :type store_ids: list[str]
         """
-        if self.local_vars_configuration.client_side_validation and store_ids is None:  # noqa: E501
-            raise ValueError("Invalid value for `store_ids`, must not be `None`")  # noqa: E501
 
         self._store_ids = store_ids
 

@@ -36,29 +36,55 @@ class ProductListingAttribution(object):
                             and the value is json key in definition.
     """
     openapi_types = {
+        'collaboration_id': 'str',
         'creator': 'ProductListingAttributionCreator',
         'publisher': 'ProductListingAttributionCreator'
     }
 
     attribute_map = {
+        'collaboration_id': 'collaborationId',
         'creator': 'creator',
         'publisher': 'publisher'
     }
 
-    def __init__(self, creator=None, publisher=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, collaboration_id=None, creator=None, publisher=None, local_vars_configuration=None):  # noqa: E501
         """ProductListingAttribution - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration.get_default_copy()
         self.local_vars_configuration = local_vars_configuration
 
+        self._collaboration_id = None
         self._creator = None
         self._publisher = None
         self.discriminator = None
 
+        if collaboration_id is not None:
+            self.collaboration_id = collaboration_id
         if creator is not None:
             self.creator = creator
         if publisher is not None:
             self.publisher = publisher
+
+    @property
+    def collaboration_id(self):
+        """Gets the collaboration_id of this ProductListingAttribution.  # noqa: E501
+
+
+        :return: The collaboration_id of this ProductListingAttribution.  # noqa: E501
+        :rtype: str
+        """
+        return self._collaboration_id
+
+    @collaboration_id.setter
+    def collaboration_id(self, collaboration_id):
+        """Sets the collaboration_id of this ProductListingAttribution.
+
+
+        :param collaboration_id: The collaboration_id of this ProductListingAttribution.  # noqa: E501
+        :type collaboration_id: str
+        """
+
+        self._collaboration_id = collaboration_id
 
     @property
     def creator(self):

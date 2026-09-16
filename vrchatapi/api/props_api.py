@@ -597,22 +597,22 @@ class PropsApi(object):
             collection_formats=collection_formats,
             _request_auth=local_var_params.get('_request_auth'))
 
-    def list_props(self, author_id, **kwargs):  # noqa: E501
+    def list_props(self, **kwargs):  # noqa: E501
         """List Props  # noqa: E501
 
         Returns a list Prop objects.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.list_props(author_id, async_req=True)
+        >>> thread = api.list_props(async_req=True)
         >>> result = thread.get()
 
-        :param author_id: Must be a valid user ID. (required)
-        :type author_id: str
         :param n: The number of objects to return.
         :type n: int
         :param offset: A zero-based offset from the default object sorting from where search results start.
         :type offset: int
+        :param author_id: Must be a valid user ID.
+        :type author_id: str
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -629,24 +629,24 @@ class PropsApi(object):
         :rtype: list[Prop]
         """
         kwargs['_return_http_data_only'] = True
-        return self.list_props_with_http_info(author_id, **kwargs)  # noqa: E501
+        return self.list_props_with_http_info(**kwargs)  # noqa: E501
 
-    def list_props_with_http_info(self, author_id, **kwargs):  # noqa: E501
+    def list_props_with_http_info(self, **kwargs):  # noqa: E501
         """List Props  # noqa: E501
 
         Returns a list Prop objects.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.list_props_with_http_info(author_id, async_req=True)
+        >>> thread = api.list_props_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param author_id: Must be a valid user ID. (required)
-        :type author_id: str
         :param n: The number of objects to return.
         :type n: int
         :param offset: A zero-based offset from the default object sorting from where search results start.
         :type offset: int
+        :param author_id: Must be a valid user ID.
+        :type author_id: str
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
@@ -674,9 +674,9 @@ class PropsApi(object):
         local_var_params = locals()
 
         all_params = [
-            'author_id',
             'n',
-            'offset'
+            'offset',
+            'author_id'
         ]
         all_params.extend(
             [
@@ -698,9 +698,6 @@ class PropsApi(object):
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
-        # verify the required parameter 'author_id' is set
-        if self.api_client.client_side_validation and local_var_params.get('author_id') is None:  # noqa: E501
-            raise ApiValueError("Missing the required parameter `author_id` when calling `list_props`")  # noqa: E501
 
         if self.api_client.client_side_validation and 'n' in local_var_params and local_var_params['n'] > 100:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `n` when calling `list_props`, must be a value less than or equal to `100`")  # noqa: E501

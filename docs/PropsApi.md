@@ -316,7 +316,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_props**
-> list[Prop] list_props(author_id, n=n, offset=offset)
+> list[Prop] list_props(n=n, offset=offset, author_id=author_id)
 
 List Props
 
@@ -352,13 +352,13 @@ configuration.api_key['authCookie'] = 'YOUR_API_KEY'
 with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = vrchatapi.PropsApi(api_client)
-    author_id = 'author_id_example' # str | Must be a valid user ID.
-n = 60 # int | The number of objects to return. (optional) (default to 60)
+    n = 60 # int | The number of objects to return. (optional) (default to 60)
 offset = 56 # int | A zero-based offset from the default object sorting from where search results start. (optional)
+author_id = 'author_id_example' # str | Must be a valid user ID. (optional)
 
     try:
         # List Props
-        api_response = api_instance.list_props(author_id, n=n, offset=offset)
+        api_response = api_instance.list_props(n=n, offset=offset, author_id=author_id)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling PropsApi->list_props: %s\n" % e)
@@ -368,9 +368,9 @@ offset = 56 # int | A zero-based offset from the default object sorting from whe
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **author_id** | **str**| Must be a valid user ID. | 
  **n** | **int**| The number of objects to return. | [optional] [default to 60]
  **offset** | **int**| A zero-based offset from the default object sorting from where search results start. | [optional] 
+ **author_id** | **str**| Must be a valid user ID. | [optional] 
 
 ### Return type
 
