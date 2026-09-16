@@ -42,7 +42,7 @@ class CurrentUserPresence(object):
         'banner_color': 'str',
         'banner_type': 'str',
         'banner_url': 'str',
-        'current_avatar_tags': 'list[str]',
+        'current_avatar_tags': 'str',
         'debugflag': 'str',
         'display_name': 'str',
         'groups': 'list[str]',
@@ -298,7 +298,7 @@ class CurrentUserPresence(object):
 
 
         :return: The current_avatar_tags of this CurrentUserPresence.  # noqa: E501
-        :rtype: list[str]
+        :rtype: str
         """
         return self._current_avatar_tags
 
@@ -308,7 +308,7 @@ class CurrentUserPresence(object):
 
 
         :param current_avatar_tags: The current_avatar_tags of this CurrentUserPresence.  # noqa: E501
-        :type current_avatar_tags: list[str]
+        :type current_avatar_tags: str
         """
 
         self._current_avatar_tags = current_avatar_tags

@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **banner_color** | **str** |  | [optional] 
 **banner_type** | **str** |  | [optional] 
 **banner_url** | **str** |  | [optional] 
-**current_avatar_tags** | **list[str]** |  | [optional] 
+**current_avatar_tags** | **str** |  | [optional] 
 **debugflag** | **str** |  | [optional] 
 **display_name** | **str** |  | [optional] 
 **groups** | **list[str]** |  | [optional] 
