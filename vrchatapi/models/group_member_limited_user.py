@@ -36,94 +36,127 @@ class GroupMemberLimitedUser(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'current_avatar_tags': 'list[str]',
-        'current_avatar_thumbnail_image_url': 'str',
+        'banner_color': 'str',
+        'banner_type': 'str',
+        'banner_url': 'str',
         'display_name': 'str',
+        'icon_frame': 'str',
         'icon_url': 'str',
         'id': 'str',
-        'profile_pic_override': 'str',
-        'thumbnail_url': 'str'
+        'nameplate_effect': 'str',
+        'profile_effect': 'str'
     }
 
     attribute_map = {
-        'current_avatar_tags': 'currentAvatarTags',
-        'current_avatar_thumbnail_image_url': 'currentAvatarThumbnailImageUrl',
+        'banner_color': 'bannerColor',
+        'banner_type': 'bannerType',
+        'banner_url': 'bannerUrl',
         'display_name': 'displayName',
+        'icon_frame': 'iconFrame',
         'icon_url': 'iconUrl',
         'id': 'id',
-        'profile_pic_override': 'profilePicOverride',
-        'thumbnail_url': 'thumbnailUrl'
+        'nameplate_effect': 'nameplateEffect',
+        'profile_effect': 'profileEffect'
     }
 
-    def __init__(self, current_avatar_tags=None, current_avatar_thumbnail_image_url=None, display_name=None, icon_url=None, id=None, profile_pic_override=None, thumbnail_url=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, banner_color=None, banner_type=None, banner_url=None, display_name=None, icon_frame=None, icon_url=None, id=None, nameplate_effect=None, profile_effect=None, local_vars_configuration=None):  # noqa: E501
         """GroupMemberLimitedUser - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration.get_default_copy()
         self.local_vars_configuration = local_vars_configuration
 
-        self._current_avatar_tags = None
-        self._current_avatar_thumbnail_image_url = None
+        self._banner_color = None
+        self._banner_type = None
+        self._banner_url = None
         self._display_name = None
+        self._icon_frame = None
         self._icon_url = None
         self._id = None
-        self._profile_pic_override = None
-        self._thumbnail_url = None
+        self._nameplate_effect = None
+        self._profile_effect = None
         self.discriminator = None
 
-        if current_avatar_tags is not None:
-            self.current_avatar_tags = current_avatar_tags
-        self.current_avatar_thumbnail_image_url = current_avatar_thumbnail_image_url
+        if banner_color is not None:
+            self.banner_color = banner_color
+        if banner_type is not None:
+            self.banner_type = banner_type
+        if banner_url is not None:
+            self.banner_url = banner_url
         if display_name is not None:
             self.display_name = display_name
+        if icon_frame is not None:
+            self.icon_frame = icon_frame
         if icon_url is not None:
             self.icon_url = icon_url
         if id is not None:
             self.id = id
-        if profile_pic_override is not None:
-            self.profile_pic_override = profile_pic_override
-        self.thumbnail_url = thumbnail_url
+        if nameplate_effect is not None:
+            self.nameplate_effect = nameplate_effect
+        if profile_effect is not None:
+            self.profile_effect = profile_effect
 
     @property
-    def current_avatar_tags(self):
-        """Gets the current_avatar_tags of this GroupMemberLimitedUser.  # noqa: E501
+    def banner_color(self):
+        """Gets the banner_color of this GroupMemberLimitedUser.  # noqa: E501
 
 
-        :return: The current_avatar_tags of this GroupMemberLimitedUser.  # noqa: E501
-        :rtype: list[str]
-        """
-        return self._current_avatar_tags
-
-    @current_avatar_tags.setter
-    def current_avatar_tags(self, current_avatar_tags):
-        """Sets the current_avatar_tags of this GroupMemberLimitedUser.
-
-
-        :param current_avatar_tags: The current_avatar_tags of this GroupMemberLimitedUser.  # noqa: E501
-        :type current_avatar_tags: list[str]
-        """
-
-        self._current_avatar_tags = current_avatar_tags
-
-    @property
-    def current_avatar_thumbnail_image_url(self):
-        """Gets the current_avatar_thumbnail_image_url of this GroupMemberLimitedUser.  # noqa: E501
-
-
-        :return: The current_avatar_thumbnail_image_url of this GroupMemberLimitedUser.  # noqa: E501
+        :return: The banner_color of this GroupMemberLimitedUser.  # noqa: E501
         :rtype: str
         """
-        return self._current_avatar_thumbnail_image_url
+        return self._banner_color
 
-    @current_avatar_thumbnail_image_url.setter
-    def current_avatar_thumbnail_image_url(self, current_avatar_thumbnail_image_url):
-        """Sets the current_avatar_thumbnail_image_url of this GroupMemberLimitedUser.
+    @banner_color.setter
+    def banner_color(self, banner_color):
+        """Sets the banner_color of this GroupMemberLimitedUser.
 
 
-        :param current_avatar_thumbnail_image_url: The current_avatar_thumbnail_image_url of this GroupMemberLimitedUser.  # noqa: E501
-        :type current_avatar_thumbnail_image_url: str
+        :param banner_color: The banner_color of this GroupMemberLimitedUser.  # noqa: E501
+        :type banner_color: str
         """
 
-        self._current_avatar_thumbnail_image_url = current_avatar_thumbnail_image_url
+        self._banner_color = banner_color
+
+    @property
+    def banner_type(self):
+        """Gets the banner_type of this GroupMemberLimitedUser.  # noqa: E501
+
+
+        :return: The banner_type of this GroupMemberLimitedUser.  # noqa: E501
+        :rtype: str
+        """
+        return self._banner_type
+
+    @banner_type.setter
+    def banner_type(self, banner_type):
+        """Sets the banner_type of this GroupMemberLimitedUser.
+
+
+        :param banner_type: The banner_type of this GroupMemberLimitedUser.  # noqa: E501
+        :type banner_type: str
+        """
+
+        self._banner_type = banner_type
+
+    @property
+    def banner_url(self):
+        """Gets the banner_url of this GroupMemberLimitedUser.  # noqa: E501
+
+
+        :return: The banner_url of this GroupMemberLimitedUser.  # noqa: E501
+        :rtype: str
+        """
+        return self._banner_url
+
+    @banner_url.setter
+    def banner_url(self, banner_url):
+        """Sets the banner_url of this GroupMemberLimitedUser.
+
+
+        :param banner_url: The banner_url of this GroupMemberLimitedUser.  # noqa: E501
+        :type banner_url: str
+        """
+
+        self._banner_url = banner_url
 
     @property
     def display_name(self):
@@ -145,6 +178,27 @@ class GroupMemberLimitedUser(object):
         """
 
         self._display_name = display_name
+
+    @property
+    def icon_frame(self):
+        """Gets the icon_frame of this GroupMemberLimitedUser.  # noqa: E501
+
+
+        :return: The icon_frame of this GroupMemberLimitedUser.  # noqa: E501
+        :rtype: str
+        """
+        return self._icon_frame
+
+    @icon_frame.setter
+    def icon_frame(self, icon_frame):
+        """Sets the icon_frame of this GroupMemberLimitedUser.
+
+
+        :param icon_frame: The icon_frame of this GroupMemberLimitedUser.  # noqa: E501
+        :type icon_frame: str
+        """
+
+        self._icon_frame = icon_frame
 
     @property
     def icon_url(self):
@@ -191,46 +245,46 @@ class GroupMemberLimitedUser(object):
         self._id = id
 
     @property
-    def profile_pic_override(self):
-        """Gets the profile_pic_override of this GroupMemberLimitedUser.  # noqa: E501
+    def nameplate_effect(self):
+        """Gets the nameplate_effect of this GroupMemberLimitedUser.  # noqa: E501
 
 
-        :return: The profile_pic_override of this GroupMemberLimitedUser.  # noqa: E501
+        :return: The nameplate_effect of this GroupMemberLimitedUser.  # noqa: E501
         :rtype: str
         """
-        return self._profile_pic_override
+        return self._nameplate_effect
 
-    @profile_pic_override.setter
-    def profile_pic_override(self, profile_pic_override):
-        """Sets the profile_pic_override of this GroupMemberLimitedUser.
+    @nameplate_effect.setter
+    def nameplate_effect(self, nameplate_effect):
+        """Sets the nameplate_effect of this GroupMemberLimitedUser.
 
 
-        :param profile_pic_override: The profile_pic_override of this GroupMemberLimitedUser.  # noqa: E501
-        :type profile_pic_override: str
+        :param nameplate_effect: The nameplate_effect of this GroupMemberLimitedUser.  # noqa: E501
+        :type nameplate_effect: str
         """
 
-        self._profile_pic_override = profile_pic_override
+        self._nameplate_effect = nameplate_effect
 
     @property
-    def thumbnail_url(self):
-        """Gets the thumbnail_url of this GroupMemberLimitedUser.  # noqa: E501
+    def profile_effect(self):
+        """Gets the profile_effect of this GroupMemberLimitedUser.  # noqa: E501
 
 
-        :return: The thumbnail_url of this GroupMemberLimitedUser.  # noqa: E501
+        :return: The profile_effect of this GroupMemberLimitedUser.  # noqa: E501
         :rtype: str
         """
-        return self._thumbnail_url
+        return self._profile_effect
 
-    @thumbnail_url.setter
-    def thumbnail_url(self, thumbnail_url):
-        """Sets the thumbnail_url of this GroupMemberLimitedUser.
+    @profile_effect.setter
+    def profile_effect(self, profile_effect):
+        """Sets the profile_effect of this GroupMemberLimitedUser.
 
 
-        :param thumbnail_url: The thumbnail_url of this GroupMemberLimitedUser.  # noqa: E501
-        :type thumbnail_url: str
+        :param profile_effect: The profile_effect of this GroupMemberLimitedUser.  # noqa: E501
+        :type profile_effect: str
         """
 
-        self._thumbnail_url = thumbnail_url
+        self._profile_effect = profile_effect
 
     def to_dict(self, serialize=False):
         """Returns the model properties as a dict"""

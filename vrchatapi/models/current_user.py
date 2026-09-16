@@ -47,11 +47,8 @@ class CurrentUser(object):
         'apple_details': 'object',
         'apple_id': 'str',
         'auth_token': 'str',
-        'badges': 'list[Badge]',
         'banner_color': 'str',
         'banner_type': 'str',
-        'bio': 'str',
-        'bio_links': 'list[str]',
         'completed_tutorials': 'list[str]',
         'content_filters': 'list[str]',
         'current_avatar': 'str',
@@ -107,8 +104,6 @@ class CurrentUser(object):
         'platform_history': 'list[CurrentUserPlatformHistoryInner]',
         'presence': 'CurrentUserPresence',
         'profile_effect': 'str',
-        'profile_pic_override': 'str',
-        'profile_pic_override_thumbnail': 'str',
         'pronouns': 'str',
         'pronouns_history': 'list[str]',
         'queued_instance': 'str',
@@ -131,7 +126,6 @@ class CurrentUser(object):
         'two_factor_auth_enabled_date': 'datetime',
         'unsubscribe': 'bool',
         'updated_at': 'datetime',
-        'user_icon': 'str',
         'user_language': 'str',
         'user_language_code': 'str',
         'username': 'str',
@@ -152,11 +146,8 @@ class CurrentUser(object):
         'apple_details': 'appleDetails',
         'apple_id': 'appleId',
         'auth_token': 'authToken',
-        'badges': 'badges',
         'banner_color': 'bannerColor',
         'banner_type': 'bannerType',
-        'bio': 'bio',
-        'bio_links': 'bioLinks',
         'completed_tutorials': 'completedTutorials',
         'content_filters': 'contentFilters',
         'current_avatar': 'currentAvatar',
@@ -212,8 +203,6 @@ class CurrentUser(object):
         'platform_history': 'platform_history',
         'presence': 'presence',
         'profile_effect': 'profileEffect',
-        'profile_pic_override': 'profilePicOverride',
-        'profile_pic_override_thumbnail': 'profilePicOverrideThumbnail',
         'pronouns': 'pronouns',
         'pronouns_history': 'pronounsHistory',
         'queued_instance': 'queuedInstance',
@@ -236,7 +225,6 @@ class CurrentUser(object):
         'two_factor_auth_enabled_date': 'twoFactorAuthEnabledDate',
         'unsubscribe': 'unsubscribe',
         'updated_at': 'updated_at',
-        'user_icon': 'userIcon',
         'user_language': 'userLanguage',
         'user_language_code': 'userLanguageCode',
         'username': 'username',
@@ -245,7 +233,7 @@ class CurrentUser(object):
         'world_id': 'worldId'
     }
 
-    def __init__(self, accepted_privacy_version=None, accepted_tos_version=None, account_deletion_date=None, account_deletion_log=None, active_friends=None, age_verification_status=None, age_verified=None, allow_avatar_copying=None, apple_details=None, apple_id=None, auth_token=None, badges=None, banner_color=None, banner_type=None, bio=None, bio_links=None, completed_tutorials=None, content_filters=None, current_avatar=None, current_avatar_image_url=None, current_avatar_tags=None, current_avatar_thumbnail_image_url=None, date_joined=None, developer_type=None, discord_details=None, discord_id=None, display_name=None, email_verified=None, fallback_avatar=None, friend_group_names=None, friend_key=None, friend_request_status=None, friends=None, google_details=None, google_id=None, has_birthday=None, has_discord_friends_opt_out=None, has_email=None, has_logged_in_from_client=None, has_pending_email=None, has_shared_connections_opt_out=None, hide_content_filter_settings=None, home_location=None, icon_frame=None, icon_url=None, id=None, instance_id=None, is_adult=None, is_booping_enabled=True, is_economy_creator=False, is_friend=False, is_temporary=False, last_activity=None, last_login=None, last_mobile=None, last_platform=None, location=None, nameplate_effect=None, note=None, obfuscated_email=None, obfuscated_pending_email=None, oculus_id=None, offline_friends=None, online_friends=None, past_display_names=None, personalization_opt_out=None, pico_id=None, platform=None, platform_history=None, presence=None, profile_effect=None, profile_pic_override=None, profile_pic_override_thumbnail=None, pronouns=None, pronouns_history=None, queued_instance=None, receive_mobile_invitations=None, state=None, status=None, status_description=None, status_first_time=None, status_history=None, steam_details=None, steam_id=None, tags=None, temporary_expiry_date=None, traveling_to_instance=None, traveling_to_location=None, traveling_to_world=None, twitch_details=None, twitch_id=None, two_factor_auth_enabled=None, two_factor_auth_enabled_date=None, unsubscribe=None, updated_at=None, user_icon=None, user_language=None, user_language_code=None, username=None, uses_generated_password=None, vive_id=None, world_id=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, accepted_privacy_version=None, accepted_tos_version=None, account_deletion_date=None, account_deletion_log=None, active_friends=None, age_verification_status=None, age_verified=None, allow_avatar_copying=None, apple_details=None, apple_id=None, auth_token=None, banner_color=None, banner_type=None, completed_tutorials=None, content_filters=None, current_avatar=None, current_avatar_image_url=None, current_avatar_tags=None, current_avatar_thumbnail_image_url=None, date_joined=None, developer_type=None, discord_details=None, discord_id=None, display_name=None, email_verified=None, fallback_avatar=None, friend_group_names=None, friend_key=None, friend_request_status=None, friends=None, google_details=None, google_id=None, has_birthday=None, has_discord_friends_opt_out=None, has_email=None, has_logged_in_from_client=None, has_pending_email=None, has_shared_connections_opt_out=None, hide_content_filter_settings=None, home_location=None, icon_frame=None, icon_url=None, id=None, instance_id=None, is_adult=None, is_booping_enabled=True, is_economy_creator=False, is_friend=False, is_temporary=False, last_activity=None, last_login=None, last_mobile=None, last_platform=None, location=None, nameplate_effect=None, note=None, obfuscated_email=None, obfuscated_pending_email=None, oculus_id=None, offline_friends=None, online_friends=None, past_display_names=None, personalization_opt_out=None, pico_id=None, platform=None, platform_history=None, presence=None, profile_effect=None, pronouns=None, pronouns_history=None, queued_instance=None, receive_mobile_invitations=None, state=None, status=None, status_description=None, status_first_time=None, status_history=None, steam_details=None, steam_id=None, tags=None, temporary_expiry_date=None, traveling_to_instance=None, traveling_to_location=None, traveling_to_world=None, twitch_details=None, twitch_id=None, two_factor_auth_enabled=None, two_factor_auth_enabled_date=None, unsubscribe=None, updated_at=None, user_language=None, user_language_code=None, username=None, uses_generated_password=None, vive_id=None, world_id=None, local_vars_configuration=None):  # noqa: E501
         """CurrentUser - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration.get_default_copy()
@@ -262,11 +250,8 @@ class CurrentUser(object):
         self._apple_details = None
         self._apple_id = None
         self._auth_token = None
-        self._badges = None
         self._banner_color = None
         self._banner_type = None
-        self._bio = None
-        self._bio_links = None
         self._completed_tutorials = None
         self._content_filters = None
         self._current_avatar = None
@@ -322,8 +307,6 @@ class CurrentUser(object):
         self._platform_history = None
         self._presence = None
         self._profile_effect = None
-        self._profile_pic_override = None
-        self._profile_pic_override_thumbnail = None
         self._pronouns = None
         self._pronouns_history = None
         self._queued_instance = None
@@ -346,7 +329,6 @@ class CurrentUser(object):
         self._two_factor_auth_enabled_date = None
         self._unsubscribe = None
         self._updated_at = None
-        self._user_icon = None
         self._user_language = None
         self._user_language_code = None
         self._username = None
@@ -371,14 +353,10 @@ class CurrentUser(object):
             self.apple_id = apple_id
         if auth_token is not None:
             self.auth_token = auth_token
-        if badges is not None:
-            self.badges = badges
         if banner_color is not None:
             self.banner_color = banner_color
         if banner_type is not None:
             self.banner_type = banner_type
-        self.bio = bio
-        self.bio_links = bio_links
         if completed_tutorials is not None:
             self.completed_tutorials = completed_tutorials
         if content_filters is not None:
@@ -463,8 +441,6 @@ class CurrentUser(object):
             self.presence = presence
         if profile_effect is not None:
             self.profile_effect = profile_effect
-        self.profile_pic_override = profile_pic_override
-        self.profile_pic_override_thumbnail = profile_pic_override_thumbnail
         self.pronouns = pronouns
         self.pronouns_history = pronouns_history
         self.queued_instance = queued_instance
@@ -494,7 +470,6 @@ class CurrentUser(object):
         self.unsubscribe = unsubscribe
         if updated_at is not None:
             self.updated_at = updated_at
-        self.user_icon = user_icon
         self.user_language = user_language
         self.user_language_code = user_language_code
         if username is not None:
@@ -759,29 +734,6 @@ class CurrentUser(object):
         self._auth_token = auth_token
 
     @property
-    def badges(self):
-        """Gets the badges of this CurrentUser.  # noqa: E501
-
-           # noqa: E501
-
-        :return: The badges of this CurrentUser.  # noqa: E501
-        :rtype: list[Badge]
-        """
-        return self._badges
-
-    @badges.setter
-    def badges(self, badges):
-        """Sets the badges of this CurrentUser.
-
-           # noqa: E501
-
-        :param badges: The badges of this CurrentUser.  # noqa: E501
-        :type badges: list[Badge]
-        """
-
-        self._badges = badges
-
-    @property
     def banner_color(self):
         """Gets the banner_color of this CurrentUser.  # noqa: E501
 
@@ -822,54 +774,6 @@ class CurrentUser(object):
         """
 
         self._banner_type = banner_type
-
-    @property
-    def bio(self):
-        """Gets the bio of this CurrentUser.  # noqa: E501
-
-
-        :return: The bio of this CurrentUser.  # noqa: E501
-        :rtype: str
-        """
-        return self._bio
-
-    @bio.setter
-    def bio(self, bio):
-        """Sets the bio of this CurrentUser.
-
-
-        :param bio: The bio of this CurrentUser.  # noqa: E501
-        :type bio: str
-        """
-        if self.local_vars_configuration.client_side_validation and bio is None:  # noqa: E501
-            raise ValueError("Invalid value for `bio`, must not be `None`")  # noqa: E501
-
-        self._bio = bio
-
-    @property
-    def bio_links(self):
-        """Gets the bio_links of this CurrentUser.  # noqa: E501
-
-           # noqa: E501
-
-        :return: The bio_links of this CurrentUser.  # noqa: E501
-        :rtype: list[str]
-        """
-        return self._bio_links
-
-    @bio_links.setter
-    def bio_links(self, bio_links):
-        """Sets the bio_links of this CurrentUser.
-
-           # noqa: E501
-
-        :param bio_links: The bio_links of this CurrentUser.  # noqa: E501
-        :type bio_links: list[str]
-        """
-        if self.local_vars_configuration.client_side_validation and bio_links is None:  # noqa: E501
-            raise ValueError("Invalid value for `bio_links`, must not be `None`")  # noqa: E501
-
-        self._bio_links = bio_links
 
     @property
     def completed_tutorials(self):
@@ -2101,52 +2005,6 @@ class CurrentUser(object):
         self._profile_effect = profile_effect
 
     @property
-    def profile_pic_override(self):
-        """Gets the profile_pic_override of this CurrentUser.  # noqa: E501
-
-
-        :return: The profile_pic_override of this CurrentUser.  # noqa: E501
-        :rtype: str
-        """
-        return self._profile_pic_override
-
-    @profile_pic_override.setter
-    def profile_pic_override(self, profile_pic_override):
-        """Sets the profile_pic_override of this CurrentUser.
-
-
-        :param profile_pic_override: The profile_pic_override of this CurrentUser.  # noqa: E501
-        :type profile_pic_override: str
-        """
-        if self.local_vars_configuration.client_side_validation and profile_pic_override is None:  # noqa: E501
-            raise ValueError("Invalid value for `profile_pic_override`, must not be `None`")  # noqa: E501
-
-        self._profile_pic_override = profile_pic_override
-
-    @property
-    def profile_pic_override_thumbnail(self):
-        """Gets the profile_pic_override_thumbnail of this CurrentUser.  # noqa: E501
-
-
-        :return: The profile_pic_override_thumbnail of this CurrentUser.  # noqa: E501
-        :rtype: str
-        """
-        return self._profile_pic_override_thumbnail
-
-    @profile_pic_override_thumbnail.setter
-    def profile_pic_override_thumbnail(self, profile_pic_override_thumbnail):
-        """Sets the profile_pic_override_thumbnail of this CurrentUser.
-
-
-        :param profile_pic_override_thumbnail: The profile_pic_override_thumbnail of this CurrentUser.  # noqa: E501
-        :type profile_pic_override_thumbnail: str
-        """
-        if self.local_vars_configuration.client_side_validation and profile_pic_override_thumbnail is None:  # noqa: E501
-            raise ValueError("Invalid value for `profile_pic_override_thumbnail`, must not be `None`")  # noqa: E501
-
-        self._profile_pic_override_thumbnail = profile_pic_override_thumbnail
-
-    @property
     def pronouns(self):
         """Gets the pronouns of this CurrentUser.  # noqa: E501
 
@@ -2631,29 +2489,6 @@ class CurrentUser(object):
         """
 
         self._updated_at = updated_at
-
-    @property
-    def user_icon(self):
-        """Gets the user_icon of this CurrentUser.  # noqa: E501
-
-
-        :return: The user_icon of this CurrentUser.  # noqa: E501
-        :rtype: str
-        """
-        return self._user_icon
-
-    @user_icon.setter
-    def user_icon(self, user_icon):
-        """Sets the user_icon of this CurrentUser.
-
-
-        :param user_icon: The user_icon of this CurrentUser.  # noqa: E501
-        :type user_icon: str
-        """
-        if self.local_vars_configuration.client_side_validation and user_icon is None:  # noqa: E501
-            raise ValueError("Invalid value for `user_icon`, must not be `None`")  # noqa: E501
-
-        self._user_icon = user_icon
 
     @property
     def user_language(self):

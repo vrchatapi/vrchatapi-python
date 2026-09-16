@@ -1499,7 +1499,7 @@ class UsersApi(object):
 
         :param user_id: Must be a valid user ID. (required)
         :type user_id: str
-        :param with_groups_and_worlds: Include `groups`, `publicWorlds` and `totalPublicWorldsCount` in the response.
+        :param with_groups_and_worlds: Include `groups`, `publicWorlds`, `totalPublicWorldsCount` and `worldFavoriteLists` in the response.
         :type with_groups_and_worlds: bool
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
@@ -1531,7 +1531,7 @@ class UsersApi(object):
 
         :param user_id: Must be a valid user ID. (required)
         :type user_id: str
-        :param with_groups_and_worlds: Include `groups`, `publicWorlds` and `totalPublicWorldsCount` in the response.
+        :param with_groups_and_worlds: Include `groups`, `publicWorlds`, `totalPublicWorldsCount` and `worldFavoriteLists` in the response.
         :type with_groups_and_worlds: bool
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional

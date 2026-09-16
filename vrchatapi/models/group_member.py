@@ -115,18 +115,21 @@ class GroupMember(object):
             self.has_joined_from_purchase = has_joined_from_purchase
         self.id = id
         self.is_representing = is_representing
-        self.is_subscribed_to_announcements = is_subscribed_to_announcements
+        if is_subscribed_to_announcements is not None:
+            self.is_subscribed_to_announcements = is_subscribed_to_announcements
         if is_subscribed_to_event_announcements is not None:
             self.is_subscribed_to_event_announcements = is_subscribed_to_event_announcements
         self.joined_at = joined_at
         self.last_post_read_at = last_post_read_at
         self.m_role_ids = m_role_ids
         self.manager_notes = manager_notes
-        self.membership_status = membership_status
+        if membership_status is not None:
+            self.membership_status = membership_status
         self.role_ids = role_ids
         self.user = user
         self.user_id = user_id
-        self.visibility = visibility
+        if visibility is not None:
+            self.visibility = visibility
 
     @property
     def accepted_by_display_name(self):
@@ -332,8 +335,6 @@ class GroupMember(object):
         :param is_subscribed_to_announcements: The is_subscribed_to_announcements of this GroupMember.  # noqa: E501
         :type is_subscribed_to_announcements: bool
         """
-        if self.local_vars_configuration.client_side_validation and is_subscribed_to_announcements is None:  # noqa: E501
-            raise ValueError("Invalid value for `is_subscribed_to_announcements`, must not be `None`")  # noqa: E501
 
         self._is_subscribed_to_announcements = is_subscribed_to_announcements
 
@@ -466,8 +467,6 @@ class GroupMember(object):
         :param membership_status: The membership_status of this GroupMember.  # noqa: E501
         :type membership_status: GroupMemberStatus
         """
-        if self.local_vars_configuration.client_side_validation and membership_status is None:  # noqa: E501
-            raise ValueError("Invalid value for `membership_status`, must not be `None`")  # noqa: E501
 
         self._membership_status = membership_status
 
@@ -558,8 +557,6 @@ class GroupMember(object):
         :param visibility: The visibility of this GroupMember.  # noqa: E501
         :type visibility: str
         """
-        if self.local_vars_configuration.client_side_validation and visibility is None:  # noqa: E501
-            raise ValueError("Invalid value for `visibility`, must not be `None`")  # noqa: E501
 
         self._visibility = visibility
 

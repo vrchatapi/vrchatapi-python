@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **heat** | **int** |  | [default to 0]
 **id** | **str** | WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user. | 
 **image_url** | **str** |  | 
+**is_hype_train_eligible** | **bool** |  | [optional] 
 **labs_publication_date** | **str** |  | 
 **name** | **str** |  | 
 **occupants** | **int** |  | [default to 0]

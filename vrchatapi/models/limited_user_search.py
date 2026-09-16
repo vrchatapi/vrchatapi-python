@@ -39,11 +39,6 @@ class LimitedUserSearch(object):
         'banner_color': 'str',
         'banner_type': 'str',
         'banner_url': 'str',
-        'bio': 'str',
-        'bio_links': 'list[str]',
-        'current_avatar_image_url': 'str',
-        'current_avatar_tags': 'list[str]',
-        'current_avatar_thumbnail_image_url': 'str',
         'developer_type': 'DeveloperType',
         'display_name': 'str',
         'icon_frame': 'str',
@@ -53,23 +48,16 @@ class LimitedUserSearch(object):
         'last_platform': 'str',
         'nameplate_effect': 'str',
         'profile_effect': 'str',
-        'profile_pic_override': 'str',
         'pronouns': 'str',
         'status': 'UserStatus',
         'status_description': 'str',
-        'tags': 'list[str]',
-        'user_icon': 'str'
+        'tags': 'list[str]'
     }
 
     attribute_map = {
         'banner_color': 'bannerColor',
         'banner_type': 'bannerType',
         'banner_url': 'bannerUrl',
-        'bio': 'bio',
-        'bio_links': 'bioLinks',
-        'current_avatar_image_url': 'currentAvatarImageUrl',
-        'current_avatar_tags': 'currentAvatarTags',
-        'current_avatar_thumbnail_image_url': 'currentAvatarThumbnailImageUrl',
         'developer_type': 'developerType',
         'display_name': 'displayName',
         'icon_frame': 'iconFrame',
@@ -79,15 +67,13 @@ class LimitedUserSearch(object):
         'last_platform': 'last_platform',
         'nameplate_effect': 'nameplateEffect',
         'profile_effect': 'profileEffect',
-        'profile_pic_override': 'profilePicOverride',
         'pronouns': 'pronouns',
         'status': 'status',
         'status_description': 'statusDescription',
-        'tags': 'tags',
-        'user_icon': 'userIcon'
+        'tags': 'tags'
     }
 
-    def __init__(self, banner_color=None, banner_type=None, banner_url=None, bio=None, bio_links=None, current_avatar_image_url=None, current_avatar_tags=None, current_avatar_thumbnail_image_url=None, developer_type=None, display_name=None, icon_frame=None, icon_url=None, id=None, is_friend=None, last_platform=None, nameplate_effect=None, profile_effect=None, profile_pic_override=None, pronouns=None, status=None, status_description=None, tags=None, user_icon=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, banner_color=None, banner_type=None, banner_url=None, developer_type=None, display_name=None, icon_frame=None, icon_url=None, id=None, is_friend=None, last_platform=None, nameplate_effect=None, profile_effect=None, pronouns=None, status=None, status_description=None, tags=None, local_vars_configuration=None):  # noqa: E501
         """LimitedUserSearch - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration.get_default_copy()
@@ -96,11 +82,6 @@ class LimitedUserSearch(object):
         self._banner_color = None
         self._banner_type = None
         self._banner_url = None
-        self._bio = None
-        self._bio_links = None
-        self._current_avatar_image_url = None
-        self._current_avatar_tags = None
-        self._current_avatar_thumbnail_image_url = None
         self._developer_type = None
         self._display_name = None
         self._icon_frame = None
@@ -110,12 +91,10 @@ class LimitedUserSearch(object):
         self._last_platform = None
         self._nameplate_effect = None
         self._profile_effect = None
-        self._profile_pic_override = None
         self._pronouns = None
         self._status = None
         self._status_description = None
         self._tags = None
-        self._user_icon = None
         self.discriminator = None
 
         if banner_color is not None:
@@ -124,13 +103,6 @@ class LimitedUserSearch(object):
             self.banner_type = banner_type
         if banner_url is not None:
             self.banner_url = banner_url
-        if bio is not None:
-            self.bio = bio
-        if bio_links is not None:
-            self.bio_links = bio_links
-        self.current_avatar_image_url = current_avatar_image_url
-        self.current_avatar_tags = current_avatar_tags
-        self.current_avatar_thumbnail_image_url = current_avatar_thumbnail_image_url
         self.developer_type = developer_type
         self.display_name = display_name
         if icon_frame is not None:
@@ -144,15 +116,11 @@ class LimitedUserSearch(object):
             self.nameplate_effect = nameplate_effect
         if profile_effect is not None:
             self.profile_effect = profile_effect
-        if profile_pic_override is not None:
-            self.profile_pic_override = profile_pic_override
         if pronouns is not None:
             self.pronouns = pronouns
         self.status = status
         self.status_description = status_description
         self.tags = tags
-        if user_icon is not None:
-            self.user_icon = user_icon
 
     @property
     def banner_color(self):
@@ -216,123 +184,6 @@ class LimitedUserSearch(object):
         """
 
         self._banner_url = banner_url
-
-    @property
-    def bio(self):
-        """Gets the bio of this LimitedUserSearch.  # noqa: E501
-
-
-        :return: The bio of this LimitedUserSearch.  # noqa: E501
-        :rtype: str
-        """
-        return self._bio
-
-    @bio.setter
-    def bio(self, bio):
-        """Sets the bio of this LimitedUserSearch.
-
-
-        :param bio: The bio of this LimitedUserSearch.  # noqa: E501
-        :type bio: str
-        """
-
-        self._bio = bio
-
-    @property
-    def bio_links(self):
-        """Gets the bio_links of this LimitedUserSearch.  # noqa: E501
-
-           # noqa: E501
-
-        :return: The bio_links of this LimitedUserSearch.  # noqa: E501
-        :rtype: list[str]
-        """
-        return self._bio_links
-
-    @bio_links.setter
-    def bio_links(self, bio_links):
-        """Sets the bio_links of this LimitedUserSearch.
-
-           # noqa: E501
-
-        :param bio_links: The bio_links of this LimitedUserSearch.  # noqa: E501
-        :type bio_links: list[str]
-        """
-
-        self._bio_links = bio_links
-
-    @property
-    def current_avatar_image_url(self):
-        """Gets the current_avatar_image_url of this LimitedUserSearch.  # noqa: E501
-
-        When profilePicOverride is not empty, use it instead.  # noqa: E501
-
-        :return: The current_avatar_image_url of this LimitedUserSearch.  # noqa: E501
-        :rtype: str
-        """
-        return self._current_avatar_image_url
-
-    @current_avatar_image_url.setter
-    def current_avatar_image_url(self, current_avatar_image_url):
-        """Sets the current_avatar_image_url of this LimitedUserSearch.
-
-        When profilePicOverride is not empty, use it instead.  # noqa: E501
-
-        :param current_avatar_image_url: The current_avatar_image_url of this LimitedUserSearch.  # noqa: E501
-        :type current_avatar_image_url: str
-        """
-        if self.local_vars_configuration.client_side_validation and current_avatar_image_url is None:  # noqa: E501
-            raise ValueError("Invalid value for `current_avatar_image_url`, must not be `None`")  # noqa: E501
-
-        self._current_avatar_image_url = current_avatar_image_url
-
-    @property
-    def current_avatar_tags(self):
-        """Gets the current_avatar_tags of this LimitedUserSearch.  # noqa: E501
-
-
-        :return: The current_avatar_tags of this LimitedUserSearch.  # noqa: E501
-        :rtype: list[str]
-        """
-        return self._current_avatar_tags
-
-    @current_avatar_tags.setter
-    def current_avatar_tags(self, current_avatar_tags):
-        """Sets the current_avatar_tags of this LimitedUserSearch.
-
-
-        :param current_avatar_tags: The current_avatar_tags of this LimitedUserSearch.  # noqa: E501
-        :type current_avatar_tags: list[str]
-        """
-        if self.local_vars_configuration.client_side_validation and current_avatar_tags is None:  # noqa: E501
-            raise ValueError("Invalid value for `current_avatar_tags`, must not be `None`")  # noqa: E501
-
-        self._current_avatar_tags = current_avatar_tags
-
-    @property
-    def current_avatar_thumbnail_image_url(self):
-        """Gets the current_avatar_thumbnail_image_url of this LimitedUserSearch.  # noqa: E501
-
-        When profilePicOverride is not empty, use it instead.  # noqa: E501
-
-        :return: The current_avatar_thumbnail_image_url of this LimitedUserSearch.  # noqa: E501
-        :rtype: str
-        """
-        return self._current_avatar_thumbnail_image_url
-
-    @current_avatar_thumbnail_image_url.setter
-    def current_avatar_thumbnail_image_url(self, current_avatar_thumbnail_image_url):
-        """Sets the current_avatar_thumbnail_image_url of this LimitedUserSearch.
-
-        When profilePicOverride is not empty, use it instead.  # noqa: E501
-
-        :param current_avatar_thumbnail_image_url: The current_avatar_thumbnail_image_url of this LimitedUserSearch.  # noqa: E501
-        :type current_avatar_thumbnail_image_url: str
-        """
-        if self.local_vars_configuration.client_side_validation and current_avatar_thumbnail_image_url is None:  # noqa: E501
-            raise ValueError("Invalid value for `current_avatar_thumbnail_image_url`, must not be `None`")  # noqa: E501
-
-        self._current_avatar_thumbnail_image_url = current_avatar_thumbnail_image_url
 
     @property
     def developer_type(self):
@@ -538,27 +389,6 @@ class LimitedUserSearch(object):
         self._profile_effect = profile_effect
 
     @property
-    def profile_pic_override(self):
-        """Gets the profile_pic_override of this LimitedUserSearch.  # noqa: E501
-
-
-        :return: The profile_pic_override of this LimitedUserSearch.  # noqa: E501
-        :rtype: str
-        """
-        return self._profile_pic_override
-
-    @profile_pic_override.setter
-    def profile_pic_override(self, profile_pic_override):
-        """Sets the profile_pic_override of this LimitedUserSearch.
-
-
-        :param profile_pic_override: The profile_pic_override of this LimitedUserSearch.  # noqa: E501
-        :type profile_pic_override: str
-        """
-
-        self._profile_pic_override = profile_pic_override
-
-    @property
     def pronouns(self):
         """Gets the pronouns of this LimitedUserSearch.  # noqa: E501
 
@@ -649,27 +479,6 @@ class LimitedUserSearch(object):
             raise ValueError("Invalid value for `tags`, must not be `None`")  # noqa: E501
 
         self._tags = tags
-
-    @property
-    def user_icon(self):
-        """Gets the user_icon of this LimitedUserSearch.  # noqa: E501
-
-
-        :return: The user_icon of this LimitedUserSearch.  # noqa: E501
-        :rtype: str
-        """
-        return self._user_icon
-
-    @user_icon.setter
-    def user_icon(self, user_icon):
-        """Sets the user_icon of this LimitedUserSearch.
-
-
-        :param user_icon: The user_icon of this LimitedUserSearch.  # noqa: E501
-        :type user_icon: str
-        """
-
-        self._user_icon = user_icon
 
     def to_dict(self, serialize=False):
         """Returns the model properties as a dict"""

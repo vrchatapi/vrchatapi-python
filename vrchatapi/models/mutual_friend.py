@@ -36,116 +36,65 @@ class MutualFriend(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'avatar_thumbnail': 'str',
         'banner_color': 'str',
         'banner_type': 'str',
-        'current_avatar_image_url': 'str',
-        'current_avatar_tags': 'list[str]',
-        'current_avatar_thumbnail_image_url': 'str',
         'display_name': 'str',
         'icon_frame': 'str',
         'icon_url': 'str',
         'id': 'str',
-        'image_url': 'str',
         'nameplate_effect': 'str',
         'profile_effect': 'str',
-        'profile_pic_override': 'str',
         'status': 'UserStatus',
         'status_description': 'str'
     }
 
     attribute_map = {
-        'avatar_thumbnail': 'avatarThumbnail',
         'banner_color': 'bannerColor',
         'banner_type': 'bannerType',
-        'current_avatar_image_url': 'currentAvatarImageUrl',
-        'current_avatar_tags': 'currentAvatarTags',
-        'current_avatar_thumbnail_image_url': 'currentAvatarThumbnailImageUrl',
         'display_name': 'displayName',
         'icon_frame': 'iconFrame',
         'icon_url': 'iconUrl',
         'id': 'id',
-        'image_url': 'imageUrl',
         'nameplate_effect': 'nameplateEffect',
         'profile_effect': 'profileEffect',
-        'profile_pic_override': 'profilePicOverride',
         'status': 'status',
         'status_description': 'statusDescription'
     }
 
-    def __init__(self, avatar_thumbnail=None, banner_color=None, banner_type=None, current_avatar_image_url=None, current_avatar_tags=None, current_avatar_thumbnail_image_url=None, display_name=None, icon_frame=None, icon_url=None, id=None, image_url=None, nameplate_effect=None, profile_effect=None, profile_pic_override=None, status=None, status_description=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, banner_color=None, banner_type=None, display_name=None, icon_frame=None, icon_url=None, id=None, nameplate_effect=None, profile_effect=None, status=None, status_description=None, local_vars_configuration=None):  # noqa: E501
         """MutualFriend - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration.get_default_copy()
         self.local_vars_configuration = local_vars_configuration
 
-        self._avatar_thumbnail = None
         self._banner_color = None
         self._banner_type = None
-        self._current_avatar_image_url = None
-        self._current_avatar_tags = None
-        self._current_avatar_thumbnail_image_url = None
         self._display_name = None
         self._icon_frame = None
         self._icon_url = None
         self._id = None
-        self._image_url = None
         self._nameplate_effect = None
         self._profile_effect = None
-        self._profile_pic_override = None
         self._status = None
         self._status_description = None
         self.discriminator = None
 
-        if avatar_thumbnail is not None:
-            self.avatar_thumbnail = avatar_thumbnail
         if banner_color is not None:
             self.banner_color = banner_color
         if banner_type is not None:
             self.banner_type = banner_type
-        self.current_avatar_image_url = current_avatar_image_url
-        if current_avatar_tags is not None:
-            self.current_avatar_tags = current_avatar_tags
-        if current_avatar_thumbnail_image_url is not None:
-            self.current_avatar_thumbnail_image_url = current_avatar_thumbnail_image_url
         self.display_name = display_name
         if icon_frame is not None:
             self.icon_frame = icon_frame
         if icon_url is not None:
             self.icon_url = icon_url
         self.id = id
-        self.image_url = image_url
         if nameplate_effect is not None:
             self.nameplate_effect = nameplate_effect
         if profile_effect is not None:
             self.profile_effect = profile_effect
-        if profile_pic_override is not None:
-            self.profile_pic_override = profile_pic_override
         self.status = status
         self.status_description = status_description
-
-    @property
-    def avatar_thumbnail(self):
-        """Gets the avatar_thumbnail of this MutualFriend.  # noqa: E501
-
-        When profilePicOverride is not empty, use it instead.  # noqa: E501
-
-        :return: The avatar_thumbnail of this MutualFriend.  # noqa: E501
-        :rtype: str
-        """
-        return self._avatar_thumbnail
-
-    @avatar_thumbnail.setter
-    def avatar_thumbnail(self, avatar_thumbnail):
-        """Sets the avatar_thumbnail of this MutualFriend.
-
-        When profilePicOverride is not empty, use it instead.  # noqa: E501
-
-        :param avatar_thumbnail: The avatar_thumbnail of this MutualFriend.  # noqa: E501
-        :type avatar_thumbnail: str
-        """
-
-        self._avatar_thumbnail = avatar_thumbnail
 
     @property
     def banner_color(self):
@@ -190,75 +139,6 @@ class MutualFriend(object):
         """
 
         self._banner_type = banner_type
-
-    @property
-    def current_avatar_image_url(self):
-        """Gets the current_avatar_image_url of this MutualFriend.  # noqa: E501
-
-        When profilePicOverride is not empty, use it instead.  # noqa: E501
-
-        :return: The current_avatar_image_url of this MutualFriend.  # noqa: E501
-        :rtype: str
-        """
-        return self._current_avatar_image_url
-
-    @current_avatar_image_url.setter
-    def current_avatar_image_url(self, current_avatar_image_url):
-        """Sets the current_avatar_image_url of this MutualFriend.
-
-        When profilePicOverride is not empty, use it instead.  # noqa: E501
-
-        :param current_avatar_image_url: The current_avatar_image_url of this MutualFriend.  # noqa: E501
-        :type current_avatar_image_url: str
-        """
-        if self.local_vars_configuration.client_side_validation and current_avatar_image_url is None:  # noqa: E501
-            raise ValueError("Invalid value for `current_avatar_image_url`, must not be `None`")  # noqa: E501
-
-        self._current_avatar_image_url = current_avatar_image_url
-
-    @property
-    def current_avatar_tags(self):
-        """Gets the current_avatar_tags of this MutualFriend.  # noqa: E501
-
-
-        :return: The current_avatar_tags of this MutualFriend.  # noqa: E501
-        :rtype: list[str]
-        """
-        return self._current_avatar_tags
-
-    @current_avatar_tags.setter
-    def current_avatar_tags(self, current_avatar_tags):
-        """Sets the current_avatar_tags of this MutualFriend.
-
-
-        :param current_avatar_tags: The current_avatar_tags of this MutualFriend.  # noqa: E501
-        :type current_avatar_tags: list[str]
-        """
-
-        self._current_avatar_tags = current_avatar_tags
-
-    @property
-    def current_avatar_thumbnail_image_url(self):
-        """Gets the current_avatar_thumbnail_image_url of this MutualFriend.  # noqa: E501
-
-        When profilePicOverride is not empty, use it instead.  # noqa: E501
-
-        :return: The current_avatar_thumbnail_image_url of this MutualFriend.  # noqa: E501
-        :rtype: str
-        """
-        return self._current_avatar_thumbnail_image_url
-
-    @current_avatar_thumbnail_image_url.setter
-    def current_avatar_thumbnail_image_url(self, current_avatar_thumbnail_image_url):
-        """Sets the current_avatar_thumbnail_image_url of this MutualFriend.
-
-        When profilePicOverride is not empty, use it instead.  # noqa: E501
-
-        :param current_avatar_thumbnail_image_url: The current_avatar_thumbnail_image_url of this MutualFriend.  # noqa: E501
-        :type current_avatar_thumbnail_image_url: str
-        """
-
-        self._current_avatar_thumbnail_image_url = current_avatar_thumbnail_image_url
 
     @property
     def display_name(self):
@@ -351,29 +231,6 @@ class MutualFriend(object):
         self._id = id
 
     @property
-    def image_url(self):
-        """Gets the image_url of this MutualFriend.  # noqa: E501
-
-
-        :return: The image_url of this MutualFriend.  # noqa: E501
-        :rtype: str
-        """
-        return self._image_url
-
-    @image_url.setter
-    def image_url(self, image_url):
-        """Sets the image_url of this MutualFriend.
-
-
-        :param image_url: The image_url of this MutualFriend.  # noqa: E501
-        :type image_url: str
-        """
-        if self.local_vars_configuration.client_side_validation and image_url is None:  # noqa: E501
-            raise ValueError("Invalid value for `image_url`, must not be `None`")  # noqa: E501
-
-        self._image_url = image_url
-
-    @property
     def nameplate_effect(self):
         """Gets the nameplate_effect of this MutualFriend.  # noqa: E501
 
@@ -414,27 +271,6 @@ class MutualFriend(object):
         """
 
         self._profile_effect = profile_effect
-
-    @property
-    def profile_pic_override(self):
-        """Gets the profile_pic_override of this MutualFriend.  # noqa: E501
-
-
-        :return: The profile_pic_override of this MutualFriend.  # noqa: E501
-        :rtype: str
-        """
-        return self._profile_pic_override
-
-    @profile_pic_override.setter
-    def profile_pic_override(self, profile_pic_override):
-        """Sets the profile_pic_override of this MutualFriend.
-
-
-        :param profile_pic_override: The profile_pic_override of this MutualFriend.  # noqa: E501
-        :type profile_pic_override: str
-        """
-
-        self._profile_pic_override = profile_pic_override
 
     @property
     def status(self):

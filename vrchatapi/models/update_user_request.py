@@ -37,8 +37,6 @@ class UpdateUserRequest(object):
     """
     openapi_types = {
         'accepted_tos_version': 'int',
-        'bio': 'str',
-        'bio_links': 'list[str]',
         'birthday': 'date',
         'content_filters': 'list[ContentFilter]',
         'current_password': 'str',
@@ -53,14 +51,11 @@ class UpdateUserRequest(object):
         'status': 'UserStatus',
         'status_description': 'str',
         'tags': 'list[str]',
-        'unsubscribe': 'bool',
-        'user_icon': 'str'
+        'unsubscribe': 'bool'
     }
 
     attribute_map = {
         'accepted_tos_version': 'acceptedTOSVersion',
-        'bio': 'bio',
-        'bio_links': 'bioLinks',
         'birthday': 'birthday',
         'content_filters': 'contentFilters',
         'current_password': 'currentPassword',
@@ -75,19 +70,16 @@ class UpdateUserRequest(object):
         'status': 'status',
         'status_description': 'statusDescription',
         'tags': 'tags',
-        'unsubscribe': 'unsubscribe',
-        'user_icon': 'userIcon'
+        'unsubscribe': 'unsubscribe'
     }
 
-    def __init__(self, accepted_tos_version=None, bio=None, bio_links=None, birthday=None, content_filters=None, current_password=None, display_name=None, email=None, has_discord_friends_opt_out=None, has_shared_connections_opt_out=None, is_booping_enabled=None, password=None, pronouns=None, revert_display_name=None, status=None, status_description=None, tags=None, unsubscribe=None, user_icon=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, accepted_tos_version=None, birthday=None, content_filters=None, current_password=None, display_name=None, email=None, has_discord_friends_opt_out=None, has_shared_connections_opt_out=None, is_booping_enabled=None, password=None, pronouns=None, revert_display_name=None, status=None, status_description=None, tags=None, unsubscribe=None, local_vars_configuration=None):  # noqa: E501
         """UpdateUserRequest - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration.get_default_copy()
         self.local_vars_configuration = local_vars_configuration
 
         self._accepted_tos_version = None
-        self._bio = None
-        self._bio_links = None
         self._birthday = None
         self._content_filters = None
         self._current_password = None
@@ -103,15 +95,10 @@ class UpdateUserRequest(object):
         self._status_description = None
         self._tags = None
         self._unsubscribe = None
-        self._user_icon = None
         self.discriminator = None
 
         if accepted_tos_version is not None:
             self.accepted_tos_version = accepted_tos_version
-        if bio is not None:
-            self.bio = bio
-        if bio_links is not None:
-            self.bio_links = bio_links
         if birthday is not None:
             self.birthday = birthday
         if content_filters is not None:
@@ -142,8 +129,6 @@ class UpdateUserRequest(object):
             self.tags = tags
         if unsubscribe is not None:
             self.unsubscribe = unsubscribe
-        if user_icon is not None:
-            self.user_icon = user_icon
 
     @property
     def accepted_tos_version(self):
@@ -165,51 +150,6 @@ class UpdateUserRequest(object):
         """
 
         self._accepted_tos_version = accepted_tos_version
-
-    @property
-    def bio(self):
-        """Gets the bio of this UpdateUserRequest.  # noqa: E501
-
-
-        :return: The bio of this UpdateUserRequest.  # noqa: E501
-        :rtype: str
-        """
-        return self._bio
-
-    @bio.setter
-    def bio(self, bio):
-        """Sets the bio of this UpdateUserRequest.
-
-
-        :param bio: The bio of this UpdateUserRequest.  # noqa: E501
-        :type bio: str
-        """
-        if (self.local_vars_configuration.client_side_validation and
-                bio is not None and len(bio) < 0):
-            raise ValueError("Invalid value for `bio`, length must be greater than or equal to `0`")  # noqa: E501
-
-        self._bio = bio
-
-    @property
-    def bio_links(self):
-        """Gets the bio_links of this UpdateUserRequest.  # noqa: E501
-
-
-        :return: The bio_links of this UpdateUserRequest.  # noqa: E501
-        :rtype: list[str]
-        """
-        return self._bio_links
-
-    @bio_links.setter
-    def bio_links(self, bio_links):
-        """Sets the bio_links of this UpdateUserRequest.
-
-
-        :param bio_links: The bio_links of this UpdateUserRequest.  # noqa: E501
-        :type bio_links: list[str]
-        """
-
-        self._bio_links = bio_links
 
     @property
     def birthday(self):
@@ -545,32 +485,6 @@ class UpdateUserRequest(object):
         """
 
         self._unsubscribe = unsubscribe
-
-    @property
-    def user_icon(self):
-        """Gets the user_icon of this UpdateUserRequest.  # noqa: E501
-
-        MUST be a valid VRChat /file/ url.  # noqa: E501
-
-        :return: The user_icon of this UpdateUserRequest.  # noqa: E501
-        :rtype: str
-        """
-        return self._user_icon
-
-    @user_icon.setter
-    def user_icon(self, user_icon):
-        """Sets the user_icon of this UpdateUserRequest.
-
-        MUST be a valid VRChat /file/ url.  # noqa: E501
-
-        :param user_icon: The user_icon of this UpdateUserRequest.  # noqa: E501
-        :type user_icon: str
-        """
-        if (self.local_vars_configuration.client_side_validation and
-                user_icon is not None and len(user_icon) < 0):
-            raise ValueError("Invalid value for `user_icon`, length must be greater than or equal to `0`")  # noqa: E501
-
-        self._user_icon = user_icon
 
     def to_dict(self, serialize=False):
         """Returns the model properties as a dict"""

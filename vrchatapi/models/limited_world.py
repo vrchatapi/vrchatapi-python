@@ -46,6 +46,7 @@ class LimitedWorld(object):
         'heat': 'int',
         'id': 'str',
         'image_url': 'str',
+        'is_hype_train_eligible': 'bool',
         'labs_publication_date': 'str',
         'name': 'str',
         'occupants': 'int',
@@ -75,6 +76,7 @@ class LimitedWorld(object):
         'heat': 'heat',
         'id': 'id',
         'image_url': 'imageUrl',
+        'is_hype_train_eligible': 'isHypeTrainEligible',
         'labs_publication_date': 'labsPublicationDate',
         'name': 'name',
         'occupants': 'occupants',
@@ -93,7 +95,7 @@ class LimitedWorld(object):
         'visits': 'visits'
     }
 
-    def __init__(self, author_id=None, author_name=None, capacity=None, created_at=None, default_content_settings=None, disabled_prop_abilities=None, favorites=0, heat=0, id=None, image_url=None, labs_publication_date=None, name=None, occupants=0, organization='vrchat', popularity=0, preview_youtube_id=None, publication_date=None, recommended_capacity=None, release_status=None, store_id=None, tags=None, thumbnail_image_url=None, udon_products=None, unity_packages=None, updated_at=None, visits=0, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, author_id=None, author_name=None, capacity=None, created_at=None, default_content_settings=None, disabled_prop_abilities=None, favorites=0, heat=0, id=None, image_url=None, is_hype_train_eligible=None, labs_publication_date=None, name=None, occupants=0, organization='vrchat', popularity=0, preview_youtube_id=None, publication_date=None, recommended_capacity=None, release_status=None, store_id=None, tags=None, thumbnail_image_url=None, udon_products=None, unity_packages=None, updated_at=None, visits=0, local_vars_configuration=None):  # noqa: E501
         """LimitedWorld - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration.get_default_copy()
@@ -109,6 +111,7 @@ class LimitedWorld(object):
         self._heat = None
         self._id = None
         self._image_url = None
+        self._is_hype_train_eligible = None
         self._labs_publication_date = None
         self._name = None
         self._occupants = None
@@ -139,6 +142,8 @@ class LimitedWorld(object):
         self.heat = heat
         self.id = id
         self.image_url = image_url
+        if is_hype_train_eligible is not None:
+            self.is_hype_train_eligible = is_hype_train_eligible
         self.labs_publication_date = labs_publication_date
         self.name = name
         self.occupants = occupants
@@ -401,6 +406,27 @@ class LimitedWorld(object):
             raise ValueError("Invalid value for `image_url`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._image_url = image_url
+
+    @property
+    def is_hype_train_eligible(self):
+        """Gets the is_hype_train_eligible of this LimitedWorld.  # noqa: E501
+
+
+        :return: The is_hype_train_eligible of this LimitedWorld.  # noqa: E501
+        :rtype: bool
+        """
+        return self._is_hype_train_eligible
+
+    @is_hype_train_eligible.setter
+    def is_hype_train_eligible(self, is_hype_train_eligible):
+        """Sets the is_hype_train_eligible of this LimitedWorld.
+
+
+        :param is_hype_train_eligible: The is_hype_train_eligible of this LimitedWorld.  # noqa: E501
+        :type is_hype_train_eligible: bool
+        """
+
+        self._is_hype_train_eligible = is_hype_train_eligible
 
     @property
     def labs_publication_date(self):

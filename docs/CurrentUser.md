@@ -15,11 +15,8 @@ Name | Type | Description | Notes
 **apple_details** | **object** |  | [optional] 
 **apple_id** | **str** |  | [optional] 
 **auth_token** | **str** | The auth token for NEWLY REGISTERED ACCOUNTS ONLY (/auth/register) | [optional] 
-**badges** | [**list[Badge]**](Badge.md) |   | [optional] 
 **banner_color** | **str** |  | [optional] 
 **banner_type** | **str** |  | [optional] 
-**bio** | **str** |  | 
-**bio_links** | **list[str]** |   | 
 **completed_tutorials** | **list[str]** |  | [optional] 
 **content_filters** | **list[str]** | These tags begin with &#x60;content_&#x60; and control content gating | [optional] 
 **current_avatar** | **str** |  | 
@@ -75,8 +72,6 @@ Name | Type | Description | Notes
 **platform_history** | [**list[CurrentUserPlatformHistoryInner]**](CurrentUserPlatformHistoryInner.md) |  | [optional] 
 **presence** | [**CurrentUserPresence**](CurrentUserPresence.md) |  | [optional] 
 **profile_effect** | **str** |  | [optional] 
-**profile_pic_override** | **str** |  | 
-**profile_pic_override_thumbnail** | **str** |  | 
 **pronouns** | **str** |  | 
 **pronouns_history** | **list[str]** |  | 
 **queued_instance** | **str** |  | [optional] 
@@ -99,7 +94,6 @@ Name | Type | Description | Notes
 **two_factor_auth_enabled_date** | **datetime** |  | [optional] 
 **unsubscribe** | **bool** |  | 
 **updated_at** | **datetime** |  | [optional] 
-**user_icon** | **str** |  | 
 **user_language** | **str** |  | [optional] 
 **user_language_code** | **str** |  | [optional] 
 **username** | **str** | Your own unique name, used during login. Distinct from &#x60;displayName&#x60;, and never returned for another user. | [optional] 

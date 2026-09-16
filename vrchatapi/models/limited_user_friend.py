@@ -38,11 +38,6 @@ class LimitedUserFriend(object):
     openapi_types = {
         'banner_color': 'str',
         'banner_type': 'str',
-        'bio': 'str',
-        'bio_links': 'list[str]',
-        'current_avatar_image_url': 'str',
-        'current_avatar_tags': 'list[str]',
-        'current_avatar_thumbnail_image_url': 'str',
         'developer_type': 'DeveloperType',
         'discord_id': 'str',
         'display_name': 'str',
@@ -50,7 +45,6 @@ class LimitedUserFriend(object):
         'icon_frame': 'str',
         'icon_url': 'str',
         'id': 'str',
-        'image_url': 'str',
         'is_friend': 'bool',
         'last_activity': 'datetime',
         'last_login': 'datetime',
@@ -60,22 +54,14 @@ class LimitedUserFriend(object):
         'nameplate_effect': 'str',
         'platform': 'str',
         'profile_effect': 'str',
-        'profile_pic_override': 'str',
-        'profile_pic_override_thumbnail': 'str',
         'status': 'UserStatus',
         'status_description': 'str',
-        'tags': 'list[str]',
-        'user_icon': 'str'
+        'tags': 'list[str]'
     }
 
     attribute_map = {
         'banner_color': 'bannerColor',
         'banner_type': 'bannerType',
-        'bio': 'bio',
-        'bio_links': 'bioLinks',
-        'current_avatar_image_url': 'currentAvatarImageUrl',
-        'current_avatar_tags': 'currentAvatarTags',
-        'current_avatar_thumbnail_image_url': 'currentAvatarThumbnailImageUrl',
         'developer_type': 'developerType',
         'discord_id': 'discordId',
         'display_name': 'displayName',
@@ -83,7 +69,6 @@ class LimitedUserFriend(object):
         'icon_frame': 'iconFrame',
         'icon_url': 'iconUrl',
         'id': 'id',
-        'image_url': 'imageUrl',
         'is_friend': 'isFriend',
         'last_activity': 'last_activity',
         'last_login': 'last_login',
@@ -93,15 +78,12 @@ class LimitedUserFriend(object):
         'nameplate_effect': 'nameplateEffect',
         'platform': 'platform',
         'profile_effect': 'profileEffect',
-        'profile_pic_override': 'profilePicOverride',
-        'profile_pic_override_thumbnail': 'profilePicOverrideThumbnail',
         'status': 'status',
         'status_description': 'statusDescription',
-        'tags': 'tags',
-        'user_icon': 'userIcon'
+        'tags': 'tags'
     }
 
-    def __init__(self, banner_color=None, banner_type=None, bio=None, bio_links=None, current_avatar_image_url=None, current_avatar_tags=None, current_avatar_thumbnail_image_url=None, developer_type=None, discord_id=None, display_name=None, friend_key=None, icon_frame=None, icon_url=None, id=None, image_url=None, is_friend=None, last_activity=None, last_login=None, last_mobile=None, last_platform=None, location=None, nameplate_effect=None, platform=None, profile_effect=None, profile_pic_override=None, profile_pic_override_thumbnail=None, status=None, status_description=None, tags=None, user_icon=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, banner_color=None, banner_type=None, developer_type=None, discord_id=None, display_name=None, friend_key=None, icon_frame=None, icon_url=None, id=None, is_friend=None, last_activity=None, last_login=None, last_mobile=None, last_platform=None, location=None, nameplate_effect=None, platform=None, profile_effect=None, status=None, status_description=None, tags=None, local_vars_configuration=None):  # noqa: E501
         """LimitedUserFriend - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration.get_default_copy()
@@ -109,11 +91,6 @@ class LimitedUserFriend(object):
 
         self._banner_color = None
         self._banner_type = None
-        self._bio = None
-        self._bio_links = None
-        self._current_avatar_image_url = None
-        self._current_avatar_tags = None
-        self._current_avatar_thumbnail_image_url = None
         self._developer_type = None
         self._discord_id = None
         self._display_name = None
@@ -121,7 +98,6 @@ class LimitedUserFriend(object):
         self._icon_frame = None
         self._icon_url = None
         self._id = None
-        self._image_url = None
         self._is_friend = None
         self._last_activity = None
         self._last_login = None
@@ -131,28 +107,15 @@ class LimitedUserFriend(object):
         self._nameplate_effect = None
         self._platform = None
         self._profile_effect = None
-        self._profile_pic_override = None
-        self._profile_pic_override_thumbnail = None
         self._status = None
         self._status_description = None
         self._tags = None
-        self._user_icon = None
         self.discriminator = None
 
         if banner_color is not None:
             self.banner_color = banner_color
         if banner_type is not None:
             self.banner_type = banner_type
-        if bio is not None:
-            self.bio = bio
-        if bio_links is not None:
-            self.bio_links = bio_links
-        if current_avatar_image_url is not None:
-            self.current_avatar_image_url = current_avatar_image_url
-        if current_avatar_tags is not None:
-            self.current_avatar_tags = current_avatar_tags
-        if current_avatar_thumbnail_image_url is not None:
-            self.current_avatar_thumbnail_image_url = current_avatar_thumbnail_image_url
         self.developer_type = developer_type
         if discord_id is not None:
             self.discord_id = discord_id
@@ -163,7 +126,6 @@ class LimitedUserFriend(object):
         if icon_url is not None:
             self.icon_url = icon_url
         self.id = id
-        self.image_url = image_url
         self.is_friend = is_friend
         self.last_activity = last_activity
         self.last_login = last_login
@@ -175,15 +137,9 @@ class LimitedUserFriend(object):
         self.platform = platform
         if profile_effect is not None:
             self.profile_effect = profile_effect
-        if profile_pic_override is not None:
-            self.profile_pic_override = profile_pic_override
-        if profile_pic_override_thumbnail is not None:
-            self.profile_pic_override_thumbnail = profile_pic_override_thumbnail
         self.status = status
         self.status_description = status_description
         self.tags = tags
-        if user_icon is not None:
-            self.user_icon = user_icon
 
     @property
     def banner_color(self):
@@ -226,117 +182,6 @@ class LimitedUserFriend(object):
         """
 
         self._banner_type = banner_type
-
-    @property
-    def bio(self):
-        """Gets the bio of this LimitedUserFriend.  # noqa: E501
-
-
-        :return: The bio of this LimitedUserFriend.  # noqa: E501
-        :rtype: str
-        """
-        return self._bio
-
-    @bio.setter
-    def bio(self, bio):
-        """Sets the bio of this LimitedUserFriend.
-
-
-        :param bio: The bio of this LimitedUserFriend.  # noqa: E501
-        :type bio: str
-        """
-
-        self._bio = bio
-
-    @property
-    def bio_links(self):
-        """Gets the bio_links of this LimitedUserFriend.  # noqa: E501
-
-           # noqa: E501
-
-        :return: The bio_links of this LimitedUserFriend.  # noqa: E501
-        :rtype: list[str]
-        """
-        return self._bio_links
-
-    @bio_links.setter
-    def bio_links(self, bio_links):
-        """Sets the bio_links of this LimitedUserFriend.
-
-           # noqa: E501
-
-        :param bio_links: The bio_links of this LimitedUserFriend.  # noqa: E501
-        :type bio_links: list[str]
-        """
-
-        self._bio_links = bio_links
-
-    @property
-    def current_avatar_image_url(self):
-        """Gets the current_avatar_image_url of this LimitedUserFriend.  # noqa: E501
-
-        When profilePicOverride is not empty, use it instead.  # noqa: E501
-
-        :return: The current_avatar_image_url of this LimitedUserFriend.  # noqa: E501
-        :rtype: str
-        """
-        return self._current_avatar_image_url
-
-    @current_avatar_image_url.setter
-    def current_avatar_image_url(self, current_avatar_image_url):
-        """Sets the current_avatar_image_url of this LimitedUserFriend.
-
-        When profilePicOverride is not empty, use it instead.  # noqa: E501
-
-        :param current_avatar_image_url: The current_avatar_image_url of this LimitedUserFriend.  # noqa: E501
-        :type current_avatar_image_url: str
-        """
-
-        self._current_avatar_image_url = current_avatar_image_url
-
-    @property
-    def current_avatar_tags(self):
-        """Gets the current_avatar_tags of this LimitedUserFriend.  # noqa: E501
-
-
-        :return: The current_avatar_tags of this LimitedUserFriend.  # noqa: E501
-        :rtype: list[str]
-        """
-        return self._current_avatar_tags
-
-    @current_avatar_tags.setter
-    def current_avatar_tags(self, current_avatar_tags):
-        """Sets the current_avatar_tags of this LimitedUserFriend.
-
-
-        :param current_avatar_tags: The current_avatar_tags of this LimitedUserFriend.  # noqa: E501
-        :type current_avatar_tags: list[str]
-        """
-
-        self._current_avatar_tags = current_avatar_tags
-
-    @property
-    def current_avatar_thumbnail_image_url(self):
-        """Gets the current_avatar_thumbnail_image_url of this LimitedUserFriend.  # noqa: E501
-
-        When profilePicOverride is not empty, use it instead.  # noqa: E501
-
-        :return: The current_avatar_thumbnail_image_url of this LimitedUserFriend.  # noqa: E501
-        :rtype: str
-        """
-        return self._current_avatar_thumbnail_image_url
-
-    @current_avatar_thumbnail_image_url.setter
-    def current_avatar_thumbnail_image_url(self, current_avatar_thumbnail_image_url):
-        """Sets the current_avatar_thumbnail_image_url of this LimitedUserFriend.
-
-        When profilePicOverride is not empty, use it instead.  # noqa: E501
-
-        :param current_avatar_thumbnail_image_url: The current_avatar_thumbnail_image_url of this LimitedUserFriend.  # noqa: E501
-        :type current_avatar_thumbnail_image_url: str
-        """
-
-        self._current_avatar_thumbnail_image_url = current_avatar_thumbnail_image_url
 
     @property
     def developer_type(self):
@@ -496,29 +341,6 @@ class LimitedUserFriend(object):
             raise ValueError("Invalid value for `id`, must not be `None`")  # noqa: E501
 
         self._id = id
-
-    @property
-    def image_url(self):
-        """Gets the image_url of this LimitedUserFriend.  # noqa: E501
-
-
-        :return: The image_url of this LimitedUserFriend.  # noqa: E501
-        :rtype: str
-        """
-        return self._image_url
-
-    @image_url.setter
-    def image_url(self, image_url):
-        """Sets the image_url of this LimitedUserFriend.
-
-
-        :param image_url: The image_url of this LimitedUserFriend.  # noqa: E501
-        :type image_url: str
-        """
-        if self.local_vars_configuration.client_side_validation and image_url is None:  # noqa: E501
-            raise ValueError("Invalid value for `image_url`, must not be `None`")  # noqa: E501
-
-        self._image_url = image_url
 
     @property
     def is_friend(self):
@@ -720,48 +542,6 @@ class LimitedUserFriend(object):
         self._profile_effect = profile_effect
 
     @property
-    def profile_pic_override(self):
-        """Gets the profile_pic_override of this LimitedUserFriend.  # noqa: E501
-
-
-        :return: The profile_pic_override of this LimitedUserFriend.  # noqa: E501
-        :rtype: str
-        """
-        return self._profile_pic_override
-
-    @profile_pic_override.setter
-    def profile_pic_override(self, profile_pic_override):
-        """Sets the profile_pic_override of this LimitedUserFriend.
-
-
-        :param profile_pic_override: The profile_pic_override of this LimitedUserFriend.  # noqa: E501
-        :type profile_pic_override: str
-        """
-
-        self._profile_pic_override = profile_pic_override
-
-    @property
-    def profile_pic_override_thumbnail(self):
-        """Gets the profile_pic_override_thumbnail of this LimitedUserFriend.  # noqa: E501
-
-
-        :return: The profile_pic_override_thumbnail of this LimitedUserFriend.  # noqa: E501
-        :rtype: str
-        """
-        return self._profile_pic_override_thumbnail
-
-    @profile_pic_override_thumbnail.setter
-    def profile_pic_override_thumbnail(self, profile_pic_override_thumbnail):
-        """Sets the profile_pic_override_thumbnail of this LimitedUserFriend.
-
-
-        :param profile_pic_override_thumbnail: The profile_pic_override_thumbnail of this LimitedUserFriend.  # noqa: E501
-        :type profile_pic_override_thumbnail: str
-        """
-
-        self._profile_pic_override_thumbnail = profile_pic_override_thumbnail
-
-    @property
     def status(self):
         """Gets the status of this LimitedUserFriend.  # noqa: E501
 
@@ -831,27 +611,6 @@ class LimitedUserFriend(object):
             raise ValueError("Invalid value for `tags`, must not be `None`")  # noqa: E501
 
         self._tags = tags
-
-    @property
-    def user_icon(self):
-        """Gets the user_icon of this LimitedUserFriend.  # noqa: E501
-
-
-        :return: The user_icon of this LimitedUserFriend.  # noqa: E501
-        :rtype: str
-        """
-        return self._user_icon
-
-    @user_icon.setter
-    def user_icon(self, user_icon):
-        """Sets the user_icon of this LimitedUserFriend.
-
-
-        :param user_icon: The user_icon of this LimitedUserFriend.  # noqa: E501
-        :type user_icon: str
-        """
-
-        self._user_icon = user_icon
 
     def to_dict(self, serialize=False):
         """Returns the model properties as a dict"""

@@ -37,47 +37,28 @@ class UserNoteTargetUser(object):
     """
     openapi_types = {
         'id': 'str',
-        'current_avatar_tags': 'list[str]',
-        'current_avatar_thumbnail_image_url': 'str',
-        'display_name': 'str',
-        'profile_pic_override': 'str',
-        'user_icon': 'str'
+        'display_name': 'str'
     }
 
     attribute_map = {
         'id': 'id',
-        'current_avatar_tags': 'currentAvatarTags',
-        'current_avatar_thumbnail_image_url': 'currentAvatarThumbnailImageUrl',
-        'display_name': 'displayName',
-        'profile_pic_override': 'profilePicOverride',
-        'user_icon': 'userIcon'
+        'display_name': 'displayName'
     }
 
-    def __init__(self, id=None, current_avatar_tags=None, current_avatar_thumbnail_image_url=None, display_name=None, profile_pic_override=None, user_icon=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, display_name=None, local_vars_configuration=None):  # noqa: E501
         """UserNoteTargetUser - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration.get_default_copy()
         self.local_vars_configuration = local_vars_configuration
 
         self._id = None
-        self._current_avatar_tags = None
-        self._current_avatar_thumbnail_image_url = None
         self._display_name = None
-        self._profile_pic_override = None
-        self._user_icon = None
         self.discriminator = None
 
         if id is not None:
             self.id = id
-        if current_avatar_tags is not None:
-            self.current_avatar_tags = current_avatar_tags
-        if current_avatar_thumbnail_image_url is not None:
-            self.current_avatar_thumbnail_image_url = current_avatar_thumbnail_image_url
         if display_name is not None:
             self.display_name = display_name
-        self.profile_pic_override = profile_pic_override
-        if user_icon is not None:
-            self.user_icon = user_icon
 
     @property
     def id(self):
@@ -101,50 +82,6 @@ class UserNoteTargetUser(object):
         self._id = id
 
     @property
-    def current_avatar_tags(self):
-        """Gets the current_avatar_tags of this UserNoteTargetUser.  # noqa: E501
-
-
-        :return: The current_avatar_tags of this UserNoteTargetUser.  # noqa: E501
-        :rtype: list[str]
-        """
-        return self._current_avatar_tags
-
-    @current_avatar_tags.setter
-    def current_avatar_tags(self, current_avatar_tags):
-        """Sets the current_avatar_tags of this UserNoteTargetUser.
-
-
-        :param current_avatar_tags: The current_avatar_tags of this UserNoteTargetUser.  # noqa: E501
-        :type current_avatar_tags: list[str]
-        """
-
-        self._current_avatar_tags = current_avatar_tags
-
-    @property
-    def current_avatar_thumbnail_image_url(self):
-        """Gets the current_avatar_thumbnail_image_url of this UserNoteTargetUser.  # noqa: E501
-
-        When profilePicOverride is not empty, use it instead.  # noqa: E501
-
-        :return: The current_avatar_thumbnail_image_url of this UserNoteTargetUser.  # noqa: E501
-        :rtype: str
-        """
-        return self._current_avatar_thumbnail_image_url
-
-    @current_avatar_thumbnail_image_url.setter
-    def current_avatar_thumbnail_image_url(self, current_avatar_thumbnail_image_url):
-        """Sets the current_avatar_thumbnail_image_url of this UserNoteTargetUser.
-
-        When profilePicOverride is not empty, use it instead.  # noqa: E501
-
-        :param current_avatar_thumbnail_image_url: The current_avatar_thumbnail_image_url of this UserNoteTargetUser.  # noqa: E501
-        :type current_avatar_thumbnail_image_url: str
-        """
-
-        self._current_avatar_thumbnail_image_url = current_avatar_thumbnail_image_url
-
-    @property
     def display_name(self):
         """Gets the display_name of this UserNoteTargetUser.  # noqa: E501
 
@@ -164,48 +101,6 @@ class UserNoteTargetUser(object):
         """
 
         self._display_name = display_name
-
-    @property
-    def profile_pic_override(self):
-        """Gets the profile_pic_override of this UserNoteTargetUser.  # noqa: E501
-
-
-        :return: The profile_pic_override of this UserNoteTargetUser.  # noqa: E501
-        :rtype: str
-        """
-        return self._profile_pic_override
-
-    @profile_pic_override.setter
-    def profile_pic_override(self, profile_pic_override):
-        """Sets the profile_pic_override of this UserNoteTargetUser.
-
-
-        :param profile_pic_override: The profile_pic_override of this UserNoteTargetUser.  # noqa: E501
-        :type profile_pic_override: str
-        """
-
-        self._profile_pic_override = profile_pic_override
-
-    @property
-    def user_icon(self):
-        """Gets the user_icon of this UserNoteTargetUser.  # noqa: E501
-
-
-        :return: The user_icon of this UserNoteTargetUser.  # noqa: E501
-        :rtype: str
-        """
-        return self._user_icon
-
-    @user_icon.setter
-    def user_icon(self, user_icon):
-        """Sets the user_icon of this UserNoteTargetUser.
-
-
-        :param user_icon: The user_icon of this UserNoteTargetUser.  # noqa: E501
-        :type user_icon: str
-        """
-
-        self._user_icon = user_icon
 
     def to_dict(self, serialize=False):
         """Returns the model properties as a dict"""

@@ -38,6 +38,7 @@ class PublicProfile(object):
     openapi_types = {
         'age_verification_status': 'AgeVerificationStatus',
         'age_verified': 'bool',
+        'background_texture_id': 'str',
         'background_type': 'str',
         'badges': 'list[Badge]',
         'banner_color': 'str',
@@ -56,9 +57,12 @@ class PublicProfile(object):
         'nameplate_effect': 'str',
         'profile_effect': 'str',
         'pronouns': 'str',
-        'public_worlds': 'list[object]',
+        'public_worlds': 'list[LimitedWorld]',
         'represented_group': 'ProfileRepresentedGroup',
+        'theme_button_color': 'str',
+        'theme_icon_color': 'str',
         'theme_id': 'str',
+        'theme_subtext_color': 'str',
         'total_public_worlds_count': 'int',
         'trust_tags': 'list[str]',
         'world_favorite_lists': 'list[object]'
@@ -67,6 +71,7 @@ class PublicProfile(object):
     attribute_map = {
         'age_verification_status': 'ageVerificationStatus',
         'age_verified': 'ageVerified',
+        'background_texture_id': 'backgroundTextureId',
         'background_type': 'backgroundType',
         'badges': 'badges',
         'banner_color': 'bannerColor',
@@ -87,13 +92,16 @@ class PublicProfile(object):
         'pronouns': 'pronouns',
         'public_worlds': 'publicWorlds',
         'represented_group': 'representedGroup',
+        'theme_button_color': 'themeButtonColor',
+        'theme_icon_color': 'themeIconColor',
         'theme_id': 'themeId',
+        'theme_subtext_color': 'themeSubtextColor',
         'total_public_worlds_count': 'totalPublicWorldsCount',
         'trust_tags': 'trustTags',
         'world_favorite_lists': 'worldFavoriteLists'
     }
 
-    def __init__(self, age_verification_status=None, age_verified=None, background_type=None, badges=None, banner_color=None, banner_type=None, banner_url=None, bio=None, bio_links=None, display_name=None, groups=None, has_vrc_plus=None, icon_frame=None, icon_url=None, id=None, is_economy_creator=None, languages=None, nameplate_effect=None, profile_effect=None, pronouns=None, public_worlds=None, represented_group=None, theme_id=None, total_public_worlds_count=None, trust_tags=None, world_favorite_lists=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, age_verification_status=None, age_verified=None, background_texture_id=None, background_type=None, badges=None, banner_color=None, banner_type=None, banner_url=None, bio=None, bio_links=None, display_name=None, groups=None, has_vrc_plus=None, icon_frame=None, icon_url=None, id=None, is_economy_creator=None, languages=None, nameplate_effect=None, profile_effect=None, pronouns=None, public_worlds=None, represented_group=None, theme_button_color=None, theme_icon_color=None, theme_id=None, theme_subtext_color=None, total_public_worlds_count=None, trust_tags=None, world_favorite_lists=None, local_vars_configuration=None):  # noqa: E501
         """PublicProfile - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration.get_default_copy()
@@ -101,6 +109,7 @@ class PublicProfile(object):
 
         self._age_verification_status = None
         self._age_verified = None
+        self._background_texture_id = None
         self._background_type = None
         self._badges = None
         self._banner_color = None
@@ -121,7 +130,10 @@ class PublicProfile(object):
         self._pronouns = None
         self._public_worlds = None
         self._represented_group = None
+        self._theme_button_color = None
+        self._theme_icon_color = None
         self._theme_id = None
+        self._theme_subtext_color = None
         self._total_public_worlds_count = None
         self._trust_tags = None
         self._world_favorite_lists = None
@@ -131,6 +143,8 @@ class PublicProfile(object):
             self.age_verification_status = age_verification_status
         if age_verified is not None:
             self.age_verified = age_verified
+        if background_texture_id is not None:
+            self.background_texture_id = background_texture_id
         if background_type is not None:
             self.background_type = background_type
         if badges is not None:
@@ -171,8 +185,14 @@ class PublicProfile(object):
             self.public_worlds = public_worlds
         if represented_group is not None:
             self.represented_group = represented_group
+        if theme_button_color is not None:
+            self.theme_button_color = theme_button_color
+        if theme_icon_color is not None:
+            self.theme_icon_color = theme_icon_color
         if theme_id is not None:
             self.theme_id = theme_id
+        if theme_subtext_color is not None:
+            self.theme_subtext_color = theme_subtext_color
         if total_public_worlds_count is not None:
             self.total_public_worlds_count = total_public_worlds_count
         if trust_tags is not None:
@@ -223,6 +243,27 @@ class PublicProfile(object):
         """
 
         self._age_verified = age_verified
+
+    @property
+    def background_texture_id(self):
+        """Gets the background_texture_id of this PublicProfile.  # noqa: E501
+
+
+        :return: The background_texture_id of this PublicProfile.  # noqa: E501
+        :rtype: str
+        """
+        return self._background_texture_id
+
+    @background_texture_id.setter
+    def background_texture_id(self, background_texture_id):
+        """Sets the background_texture_id of this PublicProfile.
+
+
+        :param background_texture_id: The background_texture_id of this PublicProfile.  # noqa: E501
+        :type background_texture_id: str
+        """
+
+        self._background_texture_id = background_texture_id
 
     @property
     def background_type(self):
@@ -610,7 +651,7 @@ class PublicProfile(object):
 
 
         :return: The public_worlds of this PublicProfile.  # noqa: E501
-        :rtype: list[object]
+        :rtype: list[LimitedWorld]
         """
         return self._public_worlds
 
@@ -620,7 +661,7 @@ class PublicProfile(object):
 
 
         :param public_worlds: The public_worlds of this PublicProfile.  # noqa: E501
-        :type public_worlds: list[object]
+        :type public_worlds: list[LimitedWorld]
         """
 
         self._public_worlds = public_worlds
@@ -647,6 +688,52 @@ class PublicProfile(object):
         self._represented_group = represented_group
 
     @property
+    def theme_button_color(self):
+        """Gets the theme_button_color of this PublicProfile.  # noqa: E501
+
+        Hex colour without a leading `#`.  # noqa: E501
+
+        :return: The theme_button_color of this PublicProfile.  # noqa: E501
+        :rtype: str
+        """
+        return self._theme_button_color
+
+    @theme_button_color.setter
+    def theme_button_color(self, theme_button_color):
+        """Sets the theme_button_color of this PublicProfile.
+
+        Hex colour without a leading `#`.  # noqa: E501
+
+        :param theme_button_color: The theme_button_color of this PublicProfile.  # noqa: E501
+        :type theme_button_color: str
+        """
+
+        self._theme_button_color = theme_button_color
+
+    @property
+    def theme_icon_color(self):
+        """Gets the theme_icon_color of this PublicProfile.  # noqa: E501
+
+        Hex colour without a leading `#`.  # noqa: E501
+
+        :return: The theme_icon_color of this PublicProfile.  # noqa: E501
+        :rtype: str
+        """
+        return self._theme_icon_color
+
+    @theme_icon_color.setter
+    def theme_icon_color(self, theme_icon_color):
+        """Sets the theme_icon_color of this PublicProfile.
+
+        Hex colour without a leading `#`.  # noqa: E501
+
+        :param theme_icon_color: The theme_icon_color of this PublicProfile.  # noqa: E501
+        :type theme_icon_color: str
+        """
+
+        self._theme_icon_color = theme_icon_color
+
+    @property
     def theme_id(self):
         """Gets the theme_id of this PublicProfile.  # noqa: E501
 
@@ -666,6 +753,29 @@ class PublicProfile(object):
         """
 
         self._theme_id = theme_id
+
+    @property
+    def theme_subtext_color(self):
+        """Gets the theme_subtext_color of this PublicProfile.  # noqa: E501
+
+        Hex colour without a leading `#`.  # noqa: E501
+
+        :return: The theme_subtext_color of this PublicProfile.  # noqa: E501
+        :rtype: str
+        """
+        return self._theme_subtext_color
+
+    @theme_subtext_color.setter
+    def theme_subtext_color(self, theme_subtext_color):
+        """Sets the theme_subtext_color of this PublicProfile.
+
+        Hex colour without a leading `#`.  # noqa: E501
+
+        :param theme_subtext_color: The theme_subtext_color of this PublicProfile.  # noqa: E501
+        :type theme_subtext_color: str
+        """
+
+        self._theme_subtext_color = theme_subtext_color
 
     @property
     def total_public_worlds_count(self):

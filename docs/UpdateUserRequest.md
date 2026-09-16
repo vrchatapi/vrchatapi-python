@@ -5,8 +5,6 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **accepted_tos_version** | **int** |  | [optional] 
-**bio** | **str** |  | [optional] 
-**bio_links** | **list[str]** |  | [optional] 
 **birthday** | **date** |  | [optional] 
 **content_filters** | [**list[ContentFilter]**](ContentFilter.md) | These tags begin with &#x60;content_&#x60; and control content gating | [optional] 
 **current_password** | **str** |  | [optional] 
@@ -22,7 +20,6 @@ Name | Type | Description | Notes
 **status_description** | **str** |  | [optional] 
 **tags** | **list[str]** |   | [optional] 
 **unsubscribe** | **bool** |  | [optional] 
-**user_icon** | **str** | MUST be a valid VRChat /file/ url. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

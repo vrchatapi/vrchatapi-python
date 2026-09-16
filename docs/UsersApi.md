@@ -829,7 +829,7 @@ with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = vrchatapi.UsersApi(api_client)
     user_id = 'user_id_example' # str | Must be a valid user ID.
-with_groups_and_worlds = True # bool | Include `groups`, `publicWorlds` and `totalPublicWorldsCount` in the response. (optional)
+with_groups_and_worlds = True # bool | Include `groups`, `publicWorlds`, `totalPublicWorldsCount` and `worldFavoriteLists` in the response. (optional)
 
     try:
         # Get Public Profile
@@ -844,7 +844,7 @@ with_groups_and_worlds = True # bool | Include `groups`, `publicWorlds` and `tot
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **user_id** | **str**| Must be a valid user ID. | 
- **with_groups_and_worlds** | **bool**| Include &#x60;groups&#x60;, &#x60;publicWorlds&#x60; and &#x60;totalPublicWorldsCount&#x60; in the response. | [optional] 
+ **with_groups_and_worlds** | **bool**| Include &#x60;groups&#x60;, &#x60;publicWorlds&#x60;, &#x60;totalPublicWorldsCount&#x60; and &#x60;worldFavoriteLists&#x60; in the response. | [optional] 
 
 ### Return type
 

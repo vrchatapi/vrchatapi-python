@@ -44,7 +44,6 @@ class User(object):
         'age_verified': 'bool',
         'allow_avatar_copying': 'bool',
         'apple_details': 'dict(str, object)',
-        'badges': 'list[Badge]',
         'banner_color': 'str',
         'banner_type': 'str',
         'banner_url': 'str',
@@ -88,7 +87,6 @@ class User(object):
         'age_verified': 'ageVerified',
         'allow_avatar_copying': 'allowAvatarCopying',
         'apple_details': 'appleDetails',
-        'badges': 'badges',
         'banner_color': 'bannerColor',
         'banner_type': 'bannerType',
         'banner_url': 'bannerUrl',
@@ -123,7 +121,7 @@ class User(object):
         'world_id': 'worldId'
     }
 
-    def __init__(self, accepted_privacy_version=None, accepted_tos_version=None, account_deletion_date=None, account_deletion_log=None, age_verification_status=None, age_verified=None, allow_avatar_copying=True, apple_details=None, badges=None, banner_color=None, banner_type=None, banner_url=None, date_joined=None, developer_type=None, display_name=None, friend_key=None, friend_request_status=None, icon_frame=None, icon_url=None, id=None, instance_id=None, is_economy_creator=None, is_friend=None, last_activity=None, last_login=None, last_mobile=None, last_platform=None, location=None, nameplate_effect=None, note=None, platform=None, profile_effect=None, pronouns=None, state=None, status=None, status_description=None, tags=None, traveling_to_instance=None, traveling_to_location=None, traveling_to_world=None, world_id=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, accepted_privacy_version=None, accepted_tos_version=None, account_deletion_date=None, account_deletion_log=None, age_verification_status=None, age_verified=None, allow_avatar_copying=True, apple_details=None, banner_color=None, banner_type=None, banner_url=None, date_joined=None, developer_type=None, display_name=None, friend_key=None, friend_request_status=None, icon_frame=None, icon_url=None, id=None, instance_id=None, is_economy_creator=None, is_friend=None, last_activity=None, last_login=None, last_mobile=None, last_platform=None, location=None, nameplate_effect=None, note=None, platform=None, profile_effect=None, pronouns=None, state=None, status=None, status_description=None, tags=None, traveling_to_instance=None, traveling_to_location=None, traveling_to_world=None, world_id=None, local_vars_configuration=None):  # noqa: E501
         """User - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration.get_default_copy()
@@ -137,7 +135,6 @@ class User(object):
         self._age_verified = None
         self._allow_avatar_copying = None
         self._apple_details = None
-        self._badges = None
         self._banner_color = None
         self._banner_type = None
         self._banner_url = None
@@ -183,8 +180,6 @@ class User(object):
         self.allow_avatar_copying = allow_avatar_copying
         if apple_details is not None:
             self.apple_details = apple_details
-        if badges is not None:
-            self.badges = badges
         if banner_color is not None:
             self.banner_color = banner_color
         if banner_type is not None:
@@ -410,29 +405,6 @@ class User(object):
         """
 
         self._apple_details = apple_details
-
-    @property
-    def badges(self):
-        """Gets the badges of this User.  # noqa: E501
-
-           # noqa: E501
-
-        :return: The badges of this User.  # noqa: E501
-        :rtype: list[Badge]
-        """
-        return self._badges
-
-    @badges.setter
-    def badges(self, badges):
-        """Sets the badges of this User.
-
-           # noqa: E501
-
-        :param badges: The badges of this User.  # noqa: E501
-        :type badges: list[Badge]
-        """
-
-        self._badges = badges
 
     @property
     def banner_color(self):
