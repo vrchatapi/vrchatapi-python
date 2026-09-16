@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**check_user_persistence_exists**](UsersApi.md#check_user_persistence_exists) | **GET** /users/{userId}/{worldId}/persist/exists | Check User Persistence Exists
 [**delete_all_user_persistence_data**](UsersApi.md#delete_all_user_persistence_data) | **DELETE** /users/{userId}/persist | Delete All User Persistence Data
 [**delete_user_persistence**](UsersApi.md#delete_user_persistence) | **DELETE** /users/{userId}/{worldId}/persist | Delete User Persistence
+[**get_age_verification_status**](UsersApi.md#get_age_verification_status) | **GET** /ageVerification/status | Get Age Verification Status
 [**get_blocked_groups**](UsersApi.md#get_blocked_groups) | **GET** /users/{userId}/groups/userblocked | Get User Group Blocks
 [**get_invited_groups**](UsersApi.md#get_invited_groups) | **GET** /users/{userId}/groups/invited | Get User Group Invited
 [**get_mutual_friends**](UsersApi.md#get_mutual_friends) | **GET** /users/{userId}/mutuals/friends | Get User Mutual Friends
@@ -18,6 +19,7 @@ Method | HTTP request | Description
 [**get_user**](UsersApi.md#get_user) | **GET** /users/{userId} | Get User by ID
 [**get_user_all_group_permissions**](UsersApi.md#get_user_all_group_permissions) | **GET** /users/{userId}/groups/permissions | Get user&#39;s permissions for all joined groups.
 [**get_user_by_name**](UsersApi.md#get_user_by_name) | **GET** /users/{username}/name | Get User by Username
+[**get_user_client_config**](UsersApi.md#get_user_client_config) | **GET** /users/{userId}/clientConfig | Get User Client Config
 [**get_user_feedback**](UsersApi.md#get_user_feedback) | **GET** /users/{userId}/feedback | Get User Feedback
 [**get_user_group_instances**](UsersApi.md#get_user_group_instances) | **GET** /users/{userId}/instances/groups | Get User Group Instances
 [**get_user_group_instances_for_group**](UsersApi.md#get_user_group_instances_for_group) | **GET** /users/{userId}/instances/groups/{groupId} | Get User Group Instances for a specific Group
@@ -30,7 +32,9 @@ Method | HTTP request | Description
 [**remove_tags**](UsersApi.md#remove_tags) | **POST** /users/{userId}/removeTags | Remove User Tags
 [**search_users**](UsersApi.md#search_users) | **GET** /users | Search All Users
 [**update_badge**](UsersApi.md#update_badge) | **PUT** /users/{userId}/badges/{badgeId} | Update User Badge
+[**update_profile**](UsersApi.md#update_profile) | **PUT** /profile/{userId} | Update Profile
 [**update_user**](UsersApi.md#update_user) | **PUT** /users/{userId} | Update User Info
+[**update_user_client_config**](UsersApi.md#update_user_client_config) | **PUT** /users/{userId}/clientConfig | Update User Client Config
 [**update_user_note**](UsersApi.md#update_user_note) | **POST** /userNotes | Update User Note
 
 
@@ -336,6 +340,76 @@ void (empty response body)
 **401** | Error response due to missing auth cookie. |  -  |
 **403** | Error response when querying another user&#39;s persistence data. The body carries only a message string, without the nested &#x60;error&#x60; object every other response in this description uses. |  -  |
 **404** | The user does not have persistence data for the given world. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_age_verification_status**
+> AgeVerificationStatusResult get_age_verification_status()
+
+Get Age Verification Status
+
+Get the currently authenticated user's age verification status.
+
+### Example
+
+* Api Key Authentication (authCookie):
+```python
+from __future__ import print_function
+import time
+import vrchatapi
+from vrchatapi.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = vrchatapi.Configuration(
+    host = "https://api.vrchat.cloud/api/1"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: authCookie
+configuration.api_key['authCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['authCookie'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with vrchatapi.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = vrchatapi.UsersApi(api_client)
+    
+    try:
+        # Get Age Verification Status
+        api_response = api_instance.get_age_verification_status()
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling UsersApi->get_age_verification_status: %s\n" % e)
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**AgeVerificationStatusResult**](AgeVerificationStatusResult.md)
+
+### Authorization
+
+[authCookie](../README.md#authCookie)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Returns a single AgeVerificationStatusResult object. |  -  |
+**401** | Error response due to missing auth cookie. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -792,7 +866,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_public_profile**
-> PublicProfile get_public_profile(user_id, with_groups_and_worlds=with_groups_and_worlds)
+> PublicProfile get_public_profile(user_id, as_self=as_self, with_groups_and_worlds=with_groups_and_worlds)
 
 Get Public Profile
 
@@ -829,11 +903,12 @@ with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = vrchatapi.UsersApi(api_client)
     user_id = 'user_id_example' # str | Must be a valid user ID.
+as_self = True # bool | Include the properties VRChat shows a user on their own profile. Ignored for any other user. (optional)
 with_groups_and_worlds = True # bool | Include `groups`, `publicWorlds`, `totalPublicWorldsCount` and `worldFavoriteLists` in the response. (optional)
 
     try:
         # Get Public Profile
-        api_response = api_instance.get_public_profile(user_id, with_groups_and_worlds=with_groups_and_worlds)
+        api_response = api_instance.get_public_profile(user_id, as_self=as_self, with_groups_and_worlds=with_groups_and_worlds)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling UsersApi->get_public_profile: %s\n" % e)
@@ -844,6 +919,7 @@ with_groups_and_worlds = True # bool | Include `groups`, `publicWorlds`, `totalP
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **user_id** | **str**| Must be a valid user ID. | 
+ **as_self** | **bool**| Include the properties VRChat shows a user on their own profile. Ignored for any other user. | [optional] 
  **with_groups_and_worlds** | **bool**| Include &#x60;groups&#x60;, &#x60;publicWorlds&#x60;, &#x60;totalPublicWorldsCount&#x60; and &#x60;worldFavoriteLists&#x60; in the response. | [optional] 
 
 ### Return type
@@ -1090,6 +1166,80 @@ Name | Type | Description  | Notes
 **200** | Return a single User object.  Requesting your own ID returns your full &#x60;CurrentUser&#x60; record instead, carrying the private fields (&#x60;emailVerified&#x60;, &#x60;steamDetails&#x60;, &#x60;twoFactorAuthEnabled&#x60;, …) that never appear in responses for another user. |  -  |
 **401** | Error response due to missing auth cookie. |  -  |
 **403** | Error response due to missing Administrator credentials. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_user_client_config**
+> UserClientConfig get_user_client_config(user_id)
+
+Get User Client Config
+
+Get the client settings VRChat stores against a user.
+
+### Example
+
+* Api Key Authentication (authCookie):
+```python
+from __future__ import print_function
+import time
+import vrchatapi
+from vrchatapi.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = vrchatapi.Configuration(
+    host = "https://api.vrchat.cloud/api/1"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: authCookie
+configuration.api_key['authCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['authCookie'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with vrchatapi.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = vrchatapi.UsersApi(api_client)
+    user_id = 'user_id_example' # str | Must be a valid user ID.
+
+    try:
+        # Get User Client Config
+        api_response = api_instance.get_user_client_config(user_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling UsersApi->get_user_client_config: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **user_id** | **str**| Must be a valid user ID. | 
+
+### Return type
+
+[**UserClientConfig**](UserClientConfig.md)
+
+### Authorization
+
+[authCookie](../README.md#authCookie)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Returns a UserClientConfig object. |  -  |
+**401** | Error response due to missing auth cookie. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2011,6 +2161,83 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **update_profile**
+> PublicProfile update_profile(user_id, update_profile_request=update_profile_request)
+
+Update Profile
+
+Update a user's profile. `pronouns`, `status` and `statusDescription` are written through `updateUser` instead.
+
+### Example
+
+* Api Key Authentication (authCookie):
+```python
+from __future__ import print_function
+import time
+import vrchatapi
+from vrchatapi.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = vrchatapi.Configuration(
+    host = "https://api.vrchat.cloud/api/1"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: authCookie
+configuration.api_key['authCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['authCookie'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with vrchatapi.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = vrchatapi.UsersApi(api_client)
+    user_id = 'user_id_example' # str | Must be a valid user ID.
+update_profile_request = vrchatapi.UpdateProfileRequest() # UpdateProfileRequest |  (optional)
+
+    try:
+        # Update Profile
+        api_response = api_instance.update_profile(user_id, update_profile_request=update_profile_request)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling UsersApi->update_profile: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **user_id** | **str**| Must be a valid user ID. | 
+ **update_profile_request** | [**UpdateProfileRequest**](UpdateProfileRequest.md)|  | [optional] 
+
+### Return type
+
+[**PublicProfile**](PublicProfile.md)
+
+### Authorization
+
+[authCookie](../README.md#authCookie)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Returns a user&#39;s public profile. |  -  |
+**400** | The request failed validation. VRChat validates the request before it looks up the resource, so this response is returned even when the ID in the path does not exist. The message names the offending field or parameter. |  -  |
+**401** | Error response due to missing auth cookie. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **update_user**
 > CurrentUser update_user(user_id, update_user_request=update_user_request)
 
@@ -2086,6 +2313,82 @@ Name | Type | Description  | Notes
 **400** | Error response when a user attempts to change a property without supplying their current password. |  -  |
 **401** | Error response due to missing auth cookie. |  -  |
 **403** | Error response when updating a user other than yourself. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **update_user_client_config**
+> UserClientConfig update_user_client_config(user_id, update_user_client_config_request=update_user_client_config_request)
+
+Update User Client Config
+
+Update the client settings VRChat stores against a user.
+
+### Example
+
+* Api Key Authentication (authCookie):
+```python
+from __future__ import print_function
+import time
+import vrchatapi
+from vrchatapi.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = vrchatapi.Configuration(
+    host = "https://api.vrchat.cloud/api/1"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: authCookie
+configuration.api_key['authCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['authCookie'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with vrchatapi.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = vrchatapi.UsersApi(api_client)
+    user_id = 'user_id_example' # str | Must be a valid user ID.
+update_user_client_config_request = vrchatapi.UpdateUserClientConfigRequest() # UpdateUserClientConfigRequest |  (optional)
+
+    try:
+        # Update User Client Config
+        api_response = api_instance.update_user_client_config(user_id, update_user_client_config_request=update_user_client_config_request)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling UsersApi->update_user_client_config: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **user_id** | **str**| Must be a valid user ID. | 
+ **update_user_client_config_request** | [**UpdateUserClientConfigRequest**](UpdateUserClientConfigRequest.md)|  | [optional] 
+
+### Return type
+
+[**UserClientConfig**](UserClientConfig.md)
+
+### Authorization
+
+[authCookie](../README.md#authCookie)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Returns a UserClientConfig object. |  -  |
+**401** | Error response due to missing auth cookie. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

@@ -7,11 +7,13 @@ Method | HTTP request | Description
 [**consume_own_inventory_item**](InventoryApi.md#consume_own_inventory_item) | **PUT** /inventory/{inventoryItemId}/consume | Consume Own Inventory Item
 [**delete_own_inventory_item**](InventoryApi.md#delete_own_inventory_item) | **DELETE** /inventory/{inventoryItemId} | Delete Own Inventory Item
 [**equip_own_inventory_item**](InventoryApi.md#equip_own_inventory_item) | **PUT** /inventory/{inventoryItemId}/equip | Equip Own Inventory Item
+[**get_cosmetic_index**](InventoryApi.md#get_cosmetic_index) | **GET** /cosmetics/index/{itemType} | List Cosmetics
 [**get_inventory**](InventoryApi.md#get_inventory) | **GET** /inventory | Get Inventory
 [**get_inventory_collections**](InventoryApi.md#get_inventory_collections) | **GET** /inventory/collections | List Inventory Collections
 [**get_inventory_drops**](InventoryApi.md#get_inventory_drops) | **GET** /inventory/drops | List Inventory Drops
 [**get_inventory_template**](InventoryApi.md#get_inventory_template) | **GET** /inventory/template/{inventoryTemplateId} | Get Inventory Template
 [**get_own_inventory_item**](InventoryApi.md#get_own_inventory_item) | **GET** /inventory/{inventoryItemId} | Get Own Inventory Item
+[**get_user_cosmetics**](InventoryApi.md#get_user_cosmetics) | **GET** /user/{userId}/cosmetics | List User Cosmetics
 [**get_user_inventory_item**](InventoryApi.md#get_user_inventory_item) | **GET** /user/{userId}/inventory/{inventoryItemId} | Get User Inventory Item
 [**redeem_reward**](InventoryApi.md#redeem_reward) | **POST** /reward/redeem | Redeem Reward
 [**share_inventory_item_direct**](InventoryApi.md#share_inventory_item_direct) | **POST** /inventory/cloning/direct | Share Inventory Item Direct
@@ -247,8 +249,83 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **get_cosmetic_index**
+> list[InventoryTemplate] get_cosmetic_index(item_type)
+
+List Cosmetics
+
+List every cosmetic of a kind that VRChat has published, whether or not the caller owns it.
+
+### Example
+
+* Api Key Authentication (authCookie):
+```python
+from __future__ import print_function
+import time
+import vrchatapi
+from vrchatapi.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = vrchatapi.Configuration(
+    host = "https://api.vrchat.cloud/api/1"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: authCookie
+configuration.api_key['authCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['authCookie'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with vrchatapi.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = vrchatapi.InventoryApi(api_client)
+    item_type = 'item_type_example' # str | The kind of cosmetic to list.
+
+    try:
+        # List Cosmetics
+        api_response = api_instance.get_cosmetic_index(item_type)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling InventoryApi->get_cosmetic_index: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **item_type** | **str**| The kind of cosmetic to list. | 
+
+### Return type
+
+[**list[InventoryTemplate]**](InventoryTemplate.md)
+
+### Authorization
+
+[authCookie](../README.md#authCookie)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Returns a list of InventoryTemplate objects. |  -  |
+**400** | The request failed validation. VRChat validates the request before it looks up the resource, so this response is returned even when the ID in the path does not exist. The message names the offending field or parameter. |  -  |
+**401** | Error response due to missing auth cookie. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **get_inventory**
-> Inventory get_inventory(n=n, offset=offset, holder_id=holder_id, equip_slot=equip_slot, order=order, tags=tags, types=types, flags=flags, not_types=not_types, not_flags=not_flags, archived=archived)
+> Inventory get_inventory(n=n, offset=offset, holder_id=holder_id, equip_slot=equip_slot, order=order, tags=tags, types=types, flags=flags, not_types=not_types, not_flags=not_flags, archived=archived, seen=seen, is_nav_bar=is_nav_bar)
 
 Get Inventory
 
@@ -295,10 +372,12 @@ flags = vrchatapi.InventoryFlag() # InventoryFlag | Filter flags for inventory r
 not_types = vrchatapi.InventoryItemType() # InventoryItemType | Filter out types for inventory retrieval (comma-separated). (optional)
 not_flags = vrchatapi.InventoryFlag() # InventoryFlag | Filter out flags for inventory retrieval (comma-separated). (optional)
 archived = True # bool | Filter archived status for inventory retrieval. (optional)
+seen = True # bool |  (optional)
+is_nav_bar = True # bool |  (optional)
 
     try:
         # Get Inventory
-        api_response = api_instance.get_inventory(n=n, offset=offset, holder_id=holder_id, equip_slot=equip_slot, order=order, tags=tags, types=types, flags=flags, not_types=not_types, not_flags=not_flags, archived=archived)
+        api_response = api_instance.get_inventory(n=n, offset=offset, holder_id=holder_id, equip_slot=equip_slot, order=order, tags=tags, types=types, flags=flags, not_types=not_types, not_flags=not_flags, archived=archived, seen=seen, is_nav_bar=is_nav_bar)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling InventoryApi->get_inventory: %s\n" % e)
@@ -319,6 +398,8 @@ Name | Type | Description  | Notes
  **not_types** | [**InventoryItemType**](.md)| Filter out types for inventory retrieval (comma-separated). | [optional] 
  **not_flags** | [**InventoryFlag**](.md)| Filter out flags for inventory retrieval (comma-separated). | [optional] 
  **archived** | **bool**| Filter archived status for inventory retrieval. | [optional] 
+ **seen** | **bool**|  | [optional] 
+ **is_nav_bar** | **bool**|  | [optional] 
 
 ### Return type
 
@@ -630,6 +711,80 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Returns an InventoryItem object. |  -  |
+**401** | Error response due to missing auth cookie. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_user_cosmetics**
+> list[UserCosmetic] get_user_cosmetics(user_id)
+
+List User Cosmetics
+
+List the cosmetics a user holds.
+
+### Example
+
+* Api Key Authentication (authCookie):
+```python
+from __future__ import print_function
+import time
+import vrchatapi
+from vrchatapi.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = vrchatapi.Configuration(
+    host = "https://api.vrchat.cloud/api/1"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: authCookie
+configuration.api_key['authCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['authCookie'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with vrchatapi.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = vrchatapi.InventoryApi(api_client)
+    user_id = 'user_id_example' # str | Must be a valid user ID.
+
+    try:
+        # List User Cosmetics
+        api_response = api_instance.get_user_cosmetics(user_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling InventoryApi->get_user_cosmetics: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **user_id** | **str**| Must be a valid user ID. | 
+
+### Return type
+
+[**list[UserCosmetic]**](UserCosmetic.md)
+
+### Authorization
+
+[authCookie](../README.md#authCookie)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Returns a list of UserCosmetic objects. |  -  |
 **401** | Error response due to missing auth cookie. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

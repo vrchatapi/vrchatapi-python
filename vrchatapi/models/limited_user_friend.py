@@ -38,6 +38,7 @@ class LimitedUserFriend(object):
     openapi_types = {
         'banner_color': 'str',
         'banner_type': 'str',
+        'banner_url': 'str',
         'developer_type': 'DeveloperType',
         'discord_id': 'str',
         'display_name': 'str',
@@ -62,6 +63,7 @@ class LimitedUserFriend(object):
     attribute_map = {
         'banner_color': 'bannerColor',
         'banner_type': 'bannerType',
+        'banner_url': 'bannerUrl',
         'developer_type': 'developerType',
         'discord_id': 'discordId',
         'display_name': 'displayName',
@@ -83,7 +85,7 @@ class LimitedUserFriend(object):
         'tags': 'tags'
     }
 
-    def __init__(self, banner_color=None, banner_type=None, developer_type=None, discord_id=None, display_name=None, friend_key=None, icon_frame=None, icon_url=None, id=None, is_friend=None, last_activity=None, last_login=None, last_mobile=None, last_platform=None, location=None, nameplate_effect=None, platform=None, profile_effect=None, status=None, status_description=None, tags=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, banner_color=None, banner_type=None, banner_url=None, developer_type=None, discord_id=None, display_name=None, friend_key=None, icon_frame=None, icon_url=None, id=None, is_friend=None, last_activity=None, last_login=None, last_mobile=None, last_platform=None, location=None, nameplate_effect=None, platform=None, profile_effect=None, status=None, status_description=None, tags=None, local_vars_configuration=None):  # noqa: E501
         """LimitedUserFriend - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration.get_default_copy()
@@ -91,6 +93,7 @@ class LimitedUserFriend(object):
 
         self._banner_color = None
         self._banner_type = None
+        self._banner_url = None
         self._developer_type = None
         self._discord_id = None
         self._display_name = None
@@ -116,6 +119,8 @@ class LimitedUserFriend(object):
             self.banner_color = banner_color
         if banner_type is not None:
             self.banner_type = banner_type
+        if banner_url is not None:
+            self.banner_url = banner_url
         self.developer_type = developer_type
         if discord_id is not None:
             self.discord_id = discord_id
@@ -182,6 +187,27 @@ class LimitedUserFriend(object):
         """
 
         self._banner_type = banner_type
+
+    @property
+    def banner_url(self):
+        """Gets the banner_url of this LimitedUserFriend.  # noqa: E501
+
+
+        :return: The banner_url of this LimitedUserFriend.  # noqa: E501
+        :rtype: str
+        """
+        return self._banner_url
+
+    @banner_url.setter
+    def banner_url(self, banner_url):
+        """Sets the banner_url of this LimitedUserFriend.
+
+
+        :param banner_url: The banner_url of this LimitedUserFriend.  # noqa: E501
+        :type banner_url: str
+        """
+
+        self._banner_url = banner_url
 
     @property
     def developer_type(self):

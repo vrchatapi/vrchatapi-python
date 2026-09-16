@@ -68,6 +68,7 @@ class Group(object):
         'roles': 'list[GroupRole]',
         'rules': 'str',
         'short_code': 'str',
+        'store_id': 'str',
         'tags': 'list[str]',
         'transfer_target_id': 'str',
         'updated_at': 'datetime'
@@ -106,12 +107,13 @@ class Group(object):
         'roles': 'roles',
         'rules': 'rules',
         'short_code': 'shortCode',
+        'store_id': 'storeId',
         'tags': 'tags',
         'transfer_target_id': 'transferTargetId',
         'updated_at': 'updatedAt'
     }
 
-    def __init__(self, age_verification_beta_code=None, age_verification_beta_slots=None, age_verification_slots_available=None, allow_group_join_prompt=None, badges=None, banner_id=None, banner_url=None, created_at=None, description=None, discriminator=None, galleries=None, icon_id=None, icon_url=None, id=None, is_verified=False, join_state=None, languages=None, last_post_created_at=None, links=None, member_count=None, member_count_synced_at=None, membership_status=None, my_member=None, name=None, nameplate_id=None, nameplate_url=None, online_member_count=None, owner_id=None, privacy=None, roles=None, rules=None, short_code=None, tags=None, transfer_target_id=None, updated_at=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, age_verification_beta_code=None, age_verification_beta_slots=None, age_verification_slots_available=None, allow_group_join_prompt=None, badges=None, banner_id=None, banner_url=None, created_at=None, description=None, discriminator=None, galleries=None, icon_id=None, icon_url=None, id=None, is_verified=False, join_state=None, languages=None, last_post_created_at=None, links=None, member_count=None, member_count_synced_at=None, membership_status=None, my_member=None, name=None, nameplate_id=None, nameplate_url=None, online_member_count=None, owner_id=None, privacy=None, roles=None, rules=None, short_code=None, store_id=None, tags=None, transfer_target_id=None, updated_at=None, local_vars_configuration=None):  # noqa: E501
         """Group - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration.get_default_copy()
@@ -149,6 +151,7 @@ class Group(object):
         self._roles = None
         self._rules = None
         self._short_code = None
+        self._store_id = None
         self._tags = None
         self._transfer_target_id = None
         self._updated_at = None
@@ -209,6 +212,8 @@ class Group(object):
         self.rules = rules
         if short_code is not None:
             self.short_code = short_code
+        if store_id is not None:
+            self.store_id = store_id
         if tags is not None:
             self.tags = tags
         if transfer_target_id is not None:
@@ -891,6 +896,27 @@ class Group(object):
         """
 
         self._short_code = short_code
+
+    @property
+    def store_id(self):
+        """Gets the store_id of this Group.  # noqa: E501
+
+
+        :return: The store_id of this Group.  # noqa: E501
+        :rtype: str
+        """
+        return self._store_id
+
+    @store_id.setter
+    def store_id(self, store_id):
+        """Sets the store_id of this Group.
+
+
+        :param store_id: The store_id of this Group.  # noqa: E501
+        :type store_id: str
+        """
+
+        self._store_id = store_id
 
     @property
     def tags(self):

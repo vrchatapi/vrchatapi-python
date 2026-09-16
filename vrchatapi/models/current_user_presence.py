@@ -39,11 +39,15 @@ class CurrentUserPresence(object):
         'avatar_image_url': 'str',
         'avatar_thumbnail': 'str',
         'banner': 'str',
+        'banner_color': 'str',
+        'banner_type': 'str',
+        'banner_url': 'str',
         'current_avatar_tags': 'list[str]',
         'debugflag': 'str',
         'display_name': 'str',
         'groups': 'list[str]',
         'icon_frame': 'str',
+        'icon_url': 'str',
         'id': 'str',
         'instance': 'str',
         'instance_type': 'str',
@@ -63,11 +67,15 @@ class CurrentUserPresence(object):
         'avatar_image_url': 'avatarImageUrl',
         'avatar_thumbnail': 'avatarThumbnail',
         'banner': 'banner',
+        'banner_color': 'bannerColor',
+        'banner_type': 'bannerType',
+        'banner_url': 'bannerUrl',
         'current_avatar_tags': 'currentAvatarTags',
         'debugflag': 'debugflag',
         'display_name': 'displayName',
         'groups': 'groups',
         'icon_frame': 'iconFrame',
+        'icon_url': 'iconUrl',
         'id': 'id',
         'instance': 'instance',
         'instance_type': 'instanceType',
@@ -83,7 +91,7 @@ class CurrentUserPresence(object):
         'world': 'world'
     }
 
-    def __init__(self, avatar_image_url=None, avatar_thumbnail=None, banner=None, current_avatar_tags=None, debugflag=None, display_name=None, groups=None, icon_frame=None, id=None, instance=None, instance_type=None, is_rejoining=None, nameplate_effect=None, platform=None, profile_effect=None, profile_pic_override=None, status=None, traveling_to_instance=None, traveling_to_world=None, user_icon=None, world=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, avatar_image_url=None, avatar_thumbnail=None, banner=None, banner_color=None, banner_type=None, banner_url=None, current_avatar_tags=None, debugflag=None, display_name=None, groups=None, icon_frame=None, icon_url=None, id=None, instance=None, instance_type=None, is_rejoining=None, nameplate_effect=None, platform=None, profile_effect=None, profile_pic_override=None, status=None, traveling_to_instance=None, traveling_to_world=None, user_icon=None, world=None, local_vars_configuration=None):  # noqa: E501
         """CurrentUserPresence - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration.get_default_copy()
@@ -92,11 +100,15 @@ class CurrentUserPresence(object):
         self._avatar_image_url = None
         self._avatar_thumbnail = None
         self._banner = None
+        self._banner_color = None
+        self._banner_type = None
+        self._banner_url = None
         self._current_avatar_tags = None
         self._debugflag = None
         self._display_name = None
         self._groups = None
         self._icon_frame = None
+        self._icon_url = None
         self._id = None
         self._instance = None
         self._instance_type = None
@@ -117,6 +129,12 @@ class CurrentUserPresence(object):
         self.avatar_thumbnail = avatar_thumbnail
         if banner is not None:
             self.banner = banner
+        if banner_color is not None:
+            self.banner_color = banner_color
+        if banner_type is not None:
+            self.banner_type = banner_type
+        if banner_url is not None:
+            self.banner_url = banner_url
         if current_avatar_tags is not None:
             self.current_avatar_tags = current_avatar_tags
         if debugflag is not None:
@@ -126,6 +144,8 @@ class CurrentUserPresence(object):
         self.groups = groups
         if icon_frame is not None:
             self.icon_frame = icon_frame
+        if icon_url is not None:
+            self.icon_url = icon_url
         if id is not None:
             self.id = id
         self.instance = instance
@@ -208,6 +228,69 @@ class CurrentUserPresence(object):
         """
 
         self._banner = banner
+
+    @property
+    def banner_color(self):
+        """Gets the banner_color of this CurrentUserPresence.  # noqa: E501
+
+
+        :return: The banner_color of this CurrentUserPresence.  # noqa: E501
+        :rtype: str
+        """
+        return self._banner_color
+
+    @banner_color.setter
+    def banner_color(self, banner_color):
+        """Sets the banner_color of this CurrentUserPresence.
+
+
+        :param banner_color: The banner_color of this CurrentUserPresence.  # noqa: E501
+        :type banner_color: str
+        """
+
+        self._banner_color = banner_color
+
+    @property
+    def banner_type(self):
+        """Gets the banner_type of this CurrentUserPresence.  # noqa: E501
+
+
+        :return: The banner_type of this CurrentUserPresence.  # noqa: E501
+        :rtype: str
+        """
+        return self._banner_type
+
+    @banner_type.setter
+    def banner_type(self, banner_type):
+        """Sets the banner_type of this CurrentUserPresence.
+
+
+        :param banner_type: The banner_type of this CurrentUserPresence.  # noqa: E501
+        :type banner_type: str
+        """
+
+        self._banner_type = banner_type
+
+    @property
+    def banner_url(self):
+        """Gets the banner_url of this CurrentUserPresence.  # noqa: E501
+
+
+        :return: The banner_url of this CurrentUserPresence.  # noqa: E501
+        :rtype: str
+        """
+        return self._banner_url
+
+    @banner_url.setter
+    def banner_url(self, banner_url):
+        """Sets the banner_url of this CurrentUserPresence.
+
+
+        :param banner_url: The banner_url of this CurrentUserPresence.  # noqa: E501
+        :type banner_url: str
+        """
+
+        self._banner_url = banner_url
 
     @property
     def current_avatar_tags(self):
@@ -313,6 +396,27 @@ class CurrentUserPresence(object):
         """
 
         self._icon_frame = icon_frame
+
+    @property
+    def icon_url(self):
+        """Gets the icon_url of this CurrentUserPresence.  # noqa: E501
+
+
+        :return: The icon_url of this CurrentUserPresence.  # noqa: E501
+        :rtype: str
+        """
+        return self._icon_url
+
+    @icon_url.setter
+    def icon_url(self, icon_url):
+        """Sets the icon_url of this CurrentUserPresence.
+
+
+        :param icon_url: The icon_url of this CurrentUserPresence.  # noqa: E501
+        :type icon_url: str
+        """
+
+        self._icon_url = icon_url
 
     @property
     def id(self):

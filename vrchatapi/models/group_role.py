@@ -47,6 +47,7 @@ class GroupRole(object):
         'name': 'str',
         'order': 'int',
         'permissions': 'list[GroupPermissions]',
+        'product_id': 'str',
         'requires_purchase': 'bool',
         'requires_two_factor': 'bool',
         'updated_at': 'datetime'
@@ -64,12 +65,13 @@ class GroupRole(object):
         'name': 'name',
         'order': 'order',
         'permissions': 'permissions',
+        'product_id': 'productId',
         'requires_purchase': 'requiresPurchase',
         'requires_two_factor': 'requiresTwoFactor',
         'updated_at': 'updatedAt'
     }
 
-    def __init__(self, created_at=None, default_role=False, description=None, group_id=None, id=None, is_added_on_join=False, is_management_role=False, is_self_assignable=False, name=None, order=None, permissions=None, requires_purchase=False, requires_two_factor=False, updated_at=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, created_at=None, default_role=False, description=None, group_id=None, id=None, is_added_on_join=False, is_management_role=False, is_self_assignable=False, name=None, order=None, permissions=None, product_id=None, requires_purchase=False, requires_two_factor=False, updated_at=None, local_vars_configuration=None):  # noqa: E501
         """GroupRole - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration.get_default_copy()
@@ -86,6 +88,7 @@ class GroupRole(object):
         self._name = None
         self._order = None
         self._permissions = None
+        self._product_id = None
         self._requires_purchase = None
         self._requires_two_factor = None
         self._updated_at = None
@@ -113,6 +116,8 @@ class GroupRole(object):
             self.order = order
         if permissions is not None:
             self.permissions = permissions
+        if product_id is not None:
+            self.product_id = product_id
         if requires_purchase is not None:
             self.requires_purchase = requires_purchase
         if requires_two_factor is not None:
@@ -350,6 +355,27 @@ class GroupRole(object):
         """
 
         self._permissions = permissions
+
+    @property
+    def product_id(self):
+        """Gets the product_id of this GroupRole.  # noqa: E501
+
+
+        :return: The product_id of this GroupRole.  # noqa: E501
+        :rtype: str
+        """
+        return self._product_id
+
+    @product_id.setter
+    def product_id(self, product_id):
+        """Sets the product_id of this GroupRole.
+
+
+        :param product_id: The product_id of this GroupRole.  # noqa: E501
+        :type product_id: str
+        """
+
+        self._product_id = product_id
 
     @property
     def requires_purchase(self):

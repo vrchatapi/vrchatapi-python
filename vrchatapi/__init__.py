@@ -77,6 +77,7 @@ from vrchatapi.models.add_group_gallery_image_request import AddGroupGalleryImag
 from vrchatapi.models.admin_asset_bundle import AdminAssetBundle
 from vrchatapi.models.admin_unity_package import AdminUnityPackage
 from vrchatapi.models.age_verification_status import AgeVerificationStatus
+from vrchatapi.models.age_verification_status_result import AgeVerificationStatusResult
 from vrchatapi.models.agreement import Agreement
 from vrchatapi.models.agreement_code import AgreementCode
 from vrchatapi.models.agreement_request import AgreementRequest
@@ -94,6 +95,9 @@ from vrchatapi.models.badge import Badge
 from vrchatapi.models.balance import Balance
 from vrchatapi.models.ban_group_member_request import BanGroupMemberRequest
 from vrchatapi.models.bare_error import BareError
+from vrchatapi.models.beta import Beta
+from vrchatapi.models.beta_registration_not_found_error import BetaRegistrationNotFoundError
+from vrchatapi.models.beta_user_field import BetaUserField
 from vrchatapi.models.boop_request import BoopRequest
 from vrchatapi.models.calendar_day_of_week import CalendarDayOfWeek
 from vrchatapi.models.calendar_event import CalendarEvent
@@ -140,16 +144,23 @@ from vrchatapi.models.dynamic_content_row import DynamicContentRow
 from vrchatapi.models.earnings_metrics import EarningsMetrics
 from vrchatapi.models.earnings_metrics_totals import EarningsMetricsTotals
 from vrchatapi.models.economy_account import EconomyAccount
+from vrchatapi.models.economy_account_limits import EconomyAccountLimits
 from vrchatapi.models.economy_balances import EconomyBalances
 from vrchatapi.models.economy_payout import EconomyPayout
 from vrchatapi.models.economy_payout_eligibility import EconomyPayoutEligibility
 from vrchatapi.models.economy_payout_list import EconomyPayoutList
 from vrchatapi.models.economy_payout_status import EconomyPayoutStatus
+from vrchatapi.models.economy_status import EconomyStatus
 from vrchatapi.models.equip_inventory_item_request import EquipInventoryItemRequest
 from vrchatapi.models.error import Error
 from vrchatapi.models.favorite import Favorite
 from vrchatapi.models.favorite_group import FavoriteGroup
+from vrchatapi.models.favorite_group_contents import FavoriteGroupContents
+from vrchatapi.models.favorite_group_contents_entry import FavoriteGroupContentsEntry
+from vrchatapi.models.favorite_group_contents_entry_world import FavoriteGroupContentsEntryWorld
 from vrchatapi.models.favorite_group_limits import FavoriteGroupLimits
+from vrchatapi.models.favorite_group_list import FavoriteGroupList
+from vrchatapi.models.favorite_group_summary import FavoriteGroupSummary
 from vrchatapi.models.favorite_group_visibility import FavoriteGroupVisibility
 from vrchatapi.models.favorite_limits import FavoriteLimits
 from vrchatapi.models.favorite_type import FavoriteType
@@ -166,6 +177,7 @@ from vrchatapi.models.file_version_upload_status import FileVersionUploadStatus
 from vrchatapi.models.finish_file_data_upload_request import FinishFileDataUploadRequest
 from vrchatapi.models.follow_calendar_event_request import FollowCalendarEventRequest
 from vrchatapi.models.friend_status import FriendStatus
+from vrchatapi.models.get_group_gallery_images200_response import GetGroupGalleryImages200Response
 from vrchatapi.models.get_group_posts200_response import GetGroupPosts200Response
 from vrchatapi.models.get_user_group_instances200_response import GetUserGroupInstances200Response
 from vrchatapi.models.group import Group
@@ -176,6 +188,7 @@ from vrchatapi.models.group_gallery import GroupGallery
 from vrchatapi.models.group_gallery_file_order import GroupGalleryFileOrder
 from vrchatapi.models.group_gallery_file_order_request import GroupGalleryFileOrderRequest
 from vrchatapi.models.group_gallery_image import GroupGalleryImage
+from vrchatapi.models.group_gallery_image_list import GroupGalleryImageList
 from vrchatapi.models.group_instance import GroupInstance
 from vrchatapi.models.group_join_request_action import GroupJoinRequestAction
 from vrchatapi.models.group_join_state import GroupJoinState
@@ -219,6 +232,7 @@ from vrchatapi.models.instance_short_name_response import InstanceShortNameRespo
 from vrchatapi.models.instance_type import InstanceType
 from vrchatapi.models.instance_vibe import InstanceVibe
 from vrchatapi.models.inventory import Inventory
+from vrchatapi.models.inventory_asset import InventoryAsset
 from vrchatapi.models.inventory_consumption_results import InventoryConsumptionResults
 from vrchatapi.models.inventory_default_attributes1 import InventoryDefaultAttributes1
 from vrchatapi.models.inventory_default_attributes1_validator import InventoryDefaultAttributes1Validator
@@ -362,6 +376,7 @@ from vrchatapi.models.two_factor_auth_code import TwoFactorAuthCode
 from vrchatapi.models.two_factor_email_code import TwoFactorEmailCode
 from vrchatapi.models.two_factor_recovery_codes import TwoFactorRecoveryCodes
 from vrchatapi.models.two_factor_recovery_codes_otp_inner import TwoFactorRecoveryCodesOtpInner
+from vrchatapi.models.unavailable_world import UnavailableWorld
 from vrchatapi.models.unity_package import UnityPackage
 from vrchatapi.models.update_asset_review_notes_request import UpdateAssetReviewNotesRequest
 from vrchatapi.models.update_avatar_request import UpdateAvatarRequest
@@ -376,13 +391,17 @@ from vrchatapi.models.update_inventory_item_request import UpdateInventoryItemRe
 from vrchatapi.models.update_invite_message_request import UpdateInviteMessageRequest
 from vrchatapi.models.update_listing_request import UpdateListingRequest
 from vrchatapi.models.update_product_request import UpdateProductRequest
+from vrchatapi.models.update_profile_request import UpdateProfileRequest
 from vrchatapi.models.update_prop_request import UpdatePropRequest
 from vrchatapi.models.update_tilia_tos_request import UpdateTiliaTOSRequest
 from vrchatapi.models.update_user_badge_request import UpdateUserBadgeRequest
+from vrchatapi.models.update_user_client_config_request import UpdateUserClientConfigRequest
 from vrchatapi.models.update_user_note_request import UpdateUserNoteRequest
 from vrchatapi.models.update_user_request import UpdateUserRequest
 from vrchatapi.models.update_world_request import UpdateWorldRequest
 from vrchatapi.models.user import User
+from vrchatapi.models.user_client_config import UserClientConfig
+from vrchatapi.models.user_cosmetic import UserCosmetic
 from vrchatapi.models.user_credits_eligible import UserCreditsEligible
 from vrchatapi.models.user_exists import UserExists
 from vrchatapi.models.user_note import UserNote
@@ -395,6 +414,7 @@ from vrchatapi.models.verify2_fa_email_code_result import Verify2FAEmailCodeResu
 from vrchatapi.models.verify2_fa_result import Verify2FAResult
 from vrchatapi.models.verify_auth_token_result import VerifyAuthTokenResult
 from vrchatapi.models.world import World
+from vrchatapi.models.world_favorite_list import WorldFavoriteList
 from vrchatapi.models.world_metadata import WorldMetadata
 from vrchatapi.models.world_publish_status import WorldPublishStatus
 

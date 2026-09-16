@@ -51,6 +51,7 @@ class LimitedWorld(object):
         'name': 'str',
         'occupants': 'int',
         'organization': 'str',
+        'pending_upload': 'bool',
         'popularity': 'int',
         'preview_youtube_id': 'str',
         'publication_date': 'str',
@@ -81,6 +82,7 @@ class LimitedWorld(object):
         'name': 'name',
         'occupants': 'occupants',
         'organization': 'organization',
+        'pending_upload': 'pendingUpload',
         'popularity': 'popularity',
         'preview_youtube_id': 'previewYoutubeId',
         'publication_date': 'publicationDate',
@@ -95,7 +97,7 @@ class LimitedWorld(object):
         'visits': 'visits'
     }
 
-    def __init__(self, author_id=None, author_name=None, capacity=None, created_at=None, default_content_settings=None, disabled_prop_abilities=None, favorites=0, heat=0, id=None, image_url=None, is_hype_train_eligible=None, labs_publication_date=None, name=None, occupants=0, organization='vrchat', popularity=0, preview_youtube_id=None, publication_date=None, recommended_capacity=None, release_status=None, store_id=None, tags=None, thumbnail_image_url=None, udon_products=None, unity_packages=None, updated_at=None, visits=0, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, author_id=None, author_name=None, capacity=None, created_at=None, default_content_settings=None, disabled_prop_abilities=None, favorites=0, heat=0, id=None, image_url=None, is_hype_train_eligible=None, labs_publication_date=None, name=None, occupants=0, organization='vrchat', pending_upload=None, popularity=0, preview_youtube_id=None, publication_date=None, recommended_capacity=None, release_status=None, store_id=None, tags=None, thumbnail_image_url=None, udon_products=None, unity_packages=None, updated_at=None, visits=0, local_vars_configuration=None):  # noqa: E501
         """LimitedWorld - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration.get_default_copy()
@@ -116,6 +118,7 @@ class LimitedWorld(object):
         self._name = None
         self._occupants = None
         self._organization = None
+        self._pending_upload = None
         self._popularity = None
         self._preview_youtube_id = None
         self._publication_date = None
@@ -148,6 +151,8 @@ class LimitedWorld(object):
         self.name = name
         self.occupants = occupants
         self.organization = organization
+        if pending_upload is not None:
+            self.pending_upload = pending_upload
         self.popularity = popularity
         self.preview_youtube_id = preview_youtube_id
         self.publication_date = publication_date
@@ -531,6 +536,27 @@ class LimitedWorld(object):
             raise ValueError("Invalid value for `organization`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._organization = organization
+
+    @property
+    def pending_upload(self):
+        """Gets the pending_upload of this LimitedWorld.  # noqa: E501
+
+
+        :return: The pending_upload of this LimitedWorld.  # noqa: E501
+        :rtype: bool
+        """
+        return self._pending_upload
+
+    @pending_upload.setter
+    def pending_upload(self, pending_upload):
+        """Sets the pending_upload of this LimitedWorld.
+
+
+        :param pending_upload: The pending_upload of this LimitedWorld.  # noqa: E501
+        :type pending_upload: bool
+        """
+
+        self._pending_upload = pending_upload
 
     @property
     def popularity(self):

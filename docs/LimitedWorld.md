@@ -20,6 +20,7 @@ Name | Type | Description | Notes
 **name** | **str** |  | 
 **occupants** | **int** |  | [default to 0]
 **organization** | **str** |  | [default to 'vrchat']
+**pending_upload** | **bool** |  | [optional] 
 **popularity** | **int** |  | [default to 0]
 **preview_youtube_id** | **str** |  | [optional] 
 **publication_date** | **str** |  | 

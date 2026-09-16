@@ -101,8 +101,7 @@ class UnityPackage(object):
         if asset_url_object is not None:
             self.asset_url_object = asset_url_object
         self.asset_version = asset_version
-        if created_at is not None:
-            self.created_at = created_at
+        self.created_at = created_at
         self.id = id
         self.impostor_url = impostor_url
         if impostorizer_version is not None:

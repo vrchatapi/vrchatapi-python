@@ -15,12 +15,15 @@ Method | HTTP request | Description
 [**get_current_subscriptions**](EconomyApi.md#get_current_subscriptions) | **GET** /auth/user/subscription | Get Current Subscriptions
 [**get_earnings_metrics**](EconomyApi.md#get_earnings_metrics) | **GET** /economy/metrics/earnings | Get Earnings Metrics
 [**get_economy_account**](EconomyApi.md#get_economy_account) | **GET** /user/{userId}/economy/account | Get Economy Account
+[**get_economy_balance**](EconomyApi.md#get_economy_balance) | **GET** /user/{userId}/economy/balance | Get Economy Balance
 [**get_economy_balances**](EconomyApi.md#get_economy_balances) | **GET** /user/{userId}/economy/balances | Get Economy Balances
 [**get_economy_payout_status**](EconomyApi.md#get_economy_payout_status) | **GET** /user/{userId}/economy/payouts/status | Get Economy Payout Status
 [**get_economy_payouts**](EconomyApi.md#get_economy_payouts) | **GET** /user/{userId}/economy/payouts/list | Get Economy Payouts
+[**get_economy_status**](EconomyApi.md#get_economy_status) | **GET** /economy/status | Get Economy Status
 [**get_license_group**](EconomyApi.md#get_license_group) | **GET** /licenseGroups/{licenseGroupId} | Get License Group
 [**get_product_listing**](EconomyApi.md#get_product_listing) | **GET** /listing/{productId} | Get Product Listing
 [**get_product_listing_alternate**](EconomyApi.md#get_product_listing_alternate) | **GET** /products/{productId} | Get Product Listing (alternate)
+[**get_product_listing_products**](EconomyApi.md#get_product_listing_products) | **GET** /listing/{productId}/products | Get Product Listing Products
 [**get_product_listings**](EconomyApi.md#get_product_listings) | **GET** /user/{userId}/listings | Get User Product Listings
 [**get_product_purchase**](EconomyApi.md#get_product_purchase) | **GET** /economy/purchases/{productPurchaseId} | Get Product Purchase
 [**get_product_purchase_history**](EconomyApi.md#get_product_purchase_history) | **GET** /user/{userId}/economy/transactions | Get Product Purchase History
@@ -789,7 +792,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_economy_account**
-> EconomyAccount get_economy_account(user_id)
+> EconomyAccount get_economy_account(user_id, get_limits=get_limits)
 
 Get Economy Account
 
@@ -826,10 +829,11 @@ with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = vrchatapi.EconomyApi(api_client)
     user_id = 'user_id_example' # str | Must be a valid user ID.
+get_limits = True # bool | Include the account's spending limits in the response. (optional)
 
     try:
         # Get Economy Account
-        api_response = api_instance.get_economy_account(user_id)
+        api_response = api_instance.get_economy_account(user_id, get_limits=get_limits)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling EconomyApi->get_economy_account: %s\n" % e)
@@ -840,6 +844,7 @@ with vrchatapi.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **user_id** | **str**| Must be a valid user ID. | 
+ **get_limits** | **bool**| Include the account&#39;s spending limits in the response. | [optional] 
 
 ### Return type
 
@@ -858,6 +863,80 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Returns a single EconomyAccount object. |  -  |
+**401** | Error response due to missing auth cookie. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_economy_balance**
+> Balance get_economy_balance(user_id)
+
+Get Economy Balance
+
+Return the balance of a user's economy account.
+
+### Example
+
+* Api Key Authentication (authCookie):
+```python
+from __future__ import print_function
+import time
+import vrchatapi
+from vrchatapi.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = vrchatapi.Configuration(
+    host = "https://api.vrchat.cloud/api/1"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: authCookie
+configuration.api_key['authCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['authCookie'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with vrchatapi.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = vrchatapi.EconomyApi(api_client)
+    user_id = 'user_id_example' # str | Must be a valid user ID.
+
+    try:
+        # Get Economy Balance
+        api_response = api_instance.get_economy_balance(user_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling EconomyApi->get_economy_balance: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **user_id** | **str**| Must be a valid user ID. | 
+
+### Return type
+
+[**Balance**](Balance.md)
+
+### Authorization
+
+[authCookie](../README.md#authCookie)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Returns a single Balance object. |  -  |
 **401** | Error response due to missing auth cookie. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1085,6 +1164,76 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **get_economy_status**
+> EconomyStatus get_economy_status()
+
+Get Economy Status
+
+Get whether the economy is accepting requests.
+
+### Example
+
+* Api Key Authentication (authCookie):
+```python
+from __future__ import print_function
+import time
+import vrchatapi
+from vrchatapi.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = vrchatapi.Configuration(
+    host = "https://api.vrchat.cloud/api/1"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: authCookie
+configuration.api_key['authCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['authCookie'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with vrchatapi.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = vrchatapi.EconomyApi(api_client)
+    
+    try:
+        # Get Economy Status
+        api_response = api_instance.get_economy_status()
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling EconomyApi->get_economy_status: %s\n" % e)
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**EconomyStatus**](EconomyStatus.md)
+
+### Authorization
+
+[authCookie](../README.md#authCookie)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Returns a single EconomyStatus object. |  -  |
+**401** | Error response due to missing auth cookie. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **get_license_group**
 > LicenseGroup get_license_group(license_group_id)
 
@@ -1305,6 +1454,80 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Returns a single ProductListing object. |  -  |
+**401** | Error response due to missing auth cookie. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_product_listing_products**
+> list[Product] get_product_listing_products(product_id)
+
+Get Product Listing Products
+
+List the products a listing sells.
+
+### Example
+
+* Api Key Authentication (authCookie):
+```python
+from __future__ import print_function
+import time
+import vrchatapi
+from vrchatapi.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = vrchatapi.Configuration(
+    host = "https://api.vrchat.cloud/api/1"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: authCookie
+configuration.api_key['authCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['authCookie'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with vrchatapi.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = vrchatapi.EconomyApi(api_client)
+    product_id = 'product_id_example' # str | Must be a valid product ID.
+
+    try:
+        # Get Product Listing Products
+        api_response = api_instance.get_product_listing_products(product_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling EconomyApi->get_product_listing_products: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **product_id** | **str**| Must be a valid product ID. | 
+
+### Return type
+
+[**list[Product]**](Product.md)
+
+### Authorization
+
+[authCookie](../README.md#authCookie)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Returns a list of Product objects. |  -  |
 **401** | Error response due to missing auth cookie. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1633,7 +1856,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_product_purchases**
-> list[ProductPurchase] get_product_purchases(buyer_id, seller_id=seller_id, n=n, offset=offset, most_recent=most_recent, sort=sort, order=order)
+> list[ProductPurchase] get_product_purchases(active=active, buyer_id=buyer_id, receiver_id=receiver_id, seller_id=seller_id, n=n, offset=offset, most_recent=most_recent, sort=sort, order=order)
 
 Get Product Purchases
 
@@ -1669,7 +1892,9 @@ configuration.api_key['authCookie'] = 'YOUR_API_KEY'
 with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = vrchatapi.EconomyApi(api_client)
-    buyer_id = 'buyer_id_example' # str | Must be a valid user ID.
+    active = True # bool | Filter for users' listings and inventory bundles. (optional)
+buyer_id = 'buyer_id_example' # str | Must be a valid user ID. (optional)
+receiver_id = 'receiver_id_example' # str | Must be a valid user ID. (optional)
 seller_id = 'seller_id_example' # str | Filter results by seller. (optional)
 n = 60 # int | The number of objects to return. (optional) (default to 60)
 offset = 56 # int | A zero-based offset from the default object sorting from where search results start. (optional)
@@ -1679,7 +1904,7 @@ order = vrchatapi.OrderOptionShort() # OrderOptionShort | Result ordering (optio
 
     try:
         # Get Product Purchases
-        api_response = api_instance.get_product_purchases(buyer_id, seller_id=seller_id, n=n, offset=offset, most_recent=most_recent, sort=sort, order=order)
+        api_response = api_instance.get_product_purchases(active=active, buyer_id=buyer_id, receiver_id=receiver_id, seller_id=seller_id, n=n, offset=offset, most_recent=most_recent, sort=sort, order=order)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling EconomyApi->get_product_purchases: %s\n" % e)
@@ -1689,7 +1914,9 @@ order = vrchatapi.OrderOptionShort() # OrderOptionShort | Result ordering (optio
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **buyer_id** | **str**| Must be a valid user ID. | 
+ **active** | **bool**| Filter for users&#39; listings and inventory bundles. | [optional] 
+ **buyer_id** | **str**| Must be a valid user ID. | [optional] 
+ **receiver_id** | **str**| Must be a valid user ID. | [optional] 
  **seller_id** | **str**| Filter results by seller. | [optional] 
  **n** | **int**| The number of objects to return. | [optional] [default to 60]
  **offset** | **int**| A zero-based offset from the default object sorting from where search results start. | [optional] 
@@ -1719,7 +1946,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_recent_subscription**
-> UserSubscription get_recent_subscription()
+> UserSubscription get_recent_subscription(user_id=user_id)
 
 Get Recent Subscription
 
@@ -1755,17 +1982,21 @@ configuration.api_key['authCookie'] = 'YOUR_API_KEY'
 with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = vrchatapi.EconomyApi(api_client)
-    
+    user_id = 'user_id_example' # str | Filter by UserID. (optional)
+
     try:
         # Get Recent Subscription
-        api_response = api_instance.get_recent_subscription()
+        api_response = api_instance.get_recent_subscription(user_id=user_id)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling EconomyApi->get_recent_subscription: %s\n" % e)
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **user_id** | **str**| Filter by UserID. | [optional] 
 
 ### Return type
 
@@ -2004,7 +2235,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_store**
-> Store get_store(store_id, hydrate_listings=hydrate_listings, hydrate_products=hydrate_products)
+> Store get_store(store_id, hydrate_context=hydrate_context, hydrate_listings=hydrate_listings, hydrate_products=hydrate_products)
 
 Get Store
 
@@ -2041,12 +2272,13 @@ with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = vrchatapi.EconomyApi(api_client)
     store_id = 'store_id_example' # str | 
+hydrate_context = True # bool |  (optional)
 hydrate_listings = True # bool | Listings fields will be populated. (optional)
 hydrate_products = True # bool | Products fields will be populated. (optional)
 
     try:
         # Get Store
-        api_response = api_instance.get_store(store_id, hydrate_listings=hydrate_listings, hydrate_products=hydrate_products)
+        api_response = api_instance.get_store(store_id, hydrate_context=hydrate_context, hydrate_listings=hydrate_listings, hydrate_products=hydrate_products)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling EconomyApi->get_store: %s\n" % e)
@@ -2057,6 +2289,7 @@ hydrate_products = True # bool | Products fields will be populated. (optional)
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **store_id** | **str**|  | 
+ **hydrate_context** | **bool**|  | [optional] 
  **hydrate_listings** | **bool**| Listings fields will be populated. | [optional] 
  **hydrate_products** | **bool**| Products fields will be populated. | [optional] 
 

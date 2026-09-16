@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **banner_color** | **str** |  | [optional] 
 **banner_type** | **str** |  | [optional] 
+**banner_url** | **str** |  | [optional] 
 **developer_type** | [**DeveloperType**](DeveloperType.md) |  | 
 **discord_id** | **str** | https://discord.com/developers/docs/reference#snowflakes | [optional] 
 **display_name** | **str** |  | 

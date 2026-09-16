@@ -5,13 +5,14 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **account_activated_on** | **datetime** |  | 
-**account_id** | **str** |  | 
+**account_id** | **int** |  | 
 **account_seller_registered_on** | **datetime** |  | [optional] 
 **account_seller_status** | **str** |  | [optional] 
 **blocked** | **bool** |  | 
 **can_earn** | **bool** |  | [optional] 
 **can_payout** | **bool** |  | [optional] 
 **can_spend** | **bool** |  | 
+**limits** | [**EconomyAccountLimits**](EconomyAccountLimits.md) |  | [optional] 
 **skrill_email** | **str** |  | [optional] 
 **source** | **str** |  | 
 **tilia_id** | **str** |  | [optional] 

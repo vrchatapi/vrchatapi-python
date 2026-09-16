@@ -50,6 +50,7 @@ class FavoritedWorld(object):
         'heat': 'int',
         'id': 'str',
         'image_url': 'str',
+        'is_hype_train_eligible': 'bool',
         'labs_publication_date': 'str',
         'name': 'str',
         'occupants': 'int',
@@ -59,6 +60,7 @@ class FavoritedWorld(object):
         'publication_date': 'str',
         'recommended_capacity': 'int',
         'release_status': 'ReleaseStatus',
+        'store_id': 'str',
         'tags': 'list[str]',
         'thumbnail_image_url': 'str',
         'udon_products': 'list[str]',
@@ -84,6 +86,7 @@ class FavoritedWorld(object):
         'heat': 'heat',
         'id': 'id',
         'image_url': 'imageUrl',
+        'is_hype_train_eligible': 'isHypeTrainEligible',
         'labs_publication_date': 'labsPublicationDate',
         'name': 'name',
         'occupants': 'occupants',
@@ -93,6 +96,7 @@ class FavoritedWorld(object):
         'publication_date': 'publicationDate',
         'recommended_capacity': 'recommendedCapacity',
         'release_status': 'releaseStatus',
+        'store_id': 'storeId',
         'tags': 'tags',
         'thumbnail_image_url': 'thumbnailImageUrl',
         'udon_products': 'udonProducts',
@@ -103,7 +107,7 @@ class FavoritedWorld(object):
         'visits': 'visits'
     }
 
-    def __init__(self, author_id=None, author_name=None, capacity=None, created_at=None, default_content_settings=None, description=None, disabled_prop_abilities=None, favorite_group=None, favorite_id=None, favorites=0, featured=False, heat=0, id=None, image_url=None, labs_publication_date=None, name=None, occupants=0, organization='vrchat', popularity=0, preview_youtube_id=None, publication_date=None, recommended_capacity=None, release_status=None, tags=None, thumbnail_image_url=None, udon_products=None, unity_packages=None, updated_at=None, url_list=None, version=None, visits=0, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, author_id=None, author_name=None, capacity=None, created_at=None, default_content_settings=None, description=None, disabled_prop_abilities=None, favorite_group=None, favorite_id=None, favorites=0, featured=False, heat=0, id=None, image_url=None, is_hype_train_eligible=None, labs_publication_date=None, name=None, occupants=0, organization='vrchat', popularity=0, preview_youtube_id=None, publication_date=None, recommended_capacity=None, release_status=None, store_id=None, tags=None, thumbnail_image_url=None, udon_products=None, unity_packages=None, updated_at=None, url_list=None, version=None, visits=0, local_vars_configuration=None):  # noqa: E501
         """FavoritedWorld - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration.get_default_copy()
@@ -123,6 +127,7 @@ class FavoritedWorld(object):
         self._heat = None
         self._id = None
         self._image_url = None
+        self._is_hype_train_eligible = None
         self._labs_publication_date = None
         self._name = None
         self._occupants = None
@@ -132,6 +137,7 @@ class FavoritedWorld(object):
         self._publication_date = None
         self._recommended_capacity = None
         self._release_status = None
+        self._store_id = None
         self._tags = None
         self._thumbnail_image_url = None
         self._udon_products = None
@@ -154,8 +160,10 @@ class FavoritedWorld(object):
             self.description = description
         if disabled_prop_abilities is not None:
             self.disabled_prop_abilities = disabled_prop_abilities
-        self.favorite_group = favorite_group
-        self.favorite_id = favorite_id
+        if favorite_group is not None:
+            self.favorite_group = favorite_group
+        if favorite_id is not None:
+            self.favorite_id = favorite_id
         if favorites is not None:
             self.favorites = favorites
         if featured is not None:
@@ -164,10 +172,13 @@ class FavoritedWorld(object):
             self.heat = heat
         self.id = id
         self.image_url = image_url
+        if is_hype_train_eligible is not None:
+            self.is_hype_train_eligible = is_hype_train_eligible
         if labs_publication_date is not None:
             self.labs_publication_date = labs_publication_date
         self.name = name
-        self.occupants = occupants
+        if occupants is not None:
+            self.occupants = occupants
         if organization is not None:
             self.organization = organization
         if popularity is not None:
@@ -178,6 +189,8 @@ class FavoritedWorld(object):
         if recommended_capacity is not None:
             self.recommended_capacity = recommended_capacity
         self.release_status = release_status
+        if store_id is not None:
+            self.store_id = store_id
         if tags is not None:
             self.tags = tags
         self.thumbnail_image_url = thumbnail_image_url
@@ -327,8 +340,8 @@ class FavoritedWorld(object):
         :type description: str
         """
         if (self.local_vars_configuration.client_side_validation and
-                description is not None and len(description) < 1):
-            raise ValueError("Invalid value for `description`, length must be greater than or equal to `1`")  # noqa: E501
+                description is not None and len(description) < 0):
+            raise ValueError("Invalid value for `description`, length must be greater than or equal to `0`")  # noqa: E501
 
         self._description = description
 
@@ -371,8 +384,6 @@ class FavoritedWorld(object):
         :param favorite_group: The favorite_group of this FavoritedWorld.  # noqa: E501
         :type favorite_group: str
         """
-        if self.local_vars_configuration.client_side_validation and favorite_group is None:  # noqa: E501
-            raise ValueError("Invalid value for `favorite_group`, must not be `None`")  # noqa: E501
         if (self.local_vars_configuration.client_side_validation and
                 favorite_group is not None and len(favorite_group) < 1):
             raise ValueError("Invalid value for `favorite_group`, length must be greater than or equal to `1`")  # noqa: E501
@@ -397,8 +408,6 @@ class FavoritedWorld(object):
         :param favorite_id: The favorite_id of this FavoritedWorld.  # noqa: E501
         :type favorite_id: str
         """
-        if self.local_vars_configuration.client_side_validation and favorite_id is None:  # noqa: E501
-            raise ValueError("Invalid value for `favorite_id`, must not be `None`")  # noqa: E501
 
         self._favorite_id = favorite_id
 
@@ -523,6 +532,27 @@ class FavoritedWorld(object):
         self._image_url = image_url
 
     @property
+    def is_hype_train_eligible(self):
+        """Gets the is_hype_train_eligible of this FavoritedWorld.  # noqa: E501
+
+
+        :return: The is_hype_train_eligible of this FavoritedWorld.  # noqa: E501
+        :rtype: bool
+        """
+        return self._is_hype_train_eligible
+
+    @is_hype_train_eligible.setter
+    def is_hype_train_eligible(self, is_hype_train_eligible):
+        """Sets the is_hype_train_eligible of this FavoritedWorld.
+
+
+        :param is_hype_train_eligible: The is_hype_train_eligible of this FavoritedWorld.  # noqa: E501
+        :type is_hype_train_eligible: bool
+        """
+
+        self._is_hype_train_eligible = is_hype_train_eligible
+
+    @property
     def labs_publication_date(self):
         """Gets the labs_publication_date of this FavoritedWorld.  # noqa: E501
 
@@ -567,8 +597,8 @@ class FavoritedWorld(object):
         if self.local_vars_configuration.client_side_validation and name is None:  # noqa: E501
             raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
         if (self.local_vars_configuration.client_side_validation and
-                name is not None and len(name) < 1):
-            raise ValueError("Invalid value for `name`, length must be greater than or equal to `1`")  # noqa: E501
+                name is not None and len(name) < 0):
+            raise ValueError("Invalid value for `name`, length must be greater than or equal to `0`")  # noqa: E501
 
         self._name = name
 
@@ -590,8 +620,6 @@ class FavoritedWorld(object):
         :param occupants: The occupants of this FavoritedWorld.  # noqa: E501
         :type occupants: int
         """
-        if self.local_vars_configuration.client_side_validation and occupants is None:  # noqa: E501
-            raise ValueError("Invalid value for `occupants`, must not be `None`")  # noqa: E501
         if (self.local_vars_configuration.client_side_validation and
                 occupants is not None and occupants < 0):  # noqa: E501
             raise ValueError("Invalid value for `occupants`, must be a value greater than or equal to `0`")  # noqa: E501
@@ -734,6 +762,27 @@ class FavoritedWorld(object):
             raise ValueError("Invalid value for `release_status`, must not be `None`")  # noqa: E501
 
         self._release_status = release_status
+
+    @property
+    def store_id(self):
+        """Gets the store_id of this FavoritedWorld.  # noqa: E501
+
+
+        :return: The store_id of this FavoritedWorld.  # noqa: E501
+        :rtype: str
+        """
+        return self._store_id
+
+    @store_id.setter
+    def store_id(self, store_id):
+        """Sets the store_id of this FavoritedWorld.
+
+
+        :param store_id: The store_id of this FavoritedWorld.  # noqa: E501
+        :type store_id: str
+        """
+
+        self._store_id = store_id
 
     @property
     def tags(self):

@@ -5,9 +5,12 @@ All URIs are relative to *https://api.vrchat.cloud/api/1*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**get_assigned_permissions**](MiscellaneousApi.md#get_assigned_permissions) | **GET** /auth/permissions | Get Assigned Permissions
+[**get_beta**](MiscellaneousApi.md#get_beta) | **GET** /beta/{betaName} | Get Beta Program
+[**get_beta_registration**](MiscellaneousApi.md#get_beta_registration) | **GET** /beta/{betaName}/register | Get Beta Registration
 [**get_config**](MiscellaneousApi.md#get_config) | **GET** /config | Fetch API Config
 [**get_css**](MiscellaneousApi.md#get_css) | **GET** /css/app.css | Download CSS
 [**get_current_online_users**](MiscellaneousApi.md#get_current_online_users) | **GET** /visits | Current Online Users
+[**get_frontend_branches**](MiscellaneousApi.md#get_frontend_branches) | **GET** /frontend/branches | List Frontend Branches
 [**get_health**](MiscellaneousApi.md#get_health) | **GET** /health | Check API Health
 [**get_info_push**](MiscellaneousApi.md#get_info_push) | **GET** /infoPush | Show Information Notices
 [**get_java_script**](MiscellaneousApi.md#get_java_script) | **GET** /js/app.js | Download JavaScript
@@ -82,6 +85,142 @@ This endpoint does not need any parameter.
 |-------------|-------------|------------------|
 **200** | Returns a list of Permission objects. |  -  |
 **401** | Error response due to missing auth cookie. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_beta**
+> Beta get_beta(beta_name)
+
+Get Beta Program
+
+Get a beta program and the fields a registration must supply.
+
+### Example
+
+```python
+from __future__ import print_function
+import time
+import vrchatapi
+from vrchatapi.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = vrchatapi.Configuration(
+    host = "https://api.vrchat.cloud/api/1"
+)
+
+
+# Enter a context with an instance of the API client
+with vrchatapi.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = vrchatapi.MiscellaneousApi(api_client)
+    beta_name = 'ios-closed-beta' # str | The name of a beta program.
+
+    try:
+        # Get Beta Program
+        api_response = api_instance.get_beta(beta_name)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling MiscellaneousApi->get_beta: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **beta_name** | **str**| The name of a beta program. | 
+
+### Return type
+
+[**Beta**](Beta.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Returns a Beta object. |  -  |
+**404** | No beta program goes by that name. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_beta_registration**
+> get_beta_registration(beta_name)
+
+Get Beta Registration
+
+Get the currently authenticated user's registration for a beta program.
+
+### Example
+
+* Api Key Authentication (authCookie):
+```python
+from __future__ import print_function
+import time
+import vrchatapi
+from vrchatapi.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = vrchatapi.Configuration(
+    host = "https://api.vrchat.cloud/api/1"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: authCookie
+configuration.api_key['authCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['authCookie'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with vrchatapi.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = vrchatapi.MiscellaneousApi(api_client)
+    beta_name = 'ios-closed-beta' # str | The name of a beta program.
+
+    try:
+        # Get Beta Registration
+        api_instance.get_beta_registration(beta_name)
+    except ApiException as e:
+        print("Exception when calling MiscellaneousApi->get_beta_registration: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **beta_name** | **str**| The name of a beta program. | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[authCookie](../README.md#authCookie)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**401** | Error response due to missing auth cookie. |  -  |
+**404** | The caller has no registration for this beta program. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -263,6 +402,76 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_frontend_branches**
+> list[object] get_frontend_branches()
+
+List Frontend Branches
+
+List the frontend branches the currently authenticated user may switch to.
+
+### Example
+
+* Api Key Authentication (authCookie):
+```python
+from __future__ import print_function
+import time
+import vrchatapi
+from vrchatapi.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = vrchatapi.Configuration(
+    host = "https://api.vrchat.cloud/api/1"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: authCookie
+configuration.api_key['authCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['authCookie'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with vrchatapi.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = vrchatapi.MiscellaneousApi(api_client)
+    
+    try:
+        # List Frontend Branches
+        api_response = api_instance.get_frontend_branches()
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling MiscellaneousApi->get_frontend_branches: %s\n" % e)
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+**list[object]**
+
+### Authorization
+
+[authCookie](../README.md#authCookie)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Returns the frontend branches available to the caller. |  -  |
+**401** | Error response due to missing auth cookie. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

@@ -494,6 +494,161 @@ class FavoritesApi(object):
             collection_formats=collection_formats,
             _request_auth=local_var_params.get('_request_auth'))
 
+    def get_favorite_group_contents(self, favorite_group_type, favorite_group_name, **kwargs):  # noqa: E501
+        """List Favorite Group Contents  # noqa: E501
+
+        List the favorites in a group, each alongside the object it points at.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_favorite_group_contents(favorite_group_type, favorite_group_name, async_req=True)
+        >>> result = thread.get()
+
+        :param favorite_group_type: The type of group to fetch, must be a valid FavoriteType. (required)
+        :type favorite_group_type: FavoriteType
+        :param favorite_group_name: The name of the group to fetch, must be a name of a FavoriteGroup. (required)
+        :type favorite_group_name: str
+        :param owner_id: The user whose favorite group to return. Must be a user ID.
+        :type owner_id: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :type _preload_content: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: FavoriteGroupContents
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.get_favorite_group_contents_with_http_info(favorite_group_type, favorite_group_name, **kwargs)  # noqa: E501
+
+    def get_favorite_group_contents_with_http_info(self, favorite_group_type, favorite_group_name, **kwargs):  # noqa: E501
+        """List Favorite Group Contents  # noqa: E501
+
+        List the favorites in a group, each alongside the object it points at.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_favorite_group_contents_with_http_info(favorite_group_type, favorite_group_name, async_req=True)
+        >>> result = thread.get()
+
+        :param favorite_group_type: The type of group to fetch, must be a valid FavoriteType. (required)
+        :type favorite_group_type: FavoriteType
+        :param favorite_group_name: The name of the group to fetch, must be a name of a FavoriteGroup. (required)
+        :type favorite_group_name: str
+        :param owner_id: The user whose favorite group to return. Must be a user ID.
+        :type owner_id: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :type _return_http_data_only: bool, optional
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :type _preload_content: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: tuple(FavoriteGroupContents, status_code(int), headers(HTTPHeaderDict))
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'favorite_group_type',
+            'favorite_group_name',
+            'owner_id'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth',
+                '_content_type',
+                '_headers'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_favorite_group_contents" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'favorite_group_type' is set
+        if self.api_client.client_side_validation and local_var_params.get('favorite_group_type') is None:  # noqa: E501
+            raise ApiValueError("Missing the required parameter `favorite_group_type` when calling `get_favorite_group_contents`")  # noqa: E501
+        # verify the required parameter 'favorite_group_name' is set
+        if self.api_client.client_side_validation and local_var_params.get('favorite_group_name') is None:  # noqa: E501
+            raise ApiValueError("Missing the required parameter `favorite_group_name` when calling `get_favorite_group_contents`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'favorite_group_type' in local_var_params:
+            path_params['favoriteGroupType'] = local_var_params['favorite_group_type']  # noqa: E501
+        if 'favorite_group_name' in local_var_params:
+            path_params['favoriteGroupName'] = local_var_params['favorite_group_name']  # noqa: E501
+
+        query_params = []
+        if local_var_params.get('owner_id') is not None:  # noqa: E501
+            query_params.append(('ownerId', local_var_params['owner_id']))  # noqa: E501
+
+        header_params = dict(local_var_params.get('_headers', {}))
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['authCookie']  # noqa: E501
+
+        response_types_map = {
+            200: "FavoriteGroupContents",
+            401: "Error",
+        }
+
+        return self.api_client.call_api(
+            '/favorites/groups/{favoriteGroupType}/{favoriteGroupName}', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_types_map=response_types_map,
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))
+
     def get_favorite_groups(self, **kwargs):  # noqa: E501
         """List Favorite Groups  # noqa: E501
 
@@ -648,6 +803,151 @@ class FavoritesApi(object):
 
         return self.api_client.call_api(
             '/favorite/groups', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_types_map=response_types_map,
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))
+
+    def get_favorite_groups_by_type(self, favorite_group_type, **kwargs):  # noqa: E501
+        """List Favorite Groups By Type  # noqa: E501
+
+        List a user's favorite groups of one type.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_favorite_groups_by_type(favorite_group_type, async_req=True)
+        >>> result = thread.get()
+
+        :param favorite_group_type: The type of group to fetch, must be a valid FavoriteType. (required)
+        :type favorite_group_type: FavoriteType
+        :param owner_id: The user whose favorite groups to return. Must be a user ID.
+        :type owner_id: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :type _preload_content: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: FavoriteGroupList
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.get_favorite_groups_by_type_with_http_info(favorite_group_type, **kwargs)  # noqa: E501
+
+    def get_favorite_groups_by_type_with_http_info(self, favorite_group_type, **kwargs):  # noqa: E501
+        """List Favorite Groups By Type  # noqa: E501
+
+        List a user's favorite groups of one type.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_favorite_groups_by_type_with_http_info(favorite_group_type, async_req=True)
+        >>> result = thread.get()
+
+        :param favorite_group_type: The type of group to fetch, must be a valid FavoriteType. (required)
+        :type favorite_group_type: FavoriteType
+        :param owner_id: The user whose favorite groups to return. Must be a user ID.
+        :type owner_id: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :type _return_http_data_only: bool, optional
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :type _preload_content: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: tuple(FavoriteGroupList, status_code(int), headers(HTTPHeaderDict))
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'favorite_group_type',
+            'owner_id'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth',
+                '_content_type',
+                '_headers'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_favorite_groups_by_type" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'favorite_group_type' is set
+        if self.api_client.client_side_validation and local_var_params.get('favorite_group_type') is None:  # noqa: E501
+            raise ApiValueError("Missing the required parameter `favorite_group_type` when calling `get_favorite_groups_by_type`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'favorite_group_type' in local_var_params:
+            path_params['favoriteGroupType'] = local_var_params['favorite_group_type']  # noqa: E501
+
+        query_params = []
+        if local_var_params.get('owner_id') is not None:  # noqa: E501
+            query_params.append(('ownerId', local_var_params['owner_id']))  # noqa: E501
+
+        header_params = dict(local_var_params.get('_headers', {}))
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['authCookie']  # noqa: E501
+
+        response_types_map = {
+            200: "FavoriteGroupList",
+            401: "Error",
+        }
+
+        return self.api_client.call_api(
+            '/favorites/groups/{favoriteGroupType}', 'GET',
             path_params,
             query_params,
             header_params,

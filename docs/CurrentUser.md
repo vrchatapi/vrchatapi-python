@@ -17,6 +17,7 @@ Name | Type | Description | Notes
 **auth_token** | **str** | The auth token for NEWLY REGISTERED ACCOUNTS ONLY (/auth/register) | [optional] 
 **banner_color** | **str** |  | [optional] 
 **banner_type** | **str** |  | [optional] 
+**banner_url** | **str** |  | [optional] 
 **completed_tutorials** | **list[str]** |  | [optional] 
 **content_filters** | **list[str]** | These tags begin with &#x60;content_&#x60; and control content gating | [optional] 
 **current_avatar** | **str** |  | 

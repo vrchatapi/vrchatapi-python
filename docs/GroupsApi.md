@@ -1609,7 +1609,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_group**
-> Group get_group(group_id, include_roles=include_roles)
+> Group get_group(group_id, include_roles=include_roles, purpose=purpose)
 
 Get Group by ID
 
@@ -1647,10 +1647,11 @@ with vrchatapi.ApiClient(configuration) as api_client:
     api_instance = vrchatapi.GroupsApi(api_client)
     group_id = 'group_id_example' # str | Must be a valid group ID.
 include_roles = True # bool | Include roles for the Group object. Defaults to false. (optional)
+purpose = 'purpose_example' # str |  (optional)
 
     try:
         # Get Group by ID
-        api_response = api_instance.get_group(group_id, include_roles=include_roles)
+        api_response = api_instance.get_group(group_id, include_roles=include_roles, purpose=purpose)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling GroupsApi->get_group: %s\n" % e)
@@ -1662,6 +1663,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **group_id** | **str**| Must be a valid group ID. | 
  **include_roles** | **bool**| Include roles for the Group object. Defaults to false. | [optional] 
+ **purpose** | **str**|  | [optional] 
 
 ### Return type
 
@@ -2008,7 +2010,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_group_gallery_images**
-> list[GroupGalleryImage] get_group_gallery_images(group_id, group_gallery_id, n=n, offset=offset, approved=approved)
+> GetGroupGalleryImages200Response get_group_gallery_images(group_id, group_gallery_id, n=n, offset=offset, v=v, approved=approved)
 
 Get Group Gallery Images
 
@@ -2048,11 +2050,12 @@ with vrchatapi.ApiClient(configuration) as api_client:
 group_gallery_id = 'group_gallery_id_example' # str | Must be a valid group gallery ID.
 n = 60 # int | The number of objects to return. (optional) (default to 60)
 offset = 56 # int | A zero-based offset from the default object sorting from where search results start. (optional)
+v = 56 # int | Response version. `2` wraps the images in a paginated object. (optional)
 approved = True # bool | If specified, only returns images that have been approved or not approved. (optional)
 
     try:
         # Get Group Gallery Images
-        api_response = api_instance.get_group_gallery_images(group_id, group_gallery_id, n=n, offset=offset, approved=approved)
+        api_response = api_instance.get_group_gallery_images(group_id, group_gallery_id, n=n, offset=offset, v=v, approved=approved)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling GroupsApi->get_group_gallery_images: %s\n" % e)
@@ -2066,11 +2069,12 @@ Name | Type | Description  | Notes
  **group_gallery_id** | **str**| Must be a valid group gallery ID. | 
  **n** | **int**| The number of objects to return. | [optional] [default to 60]
  **offset** | **int**| A zero-based offset from the default object sorting from where search results start. | [optional] 
+ **v** | **int**| Response version. &#x60;2&#x60; wraps the images in a paginated object. | [optional] 
  **approved** | **bool**| If specified, only returns images that have been approved or not approved. | [optional] 
 
 ### Return type
 
-[**list[GroupGalleryImage]**](GroupGalleryImage.md)
+[**GetGroupGalleryImages200Response**](GetGroupGalleryImages200Response.md)
 
 ### Authorization
 
@@ -2084,7 +2088,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Returns a list of GroupGalleryImage objects. |  -  |
+**200** | Returns a list of GroupGalleryImage objects, wrapped in a paginated object when &#x60;v&#x60; is &#x60;2&#x60;. |  -  |
 **401** | Error response due to missing auth cookie. |  -  |
 **404** | The requested resource does not exist. The message varies by resource and by route, and only some name the id. Worlds sometimes answer &#x60;model &lt;worldId&gt; not found&#x60; instead of &#x60;World &lt;worldId&gt; not found&#x60;. |  -  |
 

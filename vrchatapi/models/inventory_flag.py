@@ -35,12 +35,15 @@ class InventoryFlag(object):
     CLONEABLE = "cloneable"
     CONSUMABLE = "consumable"
     EQUIPPABLE = "equippable"
+    GLOBAL = "global"
+    GLOBAL_VISIBLE = "global_visible"
     INSTANTIATABLE = "instantiatable"
     TRASHABLE = "trashable"
     UGC = "ugc"
     UNIQUE = "unique"
+    VRC_PLUS_EXCLUSIVE = "vrc_plus_exclusive"
 
-    allowable_values = [ARCHIVABLE, CLONEABLE, CONSUMABLE, EQUIPPABLE, INSTANTIATABLE, TRASHABLE, UGC, UNIQUE]  # noqa: E501
+    allowable_values = [ARCHIVABLE, CLONEABLE, CONSUMABLE, EQUIPPABLE, GLOBAL, GLOBAL_VISIBLE, INSTANTIATABLE, TRASHABLE, UGC, UNIQUE, VRC_PLUS_EXCLUSIVE]  # noqa: E501
 
     """
     Attributes:

@@ -39,27 +39,35 @@ class InventoryMetadata(object):
         'animated': 'bool',
         'animation_style': 'str',
         'asset_bundle_id': 'str',
+        'assets': 'list[InventoryAsset]',
         'file_id': 'str',
+        'gradient_end': 'str',
+        'gradient_start': 'str',
         'image_url': 'str',
         'inventory_items_to_instantiate': 'list[str]',
         'mask_tag': 'str',
         'prop_id': 'str',
-        'prop_kind': 'int'
+        'prop_kind': 'int',
+        'viewfinder_bundle_id': 'str'
     }
 
     attribute_map = {
         'animated': 'animated',
         'animation_style': 'animationStyle',
         'asset_bundle_id': 'assetBundleId',
+        'assets': 'assets',
         'file_id': 'fileId',
+        'gradient_end': 'gradientEnd',
+        'gradient_start': 'gradientStart',
         'image_url': 'imageUrl',
         'inventory_items_to_instantiate': 'inventoryItemsToInstantiate',
         'mask_tag': 'maskTag',
         'prop_id': 'propId',
-        'prop_kind': 'propKind'
+        'prop_kind': 'propKind',
+        'viewfinder_bundle_id': 'viewfinderBundleId'
     }
 
-    def __init__(self, animated=None, animation_style=None, asset_bundle_id=None, file_id=None, image_url=None, inventory_items_to_instantiate=None, mask_tag=None, prop_id=None, prop_kind=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, animated=None, animation_style=None, asset_bundle_id=None, assets=None, file_id=None, gradient_end=None, gradient_start=None, image_url=None, inventory_items_to_instantiate=None, mask_tag=None, prop_id=None, prop_kind=None, viewfinder_bundle_id=None, local_vars_configuration=None):  # noqa: E501
         """InventoryMetadata - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration.get_default_copy()
@@ -68,12 +76,16 @@ class InventoryMetadata(object):
         self._animated = None
         self._animation_style = None
         self._asset_bundle_id = None
+        self._assets = None
         self._file_id = None
+        self._gradient_end = None
+        self._gradient_start = None
         self._image_url = None
         self._inventory_items_to_instantiate = None
         self._mask_tag = None
         self._prop_id = None
         self._prop_kind = None
+        self._viewfinder_bundle_id = None
         self.discriminator = None
 
         if animated is not None:
@@ -82,8 +94,14 @@ class InventoryMetadata(object):
             self.animation_style = animation_style
         if asset_bundle_id is not None:
             self.asset_bundle_id = asset_bundle_id
+        if assets is not None:
+            self.assets = assets
         if file_id is not None:
             self.file_id = file_id
+        if gradient_end is not None:
+            self.gradient_end = gradient_end
+        if gradient_start is not None:
+            self.gradient_start = gradient_start
         if image_url is not None:
             self.image_url = image_url
         if inventory_items_to_instantiate is not None:
@@ -94,6 +112,8 @@ class InventoryMetadata(object):
             self.prop_id = prop_id
         if prop_kind is not None:
             self.prop_kind = prop_kind
+        if viewfinder_bundle_id is not None:
+            self.viewfinder_bundle_id = viewfinder_bundle_id
 
     @property
     def animated(self):
@@ -159,6 +179,27 @@ class InventoryMetadata(object):
         self._asset_bundle_id = asset_bundle_id
 
     @property
+    def assets(self):
+        """Gets the assets of this InventoryMetadata.  # noqa: E501
+
+
+        :return: The assets of this InventoryMetadata.  # noqa: E501
+        :rtype: list[InventoryAsset]
+        """
+        return self._assets
+
+    @assets.setter
+    def assets(self, assets):
+        """Sets the assets of this InventoryMetadata.
+
+
+        :param assets: The assets of this InventoryMetadata.  # noqa: E501
+        :type assets: list[InventoryAsset]
+        """
+
+        self._assets = assets
+
+    @property
     def file_id(self):
         """Gets the file_id of this InventoryMetadata.  # noqa: E501
 
@@ -178,6 +219,52 @@ class InventoryMetadata(object):
         """
 
         self._file_id = file_id
+
+    @property
+    def gradient_end(self):
+        """Gets the gradient_end of this InventoryMetadata.  # noqa: E501
+
+        Hex colour without a leading `#`.  # noqa: E501
+
+        :return: The gradient_end of this InventoryMetadata.  # noqa: E501
+        :rtype: str
+        """
+        return self._gradient_end
+
+    @gradient_end.setter
+    def gradient_end(self, gradient_end):
+        """Sets the gradient_end of this InventoryMetadata.
+
+        Hex colour without a leading `#`.  # noqa: E501
+
+        :param gradient_end: The gradient_end of this InventoryMetadata.  # noqa: E501
+        :type gradient_end: str
+        """
+
+        self._gradient_end = gradient_end
+
+    @property
+    def gradient_start(self):
+        """Gets the gradient_start of this InventoryMetadata.  # noqa: E501
+
+        Hex colour without a leading `#`.  # noqa: E501
+
+        :return: The gradient_start of this InventoryMetadata.  # noqa: E501
+        :rtype: str
+        """
+        return self._gradient_start
+
+    @gradient_start.setter
+    def gradient_start(self, gradient_start):
+        """Sets the gradient_start of this InventoryMetadata.
+
+        Hex colour without a leading `#`.  # noqa: E501
+
+        :param gradient_start: The gradient_start of this InventoryMetadata.  # noqa: E501
+        :type gradient_start: str
+        """
+
+        self._gradient_start = gradient_start
 
     @property
     def image_url(self):
@@ -285,6 +372,27 @@ class InventoryMetadata(object):
         """
 
         self._prop_kind = prop_kind
+
+    @property
+    def viewfinder_bundle_id(self):
+        """Gets the viewfinder_bundle_id of this InventoryMetadata.  # noqa: E501
+
+
+        :return: The viewfinder_bundle_id of this InventoryMetadata.  # noqa: E501
+        :rtype: str
+        """
+        return self._viewfinder_bundle_id
+
+    @viewfinder_bundle_id.setter
+    def viewfinder_bundle_id(self, viewfinder_bundle_id):
+        """Sets the viewfinder_bundle_id of this InventoryMetadata.
+
+
+        :param viewfinder_bundle_id: The viewfinder_bundle_id of this InventoryMetadata.  # noqa: E501
+        :type viewfinder_bundle_id: str
+        """
+
+        self._viewfinder_bundle_id = viewfinder_bundle_id
 
     def to_dict(self, serialize=False):
         """Returns the model properties as a dict"""

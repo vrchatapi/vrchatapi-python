@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **name** | **str** |  | [optional] 
 **order** | **int** |  | [optional] 
 **permissions** | [**list[GroupPermissions]**](GroupPermissions.md) |  | [optional] 
+**product_id** | **str** |  | [optional] 
 **requires_purchase** | **bool** |  | [optional] [default to False]
 **requires_two_factor** | **bool** |  | [optional] [default to False]
 **updated_at** | **datetime** |  | [optional] 

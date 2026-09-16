@@ -37,25 +37,29 @@ class PastDisplayName(object):
     """
     openapi_types = {
         'display_name': 'str',
+        'reverted': 'bool',
         'updated_at': 'datetime'
     }
 
     attribute_map = {
         'display_name': 'displayName',
+        'reverted': 'reverted',
         'updated_at': 'updated_at'
     }
 
-    def __init__(self, display_name=None, updated_at=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, display_name=None, reverted=None, updated_at=None, local_vars_configuration=None):  # noqa: E501
         """PastDisplayName - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration.get_default_copy()
         self.local_vars_configuration = local_vars_configuration
 
         self._display_name = None
+        self._reverted = None
         self._updated_at = None
         self.discriminator = None
 
         self.display_name = display_name
+        self.reverted = reverted
         self.updated_at = updated_at
 
     @property
@@ -83,6 +87,29 @@ class PastDisplayName(object):
             raise ValueError("Invalid value for `display_name`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._display_name = display_name
+
+    @property
+    def reverted(self):
+        """Gets the reverted of this PastDisplayName.  # noqa: E501
+
+
+        :return: The reverted of this PastDisplayName.  # noqa: E501
+        :rtype: bool
+        """
+        return self._reverted
+
+    @reverted.setter
+    def reverted(self, reverted):
+        """Sets the reverted of this PastDisplayName.
+
+
+        :param reverted: The reverted of this PastDisplayName.  # noqa: E501
+        :type reverted: bool
+        """
+        if self.local_vars_configuration.client_side_validation and reverted is None:  # noqa: E501
+            raise ValueError("Invalid value for `reverted`, must not be `None`")  # noqa: E501
+
+        self._reverted = reverted
 
     @property
     def updated_at(self):

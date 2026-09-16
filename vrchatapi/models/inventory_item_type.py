@@ -34,12 +34,15 @@ class InventoryItemType(object):
     BUNDLE = "bundle"
     DRONESKIN = "droneskin"
     EMOJI = "emoji"
+    ICONFRAME = "iconFrame"
+    NAMEPLATEEFFECT = "nameplateEffect"
     PORTALSKIN = "portalskin"
+    PROFILEEFFECT = "profileEffect"
     PROP = "prop"
     STICKER = "sticker"
     WARPEFFECT = "warpeffect"
 
-    allowable_values = [BUNDLE, DRONESKIN, EMOJI, PORTALSKIN, PROP, STICKER, WARPEFFECT]  # noqa: E501
+    allowable_values = [BUNDLE, DRONESKIN, EMOJI, ICONFRAME, NAMEPLATEEFFECT, PORTALSKIN, PROFILEEFFECT, PROP, STICKER, WARPEFFECT]  # noqa: E501
 
     """
     Attributes:

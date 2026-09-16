@@ -49,6 +49,7 @@ class CurrentUser(object):
         'auth_token': 'str',
         'banner_color': 'str',
         'banner_type': 'str',
+        'banner_url': 'str',
         'completed_tutorials': 'list[str]',
         'content_filters': 'list[str]',
         'current_avatar': 'str',
@@ -148,6 +149,7 @@ class CurrentUser(object):
         'auth_token': 'authToken',
         'banner_color': 'bannerColor',
         'banner_type': 'bannerType',
+        'banner_url': 'bannerUrl',
         'completed_tutorials': 'completedTutorials',
         'content_filters': 'contentFilters',
         'current_avatar': 'currentAvatar',
@@ -233,7 +235,7 @@ class CurrentUser(object):
         'world_id': 'worldId'
     }
 
-    def __init__(self, accepted_privacy_version=None, accepted_tos_version=None, account_deletion_date=None, account_deletion_log=None, active_friends=None, age_verification_status=None, age_verified=None, allow_avatar_copying=None, apple_details=None, apple_id=None, auth_token=None, banner_color=None, banner_type=None, completed_tutorials=None, content_filters=None, current_avatar=None, current_avatar_image_url=None, current_avatar_tags=None, current_avatar_thumbnail_image_url=None, date_joined=None, developer_type=None, discord_details=None, discord_id=None, display_name=None, email_verified=None, fallback_avatar=None, friend_group_names=None, friend_key=None, friend_request_status=None, friends=None, google_details=None, google_id=None, has_birthday=None, has_discord_friends_opt_out=None, has_email=None, has_logged_in_from_client=None, has_pending_email=None, has_shared_connections_opt_out=None, hide_content_filter_settings=None, home_location=None, icon_frame=None, icon_url=None, id=None, instance_id=None, is_adult=None, is_booping_enabled=True, is_economy_creator=False, is_friend=False, is_temporary=False, last_activity=None, last_login=None, last_mobile=None, last_platform=None, location=None, nameplate_effect=None, note=None, obfuscated_email=None, obfuscated_pending_email=None, oculus_id=None, offline_friends=None, online_friends=None, past_display_names=None, personalization_opt_out=None, pico_id=None, platform=None, platform_history=None, presence=None, profile_effect=None, pronouns=None, pronouns_history=None, queued_instance=None, receive_mobile_invitations=None, state=None, status=None, status_description=None, status_first_time=None, status_history=None, steam_details=None, steam_id=None, tags=None, temporary_expiry_date=None, traveling_to_instance=None, traveling_to_location=None, traveling_to_world=None, twitch_details=None, twitch_id=None, two_factor_auth_enabled=None, two_factor_auth_enabled_date=None, unsubscribe=None, updated_at=None, user_language=None, user_language_code=None, username=None, uses_generated_password=None, vive_id=None, world_id=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, accepted_privacy_version=None, accepted_tos_version=None, account_deletion_date=None, account_deletion_log=None, active_friends=None, age_verification_status=None, age_verified=None, allow_avatar_copying=None, apple_details=None, apple_id=None, auth_token=None, banner_color=None, banner_type=None, banner_url=None, completed_tutorials=None, content_filters=None, current_avatar=None, current_avatar_image_url=None, current_avatar_tags=None, current_avatar_thumbnail_image_url=None, date_joined=None, developer_type=None, discord_details=None, discord_id=None, display_name=None, email_verified=None, fallback_avatar=None, friend_group_names=None, friend_key=None, friend_request_status=None, friends=None, google_details=None, google_id=None, has_birthday=None, has_discord_friends_opt_out=None, has_email=None, has_logged_in_from_client=None, has_pending_email=None, has_shared_connections_opt_out=None, hide_content_filter_settings=None, home_location=None, icon_frame=None, icon_url=None, id=None, instance_id=None, is_adult=None, is_booping_enabled=True, is_economy_creator=False, is_friend=False, is_temporary=False, last_activity=None, last_login=None, last_mobile=None, last_platform=None, location=None, nameplate_effect=None, note=None, obfuscated_email=None, obfuscated_pending_email=None, oculus_id=None, offline_friends=None, online_friends=None, past_display_names=None, personalization_opt_out=None, pico_id=None, platform=None, platform_history=None, presence=None, profile_effect=None, pronouns=None, pronouns_history=None, queued_instance=None, receive_mobile_invitations=None, state=None, status=None, status_description=None, status_first_time=None, status_history=None, steam_details=None, steam_id=None, tags=None, temporary_expiry_date=None, traveling_to_instance=None, traveling_to_location=None, traveling_to_world=None, twitch_details=None, twitch_id=None, two_factor_auth_enabled=None, two_factor_auth_enabled_date=None, unsubscribe=None, updated_at=None, user_language=None, user_language_code=None, username=None, uses_generated_password=None, vive_id=None, world_id=None, local_vars_configuration=None):  # noqa: E501
         """CurrentUser - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration.get_default_copy()
@@ -252,6 +254,7 @@ class CurrentUser(object):
         self._auth_token = None
         self._banner_color = None
         self._banner_type = None
+        self._banner_url = None
         self._completed_tutorials = None
         self._content_filters = None
         self._current_avatar = None
@@ -357,6 +360,8 @@ class CurrentUser(object):
             self.banner_color = banner_color
         if banner_type is not None:
             self.banner_type = banner_type
+        if banner_url is not None:
+            self.banner_url = banner_url
         if completed_tutorials is not None:
             self.completed_tutorials = completed_tutorials
         if content_filters is not None:
@@ -774,6 +779,27 @@ class CurrentUser(object):
         """
 
         self._banner_type = banner_type
+
+    @property
+    def banner_url(self):
+        """Gets the banner_url of this CurrentUser.  # noqa: E501
+
+
+        :return: The banner_url of this CurrentUser.  # noqa: E501
+        :rtype: str
+        """
+        return self._banner_url
+
+    @banner_url.setter
+    def banner_url(self, banner_url):
+        """Sets the banner_url of this CurrentUser.
+
+
+        :param banner_url: The banner_url of this CurrentUser.  # noqa: E501
+        :type banner_url: str
+        """
+
+        self._banner_url = banner_url
 
     @property
     def completed_tutorials(self):

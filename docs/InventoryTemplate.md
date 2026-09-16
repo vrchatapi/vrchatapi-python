@@ -15,11 +15,14 @@ Name | Type | Description | Notes
 **flags** | **list[str]** |  | 
 **id** | **str** |  | 
 **image_url** | **str** |  | 
+**initial_toggle_state** | **bool** |  | [optional] 
 **item_type** | [**InventoryItemType**](InventoryItemType.md) |  | 
 **item_type_label** | **str** |  | 
 **metadata** | [**InventoryMetadata**](InventoryMetadata.md) |  | [optional] 
 **name** | **str** |  | 
 **notification_details** | [**InventoryNotificationDetails**](InventoryNotificationDetails.md) |  | [optional] 
+**product_id** | **str** |  | [optional] 
+**published_listings** | **list[str]** |  | [optional] 
 **status** | **str** |  | [optional] 
 **tags** | **list[str]** |  | 
 **updated_at** | **datetime** |  | 

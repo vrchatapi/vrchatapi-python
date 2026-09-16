@@ -1499,6 +1499,12 @@ class CalendarApi(object):
         :type n: int
         :param offset: A zero-based offset from the default object sorting from where search results start.
         :type offset: int
+        :param limit: The maximum number of entries to get.
+        :type limit: int
+        :param after: Only return events starting after this date.
+        :type after: datetime
+        :param sort:
+        :type sort: str
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -1535,6 +1541,12 @@ class CalendarApi(object):
         :type n: int
         :param offset: A zero-based offset from the default object sorting from where search results start.
         :type offset: int
+        :param limit: The maximum number of entries to get.
+        :type limit: int
+        :param after: Only return events starting after this date.
+        :type after: datetime
+        :param sort:
+        :type sort: str
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
@@ -1565,7 +1577,10 @@ class CalendarApi(object):
             'group_id',
             'date',
             'n',
-            'offset'
+            'offset',
+            'limit',
+            'after',
+            'sort'
         ]
         all_params.extend(
             [
@@ -1610,6 +1625,12 @@ class CalendarApi(object):
             query_params.append(('n', local_var_params['n']))  # noqa: E501
         if local_var_params.get('offset') is not None:  # noqa: E501
             query_params.append(('offset', local_var_params['offset']))  # noqa: E501
+        if local_var_params.get('limit') is not None:  # noqa: E501
+            query_params.append(('limit', local_var_params['limit']))  # noqa: E501
+        if local_var_params.get('after') is not None:  # noqa: E501
+            query_params.append(('after', local_var_params['after']))  # noqa: E501
+        if local_var_params.get('sort') is not None:  # noqa: E501
+            query_params.append(('sort', local_var_params['sort']))  # noqa: E501
 
         header_params = dict(local_var_params.get('_headers', {}))
 

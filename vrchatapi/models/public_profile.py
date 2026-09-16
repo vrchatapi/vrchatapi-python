@@ -38,18 +38,29 @@ class PublicProfile(object):
     openapi_types = {
         'age_verification_status': 'AgeVerificationStatus',
         'age_verified': 'bool',
+        'background_gradient_bottom': 'str',
+        'background_gradient_top': 'str',
+        'background_template_id': 'str',
         'background_texture_id': 'str',
         'background_type': 'str',
         'badges': 'list[Badge]',
         'banner_color': 'str',
+        'banner_custom_url': 'str',
         'banner_type': 'str',
         'banner_url': 'str',
         'bio': 'str',
         'bio_links': 'list[str]',
+        'current_avatar': 'str',
+        'current_avatar_author_name': 'str',
+        'current_avatar_image_url': 'str',
+        'current_avatar_name': 'str',
+        'current_avatar_tags': 'list[str]',
+        'current_avatar_thumbnail_image_url': 'str',
         'display_name': 'str',
         'groups': 'ProfileGroups',
         'has_vrc_plus': 'bool',
         'icon_frame': 'str',
+        'icon_type': 'str',
         'icon_url': 'str',
         'id': 'str',
         'is_economy_creator': 'bool',
@@ -59,30 +70,45 @@ class PublicProfile(object):
         'pronouns': 'str',
         'public_worlds': 'list[LimitedWorld]',
         'represented_group': 'ProfileRepresentedGroup',
+        'status': 'UserStatus',
+        'status_description': 'str',
         'theme_button_color': 'str',
         'theme_icon_color': 'str',
         'theme_id': 'str',
         'theme_subtext_color': 'str',
+        'themes': 'list[object]',
         'total_public_worlds_count': 'int',
         'trust_tags': 'list[str]',
-        'world_favorite_lists': 'list[object]'
+        'user_icon': 'str',
+        'world_favorite_lists': 'list[WorldFavoriteList]'
     }
 
     attribute_map = {
         'age_verification_status': 'ageVerificationStatus',
         'age_verified': 'ageVerified',
+        'background_gradient_bottom': 'backgroundGradientBottom',
+        'background_gradient_top': 'backgroundGradientTop',
+        'background_template_id': 'backgroundTemplateId',
         'background_texture_id': 'backgroundTextureId',
         'background_type': 'backgroundType',
         'badges': 'badges',
         'banner_color': 'bannerColor',
+        'banner_custom_url': 'bannerCustomUrl',
         'banner_type': 'bannerType',
         'banner_url': 'bannerUrl',
         'bio': 'bio',
         'bio_links': 'bioLinks',
+        'current_avatar': 'currentAvatar',
+        'current_avatar_author_name': 'currentAvatarAuthorName',
+        'current_avatar_image_url': 'currentAvatarImageUrl',
+        'current_avatar_name': 'currentAvatarName',
+        'current_avatar_tags': 'currentAvatarTags',
+        'current_avatar_thumbnail_image_url': 'currentAvatarThumbnailImageUrl',
         'display_name': 'displayName',
         'groups': 'groups',
         'has_vrc_plus': 'hasVrcPlus',
         'icon_frame': 'iconFrame',
+        'icon_type': 'iconType',
         'icon_url': 'iconUrl',
         'id': 'id',
         'is_economy_creator': 'isEconomyCreator',
@@ -92,16 +118,20 @@ class PublicProfile(object):
         'pronouns': 'pronouns',
         'public_worlds': 'publicWorlds',
         'represented_group': 'representedGroup',
+        'status': 'status',
+        'status_description': 'statusDescription',
         'theme_button_color': 'themeButtonColor',
         'theme_icon_color': 'themeIconColor',
         'theme_id': 'themeId',
         'theme_subtext_color': 'themeSubtextColor',
+        'themes': 'themes',
         'total_public_worlds_count': 'totalPublicWorldsCount',
         'trust_tags': 'trustTags',
+        'user_icon': 'userIcon',
         'world_favorite_lists': 'worldFavoriteLists'
     }
 
-    def __init__(self, age_verification_status=None, age_verified=None, background_texture_id=None, background_type=None, badges=None, banner_color=None, banner_type=None, banner_url=None, bio=None, bio_links=None, display_name=None, groups=None, has_vrc_plus=None, icon_frame=None, icon_url=None, id=None, is_economy_creator=None, languages=None, nameplate_effect=None, profile_effect=None, pronouns=None, public_worlds=None, represented_group=None, theme_button_color=None, theme_icon_color=None, theme_id=None, theme_subtext_color=None, total_public_worlds_count=None, trust_tags=None, world_favorite_lists=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, age_verification_status=None, age_verified=None, background_gradient_bottom=None, background_gradient_top=None, background_template_id=None, background_texture_id=None, background_type=None, badges=None, banner_color=None, banner_custom_url=None, banner_type=None, banner_url=None, bio=None, bio_links=None, current_avatar=None, current_avatar_author_name=None, current_avatar_image_url=None, current_avatar_name=None, current_avatar_tags=None, current_avatar_thumbnail_image_url=None, display_name=None, groups=None, has_vrc_plus=None, icon_frame=None, icon_type=None, icon_url=None, id=None, is_economy_creator=None, languages=None, nameplate_effect=None, profile_effect=None, pronouns=None, public_worlds=None, represented_group=None, status=None, status_description=None, theme_button_color=None, theme_icon_color=None, theme_id=None, theme_subtext_color=None, themes=None, total_public_worlds_count=None, trust_tags=None, user_icon=None, world_favorite_lists=None, local_vars_configuration=None):  # noqa: E501
         """PublicProfile - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration.get_default_copy()
@@ -109,18 +139,29 @@ class PublicProfile(object):
 
         self._age_verification_status = None
         self._age_verified = None
+        self._background_gradient_bottom = None
+        self._background_gradient_top = None
+        self._background_template_id = None
         self._background_texture_id = None
         self._background_type = None
         self._badges = None
         self._banner_color = None
+        self._banner_custom_url = None
         self._banner_type = None
         self._banner_url = None
         self._bio = None
         self._bio_links = None
+        self._current_avatar = None
+        self._current_avatar_author_name = None
+        self._current_avatar_image_url = None
+        self._current_avatar_name = None
+        self._current_avatar_tags = None
+        self._current_avatar_thumbnail_image_url = None
         self._display_name = None
         self._groups = None
         self._has_vrc_plus = None
         self._icon_frame = None
+        self._icon_type = None
         self._icon_url = None
         self._id = None
         self._is_economy_creator = None
@@ -130,12 +171,16 @@ class PublicProfile(object):
         self._pronouns = None
         self._public_worlds = None
         self._represented_group = None
+        self._status = None
+        self._status_description = None
         self._theme_button_color = None
         self._theme_icon_color = None
         self._theme_id = None
         self._theme_subtext_color = None
+        self._themes = None
         self._total_public_worlds_count = None
         self._trust_tags = None
+        self._user_icon = None
         self._world_favorite_lists = None
         self.discriminator = None
 
@@ -143,6 +188,12 @@ class PublicProfile(object):
             self.age_verification_status = age_verification_status
         if age_verified is not None:
             self.age_verified = age_verified
+        if background_gradient_bottom is not None:
+            self.background_gradient_bottom = background_gradient_bottom
+        if background_gradient_top is not None:
+            self.background_gradient_top = background_gradient_top
+        if background_template_id is not None:
+            self.background_template_id = background_template_id
         if background_texture_id is not None:
             self.background_texture_id = background_texture_id
         if background_type is not None:
@@ -151,6 +202,8 @@ class PublicProfile(object):
             self.badges = badges
         if banner_color is not None:
             self.banner_color = banner_color
+        if banner_custom_url is not None:
+            self.banner_custom_url = banner_custom_url
         if banner_type is not None:
             self.banner_type = banner_type
         if banner_url is not None:
@@ -159,6 +212,18 @@ class PublicProfile(object):
             self.bio = bio
         if bio_links is not None:
             self.bio_links = bio_links
+        if current_avatar is not None:
+            self.current_avatar = current_avatar
+        if current_avatar_author_name is not None:
+            self.current_avatar_author_name = current_avatar_author_name
+        if current_avatar_image_url is not None:
+            self.current_avatar_image_url = current_avatar_image_url
+        if current_avatar_name is not None:
+            self.current_avatar_name = current_avatar_name
+        if current_avatar_tags is not None:
+            self.current_avatar_tags = current_avatar_tags
+        if current_avatar_thumbnail_image_url is not None:
+            self.current_avatar_thumbnail_image_url = current_avatar_thumbnail_image_url
         if display_name is not None:
             self.display_name = display_name
         if groups is not None:
@@ -167,6 +232,8 @@ class PublicProfile(object):
             self.has_vrc_plus = has_vrc_plus
         if icon_frame is not None:
             self.icon_frame = icon_frame
+        if icon_type is not None:
+            self.icon_type = icon_type
         if icon_url is not None:
             self.icon_url = icon_url
         if id is not None:
@@ -185,6 +252,10 @@ class PublicProfile(object):
             self.public_worlds = public_worlds
         if represented_group is not None:
             self.represented_group = represented_group
+        if status is not None:
+            self.status = status
+        if status_description is not None:
+            self.status_description = status_description
         if theme_button_color is not None:
             self.theme_button_color = theme_button_color
         if theme_icon_color is not None:
@@ -193,10 +264,14 @@ class PublicProfile(object):
             self.theme_id = theme_id
         if theme_subtext_color is not None:
             self.theme_subtext_color = theme_subtext_color
+        if themes is not None:
+            self.themes = themes
         if total_public_worlds_count is not None:
             self.total_public_worlds_count = total_public_worlds_count
         if trust_tags is not None:
             self.trust_tags = trust_tags
+        if user_icon is not None:
+            self.user_icon = user_icon
         if world_favorite_lists is not None:
             self.world_favorite_lists = world_favorite_lists
 
@@ -243,6 +318,73 @@ class PublicProfile(object):
         """
 
         self._age_verified = age_verified
+
+    @property
+    def background_gradient_bottom(self):
+        """Gets the background_gradient_bottom of this PublicProfile.  # noqa: E501
+
+        Hex colour without a leading `#`.  # noqa: E501
+
+        :return: The background_gradient_bottom of this PublicProfile.  # noqa: E501
+        :rtype: str
+        """
+        return self._background_gradient_bottom
+
+    @background_gradient_bottom.setter
+    def background_gradient_bottom(self, background_gradient_bottom):
+        """Sets the background_gradient_bottom of this PublicProfile.
+
+        Hex colour without a leading `#`.  # noqa: E501
+
+        :param background_gradient_bottom: The background_gradient_bottom of this PublicProfile.  # noqa: E501
+        :type background_gradient_bottom: str
+        """
+
+        self._background_gradient_bottom = background_gradient_bottom
+
+    @property
+    def background_gradient_top(self):
+        """Gets the background_gradient_top of this PublicProfile.  # noqa: E501
+
+        Hex colour without a leading `#`.  # noqa: E501
+
+        :return: The background_gradient_top of this PublicProfile.  # noqa: E501
+        :rtype: str
+        """
+        return self._background_gradient_top
+
+    @background_gradient_top.setter
+    def background_gradient_top(self, background_gradient_top):
+        """Sets the background_gradient_top of this PublicProfile.
+
+        Hex colour without a leading `#`.  # noqa: E501
+
+        :param background_gradient_top: The background_gradient_top of this PublicProfile.  # noqa: E501
+        :type background_gradient_top: str
+        """
+
+        self._background_gradient_top = background_gradient_top
+
+    @property
+    def background_template_id(self):
+        """Gets the background_template_id of this PublicProfile.  # noqa: E501
+
+
+        :return: The background_template_id of this PublicProfile.  # noqa: E501
+        :rtype: str
+        """
+        return self._background_template_id
+
+    @background_template_id.setter
+    def background_template_id(self, background_template_id):
+        """Sets the background_template_id of this PublicProfile.
+
+
+        :param background_template_id: The background_template_id of this PublicProfile.  # noqa: E501
+        :type background_template_id: str
+        """
+
+        self._background_template_id = background_template_id
 
     @property
     def background_texture_id(self):
@@ -329,6 +471,27 @@ class PublicProfile(object):
         self._banner_color = banner_color
 
     @property
+    def banner_custom_url(self):
+        """Gets the banner_custom_url of this PublicProfile.  # noqa: E501
+
+
+        :return: The banner_custom_url of this PublicProfile.  # noqa: E501
+        :rtype: str
+        """
+        return self._banner_custom_url
+
+    @banner_custom_url.setter
+    def banner_custom_url(self, banner_custom_url):
+        """Sets the banner_custom_url of this PublicProfile.
+
+
+        :param banner_custom_url: The banner_custom_url of this PublicProfile.  # noqa: E501
+        :type banner_custom_url: str
+        """
+
+        self._banner_custom_url = banner_custom_url
+
+    @property
     def banner_type(self):
         """Gets the banner_type of this PublicProfile.  # noqa: E501
 
@@ -413,6 +576,136 @@ class PublicProfile(object):
         self._bio_links = bio_links
 
     @property
+    def current_avatar(self):
+        """Gets the current_avatar of this PublicProfile.  # noqa: E501
+
+
+        :return: The current_avatar of this PublicProfile.  # noqa: E501
+        :rtype: str
+        """
+        return self._current_avatar
+
+    @current_avatar.setter
+    def current_avatar(self, current_avatar):
+        """Sets the current_avatar of this PublicProfile.
+
+
+        :param current_avatar: The current_avatar of this PublicProfile.  # noqa: E501
+        :type current_avatar: str
+        """
+
+        self._current_avatar = current_avatar
+
+    @property
+    def current_avatar_author_name(self):
+        """Gets the current_avatar_author_name of this PublicProfile.  # noqa: E501
+
+
+        :return: The current_avatar_author_name of this PublicProfile.  # noqa: E501
+        :rtype: str
+        """
+        return self._current_avatar_author_name
+
+    @current_avatar_author_name.setter
+    def current_avatar_author_name(self, current_avatar_author_name):
+        """Sets the current_avatar_author_name of this PublicProfile.
+
+
+        :param current_avatar_author_name: The current_avatar_author_name of this PublicProfile.  # noqa: E501
+        :type current_avatar_author_name: str
+        """
+
+        self._current_avatar_author_name = current_avatar_author_name
+
+    @property
+    def current_avatar_image_url(self):
+        """Gets the current_avatar_image_url of this PublicProfile.  # noqa: E501
+
+        When profilePicOverride is not empty, use it instead.  # noqa: E501
+
+        :return: The current_avatar_image_url of this PublicProfile.  # noqa: E501
+        :rtype: str
+        """
+        return self._current_avatar_image_url
+
+    @current_avatar_image_url.setter
+    def current_avatar_image_url(self, current_avatar_image_url):
+        """Sets the current_avatar_image_url of this PublicProfile.
+
+        When profilePicOverride is not empty, use it instead.  # noqa: E501
+
+        :param current_avatar_image_url: The current_avatar_image_url of this PublicProfile.  # noqa: E501
+        :type current_avatar_image_url: str
+        """
+
+        self._current_avatar_image_url = current_avatar_image_url
+
+    @property
+    def current_avatar_name(self):
+        """Gets the current_avatar_name of this PublicProfile.  # noqa: E501
+
+
+        :return: The current_avatar_name of this PublicProfile.  # noqa: E501
+        :rtype: str
+        """
+        return self._current_avatar_name
+
+    @current_avatar_name.setter
+    def current_avatar_name(self, current_avatar_name):
+        """Sets the current_avatar_name of this PublicProfile.
+
+
+        :param current_avatar_name: The current_avatar_name of this PublicProfile.  # noqa: E501
+        :type current_avatar_name: str
+        """
+
+        self._current_avatar_name = current_avatar_name
+
+    @property
+    def current_avatar_tags(self):
+        """Gets the current_avatar_tags of this PublicProfile.  # noqa: E501
+
+
+        :return: The current_avatar_tags of this PublicProfile.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._current_avatar_tags
+
+    @current_avatar_tags.setter
+    def current_avatar_tags(self, current_avatar_tags):
+        """Sets the current_avatar_tags of this PublicProfile.
+
+
+        :param current_avatar_tags: The current_avatar_tags of this PublicProfile.  # noqa: E501
+        :type current_avatar_tags: list[str]
+        """
+
+        self._current_avatar_tags = current_avatar_tags
+
+    @property
+    def current_avatar_thumbnail_image_url(self):
+        """Gets the current_avatar_thumbnail_image_url of this PublicProfile.  # noqa: E501
+
+        When profilePicOverride is not empty, use it instead.  # noqa: E501
+
+        :return: The current_avatar_thumbnail_image_url of this PublicProfile.  # noqa: E501
+        :rtype: str
+        """
+        return self._current_avatar_thumbnail_image_url
+
+    @current_avatar_thumbnail_image_url.setter
+    def current_avatar_thumbnail_image_url(self, current_avatar_thumbnail_image_url):
+        """Sets the current_avatar_thumbnail_image_url of this PublicProfile.
+
+        When profilePicOverride is not empty, use it instead.  # noqa: E501
+
+        :param current_avatar_thumbnail_image_url: The current_avatar_thumbnail_image_url of this PublicProfile.  # noqa: E501
+        :type current_avatar_thumbnail_image_url: str
+        """
+
+        self._current_avatar_thumbnail_image_url = current_avatar_thumbnail_image_url
+
+    @property
     def display_name(self):
         """Gets the display_name of this PublicProfile.  # noqa: E501
 
@@ -495,6 +788,27 @@ class PublicProfile(object):
         """
 
         self._icon_frame = icon_frame
+
+    @property
+    def icon_type(self):
+        """Gets the icon_type of this PublicProfile.  # noqa: E501
+
+
+        :return: The icon_type of this PublicProfile.  # noqa: E501
+        :rtype: str
+        """
+        return self._icon_type
+
+    @icon_type.setter
+    def icon_type(self, icon_type):
+        """Sets the icon_type of this PublicProfile.
+
+
+        :param icon_type: The icon_type of this PublicProfile.  # noqa: E501
+        :type icon_type: str
+        """
+
+        self._icon_type = icon_type
 
     @property
     def icon_url(self):
@@ -688,6 +1002,48 @@ class PublicProfile(object):
         self._represented_group = represented_group
 
     @property
+    def status(self):
+        """Gets the status of this PublicProfile.  # noqa: E501
+
+
+        :return: The status of this PublicProfile.  # noqa: E501
+        :rtype: UserStatus
+        """
+        return self._status
+
+    @status.setter
+    def status(self, status):
+        """Sets the status of this PublicProfile.
+
+
+        :param status: The status of this PublicProfile.  # noqa: E501
+        :type status: UserStatus
+        """
+
+        self._status = status
+
+    @property
+    def status_description(self):
+        """Gets the status_description of this PublicProfile.  # noqa: E501
+
+
+        :return: The status_description of this PublicProfile.  # noqa: E501
+        :rtype: str
+        """
+        return self._status_description
+
+    @status_description.setter
+    def status_description(self, status_description):
+        """Sets the status_description of this PublicProfile.
+
+
+        :param status_description: The status_description of this PublicProfile.  # noqa: E501
+        :type status_description: str
+        """
+
+        self._status_description = status_description
+
+    @property
     def theme_button_color(self):
         """Gets the theme_button_color of this PublicProfile.  # noqa: E501
 
@@ -778,6 +1134,27 @@ class PublicProfile(object):
         self._theme_subtext_color = theme_subtext_color
 
     @property
+    def themes(self):
+        """Gets the themes of this PublicProfile.  # noqa: E501
+
+
+        :return: The themes of this PublicProfile.  # noqa: E501
+        :rtype: list[object]
+        """
+        return self._themes
+
+    @themes.setter
+    def themes(self, themes):
+        """Sets the themes of this PublicProfile.
+
+
+        :param themes: The themes of this PublicProfile.  # noqa: E501
+        :type themes: list[object]
+        """
+
+        self._themes = themes
+
+    @property
     def total_public_worlds_count(self):
         """Gets the total_public_worlds_count of this PublicProfile.  # noqa: E501
 
@@ -820,12 +1197,34 @@ class PublicProfile(object):
         self._trust_tags = trust_tags
 
     @property
+    def user_icon(self):
+        """Gets the user_icon of this PublicProfile.  # noqa: E501
+
+
+        :return: The user_icon of this PublicProfile.  # noqa: E501
+        :rtype: str
+        """
+        return self._user_icon
+
+    @user_icon.setter
+    def user_icon(self, user_icon):
+        """Sets the user_icon of this PublicProfile.
+
+
+        :param user_icon: The user_icon of this PublicProfile.  # noqa: E501
+        :type user_icon: str
+        """
+
+        self._user_icon = user_icon
+
+    @property
     def world_favorite_lists(self):
         """Gets the world_favorite_lists of this PublicProfile.  # noqa: E501
 
+        The owner's public world favorite groups.  # noqa: E501
 
         :return: The world_favorite_lists of this PublicProfile.  # noqa: E501
-        :rtype: list[object]
+        :rtype: list[WorldFavoriteList]
         """
         return self._world_favorite_lists
 
@@ -833,9 +1232,10 @@ class PublicProfile(object):
     def world_favorite_lists(self, world_favorite_lists):
         """Sets the world_favorite_lists of this PublicProfile.
 
+        The owner's public world favorite groups.  # noqa: E501
 
         :param world_favorite_lists: The world_favorite_lists of this PublicProfile.  # noqa: E501
-        :type world_favorite_lists: list[object]
+        :type world_favorite_lists: list[WorldFavoriteList]
         """
 
         self._world_favorite_lists = world_favorite_lists

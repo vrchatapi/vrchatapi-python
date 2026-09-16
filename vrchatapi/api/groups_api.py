@@ -3079,6 +3079,8 @@ class GroupsApi(object):
         :type group_id: str
         :param include_roles: Include roles for the Group object. Defaults to false.
         :type include_roles: bool
+        :param purpose:
+        :type purpose: str
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -3111,6 +3113,8 @@ class GroupsApi(object):
         :type group_id: str
         :param include_roles: Include roles for the Group object. Defaults to false.
         :type include_roles: bool
+        :param purpose:
+        :type purpose: str
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
@@ -3139,7 +3143,8 @@ class GroupsApi(object):
 
         all_params = [
             'group_id',
-            'include_roles'
+            'include_roles',
+            'purpose'
         ]
         all_params.extend(
             [
@@ -3174,6 +3179,8 @@ class GroupsApi(object):
         query_params = []
         if local_var_params.get('include_roles') is not None:  # noqa: E501
             query_params.append(('includeRoles', local_var_params['include_roles']))  # noqa: E501
+        if local_var_params.get('purpose') is not None:  # noqa: E501
+            query_params.append(('purpose', local_var_params['purpose']))  # noqa: E501
 
         header_params = dict(local_var_params.get('_headers', {}))
 
@@ -3864,6 +3871,8 @@ class GroupsApi(object):
         :type n: int
         :param offset: A zero-based offset from the default object sorting from where search results start.
         :type offset: int
+        :param v: Response version. `2` wraps the images in a paginated object.
+        :type v: int
         :param approved: If specified, only returns images that have been approved or not approved.
         :type approved: bool
         :param async_req: Whether to execute the request asynchronously.
@@ -3879,7 +3888,7 @@ class GroupsApi(object):
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: list[GroupGalleryImage]
+        :rtype: GetGroupGalleryImages200Response
         """
         kwargs['_return_http_data_only'] = True
         return self.get_group_gallery_images_with_http_info(group_id, group_gallery_id, **kwargs)  # noqa: E501
@@ -3902,6 +3911,8 @@ class GroupsApi(object):
         :type n: int
         :param offset: A zero-based offset from the default object sorting from where search results start.
         :type offset: int
+        :param v: Response version. `2` wraps the images in a paginated object.
+        :type v: int
         :param approved: If specified, only returns images that have been approved or not approved.
         :type approved: bool
         :param async_req: Whether to execute the request asynchronously.
@@ -3925,7 +3936,7 @@ class GroupsApi(object):
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: tuple(list[GroupGalleryImage], status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(GetGroupGalleryImages200Response, status_code(int), headers(HTTPHeaderDict))
         """
 
         local_var_params = locals()
@@ -3935,6 +3946,7 @@ class GroupsApi(object):
             'group_gallery_id',
             'n',
             'offset',
+            'v',
             'approved'
         ]
         all_params.extend(
@@ -3983,6 +3995,8 @@ class GroupsApi(object):
             query_params.append(('n', local_var_params['n']))  # noqa: E501
         if local_var_params.get('offset') is not None:  # noqa: E501
             query_params.append(('offset', local_var_params['offset']))  # noqa: E501
+        if local_var_params.get('v') is not None:  # noqa: E501
+            query_params.append(('v', local_var_params['v']))  # noqa: E501
         if local_var_params.get('approved') is not None:  # noqa: E501
             query_params.append(('approved', local_var_params['approved']))  # noqa: E501
 
@@ -4000,7 +4014,7 @@ class GroupsApi(object):
         auth_settings = ['authCookie']  # noqa: E501
 
         response_types_map = {
-            200: "list[GroupGalleryImage]",
+            200: "GetGroupGalleryImages200Response",
             401: "Error",
             404: "Error",
         }

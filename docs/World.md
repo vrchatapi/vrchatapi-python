@@ -18,6 +18,7 @@ Name | Type | Description | Notes
 **id** | **str** | WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user. | 
 **image_url** | **str** |  | 
 **instances** | **list[list[object]]** | Will always be an empty list when unauthenticated. | [optional] 
+**is_hype_train_eligible** | **bool** |  | [optional] 
 **labs_publication_date** | **str** |  | 
 **name** | **str** |  | 
 **namespace** | **str** |  | [optional] 

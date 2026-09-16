@@ -49,6 +49,7 @@ class World(object):
         'id': 'str',
         'image_url': 'str',
         'instances': 'list[list[object]]',
+        'is_hype_train_eligible': 'bool',
         'labs_publication_date': 'str',
         'name': 'str',
         'namespace': 'str',
@@ -87,6 +88,7 @@ class World(object):
         'id': 'id',
         'image_url': 'imageUrl',
         'instances': 'instances',
+        'is_hype_train_eligible': 'isHypeTrainEligible',
         'labs_publication_date': 'labsPublicationDate',
         'name': 'name',
         'namespace': 'namespace',
@@ -111,7 +113,7 @@ class World(object):
         'visits': 'visits'
     }
 
-    def __init__(self, author_id=None, author_name=None, capacity=None, created_at=None, default_content_settings=None, description=None, disabled_prop_abilities=None, favorites=0, featured=False, heat=0, id=None, image_url=None, instances=None, labs_publication_date=None, name=None, namespace=None, occupants=0, organization='vrchat', popularity=0, preview_youtube_id=None, private_occupants=0, public_occupants=0, publication_date=None, recommended_capacity=None, release_status=None, slim_instances=None, store_id=None, tags=None, thumbnail_image_url=None, udon_products=None, unity_packages=None, updated_at=None, url_list=None, version=0, visits=0, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, author_id=None, author_name=None, capacity=None, created_at=None, default_content_settings=None, description=None, disabled_prop_abilities=None, favorites=0, featured=False, heat=0, id=None, image_url=None, instances=None, is_hype_train_eligible=None, labs_publication_date=None, name=None, namespace=None, occupants=0, organization='vrchat', popularity=0, preview_youtube_id=None, private_occupants=0, public_occupants=0, publication_date=None, recommended_capacity=None, release_status=None, slim_instances=None, store_id=None, tags=None, thumbnail_image_url=None, udon_products=None, unity_packages=None, updated_at=None, url_list=None, version=0, visits=0, local_vars_configuration=None):  # noqa: E501
         """World - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration.get_default_copy()
@@ -130,6 +132,7 @@ class World(object):
         self._id = None
         self._image_url = None
         self._instances = None
+        self._is_hype_train_eligible = None
         self._labs_publication_date = None
         self._name = None
         self._namespace = None
@@ -171,6 +174,8 @@ class World(object):
         self.image_url = image_url
         if instances is not None:
             self.instances = instances
+        if is_hype_train_eligible is not None:
+            self.is_hype_train_eligible = is_hype_train_eligible
         self.labs_publication_date = labs_publication_date
         self.name = name
         if namespace is not None:
@@ -514,6 +519,27 @@ class World(object):
         """
 
         self._instances = instances
+
+    @property
+    def is_hype_train_eligible(self):
+        """Gets the is_hype_train_eligible of this World.  # noqa: E501
+
+
+        :return: The is_hype_train_eligible of this World.  # noqa: E501
+        :rtype: bool
+        """
+        return self._is_hype_train_eligible
+
+    @is_hype_train_eligible.setter
+    def is_hype_train_eligible(self, is_hype_train_eligible):
+        """Sets the is_hype_train_eligible of this World.
+
+
+        :param is_hype_train_eligible: The is_hype_train_eligible of this World.  # noqa: E501
+        :type is_hype_train_eligible: bool
+        """
+
+        self._is_hype_train_eligible = is_hype_train_eligible
 
     @property
     def labs_publication_date(self):

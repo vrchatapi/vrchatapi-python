@@ -37,13 +37,14 @@ class EconomyAccount(object):
     """
     openapi_types = {
         'account_activated_on': 'datetime',
-        'account_id': 'str',
+        'account_id': 'int',
         'account_seller_registered_on': 'datetime',
         'account_seller_status': 'str',
         'blocked': 'bool',
         'can_earn': 'bool',
         'can_payout': 'bool',
         'can_spend': 'bool',
+        'limits': 'EconomyAccountLimits',
         'skrill_email': 'str',
         'source': 'str',
         'tilia_id': 'str',
@@ -60,6 +61,7 @@ class EconomyAccount(object):
         'can_earn': 'canEarn',
         'can_payout': 'canPayout',
         'can_spend': 'canSpend',
+        'limits': 'limits',
         'skrill_email': 'skrillEmail',
         'source': 'source',
         'tilia_id': 'tiliaId',
@@ -67,7 +69,7 @@ class EconomyAccount(object):
         'user_id': 'userId'
     }
 
-    def __init__(self, account_activated_on=None, account_id=None, account_seller_registered_on=None, account_seller_status=None, blocked=None, can_earn=None, can_payout=None, can_spend=None, skrill_email=None, source=None, tilia_id=None, tilia_type=None, user_id=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, account_activated_on=None, account_id=None, account_seller_registered_on=None, account_seller_status=None, blocked=None, can_earn=None, can_payout=None, can_spend=None, limits=None, skrill_email=None, source=None, tilia_id=None, tilia_type=None, user_id=None, local_vars_configuration=None):  # noqa: E501
         """EconomyAccount - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration.get_default_copy()
@@ -81,6 +83,7 @@ class EconomyAccount(object):
         self._can_earn = None
         self._can_payout = None
         self._can_spend = None
+        self._limits = None
         self._skrill_email = None
         self._source = None
         self._tilia_id = None
@@ -98,6 +101,8 @@ class EconomyAccount(object):
         if can_payout is not None:
             self.can_payout = can_payout
         self.can_spend = can_spend
+        if limits is not None:
+            self.limits = limits
         self.skrill_email = skrill_email
         self.source = source
         self.tilia_id = tilia_id
@@ -131,7 +136,7 @@ class EconomyAccount(object):
 
 
         :return: The account_id of this EconomyAccount.  # noqa: E501
-        :rtype: str
+        :rtype: int
         """
         return self._account_id
 
@@ -141,7 +146,7 @@ class EconomyAccount(object):
 
 
         :param account_id: The account_id of this EconomyAccount.  # noqa: E501
-        :type account_id: str
+        :type account_id: int
         """
 
         self._account_id = account_id
@@ -275,6 +280,27 @@ class EconomyAccount(object):
             raise ValueError("Invalid value for `can_spend`, must not be `None`")  # noqa: E501
 
         self._can_spend = can_spend
+
+    @property
+    def limits(self):
+        """Gets the limits of this EconomyAccount.  # noqa: E501
+
+
+        :return: The limits of this EconomyAccount.  # noqa: E501
+        :rtype: EconomyAccountLimits
+        """
+        return self._limits
+
+    @limits.setter
+    def limits(self, limits):
+        """Sets the limits of this EconomyAccount.
+
+
+        :param limits: The limits of this EconomyAccount.  # noqa: E501
+        :type limits: EconomyAccountLimits
+        """
+
+        self._limits = limits
 
     @property
     def skrill_email(self):

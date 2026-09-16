@@ -47,11 +47,14 @@ class InventoryTemplate(object):
         'flags': 'list[str]',
         'id': 'str',
         'image_url': 'str',
+        'initial_toggle_state': 'bool',
         'item_type': 'InventoryItemType',
         'item_type_label': 'str',
         'metadata': 'InventoryMetadata',
         'name': 'str',
         'notification_details': 'InventoryNotificationDetails',
+        'product_id': 'str',
+        'published_listings': 'list[str]',
         'status': 'str',
         'tags': 'list[str]',
         'updated_at': 'datetime',
@@ -70,18 +73,21 @@ class InventoryTemplate(object):
         'flags': 'flags',
         'id': 'id',
         'image_url': 'imageUrl',
+        'initial_toggle_state': 'initialToggleState',
         'item_type': 'itemType',
         'item_type_label': 'itemTypeLabel',
         'metadata': 'metadata',
         'name': 'name',
         'notification_details': 'notificationDetails',
+        'product_id': 'productId',
+        'published_listings': 'publishedListings',
         'status': 'status',
         'tags': 'tags',
         'updated_at': 'updated_at',
         'validate_user_attributes': 'validateUserAttributes'
     }
 
-    def __init__(self, attribution=None, author_id=None, collections=None, created_at=None, default_attributes=None, description=None, drop_status=None, equip_slots=None, flags=None, id=None, image_url=None, item_type=None, item_type_label=None, metadata=None, name=None, notification_details=None, status=None, tags=None, updated_at=None, validate_user_attributes=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, attribution=None, author_id=None, collections=None, created_at=None, default_attributes=None, description=None, drop_status=None, equip_slots=None, flags=None, id=None, image_url=None, initial_toggle_state=None, item_type=None, item_type_label=None, metadata=None, name=None, notification_details=None, product_id=None, published_listings=None, status=None, tags=None, updated_at=None, validate_user_attributes=None, local_vars_configuration=None):  # noqa: E501
         """InventoryTemplate - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration.get_default_copy()
@@ -98,11 +104,14 @@ class InventoryTemplate(object):
         self._flags = None
         self._id = None
         self._image_url = None
+        self._initial_toggle_state = None
         self._item_type = None
         self._item_type_label = None
         self._metadata = None
         self._name = None
         self._notification_details = None
+        self._product_id = None
+        self._published_listings = None
         self._status = None
         self._tags = None
         self._updated_at = None
@@ -121,6 +130,8 @@ class InventoryTemplate(object):
         self.flags = flags
         self.id = id
         self.image_url = image_url
+        if initial_toggle_state is not None:
+            self.initial_toggle_state = initial_toggle_state
         self.item_type = item_type
         self.item_type_label = item_type_label
         if metadata is not None:
@@ -128,6 +139,10 @@ class InventoryTemplate(object):
         self.name = name
         if notification_details is not None:
             self.notification_details = notification_details
+        if product_id is not None:
+            self.product_id = product_id
+        if published_listings is not None:
+            self.published_listings = published_listings
         if status is not None:
             self.status = status
         self.tags = tags
@@ -386,6 +401,27 @@ class InventoryTemplate(object):
         self._image_url = image_url
 
     @property
+    def initial_toggle_state(self):
+        """Gets the initial_toggle_state of this InventoryTemplate.  # noqa: E501
+
+
+        :return: The initial_toggle_state of this InventoryTemplate.  # noqa: E501
+        :rtype: bool
+        """
+        return self._initial_toggle_state
+
+    @initial_toggle_state.setter
+    def initial_toggle_state(self, initial_toggle_state):
+        """Sets the initial_toggle_state of this InventoryTemplate.
+
+
+        :param initial_toggle_state: The initial_toggle_state of this InventoryTemplate.  # noqa: E501
+        :type initial_toggle_state: bool
+        """
+
+        self._initial_toggle_state = initial_toggle_state
+
+    @property
     def item_type(self):
         """Gets the item_type of this InventoryTemplate.  # noqa: E501
 
@@ -495,6 +531,48 @@ class InventoryTemplate(object):
         """
 
         self._notification_details = notification_details
+
+    @property
+    def product_id(self):
+        """Gets the product_id of this InventoryTemplate.  # noqa: E501
+
+
+        :return: The product_id of this InventoryTemplate.  # noqa: E501
+        :rtype: str
+        """
+        return self._product_id
+
+    @product_id.setter
+    def product_id(self, product_id):
+        """Sets the product_id of this InventoryTemplate.
+
+
+        :param product_id: The product_id of this InventoryTemplate.  # noqa: E501
+        :type product_id: str
+        """
+
+        self._product_id = product_id
+
+    @property
+    def published_listings(self):
+        """Gets the published_listings of this InventoryTemplate.  # noqa: E501
+
+
+        :return: The published_listings of this InventoryTemplate.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._published_listings
+
+    @published_listings.setter
+    def published_listings(self, published_listings):
+        """Sets the published_listings of this InventoryTemplate.
+
+
+        :param published_listings: The published_listings of this InventoryTemplate.  # noqa: E501
+        :type published_listings: list[str]
+        """
+
+        self._published_listings = published_listings
 
     @property
     def status(self):

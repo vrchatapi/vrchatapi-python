@@ -33,10 +33,13 @@ class InventoryEquipSlot(object):
     """
     EMPTY = ""
     DRONE = "drone"
+    ICONFRAME = "iconFrame"
+    NAMEPLATEEFFECT = "nameplateEffect"
     PORTAL = "portal"
+    PROFILEEFFECT = "profileEffect"
     WARP = "warp"
 
-    allowable_values = [EMPTY, DRONE, PORTAL, WARP]  # noqa: E501
+    allowable_values = [EMPTY, DRONE, ICONFRAME, NAMEPLATEEFFECT, PORTAL, PROFILEEFFECT, WARP]  # noqa: E501
 
     """
     Attributes:
