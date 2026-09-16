@@ -92,7 +92,7 @@ Join the [Discord server](https://discord.gg/Ge2APMhPfD) to get in touch with us
 from setuptools import setup, find_packages  # noqa: H301
 
 NAME = "vrchatapi"
-VERSION = "1.20.10.dev15"
+VERSION = "1.20.10.dev16"
 # To install the library, run the following
 #
 # python setup.py install
