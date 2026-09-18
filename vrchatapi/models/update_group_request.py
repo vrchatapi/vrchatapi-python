@@ -43,6 +43,7 @@ class UpdateGroupRequest(object):
         'languages': 'list[str]',
         'links': 'list[str]',
         'name': 'str',
+        'nameplate_id': 'str',
         'rules': 'str',
         'short_code': 'str',
         'tags': 'list[str]'
@@ -56,12 +57,13 @@ class UpdateGroupRequest(object):
         'languages': 'languages',
         'links': 'links',
         'name': 'name',
+        'nameplate_id': 'nameplateId',
         'rules': 'rules',
         'short_code': 'shortCode',
         'tags': 'tags'
     }
 
-    def __init__(self, banner_id=None, description=None, icon_id=None, join_state=None, languages=None, links=None, name=None, rules=None, short_code=None, tags=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, banner_id=None, description=None, icon_id=None, join_state=None, languages=None, links=None, name=None, nameplate_id=None, rules=None, short_code=None, tags=None, local_vars_configuration=None):  # noqa: E501
         """UpdateGroupRequest - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration.get_default_copy()
@@ -74,6 +76,7 @@ class UpdateGroupRequest(object):
         self._languages = None
         self._links = None
         self._name = None
+        self._nameplate_id = None
         self._rules = None
         self._short_code = None
         self._tags = None
@@ -91,6 +94,7 @@ class UpdateGroupRequest(object):
             self.links = links
         if name is not None:
             self.name = name
+        self.nameplate_id = nameplate_id
         if rules is not None:
             self.rules = rules
         if short_code is not None:
@@ -264,6 +268,27 @@ class UpdateGroupRequest(object):
             raise ValueError("Invalid value for `name`, length must be greater than or equal to `3`")  # noqa: E501
 
         self._name = name
+
+    @property
+    def nameplate_id(self):
+        """Gets the nameplate_id of this UpdateGroupRequest.  # noqa: E501
+
+
+        :return: The nameplate_id of this UpdateGroupRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._nameplate_id
+
+    @nameplate_id.setter
+    def nameplate_id(self, nameplate_id):
+        """Sets the nameplate_id of this UpdateGroupRequest.
+
+
+        :param nameplate_id: The nameplate_id of this UpdateGroupRequest.  # noqa: E501
+        :type nameplate_id: str
+        """
+
+        self._nameplate_id = nameplate_id
 
     @property
     def rules(self):
