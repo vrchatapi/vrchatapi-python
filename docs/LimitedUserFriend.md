@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **banner_color** | **str** | Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty. | [optional] 
 **banner_type** | **str** |  | [optional] 
 **banner_url** | **str** |  | [optional] 
+**current_avatar_image_url** | **str** | When profilePicOverride is not empty, use it instead. | [optional] 
 **developer_type** | [**DeveloperType**](DeveloperType.md) |  | 
 **discord_id** | **str** | https://discord.com/developers/docs/reference#snowflakes | [optional] 
 **display_name** | **str** |  | 

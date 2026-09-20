@@ -454,6 +454,7 @@ class FriendsApi(object):
             400: "Error",
             401: "Error",
             404: "Error",
+            429: "Error",
         }
 
         return self.api_client.call_api(

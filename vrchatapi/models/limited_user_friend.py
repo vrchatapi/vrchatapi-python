@@ -39,6 +39,7 @@ class LimitedUserFriend(object):
         'banner_color': 'str',
         'banner_type': 'str',
         'banner_url': 'str',
+        'current_avatar_image_url': 'str',
         'developer_type': 'DeveloperType',
         'discord_id': 'str',
         'display_name': 'str',
@@ -64,6 +65,7 @@ class LimitedUserFriend(object):
         'banner_color': 'bannerColor',
         'banner_type': 'bannerType',
         'banner_url': 'bannerUrl',
+        'current_avatar_image_url': 'currentAvatarImageUrl',
         'developer_type': 'developerType',
         'discord_id': 'discordId',
         'display_name': 'displayName',
@@ -85,7 +87,7 @@ class LimitedUserFriend(object):
         'tags': 'tags'
     }
 
-    def __init__(self, banner_color=None, banner_type=None, banner_url=None, developer_type=None, discord_id=None, display_name=None, friend_key=None, icon_frame=None, icon_url=None, id=None, is_friend=None, last_activity=None, last_login=None, last_mobile=None, last_platform=None, location=None, nameplate_effect=None, platform=None, profile_effect=None, status=None, status_description=None, tags=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, banner_color=None, banner_type=None, banner_url=None, current_avatar_image_url=None, developer_type=None, discord_id=None, display_name=None, friend_key=None, icon_frame=None, icon_url=None, id=None, is_friend=None, last_activity=None, last_login=None, last_mobile=None, last_platform=None, location=None, nameplate_effect=None, platform=None, profile_effect=None, status=None, status_description=None, tags=None, local_vars_configuration=None):  # noqa: E501
         """LimitedUserFriend - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration.get_default_copy()
@@ -94,6 +96,7 @@ class LimitedUserFriend(object):
         self._banner_color = None
         self._banner_type = None
         self._banner_url = None
+        self._current_avatar_image_url = None
         self._developer_type = None
         self._discord_id = None
         self._display_name = None
@@ -121,6 +124,8 @@ class LimitedUserFriend(object):
             self.banner_type = banner_type
         if banner_url is not None:
             self.banner_url = banner_url
+        if current_avatar_image_url is not None:
+            self.current_avatar_image_url = current_avatar_image_url
         self.developer_type = developer_type
         if discord_id is not None:
             self.discord_id = discord_id
@@ -210,6 +215,29 @@ class LimitedUserFriend(object):
         """
 
         self._banner_url = banner_url
+
+    @property
+    def current_avatar_image_url(self):
+        """Gets the current_avatar_image_url of this LimitedUserFriend.  # noqa: E501
+
+        When profilePicOverride is not empty, use it instead.  # noqa: E501
+
+        :return: The current_avatar_image_url of this LimitedUserFriend.  # noqa: E501
+        :rtype: str
+        """
+        return self._current_avatar_image_url
+
+    @current_avatar_image_url.setter
+    def current_avatar_image_url(self, current_avatar_image_url):
+        """Sets the current_avatar_image_url of this LimitedUserFriend.
+
+        When profilePicOverride is not empty, use it instead.  # noqa: E501
+
+        :param current_avatar_image_url: The current_avatar_image_url of this LimitedUserFriend.  # noqa: E501
+        :type current_avatar_image_url: str
+        """
+
+        self._current_avatar_image_url = current_avatar_image_url
 
     @property
     def developer_type(self):

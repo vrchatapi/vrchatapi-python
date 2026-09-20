@@ -238,6 +238,7 @@ Name | Type | Description  | Notes
 **400** | Bad request error response when sending a friend request |  -  |
 **401** | Error response due to missing auth cookie. |  -  |
 **404** | The requested resource does not exist. The message varies by resource and by route, and only some name the id. Worlds sometimes answer &#x60;model &lt;worldId&gt; not found&#x60; instead of &#x60;World &lt;worldId&gt; not found&#x60;. |  -  |
+**429** | Error response when sending friend requests faster than the account is allowed to. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

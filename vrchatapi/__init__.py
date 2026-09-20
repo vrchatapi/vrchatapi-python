@@ -214,8 +214,10 @@ from vrchatapi.models.info_push import InfoPush
 from vrchatapi.models.info_push_data import InfoPushData
 from vrchatapi.models.info_push_data_article import InfoPushDataArticle
 from vrchatapi.models.info_push_data_article_content import InfoPushDataArticleContent
+from vrchatapi.models.info_push_data_call_to_action import InfoPushDataCallToAction
 from vrchatapi.models.info_push_data_category import InfoPushDataCategory
 from vrchatapi.models.info_push_data_clickable import InfoPushDataClickable
+from vrchatapi.models.info_push_data_delivery_behavior import InfoPushDataDeliveryBehavior
 from vrchatapi.models.info_push_data_domain_list_inner import InfoPushDataDomainListInner
 from vrchatapi.models.info_push_data_search import InfoPushDataSearch
 from vrchatapi.models.info_push_embedded_link import InfoPushEmbeddedLink

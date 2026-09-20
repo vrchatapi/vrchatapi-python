@@ -40,9 +40,12 @@ class InfoPushData(object):
         'author_name': 'str',
         'avatar_id': 'str',
         'banner_image_url': 'str',
+        'body': 'str',
         'categories': 'list[InfoPushDataCategory]',
         'category': 'str',
         'content_list': 'DynamicContentRow',
+        'cta': 'InfoPushDataCallToAction',
+        'delivery_behavior': 'InfoPushDataDeliveryBehavior',
         'description': 'str',
         'disclaimer_text': 'str',
         'domain_list': 'list[InfoPushDataDomainListInner]',
@@ -50,20 +53,26 @@ class InfoPushData(object):
         'final_name': 'str',
         'hover_to_join': 'bool',
         'icon_image_url': 'str',
+        'image_file_id': 'str',
         'image_url': 'str',
         'ips_query': 'InfoPushIpsQuery',
         'is_new': 'bool',
         'listing_ids': 'list[str]',
+        'media_type': 'str',
         'name': 'str',
         'on_pressed': 'InfoPushDataClickable',
         'override_name': 'object',
         'rows': 'int',
         'search': 'InfoPushDataSearch',
         'short_name': 'str',
+        'show_in_world_ids': 'object',
         'template': 'str',
         'thumbnail_image_url': 'str',
+        'title': 'str',
         'tooltip_description': 'str',
         'version': 'str',
+        'video_file_id': 'str',
+        'video_url': 'str',
         'weight': 'int',
         'world_tag': 'str'
     }
@@ -73,9 +82,12 @@ class InfoPushData(object):
         'author_name': 'authorName',
         'avatar_id': 'avatarId',
         'banner_image_url': 'bannerImageUrl',
+        'body': 'body',
         'categories': 'categories',
         'category': 'category',
         'content_list': 'contentList',
+        'cta': 'cta',
+        'delivery_behavior': 'deliveryBehavior',
         'description': 'description',
         'disclaimer_text': 'disclaimerText',
         'domain_list': 'domainList',
@@ -83,25 +95,31 @@ class InfoPushData(object):
         'final_name': 'finalName',
         'hover_to_join': 'hoverToJoin',
         'icon_image_url': 'iconImageUrl',
+        'image_file_id': 'imageFileId',
         'image_url': 'imageUrl',
         'ips_query': 'ipsQuery',
         'is_new': 'isNew',
         'listing_ids': 'listingIds',
+        'media_type': 'mediaType',
         'name': 'name',
         'on_pressed': 'onPressed',
         'override_name': 'overrideName',
         'rows': 'rows',
         'search': 'search',
         'short_name': 'shortName',
+        'show_in_world_ids': 'showInWorldIds',
         'template': 'template',
         'thumbnail_image_url': 'thumbnailImageUrl',
+        'title': 'title',
         'tooltip_description': 'tooltipDescription',
         'version': 'version',
+        'video_file_id': 'videoFileId',
+        'video_url': 'videoUrl',
         'weight': 'weight',
         'world_tag': 'worldTag'
     }
 
-    def __init__(self, article=None, author_name=None, avatar_id=None, banner_image_url=None, categories=None, category=None, content_list=None, description=None, disclaimer_text=None, domain_list=None, featured_avatar_category_id=None, final_name=None, hover_to_join=None, icon_image_url=None, image_url=None, ips_query=None, is_new=None, listing_ids=None, name=None, on_pressed=None, override_name=None, rows=None, search=None, short_name=None, template=None, thumbnail_image_url=None, tooltip_description=None, version=None, weight=None, world_tag=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, article=None, author_name=None, avatar_id=None, banner_image_url=None, body=None, categories=None, category=None, content_list=None, cta=None, delivery_behavior=None, description=None, disclaimer_text=None, domain_list=None, featured_avatar_category_id=None, final_name=None, hover_to_join=None, icon_image_url=None, image_file_id=None, image_url=None, ips_query=None, is_new=None, listing_ids=None, media_type=None, name=None, on_pressed=None, override_name=None, rows=None, search=None, short_name=None, show_in_world_ids=None, template=None, thumbnail_image_url=None, title=None, tooltip_description=None, version=None, video_file_id=None, video_url=None, weight=None, world_tag=None, local_vars_configuration=None):  # noqa: E501
         """InfoPushData - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration.get_default_copy()
@@ -111,9 +129,12 @@ class InfoPushData(object):
         self._author_name = None
         self._avatar_id = None
         self._banner_image_url = None
+        self._body = None
         self._categories = None
         self._category = None
         self._content_list = None
+        self._cta = None
+        self._delivery_behavior = None
         self._description = None
         self._disclaimer_text = None
         self._domain_list = None
@@ -121,20 +142,26 @@ class InfoPushData(object):
         self._final_name = None
         self._hover_to_join = None
         self._icon_image_url = None
+        self._image_file_id = None
         self._image_url = None
         self._ips_query = None
         self._is_new = None
         self._listing_ids = None
+        self._media_type = None
         self._name = None
         self._on_pressed = None
         self._override_name = None
         self._rows = None
         self._search = None
         self._short_name = None
+        self._show_in_world_ids = None
         self._template = None
         self._thumbnail_image_url = None
+        self._title = None
         self._tooltip_description = None
         self._version = None
+        self._video_file_id = None
+        self._video_url = None
         self._weight = None
         self._world_tag = None
         self.discriminator = None
@@ -147,12 +174,18 @@ class InfoPushData(object):
             self.avatar_id = avatar_id
         if banner_image_url is not None:
             self.banner_image_url = banner_image_url
+        if body is not None:
+            self.body = body
         if categories is not None:
             self.categories = categories
         if category is not None:
             self.category = category
         if content_list is not None:
             self.content_list = content_list
+        if cta is not None:
+            self.cta = cta
+        if delivery_behavior is not None:
+            self.delivery_behavior = delivery_behavior
         if description is not None:
             self.description = description
         if disclaimer_text is not None:
@@ -167,6 +200,8 @@ class InfoPushData(object):
             self.hover_to_join = hover_to_join
         if icon_image_url is not None:
             self.icon_image_url = icon_image_url
+        if image_file_id is not None:
+            self.image_file_id = image_file_id
         self.image_url = image_url
         if ips_query is not None:
             self.ips_query = ips_query
@@ -174,6 +209,8 @@ class InfoPushData(object):
             self.is_new = is_new
         if listing_ids is not None:
             self.listing_ids = listing_ids
+        if media_type is not None:
+            self.media_type = media_type
         if name is not None:
             self.name = name
         if on_pressed is not None:
@@ -183,13 +220,20 @@ class InfoPushData(object):
         if search is not None:
             self.search = search
         self.short_name = short_name
+        self.show_in_world_ids = show_in_world_ids
         if template is not None:
             self.template = template
         self.thumbnail_image_url = thumbnail_image_url
+        if title is not None:
+            self.title = title
         if tooltip_description is not None:
             self.tooltip_description = tooltip_description
         if version is not None:
             self.version = version
+        if video_file_id is not None:
+            self.video_file_id = video_file_id
+        if video_url is not None:
+            self.video_url = video_url
         if weight is not None:
             self.weight = weight
         if world_tag is not None:
@@ -280,6 +324,27 @@ class InfoPushData(object):
         self._banner_image_url = banner_image_url
 
     @property
+    def body(self):
+        """Gets the body of this InfoPushData.  # noqa: E501
+
+
+        :return: The body of this InfoPushData.  # noqa: E501
+        :rtype: str
+        """
+        return self._body
+
+    @body.setter
+    def body(self, body):
+        """Sets the body of this InfoPushData.
+
+
+        :param body: The body of this InfoPushData.  # noqa: E501
+        :type body: str
+        """
+
+        self._body = body
+
+    @property
     def categories(self):
         """Gets the categories of this InfoPushData.  # noqa: E501
 
@@ -341,6 +406,48 @@ class InfoPushData(object):
         """
 
         self._content_list = content_list
+
+    @property
+    def cta(self):
+        """Gets the cta of this InfoPushData.  # noqa: E501
+
+
+        :return: The cta of this InfoPushData.  # noqa: E501
+        :rtype: InfoPushDataCallToAction
+        """
+        return self._cta
+
+    @cta.setter
+    def cta(self, cta):
+        """Sets the cta of this InfoPushData.
+
+
+        :param cta: The cta of this InfoPushData.  # noqa: E501
+        :type cta: InfoPushDataCallToAction
+        """
+
+        self._cta = cta
+
+    @property
+    def delivery_behavior(self):
+        """Gets the delivery_behavior of this InfoPushData.  # noqa: E501
+
+
+        :return: The delivery_behavior of this InfoPushData.  # noqa: E501
+        :rtype: InfoPushDataDeliveryBehavior
+        """
+        return self._delivery_behavior
+
+    @delivery_behavior.setter
+    def delivery_behavior(self, delivery_behavior):
+        """Sets the delivery_behavior of this InfoPushData.
+
+
+        :param delivery_behavior: The delivery_behavior of this InfoPushData.  # noqa: E501
+        :type delivery_behavior: InfoPushDataDeliveryBehavior
+        """
+
+        self._delivery_behavior = delivery_behavior
 
     @property
     def description(self):
@@ -490,6 +597,27 @@ class InfoPushData(object):
         self._icon_image_url = icon_image_url
 
     @property
+    def image_file_id(self):
+        """Gets the image_file_id of this InfoPushData.  # noqa: E501
+
+
+        :return: The image_file_id of this InfoPushData.  # noqa: E501
+        :rtype: str
+        """
+        return self._image_file_id
+
+    @image_file_id.setter
+    def image_file_id(self, image_file_id):
+        """Sets the image_file_id of this InfoPushData.
+
+
+        :param image_file_id: The image_file_id of this InfoPushData.  # noqa: E501
+        :type image_file_id: str
+        """
+
+        self._image_file_id = image_file_id
+
+    @property
     def image_url(self):
         """Gets the image_url of this InfoPushData.  # noqa: E501
 
@@ -572,6 +700,27 @@ class InfoPushData(object):
         """
 
         self._listing_ids = listing_ids
+
+    @property
+    def media_type(self):
+        """Gets the media_type of this InfoPushData.  # noqa: E501
+
+
+        :return: The media_type of this InfoPushData.  # noqa: E501
+        :rtype: str
+        """
+        return self._media_type
+
+    @media_type.setter
+    def media_type(self, media_type):
+        """Sets the media_type of this InfoPushData.
+
+
+        :param media_type: The media_type of this InfoPushData.  # noqa: E501
+        :type media_type: str
+        """
+
+        self._media_type = media_type
 
     @property
     def name(self):
@@ -702,6 +851,27 @@ class InfoPushData(object):
         self._short_name = short_name
 
     @property
+    def show_in_world_ids(self):
+        """Gets the show_in_world_ids of this InfoPushData.  # noqa: E501
+
+
+        :return: The show_in_world_ids of this InfoPushData.  # noqa: E501
+        :rtype: object
+        """
+        return self._show_in_world_ids
+
+    @show_in_world_ids.setter
+    def show_in_world_ids(self, show_in_world_ids):
+        """Sets the show_in_world_ids of this InfoPushData.
+
+
+        :param show_in_world_ids: The show_in_world_ids of this InfoPushData.  # noqa: E501
+        :type show_in_world_ids: object
+        """
+
+        self._show_in_world_ids = show_in_world_ids
+
+    @property
     def template(self):
         """Gets the template of this InfoPushData.  # noqa: E501
 
@@ -742,6 +912,27 @@ class InfoPushData(object):
         """
 
         self._thumbnail_image_url = thumbnail_image_url
+
+    @property
+    def title(self):
+        """Gets the title of this InfoPushData.  # noqa: E501
+
+
+        :return: The title of this InfoPushData.  # noqa: E501
+        :rtype: str
+        """
+        return self._title
+
+    @title.setter
+    def title(self, title):
+        """Sets the title of this InfoPushData.
+
+
+        :param title: The title of this InfoPushData.  # noqa: E501
+        :type title: str
+        """
+
+        self._title = title
 
     @property
     def tooltip_description(self):
@@ -787,6 +978,48 @@ class InfoPushData(object):
             raise ValueError("Invalid value for `version`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._version = version
+
+    @property
+    def video_file_id(self):
+        """Gets the video_file_id of this InfoPushData.  # noqa: E501
+
+
+        :return: The video_file_id of this InfoPushData.  # noqa: E501
+        :rtype: str
+        """
+        return self._video_file_id
+
+    @video_file_id.setter
+    def video_file_id(self, video_file_id):
+        """Sets the video_file_id of this InfoPushData.
+
+
+        :param video_file_id: The video_file_id of this InfoPushData.  # noqa: E501
+        :type video_file_id: str
+        """
+
+        self._video_file_id = video_file_id
+
+    @property
+    def video_url(self):
+        """Gets the video_url of this InfoPushData.  # noqa: E501
+
+
+        :return: The video_url of this InfoPushData.  # noqa: E501
+        :rtype: str
+        """
+        return self._video_url
+
+    @video_url.setter
+    def video_url(self, video_url):
+        """Sets the video_url of this InfoPushData.
+
+
+        :param video_url: The video_url of this InfoPushData.  # noqa: E501
+        :type video_url: str
+        """
+
+        self._video_url = video_url
 
     @property
     def weight(self):

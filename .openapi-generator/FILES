@@ -174,8 +174,10 @@ docs/InfoPush.md
 docs/InfoPushData.md
 docs/InfoPushDataArticle.md
 docs/InfoPushDataArticleContent.md
+docs/InfoPushDataCallToAction.md
 docs/InfoPushDataCategory.md
 docs/InfoPushDataClickable.md
+docs/InfoPushDataDeliveryBehavior.md
 docs/InfoPushDataDomainListInner.md
 docs/InfoPushDataSearch.md
 docs/InfoPushEmbeddedLink.md
@@ -585,8 +587,10 @@ vrchatapi/models/info_push.py
 vrchatapi/models/info_push_data.py
 vrchatapi/models/info_push_data_article.py
 vrchatapi/models/info_push_data_article_content.py
+vrchatapi/models/info_push_data_call_to_action.py
 vrchatapi/models/info_push_data_category.py
 vrchatapi/models/info_push_data_clickable.py
+vrchatapi/models/info_push_data_delivery_behavior.py
 vrchatapi/models/info_push_data_domain_list_inner.py
 vrchatapi/models/info_push_data_search.py
 vrchatapi/models/info_push_embedded_link.py
