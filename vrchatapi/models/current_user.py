@@ -102,7 +102,7 @@ class CurrentUser(object):
         'personalization_opt_out': 'bool',
         'pico_id': 'str',
         'platform': 'str',
-        'platform_history': 'list[CurrentUserPlatformHistoryInner]',
+        'platform_history': 'list[PlatformHistoryEntry]',
         'presence': 'CurrentUserPresence',
         'profile_effect': 'str',
         'pronouns': 'str',
@@ -677,6 +677,7 @@ class CurrentUser(object):
     def apple_details(self):
         """Gets the apple_details of this CurrentUser.  # noqa: E501
 
+        Details of an account on another service linked to this one.  # noqa: E501
 
         :return: The apple_details of this CurrentUser.  # noqa: E501
         :rtype: object
@@ -687,6 +688,7 @@ class CurrentUser(object):
     def apple_details(self, apple_details):
         """Sets the apple_details of this CurrentUser.
 
+        Details of an account on another service linked to this one.  # noqa: E501
 
         :param apple_details: The apple_details of this CurrentUser.  # noqa: E501
         :type apple_details: object
@@ -1198,6 +1200,7 @@ class CurrentUser(object):
     def google_details(self):
         """Gets the google_details of this CurrentUser.  # noqa: E501
 
+        Details of an account on another service linked to this one.  # noqa: E501
 
         :return: The google_details of this CurrentUser.  # noqa: E501
         :rtype: object
@@ -1208,6 +1211,7 @@ class CurrentUser(object):
     def google_details(self, google_details):
         """Sets the google_details of this CurrentUser.
 
+        Details of an account on another service linked to this one.  # noqa: E501
 
         :param google_details: The google_details of this CurrentUser.  # noqa: E501
         :type google_details: object
@@ -1975,7 +1979,7 @@ class CurrentUser(object):
 
 
         :return: The platform_history of this CurrentUser.  # noqa: E501
-        :rtype: list[CurrentUserPlatformHistoryInner]
+        :rtype: list[PlatformHistoryEntry]
         """
         return self._platform_history
 
@@ -1985,7 +1989,7 @@ class CurrentUser(object):
 
 
         :param platform_history: The platform_history of this CurrentUser.  # noqa: E501
-        :type platform_history: list[CurrentUserPlatformHistoryInner]
+        :type platform_history: list[PlatformHistoryEntry]
         """
 
         self._platform_history = platform_history
@@ -2239,6 +2243,7 @@ class CurrentUser(object):
     def steam_details(self):
         """Gets the steam_details of this CurrentUser.  # noqa: E501
 
+        Details of an account on another service linked to this one.  # noqa: E501
 
         :return: The steam_details of this CurrentUser.  # noqa: E501
         :rtype: object
@@ -2249,6 +2254,7 @@ class CurrentUser(object):
     def steam_details(self, steam_details):
         """Sets the steam_details of this CurrentUser.
 
+        Details of an account on another service linked to this one.  # noqa: E501
 
         :param steam_details: The steam_details of this CurrentUser.  # noqa: E501
         :type steam_details: object
@@ -2392,6 +2398,7 @@ class CurrentUser(object):
     def twitch_details(self):
         """Gets the twitch_details of this CurrentUser.  # noqa: E501
 
+        Details of an account on another service linked to this one.  # noqa: E501
 
         :return: The twitch_details of this CurrentUser.  # noqa: E501
         :rtype: object
@@ -2402,6 +2409,7 @@ class CurrentUser(object):
     def twitch_details(self, twitch_details):
         """Sets the twitch_details of this CurrentUser.
 
+        Details of an account on another service linked to this one.  # noqa: E501
 
         :param twitch_details: The twitch_details of this CurrentUser.  # noqa: E501
         :type twitch_details: object

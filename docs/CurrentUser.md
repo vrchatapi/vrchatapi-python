@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **age_verification_status** | [**AgeVerificationStatus**](AgeVerificationStatus.md) |  | 
 **age_verified** | **bool** | &#x60;true&#x60; if, user is age verified (not 18+). | 
 **allow_avatar_copying** | **bool** |  | 
-**apple_details** | **object** |  | [optional] 
+**apple_details** | **object** | Details of an account on another service linked to this one. | [optional] 
 **apple_id** | **str** |  | [optional] 
 **auth_token** | **str** | The auth token for NEWLY REGISTERED ACCOUNTS ONLY (/auth/register) | [optional] 
 **banner_color** | **str** | Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty. | [optional] 
@@ -35,7 +35,7 @@ Name | Type | Description | Notes
 **friend_key** | **str** |  | 
 **friend_request_status** | **str** | State of a friend request between the caller and this user. VRChat sends the string &#x60;\&quot;null\&quot;&#x60;, not JSON &#x60;null&#x60;. | [optional] 
 **friends** | **list[str]** |  | 
-**google_details** | **object** |  | [optional] 
+**google_details** | **object** | Details of an account on another service linked to this one. | [optional] 
 **google_id** | **str** |  | [optional] 
 **has_birthday** | **bool** |  | 
 **has_discord_friends_opt_out** | **bool** |  | [optional] 
@@ -70,7 +70,7 @@ Name | Type | Description | Notes
 **personalization_opt_out** | **bool** |  | [optional] 
 **pico_id** | **str** |  | [optional] 
 **platform** | **str** |  | [optional] 
-**platform_history** | [**list[CurrentUserPlatformHistoryInner]**](CurrentUserPlatformHistoryInner.md) |  | [optional] 
+**platform_history** | [**list[PlatformHistoryEntry]**](PlatformHistoryEntry.md) |  | [optional] 
 **presence** | [**CurrentUserPresence**](CurrentUserPresence.md) |  | [optional] 
 **profile_effect** | **str** |  | [optional] 
 **pronouns** | **str** |  | 
@@ -82,14 +82,14 @@ Name | Type | Description | Notes
 **status_description** | **str** |  | 
 **status_first_time** | **bool** |  | 
 **status_history** | **list[str]** |  | 
-**steam_details** | **object** |  | 
+**steam_details** | **object** | Details of an account on another service linked to this one. | 
 **steam_id** | **str** |  | 
 **tags** | **list[str]** |  | 
 **temporary_expiry_date** | **object** |  | [optional] 
 **traveling_to_instance** | **str** |  | [optional] 
 **traveling_to_location** | **str** |  | [optional] 
 **traveling_to_world** | **str** |  | [optional] 
-**twitch_details** | **object** |  | [optional] 
+**twitch_details** | **object** | Details of an account on another service linked to this one. | [optional] 
 **twitch_id** | **str** |  | [optional] 
 **two_factor_auth_enabled** | **bool** |  | 
 **two_factor_auth_enabled_date** | **datetime** |  | [optional] 

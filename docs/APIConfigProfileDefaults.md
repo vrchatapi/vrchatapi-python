@@ -1,6 +1,6 @@
 # APIConfigProfileDefaults
 
-Default profile theme colours, each a hex RGB triplet without a leading `#`.
+Default profile theme colors.
 
 ## Properties
 Name | Type | Description | Notes

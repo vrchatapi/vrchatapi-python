@@ -43,7 +43,7 @@ class User(object):
         'age_verification_status': 'AgeVerificationStatus',
         'age_verified': 'bool',
         'allow_avatar_copying': 'bool',
-        'apple_details': 'dict(str, object)',
+        'apple_details': 'object',
         'banner_color': 'str',
         'banner_type': 'str',
         'banner_url': 'str',
@@ -389,9 +389,10 @@ class User(object):
     def apple_details(self):
         """Gets the apple_details of this User.  # noqa: E501
 
+        Details of an account on another service linked to this one.  # noqa: E501
 
         :return: The apple_details of this User.  # noqa: E501
-        :rtype: dict(str, object)
+        :rtype: object
         """
         return self._apple_details
 
@@ -399,9 +400,10 @@ class User(object):
     def apple_details(self, apple_details):
         """Sets the apple_details of this User.
 
+        Details of an account on another service linked to this one.  # noqa: E501
 
         :param apple_details: The apple_details of this User.  # noqa: E501
-        :type apple_details: dict(str, object)
+        :type apple_details: object
         """
 
         self._apple_details = apple_details

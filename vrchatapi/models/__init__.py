@@ -100,7 +100,6 @@ from vrchatapi.models.create_product_request import CreateProductRequest
 from vrchatapi.models.create_prop_request import CreatePropRequest
 from vrchatapi.models.create_world_request import CreateWorldRequest
 from vrchatapi.models.current_user import CurrentUser
-from vrchatapi.models.current_user_platform_history_inner import CurrentUserPlatformHistoryInner
 from vrchatapi.models.current_user_presence import CurrentUserPresence
 from vrchatapi.models.decline_group_invite_request import DeclineGroupInviteRequest
 from vrchatapi.models.developer_type import DeveloperType
@@ -263,6 +262,7 @@ from vrchatapi.models.performance_ratings import PerformanceRatings
 from vrchatapi.models.permission import Permission
 from vrchatapi.models.permission_data import PermissionData
 from vrchatapi.models.platform_build_info import PlatformBuildInfo
+from vrchatapi.models.platform_history_entry import PlatformHistoryEntry
 from vrchatapi.models.player_moderation import PlayerModeration
 from vrchatapi.models.player_moderation_type import PlayerModerationType
 from vrchatapi.models.print_files import PrintFiles

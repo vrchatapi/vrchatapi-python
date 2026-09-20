@@ -88,7 +88,6 @@ docs/CreateProductRequest.md
 docs/CreatePropRequest.md
 docs/CreateWorldRequest.md
 docs/CurrentUser.md
-docs/CurrentUserPlatformHistoryInner.md
 docs/CurrentUserPresence.md
 docs/DeclineGroupInviteRequest.md
 docs/DeveloperType.md
@@ -262,6 +261,7 @@ docs/PerformanceRatings.md
 docs/Permission.md
 docs/PermissionData.md
 docs/PlatformBuildInfo.md
+docs/PlatformHistoryEntry.md
 docs/PlayerModeration.md
 docs/PlayerModerationType.md
 docs/PlayermoderationApi.md
@@ -504,7 +504,6 @@ vrchatapi/models/create_product_request.py
 vrchatapi/models/create_prop_request.py
 vrchatapi/models/create_world_request.py
 vrchatapi/models/current_user.py
-vrchatapi/models/current_user_platform_history_inner.py
 vrchatapi/models/current_user_presence.py
 vrchatapi/models/decline_group_invite_request.py
 vrchatapi/models/developer_type.py
@@ -667,6 +666,7 @@ vrchatapi/models/performance_ratings.py
 vrchatapi/models/permission.py
 vrchatapi/models/permission_data.py
 vrchatapi/models/platform_build_info.py
+vrchatapi/models/platform_history_entry.py
 vrchatapi/models/player_moderation.py
 vrchatapi/models/player_moderation_type.py
 vrchatapi/models/print_files.py

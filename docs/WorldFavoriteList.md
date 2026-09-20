@@ -1,6 +1,6 @@
 # WorldFavoriteList
 
-A world favorite group summarised for a public profile, with a sample of its worlds' thumbnails.
+A world favorite group as a public profile lists it, with a sample of its worlds' thumbnails.
 
 ## Properties
 Name | Type | Description | Notes

@@ -467,14 +467,14 @@ class InventoryApi(object):
             collection_formats=collection_formats,
             _request_auth=local_var_params.get('_request_auth'))
 
-    def get_cosmetic_index(self, item_type, **kwargs):  # noqa: E501
+    def get_cosmetics(self, item_type, **kwargs):  # noqa: E501
         """List Cosmetics  # noqa: E501
 
         List every cosmetic of a kind that VRChat has published, whether or not the caller owns it.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.get_cosmetic_index(item_type, async_req=True)
+        >>> thread = api.get_cosmetics(item_type, async_req=True)
         >>> result = thread.get()
 
         :param item_type: The kind of cosmetic to list. (required)
@@ -495,16 +495,16 @@ class InventoryApi(object):
         :rtype: list[InventoryTemplate]
         """
         kwargs['_return_http_data_only'] = True
-        return self.get_cosmetic_index_with_http_info(item_type, **kwargs)  # noqa: E501
+        return self.get_cosmetics_with_http_info(item_type, **kwargs)  # noqa: E501
 
-    def get_cosmetic_index_with_http_info(self, item_type, **kwargs):  # noqa: E501
+    def get_cosmetics_with_http_info(self, item_type, **kwargs):  # noqa: E501
         """List Cosmetics  # noqa: E501
 
         List every cosmetic of a kind that VRChat has published, whether or not the caller owns it.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.get_cosmetic_index_with_http_info(item_type, async_req=True)
+        >>> thread = api.get_cosmetics_with_http_info(item_type, async_req=True)
         >>> result = thread.get()
 
         :param item_type: The kind of cosmetic to list. (required)
@@ -554,13 +554,13 @@ class InventoryApi(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method get_cosmetic_index" % key
+                    " to method get_cosmetics" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'item_type' is set
         if self.api_client.client_side_validation and local_var_params.get('item_type') is None:  # noqa: E501
-            raise ApiValueError("Missing the required parameter `item_type` when calling `get_cosmetic_index`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `item_type` when calling `get_cosmetics`")  # noqa: E501
 
         collection_formats = {}
 
