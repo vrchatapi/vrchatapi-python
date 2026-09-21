@@ -28,7 +28,7 @@ Name | Type | Description | Notes
 **platforms** | [**list[CalendarEventPlatform]**](CalendarEventPlatform.md) |  | [optional] 
 **recurrence** | [**CalendarEventRecurrence**](CalendarEventRecurrence.md) |  | [optional] 
 **role_ids** | **list[str]** | Group roles that may join this event | [optional] 
-**series_id** | **str** | So far unused, always \&quot;null\&quot; | [optional] 
+**series_id** | **str** |  | [optional] 
 **starts_at** | **datetime** |  | 
 **tags** | **list[str]** | Custom tags for this event | [optional] 
 **title** | **str** |  | 

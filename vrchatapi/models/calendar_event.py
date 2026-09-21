@@ -162,7 +162,8 @@ class CalendarEvent(object):
         self.id = id
         if image_id is not None:
             self.image_id = image_id
-        self.image_url = image_url
+        if image_url is not None:
+            self.image_url = image_url
         if interested_user_count is not None:
             self.interested_user_count = interested_user_count
         if is_draft is not None:
@@ -171,14 +172,16 @@ class CalendarEvent(object):
             self.languages = languages
         if occurrence_kind is not None:
             self.occurrence_kind = occurrence_kind
-        self.occurrence_modified = occurrence_modified
+        if occurrence_modified is not None:
+            self.occurrence_modified = occurrence_modified
         if owner_id is not None:
             self.owner_id = owner_id
         if platforms is not None:
             self.platforms = platforms
         self.recurrence = recurrence
         self.role_ids = role_ids
-        self.series_id = series_id
+        if series_id is not None:
+            self.series_id = series_id
         self.starts_at = starts_at
         if tags is not None:
             self.tags = tags
@@ -693,7 +696,6 @@ class CalendarEvent(object):
     def series_id(self):
         """Gets the series_id of this CalendarEvent.  # noqa: E501
 
-        So far unused, always \"null\"  # noqa: E501
 
         :return: The series_id of this CalendarEvent.  # noqa: E501
         :rtype: str
@@ -704,7 +706,6 @@ class CalendarEvent(object):
     def series_id(self, series_id):
         """Sets the series_id of this CalendarEvent.
 
-        So far unused, always \"null\"  # noqa: E501
 
         :param series_id: The series_id of this CalendarEvent.  # noqa: E501
         :type series_id: str
