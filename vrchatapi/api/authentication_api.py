@@ -301,6 +301,7 @@ class AuthenticationApi(object):
         response_types_map = {
             200: "UserExists",
             400: "Error",
+            429: None,
         }
 
         return self.api_client.call_api(
