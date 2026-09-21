@@ -110,6 +110,7 @@ Checks if a user by a given `username`, `displayName` or `email` exist. This is 
 
 ### Example
 
+* Api Key Authentication (authCookie):
 ```python
 from __future__ import print_function
 import time
@@ -122,9 +123,19 @@ configuration = vrchatapi.Configuration(
     host = "https://api.vrchat.cloud/api/1"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: authCookie
+configuration.api_key['authCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['authCookie'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with vrchatapi.ApiClient() as api_client:
+with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = vrchatapi.AuthenticationApi(api_client)
     email = 'email_example' # str | Filter by email. (optional)
@@ -155,7 +166,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[authCookie](../README.md#authCookie)
 
 ### HTTP request headers
 
