@@ -63,7 +63,7 @@ class CalendarEventDiscovery(object):
     def next_cursor(self):
         """Gets the next_cursor of this CalendarEventDiscovery.  # noqa: E501
 
-        Base64-encoded JSON:   type: object   properties:     dataSource:       type: string       enum:         - featured         - personalized     dataIndex:       type: integer       format: int32     phase:       type: string       enum:         - all         - live         - upcoming       description: see CalendarEventDiscoveryScope     asOf:       type: integer       format: int64       description: milliseconds since Unix epoch     paramHash:       type: string       format: string       description: Base64-encoded 256-bit hash of the original query parameters  # noqa: E501
+        Base64-encoded JSON:   type: object   properties:     dataSource:       type: string       enum:         - featured         - personalized     dataIndex:       type: integer       format: int32     phase:       type: string       enum:         - all         - live         - upcoming       description: see CalendarEventDiscoveryScope     asOf:       type: integer       format: int64       description: milliseconds since Unix epoch     paramHash:       type: string       description: Base64-encoded 256-bit hash of the original query parameters  # noqa: E501
 
         :return: The next_cursor of this CalendarEventDiscovery.  # noqa: E501
         :rtype: str
@@ -74,7 +74,7 @@ class CalendarEventDiscovery(object):
     def next_cursor(self, next_cursor):
         """Sets the next_cursor of this CalendarEventDiscovery.
 
-        Base64-encoded JSON:   type: object   properties:     dataSource:       type: string       enum:         - featured         - personalized     dataIndex:       type: integer       format: int32     phase:       type: string       enum:         - all         - live         - upcoming       description: see CalendarEventDiscoveryScope     asOf:       type: integer       format: int64       description: milliseconds since Unix epoch     paramHash:       type: string       format: string       description: Base64-encoded 256-bit hash of the original query parameters  # noqa: E501
+        Base64-encoded JSON:   type: object   properties:     dataSource:       type: string       enum:         - featured         - personalized     dataIndex:       type: integer       format: int32     phase:       type: string       enum:         - all         - live         - upcoming       description: see CalendarEventDiscoveryScope     asOf:       type: integer       format: int64       description: milliseconds since Unix epoch     paramHash:       type: string       description: Base64-encoded 256-bit hash of the original query parameters  # noqa: E501
 
         :param next_cursor: The next_cursor of this CalendarEventDiscovery.  # noqa: E501
         :type next_cursor: str
