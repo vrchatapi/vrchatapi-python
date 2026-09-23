@@ -2321,7 +2321,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Returns a list of GroupMember objects. |  -  |
+**200** | Returns a single GroupMember object, or &#x60;null&#x60; when the user is not a member of the group. |  -  |
 **401** | Error response due to missing auth cookie. |  -  |
 **403** | Error response when trying to perform operations on a group you are not member of. |  -  |
 **404** | The requested resource does not exist. The message varies by resource and by route, and only some name the id. Worlds sometimes answer &#x60;model &lt;worldId&gt; not found&#x60; instead of &#x60;World &lt;worldId&gt; not found&#x60;. |  -  |
