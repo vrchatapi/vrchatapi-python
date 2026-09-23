@@ -45,20 +45,20 @@ jobs:
 
       - uses: vrchatapi/specification/.github/actions/download@main
         with:
-          bundle: openapi-legacy.yaml
+          bundle: openapi-3.0.yaml
 
       # PyPI wants `.dev` where the specification says `-nightly.`
       - id: version
         run: |
           version="${PASSED_VERSION}${VERSION_POSTPEND}"
-          version="${version:-$(yq -r '.info.version' openapi-legacy.yaml)}"
+          version="${version:-$(yq -r '.info.version' openapi-3.0.yaml)}"
 
           echo "version=${version/-nightly./.dev}" >> $GITHUB_OUTPUT
 
       - if: env.VERSION_POSTPEND != ''
-        run: yq '--inplace' ".info.version |= \"${{ steps.version.outputs.version }}\"" openapi-legacy.yaml
+        run: yq '--inplace' ".info.version |= \"${{ steps.version.outputs.version }}\"" openapi-3.0.yaml
 
-      - run: bash ./generate.sh openapi-legacy.yaml "${{ steps.version.outputs.version }}"
+      - run: bash ./generate.sh openapi-3.0.yaml "${{ steps.version.outputs.version }}"
 
       - uses: actions/upload-artifact@v7
         with:
@@ -124,7 +124,7 @@ jobs:
         with:
           name: python-generated
 
-      - run: rm -f openapi-legacy.yaml
+      - run: rm -f openapi-3.0.yaml
 
       - uses: JamesIves/github-pages-deploy-action@v4.9.0
         with:
