@@ -316,7 +316,7 @@ class PlayermoderationApi(object):
         >>> thread = api.moderate_user(moderate_user_request, async_req=True)
         >>> result = thread.get()
 
-        :param moderate_user_request:  (required)
+        :param moderate_user_request: (required)
         :type moderate_user_request: ModerateUserRequest
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
@@ -346,7 +346,7 @@ class PlayermoderationApi(object):
         >>> thread = api.moderate_user_with_http_info(moderate_user_request, async_req=True)
         >>> result = thread.get()
 
-        :param moderate_user_request:  (required)
+        :param moderate_user_request: (required)
         :type moderate_user_request: ModerateUserRequest
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional

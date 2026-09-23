@@ -39,7 +39,7 @@ class NotificationV2(object):
         'can_delete': 'bool',
         'category': 'str',
         'created_at': 'datetime',
-        'data': 'dict(str, str)',
+        'data': 'NotificationV2Data',
         'details': 'NotificationV2DetailsBoop',
         'display_data': 'object',
         'expires_at': 'datetime',
@@ -242,7 +242,7 @@ class NotificationV2(object):
 
 
         :return: The data of this NotificationV2.  # noqa: E501
-        :rtype: dict(str, str)
+        :rtype: NotificationV2Data
         """
         return self._data
 
@@ -252,7 +252,7 @@ class NotificationV2(object):
 
 
         :param data: The data of this NotificationV2.  # noqa: E501
-        :type data: dict(str, str)
+        :type data: NotificationV2Data
         """
         if self.local_vars_configuration.client_side_validation and data is None:  # noqa: E501
             raise ValueError("Invalid value for `data`, must not be `None`")  # noqa: E501

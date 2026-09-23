@@ -2010,7 +2010,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_group_gallery_images**
-> GetGroupGalleryImages200Response get_group_gallery_images(group_id, group_gallery_id, n=n, offset=offset, v=v, approved=approved)
+> object get_group_gallery_images(group_id, group_gallery_id, n=n, offset=offset, v=v, approved=approved)
 
 Get Group Gallery Images
 
@@ -2074,7 +2074,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetGroupGalleryImages200Response**](GetGroupGalleryImages200Response.md)
+**object**
 
 ### Authorization
 
@@ -2490,7 +2490,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_group_posts**
-> GetGroupPosts200Response get_group_posts(group_id, n=n, offset=offset, public_only=public_only)
+> GroupPostsResponse get_group_posts(group_id, n=n, offset=offset, public_only=public_only)
 
 Get posts from a Group
 
@@ -2550,7 +2550,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetGroupPosts200Response**](GetGroupPosts200Response.md)
+[**GroupPostsResponse**](GroupPostsResponse.md)
 
 ### Authorization
 
@@ -3345,7 +3345,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **search_group_members**
-> SearchGroupMembers200Response search_group_members(group_id, query, n=n, offset=offset)
+> GroupMemberSearchResponse search_group_members(group_id, query, n=n, offset=offset)
 
 Search Group Members
 
@@ -3405,7 +3405,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**SearchGroupMembers200Response**](SearchGroupMembers200Response.md)
+[**GroupMemberSearchResponse**](GroupMemberSearchResponse.md)
 
 ### Authorization
 

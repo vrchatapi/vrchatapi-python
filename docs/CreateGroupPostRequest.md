@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **image_id** | **str** |  | [optional] 
-**role_ids** | **list[str]** |   | [optional] 
+**role_ids** | **list[str]** |  | [optional] 
 **send_notification** | **bool** | Send notification to group members. | [default to False]
 **text** | **str** | Post text | 
 **title** | **str** | Post title | 

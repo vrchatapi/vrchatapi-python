@@ -46,7 +46,7 @@ class FavoritesApi(object):
         >>> thread = api.add_favorite(async_req=True)
         >>> result = thread.get()
 
-        :param add_favorite_request: 
+        :param add_favorite_request:
         :type add_favorite_request: AddFavoriteRequest
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
@@ -76,7 +76,7 @@ class FavoritesApi(object):
         >>> thread = api.add_favorite_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param add_favorite_request: 
+        :param add_favorite_request:
         :type add_favorite_request: AddFavoriteRequest
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional

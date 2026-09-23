@@ -262,7 +262,6 @@ class LimitedUserInstance(object):
     def bio_links(self):
         """Gets the bio_links of this LimitedUserInstance.  # noqa: E501
 
-           # noqa: E501
 
         :return: The bio_links of this LimitedUserInstance.  # noqa: E501
         :rtype: list[str]
@@ -273,7 +272,6 @@ class LimitedUserInstance(object):
     def bio_links(self, bio_links):
         """Sets the bio_links of this LimitedUserInstance.
 
-           # noqa: E501
 
         :param bio_links: The bio_links of this LimitedUserInstance.  # noqa: E501
         :type bio_links: list[str]

@@ -1,14 +1,13 @@
 # NotificationV2
 
 
-
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **can_delete** | **bool** |  | 
 **category** | **str** |  | 
 **created_at** | **datetime** |  | 
-**data** | **dict(str, str)** |  | 
+**data** | [**NotificationV2Data**](NotificationV2Data.md) |  | 
 **details** | [**NotificationV2DetailsBoop**](NotificationV2DetailsBoop.md) |  | [optional] 
 **display_data** | **object** |  | [optional] 
 **expires_at** | **datetime** |  | 

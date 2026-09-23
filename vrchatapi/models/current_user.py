@@ -560,7 +560,6 @@ class CurrentUser(object):
     def account_deletion_log(self):
         """Gets the account_deletion_log of this CurrentUser.  # noqa: E501
 
-           # noqa: E501
 
         :return: The account_deletion_log of this CurrentUser.  # noqa: E501
         :rtype: list[AccountDeletionLog]
@@ -571,7 +570,6 @@ class CurrentUser(object):
     def account_deletion_log(self, account_deletion_log):
         """Sets the account_deletion_log of this CurrentUser.
 
-           # noqa: E501
 
         :param account_deletion_log: The account_deletion_log of this CurrentUser.  # noqa: E501
         :type account_deletion_log: list[AccountDeletionLog]
@@ -583,7 +581,6 @@ class CurrentUser(object):
     def active_friends(self):
         """Gets the active_friends of this CurrentUser.  # noqa: E501
 
-           # noqa: E501
 
         :return: The active_friends of this CurrentUser.  # noqa: E501
         :rtype: list[str]
@@ -594,7 +591,6 @@ class CurrentUser(object):
     def active_friends(self, active_friends):
         """Sets the active_friends of this CurrentUser.
 
-           # noqa: E501
 
         :param active_friends: The active_friends of this CurrentUser.  # noqa: E501
         :type active_friends: list[str]
@@ -1889,7 +1885,6 @@ class CurrentUser(object):
     def past_display_names(self):
         """Gets the past_display_names of this CurrentUser.  # noqa: E501
 
-           # noqa: E501
 
         :return: The past_display_names of this CurrentUser.  # noqa: E501
         :rtype: list[PastDisplayName]
@@ -1900,7 +1895,6 @@ class CurrentUser(object):
     def past_display_names(self, past_display_names):
         """Sets the past_display_names of this CurrentUser.
 
-           # noqa: E501
 
         :param past_display_names: The past_display_names of this CurrentUser.  # noqa: E501
         :type past_display_names: list[PastDisplayName]

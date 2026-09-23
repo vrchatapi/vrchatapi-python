@@ -15,6 +15,7 @@ Method | HTTP request | Description
 [**enable2_fa**](AuthenticationApi.md#enable2_fa) | **POST** /auth/twofactorauth/totp/pending | Enable time-based 2FA codes
 [**get_current_user**](AuthenticationApi.md#get_current_user) | **GET** /auth/user | Login and/or Get Current User Info
 [**get_global_avatar_moderations**](AuthenticationApi.md#get_global_avatar_moderations) | **GET** /auth/user/avatarmoderations | Get Global Avatar Moderations
+[**get_interests_and_preferences**](AuthenticationApi.md#get_interests_and_preferences) | **GET** /auth/user/interestsAndPreferences | Get Interests and Preferences
 [**get_moderation_reports**](AuthenticationApi.md#get_moderation_reports) | **GET** /moderationReports | Get Moderation Reports
 [**get_o_auth_redirect_code**](AuthenticationApi.md#get_o_auth_redirect_code) | **GET** /oauth/redirectCode | Get OAuth Redirect Code
 [**get_recovery_codes**](AuthenticationApi.md#get_recovery_codes) | **GET** /auth/user/twofactorauth/otp | Get 2FA Recovery codes
@@ -23,6 +24,7 @@ Method | HTTP request | Description
 [**register_user_account**](AuthenticationApi.md#register_user_account) | **POST** /auth/register | Register User Account
 [**resend_email_confirmation**](AuthenticationApi.md#resend_email_confirmation) | **POST** /auth/user/resendEmail | Resend Email Confirmation
 [**submit_moderation_report**](AuthenticationApi.md#submit_moderation_report) | **POST** /moderationReports | Submit Moderation Report
+[**update_interests_and_preferences**](AuthenticationApi.md#update_interests_and_preferences) | **PUT** /auth/user/interestsAndPreferences | Update Interests and Preferences
 [**verify2_fa**](AuthenticationApi.md#verify2_fa) | **POST** /auth/twofactorauth/totp/verify | Verify 2FA code
 [**verify2_fa_email_code**](AuthenticationApi.md#verify2_fa_email_code) | **POST** /auth/twofactorauth/emailotp/verify | Verify 2FA email code
 [**verify_auth_token**](AuthenticationApi.md#verify_auth_token) | **GET** /auth | Verify Auth Token
@@ -685,7 +687,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_current_user**
-> CurrentUser get_current_user()
+> CurrentUserLoginResponse get_current_user()
 
 Login and/or Get Current User Info
 
@@ -845,7 +847,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**CurrentUser**](CurrentUser.md)
+[**CurrentUserLoginResponse**](CurrentUserLoginResponse.md)
 
 ### Authorization
 
@@ -930,6 +932,76 @@ This endpoint does not need any parameter.
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Returns list of globally blocked avatars with timestamps |  -  |
+**401** | Error response due to missing auth cookie. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_interests_and_preferences**
+> InterestsAndPreferences get_interests_and_preferences()
+
+Get Interests and Preferences
+
+Returns the interests and preferences the current user has turned on.
+
+### Example
+
+* Api Key Authentication (authCookie):
+```python
+from __future__ import print_function
+import time
+import vrchatapi
+from vrchatapi.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = vrchatapi.Configuration(
+    host = "https://api.vrchat.cloud/api/1"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: authCookie
+configuration.api_key['authCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['authCookie'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with vrchatapi.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = vrchatapi.AuthenticationApi(api_client)
+    
+    try:
+        # Get Interests and Preferences
+        api_response = api_instance.get_interests_and_preferences()
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling AuthenticationApi->get_interests_and_preferences: %s\n" % e)
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**InterestsAndPreferences**](InterestsAndPreferences.md)
+
+### Authorization
+
+[authCookie](../README.md#authCookie)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
 **401** | Error response due to missing auth cookie. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1303,7 +1375,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **register_user_account**
-> CurrentUser register_user_account(register_user_account_request)
+> CurrentUserLoginResponse register_user_account(register_user_account_request)
 
 Register User Account
 
@@ -1346,7 +1418,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CurrentUser**](CurrentUser.md)
+[**CurrentUserLoginResponse**](CurrentUserLoginResponse.md)
 
 ### Authorization
 
@@ -1505,6 +1577,81 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Returns a single ModerationReport object. |  -  |
+**401** | Error response due to missing auth cookie. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **update_interests_and_preferences**
+> Success update_interests_and_preferences(interests_and_preferences)
+
+Update Interests and Preferences
+
+Turns interests and preferences on with `true` and off with `false`. A key the body leaves out keeps its value, and an unknown key or a value that is not a boolean is ignored.
+
+### Example
+
+* Api Key Authentication (authCookie):
+```python
+from __future__ import print_function
+import time
+import vrchatapi
+from vrchatapi.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = vrchatapi.Configuration(
+    host = "https://api.vrchat.cloud/api/1"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: authCookie
+configuration.api_key['authCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['authCookie'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with vrchatapi.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = vrchatapi.AuthenticationApi(api_client)
+    interests_and_preferences = vrchatapi.InterestsAndPreferences() # InterestsAndPreferences | 
+
+    try:
+        # Update Interests and Preferences
+        api_response = api_instance.update_interests_and_preferences(interests_and_preferences)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling AuthenticationApi->update_interests_and_preferences: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **interests_and_preferences** | [**InterestsAndPreferences**](InterestsAndPreferences.md)|  | 
+
+### Return type
+
+[**Success**](Success.md)
+
+### Authorization
+
+[authCookie](../README.md#authCookie)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | The body is not a JSON object. |  -  |
 **401** | Error response due to missing auth cookie. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

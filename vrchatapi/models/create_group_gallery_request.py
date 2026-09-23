@@ -161,7 +161,6 @@ class CreateGroupGalleryRequest(object):
     def role_ids_to_auto_approve(self):
         """Gets the role_ids_to_auto_approve of this CreateGroupGalleryRequest.  # noqa: E501
 
-           # noqa: E501
 
         :return: The role_ids_to_auto_approve of this CreateGroupGalleryRequest.  # noqa: E501
         :rtype: list[str]
@@ -172,7 +171,6 @@ class CreateGroupGalleryRequest(object):
     def role_ids_to_auto_approve(self, role_ids_to_auto_approve):
         """Sets the role_ids_to_auto_approve of this CreateGroupGalleryRequest.
 
-           # noqa: E501
 
         :param role_ids_to_auto_approve: The role_ids_to_auto_approve of this CreateGroupGalleryRequest.  # noqa: E501
         :type role_ids_to_auto_approve: list[str]
@@ -184,7 +182,6 @@ class CreateGroupGalleryRequest(object):
     def role_ids_to_manage(self):
         """Gets the role_ids_to_manage of this CreateGroupGalleryRequest.  # noqa: E501
 
-           # noqa: E501
 
         :return: The role_ids_to_manage of this CreateGroupGalleryRequest.  # noqa: E501
         :rtype: list[str]
@@ -195,7 +192,6 @@ class CreateGroupGalleryRequest(object):
     def role_ids_to_manage(self, role_ids_to_manage):
         """Sets the role_ids_to_manage of this CreateGroupGalleryRequest.
 
-           # noqa: E501
 
         :param role_ids_to_manage: The role_ids_to_manage of this CreateGroupGalleryRequest.  # noqa: E501
         :type role_ids_to_manage: list[str]
@@ -207,7 +203,6 @@ class CreateGroupGalleryRequest(object):
     def role_ids_to_submit(self):
         """Gets the role_ids_to_submit of this CreateGroupGalleryRequest.  # noqa: E501
 
-           # noqa: E501
 
         :return: The role_ids_to_submit of this CreateGroupGalleryRequest.  # noqa: E501
         :rtype: list[str]
@@ -218,7 +213,6 @@ class CreateGroupGalleryRequest(object):
     def role_ids_to_submit(self, role_ids_to_submit):
         """Sets the role_ids_to_submit of this CreateGroupGalleryRequest.
 
-           # noqa: E501
 
         :param role_ids_to_submit: The role_ids_to_submit of this CreateGroupGalleryRequest.  # noqa: E501
         :type role_ids_to_submit: list[str]
@@ -230,7 +224,6 @@ class CreateGroupGalleryRequest(object):
     def role_ids_to_view(self):
         """Gets the role_ids_to_view of this CreateGroupGalleryRequest.  # noqa: E501
 
-           # noqa: E501
 
         :return: The role_ids_to_view of this CreateGroupGalleryRequest.  # noqa: E501
         :rtype: list[str]
@@ -241,7 +234,6 @@ class CreateGroupGalleryRequest(object):
     def role_ids_to_view(self, role_ids_to_view):
         """Sets the role_ids_to_view of this CreateGroupGalleryRequest.
 
-           # noqa: E501
 
         :param role_ids_to_view: The role_ids_to_view of this CreateGroupGalleryRequest.  # noqa: E501
         :type role_ids_to_view: list[str]

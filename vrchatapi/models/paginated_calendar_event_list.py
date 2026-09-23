@@ -92,7 +92,6 @@ class PaginatedCalendarEventList(object):
     def results(self):
         """Gets the results of this PaginatedCalendarEventList.  # noqa: E501
 
-           # noqa: E501
 
         :return: The results of this PaginatedCalendarEventList.  # noqa: E501
         :rtype: list[CalendarEvent]
@@ -103,7 +102,6 @@ class PaginatedCalendarEventList(object):
     def results(self, results):
         """Sets the results of this PaginatedCalendarEventList.
 
-           # noqa: E501
 
         :param results: The results of this PaginatedCalendarEventList.  # noqa: E501
         :type results: list[CalendarEvent]

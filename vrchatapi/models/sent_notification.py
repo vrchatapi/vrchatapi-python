@@ -37,7 +37,7 @@ class SentNotification(object):
     """
     openapi_types = {
         'created_at': 'datetime',
-        'details': 'dict(str, str)',
+        'details': 'SentNotificationDetails',
         'id': 'str',
         'message': 'str',
         'receiver_user_id': 'str',
@@ -112,7 +112,7 @@ class SentNotification(object):
 
 
         :return: The details of this SentNotification.  # noqa: E501
-        :rtype: dict(str, str)
+        :rtype: SentNotificationDetails
         """
         return self._details
 
@@ -122,7 +122,7 @@ class SentNotification(object):
 
 
         :param details: The details of this SentNotification.  # noqa: E501
-        :type details: dict(str, str)
+        :type details: SentNotificationDetails
         """
         if self.local_vars_configuration.client_side_validation and details is None:  # noqa: E501
             raise ValueError("Invalid value for `details`, must not be `None`")  # noqa: E501
@@ -159,7 +159,6 @@ class SentNotification(object):
     def message(self):
         """Gets the message of this SentNotification.  # noqa: E501
 
-          # noqa: E501
 
         :return: The message of this SentNotification.  # noqa: E501
         :rtype: str
@@ -170,7 +169,6 @@ class SentNotification(object):
     def message(self, message):
         """Sets the message of this SentNotification.
 
-          # noqa: E501
 
         :param message: The message of this SentNotification.  # noqa: E501
         :type message: str

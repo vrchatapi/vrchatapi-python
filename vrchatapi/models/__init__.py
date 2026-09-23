@@ -100,6 +100,7 @@ from vrchatapi.models.create_product_request import CreateProductRequest
 from vrchatapi.models.create_prop_request import CreatePropRequest
 from vrchatapi.models.create_world_request import CreateWorldRequest
 from vrchatapi.models.current_user import CurrentUser
+from vrchatapi.models.current_user_login_response import CurrentUserLoginResponse
 from vrchatapi.models.current_user_presence import CurrentUserPresence
 from vrchatapi.models.decline_group_invite_request import DeclineGroupInviteRequest
 from vrchatapi.models.developer_type import DeveloperType
@@ -142,9 +143,6 @@ from vrchatapi.models.file_version_upload_status import FileVersionUploadStatus
 from vrchatapi.models.finish_file_data_upload_request import FinishFileDataUploadRequest
 from vrchatapi.models.follow_calendar_event_request import FollowCalendarEventRequest
 from vrchatapi.models.friend_status import FriendStatus
-from vrchatapi.models.get_group_gallery_images200_response import GetGroupGalleryImages200Response
-from vrchatapi.models.get_group_posts200_response import GetGroupPosts200Response
-from vrchatapi.models.get_user_group_instances200_response import GetUserGroupInstances200Response
 from vrchatapi.models.group import Group
 from vrchatapi.models.group_access_type import GroupAccessType
 from vrchatapi.models.group_announcement import GroupAnnouncement
@@ -159,12 +157,14 @@ from vrchatapi.models.group_join_request_action import GroupJoinRequestAction
 from vrchatapi.models.group_join_state import GroupJoinState
 from vrchatapi.models.group_member import GroupMember
 from vrchatapi.models.group_member_limited_user import GroupMemberLimitedUser
+from vrchatapi.models.group_member_search_response import GroupMemberSearchResponse
 from vrchatapi.models.group_member_status import GroupMemberStatus
 from vrchatapi.models.group_my_member import GroupMyMember
 from vrchatapi.models.group_permission import GroupPermission
 from vrchatapi.models.group_permissions import GroupPermissions
 from vrchatapi.models.group_post import GroupPost
 from vrchatapi.models.group_post_visibility import GroupPostVisibility
+from vrchatapi.models.group_posts_response import GroupPostsResponse
 from vrchatapi.models.group_privacy import GroupPrivacy
 from vrchatapi.models.group_role import GroupRole
 from vrchatapi.models.group_role_template import GroupRoleTemplate
@@ -198,6 +198,7 @@ from vrchatapi.models.instance_region import InstanceRegion
 from vrchatapi.models.instance_short_name_response import InstanceShortNameResponse
 from vrchatapi.models.instance_type import InstanceType
 from vrchatapi.models.instance_vibe import InstanceVibe
+from vrchatapi.models.interests_and_preferences import InterestsAndPreferences
 from vrchatapi.models.inventory import Inventory
 from vrchatapi.models.inventory_asset import InventoryAsset
 from vrchatapi.models.inventory_consumption_results import InventoryConsumptionResults
@@ -232,6 +233,7 @@ from vrchatapi.models.limited_user_groups import LimitedUserGroups
 from vrchatapi.models.limited_user_instance import LimitedUserInstance
 from vrchatapi.models.limited_user_search import LimitedUserSearch
 from vrchatapi.models.limited_world import LimitedWorld
+from vrchatapi.models.localized_string import LocalizedString
 from vrchatapi.models.mime_type import MIMEType
 from vrchatapi.models.model_print import ModelPrint
 from vrchatapi.models.moderate_user_request import ModerateUserRequest
@@ -239,6 +241,7 @@ from vrchatapi.models.moderation_report import ModerationReport
 from vrchatapi.models.mutual_friend import MutualFriend
 from vrchatapi.models.mutuals import Mutuals
 from vrchatapi.models.notification import Notification
+from vrchatapi.models.notification_detail_boop import NotificationDetailBoop
 from vrchatapi.models.notification_detail_invite import NotificationDetailInvite
 from vrchatapi.models.notification_detail_invite_response import NotificationDetailInviteResponse
 from vrchatapi.models.notification_detail_request_invite import NotificationDetailRequestInvite
@@ -246,6 +249,13 @@ from vrchatapi.models.notification_detail_request_invite_response import Notific
 from vrchatapi.models.notification_detail_vote_to_kick import NotificationDetailVoteToKick
 from vrchatapi.models.notification_type import NotificationType
 from vrchatapi.models.notification_v2 import NotificationV2
+from vrchatapi.models.notification_v2_data import NotificationV2Data
+from vrchatapi.models.notification_v2_data_badge_earned import NotificationV2DataBadgeEarned
+from vrchatapi.models.notification_v2_data_boop import NotificationV2DataBoop
+from vrchatapi.models.notification_v2_data_event_announcement import NotificationV2DataEventAnnouncement
+from vrchatapi.models.notification_v2_data_group_announcement import NotificationV2DataGroupAnnouncement
+from vrchatapi.models.notification_v2_data_group_informative import NotificationV2DataGroupInformative
+from vrchatapi.models.notification_v2_data_group_transfer import NotificationV2DataGroupTransfer
 from vrchatapi.models.notification_v2_details_boop import NotificationV2DetailsBoop
 from vrchatapi.models.notification_v2_response import NotificationV2Response
 from vrchatapi.models.notification_v2_type import NotificationV2Type
@@ -299,6 +309,7 @@ from vrchatapi.models.report_category import ReportCategory
 from vrchatapi.models.report_reason import ReportReason
 from vrchatapi.models.represented_group import RepresentedGroup
 from vrchatapi.models.request_invite_request import RequestInviteRequest
+from vrchatapi.models.requires_two_factor_auth import RequiresTwoFactorAuth
 from vrchatapi.models.respond_group_join_request import RespondGroupJoinRequest
 from vrchatapi.models.respond_notification_v2_request import RespondNotificationV2Request
 from vrchatapi.models.response import Response
@@ -308,9 +319,9 @@ from vrchatapi.models.reward_redemption_data import RewardRedemptionData
 from vrchatapi.models.reward_redemption_request import RewardRedemptionRequest
 from vrchatapi.models.reward_redemption_result import RewardRedemptionResult
 from vrchatapi.models.route_not_implemented import RouteNotImplemented
-from vrchatapi.models.search_group_members200_response import SearchGroupMembers200Response
 from vrchatapi.models.seller_eligibility import SellerEligibility
 from vrchatapi.models.sent_notification import SentNotification
+from vrchatapi.models.sent_notification_details import SentNotificationDetails
 from vrchatapi.models.service_queue_stats import ServiceQueueStats
 from vrchatapi.models.service_status import ServiceStatus
 from vrchatapi.models.share_inventory_item_direct_request import ShareInventoryItemDirectRequest
@@ -341,6 +352,7 @@ from vrchatapi.models.transaction_steam_wallet_info import TransactionSteamWalle
 from vrchatapi.models.transfer_group_request import TransferGroupRequest
 from vrchatapi.models.tutorial_status import TutorialStatus
 from vrchatapi.models.two_factor_auth_code import TwoFactorAuthCode
+from vrchatapi.models.two_factor_auth_type import TwoFactorAuthType
 from vrchatapi.models.two_factor_email_code import TwoFactorEmailCode
 from vrchatapi.models.two_factor_recovery_codes import TwoFactorRecoveryCodes
 from vrchatapi.models.two_factor_recovery_codes_otp_inner import TwoFactorRecoveryCodesOtpInner
@@ -372,8 +384,10 @@ from vrchatapi.models.user_client_config import UserClientConfig
 from vrchatapi.models.user_cosmetic import UserCosmetic
 from vrchatapi.models.user_credits_eligible import UserCreditsEligible
 from vrchatapi.models.user_exists import UserExists
+from vrchatapi.models.user_group_instance_list_response import UserGroupInstanceListResponse
 from vrchatapi.models.user_note import UserNote
 from vrchatapi.models.user_note_target_user import UserNoteTargetUser
+from vrchatapi.models.user_response import UserResponse
 from vrchatapi.models.user_state import UserState
 from vrchatapi.models.user_status import UserStatus
 from vrchatapi.models.user_subscription import UserSubscription

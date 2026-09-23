@@ -339,6 +339,312 @@ class UsersApi(object):
             collection_formats=collection_formats,
             _request_auth=local_var_params.get('_request_auth'))
 
+    def clear_user_tutorials(self, user_id, **kwargs):  # noqa: E501
+        """Clear User Tutorials  # noqa: E501
+
+        Clears every tutorial the user completed on a platform, whatever `X-Platform` and `X-Store` name, and returns the current user. Tutorials of other kinds, such as `platform-agnostic:custom:onboarding-tutorial-world:v1`, stay completed.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.clear_user_tutorials(user_id, async_req=True)
+        >>> result = thread.get()
+
+        :param user_id: Must be a valid user ID. (required)
+        :type user_id: str
+        :param x_platform: The platform the tutorial belongs to. `standalonewindows`, `android` and `ios` are kept; any other value is recorded as `null`.
+        :type x_platform: str
+        :param x_store: The store the tutorial belongs to, recorded as sent.
+        :type x_store: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :type _preload_content: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: CurrentUser
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.clear_user_tutorials_with_http_info(user_id, **kwargs)  # noqa: E501
+
+    def clear_user_tutorials_with_http_info(self, user_id, **kwargs):  # noqa: E501
+        """Clear User Tutorials  # noqa: E501
+
+        Clears every tutorial the user completed on a platform, whatever `X-Platform` and `X-Store` name, and returns the current user. Tutorials of other kinds, such as `platform-agnostic:custom:onboarding-tutorial-world:v1`, stay completed.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.clear_user_tutorials_with_http_info(user_id, async_req=True)
+        >>> result = thread.get()
+
+        :param user_id: Must be a valid user ID. (required)
+        :type user_id: str
+        :param x_platform: The platform the tutorial belongs to. `standalonewindows`, `android` and `ios` are kept; any other value is recorded as `null`.
+        :type x_platform: str
+        :param x_store: The store the tutorial belongs to, recorded as sent.
+        :type x_store: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :type _return_http_data_only: bool, optional
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :type _preload_content: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: tuple(CurrentUser, status_code(int), headers(HTTPHeaderDict))
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'user_id',
+            'x_platform',
+            'x_store'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth',
+                '_content_type',
+                '_headers'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method clear_user_tutorials" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'user_id' is set
+        if self.api_client.client_side_validation and local_var_params.get('user_id') is None:  # noqa: E501
+            raise ApiValueError("Missing the required parameter `user_id` when calling `clear_user_tutorials`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'user_id' in local_var_params:
+            path_params['userId'] = local_var_params['user_id']  # noqa: E501
+
+        query_params = []
+
+        header_params = dict(local_var_params.get('_headers', {}))
+        if 'x_platform' in local_var_params:
+            header_params['X-Platform'] = local_var_params['x_platform']  # noqa: E501
+        if 'x_store' in local_var_params:
+            header_params['X-Store'] = local_var_params['x_store']  # noqa: E501
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['authCookie']  # noqa: E501
+
+        response_types_map = {
+            200: "CurrentUser",
+            401: "Error",
+            403: "Error",
+        }
+
+        return self.api_client.call_api(
+            '/users/{userId}/tutorial', 'DELETE',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_types_map=response_types_map,
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))
+
+    def complete_user_tutorial(self, user_id, **kwargs):  # noqa: E501
+        """Complete User Tutorial  # noqa: E501
+
+        Marks the tutorial named by `X-Platform` and `X-Store` completed, and returns the current user.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.complete_user_tutorial(user_id, async_req=True)
+        >>> result = thread.get()
+
+        :param user_id: Must be a valid user ID. (required)
+        :type user_id: str
+        :param x_platform: The platform the tutorial belongs to. `standalonewindows`, `android` and `ios` are kept; any other value is recorded as `null`.
+        :type x_platform: str
+        :param x_store: The store the tutorial belongs to, recorded as sent.
+        :type x_store: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :type _preload_content: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: CurrentUser
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.complete_user_tutorial_with_http_info(user_id, **kwargs)  # noqa: E501
+
+    def complete_user_tutorial_with_http_info(self, user_id, **kwargs):  # noqa: E501
+        """Complete User Tutorial  # noqa: E501
+
+        Marks the tutorial named by `X-Platform` and `X-Store` completed, and returns the current user.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.complete_user_tutorial_with_http_info(user_id, async_req=True)
+        >>> result = thread.get()
+
+        :param user_id: Must be a valid user ID. (required)
+        :type user_id: str
+        :param x_platform: The platform the tutorial belongs to. `standalonewindows`, `android` and `ios` are kept; any other value is recorded as `null`.
+        :type x_platform: str
+        :param x_store: The store the tutorial belongs to, recorded as sent.
+        :type x_store: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :type _return_http_data_only: bool, optional
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :type _preload_content: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: tuple(CurrentUser, status_code(int), headers(HTTPHeaderDict))
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'user_id',
+            'x_platform',
+            'x_store'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth',
+                '_content_type',
+                '_headers'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method complete_user_tutorial" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'user_id' is set
+        if self.api_client.client_side_validation and local_var_params.get('user_id') is None:  # noqa: E501
+            raise ApiValueError("Missing the required parameter `user_id` when calling `complete_user_tutorial`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'user_id' in local_var_params:
+            path_params['userId'] = local_var_params['user_id']  # noqa: E501
+
+        query_params = []
+
+        header_params = dict(local_var_params.get('_headers', {}))
+        if 'x_platform' in local_var_params:
+            header_params['X-Platform'] = local_var_params['x_platform']  # noqa: E501
+        if 'x_store' in local_var_params:
+            header_params['X-Store'] = local_var_params['x_store']  # noqa: E501
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['authCookie']  # noqa: E501
+
+        response_types_map = {
+            200: "CurrentUser",
+            401: "Error",
+            403: "Error",
+        }
+
+        return self.api_client.call_api(
+            '/users/{userId}/tutorial', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_types_map=response_types_map,
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))
+
     def delete_all_user_persistence_data(self, user_id, **kwargs):  # noqa: E501
         """Delete All User Persistence Data  # noqa: E501
 
@@ -1792,7 +2098,7 @@ class UsersApi(object):
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: User
+        :rtype: UserResponse
         """
         kwargs['_return_http_data_only'] = True
         return self.get_user_with_http_info(user_id, **kwargs)  # noqa: E501
@@ -1830,7 +2136,7 @@ class UsersApi(object):
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: tuple(User, status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(UserResponse, status_code(int), headers(HTTPHeaderDict))
         """
 
         local_var_params = locals()
@@ -1884,7 +2190,7 @@ class UsersApi(object):
         auth_settings = ['authCookie']  # noqa: E501
 
         response_types_map = {
-            200: "User",
+            200: "UserResponse",
             401: "Error",
             404: "Error",
         }
@@ -2076,7 +2382,7 @@ class UsersApi(object):
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: User
+        :rtype: UserResponse
         """
         kwargs['_return_http_data_only'] = True
         return self.get_user_by_name_with_http_info(username, **kwargs)  # noqa: E501
@@ -2114,7 +2420,7 @@ class UsersApi(object):
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: tuple(User, status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(UserResponse, status_code(int), headers(HTTPHeaderDict))
         """
 
         local_var_params = locals()
@@ -2168,7 +2474,7 @@ class UsersApi(object):
         auth_settings = ['authCookie']  # noqa: E501
 
         response_types_map = {
-            200: "User",
+            200: "UserResponse",
             401: "Error",
             403: "Error",
         }
@@ -2518,7 +2824,7 @@ class UsersApi(object):
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: GetUserGroupInstances200Response
+        :rtype: UserGroupInstanceListResponse
         """
         kwargs['_return_http_data_only'] = True
         return self.get_user_group_instances_with_http_info(user_id, **kwargs)  # noqa: E501
@@ -2556,7 +2862,7 @@ class UsersApi(object):
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: tuple(GetUserGroupInstances200Response, status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(UserGroupInstanceListResponse, status_code(int), headers(HTTPHeaderDict))
         """
 
         local_var_params = locals()
@@ -2610,7 +2916,7 @@ class UsersApi(object):
         auth_settings = ['authCookie']  # noqa: E501
 
         response_types_map = {
-            200: "GetUserGroupInstances200Response",
+            200: "UserGroupInstanceListResponse",
             401: "Error",
             403: "Error",
         }
@@ -2659,7 +2965,7 @@ class UsersApi(object):
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: GetUserGroupInstances200Response
+        :rtype: UserGroupInstanceListResponse
         """
         kwargs['_return_http_data_only'] = True
         return self.get_user_group_instances_for_group_with_http_info(user_id, group_id, **kwargs)  # noqa: E501
@@ -2699,7 +3005,7 @@ class UsersApi(object):
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: tuple(GetUserGroupInstances200Response, status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(UserGroupInstanceListResponse, status_code(int), headers(HTTPHeaderDict))
         """
 
         local_var_params = locals()
@@ -2759,7 +3065,7 @@ class UsersApi(object):
         auth_settings = ['authCookie']  # noqa: E501
 
         response_types_map = {
-            200: "GetUserGroupInstances200Response",
+            200: "UserGroupInstanceListResponse",
             401: "Error",
             403: "Error",
         }
@@ -3484,7 +3790,7 @@ class UsersApi(object):
     def get_user_tutorial_status(self, user_id, **kwargs):  # noqa: E501
         """Get User Tutorial Status  # noqa: E501
 
-        Gets the status of completed or outstanding tutorials for the specified user.  # noqa: E501
+        Gets the status of completed or outstanding tutorials for the specified user. `tutorialKey` and `completed` describe the tutorial named by `X-Platform` and `X-Store`.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -3493,6 +3799,10 @@ class UsersApi(object):
 
         :param user_id: Must be a valid user ID. (required)
         :type user_id: str
+        :param x_platform: The platform the tutorial belongs to. `standalonewindows`, `android` and `ios` are kept; any other value is recorded as `null`.
+        :type x_platform: str
+        :param x_store: The store the tutorial belongs to, recorded as sent.
+        :type x_store: str
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -3514,7 +3824,7 @@ class UsersApi(object):
     def get_user_tutorial_status_with_http_info(self, user_id, **kwargs):  # noqa: E501
         """Get User Tutorial Status  # noqa: E501
 
-        Gets the status of completed or outstanding tutorials for the specified user.  # noqa: E501
+        Gets the status of completed or outstanding tutorials for the specified user. `tutorialKey` and `completed` describe the tutorial named by `X-Platform` and `X-Store`.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -3523,6 +3833,10 @@ class UsersApi(object):
 
         :param user_id: Must be a valid user ID. (required)
         :type user_id: str
+        :param x_platform: The platform the tutorial belongs to. `standalonewindows`, `android` and `ios` are kept; any other value is recorded as `null`.
+        :type x_platform: str
+        :param x_store: The store the tutorial belongs to, recorded as sent.
+        :type x_store: str
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
@@ -3550,7 +3864,9 @@ class UsersApi(object):
         local_var_params = locals()
 
         all_params = [
-            'user_id'
+            'user_id',
+            'x_platform',
+            'x_store'
         ]
         all_params.extend(
             [
@@ -3585,6 +3901,10 @@ class UsersApi(object):
         query_params = []
 
         header_params = dict(local_var_params.get('_headers', {}))
+        if 'x_platform' in local_var_params:
+            header_params['X-Platform'] = local_var_params['x_platform']  # noqa: E501
+        if 'x_store' in local_var_params:
+            header_params['X-Store'] = local_var_params['x_store']  # noqa: E501
 
         form_params = []
         local_var_files = {}

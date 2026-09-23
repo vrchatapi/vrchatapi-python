@@ -130,7 +130,8 @@ class UpdateCalendarEventRequest(object):
             self.parent_id = parent_id
         if platforms is not None:
             self.platforms = platforms
-        self.recurrence = recurrence
+        if recurrence is not None:
+            self.recurrence = recurrence
         if role_ids is not None:
             self.role_ids = role_ids
         if send_creation_notification is not None:

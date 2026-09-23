@@ -88,6 +88,7 @@ docs/CreateProductRequest.md
 docs/CreatePropRequest.md
 docs/CreateWorldRequest.md
 docs/CurrentUser.md
+docs/CurrentUserLoginResponse.md
 docs/CurrentUserPresence.md
 docs/DeclineGroupInviteRequest.md
 docs/DeveloperType.md
@@ -134,9 +135,6 @@ docs/FinishFileDataUploadRequest.md
 docs/FollowCalendarEventRequest.md
 docs/FriendStatus.md
 docs/FriendsApi.md
-docs/GetGroupGalleryImages200Response.md
-docs/GetGroupPosts200Response.md
-docs/GetUserGroupInstances200Response.md
 docs/Group.md
 docs/GroupAccessType.md
 docs/GroupAnnouncement.md
@@ -151,12 +149,14 @@ docs/GroupJoinRequestAction.md
 docs/GroupJoinState.md
 docs/GroupMember.md
 docs/GroupMemberLimitedUser.md
+docs/GroupMemberSearchResponse.md
 docs/GroupMemberStatus.md
 docs/GroupMyMember.md
 docs/GroupPermission.md
 docs/GroupPermissions.md
 docs/GroupPost.md
 docs/GroupPostVisibility.md
+docs/GroupPostsResponse.md
 docs/GroupPrivacy.md
 docs/GroupRole.md
 docs/GroupRoleTemplate.md
@@ -192,6 +192,7 @@ docs/InstanceShortNameResponse.md
 docs/InstanceType.md
 docs/InstanceVibe.md
 docs/InstancesApi.md
+docs/InterestsAndPreferences.md
 docs/Inventory.md
 docs/InventoryApi.md
 docs/InventoryAsset.md
@@ -229,6 +230,7 @@ docs/LimitedUserGroups.md
 docs/LimitedUserInstance.md
 docs/LimitedUserSearch.md
 docs/LimitedWorld.md
+docs/LocalizedString.md
 docs/MIMEType.md
 docs/MiscellaneousApi.md
 docs/ModelPrint.md
@@ -237,6 +239,7 @@ docs/ModerationReport.md
 docs/MutualFriend.md
 docs/Mutuals.md
 docs/Notification.md
+docs/NotificationDetailBoop.md
 docs/NotificationDetailInvite.md
 docs/NotificationDetailInviteResponse.md
 docs/NotificationDetailRequestInvite.md
@@ -244,6 +247,13 @@ docs/NotificationDetailRequestInviteResponse.md
 docs/NotificationDetailVoteToKick.md
 docs/NotificationType.md
 docs/NotificationV2.md
+docs/NotificationV2Data.md
+docs/NotificationV2DataBadgeEarned.md
+docs/NotificationV2DataBoop.md
+docs/NotificationV2DataEventAnnouncement.md
+docs/NotificationV2DataGroupAnnouncement.md
+docs/NotificationV2DataGroupInformative.md
+docs/NotificationV2DataGroupTransfer.md
 docs/NotificationV2DetailsBoop.md
 docs/NotificationV2Response.md
 docs/NotificationV2Type.md
@@ -301,6 +311,7 @@ docs/ReportCategory.md
 docs/ReportReason.md
 docs/RepresentedGroup.md
 docs/RequestInviteRequest.md
+docs/RequiresTwoFactorAuth.md
 docs/RespondGroupJoinRequest.md
 docs/RespondNotificationV2Request.md
 docs/Response.md
@@ -310,9 +321,9 @@ docs/RewardRedemptionData.md
 docs/RewardRedemptionRequest.md
 docs/RewardRedemptionResult.md
 docs/RouteNotImplemented.md
-docs/SearchGroupMembers200Response.md
 docs/SellerEligibility.md
 docs/SentNotification.md
+docs/SentNotificationDetails.md
 docs/ServiceQueueStats.md
 docs/ServiceStatus.md
 docs/ShareInventoryItemDirectRequest.md
@@ -343,6 +354,7 @@ docs/TransactionSteamWalletInfo.md
 docs/TransferGroupRequest.md
 docs/TutorialStatus.md
 docs/TwoFactorAuthCode.md
+docs/TwoFactorAuthType.md
 docs/TwoFactorEmailCode.md
 docs/TwoFactorRecoveryCodes.md
 docs/TwoFactorRecoveryCodesOtpInner.md
@@ -374,8 +386,10 @@ docs/UserClientConfig.md
 docs/UserCosmetic.md
 docs/UserCreditsEligible.md
 docs/UserExists.md
+docs/UserGroupInstanceListResponse.md
 docs/UserNote.md
 docs/UserNoteTargetUser.md
+docs/UserResponse.md
 docs/UserState.md
 docs/UserStatus.md
 docs/UserSubscription.md
@@ -506,6 +520,7 @@ vrchatapi/models/create_product_request.py
 vrchatapi/models/create_prop_request.py
 vrchatapi/models/create_world_request.py
 vrchatapi/models/current_user.py
+vrchatapi/models/current_user_login_response.py
 vrchatapi/models/current_user_presence.py
 vrchatapi/models/decline_group_invite_request.py
 vrchatapi/models/developer_type.py
@@ -548,9 +563,6 @@ vrchatapi/models/file_version_upload_status.py
 vrchatapi/models/finish_file_data_upload_request.py
 vrchatapi/models/follow_calendar_event_request.py
 vrchatapi/models/friend_status.py
-vrchatapi/models/get_group_gallery_images200_response.py
-vrchatapi/models/get_group_posts200_response.py
-vrchatapi/models/get_user_group_instances200_response.py
 vrchatapi/models/group.py
 vrchatapi/models/group_access_type.py
 vrchatapi/models/group_announcement.py
@@ -565,12 +577,14 @@ vrchatapi/models/group_join_request_action.py
 vrchatapi/models/group_join_state.py
 vrchatapi/models/group_member.py
 vrchatapi/models/group_member_limited_user.py
+vrchatapi/models/group_member_search_response.py
 vrchatapi/models/group_member_status.py
 vrchatapi/models/group_my_member.py
 vrchatapi/models/group_permission.py
 vrchatapi/models/group_permissions.py
 vrchatapi/models/group_post.py
 vrchatapi/models/group_post_visibility.py
+vrchatapi/models/group_posts_response.py
 vrchatapi/models/group_privacy.py
 vrchatapi/models/group_role.py
 vrchatapi/models/group_role_template.py
@@ -604,6 +618,7 @@ vrchatapi/models/instance_region.py
 vrchatapi/models/instance_short_name_response.py
 vrchatapi/models/instance_type.py
 vrchatapi/models/instance_vibe.py
+vrchatapi/models/interests_and_preferences.py
 vrchatapi/models/inventory.py
 vrchatapi/models/inventory_asset.py
 vrchatapi/models/inventory_consumption_results.py
@@ -638,6 +653,7 @@ vrchatapi/models/limited_user_groups.py
 vrchatapi/models/limited_user_instance.py
 vrchatapi/models/limited_user_search.py
 vrchatapi/models/limited_world.py
+vrchatapi/models/localized_string.py
 vrchatapi/models/mime_type.py
 vrchatapi/models/model_print.py
 vrchatapi/models/moderate_user_request.py
@@ -645,6 +661,7 @@ vrchatapi/models/moderation_report.py
 vrchatapi/models/mutual_friend.py
 vrchatapi/models/mutuals.py
 vrchatapi/models/notification.py
+vrchatapi/models/notification_detail_boop.py
 vrchatapi/models/notification_detail_invite.py
 vrchatapi/models/notification_detail_invite_response.py
 vrchatapi/models/notification_detail_request_invite.py
@@ -652,6 +669,13 @@ vrchatapi/models/notification_detail_request_invite_response.py
 vrchatapi/models/notification_detail_vote_to_kick.py
 vrchatapi/models/notification_type.py
 vrchatapi/models/notification_v2.py
+vrchatapi/models/notification_v2_data.py
+vrchatapi/models/notification_v2_data_badge_earned.py
+vrchatapi/models/notification_v2_data_boop.py
+vrchatapi/models/notification_v2_data_event_announcement.py
+vrchatapi/models/notification_v2_data_group_announcement.py
+vrchatapi/models/notification_v2_data_group_informative.py
+vrchatapi/models/notification_v2_data_group_transfer.py
 vrchatapi/models/notification_v2_details_boop.py
 vrchatapi/models/notification_v2_response.py
 vrchatapi/models/notification_v2_type.py
@@ -705,6 +729,7 @@ vrchatapi/models/report_category.py
 vrchatapi/models/report_reason.py
 vrchatapi/models/represented_group.py
 vrchatapi/models/request_invite_request.py
+vrchatapi/models/requires_two_factor_auth.py
 vrchatapi/models/respond_group_join_request.py
 vrchatapi/models/respond_notification_v2_request.py
 vrchatapi/models/response.py
@@ -714,9 +739,9 @@ vrchatapi/models/reward_redemption_data.py
 vrchatapi/models/reward_redemption_request.py
 vrchatapi/models/reward_redemption_result.py
 vrchatapi/models/route_not_implemented.py
-vrchatapi/models/search_group_members200_response.py
 vrchatapi/models/seller_eligibility.py
 vrchatapi/models/sent_notification.py
+vrchatapi/models/sent_notification_details.py
 vrchatapi/models/service_queue_stats.py
 vrchatapi/models/service_status.py
 vrchatapi/models/share_inventory_item_direct_request.py
@@ -747,6 +772,7 @@ vrchatapi/models/transaction_steam_wallet_info.py
 vrchatapi/models/transfer_group_request.py
 vrchatapi/models/tutorial_status.py
 vrchatapi/models/two_factor_auth_code.py
+vrchatapi/models/two_factor_auth_type.py
 vrchatapi/models/two_factor_email_code.py
 vrchatapi/models/two_factor_recovery_codes.py
 vrchatapi/models/two_factor_recovery_codes_otp_inner.py
@@ -778,8 +804,10 @@ vrchatapi/models/user_client_config.py
 vrchatapi/models/user_cosmetic.py
 vrchatapi/models/user_credits_eligible.py
 vrchatapi/models/user_exists.py
+vrchatapi/models/user_group_instance_list_response.py
 vrchatapi/models/user_note.py
 vrchatapi/models/user_note_target_user.py
+vrchatapi/models/user_response.py
 vrchatapi/models/user_state.py
 vrchatapi/models/user_status.py
 vrchatapi/models/user_subscription.py

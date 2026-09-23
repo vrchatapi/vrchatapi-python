@@ -21,23 +21,23 @@ Name | Type | Description | Notes
 **is_hype_train_eligible** | **bool** |  | [optional] 
 **labs_publication_date** | **str** |  | [optional] 
 **name** | **str** |  | 
-**occupants** | **int** |  | 
+**occupants** | **int** |  | [optional] 
 **organization** | **str** |  | [optional] [default to 'vrchat']
 **popularity** | **int** |  | [optional] [default to 0]
 **preview_youtube_id** | **str** |  | [optional] 
 **publication_date** | **str** |  | [optional] 
 **recommended_capacity** | **int** |  | [optional] 
-**release_status** | [**ReleaseStatus**](ReleaseStatus.md) |  | 
+**release_status** | [**ReleaseStatus**](ReleaseStatus.md) |  | [optional] 
 **store_id** | **str** |  | [optional] 
-**tags** | **list[str]** |   | [optional] 
+**tags** | **list[str]** |  | [optional] 
 **thumbnail_image_url** | **str** |  | 
 **udon_products** | **list[str]** |  | [optional] 
-**unity_packages** | [**list[UnityPackage]**](UnityPackage.md) |   | [optional] 
+**unity_packages** | [**list[UnityPackage]**](UnityPackage.md) |  | [optional] 
 **updated_at** | **datetime** |  | [optional] 
 **url_list** | **list[str]** |  | [optional] 
 **version** | **int** |  | [optional] 
 **visits** | **int** |  | [optional] [default to 0]
-**is_secure** | **bool** |  | 
+**is_secure** | **bool** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

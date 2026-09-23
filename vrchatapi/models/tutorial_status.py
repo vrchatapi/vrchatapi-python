@@ -139,7 +139,7 @@ class TutorialStatus(object):
     def tutorial_key(self):
         """Gets the tutorial_key of this TutorialStatus.  # noqa: E501
 
-        The ID of a tutorial, in the format `{platform}:{tutorial}:{version}`. `undefined:undefined:v1` is used as a null-ish or sentinel value.  # noqa: E501
+        The ID of a tutorial. A platform tutorial is `{platform}:{store}:v1`, taken from the `X-Platform` and `X-Store` headers, with `undefined` for a header the request left out. Other tutorials take a longer form, such as `platform-agnostic:custom:onboarding-tutorial-world:v1`.  # noqa: E501
 
         :return: The tutorial_key of this TutorialStatus.  # noqa: E501
         :rtype: str
@@ -150,7 +150,7 @@ class TutorialStatus(object):
     def tutorial_key(self, tutorial_key):
         """Sets the tutorial_key of this TutorialStatus.
 
-        The ID of a tutorial, in the format `{platform}:{tutorial}:{version}`. `undefined:undefined:v1` is used as a null-ish or sentinel value.  # noqa: E501
+        The ID of a tutorial. A platform tutorial is `{platform}:{store}:v1`, taken from the `X-Platform` and `X-Store` headers, with `undefined` for a header the request left out. Other tutorials take a longer form, such as `platform-agnostic:custom:onboarding-tutorial-world:v1`.  # noqa: E501
 
         :param tutorial_key: The tutorial_key of this TutorialStatus.  # noqa: E501
         :type tutorial_key: str

@@ -36,7 +36,7 @@ class Transaction(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'agreement': 'TransactionAgreement',
+        'agreement': 'object',
         'created_at': 'datetime',
         'error': 'str',
         'id': 'str',
@@ -88,8 +88,7 @@ class Transaction(object):
         self._user_id = None
         self.discriminator = None
 
-        if agreement is not None:
-            self.agreement = agreement
+        self.agreement = agreement
         self.created_at = created_at
         self.error = error
         self.id = id
@@ -114,7 +113,7 @@ class Transaction(object):
 
 
         :return: The agreement of this Transaction.  # noqa: E501
-        :rtype: TransactionAgreement
+        :rtype: object
         """
         return self._agreement
 
@@ -124,7 +123,7 @@ class Transaction(object):
 
 
         :param agreement: The agreement of this Transaction.  # noqa: E501
-        :type agreement: TransactionAgreement
+        :type agreement: object
         """
 
         self._agreement = agreement

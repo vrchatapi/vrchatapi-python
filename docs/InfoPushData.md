@@ -1,7 +1,6 @@
 # InfoPushData
 
 
-
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
@@ -15,7 +14,7 @@ Name | Type | Description | Notes
 **content_list** | [**DynamicContentRow**](DynamicContentRow.md) |  | [optional] 
 **cta** | [**InfoPushDataCallToAction**](InfoPushDataCallToAction.md) |  | [optional] 
 **delivery_behavior** | [**InfoPushDataDeliveryBehavior**](InfoPushDataDeliveryBehavior.md) |  | [optional] 
-**description** | **str** |  | [optional] 
+**description** | **object** |  | [optional] 
 **disclaimer_text** | **str** |  | [optional] 
 **domain_list** | [**list[InfoPushDataDomainListInner]**](InfoPushDataDomainListInner.md) |  | [optional] 
 **featured_avatar_category_id** | **str** |  | [optional] 
@@ -28,17 +27,17 @@ Name | Type | Description | Notes
 **is_new** | **bool** |  | [optional] 
 **listing_ids** | **list[str]** |  | [optional] 
 **media_type** | **str** |  | [optional] 
-**name** | **str** |  | [optional] 
+**name** | **object** |  | [optional] 
 **on_pressed** | [**InfoPushDataClickable**](InfoPushDataClickable.md) |  | [optional] 
 **override_name** | **object** |  | [optional] 
 **rows** | **int** | Number of rows to render. | [optional] 
 **search** | [**InfoPushDataSearch**](InfoPushDataSearch.md) |  | [optional] 
-**short_name** | **str** |  | [optional] 
+**short_name** | **object** |  | [optional] 
 **show_in_world_ids** | **object** |  | [optional] 
 **template** | **str** |  | [optional] 
 **thumbnail_image_url** | **str** |  | [optional] 
 **title** | **str** |  | [optional] 
-**tooltip_description** | **str** |  | [optional] 
+**tooltip_description** | **object** |  | [optional] 
 **version** | **str** |  | [optional] 
 **video_file_id** | **str** |  | [optional] 
 **video_url** | **str** |  | [optional] 

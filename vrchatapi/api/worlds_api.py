@@ -348,7 +348,7 @@ class WorldsApi(object):
         >>> thread = api.create_world(async_req=True)
         >>> result = thread.get()
 
-        :param create_world_request: 
+        :param create_world_request:
         :type create_world_request: CreateWorldRequest
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
@@ -378,7 +378,7 @@ class WorldsApi(object):
         >>> thread = api.create_world_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param create_world_request: 
+        :param create_world_request:
         :type create_world_request: CreateWorldRequest
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional

@@ -46,7 +46,7 @@ class InfoPushData(object):
         'content_list': 'DynamicContentRow',
         'cta': 'InfoPushDataCallToAction',
         'delivery_behavior': 'InfoPushDataDeliveryBehavior',
-        'description': 'str',
+        'description': 'object',
         'disclaimer_text': 'str',
         'domain_list': 'list[InfoPushDataDomainListInner]',
         'featured_avatar_category_id': 'str',
@@ -59,17 +59,17 @@ class InfoPushData(object):
         'is_new': 'bool',
         'listing_ids': 'list[str]',
         'media_type': 'str',
-        'name': 'str',
+        'name': 'object',
         'on_pressed': 'InfoPushDataClickable',
         'override_name': 'object',
         'rows': 'int',
         'search': 'InfoPushDataSearch',
-        'short_name': 'str',
+        'short_name': 'object',
         'show_in_world_ids': 'object',
         'template': 'str',
         'thumbnail_image_url': 'str',
         'title': 'str',
-        'tooltip_description': 'str',
+        'tooltip_description': 'object',
         'version': 'str',
         'video_file_id': 'str',
         'video_url': 'str',
@@ -186,8 +186,7 @@ class InfoPushData(object):
             self.cta = cta
         if delivery_behavior is not None:
             self.delivery_behavior = delivery_behavior
-        if description is not None:
-            self.description = description
+        self.description = description
         if disclaimer_text is not None:
             self.disclaimer_text = disclaimer_text
         if domain_list is not None:
@@ -211,8 +210,7 @@ class InfoPushData(object):
             self.listing_ids = listing_ids
         if media_type is not None:
             self.media_type = media_type
-        if name is not None:
-            self.name = name
+        self.name = name
         if on_pressed is not None:
             self.on_pressed = on_pressed
         self.override_name = override_name
@@ -226,8 +224,7 @@ class InfoPushData(object):
         self.thumbnail_image_url = thumbnail_image_url
         if title is not None:
             self.title = title
-        if tooltip_description is not None:
-            self.tooltip_description = tooltip_description
+        self.tooltip_description = tooltip_description
         if version is not None:
             self.version = version
         if video_file_id is not None:
@@ -455,7 +452,7 @@ class InfoPushData(object):
 
 
         :return: The description of this InfoPushData.  # noqa: E501
-        :rtype: str
+        :rtype: object
         """
         return self._description
 
@@ -465,7 +462,7 @@ class InfoPushData(object):
 
 
         :param description: The description of this InfoPushData.  # noqa: E501
-        :type description: str
+        :type description: object
         """
 
         self._description = description
@@ -728,7 +725,7 @@ class InfoPushData(object):
 
 
         :return: The name of this InfoPushData.  # noqa: E501
-        :rtype: str
+        :rtype: object
         """
         return self._name
 
@@ -738,7 +735,7 @@ class InfoPushData(object):
 
 
         :param name: The name of this InfoPushData.  # noqa: E501
-        :type name: str
+        :type name: object
         """
 
         self._name = name
@@ -835,7 +832,7 @@ class InfoPushData(object):
 
 
         :return: The short_name of this InfoPushData.  # noqa: E501
-        :rtype: str
+        :rtype: object
         """
         return self._short_name
 
@@ -845,7 +842,7 @@ class InfoPushData(object):
 
 
         :param short_name: The short_name of this InfoPushData.  # noqa: E501
-        :type short_name: str
+        :type short_name: object
         """
 
         self._short_name = short_name
@@ -940,7 +937,7 @@ class InfoPushData(object):
 
 
         :return: The tooltip_description of this InfoPushData.  # noqa: E501
-        :rtype: str
+        :rtype: object
         """
         return self._tooltip_description
 
@@ -950,7 +947,7 @@ class InfoPushData(object):
 
 
         :param tooltip_description: The tooltip_description of this InfoPushData.  # noqa: E501
-        :type tooltip_description: str
+        :type tooltip_description: object
         """
 
         self._tooltip_description = tooltip_description

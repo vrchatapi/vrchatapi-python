@@ -391,7 +391,6 @@ class InfoPush(object):
     def start_date(self):
         """Gets the start_date of this InfoPush.  # noqa: E501
 
-          # noqa: E501
 
         :return: The start_date of this InfoPush.  # noqa: E501
         :rtype: datetime
@@ -402,7 +401,6 @@ class InfoPush(object):
     def start_date(self, start_date):
         """Sets the start_date of this InfoPush.
 
-          # noqa: E501
 
         :param start_date: The start_date of this InfoPush.  # noqa: E501
         :type start_date: datetime
@@ -414,7 +412,6 @@ class InfoPush(object):
     def tags(self):
         """Gets the tags of this InfoPush.  # noqa: E501
 
-           # noqa: E501
 
         :return: The tags of this InfoPush.  # noqa: E501
         :rtype: list[str]
@@ -425,7 +422,6 @@ class InfoPush(object):
     def tags(self, tags):
         """Sets the tags of this InfoPush.
 
-           # noqa: E501
 
         :param tags: The tags of this InfoPush.  # noqa: E501
         :type tags: list[str]

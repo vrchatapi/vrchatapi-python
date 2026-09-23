@@ -1,7 +1,6 @@
 # AdminAssetBundle
 
 
-
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

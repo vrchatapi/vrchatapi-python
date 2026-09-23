@@ -1,7 +1,6 @@
 # TransactionSteamWalletInfo
 
 
-
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

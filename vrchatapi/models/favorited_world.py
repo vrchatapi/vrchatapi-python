@@ -788,7 +788,6 @@ class FavoritedWorld(object):
     def tags(self):
         """Gets the tags of this FavoritedWorld.  # noqa: E501
 
-           # noqa: E501
 
         :return: The tags of this FavoritedWorld.  # noqa: E501
         :rtype: list[str]
@@ -799,7 +798,6 @@ class FavoritedWorld(object):
     def tags(self, tags):
         """Sets the tags of this FavoritedWorld.
 
-           # noqa: E501
 
         :param tags: The tags of this FavoritedWorld.  # noqa: E501
         :type tags: list[str]
@@ -858,7 +856,6 @@ class FavoritedWorld(object):
     def unity_packages(self):
         """Gets the unity_packages of this FavoritedWorld.  # noqa: E501
 
-           # noqa: E501
 
         :return: The unity_packages of this FavoritedWorld.  # noqa: E501
         :rtype: list[UnityPackage]
@@ -869,7 +866,6 @@ class FavoritedWorld(object):
     def unity_packages(self, unity_packages):
         """Sets the unity_packages of this FavoritedWorld.
 
-           # noqa: E501
 
         :param unity_packages: The unity_packages of this FavoritedWorld.  # noqa: E501
         :type unity_packages: list[UnityPackage]

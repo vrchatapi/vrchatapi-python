@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 **revert_display_name** | **bool** | MUST specify currentPassword as well to revert display name | [optional] 
 **status** | [**UserStatus**](UserStatus.md) |  | [optional] 
 **status_description** | **str** |  | [optional] 
-**tags** | **list[str]** |   | [optional] 
+**tags** | **list[str]** |  | [optional] 
 **unsubscribe** | **bool** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

@@ -180,7 +180,8 @@ class FavoriteGroupContentsEntryWorld(object):
         if labs_publication_date is not None:
             self.labs_publication_date = labs_publication_date
         self.name = name
-        self.occupants = occupants
+        if occupants is not None:
+            self.occupants = occupants
         if organization is not None:
             self.organization = organization
         if popularity is not None:
@@ -190,7 +191,8 @@ class FavoriteGroupContentsEntryWorld(object):
             self.publication_date = publication_date
         if recommended_capacity is not None:
             self.recommended_capacity = recommended_capacity
-        self.release_status = release_status
+        if release_status is not None:
+            self.release_status = release_status
         if store_id is not None:
             self.store_id = store_id
         if tags is not None:
@@ -208,7 +210,8 @@ class FavoriteGroupContentsEntryWorld(object):
             self.version = version
         if visits is not None:
             self.visits = visits
-        self.is_secure = is_secure
+        if is_secure is not None:
+            self.is_secure = is_secure
 
     @property
     def author_id(self):
@@ -614,8 +617,6 @@ class FavoriteGroupContentsEntryWorld(object):
         :param occupants: The occupants of this FavoriteGroupContentsEntryWorld.  # noqa: E501
         :type occupants: int
         """
-        if self.local_vars_configuration.client_side_validation and occupants is None:  # noqa: E501
-            raise ValueError("Invalid value for `occupants`, must not be `None`")  # noqa: E501
 
         self._occupants = occupants
 
@@ -751,8 +752,6 @@ class FavoriteGroupContentsEntryWorld(object):
         :param release_status: The release_status of this FavoriteGroupContentsEntryWorld.  # noqa: E501
         :type release_status: ReleaseStatus
         """
-        if self.local_vars_configuration.client_side_validation and release_status is None:  # noqa: E501
-            raise ValueError("Invalid value for `release_status`, must not be `None`")  # noqa: E501
 
         self._release_status = release_status
 
@@ -781,7 +780,6 @@ class FavoriteGroupContentsEntryWorld(object):
     def tags(self):
         """Gets the tags of this FavoriteGroupContentsEntryWorld.  # noqa: E501
 
-           # noqa: E501
 
         :return: The tags of this FavoriteGroupContentsEntryWorld.  # noqa: E501
         :rtype: list[str]
@@ -792,7 +790,6 @@ class FavoriteGroupContentsEntryWorld(object):
     def tags(self, tags):
         """Sets the tags of this FavoriteGroupContentsEntryWorld.
 
-           # noqa: E501
 
         :param tags: The tags of this FavoriteGroupContentsEntryWorld.  # noqa: E501
         :type tags: list[str]
@@ -848,7 +845,6 @@ class FavoriteGroupContentsEntryWorld(object):
     def unity_packages(self):
         """Gets the unity_packages of this FavoriteGroupContentsEntryWorld.  # noqa: E501
 
-           # noqa: E501
 
         :return: The unity_packages of this FavoriteGroupContentsEntryWorld.  # noqa: E501
         :rtype: list[UnityPackage]
@@ -859,7 +855,6 @@ class FavoriteGroupContentsEntryWorld(object):
     def unity_packages(self, unity_packages):
         """Sets the unity_packages of this FavoriteGroupContentsEntryWorld.
 
-           # noqa: E501
 
         :param unity_packages: The unity_packages of this FavoriteGroupContentsEntryWorld.  # noqa: E501
         :type unity_packages: list[UnityPackage]
@@ -978,8 +973,6 @@ class FavoriteGroupContentsEntryWorld(object):
         :param is_secure: The is_secure of this FavoriteGroupContentsEntryWorld.  # noqa: E501
         :type is_secure: bool
         """
-        if self.local_vars_configuration.client_side_validation and is_secure is None:  # noqa: E501
-            raise ValueError("Invalid value for `is_secure`, must not be `None`")  # noqa: E501
 
         self._is_secure = is_secure
 

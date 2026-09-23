@@ -92,7 +92,6 @@ class PaginatedGroupAuditLogEntryList(object):
     def results(self):
         """Gets the results of this PaginatedGroupAuditLogEntryList.  # noqa: E501
 
-           # noqa: E501
 
         :return: The results of this PaginatedGroupAuditLogEntryList.  # noqa: E501
         :rtype: list[GroupAuditLogEntry]
@@ -103,7 +102,6 @@ class PaginatedGroupAuditLogEntryList(object):
     def results(self, results):
         """Sets the results of this PaginatedGroupAuditLogEntryList.
 
-           # noqa: E501
 
         :param results: The results of this PaginatedGroupAuditLogEntryList.  # noqa: E501
         :type results: list[GroupAuditLogEntry]

@@ -1,11 +1,10 @@
 # Transaction
 
 
-
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**agreement** | [**TransactionAgreement**](TransactionAgreement.md) |  | [optional] 
+**agreement** | **object** |  | [optional] 
 **created_at** | **datetime** |  | 
 **error** | **str** |  | 
 **id** | **str** |  | 

@@ -3888,7 +3888,7 @@ class GroupsApi(object):
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: GetGroupGalleryImages200Response
+        :rtype: object
         """
         kwargs['_return_http_data_only'] = True
         return self.get_group_gallery_images_with_http_info(group_id, group_gallery_id, **kwargs)  # noqa: E501
@@ -3936,7 +3936,7 @@ class GroupsApi(object):
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: tuple(GetGroupGalleryImages200Response, status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(object, status_code(int), headers(HTTPHeaderDict))
         """
 
         local_var_params = locals()
@@ -4014,7 +4014,7 @@ class GroupsApi(object):
         auth_settings = ['authCookie']  # noqa: E501
 
         response_types_map = {
-            200: "GetGroupGalleryImages200Response",
+            200: "object",
             401: "Error",
             404: "Error",
         }
@@ -4832,7 +4832,7 @@ class GroupsApi(object):
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: GetGroupPosts200Response
+        :rtype: GroupPostsResponse
         """
         kwargs['_return_http_data_only'] = True
         return self.get_group_posts_with_http_info(group_id, **kwargs)  # noqa: E501
@@ -4876,7 +4876,7 @@ class GroupsApi(object):
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: tuple(GetGroupPosts200Response, status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(GroupPostsResponse, status_code(int), headers(HTTPHeaderDict))
         """
 
         local_var_params = locals()
@@ -4945,7 +4945,7 @@ class GroupsApi(object):
         auth_settings = ['authCookie']  # noqa: E501
 
         response_types_map = {
-            200: "GetGroupPosts200Response",
+            200: "GroupPostsResponse",
             401: "Error",
         }
 
@@ -6504,7 +6504,7 @@ class GroupsApi(object):
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: SearchGroupMembers200Response
+        :rtype: GroupMemberSearchResponse
         """
         kwargs['_return_http_data_only'] = True
         return self.search_group_members_with_http_info(group_id, query, **kwargs)  # noqa: E501
@@ -6548,7 +6548,7 @@ class GroupsApi(object):
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: tuple(SearchGroupMembers200Response, status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(GroupMemberSearchResponse, status_code(int), headers(HTTPHeaderDict))
         """
 
         local_var_params = locals()
@@ -6623,7 +6623,7 @@ class GroupsApi(object):
         auth_settings = ['authCookie']  # noqa: E501
 
         response_types_map = {
-            200: "SearchGroupMembers200Response",
+            200: "GroupMemberSearchResponse",
             400: "Error",
             401: "Error",
             404: "Error",

@@ -1,7 +1,6 @@
 # TransactionSteamInfo
 
 
-
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

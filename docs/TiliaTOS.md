@@ -1,7 +1,6 @@
 # TiliaTOS
 
 
-
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

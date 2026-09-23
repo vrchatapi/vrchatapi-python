@@ -39,7 +39,7 @@ class InfoPushDataCategory(object):
         'ids': 'list[str]',
         'ips_query': 'InfoPushIpsQuery',
         'max_cells': 'int',
-        'name': 'str',
+        'name': 'object',
         'type': 'str'
     }
 
@@ -70,8 +70,7 @@ class InfoPushDataCategory(object):
             self.ips_query = ips_query
         if max_cells is not None:
             self.max_cells = max_cells
-        if name is not None:
-            self.name = name
+        self.name = name
         if type is not None:
             self.type = type
 
@@ -144,7 +143,7 @@ class InfoPushDataCategory(object):
 
 
         :return: The name of this InfoPushDataCategory.  # noqa: E501
-        :rtype: str
+        :rtype: object
         """
         return self._name
 
@@ -154,7 +153,7 @@ class InfoPushDataCategory(object):
 
 
         :param name: The name of this InfoPushDataCategory.  # noqa: E501
-        :type name: str
+        :type name: object
         """
 
         self._name = name

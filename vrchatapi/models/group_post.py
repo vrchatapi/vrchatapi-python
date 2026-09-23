@@ -264,7 +264,6 @@ class GroupPost(object):
     def role_ids(self):
         """Gets the role_ids of this GroupPost.  # noqa: E501
 
-           # noqa: E501
 
         :return: The role_ids of this GroupPost.  # noqa: E501
         :rtype: list[str]
@@ -275,7 +274,6 @@ class GroupPost(object):
     def role_ids(self, role_ids):
         """Sets the role_ids of this GroupPost.
 
-           # noqa: E501
 
         :param role_ids: The role_ids of this GroupPost.  # noqa: E501
         :type role_ids: list[str]

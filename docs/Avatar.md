@@ -1,7 +1,6 @@
 # Avatar
 
 
-
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
@@ -29,7 +28,7 @@ Name | Type | Description | Notes
 **release_status** | [**ReleaseStatus**](ReleaseStatus.md) |  | 
 **searchable** | **bool** |  | [optional] [default to False]
 **styles** | [**AvatarStyles**](AvatarStyles.md) |  | 
-**tags** | **list[str]** |   | 
+**tags** | **list[str]** |  | 
 **thumbnail_image_url** | **str** |  | 
 **unity_package_url** | **str** |  | 
 **unity_package_url_object** | [**AvatarUnityPackageUrlObject**](AvatarUnityPackageUrlObject.md) |  | 

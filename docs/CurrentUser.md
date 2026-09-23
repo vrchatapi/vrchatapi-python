@@ -7,8 +7,8 @@ Name | Type | Description | Notes
 **accepted_privacy_version** | **int** |  | [optional] 
 **accepted_tos_version** | **int** |  | 
 **account_deletion_date** | **date** |  | [optional] 
-**account_deletion_log** | [**list[AccountDeletionLog]**](AccountDeletionLog.md) |   | [optional] 
-**active_friends** | **list[str]** |   | [optional] 
+**account_deletion_log** | [**list[AccountDeletionLog]**](AccountDeletionLog.md) |  | [optional] 
+**active_friends** | **list[str]** |  | [optional] 
 **age_verification_status** | [**AgeVerificationStatus**](AgeVerificationStatus.md) |  | 
 **age_verified** | **bool** | &#x60;true&#x60; if, user is age verified (not 18+). | 
 **allow_avatar_copying** | **bool** |  | 
@@ -66,7 +66,7 @@ Name | Type | Description | Notes
 **oculus_id** | **str** |  | 
 **offline_friends** | **list[str]** |  | [optional] 
 **online_friends** | **list[str]** |  | [optional] 
-**past_display_names** | [**list[PastDisplayName]**](PastDisplayName.md) |   | 
+**past_display_names** | [**list[PastDisplayName]**](PastDisplayName.md) |  | 
 **personalization_opt_out** | **bool** |  | [optional] 
 **pico_id** | **str** |  | [optional] 
 **platform** | **str** |  | [optional] 

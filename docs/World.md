@@ -1,7 +1,6 @@
 # World
 
 
-
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
@@ -33,7 +32,7 @@ Name | Type | Description | Notes
 **release_status** | [**ReleaseStatus**](ReleaseStatus.md) |  | 
 **slim_instances** | **list[object]** |  | [optional] 
 **store_id** | **str** |  | [optional] 
-**tags** | **list[str]** |   | 
+**tags** | **list[str]** |  | 
 **thumbnail_image_url** | **str** |  | 
 **udon_products** | **list[str]** |  | [optional] 
 **unity_packages** | [**list[UnityPackage]**](UnityPackage.md) | Empty if unauthenticated. | [optional] 

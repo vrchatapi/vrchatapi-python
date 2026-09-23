@@ -20,15 +20,15 @@ Name | Type | Description | Notes
 **minimum_remaining_minutes** | **int** |  | [optional] 
 **mode** | **str** |  | [optional] 
 **n** | **int** |  | [optional] 
-**name** | **str** |  | 
+**name** | **object** |  | 
 **non_featured_results** | **str** |  | [optional] 
 **notag** | **list[str]** |  | [optional] 
 **params** | **dict(str, object)** |  | [optional] 
 **personalized_results** | **str** |  | [optional] 
-**platform** | **str** | This is normally &#x60;android&#x60;, &#x60;ios&#x60;, &#x60;standalonewindows&#x60;, &#x60;web&#x60;, or the empty value &#x60;&#x60;, but also supposedly can be any random Unity version such as &#x60;2019.2.4-801-Release&#x60; or &#x60;2019.2.2-772-Release&#x60; or even &#x60;unknownplatform&#x60;. | 
+**platform** | **str** | Usually \&quot;ThisPlatformSupported\&quot;, but can also be other values such as \&quot;all\&quot; or platform specific identifiers. | 
 **region** | **str** |  | [optional] 
 **scope** | **str** |  | [optional] 
-**short_name** | **str** |  | [optional] 
+**short_name** | **object** |  | [optional] 
 **sort_heading** | **str** |  | [optional] 
 **sort_order** | **str** |  | [optional] 
 **sort_ownership** | **str** |  | [optional] 

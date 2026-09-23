@@ -178,7 +178,8 @@ class CalendarEvent(object):
             self.owner_id = owner_id
         if platforms is not None:
             self.platforms = platforms
-        self.recurrence = recurrence
+        if recurrence is not None:
+            self.recurrence = recurrence
         self.role_ids = role_ids
         if series_id is not None:
             self.series_id = series_id

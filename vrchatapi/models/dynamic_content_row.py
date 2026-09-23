@@ -52,7 +52,7 @@ class DynamicContentRow(object):
         'minimum_remaining_minutes': 'int',
         'mode': 'str',
         'n': 'int',
-        'name': 'str',
+        'name': 'object',
         'non_featured_results': 'str',
         'notag': 'list[str]',
         'params': 'dict(str, object)',
@@ -60,7 +60,7 @@ class DynamicContentRow(object):
         'platform': 'str',
         'region': 'str',
         'scope': 'str',
-        'short_name': 'str',
+        'short_name': 'object',
         'sort_heading': 'str',
         'sort_order': 'str',
         'sort_ownership': 'str',
@@ -555,7 +555,7 @@ class DynamicContentRow(object):
 
 
         :return: The name of this DynamicContentRow.  # noqa: E501
-        :rtype: str
+        :rtype: object
         """
         return self._name
 
@@ -565,13 +565,8 @@ class DynamicContentRow(object):
 
 
         :param name: The name of this DynamicContentRow.  # noqa: E501
-        :type name: str
+        :type name: object
         """
-        if self.local_vars_configuration.client_side_validation and name is None:  # noqa: E501
-            raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                name is not None and len(name) < 1):
-            raise ValueError("Invalid value for `name`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._name = name
 
@@ -663,7 +658,7 @@ class DynamicContentRow(object):
     def platform(self):
         """Gets the platform of this DynamicContentRow.  # noqa: E501
 
-        This is normally `android`, `ios`, `standalonewindows`, `web`, or the empty value ``, but also supposedly can be any random Unity version such as `2019.2.4-801-Release` or `2019.2.2-772-Release` or even `unknownplatform`.  # noqa: E501
+        Usually \"ThisPlatformSupported\", but can also be other values such as \"all\" or platform specific identifiers.  # noqa: E501
 
         :return: The platform of this DynamicContentRow.  # noqa: E501
         :rtype: str
@@ -674,13 +669,16 @@ class DynamicContentRow(object):
     def platform(self, platform):
         """Sets the platform of this DynamicContentRow.
 
-        This is normally `android`, `ios`, `standalonewindows`, `web`, or the empty value ``, but also supposedly can be any random Unity version such as `2019.2.4-801-Release` or `2019.2.2-772-Release` or even `unknownplatform`.  # noqa: E501
+        Usually \"ThisPlatformSupported\", but can also be other values such as \"all\" or platform specific identifiers.  # noqa: E501
 
         :param platform: The platform of this DynamicContentRow.  # noqa: E501
         :type platform: str
         """
         if self.local_vars_configuration.client_side_validation and platform is None:  # noqa: E501
             raise ValueError("Invalid value for `platform`, must not be `None`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                platform is not None and len(platform) < 1):
+            raise ValueError("Invalid value for `platform`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._platform = platform
 
@@ -732,7 +730,7 @@ class DynamicContentRow(object):
 
 
         :return: The short_name of this DynamicContentRow.  # noqa: E501
-        :rtype: str
+        :rtype: object
         """
         return self._short_name
 
@@ -742,7 +740,7 @@ class DynamicContentRow(object):
 
 
         :param short_name: The short_name of this DynamicContentRow.  # noqa: E501
-        :type short_name: str
+        :type short_name: object
         """
 
         self._short_name = short_name

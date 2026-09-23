@@ -1,7 +1,6 @@
 # LimitedWorld
 
 
-
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
@@ -27,10 +26,10 @@ Name | Type | Description | Notes
 **recommended_capacity** | **int** |  | [optional] 
 **release_status** | [**ReleaseStatus**](ReleaseStatus.md) |  | 
 **store_id** | **str** |  | [optional] 
-**tags** | **list[str]** |   | 
+**tags** | **list[str]** |  | 
 **thumbnail_image_url** | **str** |  | 
 **udon_products** | **list[str]** |  | [optional] 
-**unity_packages** | [**list[LimitedUnityPackage]**](LimitedUnityPackage.md) |   | 
+**unity_packages** | [**list[LimitedUnityPackage]**](LimitedUnityPackage.md) |  | 
 **updated_at** | **datetime** |  | 
 **visits** | **int** |  | [optional] [default to 0]
 
