@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **id** | **str** |  | 
 **oculus_sku** | **str** |  | [optional] 
 **period** | [**SubscriptionPeriod**](SubscriptionPeriod.md) |  | 
-**period_amount** | **object** |  | [optional] 
+**period_amount** | **object** | An unknown value. Consider [contributing](https://vrchat.community/contributing). | [optional] 
 **pico_sku** | **str** |  | [optional] 
 **steam_item_id** | **str** |  | 
 **tier** | **int** |  | 

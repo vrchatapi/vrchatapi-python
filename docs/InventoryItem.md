@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **acquisition** | **str** |  | [optional] 
-**attribution** | **object** |  | [optional] 
+**attribution** | **object** | An unknown value. Consider [contributing](https://vrchat.community/contributing). | [optional] 
 **collections** | **list[str]** |  | 
 **created_at** | **datetime** |  | 
 **default_attributes** | [**dict(str, InventoryDefaultAttributes1)**](InventoryDefaultAttributes1.md) |  | 

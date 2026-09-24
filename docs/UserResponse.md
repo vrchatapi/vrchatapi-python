@@ -89,7 +89,7 @@ Name | Type | Description | Notes
 **status_history** | **list[str]** |  | [optional] 
 **steam_details** | **object** | Details of an account on another service linked to this one. | [optional] 
 **steam_id** | **str** |  | [optional] 
-**temporary_expiry_date** | **object** |  | [optional] 
+**temporary_expiry_date** | **object** | An unknown value. Consider [contributing](https://vrchat.community/contributing). | [optional] 
 **twitch_details** | **object** | Details of an account on another service linked to this one. | [optional] 
 **twitch_id** | **str** |  | [optional] 
 **two_factor_auth_enabled** | **bool** |  | [optional] 

@@ -4,7 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**client_min_version** | **object** |  | [optional] 
+**client_min_version** | **object** | An unknown value. Consider [contributing](https://vrchat.community/contributing). | [optional] 
 **created_at** | **datetime** |  | 
 **data** | [**InfoPushData**](InfoPushData.md) |  | 
 **end_date** | **datetime** |  | [optional] 
