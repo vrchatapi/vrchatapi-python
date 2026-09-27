@@ -44,3 +44,6 @@ patch ./vrchatapi/api_client.py < ./patches/query_param_bool.patch
 
 # Add URL encoding to basic auth parameters
 patch ./vrchatapi/configuration.py < ./patches/encode_basic_auth.patch
+
+# Set API key cookie as key-value pair  
+patch ./vrchatapi/api_client.py < ./patches/cookie_key_value.patch
