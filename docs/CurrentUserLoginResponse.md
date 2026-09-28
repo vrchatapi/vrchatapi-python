@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **age_verification_status** | [**AgeVerificationStatus**](AgeVerificationStatus.md) |  | [optional] 
 **age_verified** | **bool** | &#x60;true&#x60; if, user is age verified (not 18+). | [optional] 
 **allow_avatar_copying** | **bool** |  | [optional] 
+**allow_worlds_to_count_friends_in_instance** | **bool** | The \&quot;Allow Worlds to Count Friends in Instance\&quot; setting, introduced under [Udon Methods for Friend Info](https://ask.vrchat.com/t/developer-update-24-september-2026/48972#p-90922-udon-methods-for-friend-info-13) in the Developer Update of September 24, 2026. | [optional] 
 **apple_details** | **object** | Details of an account on another service linked to this one. | [optional] 
 **apple_id** | **str** |  | [optional] 
 **auth_token** | **str** | The auth token for NEWLY REGISTERED ACCOUNTS ONLY (/auth/register) | [optional] 
