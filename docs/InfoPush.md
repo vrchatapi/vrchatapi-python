@@ -18,6 +18,7 @@ Name | Type | Description | Notes
 **require_client_tags** | **list[str]** |  | [optional] 
 **start_date** | **datetime** |  | [optional] 
 **tags** | **list[str]** |  | 
+**type** | **str** |  | [optional] 
 **updated_at** | **datetime** |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

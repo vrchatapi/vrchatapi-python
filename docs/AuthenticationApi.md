@@ -1587,7 +1587,7 @@ Name | Type | Description  | Notes
 
 Update Interests and Preferences
 
-Turns interests and preferences on with `true` and off with `false`. A key the body leaves out keeps its value, and an unknown key or a value that is not a boolean is ignored.
+Turns interests and preferences on with `true` and off with `false`. A key the body leaves out keeps its value.
 
 ### Example
 
