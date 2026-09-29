@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **content_id** | **str** |  | 
 **content_name** | **str** |  | 
 **content_thumbnail_image_url** | **str** |  | 
+**created** | **datetime** |  | 
 **description** | **str** | The subjective reason for the report | 
 **evidence_required** | **bool** |  | 
 **id** | **str** |  | 
