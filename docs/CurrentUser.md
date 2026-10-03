@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **accepted_tos_version** | **int** |  | 
 **account_deletion_date** | **date** |  | [optional] 
 **account_deletion_log** | [**list[AccountDeletionLog]**](AccountDeletionLog.md) |  | [optional] 
+**account_standing** | **str** |  | [optional] 
 **active_friends** | **list[str]** |  | [optional] 
 **age_verification_status** | [**AgeVerificationStatus**](AgeVerificationStatus.md) |  | 
 **age_verified** | **bool** | &#x60;true&#x60; if, user is age verified (not 18+). | 
