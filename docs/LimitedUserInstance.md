@@ -10,9 +10,9 @@ Name | Type | Description | Notes
 **allow_avatar_copying** | **bool** |  | 
 **bio** | **str** |  | [optional] 
 **bio_links** | **list[str]** |  | [optional] 
-**current_avatar_image_url** | **str** | When profilePicOverride is not empty, use it instead. | 
-**current_avatar_tags** | **list[str]** |  | 
-**current_avatar_thumbnail_image_url** | **str** | When profilePicOverride is not empty, use it instead. | 
+**current_avatar_image_url** | **str** | When profilePicOverride is not empty, use it instead. | [optional] 
+**current_avatar_tags** | **list[str]** |  | [optional] 
+**current_avatar_thumbnail_image_url** | **str** | When profilePicOverride is not empty, use it instead. | [optional] 
 **date_joined** | **datetime** |  | 
 **developer_type** | [**DeveloperType**](DeveloperType.md) |  | 
 **display_name** | **str** |  | 
