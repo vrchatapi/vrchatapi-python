@@ -141,6 +141,7 @@ docs/GroupAnnouncement.md
 docs/GroupAuditLogEntry.md
 docs/GroupAuditLogEntryBase.md
 docs/GroupAuditLogEntryBooleanChange.md
+docs/GroupAuditLogEntryData.md
 docs/GroupAuditLogEntryDataGroupAnnouncement.md
 docs/GroupAuditLogEntryDataGroupCalendarEventCreate.md
 docs/GroupAuditLogEntryDataGroupCalendarEventDelete.md
@@ -162,8 +163,6 @@ docs/GroupAuditLogEntryDataGroupRoleCreate.md
 docs/GroupAuditLogEntryDataGroupRoleDelete.md
 docs/GroupAuditLogEntryDataGroupRoleUpdate.md
 docs/GroupAuditLogEntryDataGroupUpdate.md
-docs/GroupAuditLogEntryEvent.md
-docs/GroupAuditLogEntryEventData.md
 docs/GroupAuditLogEntryFileIDChange.md
 docs/GroupAuditLogEntryGroupAnnouncement.md
 docs/GroupAuditLogEntryGroupCalendarEventCreate.md
@@ -640,6 +639,7 @@ vrchatapi/models/group_announcement.py
 vrchatapi/models/group_audit_log_entry.py
 vrchatapi/models/group_audit_log_entry_base.py
 vrchatapi/models/group_audit_log_entry_boolean_change.py
+vrchatapi/models/group_audit_log_entry_data.py
 vrchatapi/models/group_audit_log_entry_data_group_announcement.py
 vrchatapi/models/group_audit_log_entry_data_group_calendar_event_create.py
 vrchatapi/models/group_audit_log_entry_data_group_calendar_event_delete.py
@@ -661,8 +661,6 @@ vrchatapi/models/group_audit_log_entry_data_group_role_create.py
 vrchatapi/models/group_audit_log_entry_data_group_role_delete.py
 vrchatapi/models/group_audit_log_entry_data_group_role_update.py
 vrchatapi/models/group_audit_log_entry_data_group_update.py
-vrchatapi/models/group_audit_log_entry_event.py
-vrchatapi/models/group_audit_log_entry_event_data.py
 vrchatapi/models/group_audit_log_entry_file_id_change.py
 vrchatapi/models/group_audit_log_entry_group_announcement.py
 vrchatapi/models/group_audit_log_entry_group_calendar_event_create.py

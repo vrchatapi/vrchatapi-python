@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **event_type** | **str** |  | 
 **group_id** | **str** |  | 
 **id** | **str** |  | 
-**data** | [**GroupAuditLogEntryEventData**](GroupAuditLogEntryEventData.md) |  | 
+**data** | [**GroupAuditLogEntryData**](GroupAuditLogEntryData.md) |  | 
 **target_id** | **str** |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
