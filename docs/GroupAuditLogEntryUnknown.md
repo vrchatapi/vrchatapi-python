@@ -6,7 +6,7 @@ An event whose `eventType` has no schema of its own.
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **data** | **dict(str, object)** |  | 
-**event_type** | **str** |  | 
+**event_type** | **str** | The type of event that occurred. | 
 **target_id** | **str** |  | 
 **actor_display_name** | **str** | The display name of the user who performed the action. | 
 **actor_id** | **str** | A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed. | 
