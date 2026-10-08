@@ -439,6 +439,7 @@ docs/UpdateGroupMemberRequest.md
 docs/UpdateGroupRepresentationRequest.md
 docs/UpdateGroupRequest.md
 docs/UpdateGroupRoleRequest.md
+docs/UpdateInstanceRequest.md
 docs/UpdateInventoryItemRequest.md
 docs/UpdateInviteMessageRequest.md
 docs/UpdateListingRequest.md
@@ -927,6 +928,7 @@ vrchatapi/models/update_group_member_request.py
 vrchatapi/models/update_group_representation_request.py
 vrchatapi/models/update_group_request.py
 vrchatapi/models/update_group_role_request.py
+vrchatapi/models/update_instance_request.py
 vrchatapi/models/update_inventory_item_request.py
 vrchatapi/models/update_invite_message_request.py
 vrchatapi/models/update_listing_request.py
