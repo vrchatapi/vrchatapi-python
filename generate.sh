@@ -2,7 +2,7 @@
 
 if [ ${#} -le 1 ]
 then
-  echo "Usage: generate.sh <openapi.yaml> <version>" >&2
+  echo "Usage: generate.sh <openapi.json> <version>" >&2
   exit 1
 fi
 rm vrchatapi docs -rf
