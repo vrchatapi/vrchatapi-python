@@ -7,10 +7,11 @@ on:
     types: [release]
   workflow_dispatch:
     inputs:
-      json:
-        description: Passed json from repository_dispatch
-        required: true
+      tag:
+        description: Release to build, such as v1.22.1 or nightly. Defaults to the latest release.
+        required: false
         type: string
+        default: ''
       version_postfix:
         description: Additional string to concatenate onto the existing version before release
         required: false
@@ -27,7 +28,6 @@ on:
 name: CI
 
 env:
-  PASSED_VERSION: ${{ (github.event_name == 'repository_dispatch' && github.event.client_payload || fromJSON(inputs.json || '{}'))['version'] }}
   VERSION_POSTPEND: ${{ github.event_name == 'workflow_dispatch' && inputs.version_postfix || '' }}
 
 jobs:
@@ -46,12 +46,12 @@ jobs:
       - uses: vrchatapi/specification/.github/actions/download@main
         with:
           bundle: openapi-3.0.yaml
+          tag: ${{ inputs.tag }}
 
       # PyPI wants `.dev` where the specification says `-nightly.`
       - id: version
         run: |
-          version="${PASSED_VERSION}${VERSION_POSTPEND}"
-          version="${version:-$(yq -r '.info.version' openapi-3.0.yaml)}"
+          version="$(yq -r '.info.version' openapi-3.0.yaml)${VERSION_POSTPEND}"
 
           echo "version=${version/-nightly./.dev}" >> $GITHUB_OUTPUT
 
