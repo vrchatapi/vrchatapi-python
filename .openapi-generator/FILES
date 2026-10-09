@@ -262,6 +262,8 @@ docs/InfoPushIpsQuery.md
 docs/Instance.md
 docs/InstanceCategory.md
 docs/InstanceContentSettings.md
+docs/InstanceDiscovery.md
+docs/InstanceDiscoveryPlatform.md
 docs/InstancePlatforms.md
 docs/InstanceRegion.md
 docs/InstanceShortNameResponse.md
@@ -301,6 +303,7 @@ docs/LicenseAction.md
 docs/LicenseGroup.md
 docs/LicenseType.md
 docs/LimitedGroup.md
+docs/LimitedInstance.md
 docs/LimitedUnityPackage.md
 docs/LimitedUserFriend.md
 docs/LimitedUserGroups.md
@@ -384,6 +387,7 @@ docs/ProductType.md
 docs/ProfileGroup.md
 docs/ProfileGroups.md
 docs/ProfileRepresentedGroup.md
+docs/ProfileTheme.md
 docs/Prop.md
 docs/PropPublishStatus.md
 docs/PropUnityPackage.md
@@ -838,6 +842,8 @@ vrchatapi/models/info_push_ips_query.py
 vrchatapi/models/instance.py
 vrchatapi/models/instance_category.py
 vrchatapi/models/instance_content_settings.py
+vrchatapi/models/instance_discovery.py
+vrchatapi/models/instance_discovery_platform.py
 vrchatapi/models/instance_platforms.py
 vrchatapi/models/instance_region.py
 vrchatapi/models/instance_short_name_response.py
@@ -873,6 +879,7 @@ vrchatapi/models/license_action.py
 vrchatapi/models/license_group.py
 vrchatapi/models/license_type.py
 vrchatapi/models/limited_group.py
+vrchatapi/models/limited_instance.py
 vrchatapi/models/limited_unity_package.py
 vrchatapi/models/limited_user_friend.py
 vrchatapi/models/limited_user_groups.py
@@ -952,6 +959,7 @@ vrchatapi/models/product_type.py
 vrchatapi/models/profile_group.py
 vrchatapi/models/profile_groups.py
 vrchatapi/models/profile_represented_group.py
+vrchatapi/models/profile_theme.py
 vrchatapi/models/prop.py
 vrchatapi/models/prop_publish_status.py
 vrchatapi/models/prop_unity_package.py

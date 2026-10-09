@@ -4,9 +4,12 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**background_gradient_bottom** | **str** | Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty. | [optional] 
+**background_gradient_top** | **str** | Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty. | [optional] 
 **background_texture_id** | **str** |  | [optional] 
 **background_type** | **str** |  | [optional] 
 **banner_color** | **str** | Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty. | [optional] 
+**banner_custom_url** | **str** |  | [optional] 
 **banner_type** | [**BannerType**](BannerType.md) |  | [optional] 
 **bio** | **str** |  | [optional] 
 **bio_links** | **list[str]** |  | [optional] 

@@ -44,7 +44,7 @@ Name | Type | Description | Notes
 **theme_icon_color** | **str** | Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty. | [optional] 
 **theme_id** | **str** |  | [optional] 
 **theme_subtext_color** | **str** | Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty. | [optional] 
-**themes** | **list[object]** |  | [optional] 
+**themes** | [**list[ProfileTheme]**](ProfileTheme.md) |  | [optional] 
 **total_public_worlds_count** | **int** |  | [optional] 
 **trust_tags** | **list[str]** |  | [optional] 
 **user_icon** | **str** |  | [optional] 
