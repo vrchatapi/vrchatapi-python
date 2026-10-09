@@ -501,7 +501,7 @@ with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = vrchatapi.AvatarsApi(api_client)
     featured = True # bool | Filters on featured results. (optional)
-sort = vrchatapi.SortOption() # SortOption | The sort order of the results. (optional)
+sort = vrchatapi.SortOptionAvatar() # SortOptionAvatar | The sort order of the results. (optional)
 n = 60 # int | The number of objects to return. (optional) (default to 60)
 order = vrchatapi.OrderOption() # OrderOption | Result ordering (optional)
 offset = 56 # int | A zero-based offset from the default object sorting from where search results start. (optional)
@@ -527,7 +527,7 @@ user_id = 'user_id_example' # str | Target user to see information on, admin-onl
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **featured** | **bool**| Filters on featured results. | [optional] 
- **sort** | [**SortOption**](.md)| The sort order of the results. | [optional] 
+ **sort** | [**SortOptionAvatar**](.md)| The sort order of the results. | [optional] 
  **n** | **int**| The number of objects to return. | [optional] [default to 60]
  **order** | [**OrderOption**](.md)| Result ordering | [optional] 
  **offset** | **int**| A zero-based offset from the default object sorting from where search results start. | [optional] 
@@ -821,7 +821,7 @@ with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = vrchatapi.AvatarsApi(api_client)
     featured = True # bool | Filters on featured results. (optional)
-sort = vrchatapi.SortOption() # SortOption | The sort order of the results. (optional)
+sort = vrchatapi.SortOptionAvatar() # SortOptionAvatar | The sort order of the results. (optional)
 user = 'user_example' # str | Set to `me` for searching own avatars. (optional)
 user_id = 'user_id_example' # str | Filter by UserID. (optional)
 n = 60 # int | The number of objects to return. (optional) (default to 60)
@@ -848,7 +848,7 @@ is_internal_variant = false # bool | Not quite sure what this actually does (exi
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **featured** | **bool**| Filters on featured results. | [optional] 
- **sort** | [**SortOption**](.md)| The sort order of the results. | [optional] 
+ **sort** | [**SortOptionAvatar**](.md)| The sort order of the results. | [optional] 
  **user** | **str**| Set to &#x60;me&#x60; for searching own avatars. | [optional] 
  **user_id** | **str**| Filter by UserID. | [optional] 
  **n** | **int**| The number of objects to return. | [optional] [default to 60]

@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **plugin_url** | **str** |  | [optional] 
 **plugin_url_object** | **object** |  | [optional] 
 **scan_status** | **str** |  | [optional] 
+**transpiler_version** | **str** |  | [optional] 
 **unity_sort_number** | **int** |  | [optional] 
 **unity_version** | **str** |  | [default to '5.3.4p1']
 **variant** | **str** |  | [optional] 

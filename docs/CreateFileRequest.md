@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **extension** | **str** |  | 
-**mime_type** | [**MIMEType**](MIMEType.md) |  | 
+**mime_type** | [**CreateFileRequestMIMEType**](CreateFileRequestMIMEType.md) |  | 
 **name** | **str** |  | 
 **tags** | **list[str]** |  | [optional] 
 

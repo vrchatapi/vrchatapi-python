@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **id** | **str** |  | [optional] 
 **image_url** | **str** |  | [optional] 
 **name** | **str** |  | [optional] 
-**release_status** | [**ReleaseStatus**](ReleaseStatus.md) |  | [optional] 
+**release_status** | [**UpdateAvatarRequestReleaseStatus**](UpdateAvatarRequestReleaseStatus.md) |  | [optional] 
 **tags** | **list[str]** |  | [optional] 
 **unity_package_url** | **str** |  | [optional] 
 **unity_version** | **str** |  | [optional] [default to '5.3.4p1']

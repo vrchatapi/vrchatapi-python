@@ -9,11 +9,11 @@ Name | Type | Description | Notes
 **close_instance_after_end_minutes** | **int** |  | [optional] 
 **description** | **str** |  | 
 **ends_at** | **datetime** | Time the event ends at | 
-**featured** | **bool** |  | [optional] 
+**featured** | **bool** |  | [optional] [default to False]
 **guest_early_join_minutes** | **int** |  | [optional] 
 **host_early_join_minutes** | **int** |  | [optional] 
 **image_id** | **str** |  | [optional] 
-**is_draft** | **bool** |  | [optional] 
+**is_draft** | **bool** |  | [optional] [default to True]
 **languages** | **list[str]** |  | [optional] 
 **occurrence_kind** | [**CalendarEventOccurrenceKind**](CalendarEventOccurrenceKind.md) |  | [optional] 
 **parent_id** | **str** |  | [optional] 

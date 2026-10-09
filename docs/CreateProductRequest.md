@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **description** | **str** |  | 
 **display_name** | **str** |  | 
 **image_id** | **str** |  | 
-**product_type** | [**ProductType**](ProductType.md) |  | 
+**product_type** | [**CreateProductRequestType**](CreateProductRequestType.md) |  | 
 **tags** | **list[str]** |  | 
 **use_for_subscriber_list** | **bool** |  | 
 

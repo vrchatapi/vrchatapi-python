@@ -72,8 +72,10 @@ docs/ChangeWorldTagsRequest.md
 docs/ContentFilter.md
 docs/CreateAvatarModerationRequest.md
 docs/CreateAvatarRequest.md
+docs/CreateAvatarRequestReleaseStatus.md
 docs/CreateCalendarEventRequest.md
 docs/CreateFileRequest.md
+docs/CreateFileRequestMIMEType.md
 docs/CreateFileVersionRequest.md
 docs/CreateGroupAnnouncementRequest.md
 docs/CreateGroupGalleryRequest.md
@@ -82,11 +84,14 @@ docs/CreateGroupPostRequest.md
 docs/CreateGroupRequest.md
 docs/CreateGroupRoleRequest.md
 docs/CreateInstanceRequest.md
+docs/CreateInstanceRequestRegion.md
 docs/CreateJamSubmissionRequest.md
 docs/CreateListingRequest.md
 docs/CreateProductRequest.md
+docs/CreateProductRequestType.md
 docs/CreatePropRequest.md
 docs/CreateWorldRequest.md
+docs/CreateWorldRequestReleaseStatus.md
 docs/CurrentUser.md
 docs/CurrentUserLoginResponse.md
 docs/CurrentUserPresence.md
@@ -276,6 +281,7 @@ docs/InventoryItem.md
 docs/InventoryItemType.md
 docs/InventoryMetadata.md
 docs/InventoryNotificationDetails.md
+docs/InventorySortOrder.md
 docs/InventorySpawn.md
 docs/InventoryTemplate.md
 docs/InventoryUserAttributes.md
@@ -408,6 +414,7 @@ docs/ServiceQueueStats.md
 docs/ServiceStatus.md
 docs/ShareInventoryItemDirectRequest.md
 docs/SortOption.md
+docs/SortOptionAvatar.md
 docs/SortOptionProductPurchase.md
 docs/SsoProvider.md
 docs/SsoToken.md
@@ -442,6 +449,7 @@ docs/UnavailableWorld.md
 docs/UnityPackage.md
 docs/UpdateAssetReviewNotesRequest.md
 docs/UpdateAvatarRequest.md
+docs/UpdateAvatarRequestReleaseStatus.md
 docs/UpdateCalendarEventRequest.md
 docs/UpdateFavoriteGroupRequest.md
 docs/UpdateGroupGalleryRequest.md
@@ -471,6 +479,7 @@ docs/UserGroupInstanceListResponse.md
 docs/UserNote.md
 docs/UserNoteTargetUser.md
 docs/UserResponse.md
+docs/UserSearchSort.md
 docs/UserState.md
 docs/UserStatus.md
 docs/UserSubscription.md
@@ -643,8 +652,10 @@ vrchatapi/models/change_world_tags_request.py
 vrchatapi/models/content_filter.py
 vrchatapi/models/create_avatar_moderation_request.py
 vrchatapi/models/create_avatar_request.py
+vrchatapi/models/create_avatar_request_release_status.py
 vrchatapi/models/create_calendar_event_request.py
 vrchatapi/models/create_file_request.py
+vrchatapi/models/create_file_request_mime_type.py
 vrchatapi/models/create_file_version_request.py
 vrchatapi/models/create_group_announcement_request.py
 vrchatapi/models/create_group_gallery_request.py
@@ -653,11 +664,14 @@ vrchatapi/models/create_group_post_request.py
 vrchatapi/models/create_group_request.py
 vrchatapi/models/create_group_role_request.py
 vrchatapi/models/create_instance_request.py
+vrchatapi/models/create_instance_request_region.py
 vrchatapi/models/create_jam_submission_request.py
 vrchatapi/models/create_listing_request.py
 vrchatapi/models/create_product_request.py
+vrchatapi/models/create_product_request_type.py
 vrchatapi/models/create_prop_request.py
 vrchatapi/models/create_world_request.py
+vrchatapi/models/create_world_request_release_status.py
 vrchatapi/models/current_user.py
 vrchatapi/models/current_user_login_response.py
 vrchatapi/models/current_user_presence.py
@@ -840,6 +854,7 @@ vrchatapi/models/inventory_item.py
 vrchatapi/models/inventory_item_type.py
 vrchatapi/models/inventory_metadata.py
 vrchatapi/models/inventory_notification_details.py
+vrchatapi/models/inventory_sort_order.py
 vrchatapi/models/inventory_spawn.py
 vrchatapi/models/inventory_template.py
 vrchatapi/models/inventory_user_attributes.py
@@ -965,6 +980,7 @@ vrchatapi/models/service_queue_stats.py
 vrchatapi/models/service_status.py
 vrchatapi/models/share_inventory_item_direct_request.py
 vrchatapi/models/sort_option.py
+vrchatapi/models/sort_option_avatar.py
 vrchatapi/models/sort_option_product_purchase.py
 vrchatapi/models/sso_provider.py
 vrchatapi/models/sso_token.py
@@ -999,6 +1015,7 @@ vrchatapi/models/unavailable_world.py
 vrchatapi/models/unity_package.py
 vrchatapi/models/update_asset_review_notes_request.py
 vrchatapi/models/update_avatar_request.py
+vrchatapi/models/update_avatar_request_release_status.py
 vrchatapi/models/update_calendar_event_request.py
 vrchatapi/models/update_favorite_group_request.py
 vrchatapi/models/update_group_gallery_request.py
@@ -1028,6 +1045,7 @@ vrchatapi/models/user_group_instance_list_response.py
 vrchatapi/models/user_note.py
 vrchatapi/models/user_note_target_user.py
 vrchatapi/models/user_response.py
+vrchatapi/models/user_search_sort.py
 vrchatapi/models/user_state.py
 vrchatapi/models/user_status.py
 vrchatapi/models/user_subscription.py

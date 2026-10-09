@@ -2164,7 +2164,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **search_users**
-> list[LimitedUserSearch] search_users(search=search, developer_type=developer_type, n=n, offset=offset, is_internal_variant=is_internal_variant)
+> list[LimitedUserSearch] search_users(search=search, developer_type=developer_type, sort=sort, custom_fields=custom_fields, n=n, offset=offset, is_internal_variant=is_internal_variant)
 
 Search All Users
 
@@ -2202,13 +2202,15 @@ with vrchatapi.ApiClient(configuration) as api_client:
     api_instance = vrchatapi.UsersApi(api_client)
     search = 'search_example' # str | Searches by `displayName`. Will return empty array if search query is empty or missing. (optional)
 developer_type = 'developer_type_example' # str | Active user by developer type, none for normal users and internal for moderators (optional)
+sort = vrchatapi.UserSearchSort() # UserSearchSort | The order to return users in. (optional)
+custom_fields = 'custom_fields_example' # str | A comma-separated list of field names. (optional)
 n = 60 # int | The number of objects to return. (optional) (default to 60)
 offset = 56 # int | A zero-based offset from the default object sorting from where search results start. (optional)
 is_internal_variant = false # bool | Not quite sure what this actually does (exists on the website but doesn't seem to be used) (optional)
 
     try:
         # Search All Users
-        api_response = api_instance.search_users(search=search, developer_type=developer_type, n=n, offset=offset, is_internal_variant=is_internal_variant)
+        api_response = api_instance.search_users(search=search, developer_type=developer_type, sort=sort, custom_fields=custom_fields, n=n, offset=offset, is_internal_variant=is_internal_variant)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling UsersApi->search_users: %s\n" % e)
@@ -2220,6 +2222,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **search** | **str**| Searches by &#x60;displayName&#x60;. Will return empty array if search query is empty or missing. | [optional] 
  **developer_type** | **str**| Active user by developer type, none for normal users and internal for moderators | [optional] 
+ **sort** | [**UserSearchSort**](.md)| The order to return users in. | [optional] 
+ **custom_fields** | **str**| A comma-separated list of field names. | [optional] 
  **n** | **int**| The number of objects to return. | [optional] [default to 60]
  **offset** | **int**| A zero-based offset from the default object sorting from where search results start. | [optional] 
  **is_internal_variant** | **bool**| Not quite sure what this actually does (exists on the website but doesn&#39;t seem to be used) | [optional] 

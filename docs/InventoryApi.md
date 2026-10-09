@@ -365,7 +365,7 @@ with vrchatapi.ApiClient(configuration) as api_client:
 offset = 56 # int | A zero-based offset from the default object sorting from where search results start. (optional)
 holder_id = 'holder_id_example' # str | The UserID of the owner of the inventory; defaults to the currently authenticated user. (optional)
 equip_slot = vrchatapi.InventoryEquipSlot() # InventoryEquipSlot | Filter for inventory retrieval. (optional)
-order = 'order_example' # str | Sort order for inventory retrieval. (optional)
+order = vrchatapi.InventorySortOrder() # InventorySortOrder | Sort order for inventory retrieval. (optional)
 tags = 'tags_example' # str | Filter tags for inventory retrieval (comma-separated). (optional)
 types = vrchatapi.InventoryItemType() # InventoryItemType | Filter for inventory retrieval. (optional)
 flags = vrchatapi.InventoryFlag() # InventoryFlag | Filter flags for inventory retrieval (comma-separated). (optional)
@@ -391,7 +391,7 @@ Name | Type | Description  | Notes
  **offset** | **int**| A zero-based offset from the default object sorting from where search results start. | [optional] 
  **holder_id** | **str**| The UserID of the owner of the inventory; defaults to the currently authenticated user. | [optional] 
  **equip_slot** | [**InventoryEquipSlot**](.md)| Filter for inventory retrieval. | [optional] 
- **order** | **str**| Sort order for inventory retrieval. | [optional] 
+ **order** | [**InventorySortOrder**](.md)| Sort order for inventory retrieval. | [optional] 
  **tags** | **str**| Filter tags for inventory retrieval (comma-separated). | [optional] 
  **types** | [**InventoryItemType**](.md)| Filter for inventory retrieval. | [optional] 
  **flags** | [**InventoryFlag**](.md)| Filter flags for inventory retrieval (comma-separated). | [optional] 
@@ -418,6 +418,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** |  |  -  |
+**400** | The request failed validation. VRChat validates the request before it looks up the resource, so this response is returned even when the ID in the path does not exist. The message names the offending field or parameter. |  -  |
 **401** | Error response due to missing auth cookie. |  -  |
 **403** | Error response due to missing permissions. |  -  |
 
