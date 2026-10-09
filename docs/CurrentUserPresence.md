@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **avatar_thumbnail** | **str** |  | [optional] 
 **banner** | **str** |  | [optional] 
 **banner_color** | **str** | Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty. | [optional] 
-**banner_type** | **str** |  | [optional] 
+**banner_type** | [**BannerType**](BannerType.md) |  | [optional] 
 **banner_url** | **str** |  | [optional] 
 **current_avatar_tags** | **str** |  | [optional] 
 **debugflag** | **str** |  | [optional] 

@@ -47,6 +47,7 @@ docs/AvatarsApi.md
 docs/Badge.md
 docs/Balance.md
 docs/BanGroupMemberRequest.md
+docs/BannerType.md
 docs/BareError.md
 docs/Beta.md
 docs/BetaRegistrationNotFoundError.md
@@ -628,6 +629,7 @@ vrchatapi/models/avatar_unity_package_url_object.py
 vrchatapi/models/badge.py
 vrchatapi/models/balance.py
 vrchatapi/models/ban_group_member_request.py
+vrchatapi/models/banner_type.py
 vrchatapi/models/bare_error.py
 vrchatapi/models/beta.py
 vrchatapi/models/beta_registration_not_found_error.py

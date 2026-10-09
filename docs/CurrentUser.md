@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 **apple_id** | **str** |  | [optional] 
 **auth_token** | **str** | The auth token for NEWLY REGISTERED ACCOUNTS ONLY (/auth/register) | [optional] 
 **banner_color** | **str** | Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty. | [optional] 
-**banner_type** | **str** |  | [optional] 
+**banner_type** | [**BannerType**](BannerType.md) |  | [optional] 
 **banner_url** | **str** |  | [optional] 
 **completed_tutorials** | **list[str]** |  | [optional] 
 **content_filters** | **list[str]** | These tags begin with &#x60;content_&#x60; and control content gating | [optional] 
