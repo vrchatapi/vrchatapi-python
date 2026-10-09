@@ -1408,7 +1408,7 @@ Name | Type | Description  | Notes
 
 Get User Feedback
 
-Get user's submitted feedback
+Get user's submitted feedback. VRChat staff note that [moderation reports](https://vrchat.community/reference/get-moderation-reports) replace the feedback system in [Feedback deprecated](https://github.com/vrchatapi/specification/issues/535), December 5, 2025.
 
 ### Example
 
