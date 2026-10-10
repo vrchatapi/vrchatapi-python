@@ -66,7 +66,7 @@ Name | Type | Description | Notes
 **order** | **object** |  | [optional] 
 **permissions** | **object** |  | [optional] 
 **requires_purchase** | **bool** | Whether the role requires a purchase. | [optional] 
-**requires_two_factor** | **bool** | Whether the role requires two-factor authentication. | [optional] 
+**requires_two_factor** | **object** |  | [optional] 
 **group_id** | **str** |  | [optional] 
 **last_updated_by_user_id** | **str** | A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed. | [optional] 
 **default_role** | **bool** | Whether the role is the group&#39;s default role. | [optional] 
