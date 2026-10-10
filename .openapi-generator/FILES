@@ -23,6 +23,7 @@ docs/APIConfigOfflineAnalysis.md
 docs/APIConfigProfileDefaults.md
 docs/APIHealth.md
 docs/AccountDeletionLog.md
+docs/AccountStanding.md
 docs/AddFavoriteRequest.md
 docs/AddGroupGalleryImageRequest.md
 docs/AdminAssetBundle.md
@@ -151,6 +152,9 @@ docs/GroupAuditLogEntryData.md
 docs/GroupAuditLogEntryDataGroupAnnouncement.md
 docs/GroupAuditLogEntryDataGroupCalendarEventCreate.md
 docs/GroupAuditLogEntryDataGroupCalendarEventDelete.md
+docs/GroupAuditLogEntryDataGroupCreate.md
+docs/GroupAuditLogEntryDataGroupCreateDiscoverability.md
+docs/GroupAuditLogEntryDataGroupCreateGallery.md
 docs/GroupAuditLogEntryDataGroupGalleryCreate.md
 docs/GroupAuditLogEntryDataGroupGalleryDelete.md
 docs/GroupAuditLogEntryDataGroupGalleryUpdate.md
@@ -173,6 +177,7 @@ docs/GroupAuditLogEntryFileIDChange.md
 docs/GroupAuditLogEntryGroupAnnouncement.md
 docs/GroupAuditLogEntryGroupCalendarEventCreate.md
 docs/GroupAuditLogEntryGroupCalendarEventDelete.md
+docs/GroupAuditLogEntryGroupCreate.md
 docs/GroupAuditLogEntryGroupGalleryCreate.md
 docs/GroupAuditLogEntryGroupGalleryDelete.md
 docs/GroupAuditLogEntryGroupGalleryUpdate.md
@@ -588,6 +593,7 @@ vrchatapi/configuration.py
 vrchatapi/exceptions.py
 vrchatapi/models/__init__.py
 vrchatapi/models/account_deletion_log.py
+vrchatapi/models/account_standing.py
 vrchatapi/models/add_favorite_request.py
 vrchatapi/models/add_group_gallery_image_request.py
 vrchatapi/models/admin_asset_bundle.py
@@ -732,6 +738,9 @@ vrchatapi/models/group_audit_log_entry_data.py
 vrchatapi/models/group_audit_log_entry_data_group_announcement.py
 vrchatapi/models/group_audit_log_entry_data_group_calendar_event_create.py
 vrchatapi/models/group_audit_log_entry_data_group_calendar_event_delete.py
+vrchatapi/models/group_audit_log_entry_data_group_create.py
+vrchatapi/models/group_audit_log_entry_data_group_create_discoverability.py
+vrchatapi/models/group_audit_log_entry_data_group_create_gallery.py
 vrchatapi/models/group_audit_log_entry_data_group_gallery_create.py
 vrchatapi/models/group_audit_log_entry_data_group_gallery_delete.py
 vrchatapi/models/group_audit_log_entry_data_group_gallery_update.py
@@ -754,6 +763,7 @@ vrchatapi/models/group_audit_log_entry_file_id_change.py
 vrchatapi/models/group_audit_log_entry_group_announcement.py
 vrchatapi/models/group_audit_log_entry_group_calendar_event_create.py
 vrchatapi/models/group_audit_log_entry_group_calendar_event_delete.py
+vrchatapi/models/group_audit_log_entry_group_create.py
 vrchatapi/models/group_audit_log_entry_group_gallery_create.py
 vrchatapi/models/group_audit_log_entry_group_gallery_delete.py
 vrchatapi/models/group_audit_log_entry_group_gallery_update.py
