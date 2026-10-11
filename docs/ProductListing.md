@@ -18,10 +18,10 @@ Name | Type | Description | Notes
 **group_icon** | **str** |  | [optional] 
 **group_id** | **str** |  | [optional] 
 **group_name** | **str** |  | [optional] 
-**has_avatar** | **bool** |  | 
+**has_avatar** | **bool** |  | [optional] 
 **has_companion** | **bool** |  | [optional] 
 **has_inventory** | **bool** |  | [optional] 
-**has_udon** | **bool** |  | 
+**has_udon** | **bool** |  | [optional] 
 **hydrated_products** | [**list[Product]**](Product.md) |  | [optional] 
 **id** | **str** |  | 
 **image_id** | **str** |  | [optional] 
@@ -33,16 +33,16 @@ Name | Type | Description | Notes
 **product_ids** | **list[str]** |  | 
 **product_type** | [**ProductType**](ProductType.md) |  | 
 **product_types** | **list[str]** |  | [optional] 
-**products** | **list[str]** | Product ids. The products themselves arrive in &#x60;hydratedProducts&#x60;. | 
+**products** | **list[str]** | Product ids. The products themselves arrive in &#x60;hydratedProducts&#x60;. | [optional] 
 **purchase_count** | **int** |  | [optional] 
 **purchase_count_quantity** | **int** |  | [optional] 
 **quantifiable** | **bool** |  | [optional] 
-**recurrable** | **bool** |  | 
+**recurrable** | **bool** |  | [optional] 
 **refundable** | **bool** |  | [optional] 
 **seller_display_name** | **str** |  | 
 **seller_id** | **str** |  | 
 **sold_by_vrc** | **bool** |  | [optional] 
-**stackable** | **bool** |  | 
+**stackable** | **bool** |  | [optional] 
 **store_ids** | **list[str]** |  | [optional] 
 **subtitle** | **str** |  | [optional] 
 **tags** | **list[str]** |  | [optional] 
