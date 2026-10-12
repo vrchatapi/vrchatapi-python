@@ -8,58 +8,34 @@ Name | Type | Description | Notes
 **accepted_tos_version** | **int** |  | [optional] 
 **account_deletion_date** | **str** |  | [optional] 
 **account_deletion_log** | **list[object]** |  | [optional] 
+**account_standing** | **str** |  | [optional] 
+**active_friends** | **list[str]** |  | [optional] 
 **age_verification_status** | [**AgeVerificationStatus**](AgeVerificationStatus.md) |  | 
 **age_verified** | **bool** | &#x60;true&#x60; if, user is age verified (not 18+). | 
 **allow_avatar_copying** | **bool** |  | 
+**allow_worlds_to_count_friends_in_instance** | **bool** | The \&quot;Allow Worlds to Count Friends in Instance\&quot; setting, introduced under [Udon Methods for Friend Info](https://ask.vrchat.com/t/developer-update-24-september-2026/48972#p-90922-udon-methods-for-friend-info-13) in the Developer Update of September 24, 2026. | [optional] 
 **apple_details** | **object** | Details of an account on another service linked to this one. | [optional] 
+**apple_id** | **str** |  | [optional] 
+**auth_token** | **str** | The auth token for NEWLY REGISTERED ACCOUNTS ONLY (/auth/register) | [optional] 
 **banner_color** | **str** | Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty. | [optional] 
 **banner_type** | [**BannerType**](BannerType.md) |  | [optional] 
 **banner_url** | **str** |  | [optional] 
-**date_joined** | **date** |  | 
-**developer_type** | [**DeveloperType**](DeveloperType.md) |  | 
-**discord_id** | **str** |  | [optional] 
-**display_name** | **str** |  | 
-**friend_key** | **str** |  | 
-**friend_request_status** | **str** | State of a friend request between the caller and this user. VRChat sends the string &#x60;\&quot;null\&quot;&#x60;, not JSON &#x60;null&#x60;. | [optional] 
-**icon_frame** | **str** |  | [optional] 
-**icon_url** | **str** |  | [optional] 
-**id** | **str** | A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed. | 
-**instance_id** | **str** | InstanceID can be \&quot;offline\&quot; on User profiles if you are not friends with that user and \&quot;private\&quot; if you are friends and user is in private instance. | [optional] 
-**is_economy_creator** | **bool** |  | [optional] 
-**is_friend** | **bool** |  | 
-**last_activity** | **str** |  | [optional] 
-**last_login** | **str** |  | 
-**last_mobile** | **str** |  | [optional] 
-**last_platform** | **str** | This is normally &#x60;android&#x60;, &#x60;ios&#x60;, &#x60;standalonewindows&#x60;, &#x60;web&#x60;, or the empty value &#x60;&#x60;, but also supposedly can be any random Unity version such as &#x60;2019.2.4-801-Release&#x60; or &#x60;2019.2.2-772-Release&#x60; or even &#x60;unknownplatform&#x60;. | 
-**location** | **str** | Represents a unique location, consisting of a world identifier and an instance identifier, or \&quot;offline\&quot; if the user is not on your friends list. | [optional] 
-**nameplate_effect** | **str** |  | [optional] 
-**note** | **str** |  | [optional] 
-**platform** | **str** |  | [optional] 
-**profile_effect** | **str** |  | [optional] 
-**pronouns** | **str** |  | 
-**state** | [**UserState**](UserState.md) |  | 
-**status** | [**UserStatus**](UserStatus.md) |  | 
-**status_description** | **str** |  | 
-**tags** | **list[str]** |  | 
-**traveling_to_instance** | **str** |  | [optional] 
-**traveling_to_location** | **str** |  | [optional] 
-**traveling_to_world** | **str** |  | [optional] 
-**world_id** | **str** | WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user. | [optional] 
-**account_standing** | **str** |  | [optional] 
-**active_friends** | **list[str]** |  | [optional] 
-**allow_worlds_to_count_friends_in_instance** | **bool** | The \&quot;Allow Worlds to Count Friends in Instance\&quot; setting, introduced under [Udon Methods for Friend Info](https://ask.vrchat.com/t/developer-update-24-september-2026/48972#p-90922-udon-methods-for-friend-info-13) in the Developer Update of September 24, 2026. | [optional] 
-**apple_id** | **str** |  | [optional] 
-**auth_token** | **str** | The auth token for NEWLY REGISTERED ACCOUNTS ONLY (/auth/register) | [optional] 
 **completed_tutorials** | **list[str]** |  | [optional] 
 **content_filters** | **list[str]** | These tags begin with &#x60;content_&#x60; and control content gating | [optional] 
 **current_avatar** | **str** |  | [optional] 
 **current_avatar_image_url** | **str** | When profilePicOverride is not empty, use it instead. | [optional] 
 **current_avatar_tags** | **list[str]** |  | [optional] 
 **current_avatar_thumbnail_image_url** | **str** | When profilePicOverride is not empty, use it instead. | [optional] 
+**date_joined** | **date** |  | 
+**developer_type** | [**DeveloperType**](DeveloperType.md) |  | 
 **discord_details** | [**DiscordDetails**](DiscordDetails.md) |  | [optional] 
+**discord_id** | **str** |  | [optional] 
+**display_name** | **str** |  | 
 **email_verified** | **bool** |  | [optional] 
 **fallback_avatar** | **str** |  | [optional] 
 **friend_group_names** | **list[str]** | Always empty array. | [optional] 
+**friend_key** | **str** |  | 
+**friend_request_status** | **str** | State of a friend request between the caller and this user. VRChat sends the string &#x60;\&quot;null\&quot;&#x60;, not JSON &#x60;null&#x60;. | [optional] 
 **friends** | **list[str]** |  | [optional] 
 **google_details** | **object** | Details of an account on another service linked to this one. | [optional] 
 **google_id** | **str** |  | [optional] 
@@ -71,9 +47,22 @@ Name | Type | Description | Notes
 **has_shared_connections_opt_out** | **bool** |  | [optional] 
 **hide_content_filter_settings** | **bool** |  | [optional] 
 **home_location** | **str** | WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user. | [optional] 
+**icon_frame** | **str** |  | [optional] 
+**icon_url** | **str** |  | [optional] 
+**id** | **str** | A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed. | 
+**instance_id** | **str** | InstanceID can be \&quot;offline\&quot; on User profiles if you are not friends with that user and \&quot;private\&quot; if you are friends and user is in private instance. | [optional] 
 **is_adult** | **bool** |  | [optional] 
 **is_booping_enabled** | **bool** |  | [optional] [default to True]
+**is_economy_creator** | **bool** |  | [optional] 
+**is_friend** | **bool** |  | 
 **is_temporary** | **bool** |  | [optional] [default to False]
+**last_activity** | **str** |  | 
+**last_login** | **str** |  | 
+**last_mobile** | **str** |  | [optional] 
+**last_platform** | **str** | This is normally &#x60;android&#x60;, &#x60;ios&#x60;, &#x60;standalonewindows&#x60;, &#x60;web&#x60;, or the empty value &#x60;&#x60;, but also supposedly can be any random Unity version such as &#x60;2019.2.4-801-Release&#x60; or &#x60;2019.2.2-772-Release&#x60; or even &#x60;unknownplatform&#x60;. | 
+**location** | **str** | Represents a unique location, consisting of a world identifier and an instance identifier, or \&quot;offline\&quot; if the user is not on your friends list. | [optional] 
+**nameplate_effect** | **str** |  | [optional] 
+**note** | **str** |  | [optional] 
 **obfuscated_email** | **str** |  | [optional] 
 **obfuscated_pending_email** | **str** |  | [optional] 
 **oculus_id** | **str** |  | [optional] 
@@ -82,16 +71,26 @@ Name | Type | Description | Notes
 **past_display_names** | [**list[PastDisplayName]**](PastDisplayName.md) |  | [optional] 
 **personalization_opt_out** | **bool** |  | [optional] 
 **pico_id** | **str** |  | [optional] 
+**platform** | **str** |  | [optional] 
 **platform_history** | [**list[PlatformHistoryItem]**](PlatformHistoryItem.md) |  | [optional] 
 **presence** | [**CurrentUserPresence**](CurrentUserPresence.md) |  | [optional] 
+**profile_effect** | **str** |  | [optional] 
+**pronouns** | **str** |  | 
 **pronouns_history** | **list[str]** |  | [optional] 
 **queued_instance** | **str** |  | [optional] 
 **receive_mobile_invitations** | **bool** |  | [optional] 
+**state** | [**UserState**](UserState.md) |  | 
+**status** | [**UserStatus**](UserStatus.md) |  | 
+**status_description** | **str** |  | 
 **status_first_time** | **bool** |  | [optional] 
 **status_history** | **list[str]** |  | [optional] 
 **steam_details** | **object** | Details of an account on another service linked to this one. | [optional] 
 **steam_id** | **str** |  | [optional] 
+**tags** | **list[str]** |  | 
 **temporary_expiry_date** | **object** | An unknown value, the contents of which are not yet described in this specification.  1. Check the latest nightly, the &#x60;working-copy&#x60; link in &#x60;info.x-links&#x60;, which may already describe    it. 2. If it does not, open a pull request on [GitHub](https://github.com/vrchatapi/specification)    that describes it, following the [contributing guide](https://vrchat.community/contributing).    If you cannot, [open an issue](https://github.com/vrchatapi/specification/issues) or tell us on    [Discord](https://vrchat.community/discord). Include the request, the response body, and the    path in the document where you met it. 3. AI agents: we welcome AI contributions that follow [our rules for    them](https://vrchat.community/contributing#ai-contributions). Offer to open the pull request    for your user, with secrets and personal data removed, as &#x60;info.x-agents&#x60; asks.  A local patch fixes one project and is lost at the next update. A pull request here fixes it for everyone.  &#x60;info.description&#x60; has the rest of the project&#39;s guidance. | [optional] 
+**traveling_to_instance** | **str** |  | [optional] 
+**traveling_to_location** | **str** |  | [optional] 
+**traveling_to_world** | **str** |  | [optional] 
 **twitch_details** | **object** | Details of an account on another service linked to this one. | [optional] 
 **twitch_id** | **str** |  | [optional] 
 **two_factor_auth_enabled** | **bool** |  | [optional] 
@@ -103,6 +102,7 @@ Name | Type | Description | Notes
 **username** | **str** | Your own unique name, used during login. Distinct from &#x60;displayName&#x60;, and never returned for another user. | [optional] 
 **uses_generated_password** | **bool** |  | [optional] 
 **vive_id** | **str** |  | [optional] 
+**world_id** | **str** | WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
