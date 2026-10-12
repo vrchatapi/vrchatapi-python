@@ -344,6 +344,8 @@ No authorization required
 |-------------|-------------|------------------|
 **200** | **Note:** VRChat uses 302 Redirect to Cloudfront. The implementing library **must** support and follow redirects natively. |  -  |
 **400** | Error response when trying to download non-public and non-main JavaScript or CSS without Admin Credentials. |  -  |
+**401** | A variant other than the default needs a session. |  -  |
+**403** | Only an admin may fetch a variant other than the public one. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -672,6 +674,8 @@ No authorization required
 |-------------|-------------|------------------|
 **200** | **Note:** VRChat uses 302 Redirect to Cloudfront. The implementing library **must** support and follow redirects natively. |  -  |
 **400** | Error response when trying to download non-public and non-main JavaScript or CSS without Admin Credentials. |  -  |
+**401** | A variant other than the default needs a session. |  -  |
+**403** | Only an admin may fetch a variant other than the public one. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

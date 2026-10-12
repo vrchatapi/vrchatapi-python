@@ -5,7 +5,7 @@ Either inventoryItemId by itself, or emojiId with optional emojiVersion
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**emoji_id** | **str** | Either a FileID or a string constant for default emojis | 
+**emoji_id** | **str** | A default emoji, or the FileID of an uploaded one. | 
 **emoji_version** | **int** |  | 
 **inventory_item_id** | **str** |  | 
 

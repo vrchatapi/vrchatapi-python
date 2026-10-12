@@ -5,7 +5,7 @@ See NotificationDetailBoop; either inventoryItemId (accessed through .id) by its
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**emoji_id** | **str** | Either a FileID or a string constant for default emojis | [optional] 
+**emoji_id** | **str** | A default emoji, or the FileID of an uploaded one. | [optional] 
 **emoji_version** | **int** |  | [optional] 
 **inventory_item_id** | **str** |  | [optional] 
 

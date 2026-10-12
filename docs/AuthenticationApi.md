@@ -1507,6 +1507,7 @@ No authorization required
 |-------------|-------------|------------------|
 **200** |  |  * Set-Cookie - Successful authentication returns an &#x60;auth&#x60; cookie. <br>  |
 **401** | Error response due to missing auth cookie. |  -  |
+**403** | Registration is refused on this host. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
