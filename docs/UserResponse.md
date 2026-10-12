@@ -82,7 +82,7 @@ Name | Type | Description | Notes
 **past_display_names** | [**list[PastDisplayName]**](PastDisplayName.md) |  | [optional] 
 **personalization_opt_out** | **bool** |  | [optional] 
 **pico_id** | **str** |  | [optional] 
-**platform_history** | [**list[PlatformHistoryEntry]**](PlatformHistoryEntry.md) |  | [optional] 
+**platform_history** | [**list[PlatformHistoryItem]**](PlatformHistoryItem.md) |  | [optional] 
 **presence** | [**CurrentUserPresence**](CurrentUserPresence.md) |  | [optional] 
 **pronouns_history** | **list[str]** |  | [optional] 
 **queued_instance** | **str** |  | [optional] 

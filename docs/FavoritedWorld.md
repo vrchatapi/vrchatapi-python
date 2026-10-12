@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **created_at** | **datetime** |  | [optional] 
 **default_content_settings** | [**InstanceContentSettings**](InstanceContentSettings.md) |  | [optional] 
 **description** | **str** |  | [optional] 
-**disabled_prop_abilities** | **list[object]** |  | [optional] 
+**disabled_prop_abilities** | **list[str]** |  | [optional] 
 **favorite_group** | **str** |  | [optional] 
 **favorite_id** | **str** |  | [optional] 
 **favorites** | **int** |  | [optional] [default to 0]

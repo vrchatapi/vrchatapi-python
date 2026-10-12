@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 **delivery_behavior** | [**InfoPushDataDeliveryBehavior**](InfoPushDataDeliveryBehavior.md) |  | [optional] 
 **description** | **object** |  | [optional] 
 **disclaimer_text** | **str** |  | [optional] 
-**domain_list** | [**list[InfoPushDataDomainListInner]**](InfoPushDataDomainListInner.md) |  | [optional] 
+**domain_list** | [**list[InfoPushDataDomain]**](InfoPushDataDomain.md) |  | [optional] 
 **featured_avatar_category_id** | **str** |  | [optional] 
 **final_name** | **str** |  | [optional] 
 **hover_to_join** | **bool** |  | [optional] 

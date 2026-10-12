@@ -72,7 +72,7 @@ Name | Type | Description | Notes
 **personalization_opt_out** | **bool** |  | [optional] 
 **pico_id** | **str** |  | [optional] 
 **platform** | **str** |  | [optional] 
-**platform_history** | [**list[PlatformHistoryEntry]**](PlatformHistoryEntry.md) |  | [optional] 
+**platform_history** | [**list[PlatformHistoryItem]**](PlatformHistoryItem.md) |  | [optional] 
 **presence** | [**CurrentUserPresence**](CurrentUserPresence.md) |  | [optional] 
 **profile_effect** | **str** |  | [optional] 
 **pronouns** | **str** |  | [optional] 

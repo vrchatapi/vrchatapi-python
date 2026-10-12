@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **location_gifting_non_sub_prio_enabled** | **bool** | Toggles whether users without a current VRC+ subscription are priority recipients for gift drops | [default to True]
 **voice_enable_degradation** | **bool** | Unknown, probably voice optimization testing | [default to False]
 **voice_enable_receiver_limiting** | **bool** | Unknown, probably voice optimization testing | [default to True]
-**access_logs_urls** | [**APIConfigAccessLogsUrls**](APIConfigAccessLogsUrls.md) |  | 
+**access_logs_urls** | [**APIConfigAccessLogsURLs**](APIConfigAccessLogsURLs.md) |  | 
 **address** | **str** | VRChat&#39;s office address | 
 **age_verification_invite_visible** | **bool** |  | 
 **age_verification_p** | **bool** |  | 
@@ -97,10 +97,10 @@ Name | Type | Description | Notes
 **hub_world_id** | **str** | WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user. | 
 **image_host_url_list** | **list[str]** | A list of explicitly allowed origins that worlds can request images from via the Udon&#39;s [VRCImageDownloader#DownloadImage](https://creators.vrchat.com/worlds/udon/image-loading/#downloadimage). | 
 **ios_app_version** | **list[str]** | Current app version for iOS | 
-**ios_version** | [**APIConfigIosVersion**](APIConfigIosVersion.md) |  | 
+**ios_version** | [**APIConfigIOSVersion**](APIConfigIOSVersion.md) |  | 
 **jobs_email** | **str** | VRChat&#39;s job application email | 
-**loading_screen_weights** | [**dict(str, APIConfigLoadingScreenWeights)**](APIConfigLoadingScreenWeights.md) | Relative weight of each info-push category on the loading screen, per audience. | [optional] 
-**low_memory_go_home_timeout** | [**dict(str, APIConfigLowMemoryGoHomeTimeoutValue)**](APIConfigLowMemoryGoHomeTimeoutValue.md) | Low-memory timeout, keyed by platform. | [optional] 
+**loading_screen_weights** | [**dict(str, APIConfigLoadingScreenWeights)**](APIConfigLoadingScreenWeights.md) |  | [optional] 
+**low_memory_go_home_timeout** | [**dict(str, APIConfigLowMemoryGoHomeTimeoutValue)**](APIConfigLowMemoryGoHomeTimeoutValue.md) |  | [optional] 
 **max_user_emoji** | **int** | The maximum number of custom emoji each user may have at a given time. | [default to 18]
 **max_user_stickers** | **int** | The maximum number of custom stickers each user may have at a given time. | [default to 18]
 **maximum_unity_version_for_uploads** | **str** |  | [optional] 
@@ -118,11 +118,11 @@ Name | Type | Description | Notes
 **profile_defaults** | [**APIConfigProfileDefaults**](APIConfigProfileDefaults.md) |  | [optional] 
 **prop_component_list** | **list[str]** | SDK3 component type names. | [optional] 
 **public_key** | **str** | Public key, hex encoded | 
-**quest_minimum_low_memory_threshold** | **dict(str, int)** | Low-memory threshold, keyed by platform. | [optional] 
-**report_categories** | [**dict(str, ReportCategory)**](ReportCategory.md) | Categories available for reporting objectionable content | 
+**quest_minimum_low_memory_threshold** | **dict(str, int)** |  | [optional] 
+**report_categories** | [**dict(str, ReportCategory)**](ReportCategory.md) |  | 
 **report_form_url** | **str** | URL to the report form | [default to 'https://help.vrchat.com/hc/en-us/requests/new?ticket_form_id=1500000182242&tf_360056455174=user_report&tf_360057451993={userId}&tf_1500001445142={reportedId}&tf_subject={reason} {category} By {contentType} {reportedName}&tf_description={description}']
-**report_options** | **dict(str, dict(str, list[str]))** | Options for reporting content. Select a key+value from this mapping as the &#x60;type&#x60; of the report. Select one key+value from the object at reportOptions[type] as the &#x60;category&#x60; of the report. reportCategories[category] contains user-facing text to display for all possible categories. Select one value from the array at reportOptions[type][category] as the &#x60;reason&#x60; of the report. reportReasons[reason] contains user-facing text to display for all possible categories. | 
-**report_reasons** | [**dict(str, ReportReason)**](ReportReason.md) | Reasons available for submitting a report | 
+**report_options** | **dict(str, dict)** |  | 
+**report_reasons** | [**dict(str, ReportReason)**](ReportReason.md) |  | 
 **require_age_verification_beta_tag** | **bool** |  | 
 **sdk_developer_faq_url** | **str** | Link to the developer FAQ | 
 **sdk_discord_url** | **str** | Link to the official VRChat Discord | 

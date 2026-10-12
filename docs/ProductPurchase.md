@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 **listing_type** | [**ProductListingType**](ProductListingType.md) |  | 
 **products** | [**list[ProductPurchaseProduct]**](ProductPurchaseProduct.md) |  | 
 **purchase_active** | **bool** |  | 
-**purchase_context** | [**ProductPurchasePurchaseContext**](ProductPurchasePurchaseContext.md) |  | 
+**purchase_context** | [**ProductPurchaseContext**](ProductPurchaseContext.md) |  | 
 **purchase_current_status** | **str** |  | 
 **purchase_date** | **datetime** |  | 
 **purchase_duration** | **int** |  | [optional] 

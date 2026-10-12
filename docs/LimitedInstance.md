@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **category_id** | **str** |  | 
 **creation_languages** | **list[object]** |  | 
 **description** | **str** |  | 
-**disabled_prop_abilities** | **list[object]** |  | 
+**disabled_prop_abilities** | **list[str]** |  | 
 **display_name** | **str** |  | 
 **display_vibe_id** | **str** |  | 
 **dominant_language** | **str** |  | 

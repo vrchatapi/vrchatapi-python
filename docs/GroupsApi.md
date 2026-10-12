@@ -1845,7 +1845,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_group_audit_logs**
-> PaginatedGroupAuditLogEntryList get_group_audit_logs(group_id, n=n, offset=offset, start_date=start_date, end_date=end_date, actor_ids=actor_ids, event_types=event_types, target_ids=target_ids)
+> PaginatedGroupAuditLogList get_group_audit_logs(group_id, n=n, offset=offset, start_date=start_date, end_date=end_date, actor_ids=actor_ids, event_types=event_types, target_ids=target_ids)
 
 Get Group Audit Logs
 
@@ -1913,7 +1913,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PaginatedGroupAuditLogEntryList**](PaginatedGroupAuditLogEntryList.md)
+[**PaginatedGroupAuditLogList**](PaginatedGroupAuditLogList.md)
 
 ### Authorization
 

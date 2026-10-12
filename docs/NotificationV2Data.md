@@ -4,6 +4,10 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**announcement_title** | **str** |  | [optional] 
+**group_id** | **str** |  | [optional] 
+**group_name** | **str** |  | [optional] 
+**manager_user_display_name** | **str** |  | [optional] 
 **badge_description** | **str** |  | [optional] 
 **badge_id** | **str** |  | [optional] 
 **badge_name** | **str** |  | [optional] 
@@ -11,9 +15,6 @@ Name | Type | Description | Notes
 **owner_id** | **str** |  | [optional] 
 **owner_name** | **str** |  | [optional] 
 **title** | **str** |  | [optional] 
-**announcement_title** | **str** |  | [optional] 
-**group_id** | **str** |  | [optional] 
-**group_name** | **str** |  | [optional] 
 **transfer_target_display_name** | **str** |  | [optional] 
 **owner_user_display_name** | **str** |  | [optional] 
 

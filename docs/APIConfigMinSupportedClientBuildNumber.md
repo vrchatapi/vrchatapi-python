@@ -1,6 +1,5 @@
 # APIConfigMinSupportedClientBuildNumber
 
-Minimum supported client build number for various platforms
 
 ## Properties
 Name | Type | Description | Notes

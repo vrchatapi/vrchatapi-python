@@ -711,7 +711,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_favorite_group**
-> object update_favorite_group(favorite_group_type, favorite_group_name, user_id, update_favorite_group_request=update_favorite_group_request)
+> dict(str, object) update_favorite_group(favorite_group_type, favorite_group_name, user_id, update_favorite_group_request=update_favorite_group_request)
 
 Update Favorite Group
 
@@ -771,7 +771,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**object**
+**dict(str, object)**
 
 ### Authorization
 
