@@ -785,11 +785,11 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **search_avatars**
-> list[Avatar] search_avatars(featured=featured, sort=sort, user=user, user_id=user_id, n=n, order=order, offset=offset, tag=tag, notag=notag, release_status=release_status, max_unity_version=max_unity_version, min_unity_version=min_unity_version, platform=platform, is_internal_variant=is_internal_variant)
+> object search_avatars(featured=featured, sort=sort, user=user, user_id=user_id, n=n, order=order, offset=offset, tag=tag, notag=notag, release_status=release_status, max_unity_version=max_unity_version, min_unity_version=min_unity_version, platform=platform, is_internal_variant=is_internal_variant, marketplace=marketplace, search=search, metadata=metadata, min_price=min_price, max_price=max_price, performance_at_least=performance_at_least, min_asset_version=min_asset_version, max_asset_version=max_asset_version)
 
 Search Avatars
 
-Search and list avatars by query filters. You can only search your own or featured avatars. It is not possible as a normal user to search other peoples avatars.
+Search and list avatars by query filters. Without `marketplace`, you can only search your own or featured avatars.
 
 ### Example
 
@@ -835,10 +835,18 @@ max_unity_version = 'max_unity_version_example' # str | The maximum Unity versio
 min_unity_version = 'min_unity_version_example' # str | The minimum Unity version supported by the asset. (optional)
 platform = 'platform_example' # str | The platform the asset supports. (optional)
 is_internal_variant = false # bool | Not quite sure what this actually does (exists on the website but doesn't seem to be used) (optional)
+marketplace = vrchatapi.SearchAvatarsMarketplace() # SearchAvatarsMarketplace | Search avatars listed in the marketplace. (optional)
+search = 'search_example' # str | Text to search for. Requires `marketplace`. (optional)
+metadata = True # bool | Wrap the results in an AvatarList. (optional)
+min_price = 56 # int |  (optional)
+max_price = 56 # int |  (optional)
+performance_at_least = 56 # int |  (optional)
+min_asset_version = 56 # int |  (optional)
+max_asset_version = 56 # int |  (optional)
 
     try:
         # Search Avatars
-        api_response = api_instance.search_avatars(featured=featured, sort=sort, user=user, user_id=user_id, n=n, order=order, offset=offset, tag=tag, notag=notag, release_status=release_status, max_unity_version=max_unity_version, min_unity_version=min_unity_version, platform=platform, is_internal_variant=is_internal_variant)
+        api_response = api_instance.search_avatars(featured=featured, sort=sort, user=user, user_id=user_id, n=n, order=order, offset=offset, tag=tag, notag=notag, release_status=release_status, max_unity_version=max_unity_version, min_unity_version=min_unity_version, platform=platform, is_internal_variant=is_internal_variant, marketplace=marketplace, search=search, metadata=metadata, min_price=min_price, max_price=max_price, performance_at_least=performance_at_least, min_asset_version=min_asset_version, max_asset_version=max_asset_version)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling AvatarsApi->search_avatars: %s\n" % e)
@@ -862,10 +870,18 @@ Name | Type | Description  | Notes
  **min_unity_version** | **str**| The minimum Unity version supported by the asset. | [optional] 
  **platform** | **str**| The platform the asset supports. | [optional] 
  **is_internal_variant** | **bool**| Not quite sure what this actually does (exists on the website but doesn&#39;t seem to be used) | [optional] 
+ **marketplace** | [**SearchAvatarsMarketplace**](.md)| Search avatars listed in the marketplace. | [optional] 
+ **search** | **str**| Text to search for. Requires &#x60;marketplace&#x60;. | [optional] 
+ **metadata** | **bool**| Wrap the results in an AvatarList. | [optional] 
+ **min_price** | **int**|  | [optional] 
+ **max_price** | **int**|  | [optional] 
+ **performance_at_least** | **int**|  | [optional] 
+ **min_asset_version** | **int**|  | [optional] 
+ **max_asset_version** | **int**|  | [optional] 
 
 ### Return type
 
-[**list[Avatar]**](Avatar.md)
+**object**
 
 ### Authorization
 
@@ -879,7 +895,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** |  |  -  |
+**200** | Returns a list of Avatar objects, wrapped in a paginated object when &#x60;metadata&#x60; is &#x60;true&#x60;. |  -  |
 **400** | The request failed validation. VRChat validates the request before it looks up the resource, so this response is returned even when the ID in the path does not exist. The message names the offending field or parameter. |  -  |
 **401** | Error response due to missing auth cookie. |  -  |
 

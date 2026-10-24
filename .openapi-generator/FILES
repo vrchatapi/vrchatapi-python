@@ -34,6 +34,7 @@ docs/AgreementRequest.md
 docs/AgreementStatus.md
 docs/AuthenticationApi.md
 docs/Avatar.md
+docs/AvatarList.md
 docs/AvatarModeration.md
 docs/AvatarModerationCreated.md
 docs/AvatarModerationType.md
@@ -317,6 +318,7 @@ docs/InfoPushWorldCategoryData.md
 docs/Instance.md
 docs/InstanceCategory.md
 docs/InstanceContentSettings.md
+docs/InstanceCount.md
 docs/InstanceDiscovery.md
 docs/InstanceDiscoveryBoost.md
 docs/InstanceDiscoveryMode.md
@@ -475,6 +477,7 @@ docs/RewardRedemptionData.md
 docs/RewardRedemptionRequest.md
 docs/RewardRedemptionResult.md
 docs/RouteNotImplemented.md
+docs/SearchAvatarsMarketplace.md
 docs/SearchWorldsUser.md
 docs/SellerEligibility.md
 docs/SentNotification.md
@@ -695,6 +698,7 @@ vrchatapi/models/api_config_offline_analysis.py
 vrchatapi/models/api_config_profile_defaults.py
 vrchatapi/models/api_health.py
 vrchatapi/models/avatar.py
+vrchatapi/models/avatar_list.py
 vrchatapi/models/avatar_moderation.py
 vrchatapi/models/avatar_moderation_created.py
 vrchatapi/models/avatar_moderation_type.py
@@ -971,6 +975,7 @@ vrchatapi/models/info_push_world_category_data.py
 vrchatapi/models/instance.py
 vrchatapi/models/instance_category.py
 vrchatapi/models/instance_content_settings.py
+vrchatapi/models/instance_count.py
 vrchatapi/models/instance_discovery.py
 vrchatapi/models/instance_discovery_boost.py
 vrchatapi/models/instance_discovery_mode.py
@@ -1120,6 +1125,7 @@ vrchatapi/models/reward_redemption_data.py
 vrchatapi/models/reward_redemption_request.py
 vrchatapi/models/reward_redemption_result.py
 vrchatapi/models/route_not_implemented.py
+vrchatapi/models/search_avatars_marketplace.py
 vrchatapi/models/search_worlds_user.py
 vrchatapi/models/seller_eligibility.py
 vrchatapi/models/sent_notification.py
