@@ -175,7 +175,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **discover_instances**
-> InstanceDiscovery discover_instances(n=n, region=region, platform=platform, world_id=world_id, group_id=group_id, vibe=vibe, category=category)
+> InstanceDiscovery discover_instances(n=n, region=region, platform=platform, world_id=world_id, group_id=group_id, vibe=vibe, category=category, any_world_tag=any_world_tag, boost=boost, group_hosted=group_hosted, max_occupants=max_occupants, min_occupants=min_occupants, min_spots_left=min_spots_left, mode=mode, not_world_tag=not_world_tag, world_pool=world_pool)
 
 Discover Instances
 
@@ -218,10 +218,19 @@ world_id = ['world_id_example'] # list[str] | Return only instances of these wor
 group_id = ['group_id_example'] # list[str] | Return only instances of these groups. (optional)
 vibe = ['vibe_example'] # list[str] |  (optional)
 category = 'category_example' # str |  (optional)
+any_world_tag = ['any_world_tag_example'] # list[str] | Not every account may use it; the others are answered 403. (optional)
+boost = [vrchatapi.InstanceDiscoveryBoost()] # list[InstanceDiscoveryBoost] | Only `GET /infoPush/{entryId}/content` accepts it; this route answers 400 to any value. (optional)
+group_hosted = True # bool |  (optional)
+max_occupants = 56 # int |  (optional)
+min_occupants = 56 # int |  (optional)
+min_spots_left = 56 # int | Not every account may use it; the others are answered 403. (optional)
+mode = vrchatapi.InstanceDiscoveryMode() # InstanceDiscoveryMode |  (optional)
+not_world_tag = ['not_world_tag_example'] # list[str] | Not every account may use it; the others are answered 403. (optional)
+world_pool = vrchatapi.InstanceDiscoveryWorldPool() # InstanceDiscoveryWorldPool |  (optional)
 
     try:
         # Discover Instances
-        api_response = api_instance.discover_instances(n=n, region=region, platform=platform, world_id=world_id, group_id=group_id, vibe=vibe, category=category)
+        api_response = api_instance.discover_instances(n=n, region=region, platform=platform, world_id=world_id, group_id=group_id, vibe=vibe, category=category, any_world_tag=any_world_tag, boost=boost, group_hosted=group_hosted, max_occupants=max_occupants, min_occupants=min_occupants, min_spots_left=min_spots_left, mode=mode, not_world_tag=not_world_tag, world_pool=world_pool)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling InstancesApi->discover_instances: %s\n" % e)
@@ -238,6 +247,15 @@ Name | Type | Description  | Notes
  **group_id** | [**list[str]**](str.md)| Return only instances of these groups. | [optional] 
  **vibe** | [**list[str]**](str.md)|  | [optional] 
  **category** | **str**|  | [optional] 
+ **any_world_tag** | [**list[str]**](str.md)| Not every account may use it; the others are answered 403. | [optional] 
+ **boost** | [**list[InstanceDiscoveryBoost]**](InstanceDiscoveryBoost.md)| Only &#x60;GET /infoPush/{entryId}/content&#x60; accepts it; this route answers 400 to any value. | [optional] 
+ **group_hosted** | **bool**|  | [optional] 
+ **max_occupants** | **int**|  | [optional] 
+ **min_occupants** | **int**|  | [optional] 
+ **min_spots_left** | **int**| Not every account may use it; the others are answered 403. | [optional] 
+ **mode** | [**InstanceDiscoveryMode**](.md)|  | [optional] 
+ **not_world_tag** | [**list[str]**](str.md)| Not every account may use it; the others are answered 403. | [optional] 
+ **world_pool** | [**InstanceDiscoveryWorldPool**](.md)|  | [optional] 
 
 ### Return type
 
@@ -258,6 +276,7 @@ Name | Type | Description  | Notes
 **200** |  |  -  |
 **400** | The request failed validation. VRChat validates the request before it looks up the resource, so this response is returned even when the ID in the path does not exist. The message names the offending field or parameter. |  -  |
 **401** | Error response due to missing auth cookie. |  -  |
+**403** | The account may not use one of the filters it passed. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

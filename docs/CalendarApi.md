@@ -175,7 +175,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **discover_calendar_events**
-> CalendarEventDiscovery discover_calendar_events(scope=scope, categories=categories, tags=tags, featured_results=featured_results, non_featured_results=non_featured_results, personalized_results=personalized_results, minimum_interest_count=minimum_interest_count, minimum_remaining_minutes=minimum_remaining_minutes, upcoming_offset_minutes=upcoming_offset_minutes, n=n, next_cursor=next_cursor)
+> CalendarEventDiscovery discover_calendar_events(scope=scope, categories=categories, tags=tags, featured_results=featured_results, non_featured_results=non_featured_results, personalized_results=personalized_results, minimum_interest_count=minimum_interest_count, minimum_remaining_minutes=minimum_remaining_minutes, upcoming_offset_minutes=upcoming_offset_minutes, n=n, next_cursor=next_cursor, require_linked_instance=require_linked_instance, upcoming_sort=upcoming_sort)
 
 Discover calendar events
 
@@ -222,10 +222,12 @@ minimum_remaining_minutes = 10 # int | Filter for calendar event discovery. (opt
 upcoming_offset_minutes = 10080 # int | Filter for calendar event discovery. (optional)
 n = 60 # int | The number of objects to return. (optional) (default to 60)
 next_cursor = 'next_cursor_example' # str | Cursor returned from previous calendar discovery queries (see nextCursor property of the schema CalendarEventDiscovery). (optional)
+require_linked_instance = True # bool |  (optional)
+upcoming_sort = vrchatapi.CalendarEventDiscoverySort() # CalendarEventDiscoverySort |  (optional)
 
     try:
         # Discover calendar events
-        api_response = api_instance.discover_calendar_events(scope=scope, categories=categories, tags=tags, featured_results=featured_results, non_featured_results=non_featured_results, personalized_results=personalized_results, minimum_interest_count=minimum_interest_count, minimum_remaining_minutes=minimum_remaining_minutes, upcoming_offset_minutes=upcoming_offset_minutes, n=n, next_cursor=next_cursor)
+        api_response = api_instance.discover_calendar_events(scope=scope, categories=categories, tags=tags, featured_results=featured_results, non_featured_results=non_featured_results, personalized_results=personalized_results, minimum_interest_count=minimum_interest_count, minimum_remaining_minutes=minimum_remaining_minutes, upcoming_offset_minutes=upcoming_offset_minutes, n=n, next_cursor=next_cursor, require_linked_instance=require_linked_instance, upcoming_sort=upcoming_sort)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling CalendarApi->discover_calendar_events: %s\n" % e)
@@ -246,6 +248,8 @@ Name | Type | Description  | Notes
  **upcoming_offset_minutes** | **int**| Filter for calendar event discovery. | [optional] 
  **n** | **int**| The number of objects to return. | [optional] [default to 60]
  **next_cursor** | **str**| Cursor returned from previous calendar discovery queries (see nextCursor property of the schema CalendarEventDiscovery). | [optional] 
+ **require_linked_instance** | **bool**|  | [optional] 
+ **upcoming_sort** | [**CalendarEventDiscoverySort**](.md)|  | [optional] 
 
 ### Return type
 

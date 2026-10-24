@@ -1321,7 +1321,7 @@ with vrchatapi.ApiClient(configuration) as api_client:
     api_instance = vrchatapi.WorldsApi(api_client)
     featured = True # bool | Filters on featured results. (optional)
 sort = vrchatapi.SortOption() # SortOption | The sort order of the results. (optional)
-user = 'user_example' # str | Set to `me` for searching own worlds. (optional)
+user = vrchatapi.SearchWorldsUser() # SearchWorldsUser | Set to `me` for searching own worlds. (optional)
 user_id = 'user_id_example' # str | Filter by UserID. (optional)
 n = 60 # int | The number of objects to return. (optional) (default to 60)
 order = vrchatapi.OrderOption() # OrderOption | Result ordering (optional)
@@ -1351,7 +1351,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **featured** | **bool**| Filters on featured results. | [optional] 
  **sort** | [**SortOption**](.md)| The sort order of the results. | [optional] 
- **user** | **str**| Set to &#x60;me&#x60; for searching own worlds. | [optional] 
+ **user** | [**SearchWorldsUser**](.md)| Set to &#x60;me&#x60; for searching own worlds. | [optional] 
  **user_id** | **str**| Filter by UserID. | [optional] 
  **n** | **int**| The number of objects to return. | [optional] [default to 60]
  **order** | [**OrderOption**](.md)| Result ordering | [optional] 

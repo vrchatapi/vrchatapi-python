@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **background_gradient_top** | **str** | Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty. | [optional] 
 **background_template_id** | **str** |  | [optional] 
 **background_texture_id** | **str** |  | [optional] 
-**background_type** | **str** |  | [optional] 
+**background_type** | [**ProfileBackgroundType**](ProfileBackgroundType.md) |  | [optional] 
 **badges** | [**list[Badge]**](Badge.md) |  | [optional] 
 **banner_color** | **str** | Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty. | [optional] 
 **banner_custom_url** | **str** |  | [optional] 

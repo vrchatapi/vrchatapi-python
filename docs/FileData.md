@@ -4,7 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**category** | **str** |  | [default to 'queued']
+**category** | [**FileDataCategory**](FileDataCategory.md) |  | 
 **file_name** | **str** |  | 
 **md5** | **str** |  | [optional] 
 **size_in_bytes** | **int** |  | 

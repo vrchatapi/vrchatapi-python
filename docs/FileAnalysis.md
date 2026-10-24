@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **created_at** | **datetime** |  | [optional] 
 **encryption_key** | **str** |  | [optional] 
 **file_size** | **int** |  | 
-**performance_rating** | **str** |  | [optional] 
+**performance_rating** | [**PerformanceRatings**](PerformanceRatings.md) |  | [optional] 
 **success** | **bool** |  | 
 **uncompressed_size** | **int** |  | 
 

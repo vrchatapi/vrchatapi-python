@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **parameters** | **list[str]** |  | [optional] 
-**command** | **str** |  | [optional] 
+**command** | [**InfoPushCommand**](InfoPushCommand.md) |  | [optional] 
 **id** | **str** |  | [optional] 
 **name** | **str** |  | [optional] 
 

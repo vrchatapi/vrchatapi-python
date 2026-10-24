@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 **last_payment** | **str** |  | 
 **next_payment** | **str** |  | 
 **outstanding** | **int** |  | 
-**period** | **str** |  | 
+**period** | [**SubscriptionPeriod**](SubscriptionPeriod.md) |  | 
 **recurring_amt** | **float** |  | 
 **start_date** | **str** |  | 
 **status** | **str** | This is NOT TransactionStatus, but whatever Steam return. | 

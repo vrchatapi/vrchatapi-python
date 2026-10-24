@@ -286,7 +286,7 @@ configuration.api_key['authCookie'] = 'YOUR_API_KEY'
 with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = vrchatapi.InventoryApi(api_client)
-    item_type = 'item_type_example' # str | The kind of cosmetic to list.
+    item_type = vrchatapi.CosmeticItemType() # CosmeticItemType | The kind of cosmetic to list.
 
     try:
         # List Cosmetics
@@ -300,7 +300,7 @@ with vrchatapi.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **item_type** | **str**| The kind of cosmetic to list. | 
+ **item_type** | [**CosmeticItemType**](.md)| The kind of cosmetic to list. | 
 
 ### Return type
 

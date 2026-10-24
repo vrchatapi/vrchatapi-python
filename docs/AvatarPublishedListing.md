@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **display_name** | **str** |  | [optional] 
 **image_id** | **str** |  | [optional] 
 **listing_id** | **str** |  | [optional] 
-**listing_type** | **str** |  | [optional] 
+**listing_type** | [**ProductListingType**](ProductListingType.md) |  | [optional] 
 **price_tokens** | **int** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

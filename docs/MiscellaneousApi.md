@@ -13,6 +13,7 @@ Method | HTTP request | Description
 [**get_frontend_branches**](MiscellaneousApi.md#get_frontend_branches) | **GET** /frontend/branches | List Frontend Branches
 [**get_health**](MiscellaneousApi.md#get_health) | **GET** /health | Check API Health
 [**get_info_push**](MiscellaneousApi.md#get_info_push) | **GET** /infoPush | Show Information Notices
+[**get_info_push_content**](MiscellaneousApi.md#get_info_push_content) | **GET** /infoPush/{entryId}/content | Get Content Shelf Results
 [**get_java_script**](MiscellaneousApi.md#get_java_script) | **GET** /js/app.js | Download JavaScript
 [**get_permission**](MiscellaneousApi.md#get_permission) | **GET** /permissions/{permissionId} | Get Permission
 [**get_system_time**](MiscellaneousApi.md#get_system_time) | **GET** /time | Current System Time
@@ -308,7 +309,7 @@ configuration = vrchatapi.Configuration(
 with vrchatapi.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = vrchatapi.MiscellaneousApi(api_client)
-    variant = 'public' # str | Specifies which `variant` of the site. Public is the end-user site, while `internal` is the staff-only site with special pages for moderation and management. (optional) (default to 'public')
+    variant = vrchatapi.FrontendVariant() # FrontendVariant | Specifies which `variant` of the site. Public is the end-user site, while `internal` is the staff-only site with special pages for moderation and management. (optional)
 branch = 'main' # str | Specifies which git branch the site should load frontend source code from. (optional) (default to 'main')
 
     try:
@@ -323,7 +324,7 @@ branch = 'main' # str | Specifies which git branch the site should load frontend
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **variant** | **str**| Specifies which &#x60;variant&#x60; of the site. Public is the end-user site, while &#x60;internal&#x60; is the staff-only site with special pages for moderation and management. | [optional] [default to &#39;public&#39;]
+ **variant** | [**FrontendVariant**](.md)| Specifies which &#x60;variant&#x60; of the site. Public is the end-user site, while &#x60;internal&#x60; is the staff-only site with special pages for moderation and management. | [optional] 
  **branch** | **str**| Specifies which git branch the site should load frontend source code from. | [optional] [default to &#39;main&#39;]
 
 ### Return type
@@ -612,6 +613,86 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **get_info_push_content**
+> InfoPushContent get_info_push_content(entry_id, n=n, next_cursor=next_cursor)
+
+Get Content Shelf Results
+
+Runs the `contentSource` of a `ContentShelf` entry and returns its results. It runs the source's own `params`, including filters the account may not pass to the source's endpoint directly.
+
+### Example
+
+* Api Key Authentication (authCookie):
+```python
+from __future__ import print_function
+import time
+import vrchatapi
+from vrchatapi.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = vrchatapi.Configuration(
+    host = "https://api.vrchat.cloud/api/1"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: authCookie
+configuration.api_key['authCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['authCookie'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with vrchatapi.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = vrchatapi.MiscellaneousApi(api_client)
+    entry_id = 'ips_1fddd7dc-7d3f-4fc3-9e0a-f03378d4c520' # str | The ID of a `ContentShelf` entry.
+n = 56 # int | The number of results to return. Only a content source with `pagination` pages. (optional)
+next_cursor = 'next_cursor_example' # str | The `nextCursor` of the previous page. Only a content source with `pagination` pages. (optional)
+
+    try:
+        # Get Content Shelf Results
+        api_response = api_instance.get_info_push_content(entry_id, n=n, next_cursor=next_cursor)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling MiscellaneousApi->get_info_push_content: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **entry_id** | **str**| The ID of a &#x60;ContentShelf&#x60; entry. | 
+ **n** | **int**| The number of results to return. Only a content source with &#x60;pagination&#x60; pages. | [optional] 
+ **next_cursor** | **str**| The &#x60;nextCursor&#x60; of the previous page. Only a content source with &#x60;pagination&#x60; pages. | [optional] 
+
+### Return type
+
+[**InfoPushContent**](InfoPushContent.md)
+
+### Authorization
+
+[authCookie](../README.md#authCookie)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | The results of a content shelf. |  -  |
+**400** | The request failed validation. VRChat validates the request before it looks up the resource, so this response is returned even when the ID in the path does not exist. The message names the offending field or parameter. |  -  |
+**401** | Error response due to missing auth cookie. |  -  |
+**404** | No content shelf has that ID. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **get_java_script**
 > str get_java_script(variant=variant, branch=branch)
 
@@ -638,7 +719,7 @@ configuration = vrchatapi.Configuration(
 with vrchatapi.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = vrchatapi.MiscellaneousApi(api_client)
-    variant = 'public' # str | Specifies which `variant` of the site. Public is the end-user site, while `internal` is the staff-only site with special pages for moderation and management. (optional) (default to 'public')
+    variant = vrchatapi.FrontendVariant() # FrontendVariant | Specifies which `variant` of the site. Public is the end-user site, while `internal` is the staff-only site with special pages for moderation and management. (optional)
 branch = 'main' # str | Specifies which git branch the site should load frontend source code from. (optional) (default to 'main')
 
     try:
@@ -653,7 +734,7 @@ branch = 'main' # str | Specifies which git branch the site should load frontend
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **variant** | **str**| Specifies which &#x60;variant&#x60; of the site. Public is the end-user site, while &#x60;internal&#x60; is the staff-only site with special pages for moderation and management. | [optional] [default to &#39;public&#39;]
+ **variant** | [**FrontendVariant**](.md)| Specifies which &#x60;variant&#x60; of the site. Public is the end-user site, while &#x60;internal&#x60; is the staff-only site with special pages for moderation and management. | [optional] 
  **branch** | **str**| Specifies which git branch the site should load frontend source code from. | [optional] [default to &#39;main&#39;]
 
 ### Return type

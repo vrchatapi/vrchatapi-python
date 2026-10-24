@@ -5,6 +5,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**access_type** | **str** | &#x60;type&#x60;, &#x60;groupAccessType&#x60; and &#x60;canRequestInvite&#x60; folded into one value.  | &#x60;type&#x60; | &#x60;groupAccessType&#x60; | &#x60;canRequestInvite&#x60; | &#x60;accessType&#x60; | | --- | --- | --- | --- | | &#x60;public&#x60; | | | &#x60;public&#x60; | | &#x60;friends&#x60; | | | &#x60;friends&#x60; | | &#x60;hidden&#x60; | | | &#x60;friendsPlus&#x60; | | &#x60;private&#x60; | | &#x60;false&#x60; | &#x60;invite&#x60; | | &#x60;private&#x60; | | &#x60;true&#x60; | &#x60;invitePlus&#x60; | | &#x60;group&#x60; | &#x60;public&#x60; | | &#x60;groupPublic&#x60; | | &#x60;group&#x60; | &#x60;plus&#x60; | | &#x60;groupPlus&#x60; | | &#x60;group&#x60; | &#x60;members&#x60; | | &#x60;group&#x60; | | 
 **active** | **bool** |  | [optional] [default to True]
 **age_gate** | **bool** |  | [optional] 
 **calendar_entry_id** | **str** |  | [optional] 

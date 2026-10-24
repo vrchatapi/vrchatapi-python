@@ -443,7 +443,7 @@ with vrchatapi.ApiClient(configuration) as api_client:
     api_instance = vrchatapi.FilesApi(api_client)
     file_id = 'file_id_example' # str | Must be a valid file ID.
 version_id = 1 # int | Version ID of the asset.
-file_type = 'file' # str | Type of file.
+file_type = vrchatapi.FileDataType() # FileDataType | Type of file.
 finish_file_data_upload_request = {"etags":["xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx","yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy"],"maxParts":"0","nextPartNumber":"0"} # FinishFileDataUploadRequest | Please see documentation on ETag's: [https://teppen.io/2018/06/23/aws_s3_etags/](https://teppen.io/2018/06/23/aws_s3_etags/)  ETag's should NOT be present when uploading a `signature`. (optional)
 
     try:
@@ -460,7 +460,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **file_id** | **str**| Must be a valid file ID. | 
  **version_id** | **int**| Version ID of the asset. | 
- **file_type** | **str**| Type of file. | 
+ **file_type** | [**FileDataType**](.md)| Type of file. | 
  **finish_file_data_upload_request** | [**FinishFileDataUploadRequest**](FinishFileDataUploadRequest.md)| Please see documentation on ETag&#39;s: [https://teppen.io/2018/06/23/aws_s3_etags/](https://teppen.io/2018/06/23/aws_s3_etags/)  ETag&#39;s should NOT be present when uploading a &#x60;signature&#x60;. | [optional] 
 
 ### Return type
@@ -980,7 +980,7 @@ with vrchatapi.ApiClient(configuration) as api_client:
     api_instance = vrchatapi.FilesApi(api_client)
     file_id = 'file_id_example' # str | Must be a valid file ID.
 version_id = 1 # int | Version ID of the asset.
-file_type = 'file' # str | Type of file.
+file_type = vrchatapi.FileDataType() # FileDataType | Type of file.
 
     try:
         # Check FileData Upload Status
@@ -996,7 +996,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **file_id** | **str**| Must be a valid file ID. | 
  **version_id** | **int**| Version ID of the asset. | 
- **file_type** | **str**| Type of file. | 
+ **file_type** | [**FileDataType**](.md)| Type of file. | 
 
 ### Return type
 
@@ -1213,7 +1213,7 @@ with vrchatapi.ApiClient(configuration) as api_client:
     api_instance = vrchatapi.FilesApi(api_client)
     file_id = 'file_id_example' # str | Must be a valid file ID.
 version_id = 1 # int | Version ID of the asset.
-file_type = 'file' # str | Type of file.
+file_type = vrchatapi.FileDataType() # FileDataType | Type of file.
 part_number = 1 # int | The part number to start uploading. If not provided, the first part will be started. (optional)
 
     try:
@@ -1230,7 +1230,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **file_id** | **str**| Must be a valid file ID. | 
  **version_id** | **int**| Version ID of the asset. | 
- **file_type** | **str**| Type of file. | 
+ **file_type** | [**FileDataType**](.md)| Type of file. | 
  **part_number** | **int**| The part number to start uploading. If not provided, the first part will be started. | [optional] 
 
 ### Return type
