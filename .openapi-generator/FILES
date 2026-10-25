@@ -71,6 +71,7 @@ docs/CalendarEventRecurrenceEndType.md
 docs/CalendarEventUserInterest.md
 docs/ChangeUserTagsRequest.md
 docs/ChangeWorldTagsRequest.md
+docs/CheckDeviceCodeRequest.md
 docs/ContentFilter.md
 docs/CosmeticItemType.md
 docs/CreateAvatarModerationRequest.md
@@ -100,6 +101,12 @@ docs/CurrentUserLoginResponse.md
 docs/CurrentUserPresence.md
 docs/DeclineGroupInviteRequest.md
 docs/DeveloperType.md
+docs/DeviceAuthApproveRequest.md
+docs/DeviceAuthApproveResponse.md
+docs/DeviceAuthInfo.md
+docs/DeviceAuthInfoGeolocation.md
+docs/DeviceCode.md
+docs/DeviceCodeStatus.md
 docs/Disable2FAResult.md
 docs/DiscordDetails.md
 docs/DynamicContentRow.md
@@ -469,6 +476,7 @@ docs/ReportReason.md
 docs/RepresentedGroup.md
 docs/RequestInviteRequest.md
 docs/RequiresTwoFactorAuth.md
+docs/ResetPasswordRequest.md
 docs/RespondGroupJoinRequest.md
 docs/RespondNotificationV2Request.md
 docs/Response.md
@@ -734,6 +742,7 @@ vrchatapi/models/calendar_event_recurrence_end_type.py
 vrchatapi/models/calendar_event_user_interest.py
 vrchatapi/models/change_user_tags_request.py
 vrchatapi/models/change_world_tags_request.py
+vrchatapi/models/check_device_code_request.py
 vrchatapi/models/content_filter.py
 vrchatapi/models/cosmetic_item_type.py
 vrchatapi/models/create_avatar_moderation_request.py
@@ -763,6 +772,12 @@ vrchatapi/models/current_user_login_response.py
 vrchatapi/models/current_user_presence.py
 vrchatapi/models/decline_group_invite_request.py
 vrchatapi/models/developer_type.py
+vrchatapi/models/device_auth_approve_request.py
+vrchatapi/models/device_auth_approve_response.py
+vrchatapi/models/device_auth_info.py
+vrchatapi/models/device_auth_info_geolocation.py
+vrchatapi/models/device_code.py
+vrchatapi/models/device_code_status.py
 vrchatapi/models/disable2_fa_result.py
 vrchatapi/models/discord_details.py
 vrchatapi/models/dynamic_content_row.py
@@ -1118,6 +1133,7 @@ vrchatapi/models/report_reason.py
 vrchatapi/models/represented_group.py
 vrchatapi/models/request_invite_request.py
 vrchatapi/models/requires_two_factor_auth.py
+vrchatapi/models/reset_password_request.py
 vrchatapi/models/respond_group_join_request.py
 vrchatapi/models/respond_notification_v2_request.py
 vrchatapi/models/response.py

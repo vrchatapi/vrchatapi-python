@@ -4,9 +4,12 @@ All URIs are relative to *https://api.vrchat.cloud/api/1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**approve_device_auth**](AuthenticationApi.md#approve_device_auth) | **POST** /auth/device/approve | Approve Device Code
 [**cancel_pending2_fa**](AuthenticationApi.md#cancel_pending2_fa) | **DELETE** /auth/twofactorauth/totp/pending | Cancel pending enabling of time-based 2FA codes
+[**check_device_code**](AuthenticationApi.md#check_device_code) | **POST** /auth/device/status | Check Device Code
 [**check_user_exists**](AuthenticationApi.md#check_user_exists) | **GET** /auth/exists | Check User Exists
 [**confirm_email**](AuthenticationApi.md#confirm_email) | **GET** /auth/confirmEmail | Confirm Email
+[**create_device_code**](AuthenticationApi.md#create_device_code) | **POST** /auth/device/code | Create Device Code
 [**create_global_avatar_moderation**](AuthenticationApi.md#create_global_avatar_moderation) | **POST** /auth/user/avatarmoderations | Create Global Avatar Moderation
 [**delete_global_avatar_moderation**](AuthenticationApi.md#delete_global_avatar_moderation) | **DELETE** /auth/user/avatarmoderations | Delete Global Avatar Moderation
 [**delete_moderation_report**](AuthenticationApi.md#delete_moderation_report) | **DELETE** /moderationReports/{moderationReportId} | Delete Moderation Report
@@ -15,6 +18,7 @@ Method | HTTP request | Description
 [**enable2_fa**](AuthenticationApi.md#enable2_fa) | **POST** /auth/twofactorauth/totp/pending | Enable time-based 2FA codes
 [**get_account_standing**](AuthenticationApi.md#get_account_standing) | **GET** /auth/user/accountStanding | Get Account Standing
 [**get_current_user**](AuthenticationApi.md#get_current_user) | **GET** /auth/user | Login and/or Get Current User Info
+[**get_device_auth_info**](AuthenticationApi.md#get_device_auth_info) | **GET** /auth/device/info | Get Device Code Info
 [**get_global_avatar_moderations**](AuthenticationApi.md#get_global_avatar_moderations) | **GET** /auth/user/avatarmoderations | Get Global Avatar Moderations
 [**get_interests_and_preferences**](AuthenticationApi.md#get_interests_and_preferences) | **GET** /auth/user/interestsAndPreferences | Get Interests and Preferences
 [**get_moderation_reports**](AuthenticationApi.md#get_moderation_reports) | **GET** /moderationReports | Get Moderation Reports
@@ -24,6 +28,7 @@ Method | HTTP request | Description
 [**logout**](AuthenticationApi.md#logout) | **PUT** /logout | Logout
 [**register_user_account**](AuthenticationApi.md#register_user_account) | **POST** /auth/register | Register User Account
 [**resend_email_confirmation**](AuthenticationApi.md#resend_email_confirmation) | **POST** /auth/user/resendEmail | Resend Email Confirmation
+[**reset_password**](AuthenticationApi.md#reset_password) | **PUT** /auth/password | Reset Password
 [**submit_moderation_report**](AuthenticationApi.md#submit_moderation_report) | **POST** /moderationReports | Submit Moderation Report
 [**update_interests_and_preferences**](AuthenticationApi.md#update_interests_and_preferences) | **PUT** /auth/user/interestsAndPreferences | Update Interests and Preferences
 [**verify2_fa**](AuthenticationApi.md#verify2_fa) | **POST** /auth/twofactorauth/totp/verify | Verify 2FA code
@@ -33,6 +38,81 @@ Method | HTTP request | Description
 [**verify_pending2_fa**](AuthenticationApi.md#verify_pending2_fa) | **POST** /auth/twofactorauth/totp/pending/verify | Verify Pending 2FA code
 [**verify_recovery_code**](AuthenticationApi.md#verify_recovery_code) | **POST** /auth/twofactorauth/otp/verify | Verify 2FA code with Recovery code
 
+
+# **approve_device_auth**
+> DeviceAuthApproveResponse approve_device_auth(device_auth_approve_request)
+
+Approve Device Code
+
+Approves a device code from `createDeviceCode`, logging the device that created it in as the current user.
+
+### Example
+
+* Api Key Authentication (authCookie):
+```python
+from __future__ import print_function
+import time
+import vrchatapi
+from vrchatapi.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = vrchatapi.Configuration(
+    host = "https://api.vrchat.cloud/api/1"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: authCookie
+configuration.api_key['authCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['authCookie'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with vrchatapi.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = vrchatapi.AuthenticationApi(api_client)
+    device_auth_approve_request = vrchatapi.DeviceAuthApproveRequest() # DeviceAuthApproveRequest | 
+
+    try:
+        # Approve Device Code
+        api_response = api_instance.approve_device_auth(device_auth_approve_request)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling AuthenticationApi->approve_device_auth: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **device_auth_approve_request** | [**DeviceAuthApproveRequest**](DeviceAuthApproveRequest.md)|  | 
+
+### Return type
+
+[**DeviceAuthApproveResponse**](DeviceAuthApproveResponse.md)
+
+### Authorization
+
+[authCookie](../README.md#authCookie)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | The device code is approved, and the device that created it can now log in with &#x60;checkDeviceCode&#x60;. |  -  |
+**401** | Error response due to missing auth cookie. |  -  |
+**404** | Error response when no unexpired device code has this &#x60;userCode&#x60;. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **cancel_pending2_fa**
 > Disable2FAResult cancel_pending2_fa()
@@ -101,6 +181,69 @@ This endpoint does not need any parameter.
 |-------------|-------------|------------------|
 **200** |  |  -  |
 **401** | Error response due to missing auth cookie. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **check_device_code**
+> DeviceCodeStatus check_device_code(check_device_code_request)
+
+Check Device Code
+
+Returns whether a device code from `createDeviceCode` has been approved.
+
+### Example
+
+```python
+from __future__ import print_function
+import time
+import vrchatapi
+from vrchatapi.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = vrchatapi.Configuration(
+    host = "https://api.vrchat.cloud/api/1"
+)
+
+
+# Enter a context with an instance of the API client
+with vrchatapi.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = vrchatapi.AuthenticationApi(api_client)
+    check_device_code_request = vrchatapi.CheckDeviceCodeRequest() # CheckDeviceCodeRequest | 
+
+    try:
+        # Check Device Code
+        api_response = api_instance.check_device_code(check_device_code_request)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling AuthenticationApi->check_device_code: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **check_device_code_request** | [**CheckDeviceCodeRequest**](CheckDeviceCodeRequest.md)|  | 
+
+### Return type
+
+[**DeviceCodeStatus**](DeviceCodeStatus.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Returns whether the device code has been approved. |  -  |
+**400** | Error response when the device code is missing, not a string, unknown or expired. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -246,6 +389,75 @@ No authorization required
 |-------------|-------------|------------------|
 **302** |  |  -  |
 **400** | The request failed validation. VRChat validates the request before it looks up the resource, so this response is returned even when the ID in the path does not exist. The message names the offending field or parameter. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **create_device_code**
+> DeviceCode create_device_code()
+
+Create Device Code
+
+Creates a code to log this device in from another one, where a logged-in person approves it. Poll `checkDeviceCode` until it is approved.
+
+### Example
+
+* Api Key Authentication (authCookie):
+```python
+from __future__ import print_function
+import time
+import vrchatapi
+from vrchatapi.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = vrchatapi.Configuration(
+    host = "https://api.vrchat.cloud/api/1"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: authCookie
+configuration.api_key['authCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['authCookie'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with vrchatapi.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = vrchatapi.AuthenticationApi(api_client)
+    
+    try:
+        # Create Device Code
+        api_response = api_instance.create_device_code()
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling AuthenticationApi->create_device_code: %s\n" % e)
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**DeviceCode**](DeviceCode.md)
+
+### Authorization
+
+[authCookie](../README.md#authCookie)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Returns a new device code. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -939,6 +1151,81 @@ This endpoint does not need any parameter.
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **get_device_auth_info**
+> DeviceAuthInfo get_device_auth_info(user_code)
+
+Get Device Code Info
+
+Returns where a device code was created, for the person about to approve it with `approveDeviceAuth`.
+
+### Example
+
+* Api Key Authentication (authCookie):
+```python
+from __future__ import print_function
+import time
+import vrchatapi
+from vrchatapi.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = vrchatapi.Configuration(
+    host = "https://api.vrchat.cloud/api/1"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: authCookie
+configuration.api_key['authCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['authCookie'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with vrchatapi.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = vrchatapi.AuthenticationApi(api_client)
+    user_code = 'user_code_example' # str | The `userCode` of a device code.
+
+    try:
+        # Get Device Code Info
+        api_response = api_instance.get_device_auth_info(user_code)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling AuthenticationApi->get_device_auth_info: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **user_code** | **str**| The &#x60;userCode&#x60; of a device code. | 
+
+### Return type
+
+[**DeviceAuthInfo**](DeviceAuthInfo.md)
+
+### Authorization
+
+[authCookie](../README.md#authCookie)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Returns where the device code was created. |  -  |
+**401** | Error response due to missing auth cookie. |  -  |
+**404** | Error response when no unexpired device code has this &#x60;userCode&#x60;. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **get_global_avatar_moderations**
 > list[AvatarModeration] get_global_avatar_moderations()
 
@@ -1578,6 +1865,69 @@ This endpoint does not need any parameter.
 |-------------|-------------|------------------|
 **200** |  |  -  |
 **401** | Error response due to missing auth cookie. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **reset_password**
+> Success reset_password(reset_password_request)
+
+Reset Password
+
+Sends a password recovery email.
+
+### Example
+
+```python
+from __future__ import print_function
+import time
+import vrchatapi
+from vrchatapi.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = vrchatapi.Configuration(
+    host = "https://api.vrchat.cloud/api/1"
+)
+
+
+# Enter a context with an instance of the API client
+with vrchatapi.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = vrchatapi.AuthenticationApi(api_client)
+    reset_password_request = vrchatapi.ResetPasswordRequest() # ResetPasswordRequest | 
+
+    try:
+        # Reset Password
+        api_response = api_instance.reset_password(reset_password_request)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling AuthenticationApi->reset_password: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **reset_password_request** | [**ResetPasswordRequest**](ResetPasswordRequest.md)|  | 
+
+### Return type
+
+[**Success**](Success.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Returns a success message, whether or not the address belongs to an account. |  -  |
+**400** | Error response when the request has no &#x60;email&#x60;. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
