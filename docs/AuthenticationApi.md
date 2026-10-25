@@ -189,7 +189,7 @@ This endpoint does not need any parameter.
 
 Check Device Code
 
-Returns whether a device code from `createDeviceCode` has been approved.
+Returns whether a device code from `createDeviceCode` has been approved. Once it is, the response logs this device in as the user who approved it.
 
 ### Example
 
@@ -242,7 +242,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Returns whether the device code has been approved. |  -  |
+**200** | Returns whether the device code has been approved. |  * Set-Cookie - Once the code is approved, an &#x60;auth&#x60; cookie that logs this device in. <br>  |
 **400** | Error response when the device code is missing, not a string, unknown or expired. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -397,7 +397,7 @@ No authorization required
 
 Create Device Code
 
-Creates a code to log this device in from another one, where a logged-in person approves it. Poll `checkDeviceCode` until it is approved.
+Creates a code that logs this device in once a logged-in user approves it with `approveDeviceAuth`. `checkDeviceCode` returns the user and sets the `auth` cookie once it is approved.
 
 ### Example
 

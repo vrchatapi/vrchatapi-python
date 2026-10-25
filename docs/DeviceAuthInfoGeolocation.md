@@ -6,7 +6,7 @@ The approximate location of the device that created the code.
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **city** | **str** |  | 
-**country** | **str** | ISO 3166-1 alpha-2 country code. | 
+**country** | **str** |  | 
 **region** | **str** |  | 
 **region_code** | **str** |  | 
 
