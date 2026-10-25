@@ -282,6 +282,7 @@ docs/InfoPushDataCategoryGroups.md
 docs/InfoPushDataCategoryUnknown.md
 docs/InfoPushDataCategoryWorlds.md
 docs/InfoPushDataClickable.md
+docs/InfoPushDataClickable1.md
 docs/InfoPushDataContentSource.md
 docs/InfoPushDataContentSourceBase.md
 docs/InfoPushDataContentSourceCalendarDiscover.md
@@ -939,6 +940,7 @@ vrchatapi/models/info_push_data_category_groups.py
 vrchatapi/models/info_push_data_category_unknown.py
 vrchatapi/models/info_push_data_category_worlds.py
 vrchatapi/models/info_push_data_clickable.py
+vrchatapi/models/info_push_data_clickable1.py
 vrchatapi/models/info_push_data_content_source.py
 vrchatapi/models/info_push_data_content_source_base.py
 vrchatapi/models/info_push_data_content_source_calendar_discover.py

@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **content_source** | [**InfoPushDataContentSource**](InfoPushDataContentSource.md) |  | [optional] 
 **controls** | [**list[InfoPushDataControl]**](InfoPushDataControl.md) |  | [optional] 
 **image_url** | **str** |  | [optional] 
-**on_pressed** | [**InfoPushDataClickable**](InfoPushDataClickable.md) |  | [optional] 
+**on_pressed** | [**InfoPushDataClickable1**](InfoPushDataClickable1.md) |  | [optional] 
 **presentation** | [**InfoPushDataPresentation**](InfoPushDataPresentation.md) |  | [optional] 
 **schema_version** | **int** |  | [optional] 
 **subtitle** | **str** |  | [optional] 

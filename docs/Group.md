@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **description** | **str** |  | [optional] 
 **discriminator** | **str** |  | [optional] 
 **galleries** | [**list[GroupGallery]**](GroupGallery.md) |  | [optional] 
+**group_id** | **str** |  | [optional] 
 **icon_id** | **str** |  | [optional] 
 **icon_url** | **str** |  | [optional] 
 **id** | **str** |  | [optional] 

@@ -79,8 +79,8 @@ Name | Type | Description | Notes
 **economy_ledger_backfill** | **bool** | Unknown | [optional] 
 **economy_ledger_migration_stop** | **str** | Unknown | [optional] 
 **economy_ledger_mode** | **str** | Unknown | 
-**economy_pause_end** | **datetime** | Unknown | 
-**economy_pause_start** | **datetime** | Unknown | 
+**economy_pause_end** | **datetime** | A date and time in the form of an RFC 3339 &#x60;date-time&#x60;, except that the UTC offset can be written without its colon, as in &#x60;+0000&#x60;. | 
+**economy_pause_start** | **datetime** | A date and time in the form of an RFC 3339 &#x60;date-time&#x60;, except that the UTC offset can be written without its colon, as in &#x60;+0000&#x60;. | 
 **economy_purchase_repair_enabled** | **bool** | Unknown | 
 **economy_state** | **int** | Unknown | [default to 1]
 **enable_vrc_plus_world_lists** | **bool** |  | [optional] 
