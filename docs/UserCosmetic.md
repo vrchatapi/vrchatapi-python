@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **acquired_on** | **datetime** |  | 
 **acquisition** | **str** |  | 
 **id** | **str** |  | 
-**item_type** | [**InventoryItemType**](InventoryItemType.md) |  | 
+**item_type** | **str** |  | [default to 'bundle']
 **template_id** | **str** |  | 
 **user_attributes** | [**InventoryUserAttributes**](InventoryUserAttributes.md) |  | 
 

@@ -19,9 +19,11 @@ Name | Type | Description | Notes
 **id** | **str** |  | 
 **image_id** | **str** |  | [optional] 
 **image_url** | **str** |  | [optional] 
+**interested_friend_count** | **int** |  | [optional] 
 **interested_user_count** | **int** |  | [optional] 
 **is_draft** | **bool** |  | [optional] 
 **languages** | **list[str]** | Languages that might be spoken at this event | [optional] 
+**linked_instance_count** | **int** |  | [optional] 
 **occurrence_kind** | [**CalendarEventOccurrenceKind**](CalendarEventOccurrenceKind.md) |  | [optional] 
 **occurrence_modified** | **bool** |  | [optional] 
 **owner_id** | **str** |  | [optional] 

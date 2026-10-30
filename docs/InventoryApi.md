@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**delete_own_inventory_item**](InventoryApi.md#delete_own_inventory_item) | **DELETE** /inventory/{inventoryItemId} | Delete Own Inventory Item
 [**equip_own_inventory_item**](InventoryApi.md#equip_own_inventory_item) | **PUT** /inventory/{inventoryItemId}/equip | Equip Own Inventory Item
 [**get_cosmetics**](InventoryApi.md#get_cosmetics) | **GET** /cosmetics/index/{itemType} | List Cosmetics
+[**get_global_inventory**](InventoryApi.md#get_global_inventory) | **GET** /inventory/global | Get Global Inventory
 [**get_inventory**](InventoryApi.md#get_inventory) | **GET** /inventory | Get Inventory
 [**get_inventory_collections**](InventoryApi.md#get_inventory_collections) | **GET** /inventory/collections | List Inventory Collections
 [**get_inventory_drops**](InventoryApi.md#get_inventory_drops) | **GET** /inventory/drops | List Inventory Drops
@@ -324,6 +325,76 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **get_global_inventory**
+> list[GlobalInventoryItem] get_global_inventory()
+
+Get Global Inventory
+
+Returns the inventory items flagged `global`.
+
+### Example
+
+* Api Key Authentication (authCookie):
+```python
+from __future__ import print_function
+import time
+import vrchatapi
+from vrchatapi.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = vrchatapi.Configuration(
+    host = "https://api.vrchat.cloud/api/1"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: authCookie
+configuration.api_key['authCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['authCookie'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with vrchatapi.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = vrchatapi.InventoryApi(api_client)
+    
+    try:
+        # Get Global Inventory
+        api_response = api_instance.get_global_inventory()
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling InventoryApi->get_global_inventory: %s\n" % e)
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**list[GlobalInventoryItem]**](GlobalInventoryItem.md)
+
+### Authorization
+
+[authCookie](../README.md#authCookie)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Returns the inventory items flagged &#x60;global&#x60;. |  -  |
+**401** | Error response due to missing auth cookie. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **get_inventory**
 > Inventory get_inventory(n=n, offset=offset, holder_id=holder_id, equip_slot=equip_slot, order=order, tags=tags, types=types, flags=flags, not_types=not_types, not_flags=not_flags, archived=archived, seen=seen, is_nav_bar=is_nav_bar)
 
@@ -364,12 +435,12 @@ with vrchatapi.ApiClient(configuration) as api_client:
     n = 60 # int | The number of objects to return. (optional) (default to 60)
 offset = 56 # int | A zero-based offset from the default object sorting from where search results start. (optional)
 holder_id = 'holder_id_example' # str | The UserID of the owner of the inventory; defaults to the currently authenticated user. (optional)
-equip_slot = vrchatapi.InventoryEquipSlot() # InventoryEquipSlot | Filter for inventory retrieval. (optional)
+equip_slot = '' # str | Filter for inventory retrieval. (optional) (default to '')
 order = vrchatapi.InventorySortOrder() # InventorySortOrder | Sort order for inventory retrieval. (optional)
 tags = 'tags_example' # str | Filter tags for inventory retrieval (comma-separated). (optional)
-types = vrchatapi.InventoryItemType() # InventoryItemType | Filter for inventory retrieval. (optional)
+types = 'bundle' # str | Filter for inventory retrieval. (optional) (default to 'bundle')
 flags = vrchatapi.InventoryFlag() # InventoryFlag | Filter flags for inventory retrieval (comma-separated). (optional)
-not_types = vrchatapi.InventoryItemType() # InventoryItemType | Filter out types for inventory retrieval (comma-separated). (optional)
+not_types = 'bundle' # str | Filter out types for inventory retrieval (comma-separated). (optional) (default to 'bundle')
 not_flags = vrchatapi.InventoryFlag() # InventoryFlag | Filter out flags for inventory retrieval (comma-separated). (optional)
 archived = True # bool | Filter archived status for inventory retrieval. (optional)
 seen = True # bool |  (optional)
@@ -390,12 +461,12 @@ Name | Type | Description  | Notes
  **n** | **int**| The number of objects to return. | [optional] [default to 60]
  **offset** | **int**| A zero-based offset from the default object sorting from where search results start. | [optional] 
  **holder_id** | **str**| The UserID of the owner of the inventory; defaults to the currently authenticated user. | [optional] 
- **equip_slot** | [**InventoryEquipSlot**](.md)| Filter for inventory retrieval. | [optional] 
+ **equip_slot** | **str**| Filter for inventory retrieval. | [optional] [default to &#39;&#39;]
  **order** | [**InventorySortOrder**](.md)| Sort order for inventory retrieval. | [optional] 
  **tags** | **str**| Filter tags for inventory retrieval (comma-separated). | [optional] 
- **types** | [**InventoryItemType**](.md)| Filter for inventory retrieval. | [optional] 
+ **types** | **str**| Filter for inventory retrieval. | [optional] [default to &#39;bundle&#39;]
  **flags** | [**InventoryFlag**](.md)| Filter flags for inventory retrieval (comma-separated). | [optional] 
- **not_types** | [**InventoryItemType**](.md)| Filter out types for inventory retrieval (comma-separated). | [optional] 
+ **not_types** | **str**| Filter out types for inventory retrieval (comma-separated). | [optional] [default to &#39;bundle&#39;]
  **not_flags** | [**InventoryFlag**](.md)| Filter out flags for inventory retrieval (comma-separated). | [optional] 
  **archived** | **bool**| Filter archived status for inventory retrieval. | [optional] 
  **seen** | **bool**|  | [optional] 
@@ -1205,7 +1276,7 @@ configuration.api_key['authCookie'] = 'YOUR_API_KEY'
 with vrchatapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = vrchatapi.InventoryApi(api_client)
-    inventory_item_id = vrchatapi.InventoryEquipSlot() # InventoryEquipSlot | Selector for inventory slot management.
+    inventory_item_id = '' # str | Selector for inventory slot management. (default to '')
 
     try:
         # Unequip Own Inventory Slot
@@ -1219,7 +1290,7 @@ with vrchatapi.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inventory_item_id** | [**InventoryEquipSlot**](.md)| Selector for inventory slot management. | 
+ **inventory_item_id** | **str**| Selector for inventory slot management. | [default to &#39;&#39;]
 
 ### Return type
 

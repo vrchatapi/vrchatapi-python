@@ -166,6 +166,9 @@ docs/FollowCalendarEventRequest.md
 docs/FriendStatus.md
 docs/FriendsApi.md
 docs/FrontendVariant.md
+docs/GlobalInventoryItem.md
+docs/GlobalInventoryItemAttribution.md
+docs/GlobalInventoryItemAttributionCreator.md
 docs/Group.md
 docs/GroupAccessType.md
 docs/GroupAnnouncement.md
@@ -348,10 +351,8 @@ docs/InventoryConsumptionResults.md
 docs/InventoryDefaultAttributesValue.md
 docs/InventoryDefaultAttributesValueValidator.md
 docs/InventoryDrop.md
-docs/InventoryEquipSlot.md
 docs/InventoryFlag.md
 docs/InventoryItem.md
-docs/InventoryItemType.md
 docs/InventoryMetadata.md
 docs/InventoryNotificationDetails.md
 docs/InventorySortOrder.md
@@ -835,6 +836,9 @@ vrchatapi/models/finish_file_data_upload_request.py
 vrchatapi/models/follow_calendar_event_request.py
 vrchatapi/models/friend_status.py
 vrchatapi/models/frontend_variant.py
+vrchatapi/models/global_inventory_item.py
+vrchatapi/models/global_inventory_item_attribution.py
+vrchatapi/models/global_inventory_item_attribution_creator.py
 vrchatapi/models/group.py
 vrchatapi/models/group_access_type.py
 vrchatapi/models/group_announcement.py
@@ -1014,10 +1018,8 @@ vrchatapi/models/inventory_consumption_results.py
 vrchatapi/models/inventory_default_attributes_value.py
 vrchatapi/models/inventory_default_attributes_value_validator.py
 vrchatapi/models/inventory_drop.py
-vrchatapi/models/inventory_equip_slot.py
 vrchatapi/models/inventory_flag.py
 vrchatapi/models/inventory_item.py
-vrchatapi/models/inventory_item_type.py
 vrchatapi/models/inventory_metadata.py
 vrchatapi/models/inventory_notification_details.py
 vrchatapi/models/inventory_sort_order.py

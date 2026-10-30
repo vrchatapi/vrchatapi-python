@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 **id** | **str** |  | 
 **image_url** | **str** |  | 
 **initial_toggle_state** | **bool** |  | [optional] 
-**item_type** | [**InventoryItemType**](InventoryItemType.md) |  | 
+**item_type** | **str** |  | [default to 'bundle']
 **item_type_label** | **str** |  | 
 **metadata** | [**InventoryMetadata**](InventoryMetadata.md) |  | [optional] 
 **name** | **str** |  | 
