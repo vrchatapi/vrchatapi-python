@@ -11,9 +11,10 @@ Name | Type | Description | Notes
 **creation_languages** | **list[object]** |  | 
 **description** | **str** |  | 
 **disabled_prop_abilities** | **list[str]** |  | 
-**display_name** | **str** |  | 
+**display_name** | **str** |  | [optional] 
 **display_vibe_id** | **str** |  | 
 **dominant_language** | **str** |  | 
+**friend_icons** | **list[object]** |  | 
 **full** | **bool** |  | [default to False]
 **group_access_type** | [**GroupAccessType**](GroupAccessType.md) |  | [optional] 
 **id** | **str** | InstanceID can be \&quot;offline\&quot; on User profiles if you are not friends with that user and \&quot;private\&quot; if you are friends and user is in private instance. | 
@@ -24,7 +25,9 @@ Name | Type | Description | Notes
 **location** | **str** | Represents a unique location, consisting of a world identifier and an instance identifier, or \&quot;offline\&quot; if the user is not on your friends list. | 
 **minimum_avatar_performance** | **str** |  | 
 **n_users** | **int** |  | 
+**owner_icon_url** | **str** | The icon of the group &#x60;ownerId&#x60; names, or &#x60;null&#x60; when &#x60;ownerId&#x60; is. | 
 **owner_id** | **str** | A groupId if the instance type is \&quot;group\&quot;, null if instance type is public, or a userId otherwise | 
+**owner_name** | **str** | The &#x60;name&#x60; of the group &#x60;ownerId&#x60; names, or &#x60;null&#x60; when &#x60;ownerId&#x60; is. | 
 **permanent** | **bool** |  | [default to False]
 **photon_region** | [**Region**](Region.md) |  | 
 **platforms** | [**InstancePlatforms**](InstancePlatforms.md) |  | 
