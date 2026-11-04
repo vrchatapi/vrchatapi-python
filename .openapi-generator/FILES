@@ -334,6 +334,7 @@ docs/InstanceContentSettings.md
 docs/InstanceCount.md
 docs/InstanceDiscovery.md
 docs/InstanceDiscoveryBoost.md
+docs/InstanceDiscoveryCapacityLimit.md
 docs/InstanceDiscoveryMode.md
 docs/InstanceDiscoveryPlatform.md
 docs/InstanceDiscoveryWorldPool.md
@@ -1003,6 +1004,7 @@ vrchatapi/models/instance_content_settings.py
 vrchatapi/models/instance_count.py
 vrchatapi/models/instance_discovery.py
 vrchatapi/models/instance_discovery_boost.py
+vrchatapi/models/instance_discovery_capacity_limit.py
 vrchatapi/models/instance_discovery_mode.py
 vrchatapi/models/instance_discovery_platform.py
 vrchatapi/models/instance_discovery_world_pool.py

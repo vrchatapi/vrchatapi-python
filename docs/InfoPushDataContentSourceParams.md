@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **upcoming_sort** | [**CalendarEventDiscoverySort**](CalendarEventDiscoverySort.md) |  | [optional] 
 **any_world_tag** | **list[str]** |  | [optional] 
 **boost** | [**list[InstanceDiscoveryBoost]**](InstanceDiscoveryBoost.md) |  | [optional] 
+**capacity_limit** | [**InstanceDiscoveryCapacityLimit**](InstanceDiscoveryCapacityLimit.md) |  | [optional] 
 **group_hosted** | **bool** |  | [optional] 
 **max_occupants** | **int** |  | [optional] 
 **min_occupants** | **int** |  | [optional] 

@@ -176,7 +176,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **discover_instances**
-> InstanceDiscovery discover_instances(n=n, region=region, platform=platform, world_id=world_id, group_id=group_id, vibe=vibe, category=category, any_world_tag=any_world_tag, boost=boost, group_hosted=group_hosted, max_occupants=max_occupants, min_occupants=min_occupants, min_spots_left=min_spots_left, mode=mode, not_world_tag=not_world_tag, world_pool=world_pool)
+> InstanceDiscovery discover_instances(n=n, region=region, platform=platform, world_id=world_id, group_id=group_id, vibe=vibe, category=category, any_world_tag=any_world_tag, boost=boost, capacity_limit=capacity_limit, group_hosted=group_hosted, max_occupants=max_occupants, min_occupants=min_occupants, min_spots_left=min_spots_left, mode=mode, not_world_tag=not_world_tag, world_pool=world_pool)
 
 Discover Instances
 
@@ -221,6 +221,7 @@ vibe = ['vibe_example'] # list[str] |  (optional)
 category = 'category_example' # str |  (optional)
 any_world_tag = ['any_world_tag_example'] # list[str] | Not every account may use it; the others are answered 403. (optional)
 boost = [vrchatapi.InstanceDiscoveryBoost()] # list[InstanceDiscoveryBoost] | Only `GET /infoPush/{entryId}/content` accepts it; this route answers 400 to any value. (optional)
+capacity_limit = vrchatapi.InstanceDiscoveryCapacityLimit() # InstanceDiscoveryCapacityLimit | Not every account may use it; the others are answered 403. (optional)
 group_hosted = True # bool |  (optional)
 max_occupants = 56 # int |  (optional)
 min_occupants = 56 # int |  (optional)
@@ -231,7 +232,7 @@ world_pool = vrchatapi.InstanceDiscoveryWorldPool() # InstanceDiscoveryWorldPool
 
     try:
         # Discover Instances
-        api_response = api_instance.discover_instances(n=n, region=region, platform=platform, world_id=world_id, group_id=group_id, vibe=vibe, category=category, any_world_tag=any_world_tag, boost=boost, group_hosted=group_hosted, max_occupants=max_occupants, min_occupants=min_occupants, min_spots_left=min_spots_left, mode=mode, not_world_tag=not_world_tag, world_pool=world_pool)
+        api_response = api_instance.discover_instances(n=n, region=region, platform=platform, world_id=world_id, group_id=group_id, vibe=vibe, category=category, any_world_tag=any_world_tag, boost=boost, capacity_limit=capacity_limit, group_hosted=group_hosted, max_occupants=max_occupants, min_occupants=min_occupants, min_spots_left=min_spots_left, mode=mode, not_world_tag=not_world_tag, world_pool=world_pool)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling InstancesApi->discover_instances: %s\n" % e)
@@ -250,6 +251,7 @@ Name | Type | Description  | Notes
  **category** | **str**|  | [optional] 
  **any_world_tag** | [**list[str]**](str.md)| Not every account may use it; the others are answered 403. | [optional] 
  **boost** | [**list[InstanceDiscoveryBoost]**](InstanceDiscoveryBoost.md)| Only &#x60;GET /infoPush/{entryId}/content&#x60; accepts it; this route answers 400 to any value. | [optional] 
+ **capacity_limit** | [**InstanceDiscoveryCapacityLimit**](.md)| Not every account may use it; the others are answered 403. | [optional] 
  **group_hosted** | **bool**|  | [optional] 
  **max_occupants** | **int**|  | [optional] 
  **min_occupants** | **int**|  | [optional] 
