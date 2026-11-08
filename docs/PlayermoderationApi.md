@@ -5,6 +5,7 @@ All URIs are relative to *https://api.vrchat.cloud/api/1*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**clear_all_player_moderations**](PlayermoderationApi.md#clear_all_player_moderations) | **DELETE** /auth/user/playermoderations | Clear All Player Moderations
+[**create_user_moderation**](PlayermoderationApi.md#create_user_moderation) | **POST** /user/{userId}/moderations | Create User Moderation
 [**get_player_moderations**](PlayermoderationApi.md#get_player_moderations) | **GET** /auth/user/playermoderations | Search Player Moderations
 [**moderate_user**](PlayermoderationApi.md#moderate_user) | **POST** /auth/user/playermoderations | Moderate User
 [**unmoderate_user**](PlayermoderationApi.md#unmoderate_user) | **PUT** /auth/user/unplayermoderate | Unmoderate User
@@ -77,6 +78,85 @@ This endpoint does not need any parameter.
 |-------------|-------------|------------------|
 **200** | Success response after e.g. clearing all player moderations. |  -  |
 **401** | Error response due to missing auth cookie. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **create_user_moderation**
+> CreateUserModerationResponse create_user_moderation(user_id, create_user_moderation_request)
+
+Create User Moderation
+
+With `type` `kick`, bans the user in the path from the instance given by `worldId` and `instanceId`. The user is not removed from the instance, but cannot join it again, even by invite.
+
+### Example
+
+* Api Key Authentication (authCookie):
+```python
+from __future__ import print_function
+import time
+import vrchatapi
+from vrchatapi.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = vrchatapi.Configuration(
+    host = "https://api.vrchat.cloud/api/1"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: authCookie
+configuration.api_key['authCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['authCookie'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with vrchatapi.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = vrchatapi.PlayermoderationApi(api_client)
+    user_id = 'user_id_example' # str | Must be a valid user ID.
+create_user_moderation_request = vrchatapi.CreateUserModerationRequest() # CreateUserModerationRequest | 
+
+    try:
+        # Create User Moderation
+        api_response = api_instance.create_user_moderation(user_id, create_user_moderation_request)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling PlayermoderationApi->create_user_moderation: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **user_id** | **str**| Must be a valid user ID. | 
+ **create_user_moderation_request** | [**CreateUserModerationRequest**](CreateUserModerationRequest.md)|  | 
+
+### Return type
+
+[**CreateUserModerationResponse**](CreateUserModerationResponse.md)
+
+### Authorization
+
+[authCookie](../README.md#authCookie)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Returns the ID of the created moderation. |  -  |
+**400** | The request failed validation. VRChat validates the request before it looks up the resource, so this response is returned even when the ID in the path does not exist. The message names the offending field or parameter. |  -  |
+**401** | Error response due to missing auth cookie. |  -  |
+**403** | Error response when the user in the path can&#39;t be moderated, such as when they aren&#39;t in the instance given by &#x60;worldId&#x60; and &#x60;instanceId&#x60;, either of those is missing, or the user is you. |  -  |
+**404** | The requested resource does not exist. The message varies by resource and by route, and only some name the id. Worlds sometimes answer &#x60;model &lt;worldId&gt; not found&#x60; instead of &#x60;World &lt;worldId&gt; not found&#x60;. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
