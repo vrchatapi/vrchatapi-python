@@ -9,12 +9,12 @@ Name | Type | Description | Notes
 **calendar_entry_id** | **str** |  | 
 **capacity** | **int** |  | 
 **category_id** | **str** |  | 
-**creation_languages** | **list[object]** |  | 
+**creation_languages** | **list[str]** | The &#x60;languages&#x60; the instance was created with. | 
 **description** | **str** |  | 
 **disabled_prop_abilities** | **list[str]** |  | 
 **display_name** | **str** |  | [optional] 
 **display_vibe_id** | **str** |  | 
-**dominant_language** | **str** |  | 
+**dominant_language** | **str** | A BCP-47 language tag. | 
 **friend_icons** | **list[object]** |  | 
 **full** | **bool** |  | [default to False]
 **group_access_type** | [**GroupAccessType**](GroupAccessType.md) |  | [optional] 

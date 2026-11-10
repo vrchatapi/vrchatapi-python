@@ -16,6 +16,8 @@ Name | Type | Description | Notes
 **hard_close** | **bool** | Currently unused, but will eventually be a flag to set if the closing of the instance should kick people. | [optional] [default to False]
 **instance_persistence_enabled** | **bool** |  | [optional] 
 **invite_only** | **bool** |  | [optional] [default to False]
+**languages** | **list[str]** | Returned as the instance&#39;s &#x60;creationLanguages&#x60;. | [optional] 
+**minimum_avatar_performance** | [**CreateInstanceRequestMinimumAvatarPerformance**](CreateInstanceRequestMinimumAvatarPerformance.md) |  | [optional] 
 **owner_id** | **str** | A groupId if the instance type is \&quot;group\&quot;, null if instance type is public, or a userId otherwise | [optional] 
 **player_persistence_enabled** | **bool** |  | [optional] 
 **queue_enabled** | **bool** |  | [optional] [default to False]

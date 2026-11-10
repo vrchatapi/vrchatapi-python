@@ -88,6 +88,7 @@ docs/CreateGroupPostRequest.md
 docs/CreateGroupRequest.md
 docs/CreateGroupRoleRequest.md
 docs/CreateInstanceRequest.md
+docs/CreateInstanceRequestMinimumAvatarPerformance.md
 docs/CreateInstanceRequestRegion.md
 docs/CreateJamSubmissionRequest.md
 docs/CreateListingRequest.md
@@ -509,6 +510,7 @@ docs/SentNotificationUnknown.md
 docs/SentNotificationVoteToKick.md
 docs/ServiceQueueStats.md
 docs/ServiceStatus.md
+docs/SetWorldRatingRequest.md
 docs/ShareInventoryItemDirectRequest.md
 docs/SortOption.md
 docs/SortOptionAvatar.md
@@ -656,6 +658,8 @@ docs/World.md
 docs/WorldFavoriteList.md
 docs/WorldMetadata.md
 docs/WorldPublishStatus.md
+docs/WorldRating.md
+docs/WorldRatingValue.md
 docs/WorldSlimInstance.md
 docs/WorldsApi.md
 git_push.sh
@@ -775,6 +779,7 @@ vrchatapi/models/create_group_post_request.py
 vrchatapi/models/create_group_request.py
 vrchatapi/models/create_group_role_request.py
 vrchatapi/models/create_instance_request.py
+vrchatapi/models/create_instance_request_minimum_avatar_performance.py
 vrchatapi/models/create_instance_request_region.py
 vrchatapi/models/create_jam_submission_request.py
 vrchatapi/models/create_listing_request.py
@@ -1182,6 +1187,7 @@ vrchatapi/models/sent_notification_unknown.py
 vrchatapi/models/sent_notification_vote_to_kick.py
 vrchatapi/models/service_queue_stats.py
 vrchatapi/models/service_status.py
+vrchatapi/models/set_world_rating_request.py
 vrchatapi/models/share_inventory_item_direct_request.py
 vrchatapi/models/sort_option.py
 vrchatapi/models/sort_option_avatar.py
@@ -1328,5 +1334,7 @@ vrchatapi/models/world.py
 vrchatapi/models/world_favorite_list.py
 vrchatapi/models/world_metadata.py
 vrchatapi/models/world_publish_status.py
+vrchatapi/models/world_rating.py
+vrchatapi/models/world_rating_value.py
 vrchatapi/models/world_slim_instance.py
 vrchatapi/rest.py
