@@ -26,6 +26,7 @@ Name | Type | Description | Notes
 **recommended_capacity** | **int** |  | [optional] 
 **release_status** | [**ReleaseStatus**](ReleaseStatus.md) |  | 
 **store_id** | **str** |  | [optional] 
+**supported_platforms** | **list[str]** |  | 
 **tags** | **list[str]** |  | 
 **thumbnail_image_url** | **str** |  | 
 **udon_products** | **list[str]** |  | [optional] 
