@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **display_vibe_id** | **str** |  | 
 **dominant_language** | **str** | A BCP-47 language tag. | 
 **friend_icons** | **list[object]** |  | 
+**friend_occupants** | **list[object]** |  | 
 **full** | **bool** |  | [default to False]
 **group_access_type** | [**GroupAccessType**](GroupAccessType.md) |  | [optional] 
 **id** | **str** | InstanceID can be \&quot;offline\&quot; on User profiles if you are not friends with that user and \&quot;private\&quot; if you are friends and user is in private instance. | 
