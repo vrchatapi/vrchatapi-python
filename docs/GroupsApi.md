@@ -48,6 +48,7 @@ Method | HTTP request | Description
 [**respond_group_join_request**](GroupsApi.md#respond_group_join_request) | **PUT** /groups/{groupId}/requests/{userId} | Respond Group Join request
 [**search_group_members**](GroupsApi.md#search_group_members) | **GET** /groups/{groupId}/members/search | Search Group Members
 [**search_groups**](GroupsApi.md#search_groups) | **GET** /groups | Search Group
+[**search_groups_strict**](GroupsApi.md#search_groups_strict) | **GET** /groups/strictsearch | Search Groups Strictly
 [**unban_group_member**](GroupsApi.md#unban_group_member) | **DELETE** /groups/{groupId}/bans/{userId} | Unban Group Member
 [**update_group**](GroupsApi.md#update_group) | **PUT** /groups/{groupId} | Update Group
 [**update_group_gallery**](GroupsApi.md#update_group_gallery) | **PUT** /groups/{groupId}/galleries/{groupGalleryId} | Update Group Gallery
@@ -3508,6 +3509,85 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** |  |  -  |
+**401** | Error response due to missing auth cookie. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **search_groups_strict**
+> list[LimitedGroup] search_groups_strict(query, n=n, offset=offset)
+
+Search Groups Strictly
+
+Returns the groups whose short code matches the query. A query of the form `shortCode.discriminator` matches the one group carrying both.
+
+### Example
+
+* Api Key Authentication (authCookie):
+```python
+from __future__ import print_function
+import time
+import vrchatapi
+from vrchatapi.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = vrchatapi.Configuration(
+    host = "https://api.vrchat.cloud/api/1"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: authCookie
+configuration.api_key['authCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['authCookie'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with vrchatapi.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = vrchatapi.GroupsApi(api_client)
+    query = 'query_example' # str | A group short code, optionally followed by a full stop and a discriminator.
+n = 60 # int | The number of objects to return. (optional) (default to 60)
+offset = 56 # int | A zero-based offset from the default object sorting from where search results start. (optional)
+
+    try:
+        # Search Groups Strictly
+        api_response = api_instance.search_groups_strict(query, n=n, offset=offset)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling GroupsApi->search_groups_strict: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **query** | **str**| A group short code, optionally followed by a full stop and a discriminator. | 
+ **n** | **int**| The number of objects to return. | [optional] [default to 60]
+ **offset** | **int**| A zero-based offset from the default object sorting from where search results start. | [optional] 
+
+### Return type
+
+[**list[LimitedGroup]**](LimitedGroup.md)
+
+### Authorization
+
+[authCookie](../README.md#authCookie)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+**400** | The request failed validation. VRChat validates the request before it looks up the resource, so this response is returned even when the ID in the path does not exist. The message names the offending field or parameter. |  -  |
 **401** | Error response due to missing auth cookie. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

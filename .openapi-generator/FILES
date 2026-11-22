@@ -87,6 +87,7 @@ docs/CreateGroupInviteRequest.md
 docs/CreateGroupPostRequest.md
 docs/CreateGroupRequest.md
 docs/CreateGroupRoleRequest.md
+docs/CreateInstanceAnnouncementRequest.md
 docs/CreateInstanceRequest.md
 docs/CreateInstanceRequestMinimumAvatarPerformance.md
 docs/CreateInstanceRequestRegion.md
@@ -94,6 +95,7 @@ docs/CreateJamSubmissionRequest.md
 docs/CreateListingRequest.md
 docs/CreateProductRequest.md
 docs/CreateProductRequestType.md
+docs/CreateProfileThemeRequest.md
 docs/CreatePropRequest.md
 docs/CreateUserModerationRequest.md
 docs/CreateUserModerationRequestType.md
@@ -342,6 +344,7 @@ docs/InstanceDiscoveryCapacityLimit.md
 docs/InstanceDiscoveryMode.md
 docs/InstanceDiscoveryPlatform.md
 docs/InstanceDiscoveryWorldPool.md
+docs/InstanceOptions.md
 docs/InstancePlatforms.md
 docs/InstanceRegion.md
 docs/InstanceShortNameResponse.md
@@ -562,6 +565,7 @@ docs/UpdateInviteMessageRequest.md
 docs/UpdateListingRequest.md
 docs/UpdateProductRequest.md
 docs/UpdateProfileRequest.md
+docs/UpdateProfileThemeRequest.md
 docs/UpdatePropRequest.md
 docs/UpdateTiliaTOSRequest.md
 docs/UpdateUserBadgeRequest.md
@@ -778,6 +782,7 @@ vrchatapi/models/create_group_invite_request.py
 vrchatapi/models/create_group_post_request.py
 vrchatapi/models/create_group_request.py
 vrchatapi/models/create_group_role_request.py
+vrchatapi/models/create_instance_announcement_request.py
 vrchatapi/models/create_instance_request.py
 vrchatapi/models/create_instance_request_minimum_avatar_performance.py
 vrchatapi/models/create_instance_request_region.py
@@ -785,6 +790,7 @@ vrchatapi/models/create_jam_submission_request.py
 vrchatapi/models/create_listing_request.py
 vrchatapi/models/create_product_request.py
 vrchatapi/models/create_product_request_type.py
+vrchatapi/models/create_profile_theme_request.py
 vrchatapi/models/create_prop_request.py
 vrchatapi/models/create_user_moderation_request.py
 vrchatapi/models/create_user_moderation_request_type.py
@@ -1028,6 +1034,7 @@ vrchatapi/models/instance_discovery_capacity_limit.py
 vrchatapi/models/instance_discovery_mode.py
 vrchatapi/models/instance_discovery_platform.py
 vrchatapi/models/instance_discovery_world_pool.py
+vrchatapi/models/instance_options.py
 vrchatapi/models/instance_platforms.py
 vrchatapi/models/instance_region.py
 vrchatapi/models/instance_short_name_response.py
@@ -1239,6 +1246,7 @@ vrchatapi/models/update_invite_message_request.py
 vrchatapi/models/update_listing_request.py
 vrchatapi/models/update_product_request.py
 vrchatapi/models/update_profile_request.py
+vrchatapi/models/update_profile_theme_request.py
 vrchatapi/models/update_prop_request.py
 vrchatapi/models/update_tilia_tos_request.py
 vrchatapi/models/update_user_badge_request.py

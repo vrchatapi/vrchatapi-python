@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 **apple_details** | **object** | Details of an account on another service linked to this one. | [optional] 
 **apple_id** | **str** |  | [optional] 
 **auth_token** | **str** | The auth token for NEWLY REGISTERED ACCOUNTS ONLY (/auth/register) | [optional] 
-**banner_color** | **str** | Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty. | [optional] 
+**banner_color** | **str** |  | [optional] 
 **banner_type** | [**BannerType**](BannerType.md) |  | [optional] 
 **banner_url** | **str** |  | [optional] 
 **completed_tutorials** | **list[str]** |  | [optional] 

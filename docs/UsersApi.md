@@ -8,7 +8,9 @@ Method | HTTP request | Description
 [**check_user_persistence_exists**](UsersApi.md#check_user_persistence_exists) | **GET** /users/{userId}/{worldId}/persist/exists | Check User Persistence Exists
 [**clear_user_tutorials**](UsersApi.md#clear_user_tutorials) | **DELETE** /users/{userId}/tutorial | Clear User Tutorials
 [**complete_user_tutorial**](UsersApi.md#complete_user_tutorial) | **POST** /users/{userId}/tutorial | Complete User Tutorial
+[**create_profile_theme**](UsersApi.md#create_profile_theme) | **POST** /profile/theme | Create Profile Theme
 [**delete_all_user_persistence_data**](UsersApi.md#delete_all_user_persistence_data) | **DELETE** /users/{userId}/persist | Delete All User Persistence Data
+[**delete_profile_theme**](UsersApi.md#delete_profile_theme) | **DELETE** /profile/theme/{themeId} | Delete Profile Theme
 [**delete_user_persistence**](UsersApi.md#delete_user_persistence) | **DELETE** /users/{userId}/{worldId}/persist | Delete User Persistence
 [**get_age_verification_status**](UsersApi.md#get_age_verification_status) | **GET** /ageVerification/status | Get Age Verification Status
 [**get_blocked_groups**](UsersApi.md#get_blocked_groups) | **GET** /users/{userId}/groups/userblocked | Get User Group Blocks
@@ -35,6 +37,7 @@ Method | HTTP request | Description
 [**search_users**](UsersApi.md#search_users) | **GET** /users | Search All Users
 [**update_badge**](UsersApi.md#update_badge) | **PUT** /users/{userId}/badges/{badgeId} | Update User Badge
 [**update_profile**](UsersApi.md#update_profile) | **PUT** /profile/{userId} | Update Profile
+[**update_profile_theme**](UsersApi.md#update_profile_theme) | **PUT** /profile/theme/{themeId} | Update Profile Theme
 [**update_user**](UsersApi.md#update_user) | **PUT** /users/{userId} | Update User Info
 [**update_user_client_config**](UsersApi.md#update_user_client_config) | **PUT** /users/{userId}/clientConfig | Update User Client Config
 [**update_user_note**](UsersApi.md#update_user_note) | **POST** /userNotes | Update User Note
@@ -353,6 +356,81 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **create_profile_theme**
+> ProfileTheme create_profile_theme(create_profile_theme_request)
+
+Create Profile Theme
+
+Creates a profile theme owned by the current user. `updateProfile` selects it by `themeId`, and its response lists the user's themes.
+
+### Example
+
+* Api Key Authentication (authCookie):
+```python
+from __future__ import print_function
+import time
+import vrchatapi
+from vrchatapi.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = vrchatapi.Configuration(
+    host = "https://api.vrchat.cloud/api/1"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: authCookie
+configuration.api_key['authCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['authCookie'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with vrchatapi.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = vrchatapi.UsersApi(api_client)
+    create_profile_theme_request = vrchatapi.CreateProfileThemeRequest() # CreateProfileThemeRequest | 
+
+    try:
+        # Create Profile Theme
+        api_response = api_instance.create_profile_theme(create_profile_theme_request)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling UsersApi->create_profile_theme: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **create_profile_theme_request** | [**CreateProfileThemeRequest**](CreateProfileThemeRequest.md)|  | 
+
+### Return type
+
+[**ProfileTheme**](ProfileTheme.md)
+
+### Authorization
+
+[authCookie](../README.md#authCookie)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Returns a single ProfileTheme object. |  -  |
+**400** | The request failed validation. VRChat validates the request before it looks up the resource, so this response is returned even when the ID in the path does not exist. The message names the offending field or parameter. |  -  |
+**401** | Error response due to missing auth cookie. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **delete_all_user_persistence_data**
 > delete_all_user_persistence_data(user_id)
 
@@ -423,6 +501,82 @@ void (empty response body)
 |-------------|-------------|------------------|
 **200** | The user&#39;s persistence data for all worlds is deleted. |  -  |
 **401** | Error response due to missing auth cookie. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **delete_profile_theme**
+> str delete_profile_theme(theme_id)
+
+Delete Profile Theme
+
+Deletes a profile theme owned by the current user.
+
+### Example
+
+* Api Key Authentication (authCookie):
+```python
+from __future__ import print_function
+import time
+import vrchatapi
+from vrchatapi.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = vrchatapi.Configuration(
+    host = "https://api.vrchat.cloud/api/1"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: authCookie
+configuration.api_key['authCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['authCookie'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with vrchatapi.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = vrchatapi.UsersApi(api_client)
+    theme_id = 'theme_id_example' # str | Must be a valid profile theme ID.
+
+    try:
+        # Delete Profile Theme
+        api_response = api_instance.delete_profile_theme(theme_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling UsersApi->delete_profile_theme: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **theme_id** | **str**| Must be a valid profile theme ID. | 
+
+### Return type
+
+**str**
+
+### Authorization
+
+[authCookie](../README.md#authCookie)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: text/plain, application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | The profile theme was changed. |  -  |
+**400** | The request failed validation. VRChat validates the request before it looks up the resource, so this response is returned even when the ID in the path does not exist. The message names the offending field or parameter. |  -  |
+**401** | Error response due to missing auth cookie. |  -  |
+**404** | The requested resource does not exist. The message varies by resource and by route, and only some name the id. Worlds sometimes answer &#x60;model &lt;worldId&gt; not found&#x60; instead of &#x60;World &lt;worldId&gt; not found&#x60;. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2403,6 +2557,84 @@ Name | Type | Description  | Notes
 **200** |  |  -  |
 **400** | The request failed validation. VRChat validates the request before it looks up the resource, so this response is returned even when the ID in the path does not exist. The message names the offending field or parameter. |  -  |
 **401** | Error response due to missing auth cookie. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **update_profile_theme**
+> str update_profile_theme(theme_id, update_profile_theme_request=update_profile_theme_request)
+
+Update Profile Theme
+
+Updates a profile theme owned by the current user. Properties left out keep their value.
+
+### Example
+
+* Api Key Authentication (authCookie):
+```python
+from __future__ import print_function
+import time
+import vrchatapi
+from vrchatapi.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = vrchatapi.Configuration(
+    host = "https://api.vrchat.cloud/api/1"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: authCookie
+configuration.api_key['authCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['authCookie'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with vrchatapi.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = vrchatapi.UsersApi(api_client)
+    theme_id = 'theme_id_example' # str | Must be a valid profile theme ID.
+update_profile_theme_request = vrchatapi.UpdateProfileThemeRequest() # UpdateProfileThemeRequest |  (optional)
+
+    try:
+        # Update Profile Theme
+        api_response = api_instance.update_profile_theme(theme_id, update_profile_theme_request=update_profile_theme_request)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling UsersApi->update_profile_theme: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **theme_id** | **str**| Must be a valid profile theme ID. | 
+ **update_profile_theme_request** | [**UpdateProfileThemeRequest**](UpdateProfileThemeRequest.md)|  | [optional] 
+
+### Return type
+
+**str**
+
+### Authorization
+
+[authCookie](../README.md#authCookie)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: text/plain, application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | The profile theme was changed. |  -  |
+**400** | The request failed validation. VRChat validates the request before it looks up the resource, so this response is returned even when the ID in the path does not exist. The message names the offending field or parameter. |  -  |
+**401** | Error response due to missing auth cookie. |  -  |
+**404** | The requested resource does not exist. The message varies by resource and by route, and only some name the id. Worlds sometimes answer &#x60;model &lt;worldId&gt; not found&#x60; instead of &#x60;World &lt;worldId&gt; not found&#x60;. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

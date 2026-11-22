@@ -6,12 +6,14 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**close_instance**](InstancesApi.md#close_instance) | **DELETE** /instances/{worldId}:{instanceId} | Close Instance
 [**create_instance**](InstancesApi.md#create_instance) | **POST** /instances | Create Instance
+[**create_instance_announcement**](InstancesApi.md#create_instance_announcement) | **POST** /instances/{worldId}:{instanceId}/announce | Create Instance Announcement
 [**discover_instances**](InstancesApi.md#discover_instances) | **GET** /instances/discover | Discover Instances
 [**get_active_instances**](InstancesApi.md#get_active_instances) | **GET** /instances/active | List Active Instances
 [**get_instance**](InstancesApi.md#get_instance) | **GET** /instances/{worldId}:{instanceId} | Get Instance
 [**get_instance_by_short_name**](InstancesApi.md#get_instance_by_short_name) | **GET** /instances/s/{shortName} | Get Instance By Short Name
 [**get_instance_categories**](InstancesApi.md#get_instance_categories) | **GET** /instanceCategories | List Instance Categories
 [**get_instance_count**](InstancesApi.md#get_instance_count) | **GET** /instances/count | Get Instance Count
+[**get_instance_options**](InstancesApi.md#get_instance_options) | **GET** /instanceOptions | Get Instance Options
 [**get_instance_vibes**](InstancesApi.md#get_instance_vibes) | **GET** /instanceVibes | List Instance Vibes
 [**get_recent_locations**](InstancesApi.md#get_recent_locations) | **GET** /instances/recent | List Recent Locations
 [**get_short_name**](InstancesApi.md#get_short_name) | **GET** /instances/{worldId}:{instanceId}/shortName | Get Instance Short Name
@@ -172,6 +174,86 @@ Name | Type | Description  | Notes
 **200** |  |  -  |
 **400** | The request failed validation. VRChat validates the request before it looks up the resource, so this response is returned even when the ID in the path does not exist. The message names the offending field or parameter. |  -  |
 **401** | Error response due to missing auth cookie. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **create_instance_announcement**
+> object create_instance_announcement(world_id, instance_id, create_instance_announcement_request)
+
+Create Instance Announcement
+
+Sends an announcement to a group instance. The caller must be present in the instance.
+
+### Example
+
+* Api Key Authentication (authCookie):
+```python
+from __future__ import print_function
+import time
+import vrchatapi
+from vrchatapi.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = vrchatapi.Configuration(
+    host = "https://api.vrchat.cloud/api/1"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: authCookie
+configuration.api_key['authCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['authCookie'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with vrchatapi.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = vrchatapi.InstancesApi(api_client)
+    world_id = 'world_id_example' # str | Must be a valid world ID.
+instance_id = 'instance_id_example' # str | Must be a valid instance ID.
+create_instance_announcement_request = vrchatapi.CreateInstanceAnnouncementRequest() # CreateInstanceAnnouncementRequest | 
+
+    try:
+        # Create Instance Announcement
+        api_response = api_instance.create_instance_announcement(world_id, instance_id, create_instance_announcement_request)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling InstancesApi->create_instance_announcement: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **world_id** | **str**| Must be a valid world ID. | 
+ **instance_id** | **str**| Must be a valid instance ID. | 
+ **create_instance_announcement_request** | [**CreateInstanceAnnouncementRequest**](CreateInstanceAnnouncementRequest.md)|  | 
+
+### Return type
+
+**object**
+
+### Authorization
+
+[authCookie](../README.md#authCookie)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | The announcement was sent. |  -  |
+**400** | The request failed validation. VRChat validates the request before it looks up the resource, so this response is returned even when the ID in the path does not exist. The message names the offending field or parameter. |  -  |
+**401** | Error response due to missing auth cookie. |  -  |
+**403** | Error response when an announcement cannot be sent to the instance |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -646,6 +728,76 @@ This endpoint does not need any parameter.
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Returns a single InstanceCount object. |  -  |
+**401** | Error response due to missing auth cookie. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_instance_options**
+> InstanceOptions get_instance_options()
+
+Get Instance Options
+
+Returns the categories an instance can be listed under and the vibes it can be tagged with, in one response.
+
+### Example
+
+* Api Key Authentication (authCookie):
+```python
+from __future__ import print_function
+import time
+import vrchatapi
+from vrchatapi.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.vrchat.cloud/api/1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = vrchatapi.Configuration(
+    host = "https://api.vrchat.cloud/api/1"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: authCookie
+configuration.api_key['authCookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['authCookie'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with vrchatapi.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = vrchatapi.InstancesApi(api_client)
+    
+    try:
+        # Get Instance Options
+        api_response = api_instance.get_instance_options()
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling InstancesApi->get_instance_options: %s\n" % e)
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**InstanceOptions**](InstanceOptions.md)
+
+### Authorization
+
+[authCookie](../README.md#authCookie)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Returns a single InstanceOptions object. |  -  |
 **401** | Error response due to missing auth cookie. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
