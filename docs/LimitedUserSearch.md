@@ -5,7 +5,7 @@ User object received when searching
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**banner_color** | **str** |  | [optional] 
+**banner_color** | **str** | A &#x60;Color&#x60;, or an empty string. | [optional] 
 **banner_type** | [**BannerType**](BannerType.md) |  | [optional] 
 **banner_url** | **str** |  | [optional] 
 **developer_type** | [**DeveloperType**](DeveloperType.md) |  | 

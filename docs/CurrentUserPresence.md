@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **avatar_image_url** | **str** |  | [optional] 
 **avatar_thumbnail** | **str** |  | [optional] 
 **banner** | **str** |  | [optional] 
-**banner_color** | **str** |  | [optional] 
+**banner_color** | **str** | A &#x60;Color&#x60;, or an empty string. | [optional] 
 **banner_type** | [**BannerType**](BannerType.md) |  | [optional] 
 **banner_url** | **str** |  | [optional] 
 **current_avatar_tags** | **str** |  | [optional] 
