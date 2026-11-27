@@ -274,6 +274,8 @@ docs/GroupTransferable.md
 docs/GroupTransferableRequirements.md
 docs/GroupUserVisibility.md
 docs/GroupsApi.md
+docs/HypeTrain.md
+docs/HypeTrainLevel.md
 docs/ImageAnimationStyle.md
 docs/ImageLoopStyle.md
 docs/ImageMask.md
@@ -344,6 +346,7 @@ docs/InstanceDiscoveryCapacityLimit.md
 docs/InstanceDiscoveryMode.md
 docs/InstanceDiscoveryPlatform.md
 docs/InstanceDiscoveryWorldPool.md
+docs/InstanceHypeTrain.md
 docs/InstanceOptions.md
 docs/InstancePlatforms.md
 docs/InstanceRegion.md
@@ -964,6 +967,8 @@ vrchatapi/models/group_search_sort.py
 vrchatapi/models/group_transferable.py
 vrchatapi/models/group_transferable_requirements.py
 vrchatapi/models/group_user_visibility.py
+vrchatapi/models/hype_train.py
+vrchatapi/models/hype_train_level.py
 vrchatapi/models/image_animation_style.py
 vrchatapi/models/image_loop_style.py
 vrchatapi/models/image_mask.py
@@ -1034,6 +1039,7 @@ vrchatapi/models/instance_discovery_capacity_limit.py
 vrchatapi/models/instance_discovery_mode.py
 vrchatapi/models/instance_discovery_platform.py
 vrchatapi/models/instance_discovery_world_pool.py
+vrchatapi/models/instance_hype_train.py
 vrchatapi/models/instance_options.py
 vrchatapi/models/instance_platforms.py
 vrchatapi/models/instance_region.py
